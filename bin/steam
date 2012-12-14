@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+require "steam"
+require "steam/cli"
+
+Steam::CLI.start
