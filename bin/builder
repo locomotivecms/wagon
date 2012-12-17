@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+require "locomotive/builder"
+require "locomotive/builder/cli"
+
+Locomotive::Builder::CLI.start

@@ -6,7 +6,7 @@ module Spec
     
     def import_site
       VCR.use_cassette('import') do
-        Steam.import("site", "http://locomotive.engine.dev:3000", "admin@locomotivecms.com", "locomotive")
+        Locomotive::Builder.import("site", "http://locomotive.engine.dev:3000", "admin@locomotivecms.com", "locomotive")
       end
     end
   end

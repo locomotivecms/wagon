@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + "/integration_helper"
 
-describe Steam do
+describe Locomotive::Builder do
   it "imports" do
     File.exists?("site/config/site.yml").should be_false
     import_site

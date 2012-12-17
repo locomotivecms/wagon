@@ -1,4 +1,4 @@
-# Steam
+# Locomotive::Builder
 
 TODO: Write a gem description
 
@@ -6,7 +6,7 @@ TODO: Write a gem description
 
 Add this line to your application's Gemfile:
 
-    gem 'steam'
+    gem 'locomotive_builder'
 
 And then execute:
 
@@ -14,7 +14,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install steam
+    $ gem install locomotive_builder
 
 ## Usage
 

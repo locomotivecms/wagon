@@ -1,15 +1,15 @@
 require File.dirname(__FILE__) + "/integration_helper"
-require "steam/server"
+require "locomotive/builder/server"
 require "rack/test"
 
-describe Steam::Server do
+describe Locomotive::Builder::Server do
   include Rack::Test::Methods
   
   def app
     import_site
     reader = Locomotive::Mounter::Reader::FileSystem.instance
     reader.run!(path: "site")
-    Steam::Server.new(reader)
+    Locomotive::Builder::Server.new(reader)
   end
   
   it "shows the index page" do

@@ -1,4 +1,4 @@
-module Steam
+module Locomotive::Builder
   class Server
     class Middleware
       attr_accessor :app
