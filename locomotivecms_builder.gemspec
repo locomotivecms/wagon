@@ -23,6 +23,6 @@ Gem::Specification.new do |gem|
   # gem.add_dependency "locomotivecms_mounter" # remove from Gemfile before adding it here
   gem.add_development_dependency "rspec"
   gem.add_development_dependency "vcr"
-  gem.add_development_dependency "fakeweb"
+  gem.add_development_dependency "webmock", "~> 1.8.0"
   gem.add_development_dependency "rack-test"
 end
