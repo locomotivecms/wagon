@@ -6,9 +6,12 @@ describe Locomotive::Builder do
     import_site
     YAML.load_file("site/config/site.yml").should == {
       "name"=>"locomotive",
-      "locales"=>["en"],
+      "locales"=>["en", "es"],
       "subdomain"=>"locomotive",
-      "domains"=>["locomotive.engine.dev"]
+      "domains"=>["locomotive.engine.dev"],
+      "seo_title"=>{"en"=>nil, "es"=>nil},
+      "meta_keywords"=>{"en"=>nil, "es"=>nil},
+      "meta_description"=>{"en"=>nil, "es"=>nil}
     }
   end
   
@@ -22,6 +25,6 @@ describe Locomotive::Builder do
       Locomotive::Builder.push("site", "http://locomotive.engine.dev:3000", "admin@locomotivecms.com", "locomotive")
     end
     
-    WebMock.should have_requested(:put, "http://locomotive.engine.dev:3000/locomotive/api/pages/50c99d81c82cd100d3000007.json?auth_token=C3NNrE3RCZgGwiYoyJeQ").with(:body => "page[listed]=true&page[published]=true&page[cache_strategy]=none&page[response_type]=text%2Fhtml&page[raw_template]=New%20content%20of%20the%20home%20page%0A&locale=en").once
+    WebMock.should have_requested(:put, /pages\/.+.json\?auth_token=.+/).with(:body => "page[listed]=true&page[published]=true&page[cache_strategy]=none&page[response_type]=text%2Fhtml&page[raw_template]=New%20content%20of%20the%20home%20page%0A&locale=en").once
   end
 end

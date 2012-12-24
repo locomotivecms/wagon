@@ -21,4 +21,9 @@ describe Locomotive::Builder::Server do
     get '/void'
     last_response.body.should =~ /Content of the 404 page/
   end
+  
+  it "shows content" do
+    get '/products/latest'
+    last_response.body.should =~ /The name of the first product is: Useless stuff/
+  end
 end

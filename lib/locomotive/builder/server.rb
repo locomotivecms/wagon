@@ -1,5 +1,6 @@
 require "locomotive/builder/server/middleware"
 require "locomotive/builder/server/index"
+require "locomotive/builder/server/pages"
 require "locomotive/builder/server/not_found"
 
 module Locomotive::Builder
@@ -9,6 +10,7 @@ module Locomotive::Builder
       @app = Rack::Builder.new do
          use Rack::Lint
          use Index
+         use Pages
          run NotFound.new
        end
     end
