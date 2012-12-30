@@ -1,9 +1,18 @@
 module Locomotive::Builder
   class Server
-    class NotFound
+
+    class NotFound < Middleware
+
       def call(env)
-        [404, {'Content-Type' => 'text/html'}, [env["steam.mounting_point"].pages["404"].source]]
+        self.set_accessors(env)
+
+        if self.page.nil?
+          env['builder.page'] = self.mounting_point.pages['404']
+        end
+
+        app.call(env)
       end
+
     end
   end
 end
