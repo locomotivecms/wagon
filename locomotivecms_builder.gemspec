@@ -25,6 +25,8 @@ Gem::Specification.new do |gem|
   gem.add_dependency 'dragonfly',           '~> 0.9.12'
   gem.add_dependency 'rack-cache',          '~> 1.1'
   gem.add_dependency 'rack-rescue',         '~> 0.1.2'
+  gem.add_dependency 'listen',              '~> 0.7.0'
+  # gerb-fsevent
   gem.add_dependency 'rmagick',             '2.12.2'
   gem.add_dependency 'httmultiparty',       '~> 0.3.8'
   gem.add_dependency 'will_paginate',       '~> 3.0.3'

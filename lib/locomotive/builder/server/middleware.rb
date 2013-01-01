@@ -5,7 +5,7 @@ module Locomotive::Builder
 
       attr_accessor :app, :request
 
-      attr_accessor :mounting_point, :page
+      attr_accessor :mounting_point, :page, :content_entry
 
       def initialize(app = nil)
         @app = app
@@ -21,6 +21,7 @@ module Locomotive::Builder
         self.request        = Rack::Request.new(env)
         self.mounting_point = env['builder.mounting_point']
         self.page           = env['builder.page']
+        self.content_entry  = env['builder.content_entry']
       end
 
       def site

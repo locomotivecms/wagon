@@ -1,0 +1,21 @@
+*** REQUIREMENTS ***
+
+- templatized page
+- nice error page (replace the default exception middleware) to display:
+  - liquid errors
+  - other exceptions
+- nice logs
+- params to setup the server
+- sessions
+- post content entry
+- listen:
+  - make it work for external libs
+  - better installation for all the platforms
+
+- tests
+
+*** FEATURES ***
+
+- toolbar to:
+  - push a whole site / page(s) / snippet(s) / ....
+  - create / update a content type

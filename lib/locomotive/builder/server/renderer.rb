@@ -47,12 +47,17 @@ module Locomotive::Builder
       def locomotive_context(other_assigns = {})
         assigns = self.locomotive_default_assigns
 
-        # process data from the session
+        # TODO: process data from the session
         # assigns.merge!(self.locomotive_flash_assigns)
 
         assigns.merge!(other_assigns)
 
-        # TODO: templatized page
+        # templatized page
+        if self.page && self.content_entry
+          ['content_entry', 'entry', self.page.content_type.slug.singularize].each do |key|
+            assigns[key] = self.content_entry
+          end
+        end
 
         # if defined?(self.page) && self.page.templatized? # add instance from content type
         #   content_entry = self.page.content_entry.to_liquid
