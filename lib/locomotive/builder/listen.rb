@@ -12,28 +12,34 @@ module Locomotive::Builder
     def start(reader)
       self.reader = reader
 
-      self.build_liquid_listener
+      self.definitions.each do |definition|
+        self.apply(definition)
+      end
+    end
 
-      self.build_content_types_listener
+    def definitions
+      [
+        ['config', /\.yml/, [:site, :content_types, :pages, :snippets, :content_entries]],
+        ['app/views', /\.liquid/, [:pages, :snippets]],
+        ['app/content_types', /\.yml/, [:content_types, :content_entries]],
+        ['data', /\.yml/, :content_entries]
+      ]
     end
 
     protected
 
-    def build_liquid_listener
+    def apply(definition)
       reloader = Proc.new do |modified, added, removed|
-        reader.reload(:pages, :snippets)
+        reader.reload(definition.last)
       end
 
-      path = File.join(self.reader.mounting_point.path, 'app/views')
+      filter  = definition[1]
+      path    = File.join(self.reader.mounting_point.path, definition.first)
 
-      listener = ::Listen.to(path).filter(/\.liquid/).change(&reloader)
+      listener = ::Listen.to(path).filter(filter).change(&reloader)
 
       # non blocking listener
       listener.start(false)
-    end
-
-    def build_content_types_listener
-      # TODO
     end
 
   end

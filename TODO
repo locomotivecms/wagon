@@ -2,20 +2,20 @@
 
 x templatized page
 x localized page
+- listen:
+  x content types and content entries / site
+  - make it work for other platforms (linux, windows)
+- I18n keys
+- liquid assigns: sessions (rack)
+- post content entry
 - nice error page (replace the default exception middleware) to display:
   - liquid errors
   - other exceptions
 - nice logs
 - params to launch the thin server (port, address ?)
-- sessions
-- post content entry
-- listen:
-  - make it work for external libs
-  - better installation for all the platforms
-  - content types and content entries / site ?
+
 - translations
 
-- I18n keys
 
 - tests
 

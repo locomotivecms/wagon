@@ -23,7 +23,7 @@ module Locomotive
         reader.run!(path: path)
 
         server = Thin::Server.new('0.0.0.0', port, Locomotive::Builder::Server.new(reader))
-        # server.threaded = true
+        server.threaded = true
         server.start
       end
     end
