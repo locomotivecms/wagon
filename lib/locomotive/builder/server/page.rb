@@ -31,7 +31,7 @@ module Locomotive::Builder
 
         self.mounting_point.pages.values.detect do |_page|
           matchers.include?(_page.safe_fullpath) ||
-          matchers.include?(_page.safe_fullpath.underscore)
+          matchers.include?(_page.safe_fullpath.try(:underscore))
         end
       end
 

@@ -20,22 +20,21 @@ module Locomotive::Builder
       protected
 
       def set_locale!(env)
-        path    = env['builder.path']
         locale  = self.mounting_point.default_locale
 
-        if path =~ /^(#{self.mounting_point.locales.join('|')})+(\/|$)/
-          locale  = $1
-          path    = path.gsub($1 + $2, '')
-
-          # TODO: I18n.locale ???
-
-          Locomotive::Mounter.locale = locale
+        if self.path =~ /^(#{self.mounting_point.locales.join('|')})+(\/|$)/
+          locale    = $1
+          self.path = self.path.gsub($1 + $2, '')
+          self.path = 'index' if self.path.blank?
         end
 
-        puts "[Builder|Locale] path = #{path.inspect}, locale = #{locale.inspect}"
+        Locomotive::Mounter.locale = locale
+        ::I18n.locale = locale
+
+        puts "[Builder|Locale] path = #{self.path.inspect}, locale = #{locale.inspect}"
 
         env['builder.locale'] = locale
-        env['builder.path']   = path
+        env['builder.path']   = self.path
       end
 
     end

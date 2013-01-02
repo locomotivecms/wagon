@@ -4,22 +4,32 @@ module Locomotive
       module Drops
         class ContentEntry < Base
 
-          delegate :_permalink, :seo_title, :meta_keywords, :meta_description, :to => '_source'
+          delegate :seo_title, :meta_keywords, :meta_description, :to => '_source'
 
-          def before_method(meth)
-            return '' if @_source.nil?
-
-            if not @@forbidden_attributes.include?(meth.to_s)
-              value = @_source.send(meth)
-            end
+          def _label
+            @_label ||= self._source._label
           end
 
           def _permalink
-            @_source._permalink.parameterize
+            @_source._permalink.try(:parameterize)
           end
 
-          def highlighted_field_value
-            @_source.highlighted_field_value
+          def next
+            self
+          end
+
+          def previous
+            self
+          end
+
+          def before_method(meth)
+            return '' if self._source.nil?
+
+            if not @@forbidden_attributes.include?(meth.to_s)
+              self._source.send(meth)
+            else
+              nil
+            end
           end
 
         end

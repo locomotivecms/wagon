@@ -6,7 +6,9 @@ module Locomotive
         class Snippet < ::Liquid::Include
 
           def render(context)
-            source = context.registers[:mounting_point].snippets[@template_name].try(:source)
+            name = @template_name.gsub(/[\"\']/, '')
+
+            source = context.registers[:mounting_point].snippets[name].try(:source)
 
             partial = ::Liquid::Template.parse(source)
 

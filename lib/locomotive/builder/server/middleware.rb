@@ -3,7 +3,7 @@ module Locomotive::Builder
 
     class Middleware
 
-      attr_accessor :app, :request
+      attr_accessor :app, :request, :path
 
       attr_accessor :mounting_point, :page, :content_entry
 
@@ -18,6 +18,7 @@ module Locomotive::Builder
       protected
 
       def set_accessors(env)
+        self.path           = env['builder.path']
         self.request        = Rack::Request.new(env)
         self.mounting_point = env['builder.mounting_point']
         self.page           = env['builder.page']

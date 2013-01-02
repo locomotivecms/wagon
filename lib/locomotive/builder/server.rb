@@ -1,6 +1,6 @@
 require 'rack/showexceptions'
-require 'listen'
 
+require 'locomotive/builder/listen'
 require 'locomotive/builder/server/middleware'
 require 'locomotive/builder/server/favicon'
 require 'locomotive/builder/server/dynamic_assets'
@@ -18,10 +18,21 @@ module Locomotive::Builder
   class Server
 
     def initialize(reader)
-      # puts Dir[File.join(reader.mounting_point.path, 'app/**/*.liquid*')].inspect
-
       @reader = reader
-      @app = Rack::Builder.new do
+      @app    = self.create_rack_app(@reader)
+
+      Locomotive::Builder::Listen.instance.start(@reader)
+    end
+
+    def call(env)
+      env['builder.mounting_point'] = @reader.mounting_point
+      @app.call(env)
+    end
+
+    protected
+
+    def create_rack_app(reader)
+      Rack::Builder.new do
         use Rack::ShowExceptions
         use Rack::Lint
 
@@ -40,22 +51,6 @@ module Locomotive::Builder
 
         run Renderer.new
       end
-
-      # TODO: refactor it by moving it into another place
-      pages_reloader = Proc.new do |modified, added, removed|
-        reader.reload(:pages)
-      end
-
-      listener = Listen.to(File.join(reader.mounting_point.path, 'app/views/pages'))
-        .filter(/\.liquid/)
-        .change(&pages_reloader)
-
-      listener.start(false)
-    end
-
-    def call(env)
-      env['builder.mounting_point'] = @reader.mounting_point
-      @app.call(env)
     end
 
   end

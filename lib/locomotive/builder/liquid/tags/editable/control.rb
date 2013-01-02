@@ -5,6 +5,10 @@ module Locomotive
         module Editable
           class Control < Base
 
+            def render(context)
+              super
+            end
+
           end
 
           ::Liquid::Template.register_tag('editable_control', Control)

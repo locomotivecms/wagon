@@ -9,7 +9,7 @@ module Locomotive
 
             def initialize(tag_name, markup, tokens, context)
               if markup =~ Syntax
-                @slug = $1.gsub('\'', '')
+                @slug = $1.gsub(/[\"\']/, '')
                 @options = {}
                 markup.scan(::Liquid::TagAttributes) { |key, value| @options[key.to_sym] = value.gsub(/^'/, '').gsub(/'$/, '') }
               else
@@ -20,7 +20,21 @@ module Locomotive
             end
 
             def render(context)
-              super
+              current_page = context.registers[:page]
+
+              element = current_page.find_editable_element(context['block'].try(:name), @slug)
+
+              if element.present?
+                render_element(context, element)
+              else
+                super
+              end
+            end
+
+            protected
+
+            def render_element(context, element)
+              element.content
             end
 
           end

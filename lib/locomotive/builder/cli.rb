@@ -25,9 +25,6 @@ module Locomotive
         server = Thin::Server.new('0.0.0.0', port, Locomotive::Builder::Server.new(reader))
         # server.threaded = true
         server.start
-
-        # TODO: To be removed
-        # Thin::Server.start('0.0.0.0', port, Locomotive::Builder::Server.new(reader), threaded: true)
       end
     end
   end
