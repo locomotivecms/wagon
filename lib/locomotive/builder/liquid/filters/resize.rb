@@ -5,7 +5,7 @@ module Locomotive
         module Resize
 
           def resize(input, resize_string)
-            Locomotive::Builder::DragonflyExt.resize_url(input, resize_string)
+            Locomotive::Builder::Dragonfly.instance.resize_url(input, resize_string)
           end
 
         end

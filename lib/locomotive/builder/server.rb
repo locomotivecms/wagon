@@ -1,9 +1,11 @@
 require 'rack/showexceptions'
+require 'coffee_script'
 
 require 'locomotive/builder/listen'
 require 'locomotive/builder/server/middleware'
 require 'locomotive/builder/server/favicon'
 require 'locomotive/builder/server/dynamic_assets'
+require 'locomotive/builder/server/entry_submission'
 require 'locomotive/builder/server/path'
 require 'locomotive/builder/server/locale'
 require 'locomotive/builder/server/page'
@@ -18,6 +20,8 @@ module Locomotive::Builder
   class Server
 
     def initialize(reader)
+      Locomotive::Builder::Dragonfly.setup!(reader.mounting_point.path)
+
       @reader = reader
       @app    = self.create_rack_app(@reader)
 
@@ -36,10 +40,15 @@ module Locomotive::Builder
         use Rack::ShowExceptions
         use Rack::Lint
 
+        use EntrySubmission
+
+        use ::Dragonfly::Middleware, :images
+
         use Rack::Static, {
           urls: ['/images', '/fonts', '/samples'],
           root: File.join(reader.mounting_point.path, 'public')
         }
+
         use Favicon
         use DynamicAssets
         use Path

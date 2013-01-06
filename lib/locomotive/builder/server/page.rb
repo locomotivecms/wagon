@@ -17,17 +17,15 @@ module Locomotive::Builder
       protected
 
       def set_page!(env)
-        path = env['builder.path']
-
-        page = self.fetch_page(path)
+        page = self.fetch_page
 
         puts "[Builder|Page] #{page.inspect}"
 
         env['builder.page'] = page
       end
 
-      def fetch_page(path)
-        matchers = self.path_combinations(path)
+      def fetch_page
+        matchers = self.path_combinations(self.path)
 
         self.mounting_point.pages.values.detect do |_page|
           matchers.include?(_page.safe_fullpath) ||

@@ -81,7 +81,7 @@ module Locomotive
 
               conditions = @context['with_scope'].clone.delete_if { |k, _| %w(order_by per_page page).include?(k) }
 
-              @content_type.contents.each do |content|
+              @content_type.entries.each do |content|
                 accepted = (conditions.map do |key, value|
                   case value
                   when TrueClass, FalseClass, String then content.send(key) == value
