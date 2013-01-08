@@ -8,9 +8,9 @@ x dragonfly
   - make it work for other platforms (linux, windows)
 x post content entry
 x liquid assigns: sessions (rack)
-- I18n keys
+x I18n keys
   x fr/en
-  - other locales
+  x other locales
 - static js/css assets (non coffeescript or sass files) are not reloaded if got changed.
 - content types / liquid
   - group_contents_by

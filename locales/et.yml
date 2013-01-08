@@ -1,0 +1,140 @@
+et:
+  errors:
+    messages:
+      blank: "tühi"
+
+  pagination:
+    previous: "&laquo; Eelmine"
+    next: "Järgmine &raquo;"
+
+  date:
+    formats:
+      default: "%d.%m.%Y"
+      short: "%e %b"
+      long: "%e %B %Y"
+      long_ordinal: "%e %B %Y"
+      only_day: "%e"
+
+    day_names: [Pühapäev, Esmaspäev, Teisipäev, Kolmapäev, Neljapäev, Reede, Laupäev]
+    abbr_day_names: [Pü, Es, Te, Ko, Ne, Re, La]
+    month_names: [~, Jaanuar, Veebruar, Märts, Aprill, Mai, Juuni, Juuli, August, September, Oktoober, November, Detsember]
+    abbr_month_names: [~, Jaan., Veeb., Mär., Apr., Mai, Jun, Jul, Aug., Sept., Okt., Nov., Dez.]
+    order: [ day, month, year ]
+
+  time:
+    formats:
+      default: "%d %B %Y %H:%M"
+      time: "%H:%M"
+      short: "%d %b %H:%M"
+      long: "%A %d %B %Y %H:%M:%S %Z"
+      long_ordinal: "%A %d %B %Y %H:%M:%S %Z"
+      only_second: "%S"
+    am: 'ennelõunat'
+    pm: 'pealelõunat'
+
+  datetime:
+    distance_in_words:
+      half_a_minute: 'pool minutit'
+      less_than_x_seconds:
+        one: 'vähem kui 1 sekund'
+        other: 'vähem kui %{count} sekundit'
+      x_seconds:
+        one: 'üks sekund'
+        other: '%{count} sekundit'
+      less_than_x_minutes:
+        one: 'vähem kui üks minut'
+        other: 'vähem kui %{count} minutit'
+      x_minutes:
+        one: 'üks minut'
+        other: '%{count} minutit'
+      about_x_hours:
+        one: 'umber üks tund'
+        other: 'umbes %{count} tundi'
+      x_days:
+        one: 'üks päev'
+        other: '%{count} päeva'
+      about_x_months:
+        one: 'umbes üks kuu'
+        other: 'umbes %{count} kuud'
+      x_months:
+        one: 'üks kuu'
+        other: '%{count} kuud'
+      almost_x_years:
+        one: 'peaaegu üks aasta'
+        other: 'peaaegu %{count} aastat'
+      about_x_years:
+        one: 'umbes üks aasta'
+        other: 'umbes %{count} aastat'
+      over_x_years:
+        one: 'üle ühe aasta'
+        other: 'üle %{count} aasta'
+    prompts:
+      second: "Sekundit"
+      minute: "Minutit"
+      hour: "Tundi"
+      day: "Päeva"
+      month: "Kuud"
+      year: "Aastat"
+
+  number:
+    format:
+      precision: 2
+      separator: ' '
+      delimiter: '.'
+      significant: false
+      strip_insignificant_zeros: false
+    currency:
+      format:
+        unit: '€'
+        format: '%n%u'
+        separator: ","
+        delimiter: ""
+        precision: 2
+        significant: false
+        strip_insignificant_zeros: false
+    percentage:
+      format:
+        delimiter: ""
+    precision:
+      format:
+        delimiter: ""
+    human:
+      format:
+        delimiter: ""
+        precision: 1
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units:
+        # Storage units output formatting.
+        # %u is the storage unit, %n is the number (default: 2 MB)
+        format: "%n %u"
+        units:
+          byte:
+            one: "Bait"
+            other: "Baiti"
+          kb: "KB"
+          mb: "MB"
+          gb: "GB"
+          tb: "TB"
+      decimal_units:
+        format: "%n %u"
+        units:
+          unit: ""
+          thousand: Tuhat
+          million: Miljon
+          billion:
+            one: Miljard
+            others: Miljardit
+          trillion: Triljon
+          quadrillion:
+            one: Kvadriljon
+            others: Kvadriljonit
+
+  support:
+    array:
+      sentence_connector: 'ja'
+      skip_last_comma: true
+      words_connector: ", "
+      two_words_connector: " ja "
+      last_word_connector: " ja "
+
