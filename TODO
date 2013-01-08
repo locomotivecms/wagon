@@ -11,7 +11,7 @@ x liquid assigns: sessions (rack)
 x I18n keys
   x fr/en
   x other locales
-- static js/css assets (non coffeescript or sass files) are not reloaded if got changed.
+x static js/css assets (non coffeescript or sass files) are not reloaded if got changed.
 - content types / liquid
   - group_contents_by
   - select_names
@@ -20,10 +20,12 @@ x I18n keys
   - other exceptions
 - nice logs
 - params to launch the thin server (port, address ?)
-- push:
-  - option to select to push only some parts (pages, ...etc)
-  - --force option
-
+- commands:
+  - push:
+    - option to select to push only some parts (pages, ...etc)
+    - --force option
+  - pull
+  - create
 
 - translations
 

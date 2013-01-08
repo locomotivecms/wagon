@@ -16,7 +16,7 @@ module Locomotive::Builder
           end
 
           if asset
-            [200, { 'Content-Type' => mime_type }, [asset.content]]
+            [200, { 'Content-Type' => mime_type }, [asset.content!]]
           else
             [404, { 'Content-Type' => mime_type }, ['Asset not found']]
           end
