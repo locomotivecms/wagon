@@ -3,54 +3,111 @@ module Locomotive::Builder
 
     # Mimic the submission of a content entry
     #
-    #
     class EntrySubmission < Middleware
 
       def call(env)
         self.set_accessors(env)
 
-        if self.request.post? && self.path =~ /^entry_submissions\/(.*)/
+        if self.request.post? && env['PATH_INFO'] =~ /^\/entry_submissions\/(.*)/
           self.process_form($1)
 
-          # TODO
-          [200, { 'Content-Type' => 'text/html' }, ["POST !!! #{$1}"]]
+          if @entry.valid?
+            if self.html?
+              self.record_submitted_entry
+              self.redirect_to self.callback_url
+            elsif self.json?
+              self.json_response
+            end
+          else
+            if self.html?
+              if self.callback_url =~ /^http:\/\//
+                self.redirect_to self.callback_url
+              else
+                env['PATH_INFO'] = self.callback_url
+                self.liquid_assigns[@content_type.slug.singularize] = @entry
+                app.call(env)
+              end
+            elsif self.json?
+              self.json_response(422)
+            end
+          end
         else
+          self.fetch_submitted_entry
+
           app.call(env)
         end
       end
 
       protected
 
+      def record_submitted_entry
+        self.request.session[:now] ||= {}
+        self.request.session[:now][:submitted_entry] = [@content_type.slug, @entry._slug]
+      end
+
+      def fetch_submitted_entry
+        if data = self.request.session[:now].try(:delete, :submitted_entry)
+          content_type = self.mounting_point.content_types[data.first.to_s]
+
+          entry = (content_type.entries || []).detect { |e| e._slug == data.last }
+
+          # do not keep track of the entry
+          content_type.entries.delete(entry) if entry
+
+          # add it to the additional liquid assigns for the next liquid rendering
+          if entry
+            self.liquid_assigns[content_type.slug.singularize] = entry
+          end
+        end
+      end
+
       # Mimic the creation of a content entry with a minimal validation.
       #
       # @param [ String ] permalink The permalink (or slug) of the content type
       #
-      # @return [ Array ] The rack response depending on the validation status and the requested format
       #
       def process_form(permalink)
-        content_type = self.mounting_point.content_types[permalink]
+        permalink = permalink.split('.').first
 
-        raise "Unknown content type '#{content_type.inspect}'" if content_type.nil?
+        @content_type = self.mounting_point.content_types[permalink]
 
-        puts "params = #{self.params.inspect}"
+        raise "Unknown content type '#{@content_type.inspect}'" if @content_type.nil?
 
-        content_entry = self.build_entry(content_type, self.params[:entry] || self.params[:content])
+        @entry = @content_type.build_entry(self.params[:entry] || self.params[:content])
 
-        if content_entry.valid?
-          puts "valid content entry!"
-        else
-          puts "invalid content entry!"
-        end
+        # if not valid, we do not need to keep track of the entry
+        @content_type.entries.delete(@entry) if !@entry.valid?
       end
 
-      def build_entry(content_type, attributes)
-        Locomotive::Mounter::Models::ContentEntry.new(content_type: content_type).tap do |entry|
-          # do not forget that we are manipulating dynamic fields
-          attributes.each { |k, v| entry.send(:"#{k}=", v) }
+      def callback_url
+        (@entry.valid? ? params[:success_callback] : params[:error_callback]) || '/'
+      end
 
-          # force the slug to be defined from its label and in all the locales
-          entry.send :set_slug
+      # Build the JSON response
+      #
+      # @param [ Integer ] status The HTTP return code
+      #
+      # @return [ Array ] The rack response depending on the validation status and the requested format
+      #
+      def json_response(status = 200)
+        locale = self.mounting_point.default_locale
+
+        if self.request.path =~ /^\/(#{self.mounting_point.locales.join('|')})+(\/|$)/
+          locale = $1
         end
+
+        hash = @entry.to_hash(false).tap do |_hash|
+          if !@entry.valid?
+            _hash['errors'] = @entry.errors.inject({}) do |memo, name|
+              memo[name] = ::I18n.t('errors.messages.blank', locale: locale)
+              memo
+            end
+          end
+        end
+
+        [status, { 'Content-Type' => 'application/json' }, [
+          { @content_type.slug.singularize => hash }.to_json
+        ]]
       end
 
     end

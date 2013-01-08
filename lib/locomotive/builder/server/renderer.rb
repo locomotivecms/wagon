@@ -18,7 +18,6 @@ module Locomotive::Builder
             [200, { 'Content-Type' => type }, [html]]
           end
         else
-          puts "argggg"
           # no page at all, even not the 404 page
           [404, { 'Content-Type' => 'text/html' }, ['Page not found']]
         end
@@ -47,8 +46,8 @@ module Locomotive::Builder
       def locomotive_context(other_assigns = {})
         assigns = self.locomotive_default_assigns
 
-        # TODO: process data from the session
-        # assigns.merge!(self.locomotive_flash_assigns)
+        # assigns from other middlewares
+        assigns.merge!(self.liquid_assigns)
 
         assigns.merge!(other_assigns)
 
@@ -58,13 +57,6 @@ module Locomotive::Builder
             assigns[key] = self.content_entry
           end
         end
-
-        # if defined?(self.page) && self.page.templatized? # add instance from content type
-        #   content_entry = self.page.content_entry.to_liquid
-        #   ['content_entry', 'entry', @page.target_entry_name].each do |key|
-        #     assigns[key] = content_entry
-        #   end
-        # end
 
         # Tip: switch from false to true to enable the re-thrown exception flag
         ::Liquid::Context.new({}, assigns, self.locomotive_default_registers, true)

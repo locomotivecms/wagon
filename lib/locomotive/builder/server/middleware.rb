@@ -3,7 +3,7 @@ module Locomotive::Builder
 
     class Middleware
 
-      attr_accessor :app, :request, :path
+      attr_accessor :app, :request, :path, :liquid_assigns
 
       attr_accessor :mounting_point, :page, :content_entry
 
@@ -23,6 +23,9 @@ module Locomotive::Builder
         self.mounting_point = env['builder.mounting_point']
         self.page           = env['builder.page']
         self.content_entry  = env['builder.content_entry']
+
+        env['builder.liquid_assigns'] ||= {}
+        self.liquid_assigns = env['builder.liquid_assigns']
       end
 
       def site
@@ -31,6 +34,18 @@ module Locomotive::Builder
 
       def params
         self.request.params.deep_symbolize_keys
+      end
+
+      def html?
+        self.request.media_type == 'text/html' || !self.request.xhr?
+      end
+
+      def json?
+        self.request.content_type == 'application/json' || File.extname(self.request.path) == '.json'
+      end
+
+      def redirect_to(location)
+        [301, { 'Content-Type' => 'text/html', 'Location' => location }, []]
       end
 
     end

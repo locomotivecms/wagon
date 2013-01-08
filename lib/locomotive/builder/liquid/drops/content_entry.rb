@@ -22,6 +22,13 @@ module Locomotive
             self
           end
 
+          def errors
+            (@_source.errors || []).inject({}) do |memo, name|
+              memo[name] = ::I18n.t('errors.messages.blank')
+              memo
+            end
+          end
+
           def before_method(meth)
             return '' if self._source.nil?
 

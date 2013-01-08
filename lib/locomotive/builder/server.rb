@@ -40,6 +40,14 @@ module Locomotive::Builder
         use Rack::ShowExceptions
         use Rack::Lint
 
+        use Rack::Session::Cookie, {
+          key:          'rack.session',
+          domain:       '0.0.0.0',
+          path:         '/',
+          expire_after: 2592000,
+          secret:       'uselessinlocal'
+        }
+
         use ::Dragonfly::Middleware, :images
 
         use Rack::Static, {
@@ -50,10 +58,10 @@ module Locomotive::Builder
         use Favicon
         use DynamicAssets
 
+        use EntrySubmission
+
         use Path
         use Locale
-
-        use EntrySubmission
 
         use Page
         use TemplatizedPage

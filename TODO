@@ -6,9 +6,15 @@ x dragonfly
 - listen:
   x content types and content entries / site
   - make it work for other platforms (linux, windows)
-- post content entry (WIP)
+x post content entry
+x liquid assigns: sessions (rack)
 - I18n keys
-- liquid assigns: sessions (rack)
+  x fr/en
+  - other locales
+- static js/css assets (non coffeescript or sass files) are not reloaded if got changed.
+- content types / liquid
+  - group_contents_by
+  - select_names
 - nice error page (replace the default exception middleware) to display:
   - liquid errors
   - other exceptions
@@ -17,7 +23,7 @@ x dragonfly
 - push:
   - option to select to push only some parts (pages, ...etc)
   - --force option
-- static js/css assets (non coffeescript or sass files) are not reloaded if got changed.
+
 
 - translations
 
