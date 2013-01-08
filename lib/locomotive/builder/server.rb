@@ -40,8 +40,6 @@ module Locomotive::Builder
         use Rack::ShowExceptions
         use Rack::Lint
 
-        use EntrySubmission
-
         use ::Dragonfly::Middleware, :images
 
         use Rack::Static, {
@@ -51,8 +49,12 @@ module Locomotive::Builder
 
         use Favicon
         use DynamicAssets
+
         use Path
         use Locale
+
+        use EntrySubmission
+
         use Page
         use TemplatizedPage
         use NotFound

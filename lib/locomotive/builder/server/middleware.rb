@@ -30,7 +30,7 @@ module Locomotive::Builder
       end
 
       def params
-        self.request.params
+        self.request.params.deep_symbolize_keys
       end
 
     end
