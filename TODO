@@ -12,9 +12,9 @@ x I18n keys
   x fr/en
   x other locales
 x static js/css assets (non coffeescript or sass files) are not reloaded if got changed.
-- content types / liquid
-  - group_contents_by
-  - select_names
+x content types / liquid
+  x group_contents_by
+  x select_names
 - nice error page (replace the default exception middleware) to display:
   - liquid errors
   - other exceptions

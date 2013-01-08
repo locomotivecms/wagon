@@ -46,17 +46,35 @@ module Locomotive
 
           def before_method(meth)
             if (meth.to_s =~ /^group_by_(.+)$/) == 0
-              # TODO
-              @content_type.group_contents_by($1)
+              self.group_entries_by(@content_type, $1)
             elsif (meth.to_s =~ /^(.+)_options$/) == 0
-              # TODO
-              @content_type.select_names($1)
+              self.select_options_for(@content_type, $1)
             else
               @content_type.send(meth)
             end
           end
 
           protected
+
+          def group_entries_by(content_type, name)
+            field = @content_type.find_field(name)
+
+            return {} if field.nil? || !%w(belongs_to select).include?(field.type.to_s)
+
+            (@content_type.entries || []).group_by do |entry|
+              entry.send(name.to_sym)
+            end.to_a.collect do |group|
+              { name: group.first, entries: group.last }.with_indifferent_access
+            end
+          end
+
+          def select_options_for(content_type, name)
+            field = @content_type.find_field(name)
+
+            return {} if field.nil? || field.type.to_s != 'select'
+
+            field.select_options.map(&:name)
+          end
 
           def paginate(options = {})
             @collection ||= self.collection.paginate(options)
