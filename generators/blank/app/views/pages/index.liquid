@@ -1,0 +1,19 @@
+---
+title: Home page
+published: true
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>{{ site.name }}</title>
+    <meta name="keywords" value="{{ site.meta_keywords }}" />
+    <meta name="description" value="{{ site.meta_description }}" />
+  </head>
+  <body>
+    <h1>{{ page.title }}</h1>
+    {% block 'main' %}
+    <p>Lorem ipsum....</p>
+    {% endblock %}
+  </body>
+</html>

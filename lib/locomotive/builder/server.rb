@@ -1,6 +1,8 @@
 require 'rack/showexceptions'
 require 'coffee_script'
 
+require 'locomotive/mounter'
+
 require 'locomotive/builder/listen'
 require 'locomotive/builder/server/middleware'
 require 'locomotive/builder/server/favicon'

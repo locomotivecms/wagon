@@ -21,11 +21,17 @@ x content types / liquid
 - nice logs
 - params to launch the thin server (port, address ?)
 - commands:
+  - create
+    x sites
+      x blank
+      x twitter bootstrap + HAML
+      ? localized
+      ? boilerplate
+    - content types
   - push:
     - option to select to push only some parts (pages, ...etc)
     - --force option
   - pull
-  - create
 
 - translations
 
