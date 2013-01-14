@@ -27,7 +27,7 @@ x content types / liquid
       x twitter bootstrap + HAML
       ? localized
       ? boilerplate
-      - copy Bundler / Gemfile
+      - copy Bundler / Gemfile (pending)
     - content types
       x definitions
       - data (Faker)
@@ -43,7 +43,7 @@ x content types / liquid
 - refactoring:
   x generators/sites -> generators/site
   x list is only for site generators
-  - move the call to the CC generator directly in the builder.rb file
+  x move the call to the CC generator directly in the builder.rb file
 
 *** FEATURES ***
 

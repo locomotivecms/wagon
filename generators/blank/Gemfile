@@ -1,0 +1,17 @@
+# gem 'locomotive_builder', require: true
+
+# DEV
+gem 'locomotivecms_mounter', path: '/Users/didier/Documents/LocomotiveCMS/gems/mounter'
+gem 'locomotivecms_builder', require: true, path: '/Users/didier/Documents/LocomotiveCMS/builder'
+
+# Mac OS X
+gem 'rb-fsevent', '~> 0.9.1'
+
+# Linux
+# TODO
+
+# Windows
+# TODO
+
+# add your other gems here
+

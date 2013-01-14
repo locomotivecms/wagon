@@ -1,6 +1,6 @@
 <% 4.times do |i| -%>
 - "Sample <%= i + 1 %>":
 <% config[:fields][1..-1].each do |field| -%>
-  - <%= field.name -%>: <some value from Faker>
+    <%= field.name -%>: <some value from Faker>
 <% end -%>
 <% end -%>
