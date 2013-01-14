@@ -26,7 +26,7 @@ module Locomotive
         end
 
         Locomotive::Builder::Generators::Site.register(:bootstrap, Bootstrap, %{
-          A LocomotiveCMS site powered by Twitter boostrap.
+          A LocomotiveCMS site powered by Twitter bootstrap (v2.2.2).
         })
       end
     end
