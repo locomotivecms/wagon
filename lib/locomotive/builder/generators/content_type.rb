@@ -39,13 +39,8 @@ module Locomotive
           end
         end
 
-        # def destination
-        #   File.join(target_path, name)
-        # end
-
       end
 
-      # Locomotive::Builder::Generators.register(:others, :content_type, SimpleContentType)
     end
   end
 end

@@ -1,5 +1,6 @@
-# sites
-require 'locomotive/builder/generators/sites/blank'
-require 'locomotive/builder/generators/sites/bootstrap'
+# # sites
+# require 'locomotive/builder/generators/site/base'
+# require 'locomotive/builder/generators/site/blank'
+# require 'locomotive/builder/generators/site/bootstrap'
 
-require 'locomotive/builder/generators/content_type'
+# require 'locomotive/builder/generators/content_type'

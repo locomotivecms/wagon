@@ -28,6 +28,7 @@ module Locomotive
           if path = check_path!
             require 'locomotive/builder/generators/content_type'
 
+            # TODO: move it to the generate method of the builder.rb file
             script = Locomotive::Builder::Generators::ContentType.new([name, self.options['path'], fields], {}, {})
             script.invoke_all
           else
@@ -65,8 +66,8 @@ module Locomotive
         desc 'init NAME [PATH]', 'Create a brand new LocomotiveCMS site'
         method_option :template, aliases: '-t', type: 'string', default: 'blank', desc: 'instead of building from a blank site, you can have a pre-fetched site with form a template (see the templates command)'
         def init(name, path = '.')
-          require 'locomotive/builder/generators'
-          generator = Locomotive::Builder::Generators.get(options[:template])
+          require 'locomotive/builder/generators/site'
+          generator = Locomotive::Builder::Generators::Site.get(options[:template])
           if generator.nil?
             say "Unknown site template '#{options[:template]}'", :red
           else
@@ -79,11 +80,11 @@ module Locomotive
 
         desc 'list_templates', 'List all the templates to create either a site or a content type'
         def list_templates
-          require 'locomotive/builder/generators'
-          if Locomotive::Builder::Generators.empty?(:site)
+          require 'locomotive/builder/generators/site'
+          if Locomotive::Builder::Generators::Site.empty?
             say 'No templates', :red
           else
-            Locomotive::Builder::Generators.list(:site).each do |info|
+            Locomotive::Builder::Generators::Site.list.each do |info|
               say info.name, :bold, false
               say " - #{info.description}" unless info.description.blank?
             end

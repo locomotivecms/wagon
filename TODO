@@ -29,6 +29,8 @@ x content types / liquid
       ? boilerplate
       - copy Bundler / Gemfile
     - content types
+      x definitions
+      - data
   - push:
     - option to select to push only some parts (pages, ...etc)
     - --force option
@@ -37,6 +39,11 @@ x content types / liquid
 - translations
 
 - tests
+
+- refactoring:
+  - move the call to the CC generator directly in the builder.rb file
+  - generators/sites -> generators/site
+  - list is only for site generators
 
 *** FEATURES ***
 
