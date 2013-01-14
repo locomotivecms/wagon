@@ -67,7 +67,7 @@ module Locomotive
             type:         type.to_sym,
             name:         name.to_sym,
             klass:        klass,
-            description:  description.strip.gsub("\n", '')
+            description:  description ? description.strip.gsub("\n", '') : nil
           })
 
           self._list.last

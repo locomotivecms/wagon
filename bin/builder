@@ -3,7 +3,7 @@
 # FIXME: needed if you don't launch it with bundler
 # $:.unshift(File.expand_path(File.dirname(__FILE__) + '/../lib'))
 
-require "locomotive/builder"
-require "locomotive/builder/cli"
+require 'locomotive/builder'
+require 'locomotive/builder/cli'
 
-Locomotive::Builder::CLI.start
+Locomotive::Builder::CLI::Main.start

@@ -22,11 +22,12 @@ x content types / liquid
 - params to launch the thin server (port, address ?)
 - commands:
   - create
-    x sites
+    - sites
       x blank
       x twitter bootstrap + HAML
       ? localized
       ? boilerplate
+      - copy Bundler / Gemfile
     - content types
   - push:
     - option to select to push only some parts (pages, ...etc)

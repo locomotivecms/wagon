@@ -12,7 +12,7 @@ module Locomotive
           end
 
           def choose_haml_over_html
-            if yes?('Do you want HAML templates ?')
+            if yes?('Do you prefer HAML templates ?')
               remove_file File.join(self.destination, 'app/views/pages/index.liquid')
               remove_file File.join(self.destination, 'app/views/pages/404.liquid')
               remove_file File.join(self.destination, 'app/views/snippets/footer.liquid')

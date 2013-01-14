@@ -1,0 +1,48 @@
+# TODO: explain
+name: <%= config[:name].humanize %>
+
+# TODO: explain
+slug: <%= config[:name] %>
+
+# TODO: explain
+description: A description of the content type for the editors
+
+# TODO: explain
+label_field_name: <%= config[:fields].first.name %>
+
+# TODO: explain
+order_by: manually # TODO: list all different values
+
+# TODO: explain
+# group_by: <your field>
+
+# TODO: explain
+# public_submission_enabled: false
+# public_submission_accounts: ['john@acme.net']
+
+# TODO: explain
+fields: <% config[:fields].each do |field| %>
+- <%= field.name -%>: # Name of the field
+    label: <%= field.name.humanize %>
+    type: <%= field.type %>
+    required: <%= field.required %>
+    hint: A description of the field for the editors
+    localized: false<% if field.type == 'select' -%>
+    # TODO: explain (localization)
+    select_options: ['option 1', 'option 2', 'option 3']
+    <% end -%><% if field.type == 'belongs_to' -%>
+    # TODO: explain
+    class_name: SLUG OF THE TARGET CONTENT TYPE
+    <% end -%><% if field.type == 'has_many' -%>
+    # TODO: explain
+    class_name: SLUG OF THE TARGET CONTENT TYPE
+    inverse_of: NAME OF THE FIELD IN THE TARGET CONTENT TYPE
+    ui_enabled: true
+    <% end -%><% if field.type == 'many_to_many' -%>
+    # TODO: explain
+    class_name: SLUG OF THE TARGET CONTENT TYPE
+    inverse_of: NAME OF THE FIELD IN THE TARGET CONTENT TYPE
+    ui_enabled: true
+    <% end -%>
+
+<% end -%>
