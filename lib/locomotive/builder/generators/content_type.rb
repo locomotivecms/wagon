@@ -32,9 +32,9 @@ module Locomotive
             name, type, required = raw_attributes.split(':')
 
             OpenStruct.new({
-              name: name,
-              type: type || 'string',
-              required: required || false
+              name:     name,
+              type:     type || 'string',
+              required: %w(true required).include?(required)
             })
           end
         end

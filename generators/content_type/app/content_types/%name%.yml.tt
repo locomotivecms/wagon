@@ -21,11 +21,11 @@ order_by: manually # TODO: list all different values
 # public_submission_accounts: ['john@acme.net']
 
 # TODO: explain
-fields: <% config[:fields].each do |field| %>
+fields: <% config[:fields].each_with_index do |field, index| %>
 - <%= field.name -%>: # Name of the field
     label: <%= field.name.humanize %>
     type: <%= field.type %>
-    required: <%= field.required %>
+    required: <%= index == 0 ? true : field.required %>
     hint: A description of the field for the editors
     localized: false<% if field.type == 'select' -%>
     # TODO: explain (localization)

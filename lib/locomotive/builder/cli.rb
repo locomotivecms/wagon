@@ -26,11 +26,7 @@ module Locomotive
           say('The fields are missing', :red) and return false if fields.empty?
 
           if path = check_path!
-            require 'locomotive/builder/generators/content_type'
-
-            # TODO: move it to the generate method of the builder.rb file
-            script = Locomotive::Builder::Generators::ContentType.new([name, self.options['path'], fields], {}, {})
-            script.invoke_all
+            Locomotive::Builder.generate :content_type, name, self.options['path'], fields
           else
             say 'The path does not point to a LocomotiveCMS site', :red
           end

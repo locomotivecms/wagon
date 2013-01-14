@@ -19,14 +19,27 @@ module Locomotive
     # @param [ Hash ] options The options for the thin server (host, port)
     #
     def self.serve(path, options)
-      require "thin"
-      require "locomotive/builder/server"
+      require 'thin'
+      require 'locomotive/builder/server'
       reader = Locomotive::Mounter::Reader::FileSystem.instance
       reader.run!(path: path)
 
       server = Thin::Server.new(options[:host], options[:port], Locomotive::Builder::Server.new(reader))
       # server.threaded = true # TODO: make it an option ?
       server.start
+    end
+
+    # Generate components for the LocomotiveCMS site such as content types, snippets, pages.
+    #
+    # @param [ Symbol ] name The name of the generator
+    # @param [ Array ] *args The arguments for the generator
+    #
+    def self.generate(name, *args)
+      lib = "locomotive/builder/generators/#{name}"
+      require lib
+
+      generator = lib.camelize.constantize.new(args, {}, {})
+      generator.invoke_all
     end
 
     # TODO

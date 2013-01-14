@@ -41,9 +41,9 @@ x content types / liquid
 - tests
 
 - refactoring:
+  x generators/sites -> generators/site
+  x list is only for site generators
   - move the call to the CC generator directly in the builder.rb file
-  - generators/sites -> generators/site
-  - list is only for site generators
 
 *** FEATURES ***
 
