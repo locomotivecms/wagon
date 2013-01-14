@@ -25,9 +25,9 @@ order_by: manually # default: manually, also available: created_at or any field 
 # Emails to be notified on new entries using the public API
 # public_submission_accounts: ['john@acme.net']
 
-# Describe each field
+# Describe each field. The name shoud always be an underscored string
 fields: <% config[:fields].each_with_index do |field, index| %>
-- <%= field.name -%>: # Name of the field - should be a slug
+- <%= field.name -%>: # Name of the field
     label: <%= field.name.humanize %>
     type: <%= field.type %>
     required: <%= index == 0 ? true : field.required %>
@@ -36,20 +36,20 @@ fields: <% config[:fields].each_with_index do |field, index| %>
     # if localized, use
     #   en: ['option1_en', 'option2_en']
     #   fr: ['option1_fr', 'option2_fr']
-    select_options: ['option 1', 'option 2', 'option 3']
-    <% end -%><% if field.type == 'belongs_to' -%>
+    select_options: ['option 1', 'option 2', 'option 3']<% end -%><% if field.type == 'belongs_to'%>
     # Slug of the target content type (eg post if this content type is a comment)
-    class_name: <your class slug>
-    <% end -%><% if field.type == 'has_many' -%>
+    class_name: <your class slug><% end -%><% if field.type == 'has_many' -%>
     # Define the slug of the target content type (eg. comments)
     class_name: <your class slug>
-    # Define the name of the field referring to <%= config[:name].humanize %> in the target content type (eg. post)
+    # Define the name of the field referring to <%= config[:name].humanize -%> in the target content type (eg. post)
     inverse_of: <field in your target content type>
+    # If you want to manage the entries of the relationship directly from the source entry
     ui_enabled: true
     <% end -%><% if field.type == 'many_to_many' -%>
     # Define the slug of the target content type
-    class_name: SLUG OF THE TARGET CONTENT TYPE
-    inverse_of: NAME OF THE FIELD IN THE TARGET CONTENT TYPE
+    class_name: <your class slug>
+    inverse_of: <field in your target content type>
+    # If you want to manage the entries of the relationship directly from the source entry
     ui_enabled: true
     <% end -%>
 

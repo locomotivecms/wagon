@@ -33,6 +33,8 @@ Gem::Specification.new do |gem|
   gem.add_dependency 'will_paginate',       '~> 3.0.3'
   # gem.add_dependency 'locomotivecms_mounter' # remove from Gemfile before adding it here
 
+  gem.add_dependency 'faker',               '~> 0.9.5'
+
   gem.add_development_dependency 'rspec'
   gem.add_development_dependency 'vcr'
   gem.add_development_dependency 'webmock', '~> 1.8.0'

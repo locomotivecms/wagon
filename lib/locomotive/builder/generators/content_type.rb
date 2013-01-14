@@ -2,6 +2,7 @@ require 'thor/group'
 require 'ostruct'
 require 'active_support'
 require 'active_support/core_ext'
+require 'faker'
 
 module Locomotive
   module Builder

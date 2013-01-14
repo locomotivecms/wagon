@@ -14,6 +14,8 @@ module Locomotive
             @_source._permalink.try(:parameterize)
           end
 
+          alias :_slug :_permalink
+
           def next
             self
           end
