@@ -43,16 +43,6 @@ module Locomotive
     end
 
     # TODO
-    def self.pull(path, site_url, email, password)
-      require 'locomotive/mounter'
-
-      reader = Locomotive::Mounter::Reader::Api.instance
-      reader.run!(uri: "#{site_url.chomp('/')}/locomotive/api", email: email, password: password)
-      writer = Locomotive::Mounter::Writer::FileSystem.instance
-      writer.run!(mounting_point: reader.mounting_point, target_path: path)
-    end
-
-    # TODO
     def self.push(path, site_url, email, password)
       require 'locomotive/mounter'
 
@@ -60,6 +50,16 @@ module Locomotive
       reader.run!(path: path)
       writer = Locomotive::Mounter::Writer::Api.instance
       writer.run!(mounting_point: reader.mounting_point, uri: "#{site_url.chomp('/')}/locomotive/api", email: email, password: password)
+    end
+
+    # TODO
+    def self.pull(path, site_url, email, password)
+      require 'locomotive/mounter'
+
+      reader = Locomotive::Mounter::Reader::Api.instance
+      reader.run!(uri: "#{site_url.chomp('/')}/locomotive/api", email: email, password: password)
+      writer = Locomotive::Mounter::Writer::FileSystem.instance
+      writer.run!(mounting_point: reader.mounting_point, target_path: path)
     end
 
   end

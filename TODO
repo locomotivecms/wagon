@@ -36,6 +36,10 @@ x content types / liquid
     - --force option
   - pull
 
+- version checkings:
+  - builder when running it
+  - engine when pushing a site
+
 - translations
 
 - tests

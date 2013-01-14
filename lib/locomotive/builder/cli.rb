@@ -94,15 +94,15 @@ module Locomotive
           Locomotive::Builder.serve(path, options)
         end
 
+        # desc "push [PATH] SITE_URL EMAIL PASSWORD", "Push a site created by the builder to a remote LocomotiveCMS engine"
+        # def push(path, site_url, email, password)
+        #   Locomotive::Builder.push(path, site_url, email, password)
+        # end
+
         # desc "pull NAME SITE_URL EMAIL PASSWORD", "Pull an existing LocomotiveCMS site powered by the engine"
         # def pull(name, site_url, email, password)
         #   say("ERROR: \"#{name}\" directory already exists", :red) and return if File.exists?(name)
         #   Locomotive::Builder.pull(name, site_url, email, password)
-        # end
-
-        # desc "push PATH SITE_URL EMAIL PASSWORD", "Push a site created by the builder to a remote LocomotiveCMS engine"
-        # def push(path, site_url, email, password)
-        #   Locomotive::Builder.push(path, site_url, email, password)
         # end
       end
 
