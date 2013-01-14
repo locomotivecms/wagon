@@ -30,7 +30,7 @@ x content types / liquid
       - copy Bundler / Gemfile
     - content types
       x definitions
-      - data
+      - data (Faker)
   - push:
     - option to select to push only some parts (pages, ...etc)
     - --force option
