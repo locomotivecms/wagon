@@ -1,3 +1,4 @@
+#encoding: utf-8
 require File.dirname(__FILE__) + "/integration_helper"
 require "locomotive/builder/server"
 require "rack/test"
@@ -6,7 +7,7 @@ describe Locomotive::Builder::Server do
   include Rack::Test::Methods
   
   def app
-    import_site
+    pull_site
     reader = Locomotive::Mounter::Reader::FileSystem.instance
     reader.run!(path: "site")
     Locomotive::Builder::Server.new(reader)
@@ -24,6 +25,13 @@ describe Locomotive::Builder::Server do
   
   it "shows content" do
     get '/products/latest'
-    last_response.body.should =~ /The name of the first product is: Useless stuff/
+    last_response.body.should =~ /The name of the latest product is: Useless stuff/
+  end
+  
+  it "translates strings" do
+    get '/en/translated'
+    last_response.body.should =~ /Hello world!/
+    get '/es/translated'
+    last_response.body.should =~ /¡Hola, Mundo!/
   end
 end
