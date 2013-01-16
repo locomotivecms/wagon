@@ -25,7 +25,7 @@ module Locomotive
         def content_type(name, *fields)
           say('The fields are missing', :red) and return false if fields.empty?
 
-          if path = check_path!
+          if check_path!
             Locomotive::Builder.generate :content_type, name, self.options['path'], fields
           else
             say 'The path does not point to a LocomotiveCMS site', :red
@@ -44,16 +44,28 @@ module Locomotive
             * builder generate page about_us/me
         LONGDESC
         def page(fullpath)
-          if path = check_path!
+          if check_path!
             Locomotive::Builder.generate :page, fullpath, self.options['path']
           else
             say 'The path does not point to a LocomotiveCMS site', :red
           end
         end
 
-        desc 'snippet NAME', 'Create a snippet'
-        def snippet(name)
-          puts "TODO [snippet] #{name}"
+        desc 'snippet SLUG', 'Create a snippet'
+        long_desc <<-LONGDESC
+          Create a snippet. The generator will ask for the extension (liquid or haml) and also
+          if the snippet is localized or not.
+
+          Example:
+
+            * builder generate snippet footer
+        LONGDESC
+        def snippet(slug)
+          if check_path!
+            Locomotive::Builder.generate :snippet, slug, self.options['path']
+          else
+            say 'The path does not point to a LocomotiveCMS site', :red
+          end
         end
 
         protected
