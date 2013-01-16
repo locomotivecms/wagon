@@ -32,9 +32,23 @@ module Locomotive
           end
         end
 
-        desc 'page PATH', 'Create a page whose NAME is its fullpath'
-        def page(path)
-          puts "TODO [page] #{path}"
+        desc 'page FULLPATH', 'Create a page. No need to pass an extension to the FULLPATH arg'
+        long_desc <<-LONGDESC
+          Create a page. The generator will ask for the extension (liquid or haml) and also
+          if the page is localized or not.
+
+          Examples:
+
+            * builder generate page contact
+
+            * builder generate page about_us/me
+        LONGDESC
+        def page(fullpath)
+          if path = check_path!
+            Locomotive::Builder.generate :page, fullpath, self.options['path']
+          else
+            say 'The path does not point to a LocomotiveCMS site', :red
+          end
         end
 
         desc 'snippet NAME', 'Create a snippet'
