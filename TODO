@@ -16,33 +16,32 @@ x content types / liquid
   x group_contents_by
   x select_names
 x params to launch the thin server (port, address ?)
-- nice error page (replace the default exception middleware) to display:
-  - liquid errors
-  - other exceptions
-- nice logs
 - commands:
-  - create
-    - sites
+  ! create
+    ! sites
       x blank
       x twitter bootstrap + HAML
       ? localized
       ? boilerplate
-      - copy Bundler / Gemfile (pending)
+      ! copy Bundler / Gemfile (pending)
     x content types
       x definitions
       x data (Faker)
     x page
-    - snippet
+    x snippet
   - push:
     - option to select to push only some parts (pages, ...etc)
     - --force option
+    - pass the shell to the mounter
   - pull
-
+- translations (Rod)
 - version checkings:
   - builder when running it
   - engine when pushing a site
-
-- translations (Rod)
+- nice error page (replace the default exception middleware) to display:
+  - liquid errors
+  - other exceptions
+- nice logs
 
 - tests (Rod/Did)
 

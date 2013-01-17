@@ -42,14 +42,23 @@ module Locomotive
       generator.invoke_all
     end
 
-    # TODO
-    def self.push(path, site_url, email, password)
+    # Push a site to a remote LocomotiveCMS engine described
+    # by the config/deploy.yml file of the site and for a specific environment.
+    #
+    # @param [ String ] path The path of the site
+    # @param [ Hash ] connection_info The information to get connected to the remote site
+    # @param [ Hash ] options The options passed to the push process
+    #
+    def self.push(path, connection_info, options = {})
       require 'locomotive/mounter'
 
-      reader = Locomotive::Mounter::Reader::FileSystem.instance
-      reader.run!(path: path)
-      writer = Locomotive::Mounter::Writer::Api.instance
-      writer.run!(mounting_point: reader.mounting_point, uri: "#{site_url.chomp('/')}/locomotive/api", email: email, password: password)
+      puts "connection_info = #{connection_info}"
+
+      # reader = Locomotive::Mounter::Reader::FileSystem.instance
+      # reader.run!(path: path)
+      # writer = Locomotive::Mounter::Writer::Api.instance
+
+      # writer.run!(mounting_point: reader.mounting_point, uri: "#{site_url.chomp('/')}/locomotive/api", email: email, password: password)
     end
 
     # TODO

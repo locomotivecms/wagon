@@ -5,7 +5,34 @@ module Locomotive
   module Builder
     module CLI
 
+      module CheckPath
+
+        protected
+
+        # Check if the path given in option ('.' by default) points to a LocomotiveCMS
+        # site. It is also possible to pass a path other than the one from the options.
+        #
+        # @param [ String ] path The optional path instead of options['path']
+        #
+        # @return [ String ] The fullpath to the LocomotiveCMS site or nil if it is not a valid site.
+        #
+        def check_path!(path = nil)
+          path ||= options['path']
+
+          path = path == '.' ? Dir.pwd : File.expand_path(path)
+
+          (File.exists?(File.join(path, 'config', 'site.yml')) ? path : nil).tap do |_path|
+            if _path.nil?
+              say 'The path does not point to a LocomotiveCMS site', :red
+            end
+          end
+        end
+
+      end
+
       class Generate < Thor
+
+        include Locomotive::Builder::CLI::CheckPath
 
         class_option :path, aliases: '-p', type: :string, default: '.', optional: true, desc: 'if your LocomotiveCMS site is not in the current path'
 
@@ -27,8 +54,6 @@ module Locomotive
 
           if check_path!
             Locomotive::Builder.generate :content_type, name, self.options['path'], fields
-          else
-            say 'The path does not point to a LocomotiveCMS site', :red
           end
         end
 
@@ -46,8 +71,6 @@ module Locomotive
         def page(fullpath)
           if check_path!
             Locomotive::Builder.generate :page, fullpath, self.options['path']
-          else
-            say 'The path does not point to a LocomotiveCMS site', :red
           end
         end
 
@@ -63,27 +86,14 @@ module Locomotive
         def snippet(slug)
           if check_path!
             Locomotive::Builder.generate :snippet, slug, self.options['path']
-          else
-            say 'The path does not point to a LocomotiveCMS site', :red
           end
-        end
-
-        protected
-
-        # Check if the path given in option ('.' by default) points to a LocomotiveCMS
-        # site.
-        #
-        # @return [ String ] The fullpath to the LocomotiveCMS site or nil if it is not a valid site.
-        #
-        def check_path!
-          path = options['path'] == '.' ? Dir.pwd : File.expand_path(options['path'])
-
-          File.exists?(File.join(path, 'config', 'site.yml')) ? path : nil
         end
 
       end
 
       class Main < Thor
+
+        include Locomotive::Builder::CLI::CheckPath
 
         desc 'init NAME [PATH]', 'Create a brand new LocomotiveCMS site'
         method_option :template, aliases: '-t', type: 'string', default: 'blank', desc: 'instead of building from a blank site, you can have a pre-fetched site with form a template (see the templates command)'
@@ -117,7 +127,27 @@ module Locomotive
         method_option :host, aliases: '-h', type: 'string', default: '0.0.0.0', desc: 'The host (address) of the Thin server'
         method_option :port, aliases: '-p', type: 'string', default: '3333', desc: 'The port of the Thin server'
         def serve(path = '.')
-          Locomotive::Builder.serve(path, options)
+          if check_path!(path)
+            Locomotive::Builder.serve(path, options)
+          end
+        end
+
+        desc 'push ENV [PATH]', 'Push a site to a remote LocomotiveCMS engine'
+        method_option :resources, aliases: '-r', type: 'array', default: [], desc: 'Only push the resource(s) passed in argument'
+        method_option :force, aliases: '-f', type: 'boolean', default: false, desc: 'Force the push of a resource'
+        def push(env, path = '.')
+          if check_path!(path)
+            begin
+              path_to_deploy_file = File.join(path, 'config', 'deploy.yml')
+              connection_info = YAML::load(File.open(path_to_deploy_file).read)[env.to_s]
+
+              raise "No #{env.to_s} environment found in the config/deploy.yml file" if connection_info.nil?
+
+              Locomotive::Builder.push(path, connection_info, options)
+            rescue Exception => e
+              say "Unable to read the information about the remote LocomotiveCMS site (#{e.message})", :red
+            end
+          end
         end
 
         # desc "push [PATH] SITE_URL EMAIL PASSWORD", "Push a site created by the builder to a remote LocomotiveCMS engine"
@@ -130,6 +160,7 @@ module Locomotive
         #   say("ERROR: \"#{name}\" directory already exists", :red) and return if File.exists?(name)
         #   Locomotive::Builder.pull(name, site_url, email, password)
         # end
+
       end
 
     end
