@@ -128,38 +128,73 @@ module Locomotive
         method_option :port, aliases: '-p', type: 'string', default: '3333', desc: 'The port of the Thin server'
         def serve(path = '.')
           if check_path!(path)
-            Locomotive::Builder.serve(path, options)
-          end
-        end
-
-        desc 'push ENV [PATH]', 'Push a site to a remote LocomotiveCMS engine'
-        method_option :resources, aliases: '-r', type: 'array', default: [], desc: 'Only push the resource(s) passed in argument'
-        method_option :force, aliases: '-f', type: 'boolean', default: false, desc: 'Force the push of a resource'
-        def push(env, path = '.')
-          if check_path!(path)
             begin
-              path_to_deploy_file = File.join(path, 'config', 'deploy.yml')
-              connection_info = YAML::load(File.open(path_to_deploy_file).read)[env.to_s]
-
-              raise "No #{env.to_s} environment found in the config/deploy.yml file" if connection_info.nil?
-
-              Locomotive::Builder.push(path, connection_info, options)
+              Locomotive::Builder.serve(path, options)
             rescue Exception => e
-              say "Unable to read the information about the remote LocomotiveCMS site (#{e.message})", :red
+              say e.message, :red
             end
           end
         end
 
-        # desc "push [PATH] SITE_URL EMAIL PASSWORD", "Push a site created by the builder to a remote LocomotiveCMS engine"
-        # def push(path, site_url, email, password)
-        #   Locomotive::Builder.push(path, site_url, email, password)
-        # end
+        desc 'push ENV [PATH]', 'Push a site to a remote LocomotiveCMS engine'
+        method_option :resources, aliases: '-r', type: 'array', default: nil, desc: 'Only push the resource(s) passed in argument'
+        method_option :force, aliases: '-f', type: 'boolean', default: false, desc: 'Force the push of a resource'
+        method_option :data, aliases: '-d', type: 'boolean', default: false, desc: 'Push the content entries and the editable elements (by default, they are not)'
+        def push(env, path = '.')
+          if check_path!(path)
+            if connection_info = self.retrieve_connection_info(env, path)
+              begin
+                Locomotive::Builder.push(path, connection_info, options)
+              rescue Exception => e
+                say e.message, :red
+              end
+            end
+          end
+        end
+
+        desc 'destroy ENV [PATH]', 'Destroy a remote LocomotiveCMS engine'
+        def destroy(env, path = '.')
+          if check_path!(path)
+            if connection_info = self.retrieve_connection_info(env, path)
+              if ask('Are you sure ?', limited_to: %w(yes no)) == 'yes'
+                Locomotive::Builder.destroy(path, connection_info)
+              else
+                say 'The destroy operation has been cancelled', :red
+              end
+            end
+          end
+        end
 
         # desc "pull NAME SITE_URL EMAIL PASSWORD", "Pull an existing LocomotiveCMS site powered by the engine"
         # def pull(name, site_url, email, password)
         #   say("ERROR: \"#{name}\" directory already exists", :red) and return if File.exists?(name)
         #   Locomotive::Builder.pull(name, site_url, email, password)
         # end
+
+        protected
+
+        # From a site specified by a path, retrieve the information of the connection
+        # for a environment located in the config/deploy.yml file of the site.
+        #
+        # @param [ String ] env The environment (development, staging, production, ...etc)
+        # @param [ String ] path The path of the local site
+        #
+        # @return [ Hash ] The information of the connection or nil if errors
+        #
+        def retrieve_connection_info(env, path)
+          connection_info = nil
+          begin
+            path_to_deploy_file = File.join(path, 'config', 'deploy.yml')
+            connection_info = YAML::load(File.open(path_to_deploy_file).read)[env.to_s]
+
+            if connection_info.nil?
+              raise "No #{env.to_s} environment found in the config/deploy.yml file"
+            end
+          rescue Exception => e
+            say "Unable to read the information about the remote LocomotiveCMS site (#{e.message})", :red
+          end
+          connection_info
+        end
 
       end
 

@@ -30,9 +30,9 @@ x params to launch the thin server (port, address ?)
     x page
     x snippet
   - push:
-    - option to select to push only some parts (pages, ...etc)
-    - --force option
-    - pass the shell to the mounter
+    x option to select to push only some parts (pages, ...etc)
+    x --force option
+    - more tests
   - pull
 - translations (Rod)
 - version checkings:

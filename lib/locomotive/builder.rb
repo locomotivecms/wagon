@@ -1,4 +1,5 @@
 require 'locomotive/builder/version'
+require 'locomotive/builder/exceptions'
 
 module Locomotive
   module Builder
@@ -19,14 +20,14 @@ module Locomotive
     # @param [ Hash ] options The options for the thin server (host, port)
     #
     def self.serve(path, options)
-      require 'thin'
-      require 'locomotive/builder/server'
-      reader = Locomotive::Mounter::Reader::FileSystem.instance
-      reader.run!(path: path)
+      if reader = self.require_mounter(path, true)
+        require 'thin'
+        require 'locomotive/builder/server'
 
-      server = Thin::Server.new(options[:host], options[:port], Locomotive::Builder::Server.new(reader))
-      # server.threaded = true # TODO: make it an option ?
-      server.start
+        server = Thin::Server.new(options[:host], options[:port], Locomotive::Builder::Server.new(reader))
+        # server.threaded = true # TODO: make it an option ?
+        server.start
+      end
     end
 
     # Generate components for the LocomotiveCMS site such as content types, snippets, pages.
@@ -50,26 +51,71 @@ module Locomotive
     # @param [ Hash ] options The options passed to the push process
     #
     def self.push(path, connection_info, options = {})
-      require 'locomotive/mounter'
+      if reader = self.require_mounter(path, true)
+        writer = Locomotive::Mounter::Writer::Api.instance
 
-      puts "connection_info = #{connection_info}"
+        connection_info['uri'] = "#{connection_info.delete('host')}/locomotive/api"
 
-      # reader = Locomotive::Mounter::Reader::FileSystem.instance
-      # reader.run!(path: path)
-      # writer = Locomotive::Mounter::Writer::Api.instance
+        _options = { mounting_point: reader.mounting_point, console: true }.merge(options)
+        _options[:only] = _options.delete(:resouces)
 
-      # writer.run!(mounting_point: reader.mounting_point, uri: "#{site_url.chomp('/')}/locomotive/api", email: email, password: password)
+        writer.run!(_options.merge(connection_info))
+      end
+    end
+
+    # Destroy a remote site
+    #
+    # @param [ String ] path The path of the site
+    # @param [ Hash ] connection_info The information to get connected to the remote site
+    # @param [ Hash ] options The options passed to the push process
+    #
+    def self.destroy(path, connection_info, options = {})
+      self.require_mounter(path)
+
+      connection_info['uri'] = "#{connection_info.delete('host')}/locomotive/api"
+
+      Locomotive::Mounter::EngineApi.set_token connection_info.symbolize_keys
+      Locomotive::Mounter::EngineApi.delete('/current_site.json')
     end
 
     # TODO
     def self.pull(path, site_url, email, password)
-      require 'locomotive/mounter'
+      self.require_mounter(path)
 
       reader = Locomotive::Mounter::Reader::Api.instance
       reader.run!(uri: "#{site_url.chomp('/')}/locomotive/api", email: email, password: password)
       writer = Locomotive::Mounter::Writer::FileSystem.instance
       writer.run!(mounting_point: reader.mounting_point, target_path: path)
     end
+
+    # Load the Locomotive::Mounter lib and set it up (logger, ...etc).
+    # If the second parameter is set to true, then the method builds
+    # an instance of the reader from the path passed in first parameter.
+    #
+    # @param [ String ] path The path to the local site
+    # @param [ Boolean ] get_reader Tell if it builds an instance of the reader.
+    #
+    # @param [ Object ] An instance of the reader is the get_reader parameter has been set.
+    #
+    def self.require_mounter(path, get_reader = false)
+      require 'locomotive/mounter'
+
+      logfile = File.join(path, 'log', 'mounter.log')
+      FileUtils.mkdir_p(File.dirname(logfile))
+
+      Locomotive::Mounter.logger = ::Logger.new(logfile).tap do |log|
+        log.level = Logger::DEBUG
+      end
+
+      begin
+        reader = Locomotive::Mounter::Reader::FileSystem.instance
+        reader.run!(path: path)
+        reader
+      rescue Exception => e
+        raise Locomotive::Builder::MounterException.new "Unable to read the local LocomotiveCMS site: #{e.message}\nPlease check the logs file (#{path}/log/mounter.log)"
+      end
+    end
+
 
   end
 end

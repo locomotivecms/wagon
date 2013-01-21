@@ -32,7 +32,9 @@ fields: <% config[:fields].each_with_index do |field, index| %>
     type: <%= field.type %>
     required: <%= index == 0 ? true : field.required %>
     hint: A description of the field for the editors
-    localized: false<% if field.type == 'select' -%>
+    localized: false<% if field.type == 'text' %>
+    # Enable or not the RTE [html|text]
+    # text_formatting: html<% end -%><% if field.type == 'select' -%>
     # if localized, use
     #   en: ['option1_en', 'option2_en']
     #   fr: ['option1_fr', 'option2_fr']
