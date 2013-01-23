@@ -152,6 +152,22 @@ module Locomotive
           end
         end
 
+        desc 'pull ENV [PATH]', 'Pull a site from a remote LocomotiveCMS engine'
+        method_option :resources, aliases: '-r', type: 'array', default: nil, desc: 'Only push the resource(s) passed in argument'
+        # method_option :force, aliases: '-f', type: 'boolean', default: false, desc: 'Force the push of a resource'
+        # method_option :data, aliases: '-d', type: 'boolean', default: false, desc: 'Push the content entries and the editable elements (by default, they are not)'
+        def pull(env, path = '.')
+          if check_path!(path)
+            if connection_info = self.retrieve_connection_info(env, path)
+              begin
+                Locomotive::Builder.pull(path, connection_info, options)
+              rescue Exception => e
+                say e.message, :red
+              end
+            end
+          end
+        end
+
         desc 'destroy ENV [PATH]', 'Destroy a remote LocomotiveCMS engine'
         def destroy(env, path = '.')
           if check_path!(path)

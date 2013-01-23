@@ -57,10 +57,39 @@ module Locomotive
         connection_info['uri'] = "#{connection_info.delete('host')}/locomotive/api"
 
         _options = { mounting_point: reader.mounting_point, console: true }.merge(options)
-        _options[:only] = _options.delete(:resouces)
+        _options[:only] = _options.delete(:resources)
 
         writer.run!(_options.merge(connection_info))
       end
+    end
+
+    # Pull a site from a remote LocomotiveCMS engine described
+    # by the config/deploy.yml file of the site and for a specific environment.
+    #
+    # @param [ String ] path The path of the site
+    # @param [ Hash ] connection_info The information to get connected to the remote site
+    # @param [ Hash ] options The options passed to the pull process
+    #
+    def self.pull(path, connection_info, options = {})
+      puts "loading locomotive mounter"
+      self.require_mounter(path)
+
+      connection_info['uri'] = "#{connection_info.delete('host')}/locomotive/api"
+
+      _options = { console: true }.merge(options)
+      _options[:only] = _options.delete(:resources)
+
+      puts "============="
+
+      reader = Locomotive::Mounter::Reader::Api.instance
+      reader.run!(_options.merge(connection_info))
+
+      puts "------------"
+
+      # writer = Locomotive::Mounter::Writer::FileSystem.instance
+      # writer.run!(mounting_point: reader.mounting_point, target_path: path)
+    rescue Exception => e
+      puts e.backtrace
     end
 
     # Destroy a remote site
@@ -76,16 +105,6 @@ module Locomotive
 
       Locomotive::Mounter::EngineApi.set_token connection_info.symbolize_keys
       Locomotive::Mounter::EngineApi.delete('/current_site.json')
-    end
-
-    # TODO
-    def self.pull(path, site_url, email, password)
-      self.require_mounter(path)
-
-      reader = Locomotive::Mounter::Reader::Api.instance
-      reader.run!(uri: "#{site_url.chomp('/')}/locomotive/api", email: email, password: password)
-      writer = Locomotive::Mounter::Writer::FileSystem.instance
-      writer.run!(mounting_point: reader.mounting_point, target_path: path)
     end
 
     # Load the Locomotive::Mounter lib and set it up (logger, ...etc).
@@ -113,7 +132,7 @@ module Locomotive
         reader
       rescue Exception => e
         raise Locomotive::Builder::MounterException.new "Unable to read the local LocomotiveCMS site: #{e.message}\nPlease check the logs file (#{path}/log/mounter.log)"
-      end
+      end if get_reader
     end
 
 
