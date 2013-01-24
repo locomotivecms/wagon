@@ -1,3 +1,5 @@
+source 'https://rubygems.org'
+
 # gem 'locomotive_builder', require: true
 
 # DEV

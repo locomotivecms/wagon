@@ -21,6 +21,8 @@ module Locomotive
     #
     def self.serve(path, options)
       if reader = self.require_mounter(path, true)
+        Bundler.require 'misc'
+
         require 'thin'
         require 'locomotive/builder/server'
 
@@ -131,6 +133,7 @@ module Locomotive
         reader.run!(path: path)
         reader
       rescue Exception => e
+        Locomotive::Mounter.logger.error e.backtrace
         raise Locomotive::Builder::MounterException.new "Unable to read the local LocomotiveCMS site: #{e.message}\nPlease check the logs file (#{path}/log/mounter.log)"
       end if get_reader
     end

@@ -7,7 +7,7 @@ module Locomotive
           delegate :name, :seo_title, :meta_description, :meta_keywords, :to => '_source'
 
           def index
-            @index ||= @_source.lookup_page('index')
+            @index ||= self.mounting_point.pages['index']
           end
 
           def pages
