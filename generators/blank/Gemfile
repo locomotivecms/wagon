@@ -1,19 +1,20 @@
 source 'https://rubygems.org'
 
-# gem 'locomotive_builder', require: true
+# ruby '1.9.3'
 
-# DEV
-gem 'locomotivecms_mounter', '~> 1.0.0.rc1'
 gem 'locomotivecms_builder', '~> 1.0.0.rc1'
 
-# Mac OS X
-gem 'rb-fsevent', '~> 0.9.1'
+group :development do
+  # Mac OS X
+  gem 'rb-fsevent', '~> 0.9.1', :require => RUBY_PLATFORM.include?('darwin') && 'rb-fsevent'
 
-# Linux
-# TODO
+  # TODO: Linux
 
-# Windows
-# TODO
+  # TODO: Windows
+end
 
-# add your other gems here
-
+group :misc do
+  # Add your extra gems here
+  # gem 'susy', require: 'susy'
+  # gem 'redcarpet', require: 'redcarpet'
+end

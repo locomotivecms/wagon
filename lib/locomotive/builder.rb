@@ -77,7 +77,6 @@ module Locomotive
     # @param [ Hash ] options The options passed to the pull process
     #
     def self.pull(path, connection_info, options = {})
-      puts "loading locomotive mounter"
       self.require_mounter(path)
 
       Bundler.require 'misc'
@@ -87,12 +86,8 @@ module Locomotive
       _options = { console: true }.merge(options)
       _options[:only] = _options.delete(:resources)
 
-      puts "============="
-
       reader = Locomotive::Mounter::Reader::Api.instance
       reader.run!(_options.merge(connection_info))
-
-      puts "------------"
 
       # writer = Locomotive::Mounter::Writer::FileSystem.instance
       # writer.run!(mounting_point: reader.mounting_point, target_path: path)

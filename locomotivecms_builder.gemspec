@@ -10,7 +10,7 @@ Gem::Specification.new do |gem|
   gem.email         = ['did@locomotivecms.com', 'papipo@gmail.com']
   gem.description   = %q{The LocomotiveCMS builder is a site generator for the LocomotiveCMS engine}
   gem.summary       = %q{The LocomotiveCMS builder is a site generator for the LocomotiveCMS engine powered by all the efficient and modern HTML development tools (Haml, SASS, Compass, Less).}
-  gem.homepage      = ''
+  gem.homepage      = 'http://www.locomotivecms.com'
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
