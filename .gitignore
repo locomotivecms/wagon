@@ -1,4 +1,8 @@
+.DS_Store
 site
+tests
+.sass-cache
+.rbenv-gemsets
 *.gem
 *.rbc
 .bundle
