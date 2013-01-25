@@ -19,13 +19,15 @@ require 'locomotive/builder/misc'
 module Locomotive::Builder
   class Server
 
-    def initialize(reader)
+    def initialize(reader, options = {})
       Locomotive::Builder::Dragonfly.setup!(reader.mounting_point.path)
 
       @reader = reader
       @app    = self.create_rack_app(@reader)
 
-      Locomotive::Builder::Listen.instance.start(@reader)
+      unless options[:disable_listen]
+        Locomotive::Builder::Listen.instance.start(@reader)
+      end
     end
 
     def call(env)
