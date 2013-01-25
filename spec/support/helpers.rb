@@ -4,9 +4,9 @@ module Spec
       FileUtils.rm_rf(File.expand_path('../../../site', __FILE__))
     end
     
-    def pull_site
+    def clone_site
       VCR.use_cassette('pull') do
-        Locomotive::Builder.pull("site", "http://locomotive.engine.dev:3000", "admin@locomotivecms.com", "locomotive")
+        Locomotive::Builder.clone("site", {"host" => "locomotive.engine.dev:3000"}, "email" => "admin@locomotivecms.com", "password" => "locomotive")
       end
     end
   end

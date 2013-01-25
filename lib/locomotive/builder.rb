@@ -99,6 +99,27 @@ module Locomotive
     rescue Exception => e
       puts e.backtrace
     end
+    
+    def self.clone(path, connection_info, options = {})
+      if File.exists?(path)
+        puts "Path already exists. If it's an existing site, you might want to pull instead of clone."
+        return false
+      end
+      require 'locomotive/mounter'
+      
+      connection_info['uri'] = "#{connection_info.delete('host')}/locomotive/api"
+
+      _options = options.dup
+      _options[:only] = _options.delete(:resources)
+
+      reader = Locomotive::Mounter::Reader::Api.instance
+      reader.run!(_options.merge(connection_info))
+
+      writer = Locomotive::Mounter::Writer::FileSystem.instance
+      writer.run!(mounting_point: reader.mounting_point, target_path: path)
+    # rescue Exception => e
+    #   puts e.backtrace
+    end
 
     # Destroy a remote site
     #

@@ -1,4 +1,4 @@
-#encoding: utf-8
+# encoding: utf-8
 require File.dirname(__FILE__) + "/integration_helper"
 require "locomotive/builder/server"
 require "rack/test"
@@ -7,7 +7,7 @@ describe Locomotive::Builder::Server do
   include Rack::Test::Methods
   
   def app
-    pull_site
+    clone_site
     reader = Locomotive::Mounter::Reader::FileSystem.instance
     reader.run!(path: "site")
     Locomotive::Builder::Server.new(reader)

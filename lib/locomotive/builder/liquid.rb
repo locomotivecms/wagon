@@ -1,9 +1,11 @@
+require "locomotive/mounter"
 require 'liquid'
 require 'locomotive/builder/liquid/drops/base'
 
 %w{. drops tags filters}.each do |dir|
   Dir[File.join(File.dirname(__FILE__), 'liquid', dir, '*.rb')].each { |lib| require lib }
 end
+
 
 # add to_liquid methods to main models from the mounter
 %w{site page content_entry}.each do |name|

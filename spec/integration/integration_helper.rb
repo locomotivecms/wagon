@@ -1,6 +1,7 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 require 'vcr'
 require 'webmock/rspec'
+require 'active_support/core_ext'
 
 VCR.configure do |c|
   c.ignore_localhost = false
