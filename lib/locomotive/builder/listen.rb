@@ -19,7 +19,7 @@ module Locomotive::Builder
 
     def definitions
       [
-        ['config', /\.yml/, [:site, :content_types, :pages, :snippets, :content_entries]],
+        ['config', /\.yml/, [:site, :content_types, :pages, :snippets, :content_entries, :translations]],
         ['app/views', /\.liquid/, [:pages, :snippets]],
         ['app/content_types', /\.yml/, [:content_types, :content_entries]],
         ['data', /\.yml/, :content_entries]
