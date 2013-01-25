@@ -27,7 +27,7 @@ module Locomotive
         require 'locomotive/builder/server'
 
         server = Thin::Server.new(options[:host], options[:port], Locomotive::Builder::Server.new(reader))
-        # server.threaded = true # TODO: make it an option ?
+        server.threaded = true # TODO: make it an option ?
         server.start
       end
     end
@@ -38,6 +38,8 @@ module Locomotive
     # @param [ Array ] *args The arguments for the generator
     #
     def self.generate(name, *args)
+      Bundler.require 'misc'
+
       lib = "locomotive/builder/generators/#{name}"
       require lib
 
@@ -54,11 +56,13 @@ module Locomotive
     #
     def self.push(path, connection_info, options = {})
       if reader = self.require_mounter(path, true)
+        Bundler.require 'misc'
+
         writer = Locomotive::Mounter::Writer::Api.instance
 
         connection_info['uri'] = "#{connection_info.delete('host')}/locomotive/api"
 
-        _options = { mounting_point: reader.mounting_point, console: true }.merge(options)
+        _options = { mounting_point: reader.mounting_point, console: true }.merge(options).symbolize_keys
         _options[:only] = _options.delete(:resources)
 
         writer.run!(_options.merge(connection_info))
@@ -75,6 +79,8 @@ module Locomotive
     def self.pull(path, connection_info, options = {})
       puts "loading locomotive mounter"
       self.require_mounter(path)
+
+      Bundler.require 'misc'
 
       connection_info['uri'] = "#{connection_info.delete('host')}/locomotive/api"
 
@@ -128,14 +134,16 @@ module Locomotive
         log.level = Logger::DEBUG
       end
 
-      begin
+      # begin
+      if get_reader
         reader = Locomotive::Mounter::Reader::FileSystem.instance
         reader.run!(path: path)
         reader
-      rescue Exception => e
-        Locomotive::Mounter.logger.error e.backtrace
-        raise Locomotive::Builder::MounterException.new "Unable to read the local LocomotiveCMS site: #{e.message}\nPlease check the logs file (#{path}/log/mounter.log)"
-      end if get_reader
+      end
+      # rescue Exception => e
+        # Locomotive::Mounter.logger.error e.backtrace
+        # raise Locomotive::Builder::MounterException.new "Unable to read the local LocomotiveCMS site: #{e.message}\nPlease check the logs file (#{path}/log/mounter.log)"
+      # end if get_reader
     end
 
 

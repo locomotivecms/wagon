@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
-# FIXME: needed if you don't launch it with bundler
-# $:.unshift(File.expand_path(File.dirname(__FILE__) + '/../lib'))
+# needed if you launch it without bundler
+$:.unshift(File.expand_path(File.dirname(__FILE__) + '/../lib'))
 
 require 'locomotive/builder'
 require 'locomotive/builder/cli'

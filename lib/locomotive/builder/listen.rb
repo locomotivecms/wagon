@@ -35,6 +35,7 @@ module Locomotive::Builder
 
       filter  = definition[1]
       path    = File.join(self.reader.mounting_point.path, definition.first)
+      path    = File.expand_path(path)
 
       listener = ::Listen.to(path).filter(filter).change(&reloader)
 

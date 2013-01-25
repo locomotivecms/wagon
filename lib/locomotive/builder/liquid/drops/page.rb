@@ -7,7 +7,9 @@ module Locomotive
           delegate :title, :slug, :fullpath, :parent, :depth, :seo_title, :redirect_url, :meta_description, :meta_keywords, :to => '_source'
 
           def children
-            @children ||= liquify(*@_source.children)
+            _children = @_source.children || []
+            _children = _children.sort { |a, b| a.position.to_i <=> b.position.to_i }
+            @children ||= liquify(*_children)
           end
 
           def published?

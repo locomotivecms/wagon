@@ -7,8 +7,6 @@ end
 
 # add to_liquid methods to main models from the mounter
 %w{site page content_entry}.each do |name|
-  # require "locomotive/mounter/models/#{name}"
-
   klass = "Locomotive::Mounter::Models::#{name.classify}".constantize
 
   klass.class_eval <<-EOV
@@ -17,5 +15,3 @@ end
     end
   EOV
 end
-
-# ::Liquid::Template.file_system = Locomotive::Builder::Liquid::TemplateFileSystem.new(LocomotiveEditor.site_templates_root)
