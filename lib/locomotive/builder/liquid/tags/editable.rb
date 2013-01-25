@@ -1,0 +1,5 @@
+require 'locomotive/builder/liquid/tags/editable/base'
+require 'locomotive/builder/liquid/tags/editable/short_text'
+require 'locomotive/builder/liquid/tags/editable/long_text'
+require 'locomotive/builder/liquid/tags/editable/file'
+require 'locomotive/builder/liquid/tags/editable/control'

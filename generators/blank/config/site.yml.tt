@@ -1,0 +1,16 @@
+# TODO: explain it
+name: <%= config[:name] %>
+
+# TODO: explain it
+# subdomain: sample
+
+# TODO: explain it
+# domains: [www.example.com, example.com]
+
+# TODO: explain it
+locales: [en]
+
+# TODO: explain it
+seo_title: <%= @name %>
+meta_keywords: "some meta keywords"
+meta_description: "some meta description"

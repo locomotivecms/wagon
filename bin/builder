@@ -1,5 +1,9 @@
 #!/usr/bin/env ruby
-require "locomotive/builder"
-require "locomotive/builder/cli"
 
-Locomotive::Builder::CLI.start
+# needed if you launch it without bundler
+$:.unshift(File.expand_path(File.dirname(__FILE__) + '/../lib'))
+
+require 'locomotive/builder'
+require 'locomotive/builder/cli'
+
+Locomotive::Builder::CLI::Main.start

@@ -1,0 +1,12 @@
+development:
+  host: dev.example.com
+  email: john@doe.net
+  password: apassword
+staging:
+  host: staging.example.com
+  email: john@doe.net
+  password: apassword
+production:
+  host: www.example.com
+  email: john@doe.net
+  password: apassword

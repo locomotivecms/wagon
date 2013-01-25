@@ -1,0 +1,35 @@
+---
+title: <%= config[:slug].humanize -%>
+<% if config[:translated] %>
+
+# TODO: explain it (used only if the page is not for the defaut locale)
+slug: <%= config[:slug] -%>
+<% end %>
+
+# TODO: explain it
+listed: true
+
+# TODO: explain it
+published: true
+
+# TODO: explain it
+# position: 1
+
+# TODO: explain it
+# redirect_url: "<url to a page or to a remote url>"
+
+# TODO: explain it
+# content_type: "<slug of one of the content types>"
+
+# TODO: explain it
+# editable_elements:
+#   'some_block/some_slug': "<text>"
+#   'some_block/some_slug': "<relative path to the file under the public/samples folder>"
+---
+{% extends parent %}
+
+{% block main %}
+
+%p Hello world
+
+{% endblock %}

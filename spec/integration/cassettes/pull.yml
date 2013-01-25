@@ -1,0 +1,590 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://locomotive.engine.dev:3000/locomotive/api/tokens.json
+    body:
+      encoding: US-ASCII
+      string: email=admin%40locomotivecms.com&password=locomotive
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ! 'OK '
+    headers:
+      Location:
+      - http://locomotive.engine.dev:3000/locomotive/
+      Content-Type:
+      - application/json; charset=utf-8
+      X-Ua-Compatible:
+      - IE=Edge
+      Etag:
+      - ! '"e29ee4caaed0880055c032e8a8586878"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 59f2d2115fdeb2d7c49b02418d27eae4
+      X-Runtime:
+      - '0.013383'
+      Content-Length:
+      - '32'
+      Server:
+      - WEBrick/1.3.1 (Ruby/1.9.3/2012-11-10)
+      Date:
+      - Thu, 24 Jan 2013 10:44:23 GMT
+      Connection:
+      - Keep-Alive
+      Set-Cookie:
+      - _dummy_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFRkkiJWNmNzczNTRhZjYzNWI0YjI4MDE0NjM0YTYzOTEzMTg1BjsAVEkiCmZsYXNoBjsARm86JUFjdGlvbkRpc3BhdGNoOjpGbGFzaDo6Rmxhc2hIYXNoCToKQHVzZWRvOghTZXQGOgpAaGFzaHsAOgxAY2xvc2VkRjoNQGZsYXNoZXN7BjoLbm90aWNlSUM6HkFjdGl2ZVN1cHBvcnQ6OlNhZmVCdWZmZXIiI0hhc2ggd2FzIHN1Y2Nlc3NmdWxseSBjcmVhdGVkLgc7AFQ6D0BodG1sX3NhZmVUOglAbm93MA%3D%3D--caf0dc8a7bcb6597e57a691cd94ffb4436ac1388;
+        domain=.engine.dev; path=/; HttpOnly
+    body:
+      encoding: US-ASCII
+      string: ! '{"token":"jKkxPorzWo8uNYUxiiQC"}'
+    http_version: 
+  recorded_at: Thu, 24 Jan 2013 10:44:23 GMT
+- request:
+    method: get
+    uri: http://locomotive.engine.dev:3000/locomotive/api/current_site.json?auth_token=jKkxPorzWo8uNYUxiiQC
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ! 'OK '
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      X-Ua-Compatible:
+      - IE=Edge
+      Etag:
+      - ! '"116f03a67f2d85f59d9496bc0fd26224"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - faf1e65df83529834e55bf98fa2bb4f5
+      X-Runtime:
+      - '0.018925'
+      Content-Length:
+      - '562'
+      Server:
+      - WEBrick/1.3.1 (Ruby/1.9.3/2012-11-10)
+      Date:
+      - Thu, 24 Jan 2013 10:44:23 GMT
+      Connection:
+      - Keep-Alive
+      Set-Cookie:
+      - _dummy_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFRkkiJTk4ZjhhYThkMjI1M2Q1YTg4YjFjZWUwM2JmODEwYWU1BjsAVEkiJ3dhcmRlbi51c2VyLmxvY29tb3RpdmVfYWNjb3VudC5rZXkGOwBUWwhJIhhMb2NvbW90aXZlOjpBY2NvdW50BjsARlsGbzoTQlNPTjo6T2JqZWN0SWQGOgpAZGF0YVsRaVZpBmkUaQHSaQHIaTFpAdFpdml%2BaQBpAGkJSSIZM1E2OFRtN0c4MUV4RkhiWjc3R3gGOwBU--7d724604c6d9d346bc05f19ae86b8aee2c0cd574;
+        domain=.engine.dev; path=/; HttpOnly
+    body:
+      encoding: US-ASCII
+      string: ! '{"id":"51010fd2c82cd17179000001","_id":"51010fd2c82cd17179000001","created_at":"2013-01-24T11:41:22+01:00","updated_at":"2013-01-24T11:43:08+01:00","name":"locomotive","locales":["en","es"],"subdomain":"locomotive","domains":["locomotive.engine.dev"],"domains_without_subdomain":[],"domain_name":"engine.dev","memberships":[{"id":"51010fd2c82cd17179000005","_id":"51010fd2c82cd17179000005","role":"admin","role_name":"Administrator","can_update":false,"grant_admin":true,"account_id":"51010fd2c82cd17179000004","name":"Admin","email":"admin@locomotivecms.com"}]}'
+    http_version: 
+  recorded_at: Thu, 24 Jan 2013 10:44:23 GMT
+- request:
+    method: get
+    uri: http://locomotive.engine.dev:3000/locomotive/api/current_site.json?auth_token=jKkxPorzWo8uNYUxiiQC&locale=es
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ! 'OK '
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      X-Ua-Compatible:
+      - IE=Edge
+      Etag:
+      - ! '"290f92414519318b73a02cf9bd36344d"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 08614ed46539674ed8c2016ea4fdcf0c
+      X-Runtime:
+      - '0.017585'
+      Content-Length:
+      - '562'
+      Server:
+      - WEBrick/1.3.1 (Ruby/1.9.3/2012-11-10)
+      Date:
+      - Thu, 24 Jan 2013 10:44:23 GMT
+      Connection:
+      - Keep-Alive
+      Set-Cookie:
+      - _dummy_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFRkkiJTBlNzZhZjYzZjFjMTk3MzcwNzQ2MDFmMmVlZWY2OWQ1BjsAVEkiJ3dhcmRlbi51c2VyLmxvY29tb3RpdmVfYWNjb3VudC5rZXkGOwBUWwhJIhhMb2NvbW90aXZlOjpBY2NvdW50BjsARlsGbzoTQlNPTjo6T2JqZWN0SWQGOgpAZGF0YVsRaVZpBmkUaQHSaQHIaTFpAdFpdml%2BaQBpAGkJSSIZM1E2OFRtN0c4MUV4RkhiWjc3R3gGOwBU--9bf1249cfa3e46432f1c7dd3e8a2594b03bdaf9a;
+        domain=.engine.dev; path=/; HttpOnly
+    body:
+      encoding: US-ASCII
+      string: ! '{"id":"51010fd2c82cd17179000001","_id":"51010fd2c82cd17179000001","created_at":"2013-01-24T11:41:22+01:00","updated_at":"2013-01-24T11:43:08+01:00","name":"locomotive","locales":["en","es"],"subdomain":"locomotive","domains":["locomotive.engine.dev"],"domains_without_subdomain":[],"domain_name":"engine.dev","memberships":[{"id":"51010fd2c82cd17179000005","_id":"51010fd2c82cd17179000005","role":"admin","role_name":"Administrador","can_update":false,"grant_admin":true,"account_id":"51010fd2c82cd17179000004","name":"Admin","email":"admin@locomotivecms.com"}]}'
+    http_version: 
+  recorded_at: Thu, 24 Jan 2013 10:44:23 GMT
+- request:
+    method: get
+    uri: http://locomotive.engine.dev:3000/locomotive/api/content_assets.json?auth_token=jKkxPorzWo8uNYUxiiQC
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ! 'OK '
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      X-Ua-Compatible:
+      - IE=Edge
+      Etag:
+      - ! '"d751713988987e9331980363e24189ce"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - a50fd6835cceb48a63a17a91bad6a420
+      X-Runtime:
+      - '0.021747'
+      Content-Length:
+      - '2'
+      Server:
+      - WEBrick/1.3.1 (Ruby/1.9.3/2012-11-10)
+      Date:
+      - Thu, 24 Jan 2013 10:44:23 GMT
+      Connection:
+      - Keep-Alive
+      Set-Cookie:
+      - _dummy_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFRkkiJTllNGJlZWRkZjc5YTVlNjE0OWJlZTBiOGEyYzQ1YmJlBjsAVEkiJ3dhcmRlbi51c2VyLmxvY29tb3RpdmVfYWNjb3VudC5rZXkGOwBUWwhJIhhMb2NvbW90aXZlOjpBY2NvdW50BjsARlsGbzoTQlNPTjo6T2JqZWN0SWQGOgpAZGF0YVsRaVZpBmkUaQHSaQHIaTFpAdFpdml%2BaQBpAGkJSSIZM1E2OFRtN0c4MUV4RkhiWjc3R3gGOwBU--f810b26e5dc1a0555d604fa40848d116eddab440;
+        domain=.engine.dev; path=/; HttpOnly
+    body:
+      encoding: US-ASCII
+      string: ! '[]'
+    http_version: 
+  recorded_at: Thu, 24 Jan 2013 10:44:23 GMT
+- request:
+    method: get
+    uri: http://locomotive.engine.dev:3000/locomotive/api/snippets.json?auth_token=jKkxPorzWo8uNYUxiiQC
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ! 'OK '
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      X-Ua-Compatible:
+      - IE=Edge
+      Etag:
+      - ! '"d751713988987e9331980363e24189ce"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 4852e41984215bb29e898dd321ddeea8
+      X-Runtime:
+      - '0.020064'
+      Content-Length:
+      - '2'
+      Server:
+      - WEBrick/1.3.1 (Ruby/1.9.3/2012-11-10)
+      Date:
+      - Thu, 24 Jan 2013 10:44:23 GMT
+      Connection:
+      - Keep-Alive
+      Set-Cookie:
+      - _dummy_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFRkkiJTI4OWY1ZTBmMjc2NGZiZTc5NDNiYzQ3MDM2MjFlMWM3BjsAVEkiJ3dhcmRlbi51c2VyLmxvY29tb3RpdmVfYWNjb3VudC5rZXkGOwBUWwhJIhhMb2NvbW90aXZlOjpBY2NvdW50BjsARlsGbzoTQlNPTjo6T2JqZWN0SWQGOgpAZGF0YVsRaVZpBmkUaQHSaQHIaTFpAdFpdml%2BaQBpAGkJSSIZM1E2OFRtN0c4MUV4RkhiWjc3R3gGOwBU--25fd219d6f35dda262d9a3201096a073b1f1cd8d;
+        domain=.engine.dev; path=/; HttpOnly
+    body:
+      encoding: US-ASCII
+      string: ! '[]'
+    http_version: 
+  recorded_at: Thu, 24 Jan 2013 10:44:23 GMT
+- request:
+    method: get
+    uri: http://locomotive.engine.dev:3000/locomotive/api/content_types.json?auth_token=jKkxPorzWo8uNYUxiiQC
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ! 'OK '
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      X-Ua-Compatible:
+      - IE=Edge
+      Etag:
+      - ! '"821b57c9b4131678fd1b597e87252e96"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - d4a9e750a0aed593d6e7478176d873b5
+      X-Runtime:
+      - '0.120591'
+      Content-Length:
+      - '761'
+      Server:
+      - WEBrick/1.3.1 (Ruby/1.9.3/2012-11-10)
+      Date:
+      - Thu, 24 Jan 2013 10:44:23 GMT
+      Connection:
+      - Keep-Alive
+      Set-Cookie:
+      - _dummy_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFRkkiJTMwMGIzZjY3YmU3ZTZjMDAwZDM2MjU2N2ExOGVmMmM0BjsAVEkiJ3dhcmRlbi51c2VyLmxvY29tb3RpdmVfYWNjb3VudC5rZXkGOwBUWwhJIhhMb2NvbW90aXZlOjpBY2NvdW50BjsARlsGbzoTQlNPTjo6T2JqZWN0SWQGOgpAZGF0YVsRaVZpBmkUaQHSaQHIaTFpAdFpdml%2BaQBpAGkJSSIZM1E2OFRtN0c4MUV4RkhiWjc3R3gGOwBU--5875fe0fbbabbfdfcc6ae1da4cb0bf05e8d1f645;
+        domain=.engine.dev; path=/; HttpOnly
+    body:
+      encoding: US-ASCII
+      string: ! '[{"id":"5101101bc82cd12530000013","_id":"5101101bc82cd12530000013","created_at":"2013-01-24T11:42:35+01:00","updated_at":"2013-01-24T11:42:35+01:00","name":"Products","slug":"products","entries_custom_fields":[{"id":"5101101bc82cd12530000014","_id":"5101101bc82cd12530000014","name":"name","label":"name","type":"string","required":true,"localized":true,"position":0},{"id":"5101101bc82cd12530000015","_id":"5101101bc82cd12530000015","name":"available","label":"available","type":"boolean","required":false,"localized":false,"position":1}],"description":"My
+        products collection","label_field_name":"name","order_by":"created_at","order_direction":"asc","order_by_field_name":"created_at","public_submission_enabled":false,"public_submission_account_emails":[]}]'
+    http_version: 
+  recorded_at: Thu, 24 Jan 2013 10:44:23 GMT
+- request:
+    method: get
+    uri: http://locomotive.engine.dev:3000/locomotive/api/content_types/products/entries.json?auth_token=jKkxPorzWo8uNYUxiiQC
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ! 'OK '
+    headers:
+      Content-Type:
+      - text/html; charset=utf-8
+      X-Ua-Compatible:
+      - IE=Edge
+      Etag:
+      - ! '"75b1ac8a95d518ac69b5f02f6dc4d132"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 9d6ff0a86f4b780eb26dc19d3d95b86c
+      X-Runtime:
+      - '0.027776'
+      Content-Length:
+      - '307'
+      Server:
+      - WEBrick/1.3.1 (Ruby/1.9.3/2012-11-10)
+      Date:
+      - Thu, 24 Jan 2013 10:44:23 GMT
+      Connection:
+      - Keep-Alive
+      Set-Cookie:
+      - _dummy_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFRkkiJWI5OWVkZTkwNmQzNzgzZTc2OThjYzZhOThlZmM2ZTg4BjsAVEkiJ3dhcmRlbi51c2VyLmxvY29tb3RpdmVfYWNjb3VudC5rZXkGOwBUWwhJIhhMb2NvbW90aXZlOjpBY2NvdW50BjsARlsGbzoTQlNPTjo6T2JqZWN0SWQGOgpAZGF0YVsRaVZpBmkUaQHSaQHIaTFpAdFpdml%2BaQBpAGkJSSIZM1E2OFRtN0c4MUV4RkhiWjc3R3gGOwBU--7ff0b67b71c9435b72a4699277635b6206e7c16a;
+        domain=.engine.dev; path=/; HttpOnly
+    body:
+      encoding: US-ASCII
+      string: ! '[{"id":"5101101bc82cd12530000016","_id":"5101101bc82cd12530000016","created_at":"2013-01-24T11:42:35+01:00","updated_at":"2013-01-24T11:43:08+01:00","_label":"Useless
+        stuff","_slug":"useless-stuff","_position":0,"content_type_slug":"products","translated_in":["en"],"name":"Useless
+        stuff","available":true}]'
+    http_version: 
+  recorded_at: Thu, 24 Jan 2013 10:44:23 GMT
+- request:
+    method: get
+    uri: http://locomotive.engine.dev:3000/locomotive/api/content_types/products/entries/5101101bc82cd12530000016.json?auth_token=jKkxPorzWo8uNYUxiiQC&locale=en
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ! 'OK '
+    headers:
+      Content-Type:
+      - text/html; charset=utf-8
+      X-Ua-Compatible:
+      - IE=Edge
+      Etag:
+      - ! '"f2a0d516ed3a703c2e3e670fefef2216"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 8cf2616e66c2a234c63c2f4de3cc7928
+      X-Runtime:
+      - '0.029427'
+      Content-Length:
+      - '305'
+      Server:
+      - WEBrick/1.3.1 (Ruby/1.9.3/2012-11-10)
+      Date:
+      - Thu, 24 Jan 2013 10:44:24 GMT
+      Connection:
+      - Keep-Alive
+      Set-Cookie:
+      - _dummy_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFRkkiJWMwZWQxZWIzNDZkZDQ1N2I5YTkyMmRkODNmZWU5OTJjBjsAVEkiJ3dhcmRlbi51c2VyLmxvY29tb3RpdmVfYWNjb3VudC5rZXkGOwBUWwhJIhhMb2NvbW90aXZlOjpBY2NvdW50BjsARlsGbzoTQlNPTjo6T2JqZWN0SWQGOgpAZGF0YVsRaVZpBmkUaQHSaQHIaTFpAdFpdml%2BaQBpAGkJSSIZM1E2OFRtN0c4MUV4RkhiWjc3R3gGOwBU--9dba89ed5da9cdae1e6de95b0afcd39e18b8479f;
+        domain=.engine.dev; path=/; HttpOnly
+    body:
+      encoding: US-ASCII
+      string: ! '{"id":"5101101bc82cd12530000016","_id":"5101101bc82cd12530000016","created_at":"2013-01-24T11:42:35+01:00","updated_at":"2013-01-24T11:43:08+01:00","_label":"Useless
+        stuff","_slug":"useless-stuff","_position":0,"content_type_slug":"products","translated_in":["en"],"name":"Useless
+        stuff","available":true}'
+    http_version: 
+  recorded_at: Thu, 24 Jan 2013 10:44:24 GMT
+- request:
+    method: get
+    uri: http://locomotive.engine.dev:3000/locomotive/api/pages.json?auth_token=jKkxPorzWo8uNYUxiiQC
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ! 'OK '
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      X-Ua-Compatible:
+      - IE=Edge
+      Etag:
+      - ! '"a92c6f0783ec1d04ebed1da8c968c8da"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 2f74ac0edd40d5b3fedab213731db59e
+      X-Runtime:
+      - '0.026828'
+      Content-Length:
+      - '3338'
+      Server:
+      - WEBrick/1.3.1 (Ruby/1.9.3/2012-11-10)
+      Date:
+      - Thu, 24 Jan 2013 10:44:24 GMT
+      Connection:
+      - Keep-Alive
+      Set-Cookie:
+      - _dummy_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFRkkiJWI1ZTllZjNmMjIzMzg4OGI2OWUyZWYzN2EzMjQzOWE0BjsAVEkiJ3dhcmRlbi51c2VyLmxvY29tb3RpdmVfYWNjb3VudC5rZXkGOwBUWwhJIhhMb2NvbW90aXZlOjpBY2NvdW50BjsARlsGbzoTQlNPTjo6T2JqZWN0SWQGOgpAZGF0YVsRaVZpBmkUaQHSaQHIaTFpAdFpdml%2BaQBpAGkJSSIZM1E2OFRtN0c4MUV4RkhiWjc3R3gGOwBU--e5aaa1fa9fa5db7b16428b3f23aa6bab71c24295;
+        domain=.engine.dev; path=/; HttpOnly
+    body:
+      encoding: US-ASCII
+      string: ! '[{"id":"51010fd2c82cd17179000002","_id":"51010fd2c82cd17179000002","created_at":"2013-01-24T11:41:22+01:00","updated_at":"2013-01-24T11:43:08+01:00","title":"Home
+        page","slug":"index","position":0,"response_type":"text/html","cache_strategy":"none","redirect":false,"redirect_type":301,"listed":true,"published":true,"templatized":false,"templatized_from_parent":false,"fullpath":"index","localized_fullpaths":{"en":"","es":"es"},"depth":0,"translated_in":["en","es"],"raw_template":"{%
+        block content %}\r\n  Content of the home page\r\n{% endblock %}\r\n\r\n","escaped_raw_template":"{%
+        block content %}\r\n  Content of the home page\r\n{% endblock %}\r\n\r\n","editable_elements":[]},{"id":"5101101cc82cd12530000017","_id":"5101101cc82cd12530000017","created_at":"2013-01-24T11:42:36+01:00","updated_at":"2013-01-24T11:43:08+01:00","title":"translated","slug":"translated","position":0,"response_type":"text/html","cache_strategy":"none","redirect":false,"redirect_type":301,"listed":true,"published":true,"templatized":false,"templatized_from_parent":false,"fullpath":"translated","localized_fullpaths":{"en":"translated","es":"es/translated"},"depth":1,"translated_in":["en"],"raw_template":"{{
+        ''hello_world'' | translate}}","escaped_raw_template":"{{ &#x27;hello_world&#x27;
+        | translate}}","editable_elements":[]},{"id":"5101101cc82cd12530000019","_id":"5101101cc82cd12530000019","created_at":"2013-01-24T11:42:36+01:00","updated_at":"2013-01-24T11:43:08+01:00","title":"Latest","slug":"latest","position":0,"response_type":"text/html","cache_strategy":"none","redirect":false,"redirect_type":301,"listed":true,"published":true,"templatized":false,"templatized_from_parent":false,"fullpath":"products/latest","localized_fullpaths":{"en":"products/latest","es":"es/products/latest"},"depth":2,"translated_in":["en"],"raw_template":"{%
+        extends parent %}\r\n{% block content %}\r\n  The name of the latest product
+        is: {{ contents.products.last.name }}\r\n{% endblock %}","escaped_raw_template":"{%
+        extends parent %}\r\n{% block content %}\r\n  The name of the latest product
+        is: {{ contents.products.last.name }}\r\n{% endblock %}","editable_elements":[]},{"id":"51010fd2c82cd17179000003","_id":"51010fd2c82cd17179000003","created_at":"2013-01-24T11:41:22+01:00","updated_at":"2013-01-24T11:43:08+01:00","title":"Page
+        not found","slug":"404","position":1,"response_type":"text/html","cache_strategy":"none","redirect":false,"redirect_type":301,"listed":true,"published":true,"templatized":false,"templatized_from_parent":false,"fullpath":"404","localized_fullpaths":{"en":"404","es":"es/404"},"depth":0,"translated_in":["en","es"],"raw_template":"Content
+        of the 404 page","escaped_raw_template":"Content of the 404 page","editable_elements":[]},{"id":"5101101cc82cd12530000018","_id":"5101101cc82cd12530000018","created_at":"2013-01-24T11:42:36+01:00","updated_at":"2013-01-24T11:43:08+01:00","title":"Products","slug":"products","position":1,"response_type":"text/html","cache_strategy":"none","redirect":false,"redirect_type":301,"listed":true,"published":true,"templatized":false,"templatized_from_parent":false,"fullpath":"products","localized_fullpaths":{"en":"products","es":"es/products"},"depth":1,"translated_in":["en"],"raw_template":"{%
+        extends parent %}","escaped_raw_template":"{% extends parent %}","editable_elements":[]}]'
+    http_version: 
+  recorded_at: Thu, 24 Jan 2013 10:44:24 GMT
+- request:
+    method: get
+    uri: http://locomotive.engine.dev:3000/locomotive/api/pages/51010fd2c82cd17179000002.json?auth_token=jKkxPorzWo8uNYUxiiQC&locale=es
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ! 'OK '
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      X-Ua-Compatible:
+      - IE=Edge
+      Etag:
+      - ! '"6ddd24909444a1ff7d0e9b9da8b6cff3"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 365c77e4a1f178cac260a68e5a8937bb
+      X-Runtime:
+      - '0.017366'
+      Content-Length:
+      - '610'
+      Server:
+      - WEBrick/1.3.1 (Ruby/1.9.3/2012-11-10)
+      Date:
+      - Thu, 24 Jan 2013 10:44:24 GMT
+      Connection:
+      - Keep-Alive
+      Set-Cookie:
+      - _dummy_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFRkkiJWYwNTU5OTllYmQ4ZDY1ODBiMGIxN2FkZWU4ZTg4YWJhBjsAVEkiJ3dhcmRlbi51c2VyLmxvY29tb3RpdmVfYWNjb3VudC5rZXkGOwBUWwhJIhhMb2NvbW90aXZlOjpBY2NvdW50BjsARlsGbzoTQlNPTjo6T2JqZWN0SWQGOgpAZGF0YVsRaVZpBmkUaQHSaQHIaTFpAdFpdml%2BaQBpAGkJSSIZM1E2OFRtN0c4MUV4RkhiWjc3R3gGOwBU--1c3c7c2a9738456face697b3aa05b50b4eb4cefd;
+        domain=.engine.dev; path=/; HttpOnly
+    body:
+      encoding: US-ASCII
+      string: ! '{"id":"51010fd2c82cd17179000002","_id":"51010fd2c82cd17179000002","created_at":"2013-01-24T11:41:22+01:00","updated_at":"2013-01-24T11:43:08+01:00","title":"P\u00e1gina
+        de inicio","slug":"index","position":0,"response_type":"text/html","cache_strategy":"none","redirect":false,"redirect_type":301,"listed":true,"published":true,"templatized":false,"templatized_from_parent":false,"fullpath":"index","localized_fullpaths":{"en":"","es":"es"},"depth":0,"translated_in":["en","es"],"raw_template":"New
+        content of the home page\r\n","escaped_raw_template":"New content of the home
+        page\r\n","editable_elements":[]}'
+    http_version: 
+  recorded_at: Thu, 24 Jan 2013 10:44:24 GMT
+- request:
+    method: get
+    uri: http://locomotive.engine.dev:3000/locomotive/api/pages/51010fd2c82cd17179000003.json?auth_token=jKkxPorzWo8uNYUxiiQC&locale=es
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ! 'OK '
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      X-Ua-Compatible:
+      - IE=Edge
+      Etag:
+      - ! '"e772ebb150342a9c4fce4582b1664b9c"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 3ab28f6a798829f5fa0f31f25dcc72e3
+      X-Runtime:
+      - '0.013809'
+      Content-Length:
+      - '599'
+      Server:
+      - WEBrick/1.3.1 (Ruby/1.9.3/2012-11-10)
+      Date:
+      - Thu, 24 Jan 2013 10:44:24 GMT
+      Connection:
+      - Keep-Alive
+      Set-Cookie:
+      - _dummy_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFRkkiJTJlYjM0NGE0YzM2ODVjZDdiMThlYzJiNDBlNTM3ZDQwBjsAVEkiJ3dhcmRlbi51c2VyLmxvY29tb3RpdmVfYWNjb3VudC5rZXkGOwBUWwhJIhhMb2NvbW90aXZlOjpBY2NvdW50BjsARlsGbzoTQlNPTjo6T2JqZWN0SWQGOgpAZGF0YVsRaVZpBmkUaQHSaQHIaTFpAdFpdml%2BaQBpAGkJSSIZM1E2OFRtN0c4MUV4RkhiWjc3R3gGOwBU--cb43e5b364719ff1586edceaafc3f6322923508b;
+        domain=.engine.dev; path=/; HttpOnly
+    body:
+      encoding: US-ASCII
+      string: ! '{"id":"51010fd2c82cd17179000003","_id":"51010fd2c82cd17179000003","created_at":"2013-01-24T11:41:22+01:00","updated_at":"2013-01-24T11:43:08+01:00","title":"P\u00e1gina
+        no encontrada","slug":"404","position":1,"response_type":"text/html","cache_strategy":"none","redirect":false,"redirect_type":301,"listed":true,"published":true,"templatized":false,"templatized_from_parent":false,"fullpath":"404","localized_fullpaths":{"en":"404","es":"es/404"},"depth":0,"translated_in":["en","es"],"raw_template":"Content
+        of the 404 page","escaped_raw_template":"Content of the 404 page","editable_elements":[]}'
+    http_version: 
+  recorded_at: Thu, 24 Jan 2013 10:44:24 GMT
+- request:
+    method: get
+    uri: http://locomotive.engine.dev:3000/locomotive/api/theme_assets.json?auth_token=jKkxPorzWo8uNYUxiiQC
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ! 'OK '
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      X-Ua-Compatible:
+      - IE=Edge
+      Etag:
+      - ! '"d751713988987e9331980363e24189ce"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 90979a04c25ef0950a376b4cd7915b42
+      X-Runtime:
+      - '0.013095'
+      Content-Length:
+      - '2'
+      Server:
+      - WEBrick/1.3.1 (Ruby/1.9.3/2012-11-10)
+      Date:
+      - Thu, 24 Jan 2013 10:44:24 GMT
+      Connection:
+      - Keep-Alive
+      Set-Cookie:
+      - _dummy_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFRkkiJTRmNTYyNDIyMWUzMDQ0OTg1Zjc5Y2IxZDQ5NjljMTAxBjsAVEkiJ3dhcmRlbi51c2VyLmxvY29tb3RpdmVfYWNjb3VudC5rZXkGOwBUWwhJIhhMb2NvbW90aXZlOjpBY2NvdW50BjsARlsGbzoTQlNPTjo6T2JqZWN0SWQGOgpAZGF0YVsRaVZpBmkUaQHSaQHIaTFpAdFpdml%2BaQBpAGkJSSIZM1E2OFRtN0c4MUV4RkhiWjc3R3gGOwBU--e3a529fa27bc63f05973cbe983ac2b5d4ca32166;
+        domain=.engine.dev; path=/; HttpOnly
+    body:
+      encoding: US-ASCII
+      string: ! '[]'
+    http_version: 
+  recorded_at: Thu, 24 Jan 2013 10:44:24 GMT
+- request:
+    method: get
+    uri: http://locomotive.engine.dev:3000/locomotive/api/translations.json?auth_token=jKkxPorzWo8uNYUxiiQC
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ! 'OK '
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      X-Ua-Compatible:
+      - IE=Edge
+      Etag:
+      - ! '"af6cd1eda244013c9eb7c76fbc7b662b"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 826844351d15ef7891c7861567f8fa06
+      X-Runtime:
+      - '0.013776'
+      Content-Length:
+      - '227'
+      Server:
+      - WEBrick/1.3.1 (Ruby/1.9.3/2012-11-10)
+      Date:
+      - Thu, 24 Jan 2013 10:44:24 GMT
+      Connection:
+      - Keep-Alive
+      Set-Cookie:
+      - _dummy_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFRkkiJTFkOGQ2OTBlMDYyZWZhMGMzYmQxNWIzNDFjZTY4ZThkBjsAVEkiJ3dhcmRlbi51c2VyLmxvY29tb3RpdmVfYWNjb3VudC5rZXkGOwBUWwhJIhhMb2NvbW90aXZlOjpBY2NvdW50BjsARlsGbzoTQlNPTjo6T2JqZWN0SWQGOgpAZGF0YVsRaVZpBmkUaQHSaQHIaTFpAdFpdml%2BaQBpAGkJSSIZM1E2OFRtN0c4MUV4RkhiWjc3R3gGOwBU--c7706b477d3fd1807a43add5b3aa6c5001c3de0f;
+        domain=.engine.dev; path=/; HttpOnly
+    body:
+      encoding: US-ASCII
+      string: ! '[{"id":"51011077c82cd1253000001d","_id":"51011077c82cd1253000001d","created_at":"2013-01-24T11:44:07+01:00","updated_at":"2013-01-24T11:44:07+01:00","key":"hello_world","values":{"en":"Hello
+        world!","es":"\u00a1Hola, Mundo!"}}]'
+    http_version: 
+  recorded_at: Thu, 24 Jan 2013 10:44:24 GMT
+- request:
+    method: post
+    uri: http://locomotive.engine.dev:3000/locomotive/api/tokens.json?auth_token=jKkxPorzWo8uNYUxiiQC
+    body:
+      encoding: US-ASCII
+      string: email=admin%40locomotivecms.com&password=locomotive
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ! 'OK '
+    headers:
+      Location:
+      - http://locomotive.engine.dev:3000/locomotive/
+      Content-Type:
+      - application/json; charset=utf-8
+      X-Ua-Compatible:
+      - IE=Edge
+      Etag:
+      - ! '"e29ee4caaed0880055c032e8a8586878"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - b0e8a4050aabd192afbd5e7be627b8e9
+      X-Runtime:
+      - '0.018633'
+      Content-Length:
+      - '32'
+      Server:
+      - WEBrick/1.3.1 (Ruby/1.9.3/2012-11-10)
+      Date:
+      - Thu, 24 Jan 2013 10:44:51 GMT
+      Connection:
+      - Keep-Alive
+      Set-Cookie:
+      - _dummy_session=BAh7CEkiD3Nlc3Npb25faWQGOgZFRkkiJTQyZGMxZjM0ODIxM2Y3ZTc5ZjRlMjMxNTYzOTlhOTFlBjsAVEkiJ3dhcmRlbi51c2VyLmxvY29tb3RpdmVfYWNjb3VudC5rZXkGOwBUWwhJIhhMb2NvbW90aXZlOjpBY2NvdW50BjsARlsGbzoTQlNPTjo6T2JqZWN0SWQGOgpAZGF0YVsRaVZpBmkUaQHSaQHIaTFpAdFpdml%2BaQBpAGkJSSIZM1E2OFRtN0c4MUV4RkhiWjc3R3gGOwBUSSIKZmxhc2gGOwBGbzolQWN0aW9uRGlzcGF0Y2g6OkZsYXNoOjpGbGFzaEhhc2gJOgpAdXNlZG86CFNldAY6CkBoYXNoewA6DEBjbG9zZWRGOg1AZmxhc2hlc3sGOgtub3RpY2VJQzoeQWN0aXZlU3VwcG9ydDo6U2FmZUJ1ZmZlciIjSGFzaCB3YXMgc3VjY2Vzc2Z1bGx5IGNyZWF0ZWQuBzsAVDoPQGh0bWxfc2FmZVQ6CUBub3cw--d5f7c07d1148ccf7ce2c2970faa3c0fb737697b3;
+        domain=.engine.dev; path=/; HttpOnly
+    body:
+      encoding: US-ASCII
+      string: ! '{"token":"jKkxPorzWo8uNYUxiiQC"}'
+    http_version: 
+  recorded_at: Thu, 24 Jan 2013 10:44:51 GMT
+recorded_with: VCR 2.3.0
