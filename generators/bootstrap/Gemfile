@@ -1,8 +1,8 @@
 # gem 'locomotive_builder', require: true
 
 # DEV
-gem 'locomotivecms_mounter', path: '/Users/didier/Documents/LocomotiveCMS/gems/mounter'
-gem 'locomotivecms_builder', require: true, path: '/Users/didier/Documents/LocomotiveCMS/builder'
+gem 'locomotivecms_mounter', '~> 1.0.0.rc1'
+gem 'locomotivecms_builder', '~> 1.0.0.rc1'
 
 # Mac OS X
 gem 'rb-fsevent', '~> 0.9.1'
