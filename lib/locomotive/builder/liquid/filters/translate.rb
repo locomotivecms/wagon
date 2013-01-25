@@ -3,15 +3,17 @@ module Locomotive
     module Liquid
       module Filters
         module Translate
+
           def translate(key)
-            require 'pp'
-            pp @context[:mounting_point].translations.inspect.force_encoding('UTF-8')
-            "test"
+            translations  = @context.registers[:mounting_point].translations
+
+            translations[key.to_s].try(:get, Locomotive::Mounter.locale)
           end
+
         end
-        
+
         ::Liquid::Template.register_filter(Translate)
-        
+
       end
     end
   end
