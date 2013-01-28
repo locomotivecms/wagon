@@ -6,12 +6,12 @@ module Locomotive::Builder
       def call(env)
         self.set_accessors(env)
 
-        puts "[Builder|Renderer] page = #{page.inspect}"
-
         if self.page
           if self.page.redirect?
-            [self.page.redirect_type, { 'Location' => self.page.redirect_url, 'Content-Type' => 'text/html' }, []]
+            self.redirect_to(self.page.redirect_url, self.page.redirect_type)
           else
+            self.log "Rendered liquid template"
+
             type = self.page.response_type || 'text/html'
             html = self.render
 

@@ -1,4 +1,5 @@
 require 'locomotive/builder/version'
+require 'locomotive/builder/logger'
 require 'locomotive/builder/exceptions'
 
 module Locomotive
@@ -141,27 +142,22 @@ module Locomotive
     # @param [ Object ] An instance of the reader is the get_reader parameter has been set.
     #
     def self.require_mounter(path, get_reader = false)
+      Locomotive::Builder::Logger.setup(path, false)
+
       require 'locomotive/mounter'
 
-      logfile = File.join(path, 'log', 'mounter.log')
-      FileUtils.mkdir_p(File.dirname(logfile))
+      Locomotive::Mounter.logger = Locomotive::Builder::Logger.instance.logger
 
-      Locomotive::Mounter.logger = ::Logger.new(logfile).tap do |log|
-        log.level = Logger::DEBUG
-      end
-
-      # begin
       if get_reader
-        reader = Locomotive::Mounter::Reader::FileSystem.instance
-        reader.run!(path: path)
-        reader
+        begin
+          reader = Locomotive::Mounter::Reader::FileSystem.instance
+          reader.run!(path: path)
+          reader
+        rescue Exception => e
+          raise Locomotive::Builder::MounterException.new "Unable to read the local LocomotiveCMS site. Please check the logs.", e
+        end
       end
-      # rescue Exception => e
-        # Locomotive::Mounter.logger.error e.backtrace
-        # raise Locomotive::Builder::MounterException.new "Unable to read the local LocomotiveCMS site: #{e.message}\nPlease check the logs file (#{path}/log/mounter.log)"
-      # end if get_reader
     end
-
 
   end
 end

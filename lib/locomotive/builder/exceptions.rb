@@ -3,9 +3,19 @@ module Locomotive
 
     class DefaultException < ::Exception
 
-      def initialize(message = nil)
-        # no specific treatment for now
-        super
+      def initialize(message = nil, parent_exception = nil)
+        self.log_backtrace(parent_exception) if parent_exception
+
+        super(message)
+      end
+
+      protected
+
+      def log_backtrace(parent_exception)
+        full_error_message = "#{parent_exception.message}\n\t"
+        full_error_message += parent_exception.backtrace.join("\n\t")
+        full_error_message += "\n\n"
+        Locomotive::Builder::Logger.fatal full_error_message
       end
 
     end

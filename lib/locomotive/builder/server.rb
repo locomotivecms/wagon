@@ -5,6 +5,7 @@ require 'locomotive/builder/listen'
 require 'locomotive/builder/server/middleware'
 require 'locomotive/builder/server/favicon'
 require 'locomotive/builder/server/dynamic_assets'
+require 'locomotive/builder/server/logging'
 require 'locomotive/builder/server/entry_submission'
 require 'locomotive/builder/server/path'
 require 'locomotive/builder/server/locale'
@@ -59,6 +60,8 @@ module Locomotive::Builder
 
         use Favicon
         use DynamicAssets
+
+        use Logging
 
         use EntrySubmission
 

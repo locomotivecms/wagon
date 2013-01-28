@@ -7,6 +7,7 @@ module Locomotive::Builder
         self.set_accessors(env)
 
         if self.page.nil?
+          self.log "Page not found"
           env['builder.page'] = self.mounting_point.pages['404']
         end
 

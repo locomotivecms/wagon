@@ -19,7 +19,9 @@ module Locomotive::Builder
       def set_page!(env)
         page = self.fetch_page
 
-        puts "[Builder|Page] #{page.inspect}"
+        if page
+          self.log "Found page \"#{page.title}\" [/#{page.inspect}]"
+        end
 
         env['builder.page'] = page
       end

@@ -31,7 +31,7 @@ module Locomotive::Builder
         Locomotive::Mounter.locale = locale
         ::I18n.locale = locale
 
-        puts "[Builder|Locale] path = #{self.path.inspect}, locale = #{locale.inspect}"
+        self.log "Detecting locale #{locale.upcase}"
 
         env['builder.locale'] = locale
         env['builder.path']   = self.path

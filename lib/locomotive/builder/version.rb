@@ -1,5 +1,5 @@
 module Locomotive
   module Builder
-    VERSION = '1.0.0.alpha2'
+    VERSION = '1.0.0.alpha3'
   end
 end

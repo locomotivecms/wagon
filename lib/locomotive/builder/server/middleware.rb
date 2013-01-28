@@ -44,8 +44,13 @@ module Locomotive::Builder
         self.request.content_type == 'application/json' || File.extname(self.request.path) == '.json'
       end
 
-      def redirect_to(location)
-        [301, { 'Content-Type' => 'text/html', 'Location' => location }, []]
+      def redirect_to(location, type = 301)
+        self.log "Redirected to #{location}"
+        [type, { 'Content-Type' => 'text/html', 'Location' => location }, []]
+      end
+
+      def log(msg)
+        Locomotive::Builder::Logger.info msg
       end
 
     end

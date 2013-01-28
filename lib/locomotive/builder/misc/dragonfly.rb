@@ -65,15 +65,12 @@ module Locomotive
             c.url_format = '/images/dynamic/:job/:basename.:format'
           end
 
-          puts 'Dragonfly enabled'
-
           self.instance.enabled = true
         rescue Exception => e
-          puts %{
-  \tIf you want to take full benefits of all the features in the LocomotiveEditor, we recommend you to install ImageMagick and RMagick.
-  \tCheck out the documentation here: http://doc.locomotivecms.com/editor/installation.}
-
-          puts 'Dragonfly disabled'
+          Locomotive::Builder::Logger.warn %{
+[Dragonfly] !disabled!
+[Dragonfly] If you want to take full benefits of all the features in the LocomotiveBuilder, we recommend you to install ImageMagick and RMagick. Check out the documentation here: http://doc.locomotivecms.com/editor/installation.
+}
         end
       end
 

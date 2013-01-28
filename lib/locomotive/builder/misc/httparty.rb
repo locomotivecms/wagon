@@ -22,7 +22,7 @@ module Locomotive
 
           path ||= '/'
 
-          # puts "[WebService] consuming #{path}, #{options.inspect}"
+          # Locomotive::Builder::Logger.debug "[WebService] consuming #{path}, #{options.inspect}"
 
           response = self.get(path, options)
 
@@ -34,8 +34,7 @@ module Locomotive
               _response.collect(&:underscore_keys)
             end
           else
-            # TODO: handle errors
-            puts "[Locomotive][Builder][Error] consuming #{path}, #{options.inspect}, response = #{response.inspect}"
+            Locomotive::Builder::Logger.error "[WebService] consumed #{path}, #{options.inspect}, response = #{response.inspect}"
             nil
           end
 

@@ -30,7 +30,16 @@ module Locomotive::Builder
 
     def apply(definition)
       reloader = Proc.new do |modified, added, removed|
-        reader.reload(definition.last)
+        resources = [*definition.last]
+        names     = resources.map { |n| "\"#{n}\"" }.join(', ')
+
+        Locomotive::Builder::Logger.info "* Reloaded #{names} at #{Time.now}"
+
+        begin
+          reader.reload(resources)
+        rescue Exception => e
+          Locomotive::Builder::MounterException.new('Unable to reload', e)
+        end
       end
 
       filter  = definition[1]
