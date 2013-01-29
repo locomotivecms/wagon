@@ -90,8 +90,8 @@ module Locomotive
       reader = Locomotive::Mounter::Reader::Api.instance
       reader.run!(_options.merge(connection_info))
 
-      # writer = Locomotive::Mounter::Writer::FileSystem.instance
-      # writer.run!(mounting_point: reader.mounting_point, target_path: path)
+      writer = Locomotive::Mounter::Writer::FileSystem.instance
+      writer.run!(mounting_point: reader.mounting_point, target_path: path)
     rescue Exception => e
       puts e.backtrace
     end
