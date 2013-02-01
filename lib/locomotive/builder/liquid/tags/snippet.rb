@@ -10,6 +10,8 @@ module Locomotive
 
             source = context.registers[:mounting_point].snippets[name].try(:source)
 
+            Locomotive::Builder::Logger.info "  Rendered snippet #{name}"
+
             partial = ::Liquid::Template.parse(source)
 
             variable = context[@variable_name || @template_name[1..-2]]

@@ -23,5 +23,13 @@ module Locomotive
     class MounterException < DefaultException
     end
 
+    class GeneratorException < DefaultException
+
+      def log_backtrace(parent_exception)
+        # Logger not initialized at this step
+      end
+
+    end
+
   end
 end

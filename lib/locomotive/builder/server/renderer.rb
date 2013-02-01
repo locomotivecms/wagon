@@ -10,10 +10,10 @@ module Locomotive::Builder
           if self.page.redirect?
             self.redirect_to(self.page.redirect_url, self.page.redirect_type)
           else
-            self.log "Rendered liquid template"
-
             type = self.page.response_type || 'text/html'
             html = self.render
+
+            self.log "  Rendered liquid page template"
 
             [200, { 'Content-Type' => type }, [html]]
           end

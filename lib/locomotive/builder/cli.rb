@@ -109,7 +109,11 @@ module Locomotive
           if generator.nil?
             say "Unknown site template '#{options[:template]}'", :red
           else
-            Locomotive::Builder.init(name, path, generator)
+            begin
+              Locomotive::Builder.init(name, path, generator)
+            rescue GeneratorException => e
+              say e.message, :red
+            end
           end
         end
 
