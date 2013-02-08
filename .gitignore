@@ -1,12 +1,8 @@
 .DS_Store
-<<<<<<< HEAD
-site
 tests
 .sass-cache
 .rbenv-gemsets
-=======
 /site
->>>>>>> wip
 *.gem
 *.rbc
 .bundle
