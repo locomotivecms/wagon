@@ -6,7 +6,7 @@ module Spec
     
     def clone_site
       VCR.use_cassette('pull') do
-        Locomotive::Builder.clone("site", {"host" => "locomotive.engine.dev:3000"}, "email" => "admin@locomotivecms.com", "password" => "locomotive")
+        Locomotive::Wagon.clone("site", {"host" => "locomotive.engine.dev:3000"}, "email" => "admin@locomotivecms.com", "password" => "locomotive")
       end
     end
   end

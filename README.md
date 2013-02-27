@@ -1,6 +1,6 @@
-# LocomotiveCMS::Builder
+# LocomotiveCMS::Wagon
 
-The LocomotiveCMS builder is a site generator for the LocomotiveCMS engine powered by all the efficient and modern HTML development tools (Haml, SASS, Compass, Less).
+The LocomotiveCMS wagon is a site generator for the LocomotiveCMS engine powered by all the efficient and modern HTML development tools (Haml, SASS, Compass, Less).
 
 (TO BE COMPLETED)
 
@@ -15,10 +15,10 @@ Also, please, keep in mind, that is nearly an alpha version so it is not stable 
 
   Note: If you want to contribute, you may consider to fork it instead
 
-### Get the source of the builder
+### Get the source of the wagon
 
-    $ git clone git://github.com/locomotivecms/builder.git
-    $ cd builder
+    $ git clone git://github.com/locomotivecms/wagon.git
+    $ cd wagon
     $ git checkout wip
 
   Note: Again, if you want to contribute, you may consider to fork it instead
@@ -31,15 +31,15 @@ Also, please, keep in mind, that is nearly an alpha version so it is not stable 
 
 #### Run the server with a default site
 
-    $ bundle exec bin/builder server <path to the mounter gem>/spec/fixtures/default
+    $ bundle exec bin/wagon server <path to the mounter gem>/spec/fixtures/default
 
 #### Push a site (WIP)
 
-    $ bundle exec bin/builder push <path to your LocomotiveCMS local site> <url of your remote LocomotiveCMS site> <email of your admin account> <password>
+    $ bundle exec bin/wagon push <path to your LocomotiveCMS local site> <url of your remote LocomotiveCMS site> <email of your admin account> <password>
 
 #### Pull a site (Not tested yet)
 
-    $ bundle exec bin/builder pull <url of your remote LocomotiveCMS site> <email of your admin account> <password>
+    $ bundle exec bin/wagon pull <url of your remote LocomotiveCMS site> <email of your admin account> <password>
 
 ## Contributing
 
@@ -53,7 +53,7 @@ Also, please, keep in mind, that is nearly an alpha version so it is not stable 
 
 Add this line to your application's Gemfile:
 
-    gem 'locomotive_builder'
+    gem 'locomotive_wagon'
 
 And then execute:
 
@@ -61,7 +61,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install locomotive_builder
+    $ gem install locomotive_wagon
 
 ## Usage
 

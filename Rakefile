@@ -12,17 +12,17 @@ require 'rubygems/package_task'
 
 $LOAD_PATH.unshift File.expand_path('../lib', __FILE__)
 
-require 'locomotive/builder'
-require 'locomotive/builder/version'
+require 'locomotive/wagon'
+require 'locomotive/wagon/version'
 
-gemspec = eval(File.read('locomotivecms_builder.gemspec'))
+gemspec = eval(File.read('locomotivecms_wagon.gemspec'))
 Gem::PackageTask.new(gemspec) do |pkg|
   pkg.gem_spec = gemspec
 end
 
 desc 'build the gem and release it to rubygems.org'
 task :release => :gem do
-  sh "gem push pkg/locomotivecms_builder-#{gemspec.version}.gem"
+  sh "gem push pkg/locomotivecms_wagon-#{gemspec.version}.gem"
 end
 
 namespace :development do
@@ -38,9 +38,9 @@ namespace :development do
 
     FileUtils.rm_rf(File.join(File.dirname(__FILE__), 'site'))
     VCR.use_cassette('pull') do
-      exit unless Locomotive::Builder.clone("site", {"host" => "http://locomotive.engine.dev:3000"}, "email" => "admin@locomotivecms.com", "password" => "locomotive")
+      exit unless Locomotive::Wagon.clone("site", {"host" => "http://locomotive.engine.dev:3000"}, "email" => "admin@locomotivecms.com", "password" => "locomotive")
     end
 
-    Locomotive::Builder.push("site", {"host" => "http://locomotive.engine.dev:3000"}, "email" => "admin@locomotivecms.com", "password" => "locomotive", "force" => true, "data" => true)
+    Locomotive::Wagon.push("site", {"host" => "http://locomotive.engine.dev:3000"}, "email" => "admin@locomotivecms.com", "password" => "locomotive", "force" => true, "data" => true)
   end
 end

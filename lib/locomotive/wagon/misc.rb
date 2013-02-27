@@ -1,0 +1,5 @@
+require 'locomotive/wagon/misc/core_ext.rb'
+require 'locomotive/wagon/misc/will_paginate.rb'
+require 'locomotive/wagon/misc/httparty.rb'
+require 'locomotive/wagon/misc/dragonfly.rb'
+require 'locomotive/wagon/misc/i18n.rb'

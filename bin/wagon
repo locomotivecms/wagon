@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+
+# needed if you launch it without bundler
+$:.unshift(File.expand_path(File.dirname(__FILE__) + '/../lib'))
+
+require 'locomotive/wagon'
+require 'locomotive/wagon/cli'
+
+Locomotive::Wagon::CLI::Main.start

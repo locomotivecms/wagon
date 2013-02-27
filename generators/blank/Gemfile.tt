@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 # ruby '1.9.3'
 
-gem 'locomotivecms_builder', '<%= config[:version] -%>'
+gem 'locomotivecms_wagon', '<%= config[:version] -%>'
 
 group :development do
   # Mac OS X

@@ -36,7 +36,7 @@ x params to launch the thin server (port, address ?)
   - pull
 - translations (Rod)
 - version checkings:
-  - builder when running it
+  - wagon when running it
   - engine when pushing a site
 - nice error page (replace the default exception middleware) to display:
   - liquid errors
@@ -48,7 +48,7 @@ x params to launch the thin server (port, address ?)
 - refactoring:
   x generators/sites -> generators/site
   x list is only for site generators
-  x move the call to the CC generator directly in the builder.rb file
+  x move the call to the CC generator directly in the wagon.rb file
 
 *** FEATURES ***
 
