@@ -17,7 +17,7 @@ module Locomotive
         end)
 
         if _source.blank?
-          LocomotiveEditor::Logger.error "Unable to resize on the fly: #{source.inspect}"
+          Locomotive::Builder::Logger.error "Unable to resize on the fly: #{source.inspect}"
           return
         end
 
