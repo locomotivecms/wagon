@@ -1,4 +1,4 @@
-require "locomotive/builder"
+require "locomotive/wagon"
 require "rspec"
 
 Dir["#{File.expand_path('../support', __FILE__)}/*.rb"].each do |file|

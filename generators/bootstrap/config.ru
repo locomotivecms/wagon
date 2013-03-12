@@ -1,3 +1,3 @@
-require 'locomotive/builder/standalone_server'
+require 'locomotive/wagon/standalone_server'
 
-run Locomotive::Builder::StandaloneServer.new(File.expand_path('.'))
+run Locomotive::Wagon::StandaloneServer.new(File.expand_path('.'))
