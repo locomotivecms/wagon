@@ -1,4 +1,17 @@
 fr:
+  locales:
+    en: Anglais
+    de: Allemand
+    fr: Français
+    pl: Polonais
+    pt-BR: "Portugais"
+    it: "Italien"
+    nl: "Hollandais"
+    nb: "Norvégien"
+    es: Espagnol
+    ru: Russe
+    et: Estonien
+
   errors:
     messages:
       blank: "doit être rempli(e)"

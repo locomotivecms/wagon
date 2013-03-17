@@ -1,4 +1,17 @@
 de:
+  locales:
+    en: Englisch
+    de: Deutsch
+    fr: Französisch
+    pl: Polnisch
+    pt-BR: "Bras. Portugiesisch"
+    it: Italienisch
+    nl: Niederländisch
+    nb: Norwegisch
+    es: Spanisch
+    ru: Russisch
+    et: Estnisch
+
   errors:
     messages:
       blank: "leer"

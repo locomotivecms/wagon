@@ -1,4 +1,17 @@
 pt-BR:
+  locales:
+    en: Inglês
+    de: Alemão
+    fr: Francês
+    pl: Polonês
+    pt-BR: "Português do Brasil"
+    it: Italiano
+    nl: Holandês
+    nb: Norueguês
+    es: Espanhol
+    ru: Russo
+    et: Estoniano
+
   errors:
     messages:
       blank: "não pode ficar em branco"

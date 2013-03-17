@@ -1,4 +1,15 @@
 nl:
+  locales:
+    en: Engels
+    de: Duits
+    fr: Frans
+    pt-BR: "Braziliaans Portugees"
+    it: Italiaans
+    nl: Nederlands
+    nb: Noors
+    ru: Russisch
+    et: Estlands
+
   errors:
     messages:
       blank: "kan ikke være blank"

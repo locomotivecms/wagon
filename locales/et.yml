@@ -1,4 +1,17 @@
 et:
+  locales:
+    en: Inglise
+    de: Saksa
+    fr: Prantsuse
+    pl: Poola
+    pt-BR: "Brasiilia Portugali"
+    it: Itaalia
+    nl: Hollandi
+    nb: Norra
+    es: Hispaania
+    ru: Vene
+    et: Eesti
+
   errors:
     messages:
       blank: "tühi"
