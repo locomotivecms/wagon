@@ -20,11 +20,12 @@ Gem::Specification.new do |gem|
 
   gem.add_dependency 'thor'
   gem.add_dependency 'thin'
+  gem.add_dependency 'activesupport',         '~> 3.2.11'
   gem.add_dependency 'locomotive_liquid',     '~> 2.4.1'
   gem.add_dependency 'RedCloth',              '~> 4.2.9'
   gem.add_dependency 'dragonfly',             '~> 0.9.12'
   gem.add_dependency 'rack-cache',            '~> 1.1'
-  gem.add_dependency 'rack-rescue',           '~> 0.1.2'
+  gem.add_dependency 'better_errors',         '~> 0.7.2'
 
   gem.add_dependency 'listen',                '~> 0.7.0'
 
