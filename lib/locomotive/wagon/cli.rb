@@ -85,8 +85,9 @@ module Locomotive
             * wagon generate snippet footer
         LONGDESC
         def snippet(slug)
-          if check_path!
-            Locomotive::Wagon.generate :snippet, slug, self.options['path']
+          if path = check_path!
+            locales = self.site_config(path)['locales']
+            Locomotive::Wagon.generate :snippet, slug, self.options['path'], locales
           end
         end
 

@@ -23,7 +23,7 @@ module Locomotive
           self.locales.shift # remove the default locale
 
           unless self.locales.empty?
-            unless yes?('Do you want to generate templates for all the locales ?')
+            unless yes?('Do you want to generate templates for each locale ?')
               self.locales = []
             end
           end
