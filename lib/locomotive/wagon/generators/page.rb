@@ -11,15 +11,21 @@ module Locomotive
 
         argument :slug
         argument :target_path # path to the site
+        argument :locales
 
-        attr_accessor :haml, :locales
+        attr_accessor :haml
 
-        def ask_for_haml_and_locales
-          self.locales = []
-          self.haml    = yes?('Do you prefer a HAML template ?')
+        def ask_for_haml
+          self.haml = yes?('Do you prefer a HAML template ?')
+        end
 
-          if yes?('Is your page localized ?')
-            self.locales = ask('What are the locales other than the default one (comma separated) ?').split(',').map(&:strip)
+        def apply_locales?
+          self.locales.shift # remove the default locale
+
+          unless self.locales.empty?
+            unless yes?('Do you want to generate templates for all the locales ?')
+              self.locales = []
+            end
           end
         end
 

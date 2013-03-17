@@ -12,7 +12,7 @@ module Locomotive
         # Check if the path given in option ('.' by default) points to a LocomotiveCMS
         # site. It is also possible to pass a path other than the one from the options.
         #
-        # @param [ String ] path The optional path instead of options['path']
+        # @param [ String ] path The optional path of the site instead of options['path']
         #
         # @return [ String ] The fullpath to the LocomotiveCMS site or nil if it is not a valid site.
         #
@@ -69,8 +69,9 @@ module Locomotive
             * wagon generate page about_us/me
         LONGDESC
         def page(fullpath)
-          if check_path!
-            Locomotive::Wagon.generate :page, fullpath, self.options['path']
+          if path = check_path!
+            locales = self.site_config(path)['locales']
+            Locomotive::Wagon.generate :page, fullpath, self.options['path'], locales
           end
         end
 
@@ -87,6 +88,19 @@ module Locomotive
           if check_path!
             Locomotive::Wagon.generate :snippet, slug, self.options['path']
           end
+        end
+
+        protected
+
+        # Read the YAML config file of a LocomotiveCMS site.
+        # The path should be returned by the check_path! method first.
+        #
+        # @param [ String ] path The full path to a LocomotiveCMS site.
+        #
+        # @return [ Hash ] The site
+        #
+        def site_config(path = nil)
+          YAML.load_file(File.join(path, 'config', 'site.yml'))
         end
 
       end
@@ -190,12 +204,6 @@ module Locomotive
             end
           end
         end
-
-        # desc "pull NAME SITE_URL EMAIL PASSWORD", "Pull an existing LocomotiveCMS site powered by the engine"
-        # def pull(name, site_url, email, password)
-        #   say("ERROR: \"#{name}\" directory already exists", :red) and return if File.exists?(name)
-        #   Locomotive::Wagon.pull(name, site_url, email, password)
-        # end
 
         protected
 
