@@ -1,0 +1,130 @@
+---
+title: Home page
+published: true
+---
+!!!
+/[if IE 8] <html class="no-js lt-ie9" lang="en">
+/ [if gt IE 8]><!
+%html.no-js{:lang => "en"}
+  / <![endif]
+  %head
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+    %title {{ page.title }}
+    {{ 'normalize.css' | stylesheet_tag }}
+    
+    {{ 'foundation.css' | stylesheet_tag }}
+    
+    {{ 'vendor/custom.modernizr.js' | javascript_tag }}
+  %body
+    .row
+      .large-12.columns
+        %h2 Welcome to Foundation
+        %p This is version 4.0.9.
+        %hr/
+    {% block 'main' %}
+    .row
+      .large-8.columns
+        %h3 The Grid
+        / Grid Example
+        .row
+          .large-12.columns
+            .panel
+              %p This is a twelve column section in a row. Each of these includes a div.panel element so you can see where the columns are - it's not required at all for the grid.
+        .row
+          .large-6.columns
+            .panel
+              %p Six columns
+          .large-6.columns
+            .panel
+              %p Six columns
+        .row
+          .large-4.columns
+            .panel
+              %p Four columns
+          .large-4.columns
+            .panel
+              %p Four columns
+          .large-4.columns
+            .panel
+              %p Four columns
+        %h3 Buttons
+        .row
+          .large-6.columns
+            %p
+              %a.small.button{:href => "#"} Small Button
+            %p
+              %a.button{:href => "#"} Medium Button
+            %p
+              %a.large.button{:href => "#"} Large Button
+          .large-6.columns
+            %p
+              %a.small.alert.button{:href => "#"} Small Alert Button
+            %p
+              %a.success.button{:href => "#"} Medium Success Button
+            %p
+              %a.large.secondary.button{:href => "#"} Large Secondary Button
+      .large-4.columns
+        %h4 Getting Started
+        %p We're stoked you want to try Foundation! To get going, this file (index.html) includes some basic styles you can modify, play around with, or totally destroy to get going.
+        %h4 Other Resources
+        %p Once you've exhausted the fun in this document, you should check out:
+        %ul.disc
+          %li
+            %a{:href => "http://foundation.zurb.com/docs"} Foundation Documentation
+            = succeed "Everything" do
+              %br/
+            you need to know about using the framework.
+          %li
+            %a{:href => "http://github.com/zurb/foundation"} Foundation on Github
+            = succeed "Latest" do
+              %br/
+            code, issue reports, feature requests and more.
+          %li
+            %a{:href => "http://twitter.com/foundationzurb"} @foundationzurb
+            = succeed "Ping" do
+              %br/
+            us on Twitter if you have questions. If you build something with this we'd love to see it (and send you a totally boss sticker).
+    {% endblock %}
+    
+    {% include footer %}
+
+    :javascript
+      document.write('<script src=' +
+      ('__proto__' in {} ? '{{ site.root }}javascripts/vendor/zepto' : '{{ site.root }}javascripts/vendor/jquery') +
+      '.js><\/script>')
+
+    {{ 'foundation.min.js' | javascript_tag }}
+
+    /
+      {{ 'foundation/foundation.js' | javascript_tag }}
+      
+      {{ 'foundation/foundation.alerts.js' | javascript_tag }}
+      
+      {{ 'foundation/foundation.clearing.js' | javascript_tag }}
+      
+      {{ 'foundation/foundation.cookie.js' | javascript_tag }}
+      
+      {{ 'foundation/foundation.dropdown.js' | javascript_tag }}
+      
+      {{ 'foundation/foundation.forms.js' | javascript_tag }}
+      
+      {{ 'foundation/foundation.joyride.js' | javascript_tag }}
+      
+      {{ 'foundation/foundation.magellan.js' | javascript_tag }}
+      
+      {{ 'foundation/foundation.orbit.js' | javascript_tag }}
+      
+      {{ 'foundation/foundation.placeholder.js' | javascript_tag }}
+      
+      {{ 'foundation/foundation.reveal.js' | javascript_tag }}
+      
+      {{ 'foundation/foundation.section.js' | javascript_tag }}
+      
+      {{ 'foundation/foundation.tooltips.js' | javascript_tag }}
+      
+      {{ 'foundation/foundation.topbar.js' | javascript_tag }}
+      
+    :javascript
+      $(document).foundation();
+  
