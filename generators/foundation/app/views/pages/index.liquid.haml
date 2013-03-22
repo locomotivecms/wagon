@@ -89,8 +89,11 @@ published: true
     
     {% include footer %}
 
-    {{ 'vendor/jquery.js' | javascript_tag }}
-    {{ 'vendor/zepto.js' | javascript_tag }}
+    :javascript
+      document.write('<script src=' +
+      ('__proto__' in {} ? '{{ site.root }}javascripts/vendor/zepto' : '{{ site.root }}javascripts/vendor/jquery') +
+      '.js><\/script>')
+
     {{ 'foundation.min.js' | javascript_tag }}
 
     /

@@ -102,8 +102,11 @@
 
   {% include footer %}
 
-  {{ 'vendor/jquery.js' | javascript_tag }}
-  {{ 'vendor/zepto.js' | javascript_tag }}
+  <script>
+  document.write('<script src=' +
+  ('__proto__' in {} ? '{{ site.root }}javascripts/vendor/zepto' : '{{ site.root }}javascripts/vendor/jquery') +
+  '.js><\/script>')
+  </script>
   {{ 'foundation.min.js' | javascript_tag }}
   
   {{ 'foundation.min.js' | javascript_tag }}
