@@ -36,8 +36,8 @@ Gem::Specification.new do |gem|
 
   gem.add_dependency 'faker',                 '~> 0.9.5'
 
-  gem.add_development_dependency 'rake',      '0.9.2'
-  gem.add_development_dependency 'rspec'
+  gem.add_development_dependency 'rake',      '~> 10.0.4'
+  gem.add_development_dependency 'rspec',     '~> 2.6.0'
   gem.add_development_dependency 'vcr'
   gem.add_development_dependency 'webmock',   '~> 1.8.0'
   gem.add_development_dependency 'rack-test'
