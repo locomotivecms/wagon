@@ -1,4 +1,4 @@
-Copyright (c) 2012 Rodrigo Alvarez
+Copyright (c) 2012 Didier Lafforgue
 
 MIT License
 

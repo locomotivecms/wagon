@@ -40,7 +40,7 @@ http_interactions:
     body:
       encoding: US-ASCII
       string: ! '{"token":"jKkxPorzWo8uNYUxiiQC"}'
-    http_version: 
+    http_version:
   recorded_at: Thu, 24 Jan 2013 11:09:53 GMT
 - request:
     method: get
@@ -80,7 +80,7 @@ http_interactions:
     body:
       encoding: US-ASCII
       string: ! '{"id":"51010fd2c82cd17179000001","_id":"51010fd2c82cd17179000001","created_at":"2013-01-24T11:41:22+01:00","updated_at":"2013-01-24T12:09:43+01:00","name":"locomotive","locales":["en","es"],"subdomain":"locomotive","domains":["locomotive.engine.dev"],"domains_without_subdomain":[],"domain_name":"engine.dev","memberships":[{"id":"51010fd2c82cd17179000005","_id":"51010fd2c82cd17179000005","role":"admin","role_name":"Administrator","can_update":false,"grant_admin":true,"account_id":"51010fd2c82cd17179000004","name":"Admin","email":"admin@locomotivecms.com"}]}'
-    http_version: 
+    http_version:
   recorded_at: Thu, 24 Jan 2013 11:09:53 GMT
 - request:
     method: put
@@ -126,7 +126,7 @@ http_interactions:
     body:
       encoding: US-ASCII
       string: ! '{"id":"51010fd2c82cd17179000001","_id":"51010fd2c82cd17179000001","created_at":"2013-01-24T11:41:22+01:00","updated_at":"2013-01-24T12:09:53+01:00","name":"locomotive","locales":["en","es"],"subdomain":"locomotive","domains":["locomotive.engine.dev"],"domains_without_subdomain":[],"domain_name":"engine.dev","memberships":[{"id":"51010fd2c82cd17179000005","_id":"51010fd2c82cd17179000005","role":"admin","role_name":"Administrator","can_update":false,"grant_admin":true,"account_id":"51010fd2c82cd17179000004","name":"Admin","email":"admin@locomotivecms.com"}]}'
-    http_version: 
+    http_version:
   recorded_at: Thu, 24 Jan 2013 11:09:53 GMT
 - request:
     method: put
@@ -172,7 +172,7 @@ http_interactions:
     body:
       encoding: US-ASCII
       string: ! '{"id":"51010fd2c82cd17179000001","_id":"51010fd2c82cd17179000001","created_at":"2013-01-24T11:41:22+01:00","updated_at":"2013-01-24T12:09:53+01:00","name":"locomotive","locales":["en","es"],"subdomain":"locomotive","domains":["locomotive.engine.dev"],"domains_without_subdomain":[],"domain_name":"engine.dev","memberships":[{"id":"51010fd2c82cd17179000005","_id":"51010fd2c82cd17179000005","role":"admin","role_name":"Administrator","can_update":false,"grant_admin":true,"account_id":"51010fd2c82cd17179000004","name":"Admin","email":"admin@locomotivecms.com"}]}'
-    http_version: 
+    http_version:
   recorded_at: Thu, 24 Jan 2013 11:09:53 GMT
 - request:
     method: get
@@ -212,7 +212,7 @@ http_interactions:
     body:
       encoding: US-ASCII
       string: ! '[]'
-    http_version: 
+    http_version:
   recorded_at: Thu, 24 Jan 2013 11:09:53 GMT
 - request:
     method: get
@@ -253,7 +253,7 @@ http_interactions:
       encoding: US-ASCII
       string: ! '[{"id":"5101101bc82cd12530000013","_id":"5101101bc82cd12530000013","created_at":"2013-01-24T11:42:35+01:00","updated_at":"2013-01-24T11:42:35+01:00","name":"Products","slug":"products","entries_custom_fields":[{"id":"5101101bc82cd12530000014","_id":"5101101bc82cd12530000014","name":"name","label":"name","type":"string","required":true,"localized":true,"position":0},{"id":"5101101bc82cd12530000015","_id":"5101101bc82cd12530000015","name":"available","label":"available","type":"boolean","required":false,"localized":false,"position":1}],"description":"My
         products collection","label_field_name":"name","order_by":"created_at","order_direction":"asc","order_by_field_name":"created_at","public_submission_enabled":false,"public_submission_account_emails":[]}]'
-    http_version: 
+    http_version:
   recorded_at: Thu, 24 Jan 2013 11:09:53 GMT
 - request:
     method: put
@@ -300,7 +300,7 @@ http_interactions:
       encoding: US-ASCII
       string: ! '{"id":"5101101bc82cd12530000013","_id":"5101101bc82cd12530000013","created_at":"2013-01-24T11:42:35+01:00","updated_at":"2013-01-24T11:42:35+01:00","name":"Products","slug":"products","entries_custom_fields":[{"id":"5101101bc82cd12530000014","_id":"5101101bc82cd12530000014","name":"name","label":"name","type":"string","required":true,"localized":true,"position":0},{"id":"5101101bc82cd12530000015","_id":"5101101bc82cd12530000015","name":"available","label":"available","type":"boolean","required":false,"localized":false,"position":1}],"description":"My
         products collection","label_field_name":"name","order_by":"created_at","order_direction":"asc","order_by_field_name":"created_at","public_submission_enabled":false,"public_submission_account_emails":[]}'
-    http_version: 
+    http_version:
   recorded_at: Thu, 24 Jan 2013 11:09:53 GMT
 - request:
     method: get
@@ -352,7 +352,7 @@ http_interactions:
         not found","slug":"404","position":1,"response_type":"text/html","cache_strategy":"none","redirect":false,"redirect_type":301,"listed":true,"published":true,"templatized":false,"templatized_from_parent":false,"fullpath":"404","localized_fullpaths":{"en":"404","es":"es/404"},"depth":0,"translated_in":["en","es"],"raw_template":"Content
         of the 404 page","escaped_raw_template":"Content of the 404 page","editable_elements":[]},{"id":"5101101cc82cd12530000018","_id":"5101101cc82cd12530000018","created_at":"2013-01-24T11:42:36+01:00","updated_at":"2013-01-24T12:09:43+01:00","title":"Products","slug":"products","position":1,"response_type":"text/html","cache_strategy":"none","redirect":false,"redirect_type":301,"listed":true,"published":true,"templatized":false,"templatized_from_parent":false,"fullpath":"products","localized_fullpaths":{"en":"products","es":"es/products"},"depth":1,"translated_in":["en"],"raw_template":"{%
         extends parent %}","escaped_raw_template":"{% extends parent %}","editable_elements":[]}]'
-    http_version: 
+    http_version:
   recorded_at: Thu, 24 Jan 2013 11:09:53 GMT
 - request:
     method: put
@@ -400,7 +400,7 @@ http_interactions:
       string: ! '{"id":"51010fd2c82cd17179000003","_id":"51010fd2c82cd17179000003","created_at":"2013-01-24T11:41:22+01:00","updated_at":"2013-01-24T12:09:53+01:00","title":"Page
         not found","slug":"404","position":1,"response_type":"text/html","cache_strategy":"none","redirect":false,"redirect_type":301,"listed":true,"published":true,"templatized":false,"templatized_from_parent":false,"fullpath":"404","localized_fullpaths":{"en":"404","es":"es/404"},"depth":0,"translated_in":["en","es"],"raw_template":"Content
         of the 404 page","escaped_raw_template":"Content of the 404 page","editable_elements":[]}'
-    http_version: 
+    http_version:
   recorded_at: Thu, 24 Jan 2013 11:09:53 GMT
 - request:
     method: put
@@ -449,7 +449,7 @@ http_interactions:
         page","slug":"index","position":0,"response_type":"text/html","cache_strategy":"none","redirect":false,"redirect_type":301,"listed":true,"published":true,"templatized":false,"templatized_from_parent":false,"fullpath":"index","localized_fullpaths":{"en":"","es":"es"},"depth":0,"template_changed":true,"translated_in":["en","es"],"raw_template":"{%
         block content %}\r\n  New content of the home page\r\n{% endblock %}\r\n\r\n","escaped_raw_template":"{%
         block content %}\r\n  New content of the home page\r\n{% endblock %}\r\n\r\n","editable_elements":[]}'
-    http_version: 
+    http_version:
   recorded_at: Thu, 24 Jan 2013 11:09:53 GMT
 - request:
     method: put
@@ -497,7 +497,7 @@ http_interactions:
       string: ! '{"id":"5101101cc82cd12530000017","_id":"5101101cc82cd12530000017","created_at":"2013-01-24T11:42:36+01:00","updated_at":"2013-01-24T12:09:53+01:00","title":"translated","slug":"translated","position":0,"response_type":"text/html","cache_strategy":"none","redirect":false,"redirect_type":301,"listed":true,"published":true,"templatized":false,"templatized_from_parent":false,"fullpath":"translated","localized_fullpaths":{"en":"translated","es":"es/translated"},"depth":1,"translated_in":["en"],"raw_template":"{{
         ''hello_world'' | translate}}","escaped_raw_template":"{{ &#x27;hello_world&#x27;
         | translate}}","editable_elements":[]}'
-    http_version: 
+    http_version:
   recorded_at: Thu, 24 Jan 2013 11:09:53 GMT
 - request:
     method: put
@@ -544,7 +544,7 @@ http_interactions:
       encoding: US-ASCII
       string: ! '{"id":"5101101cc82cd12530000018","_id":"5101101cc82cd12530000018","created_at":"2013-01-24T11:42:36+01:00","updated_at":"2013-01-24T12:09:53+01:00","title":"Products","slug":"products","position":1,"response_type":"text/html","cache_strategy":"none","redirect":false,"redirect_type":301,"listed":true,"published":true,"templatized":false,"templatized_from_parent":false,"fullpath":"products","localized_fullpaths":{"en":"products","es":"es/products"},"depth":1,"translated_in":["en"],"raw_template":"{%
         extends parent %}","escaped_raw_template":"{% extends parent %}","editable_elements":[]}'
-    http_version: 
+    http_version:
   recorded_at: Thu, 24 Jan 2013 11:09:53 GMT
 - request:
     method: put
@@ -594,7 +594,7 @@ http_interactions:
         is: {{ contents.products.last.name }}\r\n{% endblock %}","escaped_raw_template":"{%
         extends parent %}\r\n{% block content %}\r\n  The name of the latest product
         is: {{ contents.products.last.name }}\r\n{% endblock %}","editable_elements":[]}'
-    http_version: 
+    http_version:
   recorded_at: Thu, 24 Jan 2013 11:09:53 GMT
 - request:
     method: put
@@ -638,7 +638,7 @@ http_interactions:
       string: ! '{"id":"51010fd2c82cd17179000003","_id":"51010fd2c82cd17179000003","created_at":"2013-01-24T11:41:22+01:00","updated_at":"2013-01-24T12:09:53+01:00","title":"P\u00e1gina
         no encontrada","slug":"404","position":1,"response_type":"text/html","cache_strategy":"none","redirect":false,"redirect_type":301,"listed":true,"published":true,"templatized":false,"templatized_from_parent":false,"fullpath":"404","localized_fullpaths":{"en":"404","es":"es/404"},"depth":0,"translated_in":["en","es"],"raw_template":"Content
         of the 404 page","escaped_raw_template":"Content of the 404 page","editable_elements":[]}'
-    http_version: 
+    http_version:
   recorded_at: Thu, 24 Jan 2013 11:09:53 GMT
 - request:
     method: put
@@ -683,7 +683,7 @@ http_interactions:
         de inicio","slug":"index","position":0,"response_type":"text/html","cache_strategy":"none","redirect":false,"redirect_type":301,"listed":true,"published":true,"templatized":false,"templatized_from_parent":false,"fullpath":"index","localized_fullpaths":{"en":"","es":"es"},"depth":0,"translated_in":["en","es"],"raw_template":"New
         content of the home page\r\n","escaped_raw_template":"New content of the home
         page\r\n","editable_elements":[]}'
-    http_version: 
+    http_version:
   recorded_at: Thu, 24 Jan 2013 11:09:53 GMT
 - request:
     method: get
@@ -723,7 +723,7 @@ http_interactions:
     body:
       encoding: US-ASCII
       string: ! '[]'
-    http_version: 
+    http_version:
   recorded_at: Thu, 24 Jan 2013 11:09:53 GMT
 - request:
     method: put
@@ -770,7 +770,7 @@ http_interactions:
       encoding: US-ASCII
       string: ! '{"id":"51011077c82cd1253000001d","_id":"51011077c82cd1253000001d","created_at":"2013-01-24T11:44:07+01:00","updated_at":"2013-01-24T11:44:07+01:00","key":"hello_world","values":{"en":"Hello
         world!","es":"\u00a1Hola, Mundo!"}}'
-    http_version: 
+    http_version:
   recorded_at: Thu, 24 Jan 2013 11:09:54 GMT
 - request:
     method: get
@@ -805,6 +805,6 @@ http_interactions:
     body:
       encoding: US-ASCII
       string: ! '{"error":"Invalid authentication token."}'
-    http_version: 
+    http_version:
   recorded_at: Wed, 27 Feb 2013 11:39:27 GMT
 recorded_with: VCR 2.3.0
