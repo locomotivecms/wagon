@@ -22,7 +22,7 @@ end
 
 desc 'build the gem and release it to rubygems.org'
 task release: :gem do
-  sh 'gem push pkg/locomotivecms_wagon-#{gemspec.version}.gem'
+  sh "gem push pkg/locomotivecms_wagon-#{gemspec.version}.gem"
 end
 
 namespace :development do
