@@ -43,7 +43,6 @@ namespace :development do
   end
 end
 
-
 RSpec::Core::RakeTask.new('spec:unit') do |spec|
   spec.pattern = 'spec/unit/**/*_spec.rb'
 
