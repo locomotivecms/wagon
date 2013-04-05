@@ -1,0 +1,8 @@
+%li
+  %h3 {{ song.title }}
+  .cover {{ song.cover.url | image_tag }}
+  .info
+    {{ song.short_description }}
+    %p.listen
+      %a{ :href => "{{ song.audio_url }}" } &rarr; écouter ({{ song.duration }} min)
+  .clear

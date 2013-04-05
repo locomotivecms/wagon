@@ -1,0 +1,12 @@
+development:
+  host: development.example.com
+  email: john@doe.net
+  password: easyone
+staging:
+  host: staging.example.com
+  email: john@doe.net
+  password: easyone
+production:
+  host: www.example.com
+  email: john@doe.net
+  password: easyone

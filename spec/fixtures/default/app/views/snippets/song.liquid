@@ -1,0 +1,12 @@
+<li>
+  <h3><a href="/songs/{{ song._permalink }}">{{ song.title }}</a></h3>
+  <div class="cover">{{ song.cover.url | image_tag }}</div>
+  <div class="info">
+    {{ song.short_description }}
+    <p class="listen">
+      <a href="{{ song.audio_url }}">&rarr; Listen ({{ song.duration }} min)</a>
+    </p>
+    <p>écouter en Francais</p>
+  </div>
+  <div class="clear"></div>
+</li>

@@ -1,0 +1,46 @@
+- "Song #1":
+    duration: "6:28"
+    short_description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vitae tincidunt urna. Nunc felis purus, ultricies et venenatis bibendum, fringilla eu lectus. Sed cursus, sem at blandit mattis, libero quam egestas tortor, eget cursus dolor tellus id nunc."
+    audio_url: http://blip.tv/file/get/NicolasRaynier-Milk617.flv
+    cover: /samples/asset_collections/cover.jpg
+    band: pearl-jam
+- "Song #2":
+    duration: "6:28"
+    short_description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vitae tincidunt urna. Nunc felis purus, ultricies et venenatis bibendum, fringilla eu lectus. Sed cursus, sem at blandit mattis, libero quam egestas tortor, eget cursus dolor tellus id nunc.
+    audio_url: http://blip.tv/file/get/NicolasRaynier-Milk617.flv
+    cover: /samples/asset_collections/cover.jpg
+    band: pearl-jam
+- "Song #3":
+    duration: "6:28"
+    short_description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vitae tincidunt urna. Nunc felis purus, ultricies et venenatis bibendum, fringilla eu lectus. Sed cursus, sem at blandit mattis, libero quam egestas tortor, eget cursus dolor tellus id nunc.
+    audio_url: http://blip.tv/file/get/NicolasRaynier-Milk617.flv
+    cover: /samples/asset_collections/cover.jpg
+    band: pearl-jam
+- "Song #4":
+    duration: "6:28"
+    short_description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vitae tincidunt urna. Nunc felis purus, ultricies et venenatis bibendum, fringilla eu lectus. Sed cursus, sem at blandit mattis, libero quam egestas tortor, eget cursus dolor tellus id nunc.
+    audio_url: http://blip.tv/file/get/NicolasRaynier-Milk617.flv
+    cover: /samples/asset_collections/cover.jpg
+    band: pearl-jam
+- "Song #5":
+    duration: "6:28"
+    short_description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vitae tincidunt urna. Nunc felis purus, ultricies et venenatis bibendum, fringilla eu lectus. Sed cursus, sem at blandit mattis, libero quam egestas tortor, eget cursus dolor tellus id nunc.
+    audio_url: http://blip.tv/file/get/NicolasRaynier-Milk617.flv
+    cover: /samples/asset_collections/cover.jpg
+    band: the-who
+- "Song #6":
+    duration: "6:28"
+    short_description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vitae tincidunt urna. Nunc felis purus, ultricies et venenatis bibendum, fringilla eu lectus. Sed cursus, sem at blandit mattis, libero quam egestas tortor, eget cursus dolor tellus id nunc.
+    audio_url: http://blip.tv/file/get/NicolasRaynier-Milk617.flv
+    cover: /samples/asset_collections/cover.jpg
+    band: the-who
+- "Song #7":
+    duration: "6:28"
+    short_description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vitae tincidunt urna. Nunc felis purus, ultricies et venenatis bibendum, fringilla eu lectus. Sed cursus, sem at blandit mattis, libero quam egestas tortor, eget cursus dolor tellus id nunc.
+    audio_url: http://blip.tv/file/get/NicolasRaynier-Milk617.flv
+    cover: /samples/asset_collections/cover.jpg
+- "Song #8":
+    duration: "6:28"
+    short_description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vitae tincidunt urna. Nunc felis purus, ultricies et venenatis bibendum, fringilla eu lectus. Sed cursus, sem at blandit mattis, libero quam egestas tortor, eget cursus dolor tellus id nunc.
+    audio_url: http://blip.tv/file/get/NicolasRaynier-Milk617.flv
+    cover: /samples/asset_collections/cover.jpg

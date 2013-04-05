@@ -1,0 +1,25 @@
+name: Songs
+label_field_name: title
+order_by: _position
+slug: songs
+fields:
+- title:
+    type: string
+    required: true
+    hint: Title of your song
+- band:
+    label: Band
+    type: belongs_to
+    target: bands
+- cover:
+    label: Cover
+    type: file
+    required: true
+- short_description:
+    type: text
+    text_formatting: html
+- audio_url:
+    type: string
+    hint: Url to a service like Blip for instance
+- duration:
+    hint: "format like: mm:ss"

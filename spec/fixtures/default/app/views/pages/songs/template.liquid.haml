@@ -1,0 +1,13 @@
+---
+title: A song template
+content_type: songs
+---
+{% extends 'index' %}
+
+{% block content %}
+
+%h3 {{ song.title }}
+
+%p {{ song.short_description }}
+
+{% endblock %}

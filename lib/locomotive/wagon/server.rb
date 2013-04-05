@@ -1,4 +1,4 @@
-require 'rack/showexceptions'
+require 'better_errors'
 require 'coffee_script'
 
 require 'locomotive/wagon/listen'
@@ -40,12 +40,11 @@ module Locomotive::Wagon
 
     def create_rack_app(reader)
       Rack::Builder.new do
-        use Rack::ShowExceptions
+        use BetterErrors::Middleware
         use Rack::Lint
 
         use Rack::Session::Cookie, {
-          key:          'rack.session',
-          domain:       '0.0.0.0',
+          key:          'wagon.session',
           path:         '/',
           expire_after: 2592000,
           secret:       'uselessinlocal'

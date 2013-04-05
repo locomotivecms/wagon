@@ -1,0 +1,33 @@
+name: Updates
+description: List of updates
+slug: updates
+order_by: date
+label_field_name: title
+public_submission_enabled: false
+fields:
+- title:
+    hint: Not displayed in the website
+    localized: true
+- text:
+    type: text
+    hint: Text displayed in the home page
+    localized: true
+    text_formatting: html
+- category:
+    type: select
+    hint: Pick a category
+    localized: true
+    # select_options:
+    #   en: ['General', 'Gigs', 'Bands']
+    #   fr: ['Général', 'Concerts', 'Groupes']
+    select_options:
+    - en: General
+      fr: Général
+    - en: Gigs
+      fr: Concerts
+    - en: Bands
+      fr: Groupes
+    - Albums
+- date:
+    type: date
+    hint: Date of the update

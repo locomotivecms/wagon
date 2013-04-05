@@ -8,7 +8,7 @@ module Locomotive
             translation = @context.registers[:mounting_point].translations[key.to_s]
 
             if translation
-              translation.get(locale) || translation.get(Locomotive::Mounter.locale)
+              translation.get(locale) || translation.get(Locomotive::Mounter.locale.to_s)
             else
               "[unknown translation key: #{key}]"
             end

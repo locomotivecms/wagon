@@ -1,0 +1,48 @@
+- ! 'Update #6':
+    title:
+      fr: "Mise a jour #6"
+    text:
+      en: john posted a new post
+      fr: phrase FR
+    date: 2009/11/16
+    category: General
+- "Update #5":
+    title:
+      fr: "Mise a jour #5"
+    text:
+      en: brian posted a new post
+      fr: phrase FR
+    date: 2009/11/02
+    category: General
+- "Update #4":
+    title:
+      fr: "Mise a jour #4"
+    text:
+      en: NEW ALBUM FINISHED!!
+      fr: phrase FR
+    date: 2009/10/09
+    category: General
+- "Update #3":
+    title:
+      fr: "Mise a jour #3"
+    text:
+      en: site redesign
+      fr: phrase FR
+    date: 2009/06/29
+    category: General
+- "Update #2":
+    title:
+      fr: "Mise a jour #2"
+    text:
+      en: added a chatroom
+      fr: phrase FR
+    date: 2009/05/23
+    category: General
+- "Update #1":
+    title:
+      fr: "Mise a jour #1"
+    text:
+      en: added some free stuff
+      fr: phrase FR
+    date: 2009/05/12
+    category: General

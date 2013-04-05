@@ -7,6 +7,7 @@ end
 
 RSpec.configure do |c|
   c.include Spec::Helpers
+  c.before(:all) { remove_logs }
   c.before { reset! }
   c.after  { reset! }
 end
