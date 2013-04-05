@@ -37,7 +37,9 @@ module Locomotive::Wagon
       end
 
       def html?
-        self.request.media_type == 'text/html' || !self.request.xhr?
+        ['text/html', 'application/x-www-form-urlencoded'].include?(self.request.media_type) &&
+        !self.request.xhr? &&
+        !self.json?
       end
 
       def json?

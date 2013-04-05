@@ -11,6 +11,8 @@ module Locomotive::Wagon
         if self.request.post? && env['PATH_INFO'] =~ /^\/entry_submissions\/(.*)/
           self.process_form($1)
 
+          # puts "html? #{html?} / json? #{json?} / #{self.callback_url} / #{params.inspect}"
+
           if @entry.valid?
             if self.html?
               self.record_submitted_entry
@@ -73,7 +75,9 @@ module Locomotive::Wagon
 
         raise "Unknown content type '#{@content_type.inspect}'" if @content_type.nil?
 
-        @entry = @content_type.build_entry(self.params[:entry] || self.params[:content])
+        attributes = self.params[:entry] || self.params[:content] || {}
+
+        @entry = @content_type.build_entry(attributes)
 
         # if not valid, we do not need to keep track of the entry
         @content_type.entries.delete(@entry) if !@entry.valid?

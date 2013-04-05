@@ -14,7 +14,7 @@ en:
 
   errors:
     messages:
-      blank: "can't not blank"
+      blank: "can't not be blank"
 
   pagination:
     previous: "&laquo; Previous"

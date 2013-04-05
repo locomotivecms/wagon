@@ -1,0 +1,19 @@
+name: Bands
+description: List of bands
+slug: bands
+order_by: name
+fields:
+- name:
+    hint: Name of the band
+- leader:
+    type: string
+    label: Fullname of the leader
+- kind:
+    type: select
+    label: "Music kind (grunge, rock, pop, country)"
+    select_options: ['grunge', 'rock', 'country']
+- songs:
+    type: has_many
+    class_name: songs
+    inverse_of: band
+    ui_enabled: true

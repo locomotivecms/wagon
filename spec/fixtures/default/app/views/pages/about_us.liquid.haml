@@ -1,0 +1,20 @@
+---
+title: About Us
+listed: true
+position: 1
+editable_elements:
+  'banner/page_image': "/samples/photo_2.jpg"
+  'banner/pitch': "<h2>About us</h2><p>Lorem ipsum...</p>"
+---
+{% extends parent %}
+
+{% block content %}
+
+{% editable_long_text 'content' %}
+
+%p
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vitae tincidunt urna. Nunc felis purus, ultricies et venenatis bibendum, fringilla eu lectus. Sed cursus, sem at blandit mattis, libero quam egestas tortor, eget cursus dolor tellus id nunc. Quisque mauris diam, tincidunt in commodo sed, feugiat eu nibh. Nulla erat nunc, dapibus vel eleifend et, egestas sed quam. Vestibulum mollis eros at dolor vulputate vel sollicitudin enim convallis. Etiam velit nisi, rutrum vel sagittis facilisis, pretium id lorem. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Pellentesque mauris nisl, consequat sed tincidunt nec, lacinia in odio. In hac habitasse platea dictumst. Nam semper libero aliquam turpis gravida vel varius erat vulputate. Integer consequat ipsum vitae augue porttitor ullamcorper. Nam vulputate aliquet ante at gravida. Vestibulum luctus urna et dui hendrerit eu suscipit velit varius. Sed ornare eleifend sem, vitae pharetra dolor sodales egestas. Mauris lobortis hendrerit odio, vitae porttitor urna rutrum at. Ut at lectus erat, nec dictum dolor. Praesent in sapien interdum nibh euismod vestibulum. Vestibulum tincidunt pulvinar accumsan.
+
+{% endeditable_long_text %}
+
+{% endblock %}

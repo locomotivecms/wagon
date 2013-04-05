@@ -1,0 +1,17 @@
+name: Messages
+description: Messages posted by new potential customers
+slug: messages
+label_field_name: name
+public_submission_enabled: true
+order_by: created_at
+fields:
+- name:
+    hint: Full name
+    required: true
+- email:
+    hint: Email
+    required: true
+- message:
+    hint: Customer message
+    type: text
+    required: true

@@ -1,0 +1,64 @@
+body { background: #f0eee3 url("/images/top.jpg") repeat-x center 0; color: #333; font-family: Georgia, helvetica; font-size: 14px; }
+
+h2 { font-size: 30px; font-style: italic; font-weight: normal; font-family: ChunkFiveRoman; margin-bottom: 6px; }
+
+a { color: #2196b2; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.sep { height: 1px; width: 950px; background: transparent url(/images/sep.png) repeat-x 0 0; }
+
+.more a { font-style: italic; font-weight: bold; }
+
+.container { width: 950px; padding-top: 0px; }
+
+.error { text-align: center; font-size: 24px; text-transform: capitalize; }
+
+/* ___ menu ___ */
+
+#menu { height: 40px; }
+
+#nav { list-style: none; height: 40px; }
+#nav li { float: left; padding: 0px 20px 0 20px; height: 40px; }
+#nav li a { position: relative; top: 7px; color: #fff; font-size: 18px; text-transform: lowercase; font-family: ChunkFiveRoman; }
+#nav li.on { background: transparent url(/images/nav_on.png) repeat-x 0 0; }
+
+/* ___ banner ___ */
+
+#banner { padding-top: 20px; background: transparent url(/images/sep.png) repeat-x 0 bottom; margin-bottom: 30px; padding-bottom: 20px; }
+
+#banner .photo { float: left; position: relative; left: -23px; background: transparent url(/images/photo_frame.png) no-repeat 0 0; padding: 24px 0 0px 32px; width: 636px; height: 438px; }
+#banner .text { padding-top: 130px; margin-left: 686px; }
+#banner .text p { font-size: 18px; }
+#banner .text p a { font-weight: bold; font-size: 17px; }
+
+/* ___ list ___ */
+
+.list { list-style: none; font-size: 13px; margin-bottom: 10px; }
+.list li { margin-bottom: 5px; }
+.list li em { font-weight: bold; }
+
+/* ___ songs ___ */
+
+.songs { list-style: none; }
+.songs li { margin: 0 20px 20px 0; padding: 0 0 20px 0px; background: transparent url(/images/sep.png) repeat-x 0 bottom;  }
+.songs li h3 { font-style: italic; margin-bottom: 6px; }
+.songs li .cover { float: left; }
+.songs li .cover img { border: 4px solid #fff; }
+.songs li .info { margin-left: 165px; }
+.songs li .info .listen { text-align: right; margin: 5px 0 0 0; }
+
+/* ___ contact form ___ */
+
+#contactform { margin-top: 30px; }
+#contactform p { margin-bottom: 10px; clear: both; }
+#contactform p label { float: left; width: 200px; }
+#contactform p input[type=text], #contactform p textarea { font-size: 1em; padding: 3px 5px; }
+#contactform p input[type=text] { width: 200px; }
+#contactform p textarea { width: 400px; height: 200px; }
+#contactform p.action { padding: 0 0px 15px 200px; }
+#contactform p.action input { background: #2196b2; color: #fff; padding: 3px 5px; text-transform: uppercase; margin: 0 5px; border: none; }
+
+/* ___ footer ___ */
+
+#footer { background: transparent url(/images/sep.png) repeat-x 0 0; margin-top: 20px; padding-top: 10px; }
+#footer p { text-align: center; font-size: 12px; }

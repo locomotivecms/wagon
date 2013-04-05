@@ -1,0 +1,54 @@
+---
+title: Contact Us
+listed: true
+position: 4
+---
+{% extends 'parent' %}
+
+{% block content %}
+
+.text
+  {% editable_long_text 'text' %}
+  %p
+    Ut imperdiet velit eu metus semper tristique. Vivamus risus nisi, tincidunt et euismod a, auctor pretium eros. Vestibulum sed magna et velit pulvinar euismod. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sed velit quis nisl blandit vulputate id non tortor. Mauris nec placerat massa. Vivamus sed odio non ligula pharetra pretium. Ut convallis, purus et lobortis suscipit, mauris orci ullamcorper lectus, nec vulputate turpis mauris sed augue. Maecenas faucibus ultricies nisl, non ullamcorper justo bibendum nec. Duis vitae mauris condimentum risus commodo mattis vel sed libero. Fusce diam elit, porta id vestibulum ut, aliquet mattis neque.
+  {% endeditable_long_text %}
+
+%form#contactform{ :name => 'contact', :action => '{{ contents.messages.public_submission_url }}.json', :method => 'post' }
+  / %input{ type: 'hidden', name: 'success_callback', value: '/events' }
+  / %input{ type: 'hidden', name: 'error_callback', value: '/contact' }
+
+  %p
+    %label{ :for => 'name' } Name
+    %input{ :type => 'text', :id => 'name', :name => 'content[name]', :placeholder => 'First and last name', :tabindex => '1', required: 'required', value: '{{ message.name }}' }
+    %span {{ message.errors.name }}
+
+  %p
+    %label{ :for => 'email' } Email
+    %input{ :type => 'text', :id => 'email', :name => 'content[email]', :placeholder => 'example@domain.com', :tabindex => '2', required: 'required', value: '{{ message.email }}' }
+    %span {{ message.errors.email }}
+
+  %p
+    %label{ :for => 'comment' } Your Message
+    %textarea{ :id => 'comment', :name => 'content[message]', :tabindex => '3', required: 'required' } {{ message.message }}
+    %span {{ message.errors.message }}
+
+  %p.action
+    %input{ :name => 'submit', :type => 'submit', :tabindex => '4', :value => 'Send Message' }
+
+:javascript
+  $(document).ready(function() {
+    var form = $('form[name=contact]');
+    form.submit(function(e) {
+      e.stopPropagation();
+      e.preventDefault();
+      $.post(form.attr('action'),
+        form.serializeArray(),
+        function() {
+          alert("Thank you ! Your message have been received");
+        }, "json").error(function(response) {
+          alert("We are sorry but we were unable to treat your message. Please try later.");
+        });
+    });
+  });
+
+{% endblock %}

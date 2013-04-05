@@ -1,0 +1,82 @@
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, code, del, dfn, em, img, q, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {margin:0;padding:0;border:0;font-weight:inherit;font-style:inherit;font-size:100%;font-family:inherit;vertical-align:baseline;}
+
+/* **************** GRIDS ***************** */
+.container { margin: 0 auto; width: 900px; padding: 20px; text-align:left; }
+.line, .lastUnit {overflow: hidden;_overflow:visible;_zoom:1;}
+.line2 {_zoom:1; background-color:#FFF;}
+.unit{float:left;_zoom:1;}
+.unitExt{float:right;}
+.size1of1{float:none;}
+.size1of2{width:50%;}
+.size1of3{width:33.33333%;}
+.size2of3{width:66.66666%;}
+.size1of4{width:25%;}
+.size3of4{width:75%;}
+.size1of5{width:20%;}
+.size2of5{width:40%;}
+.size3of5{width:60%;}
+.size4of5{width:80%;}
+.lastUnit {float:none;_position:relative; _left:-3px; _margin-right: -3px;width:auto;}
+.padding10px{padding:10px;}
+.padding15px{padding:15px;}
+.padding20px{padding:20px;}
+.clear{clear:both;height:1px;line-height:1px;}
+
+/* **************** TYPOGRAPHY ***************** */
+body {font-size:75%;line-height:1.5;}
+h1, h2, h3, h4, h5, h6 {font-weight:normal;}
+h1 {
+  font-size:3.6em;
+  line-height:1;
+  margin-bottom:0.5em;
+  color:#434343;
+  font-weight:bold;
+  letter-spacing:-0.05em;
+}
+h2 {font-size:2em;margin-bottom:0.75em; color:#434343;}
+h3 {font-size:1.5em;line-height:1;margin-bottom:1em;}
+h4 {font-size:1.25em;line-height:1.25;margin:0.5em 0 0.5em 0;color:#565757;font-weight:bold;}
+h5 {
+  font-size:1.3em;
+  font-weight:normal;
+  color:#414240;
+}
+
+h6 {
+  font-size:1.3em;
+  font-weight:bold;
+  font-style:italic;
+  color:#434343;
+  margin:-20px 0 20px 0;
+  letter-spacing:-0.05em;
+}
+p {
+  margin:0 0 1.5em;
+  color:#414240;
+}
+
+/* **************** ALIGNMENTS ***************** */
+.tcenter { text-align: center; }
+.tright { text-align: right; }
+.tleft { text-align: left; }
+.tjustify { text-align: justify; }
+.fright { float: right; }
+
+/* **************** MARGINS ***************** */
+.nomargin { margin: 0 !important; }
+.mt30 { margin-top: 30px !important; }
+.mt20 { margin-top: 20px !important; }
+.mb20 { margin-bottom: 20px !important; }
+.m20 { margin: 20px !important; }
+.mt10 { margin-top: 10px !important; }
+.ml10 { margin-left: 10px !important; }
+.mr10 { margin-right: 10px !important; }
+.mb10 { margin-bottom: 10px !important; }
+.mb20 { margin-bottom: 20px !important; }
+.mb30 { margin-bottom: 30px !important; }
+.m10 { margin: 10px !important; }
+
+
+
+
+​
