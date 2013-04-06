@@ -1,0 +1,13 @@
+---
+title: All the pages
+listed: false
+published: false
+---
+{% extends parent %}
+{% block content %}
+<ul>
+{% for page in site.pages %}
+<li>{{ page.title }}</li>
+{% endfor %}
+</ul>
+{% endblock %}

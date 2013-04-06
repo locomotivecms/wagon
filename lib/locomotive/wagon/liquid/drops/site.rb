@@ -11,7 +11,7 @@ module Locomotive
           end
 
           def pages
-            @pages ||= liquify(*self._source.pages)
+            @pages ||= liquify(*self.mounting_point.pages.values)
           end
 
         end
