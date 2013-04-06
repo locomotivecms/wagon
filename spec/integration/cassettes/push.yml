@@ -781,8 +781,8 @@ http_interactions:
     headers: {}
   response:
     status:
-      code: 401
-      message: ! 'Unauthorized '
+      code: 200
+      message: ! 'OK '
     headers:
       Content-Type:
       - application/json; charset=utf-8
@@ -799,12 +799,12 @@ http_interactions:
       Date:
       - Wed, 27 Feb 2013 11:39:27 GMT
       Content-Length:
-      - '41'
+      - '2'
       Connection:
       - Keep-Alive
     body:
       encoding: US-ASCII
-      string: ! '{"error":"Invalid authentication token."}'
+      string: ! '[]'
     http_version:
   recorded_at: Wed, 27 Feb 2013 11:39:27 GMT
 recorded_with: VCR 2.3.0
