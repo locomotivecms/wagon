@@ -1,13 +1,14 @@
 # LocomotiveCMS::Wagon
 
-The LocomotiveCMS wagon is a site generator for the LocomotiveCMS engine powered by all the efficient and modern HTML development tools (Haml, SASS, Compass, Less).
+Wagon is the officiel site generator for the LocomotiveCMS engine powered by all the efficient and modern HTML development tools (Haml, SASS, Compass, Less).
 
-(TO BE COMPLETED)
+## Documentation
 
-## Developers / Alpha users / Contributors
+Please, visit the documentation website of LocomotiveCMS.
 
-The push/pull functionalities require to have the edge version of the engine (master branch).
-Also, please, keep in mind, that is nearly an alpha version so it is not stable enough to be used in production.
+  [http://doc.locomotivecms.com](http://doc.locomotivecms.com)
+
+## Developers / Contributors
 
 ### Get the development of the mounter
 
@@ -19,7 +20,6 @@ Also, please, keep in mind, that is nearly an alpha version so it is not stable 
 
     $ git clone git://github.com/locomotivecms/wagon.git
     $ cd wagon
-    $ git checkout wip
 
   Note: Again, if you want to contribute, you may consider to fork it instead
 
@@ -33,11 +33,11 @@ Also, please, keep in mind, that is nearly an alpha version so it is not stable 
 
     $ bundle exec bin/wagon server <path to the mounter gem>/spec/fixtures/default
 
-#### Push a site (WIP)
+#### Push a site
 
     $ bundle exec bin/wagon push <path to your LocomotiveCMS local site> <url of your remote LocomotiveCMS site> <email of your admin account> <password>
 
-#### Pull a site (Not tested yet)
+#### Pull a site
 
     $ bundle exec bin/wagon pull <url of your remote LocomotiveCMS site> <email of your admin account> <password>
 
@@ -49,20 +49,8 @@ Also, please, keep in mind, that is nearly an alpha version so it is not stable 
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
 
-## Installation (TODO)
+## Contact
 
-Add this line to your application's Gemfile:
+Feel free to contact me at did at locomotivecms dot com.
 
-    gem 'locomotive_wagon'
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install locomotive_wagon
-
-## Usage
-
-TODO: Write usage instructions here
+Copyright (c) 2013 NoCoffee, released under the MIT license
