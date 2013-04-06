@@ -9,11 +9,7 @@ describe Locomotive::Wagon::Server do
   include Rack::Test::Methods
 
   def app
-    path = 'spec/fixtures/default'
-    Locomotive::Wagon::Logger.setup(path, false)
-    reader = Locomotive::Mounter::Reader::FileSystem.instance
-    reader.run!(path: path)
-    Locomotive::Wagon::Server.new(reader, disable_listen: true)
+    run_server
   end
 
   it 'shows the index page' do
@@ -43,6 +39,15 @@ describe Locomotive::Wagon::Server do
     last_response.body.should =~ /Propulsé par/
     get '/nb'
     last_response.body.should_not =~ /Powered by/
+  end
+
+  it 'returns all the pages' do
+    get '/all'
+    last_response.body.should =~ /Home page/
+    last_response.body.should =~ /<li>Home page<\/li>/
+    last_response.body.should =~ /<li>John-doe<\/li>/
+    last_response.body.should =~ /<li>Songs<\/li>/
+    last_response.body.should =~ /<li>A song template<\/li>/
   end
 
 end
