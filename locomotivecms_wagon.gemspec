@@ -29,7 +29,6 @@ Gem::Specification.new do |gem|
 
   gem.add_dependency 'listen',                '~> 0.7.0'
 
-  gem.add_dependency 'rmagick',               '2.12.2'
   gem.add_dependency 'httmultiparty',         '0.3.8'
   gem.add_dependency 'will_paginate',         '~> 3.0.3'
   gem.add_dependency 'locomotivecms_mounter', '1.0.1'

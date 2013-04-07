@@ -47,7 +47,6 @@ module Locomotive
 
         begin
           require 'rack/cache'
-          require 'RMagick'
           require 'dragonfly'
 
           ## initialize Dragonfly ##
