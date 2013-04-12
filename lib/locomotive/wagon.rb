@@ -80,7 +80,7 @@ module Locomotive
     def self.pull(path, connection_info, options = {})
       self.require_mounter(path)
 
-      Bundler.require 'misc'
+      Bundler.require 'misc' unless options[:disable_misc]
 
       connection_info['uri'] = "#{connection_info.delete('host')}/locomotive/api"
 
@@ -92,29 +92,30 @@ module Locomotive
 
       writer = Locomotive::Mounter::Writer::FileSystem.instance
       writer.run!(mounting_point: reader.mounting_point, target_path: path)
-    rescue Exception => e
-      puts e.backtrace
     end
 
-    def self.clone(path, connection_info, options = {})
-      if File.exists?(path)
+    # Clone a site from a remote LocomotiveCMS engine.
+    #
+    # @param [ String ] name Name of the site (arbitrary)
+    # @param [ String ] path The root path where the site will be cloned
+    # @param [ Hash ] connection_info The host, email and password needed to access the remote engine
+    # @param [ Hash ] options The options for the API reader
+    #
+    def self.clone(name, path, connection_info, options = {})
+      target_path = File.expand_path(File.join(path, name))
+
+      if File.exists?(target_path)
         puts "Path already exists. If it's an existing site, you might want to pull instead of clone."
         return false
       end
-      require 'locomotive/mounter'
 
-      connection_info['uri'] = "#{connection_info.delete('host')}/locomotive/api"
+      # generate an almost blank site
+      require 'locomotive/wagon/generators/site'
+      generator = Locomotive::Wagon::Generators::Site::Cloned
+      generator.start [name, path, connection_info]
 
-      _options = options.dup
-      _options[:only] = _options.delete(:resources)
-
-      reader = Locomotive::Mounter::Reader::Api.instance
-      reader.run!(_options.merge(connection_info))
-
-      writer = Locomotive::Mounter::Writer::FileSystem.instance
-      writer.run!(mounting_point: reader.mounting_point, target_path: path)
-    # rescue Exception => e
-    #   puts e.backtrace
+      # pull the remote site
+      self.pull(target_path, options.merge(connection_info).with_indifferent_access, { disable_misc: true })
     end
 
     # Destroy a remote site

@@ -118,6 +118,7 @@ module Locomotive
 
         desc 'init NAME [PATH]', 'Create a brand new LocomotiveCMS site'
         method_option :template, aliases: '-t', type: 'string', default: 'blank', desc: 'instead of building from a blank site, you can have a pre-fetched site with form a template (see the templates command)'
+        method_option :verbose, aliases: '-v', type: 'boolean', default: false, desc: 'display the full error stack trace if an error occurs'
         def init(name, path = '.')
           require 'locomotive/wagon/generators/site'
           generator = Locomotive::Wagon::Generators::Site.get(options[:template])
@@ -125,10 +126,24 @@ module Locomotive
             say "Unknown site template '#{options[:template]}'", :red
           else
             begin
-              Locomotive::Wagon.init(name, path, generator)
+              if Locomotive::Wagon.init(name, path, generator)
+                self.print_next_instructions_when_site_created(name, path)
+              end
             rescue GeneratorException => e
-              say e.message, :red
+              self.print_exception(e, options[:verbose])
             end
+          end
+        end
+
+        desc 'clone NAME HOST EMAIL PASSWORD [PATH]', 'Clone a remote LocomotiveCMS site'
+        method_option :verbose, aliases: '-v', type: 'boolean', default: false, desc: 'display the full error stack trace if an error occurs'
+        def clone(name, host, email, password, path = '.')
+          begin
+            if Locomotive::Wagon.clone(name, path, host: host, email: email, password: password)
+              self.print_next_instructions_when_site_created(name, path)
+            end
+          rescue Exception => e
+            self.print_exception(e, options[:verbose])
           end
         end
 
@@ -165,13 +180,14 @@ module Locomotive
         method_option :resources, aliases: '-r', type: 'array', default: nil, desc: 'Only push the resource(s) passed in argument'
         method_option :force, aliases: '-f', type: 'boolean', default: false, desc: 'Force the push of a resource'
         method_option :data, aliases: '-d', type: 'boolean', default: false, desc: 'Push the content entries and the editable elements (by default, they are not)'
+        method_option :verbose, aliases: '-v', type: 'boolean', default: false, desc: 'display the full error stack trace if an error occurs'
         def push(env, path = '.')
           if check_path!(path)
             if connection_info = self.retrieve_connection_info(env, path)
               begin
                 Locomotive::Wagon.push(path, connection_info, options)
               rescue Exception => e
-                say e.message, :red
+                self.print_exception(e, options[:verbose])
               end
             end
           end
@@ -179,15 +195,14 @@ module Locomotive
 
         desc 'pull ENV [PATH]', 'Pull a site from a remote LocomotiveCMS engine'
         method_option :resources, aliases: '-r', type: 'array', default: nil, desc: 'Only pull the resource(s) passed in argument'
-        # method_option :force, aliases: '-f', type: 'boolean', default: false, desc: 'Force the push of a resource'
-        # method_option :data, aliases: '-d', type: 'boolean', default: false, desc: 'Push the content entries and the editable elements (by default, they are not)'
+        method_option :verbose, aliases: '-v', type: 'boolean', default: false, desc: 'display the full error stack trace if an error occurs'
         def pull(env, path = '.')
           if check_path!(path)
             if connection_info = self.retrieve_connection_info(env, path)
               begin
                 Locomotive::Wagon.pull(path, connection_info, options)
               rescue Exception => e
-                say e.message, :red
+                self.print_exception(e, options[:verbose])
               end
             end
           end
@@ -207,6 +222,29 @@ module Locomotive
         end
 
         protected
+
+        # Print a nice message when a site has been created.
+        #
+        # @param [ String ] name The name of the site
+        # @param [ String ] path The path of the local site
+        #
+        def print_next_instructions_when_site_created(name, path)
+          say "\nCongratulations, your site \"#{name}\" has been created successfully !", :green
+          say 'Next steps:', :bold
+          say "\tcd #{path}/#{name}\n\tbundle install\n\tbundle exec wagon serve\n\topen http://0.0.0.0:3333"
+        end
+
+        # Print the exception.
+        #
+        # @param [ Object ] exception The raised exception
+        # @param [ Boolean ] verbose Print the full backtrace if true
+        #
+        def print_exception(exception, verbose)
+          say exception.message, :red
+          if verbose
+            say "\t" + exception.backtrace.join("\n\t")
+          end
+        end
 
         # From a site specified by a path, retrieve the information of the connection
         # for a environment located in the config/deploy.yml file of the site.
