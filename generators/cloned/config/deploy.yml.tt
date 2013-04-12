@@ -1,0 +1,4 @@
+production:
+  host: <%= config[:host] %>
+  email: <%= config[:email] %>
+  password: <%= config[:password] %>
