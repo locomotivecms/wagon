@@ -4,16 +4,52 @@ module Locomotive
       module Filters
         module Html
 
+          # Returns a link tag that browsers and news readers can use to auto-detect an RSS or ATOM feed.
+          # input: url of the feed
+          # example:
+          #   {{ '/foo/bar' | auto_discovery_link_tag: 'rel:alternate', 'type:application/atom+xml', 'title:A title' }}
+          def auto_discovery_link_tag(input, *args)
+            options = args_to_options(args)
+
+            rel   = options[:rel] || 'alternate'
+            type  = options[:type] || Mime::Type.lookup_by_extension('rss').to_s
+            title = options[:title] || 'RSS'
+
+            %{<link rel="#{rel}" type="#{type}" title="#{title}" href="#{input}" />}
+          end
+
+          # Write the url of a theme stylesheet
+          # input: name of the css file
+          def stylesheet_url(input)
+            return '' if input.nil?
+
+            input = "/stylesheets/#{input}" unless input =~ /^(\/|https?:)/
+
+            input = "#{input}.css" unless input.ends_with?('.css')
+
+            input
+          end
+
           # Write the link to a stylesheet resource
           # input: url of the css file
           def stylesheet_tag(input, media = 'screen')
             return '' if input.nil?
 
-            input = "/stylesheets/#{input}" unless input =~ /^(\/|http:)/
-
-            input = "#{input}.css" unless input.ends_with?('.css')
+            input = stylesheet_url(input)
 
             %{<link href="#{input}" media="#{media}" rel="stylesheet" type="text/css" />}
+          end
+
+          # Write the url to javascript resource
+          # input: name of the javascript file
+          def javascript_url(input)
+            return '' if input.nil?
+
+            input = "/javascripts/#{input}" unless input =~ /^(\/|https?:)/
+
+            input = "#{input}.js" unless input.ends_with?('.js')
+
+            input
           end
 
           # Write the link to javascript resource
@@ -21,9 +57,7 @@ module Locomotive
           def javascript_tag(input)
             return '' if input.nil?
 
-            input = "/javascripts/#{input}" unless input =~ /^(\/|http:)/
-
-            input = "#{input}.js" unless input.ends_with?('.js')
+            input = javascript_url(input)
 
              %{<script src="#{input}" type="text/javascript"></script>}
           end

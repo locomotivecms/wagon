@@ -12,6 +12,8 @@ title: Home page
     %meta{ :content => "{{ site.meta_description }}", :name => "description" }
     %meta{ :content => "{{ site.meta_keywords }}", :name => "keywords" }
 
+    {{ '/foo/bar' | auto_discovery_link_tag: 'rel:alternate', 'type:application/atom+xml', 'title:A title' }}
+
     / Le HTML5 shim, for IE6-8 support of HTML elements
 
     /[if lt IE 9]
@@ -22,6 +24,7 @@ title: Home page
     / Le styles
     {{ 'reboot' | stylesheet_tag }}
     {{ 'application' | stylesheet_tag }}
+    %script{ :src => "{{ 'application.js' | javascript_url }}", :type => 'text/javascript' }
 
     %script{ :src => 'http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js', :type => 'text/javascript' }
 

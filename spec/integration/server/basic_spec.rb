@@ -66,9 +66,16 @@ describe Locomotive::Wagon::Server do
 
   end
 
-  # it 'renders the nav' do
-  #   get '/'
-  #   last_response.body.should =~ /Home page/
-  # end
+  describe 'theme assets' do
+
+    subject { get '/all'; last_response.body }
+
+    it { should match(/<link href="\/stylesheets\/application.css" media="screen" rel="stylesheet" type="text\/css" \/>/) }
+
+    it { should match(/<script src="\/javascripts\/application.js" type='text\/javascript'><\/script>/) }
+
+    it { should match(/<link rel="alternate" type="application\/atom\+xml" title="A title" href="\/foo\/bar" \/>/) }
+
+  end
 
 end
