@@ -50,4 +50,25 @@ describe Locomotive::Wagon::Server do
     last_response.body.should =~ /<li>A song template<\/li>/
   end
 
+  describe 'nav' do
+
+    subject { get '/all'; last_response.body }
+
+    it { should match(/<li id="about-us-link" class="link first "><a href="\/about-us" >About Us <\/a><\/li>/)}
+
+    it { should match(/<li id="music-link" class="link  "><a href="\/music" >Music <\/a><\/li>/)}
+
+    it { should match(/<li id="store-link" class="link  "><a href="\/store" >Store <\/a><\/li>/)}
+
+    it { should match(/<li id="contact-link" class="link last "><a href="\/contact" >Contact Us <\/a><\/li>/)}
+
+    it { should_not match(/<li id="events-link" class="link "><a href="\/events" >Events <\/a><\/li>/)}
+
+  end
+
+  # it 'renders the nav' do
+  #   get '/'
+  #   last_response.body.should =~ /Home page/
+  # end
+
 end
