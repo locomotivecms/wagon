@@ -255,6 +255,7 @@ module Locomotive
         # @return [ Hash ] The information of the connection or nil if errors
         #
         def retrieve_connection_info(env, path)
+          require 'active_support/core_ext/hash'
           connection_info = nil
           begin
             path_to_deploy_file = File.join(path, 'config', 'deploy.yml')
