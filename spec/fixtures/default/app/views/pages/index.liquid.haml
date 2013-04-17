@@ -30,7 +30,7 @@ title: Home page
   %body
     .container
       #menu
-        #nav
+        %ul#nav
           %li#home{ :class => "{% if page.fullpath == 'index' %}on{% endif %} link" }
             %a{ :href => '/' } Home
           {% nav site, no_wrapper: true, exclude: 'events' %}
