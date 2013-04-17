@@ -61,12 +61,12 @@ module Locomotive
 
         writer = Locomotive::Mounter::Writer::Api.instance
 
-        connection_info['uri'] = "#{connection_info.delete('host')}/locomotive/api"
+        connection_info[:uri] = "#{connection_info.delete(:host)}/locomotive/api"
 
         _options = { mounting_point: reader.mounting_point, console: true }.merge(options).symbolize_keys
         _options[:only] = _options.delete(:resources)
 
-        writer.run!(_options.merge(connection_info))
+        writer.run!(_options.merge(connection_info).with_indifferent_access)
       end
     end
 
@@ -82,7 +82,7 @@ module Locomotive
 
       Bundler.require 'misc' unless options[:disable_misc]
 
-      connection_info['uri'] = "#{connection_info.delete('host')}/locomotive/api"
+      connection_info[:uri] = "#{connection_info.delete(:host)}/locomotive/api"
 
       _options = { console: true }.merge(options)
       _options[:only] = _options.delete(:resources)

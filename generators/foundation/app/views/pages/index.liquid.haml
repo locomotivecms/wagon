@@ -12,9 +12,9 @@ published: true
     %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
     %title {{ page.title }}
     {{ 'normalize.css' | stylesheet_tag }}
-    
+
     {{ 'foundation.css' | stylesheet_tag }}
-    
+
     {{ 'vendor/custom.modernizr.js' | javascript_tag }}
   %body
     .row
@@ -86,45 +86,44 @@ published: true
               %br/
             us on Twitter if you have questions. If you build something with this we'd love to see it (and send you a totally boss sticker).
     {% endblock %}
-    
+
     {% include footer %}
 
     :javascript
       document.write('<script src=' +
-      ('__proto__' in {} ? '{{ site.root }}javascripts/vendor/zepto' : '{{ site.root }}javascripts/vendor/jquery') +
-      '.js><\/script>')
+      ('__proto__' in {} ? '{{ 'vendor/zepto.js' | javascript_url }}' : '{{ 'vendor/jquery.js' | javascript_url }}') +
+      '><\/script>')
 
     {{ 'foundation.min.js' | javascript_tag }}
 
     /
       {{ 'foundation/foundation.js' | javascript_tag }}
-      
+
       {{ 'foundation/foundation.alerts.js' | javascript_tag }}
-      
+
       {{ 'foundation/foundation.clearing.js' | javascript_tag }}
-      
+
       {{ 'foundation/foundation.cookie.js' | javascript_tag }}
-      
+
       {{ 'foundation/foundation.dropdown.js' | javascript_tag }}
-      
+
       {{ 'foundation/foundation.forms.js' | javascript_tag }}
-      
+
       {{ 'foundation/foundation.joyride.js' | javascript_tag }}
-      
+
       {{ 'foundation/foundation.magellan.js' | javascript_tag }}
-      
+
       {{ 'foundation/foundation.orbit.js' | javascript_tag }}
-      
+
       {{ 'foundation/foundation.placeholder.js' | javascript_tag }}
-      
+
       {{ 'foundation/foundation.reveal.js' | javascript_tag }}
-      
+
       {{ 'foundation/foundation.section.js' | javascript_tag }}
-      
+
       {{ 'foundation/foundation.tooltips.js' | javascript_tag }}
-      
+
       {{ 'foundation/foundation.topbar.js' | javascript_tag }}
-      
+
     :javascript
       $(document).foundation();
-  

@@ -12,9 +12,9 @@ published: true
   <title>{{ page.title }}</title>
 
   {{ 'normalize.css' | stylesheet_tag }}
-  
+
   {{ 'foundation.css' | stylesheet_tag }}
-  
+
   {{ 'vendor/custom.modernizr.js' | javascript_tag }}
 
 </head>
@@ -108,43 +108,43 @@ published: true
 
   <script>
   document.write('<script src=' +
-  ('__proto__' in {} ? '{{ site.root }}javascripts/vendor/zepto' : '{{ site.root }}javascripts/vendor/jquery') +
-  '.js><\/script>')
+  ('__proto__' in {} ? '{{ 'vendor/zepto.js' | javascript_url }}' : '{{ 'vendor/jquery.js' | javascript_url }}') +
+  '><\/script>')
   </script>
   {{ 'foundation.min.js' | javascript_tag }}
-  
+
   <!--
-  
+
   {{ 'foundation/foundation.js' | javascript_tag }}
-  
+
   {{ 'foundation/foundation.alerts.js' | javascript_tag }}
-  
+
   {{ 'foundation/foundation.clearing.js' | javascript_tag }}
-  
+
   {{ 'foundation/foundation.cookie.js' | javascript_tag }}
-  
+
   {{ 'foundation/foundation.dropdown.js' | javascript_tag }}
-  
+
   {{ 'foundation/foundation.forms.js' | javascript_tag }}
-  
+
   {{ 'foundation/foundation.joyride.js' | javascript_tag }}
-  
+
   {{ 'foundation/foundation.magellan.js' | javascript_tag }}
-  
+
   {{ 'foundation/foundation.orbit.js' | javascript_tag }}
-  
+
   {{ 'foundation/foundation.placeholder.js' | javascript_tag }}
-  
+
   {{ 'foundation/foundation.reveal.js' | javascript_tag }}
-  
+
   {{ 'foundation/foundation.section.js' | javascript_tag }}
-  
+
   {{ 'foundation/foundation.tooltips.js' | javascript_tag }}
-  
+
   {{ 'foundation/foundation.topbar.js' | javascript_tag }}
-  
+
   -->
-  
+
   <script>
     $(document).foundation();
   </script>
