@@ -6,9 +6,10 @@ gem 'locomotivecms_wagon', '<%= config[:version] -%>'
 
 group :development do
   # Mac OS X
-  gem 'rb-fsevent', '~> 0.9.1', :require => RUBY_PLATFORM.include?('darwin') && 'rb-fsevent'
+  gem 'rb-fsevent', '~> 0.9.1', require: RUBY_PLATFORM.include?('darwin') && 'rb-fsevent'
 
-  # TODO: Linux
+  # Unix
+  gem 'therubyracer', require: 'v8', platforms: :ruby
 
   # TODO: Windows
 end
