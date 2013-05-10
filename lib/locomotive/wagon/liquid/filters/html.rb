@@ -12,7 +12,7 @@ module Locomotive
             options = args_to_options(args)
 
             rel   = options[:rel] || 'alternate'
-            type  = options[:type] || Mime::Type.lookup_by_extension('rss').to_s
+            type  = options[:type] || MIME::Types.type_for('rss').first
             title = options[:title] || 'RSS'
 
             %{<link rel="#{rel}" type="#{type}" title="#{title}" href="#{input}" />}
