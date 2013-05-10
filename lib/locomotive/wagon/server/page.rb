@@ -29,10 +29,16 @@ module Locomotive::Wagon
       def fetch_page
         matchers = self.path_combinations(self.path)
 
-        self.mounting_point.pages.values.detect do |_page|
+        pages = self.mounting_point.pages.values.find_all do |_page|
           matchers.include?(_page.safe_fullpath) ||
           matchers.include?(_page.safe_fullpath.try(:underscore))
+        end.sort { |a, b| a.position <=> b.position }
+
+        if pages.size > 1
+          self.log "Found multiple pages: #{pages.collect(&:title).join(', ')}"
         end
+
+        pages.first
       end
 
       def path_combinations(path)
