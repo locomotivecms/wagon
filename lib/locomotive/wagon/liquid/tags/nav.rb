@@ -20,7 +20,7 @@ module Locomotive
           def initialize(tag_name, markup, tokens, context)
             if markup =~ Syntax
               @source = ($1 || 'page').gsub(/"|'/, '')
-              @options = { :id => 'nav', :class => '', :active_class => 'on', :bootstrap => false }
+              @options = { id: 'nav', class: '', active_class: 'on', bootstrap: false }
               markup.scan(::Liquid::TagAttributes) { |key, value| @options[key.to_sym] = value.gsub(/"|'/, '') }
 
               @options[:exclude] = Regexp.new(@options[:exclude]) if @options[:exclude]
@@ -55,7 +55,8 @@ module Locomotive
             output = children_output.join("\n")
 
             if @options[:no_wrapper] != 'true'
-              output = %{<ul id="#{@options[:id]}" class="#{@options[:class]}">\n#{output}</ul>}
+              list_class  = !@options[:class].blank? ? %( class="#{@options[:class]}") : ''
+              output      = %{<nav id="#{@options[:id]}"#{list_class}><ul>\n#{output}</ul></nav>}
             end
 
             output

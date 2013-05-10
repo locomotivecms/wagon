@@ -1,4 +1,5 @@
 require 'liquid'
+require 'locomotive/mounter'
 require 'locomotive/wagon/liquid/drops/base'
 
 %w{. drops tags filters}.each do |dir|
