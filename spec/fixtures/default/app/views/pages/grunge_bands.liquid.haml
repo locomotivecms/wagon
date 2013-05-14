@@ -1,0 +1,8 @@
+---
+title: Grunge leaders
+---
+{% with_scope kind: "grunge" %}
+{% for band in contents.bands %}
+{{ band.leader }}
+{% endfor %}
+{% endwith_scope %}
