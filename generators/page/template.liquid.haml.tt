@@ -2,26 +2,25 @@
 title: <%= config[:slug].humanize -%>
 <% if config[:translated] %>
 
-# TODO: explain it (used only if the page is not for the defaut locale)
+# unique identifier for urls, the same as a permalink
 slug: <%= config[:slug] -%>
 <% end %>
 
-# TODO: explain it
+# true if the page is included in the menu
 listed: true
 
-# TODO: explain it
+# true if the page is published
 published: true
 
-# TODO: explain it
+# position among sibling pages
 # position: 1
 
-# TODO: explain it
+# sets a redirection to the given url (301)
 # redirect_url: "<url to a page or to a remote url>"
 
-# TODO: explain it
+# content type that this page is templatizing
 # content_type: "<slug of one of the content types>"
 
-# TODO: explain it
 # editable_elements:
 #   'some_block/some_slug': "<text>"
 #   'some_block/some_slug': "<relative path to the file under the public/samples folder>"
