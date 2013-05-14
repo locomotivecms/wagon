@@ -1,3 +1,5 @@
+require "locomotive/wagon/scopeable"
+
 module Locomotive
   module Wagon
     module Liquid
@@ -12,6 +14,7 @@ module Locomotive
         end
 
         class ProxyCollection < ::Liquid::Drop
+          include Scopeable
 
           def initialize(content_type)
             @content_type = content_type
@@ -91,28 +94,8 @@ module Locomotive
 
           def collection
             return unless @collection.blank?
-
-            if @context['with_scope'].blank?
-              @collection = @content_type.entries
-            else
-              @collection = []
-
-              conditions = @context['with_scope'].clone.delete_if { |k, _| %w(order_by per_page page).include?(k) }
-
-              @content_type.entries.each do |content|
-                accepted = (conditions.map do |key, value|
-                  case value
-                  when TrueClass, FalseClass, String then content.send(key) == value
-                  else
-                    true
-                  end
-                end).all? # all conditions works ?
-
-                @collection << content if accepted
-              end
-            end
-
-            @collection
+            
+            @collection = apply_scope(@content_type.entries)
           end
         end
       end

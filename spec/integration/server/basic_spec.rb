@@ -76,6 +76,19 @@ describe Locomotive::Wagon::Server do
 
 
   end
+  
+  describe 'contents with_scope' do
+    subject { get '/grunge_bands'; last_response.body }
+    
+    it { should match(/Layne/)}
+    it { should_not match(/Peter/) }
+  end
+  
+  describe "pages with_scope" do
+    subject { get '/unlisted_pages'; last_response.body }
+    it { subject.should match(/Page to test the nav tag/)}
+    it { should_not match(/About Us/)}
+  end
 
   describe 'theme assets' do
 
