@@ -54,7 +54,7 @@ module Locomotive
 
           ## configure it ##
           ::Dragonfly[:images].configure do |c|
-            convert = `which convert`.strip.presence || '/usr/local/bin/convert'
+            convert = `which convert`.strip.presence || '/usr/bin/env convert'
             c.convert_command  = convert
             c.identify_command = convert
 
