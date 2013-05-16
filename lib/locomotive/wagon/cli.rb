@@ -179,6 +179,7 @@ module Locomotive
         desc 'push ENV [PATH]', 'Push a site to a remote LocomotiveCMS engine'
         method_option :resources, aliases: '-r', type: 'array', default: nil, desc: 'Only push the resource(s) passed in argument'
         method_option :force, aliases: '-f', type: 'boolean', default: false, desc: 'Force the push of a resource'
+        method_option :force_translations, type: 'boolean', default: false, desc: 'Force the push of local translations. You must specify it even if already using -f'
         method_option :data, aliases: '-d', type: 'boolean', default: false, desc: 'Push the content entries and the editable elements (by default, they are not)'
         method_option :verbose, aliases: '-v', type: 'boolean', default: false, desc: 'display the full error stack trace if an error occurs'
         def push(env, path = '.')
