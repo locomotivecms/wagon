@@ -57,9 +57,11 @@ module Locomotive
     #
     def self.push(path, connection_info, options = {})
       if reader = self.require_mounter(path, true)
+        require 'bundler'
         Bundler.require 'misc'
 
         writer = Locomotive::Mounter::Writer::Api.instance
+        self.validate_resources(options[:resources], writer.writers)
 
         connection_info[:uri] = "#{connection_info.delete(:host)}/locomotive/api"
 
@@ -88,6 +90,7 @@ module Locomotive
       _options[:only] = _options.delete(:resources)
 
       reader = Locomotive::Mounter::Reader::Api.instance
+      self.validate_resources(_options[:only], reader.readers)
       reader.run!(_options.merge(connection_info))
 
       writer = Locomotive::Mounter::Writer::FileSystem.instance
@@ -159,6 +162,14 @@ module Locomotive
         end
       end
     end
-
+    
+    protected
+    def self.validate_resources(resources, writers_or_readers)
+      return if resources.nil?
+      valid_resources = writers_or_readers.map { |thing| thing.to_s.demodulize.gsub(/Writer$|Reader$/, '').downcase } 
+      resources.each do |resource|
+        raise ArgumentError, "'#{resource}' resource not recognized" unless valid_resources.include?(resource)
+      end
+    end
   end
 end
