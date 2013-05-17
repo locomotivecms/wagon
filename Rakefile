@@ -36,10 +36,10 @@ namespace :development do
 
     FileUtils.rm_rf(File.join(File.dirname(__FILE__), 'site'))
     VCR.use_cassette('pull') do
-      exit unless Locomotive::Wagon.clone('site', '.', host: 'http://locomotive.engine.dev:3000', email: 'admin@locomotivecms.com', password: 'locomotive')
+      exit unless Locomotive::Wagon.clone('site', '.', { host: 'sample.example.com:3000', email: 'admin@locomotivecms.com', password: 'locomotive' })
     end
 
-    Locomotive::Wagon.push('site', {'host' => 'http://locomotive.engine.dev:3000'}, 'email' => 'admin@locomotivecms.com', 'password' => 'locomotive', 'force' => true, 'data' => true)
+    Locomotive::Wagon.push('site', {host: 'sample.example.com:3000', email: 'admin@locomotivecms.com', password: 'locomotive'}, force: true, force_translations: true, data: true)
   end
 end
 
