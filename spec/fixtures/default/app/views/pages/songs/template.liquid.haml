@@ -10,4 +10,7 @@ content_type: songs
 
 %p {{ song.short_description }}
 
+#is_templatized{templatized: "{{ page.templatized? }}"}
+#content_type_size{content_type_size: "{{ page.content_type.size }}"}
+
 {% endblock %}

@@ -4,31 +4,23 @@ module Locomotive
       module Drops
         class Page < Base
 
-          delegate :title, :slug, :fullpath, :parent, :depth, :seo_title, :redirect_url, :meta_description, :meta_keywords, :to => '_source'
+          delegate :title, :slug, :fullpath, :parent, :depth, :seo_title, :redirect_url, :meta_description, :meta_keywords,
+                   :templatized?, :published?, :redirect?, :listed?, to: '_source'
 
           def children
-            _children = @_source.children || []
+            _children = _source.children || []
             _children = _children.sort { |a, b| a.position.to_i <=> b.position.to_i }
             @children ||= liquify(*_children)
           end
 
-          def published?
-            @_source.published?
+          def content_type
+            ProxyCollection.new(_source.content_type) if _source.content_type
           end
-
-          def redirect?
-            self._source.redirect?
-          end
-
+          
           def breadcrumbs
             # TODO
             ''
           end
-
-          def listed?
-            @_source.listed?
-          end
-
         end
       end
     end

@@ -89,6 +89,9 @@ title: Home page
         .clear
 
       #footer
+        #is_templatized{templatized: "{{ page.templatized? }}"}
+        #is_listed{listed: "{{ page.listed? }}"}
+		
         %p {% locale_switcher %}
 
         %p
