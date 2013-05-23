@@ -40,6 +40,11 @@ describe Locomotive::Wagon::Server do
     get '/nb'
     last_response.body.should_not =~ /Powered by/
   end
+  
+  it 'provides translation in scopes' do
+    get '/'
+    last_response.body.should =~ /scoped_translation=.French./
+  end
 
   it 'returns all the pages' do
     get '/all'

@@ -90,6 +90,7 @@ title: Home page
 
       #footer
         #is_templatized{templatized: "{{ page.templatized? }}"}
+        #scoped_translation{scoped_translation: "{{ 'fr' | translate: 'en', 'locomotive.locales' }}"}
 		
         %p {% locale_switcher %}
 
