@@ -1,16 +1,17 @@
 pl:
-  locales:
-    en: angielski
-    de: niemiecki
-    fr: francuski
-    pl: polski
-    pt-BR: "portugalski (brazylijski)"
-    it: włoski
-    nl: niderlandzki
-    nb: norweski
-    es: hiszpański
-    ru: rosyjski
-    et: estoński
+  locomotive:
+    locales:
+      en: angielski
+      de: niemiecki
+      fr: francuski
+      pl: polski
+      pt-BR: "portugalski (brazylijski)"
+      it: włoski
+      nl: niderlandzki
+      nb: norweski
+      es: hiszpański
+      ru: rosyjski
+      et: estoński
 
   errors:
     messages:

@@ -1,16 +1,17 @@
 nb:
-  locales:
-    en: Engelsk
-    de: Tysk
-    fr: Fransk
-    pl: Polsk
-    pt-BR: "Brazilian Portuguese"
-    it: Italiensk
-    nl: Nederlandsk
-    nb: Norsk
-    es: Spansk
-    ru: Russisk
-    et: Estisk
+  locomotive:
+    locales:
+      en: Engelsk
+      de: Tysk
+      fr: Fransk
+      pl: Polsk
+      pt-BR: "Brazilian Portuguese"
+      it: Italiensk
+      nl: Nederlandsk
+      nb: Norsk
+      es: Spansk
+      ru: Russisk
+      et: Estisk
 
   date:
     formats:

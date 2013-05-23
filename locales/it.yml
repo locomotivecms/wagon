@@ -1,16 +1,17 @@
 it:
-  locales:
-    en: Inglese
-    de: Tedesco
-    fr: Francese
-    pl: Polacco
-    pt-BR: "Portoghese Brasiliano"
-    it: Italiano
-    nl: Olandese
-    nb: Norvegese
-    es: Spagnolo
-    ru: Russo
-    et: Estone
+  locomotive:
+    locales:
+      en: Inglese
+      de: Tedesco
+      fr: Francese
+      pl: Polacco
+      pt-BR: "Portoghese Brasiliano"
+      it: Italiano
+      nl: Olandese
+      nb: Norvegese
+      es: Spagnolo
+      ru: Russo
+      et: Estone
 
   errors:
     messages:
