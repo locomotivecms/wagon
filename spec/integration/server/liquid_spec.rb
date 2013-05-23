@@ -23,7 +23,7 @@ describe Locomotive::Wagon::Server do
   end
 
   it "converts {{ page.listed? }} => true on listed page" do
-    get '/index'
+    get '/music'
     last_response.body.should =~ /listed=.true./
   end
   
