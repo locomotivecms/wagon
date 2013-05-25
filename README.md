@@ -1,6 +1,6 @@
 # LocomotiveCMS::Wagon
 
-Wagon is the officiel site generator for the LocomotiveCMS engine powered by all the efficient and modern HTML development tools (Haml, SASS, Compass, Less).
+Wagon is the official site generator for the LocomotiveCMS engine powered by all the efficient and modern HTML development tools (Haml, SASS, Compass, Less).
 
 ## Documentation
 
