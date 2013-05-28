@@ -13,6 +13,18 @@ describe Locomotive::Wagon do
       'domains'   =>['sample.example.com']
     }
   end
+  
+  it "pulls the expected data" do
+    clone_site
+    es = YAML.load_file('site/app/views/pages/products.es.liquid')
+    es["seo_title"].should == "Productos SEO"
+    es["meta_description"].should == "Descripción molona de los productos"
+    es["meta_keywords"].should == "palabras, clave, productos"
+    en = YAML.load_file('site/app/views/pages/products.liquid')
+    en["seo_title"].should == "Search friendly products"
+    en["meta_description"].should == "Fancy products description"
+    en["meta_keywords"].should == "fancy, products, keywords"
+  end
 
   it 'pushes' do
     clone_site

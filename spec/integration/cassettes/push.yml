@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: http://sample.example.com:3000/locomotive/api/tokens.json?auth_token=5DU1kqcxNRA6UoXktW5w
+    uri: http://sample.example.com:3000/locomotive/api/tokens.json?auth_token=XFE86yskLuuvCB56wWJX
     body:
       encoding: US-ASCII
       string: email=admin%40locomotivecms.com&password=locomotive
@@ -19,32 +19,32 @@ http_interactions:
       X-Ua-Compatible:
       - IE=Edge
       Etag:
-      - ! '"29bd214e284501c410edba314c3fa053"'
+      - ! '"57841c72cd6fd661aa20c9ad016fbde9"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - d6c1c85cdfefdc3bbc14a495a4561993
+      - 52725d1713e9e848d24f24df02e9ec12
       X-Runtime:
-      - '0.013056'
+      - '0.024505'
       Server:
-      - WEBrick/1.3.1 (Ruby/1.9.3/2013-02-22)
+      - WEBrick/1.3.1 (Ruby/1.9.3/2012-10-12)
       Date:
-      - Fri, 17 May 2013 08:36:36 GMT
+      - Tue, 28 May 2013 09:34:01 GMT
       Content-Length:
       - '32'
       Connection:
       - Keep-Alive
       Set-Cookie:
-      - _dummy_session=BAh7CEkiD3Nlc3Npb25faWQGOgZFRkkiJWQyY2JkYTJhNDQ4ZTEwZTJiN2IzMjkxZGE4NGJlMTlhBjsAVEkiJ3dhcmRlbi51c2VyLmxvY29tb3RpdmVfYWNjb3VudC5rZXkGOwBUWwdbBlU6Gk1vcGVkOjpCU09OOjpPYmplY3RJZCIRUZXr6h5mz2slAAABSSIZWUQ0bUp1Tk0xVXhTSjhqM0c0UFkGOwBUSSIKZmxhc2gGOwBGbzolQWN0aW9uRGlzcGF0Y2g6OkZsYXNoOjpGbGFzaEhhc2gJOgpAdXNlZG86CFNldAY6CkBoYXNoewA6DEBjbG9zZWRGOg1AZmxhc2hlc3sGOgtub3RpY2VJQzoeQWN0aXZlU3VwcG9ydDo6U2FmZUJ1ZmZlciIjSGFzaCB3YXMgc3VjY2Vzc2Z1bGx5IGNyZWF0ZWQuBzsAVDoPQGh0bWxfc2FmZVQ6CUBub3cw--5ee65fb82e72753ddc758f0d8af1f050765712aa;
+      - _dummy_session=BAh7CEkiD3Nlc3Npb25faWQGOgZFRkkiJWJkOWRiMzc4MTYyZDM3OTQ3NmVmMTEzZjEzZjRmOGQxBjsAVEkiJ3dhcmRlbi51c2VyLmxvY29tb3RpdmVfYWNjb3VudC5rZXkGOwBUWwhJIhhMb2NvbW90aXZlOjpBY2NvdW50BjsARlsGbzoTQlNPTjo6T2JqZWN0SWQGOgpAZGF0YVsRaVZpAaRpcWkB%2B2kBq2kBnmkzaUVpdmkAaQBpCUkiGUgzUHU3QlFWVzJzS3lCVkVwQ0FYBjsAVEkiCmZsYXNoBjsARm86JUFjdGlvbkRpc3BhdGNoOjpGbGFzaDo6Rmxhc2hIYXNoCToKQHVzZWRvOghTZXQGOgpAaGFzaHsAOgxAY2xvc2VkRjoNQGZsYXNoZXN7BjoLbm90aWNlSUM6HkFjdGl2ZVN1cHBvcnQ6OlNhZmVCdWZmZXIiI0hhc2ggd2FzIHN1Y2Nlc3NmdWxseSBjcmVhdGVkLgc7AFQ6D0BodG1sX3NhZmVUOglAbm93MA%3D%3D--3538174e267fbc425d59daaa653a40c2bffac890;
         domain=.example.com; path=/; HttpOnly
     body:
       encoding: US-ASCII
-      string: ! '{"token":"5DU1kqcxNRA6UoXktW5w"}'
+      string: ! '{"token":"XFE86yskLuuvCB56wWJX"}'
     http_version: 
-  recorded_at: Fri, 17 May 2013 08:36:36 GMT
+  recorded_at: Tue, 28 May 2013 09:34:01 GMT
 - request:
     method: get
-    uri: http://sample.example.com:3000/locomotive/api/current_site.json?auth_token=5DU1kqcxNRA6UoXktW5w
+    uri: http://sample.example.com:3000/locomotive/api/current_site.json?auth_token=XFE86yskLuuvCB56wWJX
     body:
       encoding: US-ASCII
       string: ''
@@ -59,32 +59,32 @@ http_interactions:
       X-Ua-Compatible:
       - IE=Edge
       Etag:
-      - ! '"6f9414c164a6a2fb5b7261be9e6115fd"'
+      - ! '"67903a3a6ffabe2bdc2804ada82070d9"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 80551faceb73b08529c2c56629a0d133
+      - 0b32810a5cdab58377988034f48f53f0
       X-Runtime:
-      - '0.012795'
+      - '0.022408'
       Server:
-      - WEBrick/1.3.1 (Ruby/1.9.3/2013-02-22)
+      - WEBrick/1.3.1 (Ruby/1.9.3/2012-10-12)
       Date:
-      - Fri, 17 May 2013 08:36:36 GMT
+      - Tue, 28 May 2013 09:34:01 GMT
       Content-Length:
-      - '546'
+      - '556'
       Connection:
       - Keep-Alive
       Set-Cookie:
-      - _dummy_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFRkkiJWI4YzZkZWEzZGFkZTQzMGRlOGNlMzA4ZGUzYjI5OTc3BjsAVEkiJ3dhcmRlbi51c2VyLmxvY29tb3RpdmVfYWNjb3VudC5rZXkGOwBUWwdbBlU6Gk1vcGVkOjpCU09OOjpPYmplY3RJZCIRUZXr6h5mz2slAAABSSIZWUQ0bUp1Tk0xVXhTSjhqM0c0UFkGOwBU--6dae5dd76d3dcf0575fc7a3cf2b74368854b4cb1;
+      - _dummy_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFRkkiJTQyNDc0NjZjYWQwMDRhNTM4MzhiZDM2MTFmYjVjNGVlBjsAVEkiJ3dhcmRlbi51c2VyLmxvY29tb3RpdmVfYWNjb3VudC5rZXkGOwBUWwhJIhhMb2NvbW90aXZlOjpBY2NvdW50BjsARlsGbzoTQlNPTjo6T2JqZWN0SWQGOgpAZGF0YVsRaVZpAaRpcWkB%2B2kBq2kBnmkzaUVpdmkAaQBpCUkiGUgzUHU3QlFWVzJzS3lCVkVwQ0FYBjsAVA%3D%3D--41781383a0ec2588730d58b9ac26b1adbb4c3b8a;
         domain=.example.com; path=/; HttpOnly
     body:
       encoding: US-ASCII
-      string: ! '{"id":"5195ebea1e66cf6b25000006","_id":"5195ebea1e66cf6b25000006","created_at":"2013-05-17T08:35:54Z","updated_at":"2013-05-17T08:36:01Z","name":"locomotive","locales":["en","es"],"subdomain":"sample","domains":["sample.example.com"],"domains_without_subdomain":[],"domain_name":"example.com","memberships":[{"id":"5195ebea1e66cf6b25000009","_id":"5195ebea1e66cf6b25000009","role":"admin","role_name":"Administrator","can_update":false,"grant_admin":true,"account_id":"5195ebea1e66cf6b25000001","name":"Admin","email":"admin@locomotivecms.com"}]}'
+      string: ! '{"id":"51a46d0bab9e2e4045000001","_id":"51a46d0bab9e2e4045000001","created_at":"2013-05-28T10:38:35+02:00","updated_at":"2013-05-28T11:29:58+02:00","name":"locomotive","locales":["en","es"],"subdomain":"sample","domains":["sample.example.com"],"domains_without_subdomain":[],"domain_name":"example.com","memberships":[{"id":"51a46d0bab9e2e4045000003","_id":"51a46d0bab9e2e4045000003","role":"admin","role_name":"Administrator","can_update":false,"grant_admin":true,"account_id":"51a46cfbab9e2e4071000004","name":"Admin","email":"admin@locomotivecms.com"}]}'
     http_version: 
-  recorded_at: Fri, 17 May 2013 08:36:36 GMT
+  recorded_at: Tue, 28 May 2013 09:34:01 GMT
 - request:
     method: put
-    uri: http://sample.example.com:3000/locomotive/api/sites/5195ebea1e66cf6b25000006.json?auth_token=5DU1kqcxNRA6UoXktW5w
+    uri: http://sample.example.com:3000/locomotive/api/sites/51a46d0bab9e2e4045000001.json?auth_token=XFE86yskLuuvCB56wWJX
     body:
       encoding: US-ASCII
       string: site[name]=locomotive&site[locales][]=en&site[locales][]=es&site[subdomain]=sample&site[domains][]=sample.example.com&locale=en
@@ -99,38 +99,38 @@ http_interactions:
       X-Message-Type:
       - notice
       Location:
-      - http://sample.example.com:3000/locomotive/sites/5195ebea1e66cf6b25000006
+      - http://sample.example.com:3000/locomotive/sites/51a46d0bab9e2e4045000001
       Content-Type:
       - application/json; charset=utf-8
       X-Ua-Compatible:
       - IE=Edge
       Etag:
-      - ! '"6f9414c164a6a2fb5b7261be9e6115fd"'
+      - ! '"3d5e6437e29d6ee2af95d4eab5eadb9c"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - aad9047dd76d56e6941eea328bcb433b
+      - 891c36c6e321a2e68314d50dc61b0532
       X-Runtime:
-      - '0.017197'
+      - '0.029876'
       Server:
-      - WEBrick/1.3.1 (Ruby/1.9.3/2013-02-22)
+      - WEBrick/1.3.1 (Ruby/1.9.3/2012-10-12)
       Date:
-      - Fri, 17 May 2013 08:36:36 GMT
+      - Tue, 28 May 2013 09:34:01 GMT
       Content-Length:
-      - '546'
+      - '556'
       Connection:
       - Keep-Alive
       Set-Cookie:
-      - _dummy_session=BAh7CEkiD3Nlc3Npb25faWQGOgZFRkkiJTg5ODQzMTIyMThmOTdjNjM4OTk5ZTY2M2UzZmM0ZmYwBjsAVEkiJ3dhcmRlbi51c2VyLmxvY29tb3RpdmVfYWNjb3VudC5rZXkGOwBUWwdbBlU6Gk1vcGVkOjpCU09OOjpPYmplY3RJZCIRUZXr6h5mz2slAAABSSIZWUQ0bUp1Tk0xVXhTSjhqM0c0UFkGOwBUSSIKZmxhc2gGOwBGbzolQWN0aW9uRGlzcGF0Y2g6OkZsYXNoOjpGbGFzaEhhc2gJOgpAdXNlZG86CFNldAY6CkBoYXNoewY6C25vdGljZVQ6DEBjbG9zZWRGOg1AZmxhc2hlc3sGOwtJQzoeQWN0aXZlU3VwcG9ydDo6U2FmZUJ1ZmZlciIjU2l0ZSB3YXMgc3VjY2Vzc2Z1bGx5IHVwZGF0ZWQuBzsAVDoPQGh0bWxfc2FmZVQ6CUBub3cw--39d34285a8e7187e28910a71c7d35491fe33ec8e;
+      - _dummy_session=BAh7CEkiD3Nlc3Npb25faWQGOgZFRkkiJWY3MjU4ZGIyMGQ5ZmQ2NGNjNjM1MWM1ODM5NmJhYmNkBjsAVEkiJ3dhcmRlbi51c2VyLmxvY29tb3RpdmVfYWNjb3VudC5rZXkGOwBUWwhJIhhMb2NvbW90aXZlOjpBY2NvdW50BjsARlsGbzoTQlNPTjo6T2JqZWN0SWQGOgpAZGF0YVsRaVZpAaRpcWkB%2B2kBq2kBnmkzaUVpdmkAaQBpCUkiGUgzUHU3QlFWVzJzS3lCVkVwQ0FYBjsAVEkiCmZsYXNoBjsARm86JUFjdGlvbkRpc3BhdGNoOjpGbGFzaDo6Rmxhc2hIYXNoCToKQHVzZWRvOghTZXQGOgpAaGFzaHsGOgtub3RpY2VUOgxAY2xvc2VkRjoNQGZsYXNoZXN7BjsMSUM6HkFjdGl2ZVN1cHBvcnQ6OlNhZmVCdWZmZXIiI1NpdGUgd2FzIHN1Y2Nlc3NmdWxseSB1cGRhdGVkLgc7AFQ6D0BodG1sX3NhZmVUOglAbm93MA%3D%3D--c0b347c783bdf468b3ff5b40dc05b950244aa607;
         domain=.example.com; path=/; HttpOnly
     body:
       encoding: US-ASCII
-      string: ! '{"id":"5195ebea1e66cf6b25000006","_id":"5195ebea1e66cf6b25000006","created_at":"2013-05-17T08:35:54Z","updated_at":"2013-05-17T08:36:01Z","name":"locomotive","locales":["en","es"],"subdomain":"sample","domains":["sample.example.com"],"domains_without_subdomain":[],"domain_name":"example.com","memberships":[{"id":"5195ebea1e66cf6b25000009","_id":"5195ebea1e66cf6b25000009","role":"admin","role_name":"Administrator","can_update":false,"grant_admin":true,"account_id":"5195ebea1e66cf6b25000001","name":"Admin","email":"admin@locomotivecms.com"}]}'
+      string: ! '{"id":"51a46d0bab9e2e4045000001","_id":"51a46d0bab9e2e4045000001","created_at":"2013-05-28T10:38:35+02:00","updated_at":"2013-05-28T11:34:01+02:00","name":"locomotive","locales":["en","es"],"subdomain":"sample","domains":["sample.example.com"],"domains_without_subdomain":[],"domain_name":"example.com","memberships":[{"id":"51a46d0bab9e2e4045000003","_id":"51a46d0bab9e2e4045000003","role":"admin","role_name":"Administrator","can_update":false,"grant_admin":true,"account_id":"51a46cfbab9e2e4071000004","name":"Admin","email":"admin@locomotivecms.com"}]}'
     http_version: 
-  recorded_at: Fri, 17 May 2013 08:36:36 GMT
+  recorded_at: Tue, 28 May 2013 09:34:01 GMT
 - request:
     method: put
-    uri: http://sample.example.com:3000/locomotive/api/sites/5195ebea1e66cf6b25000006.json?auth_token=5DU1kqcxNRA6UoXktW5w
+    uri: http://sample.example.com:3000/locomotive/api/sites/51a46d0bab9e2e4045000001.json?auth_token=XFE86yskLuuvCB56wWJX
     body:
       encoding: US-ASCII
       string: site[name]=locomotive&site[locales][]=en&site[locales][]=es&site[subdomain]=sample&site[domains][]=sample.example.com&locale=es
@@ -140,39 +140,43 @@ http_interactions:
       code: 200
       message: ! 'OK '
     headers:
+      X-Message:
+      - ! '"Site was successfully updated."'
+      X-Message-Type:
+      - notice
       Location:
-      - http://sample.example.com:3000/locomotive/sites/5195ebea1e66cf6b25000006
+      - http://sample.example.com:3000/locomotive/sites/51a46d0bab9e2e4045000001
       Content-Type:
       - application/json; charset=utf-8
       X-Ua-Compatible:
       - IE=Edge
       Etag:
-      - ! '"760eacde1bd4cb8bc924860c8210cf82"'
+      - ! '"3d5e6437e29d6ee2af95d4eab5eadb9c"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 84ebbf7efd052a46d3bd604e9b670add
+      - a5fb4a0f089eea67fbb8b445199701f8
       X-Runtime:
-      - '0.016110'
+      - '0.027348'
       Server:
-      - WEBrick/1.3.1 (Ruby/1.9.3/2013-02-22)
+      - WEBrick/1.3.1 (Ruby/1.9.3/2012-10-12)
       Date:
-      - Fri, 17 May 2013 08:36:36 GMT
+      - Tue, 28 May 2013 09:34:01 GMT
       Content-Length:
-      - '546'
+      - '556'
       Connection:
       - Keep-Alive
       Set-Cookie:
-      - _dummy_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFRkkiJWMxMGM1N2YwOTBkYThhNTkzZjZlMjU4YjRiNWEzZmY4BjsAVEkiJ3dhcmRlbi51c2VyLmxvY29tb3RpdmVfYWNjb3VudC5rZXkGOwBUWwdbBlU6Gk1vcGVkOjpCU09OOjpPYmplY3RJZCIRUZXr6h5mz2slAAABSSIZWUQ0bUp1Tk0xVXhTSjhqM0c0UFkGOwBU--c2fe05d6ff464fb8494611966b20c088376ca638;
+      - _dummy_session=BAh7CEkiD3Nlc3Npb25faWQGOgZFRkkiJWJhYzIyMmJhMmZmODZjZTU0NGJkNDExMjY2YTA1ZWE2BjsAVEkiJ3dhcmRlbi51c2VyLmxvY29tb3RpdmVfYWNjb3VudC5rZXkGOwBUWwhJIhhMb2NvbW90aXZlOjpBY2NvdW50BjsARlsGbzoTQlNPTjo6T2JqZWN0SWQGOgpAZGF0YVsRaVZpAaRpcWkB%2B2kBq2kBnmkzaUVpdmkAaQBpCUkiGUgzUHU3QlFWVzJzS3lCVkVwQ0FYBjsAVEkiCmZsYXNoBjsARm86JUFjdGlvbkRpc3BhdGNoOjpGbGFzaDo6Rmxhc2hIYXNoCToKQHVzZWRvOghTZXQGOgpAaGFzaHsGOgtub3RpY2VUOgxAY2xvc2VkRjoNQGZsYXNoZXN7BjsMSUM6HkFjdGl2ZVN1cHBvcnQ6OlNhZmVCdWZmZXIiI1NpdGUgd2FzIHN1Y2Nlc3NmdWxseSB1cGRhdGVkLgc7AFQ6D0BodG1sX3NhZmVUOglAbm93MA%3D%3D--cc41aa7ea7c4a8341418793cc638d99cc83a3e17;
         domain=.example.com; path=/; HttpOnly
     body:
       encoding: US-ASCII
-      string: ! '{"id":"5195ebea1e66cf6b25000006","_id":"5195ebea1e66cf6b25000006","created_at":"2013-05-17T08:35:54Z","updated_at":"2013-05-17T08:36:01Z","name":"locomotive","locales":["en","es"],"subdomain":"sample","domains":["sample.example.com"],"domains_without_subdomain":[],"domain_name":"example.com","memberships":[{"id":"5195ebea1e66cf6b25000009","_id":"5195ebea1e66cf6b25000009","role":"admin","role_name":"Administrador","can_update":false,"grant_admin":true,"account_id":"5195ebea1e66cf6b25000001","name":"Admin","email":"admin@locomotivecms.com"}]}'
+      string: ! '{"id":"51a46d0bab9e2e4045000001","_id":"51a46d0bab9e2e4045000001","created_at":"2013-05-28T10:38:35+02:00","updated_at":"2013-05-28T11:34:01+02:00","name":"locomotive","locales":["en","es"],"subdomain":"sample","domains":["sample.example.com"],"domains_without_subdomain":[],"domain_name":"example.com","memberships":[{"id":"51a46d0bab9e2e4045000003","_id":"51a46d0bab9e2e4045000003","role":"admin","role_name":"Administrator","can_update":false,"grant_admin":true,"account_id":"51a46cfbab9e2e4071000004","name":"Admin","email":"admin@locomotivecms.com"}]}'
     http_version: 
-  recorded_at: Fri, 17 May 2013 08:36:36 GMT
+  recorded_at: Tue, 28 May 2013 09:34:01 GMT
 - request:
     method: get
-    uri: http://sample.example.com:3000/locomotive/api/snippets.json?auth_token=5DU1kqcxNRA6UoXktW5w
+    uri: http://sample.example.com:3000/locomotive/api/snippets.json?auth_token=XFE86yskLuuvCB56wWJX
     body:
       encoding: US-ASCII
       string: ''
@@ -191,28 +195,28 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 8b2c9e7cf9eac302c3e8edcb420b4787
+      - bd6b7c33c208b9dbf84db1fbf0ed92be
       X-Runtime:
-      - '0.015310'
+      - '0.025588'
       Server:
-      - WEBrick/1.3.1 (Ruby/1.9.3/2013-02-22)
+      - WEBrick/1.3.1 (Ruby/1.9.3/2012-10-12)
       Date:
-      - Fri, 17 May 2013 08:36:36 GMT
+      - Tue, 28 May 2013 09:34:01 GMT
       Content-Length:
       - '2'
       Connection:
       - Keep-Alive
       Set-Cookie:
-      - _dummy_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFRkkiJWIwN2RiNmFhYTFlNWM5M2ZmNmYyMzcyNTFmMjlkNWMwBjsAVEkiJ3dhcmRlbi51c2VyLmxvY29tb3RpdmVfYWNjb3VudC5rZXkGOwBUWwdbBlU6Gk1vcGVkOjpCU09OOjpPYmplY3RJZCIRUZXr6h5mz2slAAABSSIZWUQ0bUp1Tk0xVXhTSjhqM0c0UFkGOwBU--7d960d85266a4cf2eb4d71171cc06f916fee07f6;
+      - _dummy_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFRkkiJWQ2Y2Q2MTM1ZGQ0ZGQ4MDBiODA2MmFhMjBlYjA2ZDQ2BjsAVEkiJ3dhcmRlbi51c2VyLmxvY29tb3RpdmVfYWNjb3VudC5rZXkGOwBUWwhJIhhMb2NvbW90aXZlOjpBY2NvdW50BjsARlsGbzoTQlNPTjo6T2JqZWN0SWQGOgpAZGF0YVsRaVZpAaRpcWkB%2B2kBq2kBnmkzaUVpdmkAaQBpCUkiGUgzUHU3QlFWVzJzS3lCVkVwQ0FYBjsAVA%3D%3D--95ac33446f67e3701e1fd0b167b2da70695ba0cb;
         domain=.example.com; path=/; HttpOnly
     body:
       encoding: US-ASCII
       string: ! '[]'
     http_version: 
-  recorded_at: Fri, 17 May 2013 08:36:36 GMT
+  recorded_at: Tue, 28 May 2013 09:34:01 GMT
 - request:
     method: get
-    uri: http://sample.example.com:3000/locomotive/api/content_types.json?auth_token=5DU1kqcxNRA6UoXktW5w
+    uri: http://sample.example.com:3000/locomotive/api/content_types.json?auth_token=XFE86yskLuuvCB56wWJX
     body:
       encoding: US-ASCII
       string: ''
@@ -227,36 +231,36 @@ http_interactions:
       X-Ua-Compatible:
       - IE=Edge
       Etag:
-      - ! '"216ebb0b29c4d653dfc875b0b1b88c7e"'
+      - ! '"cee05bf0b9c9106300d4ef2604404149"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - f2678825a665ce334949095a57850249
+      - 1e8f4533378aae7d1ee2e006148f1ce4
       X-Runtime:
-      - '0.019714'
+      - '0.032056'
       Server:
-      - WEBrick/1.3.1 (Ruby/1.9.3/2013-02-22)
+      - WEBrick/1.3.1 (Ruby/1.9.3/2012-10-12)
       Date:
-      - Fri, 17 May 2013 08:36:36 GMT
+      - Tue, 28 May 2013 09:34:01 GMT
       Content-Length:
-      - '781'
+      - '761'
       Connection:
       - Keep-Alive
       Set-Cookie:
-      - _dummy_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFRkkiJWM2OGJmMDVjNWYyZDgyMjlkM2I5OTE0Y2M5ZWI5OTNlBjsAVEkiJ3dhcmRlbi51c2VyLmxvY29tb3RpdmVfYWNjb3VudC5rZXkGOwBUWwdbBlU6Gk1vcGVkOjpCU09OOjpPYmplY3RJZCIRUZXr6h5mz2slAAABSSIZWUQ0bUp1Tk0xVXhTSjhqM0c0UFkGOwBU--a5a59c755198125f5b027708e013bbef4a623c61;
+      - _dummy_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFRkkiJTY2ZDY3MmYzM2EzMzNkMWQ0MjVhZDFiYzEwOTRhYWVkBjsAVEkiJ3dhcmRlbi51c2VyLmxvY29tb3RpdmVfYWNjb3VudC5rZXkGOwBUWwhJIhhMb2NvbW90aXZlOjpBY2NvdW50BjsARlsGbzoTQlNPTjo6T2JqZWN0SWQGOgpAZGF0YVsRaVZpAaRpcWkB%2B2kBq2kBnmkzaUVpdmkAaQBpCUkiGUgzUHU3QlFWVzJzS3lCVkVwQ0FYBjsAVA%3D%3D--e42a87339c72abac5aff6e763af7e4a4e404a51e;
         domain=.example.com; path=/; HttpOnly
     body:
       encoding: US-ASCII
-      string: ! '[{"id":"5195ebf11e66cf782a000001","_id":"5195ebf11e66cf782a000001","created_at":"2013-05-17T08:36:02Z","updated_at":"2013-05-17T08:36:02Z","name":"Products","slug":"products","entries_custom_fields":[{"id":"5195ebf21e66cf782a000002","_id":"5195ebf21e66cf782a000002","name":"name","label":"name","type":"string","required":true,"localized":true,"unique":false,"position":0},{"id":"5195ebf21e66cf782a000003","_id":"5195ebf21e66cf782a000003","name":"available","label":"available","type":"boolean","required":false,"localized":false,"unique":false,"position":1}],"description":"My
+      string: ! '[{"id":"51a46d0cab9e2e4045000006","_id":"51a46d0cab9e2e4045000006","created_at":"2013-05-28T10:38:36+02:00","updated_at":"2013-05-28T10:38:36+02:00","name":"Products","slug":"products","entries_custom_fields":[{"id":"51a46d0cab9e2e4045000007","_id":"51a46d0cab9e2e4045000007","name":"name","label":"name","type":"string","required":true,"localized":true,"position":0},{"id":"51a46d0cab9e2e4045000008","_id":"51a46d0cab9e2e4045000008","name":"available","label":"available","type":"boolean","required":false,"localized":false,"position":1}],"description":"My
         products collection","label_field_name":"name","order_by":"created_at","order_direction":"asc","order_by_field_name":"created_at","public_submission_enabled":false,"public_submission_account_emails":[]}]'
     http_version: 
-  recorded_at: Fri, 17 May 2013 08:36:36 GMT
+  recorded_at: Tue, 28 May 2013 09:34:01 GMT
 - request:
     method: put
-    uri: http://sample.example.com:3000/locomotive/api/content_types/5195ebf11e66cf782a000001.json?auth_token=5DU1kqcxNRA6UoXktW5w
+    uri: http://sample.example.com:3000/locomotive/api/content_types/51a46d0cab9e2e4045000006.json?auth_token=XFE86yskLuuvCB56wWJX
     body:
       encoding: US-ASCII
-      string: content_type[name]=Products&content_type[description]=My%20products%20collection&content_type[slug]=products&content_type[label_field_name]=name&content_type[order_by]=created_at&content_type[entries_custom_fields][][label]=name&content_type[entries_custom_fields][][name]=name&content_type[entries_custom_fields][][type]=string&content_type[entries_custom_fields][][position]=0&content_type[entries_custom_fields][][required]=true&content_type[entries_custom_fields][][localized]=true&content_type[entries_custom_fields][][_id]=5195ebf21e66cf782a000002&content_type[entries_custom_fields][][label]=available&content_type[entries_custom_fields][][name]=available&content_type[entries_custom_fields][][type]=boolean&content_type[entries_custom_fields][][position]=1&content_type[entries_custom_fields][][required]=false&content_type[entries_custom_fields][][localized]=false&content_type[entries_custom_fields][][_id]=5195ebf21e66cf782a000003
+      string: content_type[name]=Products&content_type[description]=My%20products%20collection&content_type[slug]=products&content_type[label_field_name]=name&content_type[order_by]=created_at&content_type[entries_custom_fields][][label]=name&content_type[entries_custom_fields][][name]=name&content_type[entries_custom_fields][][type]=string&content_type[entries_custom_fields][][position]=0&content_type[entries_custom_fields][][required]=true&content_type[entries_custom_fields][][localized]=true&content_type[entries_custom_fields][][_id]=51a46d0cab9e2e4045000007&content_type[entries_custom_fields][][label]=available&content_type[entries_custom_fields][][name]=available&content_type[entries_custom_fields][][type]=boolean&content_type[entries_custom_fields][][position]=1&content_type[entries_custom_fields][][required]=false&content_type[entries_custom_fields][][localized]=false&content_type[entries_custom_fields][][_id]=51a46d0cab9e2e4045000008
     headers: {}
   response:
     status:
@@ -274,33 +278,33 @@ http_interactions:
       X-Ua-Compatible:
       - IE=Edge
       Etag:
-      - ! '"fc84b98b892a64172175f461f4a6188d"'
+      - ! '"27c76d4c3f02553e03f341304fb9159a"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - d8bef1b6e10dbe0c701f25ce48c0db65
+      - 4a15f9b124afca3e6fcd0b30c2aab433
       X-Runtime:
-      - '0.036651'
+      - '0.051721'
       Server:
-      - WEBrick/1.3.1 (Ruby/1.9.3/2013-02-22)
+      - WEBrick/1.3.1 (Ruby/1.9.3/2012-10-12)
       Date:
-      - Fri, 17 May 2013 08:36:36 GMT
+      - Tue, 28 May 2013 09:34:01 GMT
       Content-Length:
-      - '779'
+      - '759'
       Connection:
       - Keep-Alive
       Set-Cookie:
-      - _dummy_session=BAh7CEkiD3Nlc3Npb25faWQGOgZFRkkiJTQ0MGNmMzNlYjQ4OGNkODQzOWYwMDU5ZmVlN2MyMzkyBjsAVEkiJ3dhcmRlbi51c2VyLmxvY29tb3RpdmVfYWNjb3VudC5rZXkGOwBUWwdbBlU6Gk1vcGVkOjpCU09OOjpPYmplY3RJZCIRUZXr6h5mz2slAAABSSIZWUQ0bUp1Tk0xVXhTSjhqM0c0UFkGOwBUSSIKZmxhc2gGOwBGbzolQWN0aW9uRGlzcGF0Y2g6OkZsYXNoOjpGbGFzaEhhc2gJOgpAdXNlZG86CFNldAY6CkBoYXNoewY6C25vdGljZVQ6DEBjbG9zZWRGOg1AZmxhc2hlc3sGOwtJQzoeQWN0aXZlU3VwcG9ydDo6U2FmZUJ1ZmZlciIrQ29udGVudCB0eXBlIHdhcyBzdWNjZXNzZnVsbHkgdXBkYXRlZC4HOwBUOg9AaHRtbF9zYWZlVDoJQG5vdzA%3D--7812af789f8b2dad431674e891468f5ba45d5b84;
+      - _dummy_session=BAh7CEkiD3Nlc3Npb25faWQGOgZFRkkiJTkyYWVjY2NjYTNlZDhjNWVlMTQ0ZmFhM2RhZDliZTkwBjsAVEkiJ3dhcmRlbi51c2VyLmxvY29tb3RpdmVfYWNjb3VudC5rZXkGOwBUWwhJIhhMb2NvbW90aXZlOjpBY2NvdW50BjsARlsGbzoTQlNPTjo6T2JqZWN0SWQGOgpAZGF0YVsRaVZpAaRpcWkB%2B2kBq2kBnmkzaUVpdmkAaQBpCUkiGUgzUHU3QlFWVzJzS3lCVkVwQ0FYBjsAVEkiCmZsYXNoBjsARm86JUFjdGlvbkRpc3BhdGNoOjpGbGFzaDo6Rmxhc2hIYXNoCToKQHVzZWRvOghTZXQGOgpAaGFzaHsGOgtub3RpY2VUOgxAY2xvc2VkRjoNQGZsYXNoZXN7BjsMSUM6HkFjdGl2ZVN1cHBvcnQ6OlNhZmVCdWZmZXIiK0NvbnRlbnQgdHlwZSB3YXMgc3VjY2Vzc2Z1bGx5IHVwZGF0ZWQuBzsAVDoPQGh0bWxfc2FmZVQ6CUBub3cw--c355ac9892f06a6a42f03f83b2c119c1f4a1c5da;
         domain=.example.com; path=/; HttpOnly
     body:
       encoding: US-ASCII
-      string: ! '{"id":"5195ebf11e66cf782a000001","_id":"5195ebf11e66cf782a000001","created_at":"2013-05-17T08:36:02Z","updated_at":"2013-05-17T08:36:02Z","name":"Products","slug":"products","entries_custom_fields":[{"id":"5195ebf21e66cf782a000002","_id":"5195ebf21e66cf782a000002","name":"name","label":"name","type":"string","required":true,"localized":true,"unique":false,"position":0},{"id":"5195ebf21e66cf782a000003","_id":"5195ebf21e66cf782a000003","name":"available","label":"available","type":"boolean","required":false,"localized":false,"unique":false,"position":1}],"description":"My
+      string: ! '{"id":"51a46d0cab9e2e4045000006","_id":"51a46d0cab9e2e4045000006","created_at":"2013-05-28T10:38:36+02:00","updated_at":"2013-05-28T10:38:36+02:00","name":"Products","slug":"products","entries_custom_fields":[{"id":"51a46d0cab9e2e4045000007","_id":"51a46d0cab9e2e4045000007","name":"name","label":"name","type":"string","required":true,"localized":true,"position":0},{"id":"51a46d0cab9e2e4045000008","_id":"51a46d0cab9e2e4045000008","name":"available","label":"available","type":"boolean","required":false,"localized":false,"position":1}],"description":"My
         products collection","label_field_name":"name","order_by":"created_at","order_direction":"asc","order_by_field_name":"created_at","public_submission_enabled":false,"public_submission_account_emails":[]}'
     http_version: 
-  recorded_at: Fri, 17 May 2013 08:36:36 GMT
+  recorded_at: Tue, 28 May 2013 09:34:01 GMT
 - request:
     method: get
-    uri: http://sample.example.com:3000/locomotive/api/pages.json?auth_token=5DU1kqcxNRA6UoXktW5w
+    uri: http://sample.example.com:3000/locomotive/api/pages.json?auth_token=XFE86yskLuuvCB56wWJX
     body:
       encoding: US-ASCII
       string: ''
@@ -315,47 +319,49 @@ http_interactions:
       X-Ua-Compatible:
       - IE=Edge
       Etag:
-      - ! '"ec24c27ce7cb2124e28bed5a4c34ce29"'
+      - ! '"0711ceb43740f7b3dfc7ac5826d1e996"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 02cc26812a1e92b32eacc71aa616b43e
+      - db3971ce23e4ee243044787cf03925b6
       X-Runtime:
-      - '0.023391'
+      - '0.037453'
       Server:
-      - WEBrick/1.3.1 (Ruby/1.9.3/2013-02-22)
+      - WEBrick/1.3.1 (Ruby/1.9.3/2012-10-12)
       Date:
-      - Fri, 17 May 2013 08:36:36 GMT
+      - Tue, 28 May 2013 09:34:01 GMT
       Content-Length:
-      - '3405'
+      - '3482'
       Connection:
       - Keep-Alive
       Set-Cookie:
-      - _dummy_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFRkkiJWQ4ZDlmYjM0M2MwNmRhYzQ1MzJmMzRiZjIyZTMxMDM3BjsAVEkiJ3dhcmRlbi51c2VyLmxvY29tb3RpdmVfYWNjb3VudC5rZXkGOwBUWwdbBlU6Gk1vcGVkOjpCU09OOjpPYmplY3RJZCIRUZXr6h5mz2slAAABSSIZWUQ0bUp1Tk0xVXhTSjhqM0c0UFkGOwBU--cc6761ee7923fd58d7d2f72492b214e1759d2b55;
+      - _dummy_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFRkkiJWEzNzUwODFlM2M1NjNhNWYzM2ExZGE2YTAwMmJiMWVhBjsAVEkiJ3dhcmRlbi51c2VyLmxvY29tb3RpdmVfYWNjb3VudC5rZXkGOwBUWwhJIhhMb2NvbW90aXZlOjpBY2NvdW50BjsARlsGbzoTQlNPTjo6T2JqZWN0SWQGOgpAZGF0YVsRaVZpAaRpcWkB%2B2kBq2kBnmkzaUVpdmkAaQBpCUkiGUgzUHU3QlFWVzJzS3lCVkVwQ0FYBjsAVA%3D%3D--e999219c9666ce1c17129347b349b0f133dff55e;
         domain=.example.com; path=/; HttpOnly
     body:
       encoding: US-ASCII
-      string: ! '[{"id":"5195ebea1e66cf6b25000007","_id":"5195ebea1e66cf6b25000007","created_at":"2013-05-17T08:35:54Z","updated_at":"2013-05-17T08:36:02Z","title":"Home
+      string: ! '[{"id":"51a46d0cab9e2e4045000004","_id":"51a46d0cab9e2e4045000004","created_at":"2013-05-28T10:38:36+02:00","updated_at":"2013-05-28T11:29:59+02:00","title":"Home
         page","slug":"index","position":0,"response_type":"text/html","cache_strategy":"none","redirect":false,"redirect_type":301,"listed":true,"published":true,"templatized":false,"templatized_from_parent":false,"fullpath":"index","localized_fullpaths":{"en":"","es":"es"},"depth":0,"translated_in":["en","es"],"raw_template":"{%
-        block content %}\r\n  Content of the home page\r\n{% endblock %}\r\n\r\n","escaped_raw_template":"{%
-        block content %}\r\n  Content of the home page\r\n{% endblock %}\r\n\r\n","editable_elements":[]},{"id":"5195ebf21e66cfebab000005","_id":"5195ebf21e66cfebab000005","created_at":"2013-05-17T08:36:02Z","updated_at":"2013-05-17T08:36:02Z","title":"translated","slug":"translated","parent_id":"5195ebea1e66cf6b25000007","position":0,"response_type":"text/html","cache_strategy":"none","redirect":false,"redirect_type":301,"listed":true,"published":true,"templatized":false,"templatized_from_parent":false,"fullpath":"translated","localized_fullpaths":{"en":"translated","es":"es/translated"},"depth":1,"translated_in":["en"],"raw_template":"{{
+        block content %}\r\n  New content of the home page\r\n{% endblock %}\r\n\r\n","escaped_raw_template":"{%
+        block content %}\r\n  New content of the home page\r\n{% endblock %}\r\n\r\n","editable_elements":[]},{"id":"51a46d0dab9e2e404500000a","_id":"51a46d0dab9e2e404500000a","created_at":"2013-05-28T10:38:37+02:00","updated_at":"2013-05-28T11:29:58+02:00","title":"translated","slug":"translated","position":0,"response_type":"text/html","cache_strategy":"none","redirect":false,"redirect_type":301,"listed":true,"published":true,"templatized":false,"templatized_from_parent":false,"fullpath":"translated","localized_fullpaths":{"en":"translated","es":"es/translated"},"depth":1,"translated_in":["en"],"raw_template":"{{
         ''hello_world'' | translate}}","escaped_raw_template":"{{ &#x27;hello_world&#x27;
-        | translate}}","editable_elements":[]},{"id":"5195ebf21e66cf6b31000007","_id":"5195ebf21e66cf6b31000007","created_at":"2013-05-17T08:36:02Z","updated_at":"2013-05-17T08:36:02Z","title":"Latest","slug":"latest","parent_id":"5195ebf21e66cf214f000006","position":0,"response_type":"text/html","cache_strategy":"none","redirect":false,"redirect_type":301,"listed":true,"published":true,"templatized":false,"templatized_from_parent":false,"fullpath":"products/latest","localized_fullpaths":{"en":"products/latest","es":"es/products/latest"},"depth":2,"translated_in":["en"],"raw_template":"{%
+        | translate}}","editable_elements":[]},{"id":"51a46d0dab9e2e404500000c","_id":"51a46d0dab9e2e404500000c","created_at":"2013-05-28T10:38:37+02:00","updated_at":"2013-05-28T11:29:58+02:00","title":"Latest","slug":"latest","position":0,"response_type":"text/html","cache_strategy":"none","redirect":false,"redirect_type":301,"listed":true,"published":true,"templatized":false,"templatized_from_parent":false,"fullpath":"products/latest","localized_fullpaths":{"en":"products/latest","es":"es/products/latest"},"depth":2,"translated_in":["en"],"raw_template":"{%
         extends parent %}\r\n{% block content %}\r\n  The name of the latest product
         is: {{ contents.products.last.name }}\r\n{% endblock %}","escaped_raw_template":"{%
         extends parent %}\r\n{% block content %}\r\n  The name of the latest product
-        is: {{ contents.products.last.name }}\r\n{% endblock %}","editable_elements":[]},{"id":"5195ebea1e66cf6b25000008","_id":"5195ebea1e66cf6b25000008","created_at":"2013-05-17T08:35:54Z","updated_at":"2013-05-17T08:36:02Z","title":"Page
+        is: {{ contents.products.last.name }}\r\n{% endblock %}","editable_elements":[]},{"id":"51a46d0cab9e2e4045000005","_id":"51a46d0cab9e2e4045000005","created_at":"2013-05-28T10:38:36+02:00","updated_at":"2013-05-28T11:29:59+02:00","title":"Page
         not found","slug":"404","position":1,"response_type":"text/html","cache_strategy":"none","redirect":false,"redirect_type":301,"listed":true,"published":true,"templatized":false,"templatized_from_parent":false,"fullpath":"404","localized_fullpaths":{"en":"404","es":"es/404"},"depth":0,"translated_in":["en","es"],"raw_template":"Content
-        of the 404 page","escaped_raw_template":"Content of the 404 page","editable_elements":[]},{"id":"5195ebf21e66cf214f000006","_id":"5195ebf21e66cf214f000006","created_at":"2013-05-17T08:36:02Z","updated_at":"2013-05-17T08:36:02Z","title":"Products","slug":"products","parent_id":"5195ebea1e66cf6b25000007","position":1,"response_type":"text/html","cache_strategy":"none","redirect":false,"redirect_type":301,"listed":true,"published":true,"templatized":false,"templatized_from_parent":false,"fullpath":"products","localized_fullpaths":{"en":"products","es":"es/products"},"depth":1,"translated_in":["en"],"raw_template":"{%
-        extends parent %}","escaped_raw_template":"{% extends parent %}","editable_elements":[]}]'
+        of the 404 page","escaped_raw_template":"Content of the 404 page","editable_elements":[]},{"id":"51a46d0dab9e2e404500000b","_id":"51a46d0dab9e2e404500000b","created_at":"2013-05-28T10:38:37+02:00","updated_at":"2013-05-28T11:31:45+02:00","title":"Products","slug":"products","position":1,"response_type":"text/html","cache_strategy":"none","redirect":false,"redirect_type":301,"listed":true,"published":true,"templatized":false,"templatized_from_parent":false,"fullpath":"products","localized_fullpaths":{"en":"products","es":"es/products"},"depth":1,"translated_in":["en","es"],"raw_template":"{%
+        extends parent %}","escaped_raw_template":"{% extends parent %}","editable_elements":[],"seo_title":"Search
+        friendly products","meta_keywords":"fancy, products, keywords","meta_description":"Fancy
+        products description"}]'
     http_version: 
-  recorded_at: Fri, 17 May 2013 08:36:36 GMT
+  recorded_at: Tue, 28 May 2013 09:34:01 GMT
 - request:
     method: put
-    uri: http://sample.example.com:3000/locomotive/api/pages/5195ebea1e66cf6b25000007.json?auth_token=5DU1kqcxNRA6UoXktW5w
+    uri: http://sample.example.com:3000/locomotive/api/pages/51a46d0cab9e2e4045000004.json?auth_token=XFE86yskLuuvCB56wWJX
     body:
       encoding: US-ASCII
-      string: page[title]=Home%20page&page[redirect_type]=301&page[listed]=true&page[published]=true&page[cache_strategy]=none&page[response_type]=text%2Fhtml&page[position]=0&page[raw_template]=%7B%25%20block%20content%20%25%7D%0D%0A%20%20New%20content%20of%20the%20home%20page%0D%0A%7B%25%20endblock%20%25%7D%0D%0A%0D%0A&locale=en
+      string: page[title]=Home%20page&page[redirect_type]=301&page[listed]=true&page[templatized]=false&page[published]=true&page[cache_strategy]=none&page[response_type]=text%2Fhtml&page[position]=0&page[raw_template]=%7B%25%20block%20content%20%25%7D%0D%0A%20%20New%20content%20of%20the%20home%20page%0D%0A%7B%25%20endblock%20%25%7D%0D%0A%0D%0A&locale=en
     headers: {}
   response:
     status:
@@ -373,38 +379,38 @@ http_interactions:
       X-Ua-Compatible:
       - IE=Edge
       Etag:
-      - ! '"2bb5e6ac7885f49c09112c59ff26e1de"'
+      - ! '"9451e5040e76bb683cc32f2990d694a7"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 38f6b9ba81640335d2903a2e448e5295
+      - a293a4e743620de7941927ab158bfb5d
       X-Runtime:
-      - '0.034648'
+      - '0.034191'
       Server:
-      - WEBrick/1.3.1 (Ruby/1.9.3/2013-02-22)
+      - WEBrick/1.3.1 (Ruby/1.9.3/2012-10-12)
       Date:
-      - Fri, 17 May 2013 08:36:36 GMT
+      - Tue, 28 May 2013 09:34:01 GMT
       Content-Length:
-      - '706'
+      - '692'
       Connection:
       - Keep-Alive
       Set-Cookie:
-      - _dummy_session=BAh7CEkiD3Nlc3Npb25faWQGOgZFRkkiJTkxYWI5Nzg4ZjEyZTUwNTgwODBiOGIwN2ZlMmU1YjQ4BjsAVEkiJ3dhcmRlbi51c2VyLmxvY29tb3RpdmVfYWNjb3VudC5rZXkGOwBUWwdbBlU6Gk1vcGVkOjpCU09OOjpPYmplY3RJZCIRUZXr6h5mz2slAAABSSIZWUQ0bUp1Tk0xVXhTSjhqM0c0UFkGOwBUSSIKZmxhc2gGOwBGbzolQWN0aW9uRGlzcGF0Y2g6OkZsYXNoOjpGbGFzaEhhc2gJOgpAdXNlZG86CFNldAY6CkBoYXNoewY6C25vdGljZVQ6DEBjbG9zZWRGOg1AZmxhc2hlc3sGOwtJQzoeQWN0aXZlU3VwcG9ydDo6U2FmZUJ1ZmZlciIjUGFnZSB3YXMgc3VjY2Vzc2Z1bGx5IHVwZGF0ZWQuBzsAVDoPQGh0bWxfc2FmZVQ6CUBub3cw--a1aca9fbfd698d55683e14373fbcccbabf74beab;
+      - _dummy_session=BAh7CEkiD3Nlc3Npb25faWQGOgZFRkkiJWE0Y2M2MzFhNzY1NmQ3MzE1YWQxYzYxMzRmY2JkNmI0BjsAVEkiJ3dhcmRlbi51c2VyLmxvY29tb3RpdmVfYWNjb3VudC5rZXkGOwBUWwhJIhhMb2NvbW90aXZlOjpBY2NvdW50BjsARlsGbzoTQlNPTjo6T2JqZWN0SWQGOgpAZGF0YVsRaVZpAaRpcWkB%2B2kBq2kBnmkzaUVpdmkAaQBpCUkiGUgzUHU3QlFWVzJzS3lCVkVwQ0FYBjsAVEkiCmZsYXNoBjsARm86JUFjdGlvbkRpc3BhdGNoOjpGbGFzaDo6Rmxhc2hIYXNoCToKQHVzZWRvOghTZXQGOgpAaGFzaHsGOgtub3RpY2VUOgxAY2xvc2VkRjoNQGZsYXNoZXN7BjsMSUM6HkFjdGl2ZVN1cHBvcnQ6OlNhZmVCdWZmZXIiI1BhZ2Ugd2FzIHN1Y2Nlc3NmdWxseSB1cGRhdGVkLgc7AFQ6D0BodG1sX3NhZmVUOglAbm93MA%3D%3D--717907c09fefa4c2f26217e10aaec86360cd2480;
         domain=.example.com; path=/; HttpOnly
     body:
       encoding: US-ASCII
-      string: ! '{"id":"5195ebea1e66cf6b25000007","_id":"5195ebea1e66cf6b25000007","created_at":"2013-05-17T08:35:54Z","updated_at":"2013-05-17T08:36:36Z","title":"Home
-        page","slug":"index","position":0,"response_type":"text/html","cache_strategy":"none","redirect":false,"redirect_type":301,"listed":true,"published":true,"templatized":false,"templatized_from_parent":false,"fullpath":"index","localized_fullpaths":{"en":"","es":"es"},"depth":0,"template_changed":true,"translated_in":["en","es"],"raw_template":"{%
+      string: ! '{"id":"51a46d0cab9e2e4045000004","_id":"51a46d0cab9e2e4045000004","created_at":"2013-05-28T10:38:36+02:00","updated_at":"2013-05-28T11:34:01+02:00","title":"Home
+        page","slug":"index","position":0,"response_type":"text/html","cache_strategy":"none","redirect":false,"redirect_type":301,"listed":true,"published":true,"templatized":false,"templatized_from_parent":false,"fullpath":"index","localized_fullpaths":{"en":"","es":"es"},"depth":0,"translated_in":["en","es"],"raw_template":"{%
         block content %}\r\n  New content of the home page\r\n{% endblock %}\r\n\r\n","escaped_raw_template":"{%
         block content %}\r\n  New content of the home page\r\n{% endblock %}\r\n\r\n","editable_elements":[]}'
     http_version: 
-  recorded_at: Fri, 17 May 2013 08:36:36 GMT
+  recorded_at: Tue, 28 May 2013 09:34:01 GMT
 - request:
     method: put
-    uri: http://sample.example.com:3000/locomotive/api/pages/5195ebea1e66cf6b25000008.json?auth_token=5DU1kqcxNRA6UoXktW5w
+    uri: http://sample.example.com:3000/locomotive/api/pages/51a46d0cab9e2e4045000005.json?auth_token=XFE86yskLuuvCB56wWJX
     body:
       encoding: US-ASCII
-      string: page[title]=Page%20not%20found&page[redirect_type]=301&page[listed]=true&page[published]=true&page[cache_strategy]=none&page[response_type]=text%2Fhtml&page[position]=1&page[raw_template]=Content%20of%20the%20404%20page&locale=en
+      string: page[title]=Page%20not%20found&page[redirect_type]=301&page[listed]=true&page[templatized]=false&page[published]=true&page[cache_strategy]=none&page[response_type]=text%2Fhtml&page[position]=1&page[raw_template]=Content%20of%20the%20404%20page&locale=en
     headers: {}
   response:
     status:
@@ -422,37 +428,37 @@ http_interactions:
       X-Ua-Compatible:
       - IE=Edge
       Etag:
-      - ! '"b4de924ce5c278e09b55478cc15703e3"'
+      - ! '"5668c98017d23bd44a6c9346a88be6e7"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - f5d733f3f8ed96f6f6443294ac69818f
+      - 7763cc2cdd673f2efc66a21f5506b9eb
       X-Runtime:
-      - '0.024469'
+      - '0.034730'
       Server:
-      - WEBrick/1.3.1 (Ruby/1.9.3/2013-02-22)
+      - WEBrick/1.3.1 (Ruby/1.9.3/2012-10-12)
       Date:
-      - Fri, 17 May 2013 08:36:36 GMT
+      - Tue, 28 May 2013 09:34:01 GMT
       Content-Length:
-      - '578'
+      - '588'
       Connection:
       - Keep-Alive
       Set-Cookie:
-      - _dummy_session=BAh7CEkiD3Nlc3Npb25faWQGOgZFRkkiJTNkZmFjMjc5OGE1ZjQ5NmY2YmRkMjBlMmY4YjY1ODg2BjsAVEkiJ3dhcmRlbi51c2VyLmxvY29tb3RpdmVfYWNjb3VudC5rZXkGOwBUWwdbBlU6Gk1vcGVkOjpCU09OOjpPYmplY3RJZCIRUZXr6h5mz2slAAABSSIZWUQ0bUp1Tk0xVXhTSjhqM0c0UFkGOwBUSSIKZmxhc2gGOwBGbzolQWN0aW9uRGlzcGF0Y2g6OkZsYXNoOjpGbGFzaEhhc2gJOgpAdXNlZG86CFNldAY6CkBoYXNoewY6C25vdGljZVQ6DEBjbG9zZWRGOg1AZmxhc2hlc3sGOwtJQzoeQWN0aXZlU3VwcG9ydDo6U2FmZUJ1ZmZlciIjUGFnZSB3YXMgc3VjY2Vzc2Z1bGx5IHVwZGF0ZWQuBzsAVDoPQGh0bWxfc2FmZVQ6CUBub3cw--cf41c69150e5f2f1055164ac95eac6f08ce20b47;
+      - _dummy_session=BAh7CEkiD3Nlc3Npb25faWQGOgZFRkkiJTkwMDA5YWE3YTM0NWZmMmY4ZDhlYzlhMzgxNzgxMGQ5BjsAVEkiJ3dhcmRlbi51c2VyLmxvY29tb3RpdmVfYWNjb3VudC5rZXkGOwBUWwhJIhhMb2NvbW90aXZlOjpBY2NvdW50BjsARlsGbzoTQlNPTjo6T2JqZWN0SWQGOgpAZGF0YVsRaVZpAaRpcWkB%2B2kBq2kBnmkzaUVpdmkAaQBpCUkiGUgzUHU3QlFWVzJzS3lCVkVwQ0FYBjsAVEkiCmZsYXNoBjsARm86JUFjdGlvbkRpc3BhdGNoOjpGbGFzaDo6Rmxhc2hIYXNoCToKQHVzZWRvOghTZXQGOgpAaGFzaHsGOgtub3RpY2VUOgxAY2xvc2VkRjoNQGZsYXNoZXN7BjsMSUM6HkFjdGl2ZVN1cHBvcnQ6OlNhZmVCdWZmZXIiI1BhZ2Ugd2FzIHN1Y2Nlc3NmdWxseSB1cGRhdGVkLgc7AFQ6D0BodG1sX3NhZmVUOglAbm93MA%3D%3D--2eb4870b84f144503e025dccdacdb40981dfcfd8;
         domain=.example.com; path=/; HttpOnly
     body:
       encoding: US-ASCII
-      string: ! '{"id":"5195ebea1e66cf6b25000008","_id":"5195ebea1e66cf6b25000008","created_at":"2013-05-17T08:35:54Z","updated_at":"2013-05-17T08:36:02Z","title":"Page
+      string: ! '{"id":"51a46d0cab9e2e4045000005","_id":"51a46d0cab9e2e4045000005","created_at":"2013-05-28T10:38:36+02:00","updated_at":"2013-05-28T11:34:01+02:00","title":"Page
         not found","slug":"404","position":1,"response_type":"text/html","cache_strategy":"none","redirect":false,"redirect_type":301,"listed":true,"published":true,"templatized":false,"templatized_from_parent":false,"fullpath":"404","localized_fullpaths":{"en":"404","es":"es/404"},"depth":0,"translated_in":["en","es"],"raw_template":"Content
         of the 404 page","escaped_raw_template":"Content of the 404 page","editable_elements":[]}'
     http_version: 
-  recorded_at: Fri, 17 May 2013 08:36:36 GMT
+  recorded_at: Tue, 28 May 2013 09:34:01 GMT
 - request:
     method: put
-    uri: http://sample.example.com:3000/locomotive/api/pages/5195ebf21e66cfebab000005.json?auth_token=5DU1kqcxNRA6UoXktW5w
+    uri: http://sample.example.com:3000/locomotive/api/pages/51a46d0dab9e2e404500000a.json?auth_token=XFE86yskLuuvCB56wWJX
     body:
       encoding: US-ASCII
-      string: page[title]=translated&page[slug]=translated&page[redirect_type]=301&page[listed]=true&page[published]=true&page[cache_strategy]=none&page[response_type]=text%2Fhtml&page[position]=0&page[parent_id]=5195ebea1e66cf6b25000007&page[raw_template]=%7B%7B%20'hello_world'%20%7C%20translate%7D%7D&locale=en
+      string: page[title]=translated&page[slug]=translated&page[redirect_type]=301&page[listed]=true&page[templatized]=false&page[published]=true&page[cache_strategy]=none&page[response_type]=text%2Fhtml&page[position]=0&page[parent_id]=51a46d0cab9e2e4045000004&page[raw_template]=%7B%7B%20'hello_world'%20%7C%20translate%7D%7D&locale=en
     headers: {}
   response:
     status:
@@ -470,37 +476,37 @@ http_interactions:
       X-Ua-Compatible:
       - IE=Edge
       Etag:
-      - ! '"272256e9377bb4a36fe21f7d50fda7fe"'
+      - ! '"90698c0bc257f777fb851afa5bf28eb8"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - be214058ea12a55dc6816c68743c5b7f
+      - 2d44a24222d56933d158eda87f6184ec
       X-Runtime:
-      - '0.092757'
+      - '0.036137'
       Server:
-      - WEBrick/1.3.1 (Ruby/1.9.3/2013-02-22)
+      - WEBrick/1.3.1 (Ruby/1.9.3/2012-10-12)
       Date:
-      - Fri, 17 May 2013 08:36:36 GMT
+      - Tue, 28 May 2013 09:34:01 GMT
       Content-Length:
-      - '660'
+      - '631'
       Connection:
       - Keep-Alive
       Set-Cookie:
-      - _dummy_session=BAh7CEkiD3Nlc3Npb25faWQGOgZFRkkiJWI1NTA2YWJlMzBkYzhkNjEwZjE5OGYwOWVlNmUxYWM2BjsAVEkiJ3dhcmRlbi51c2VyLmxvY29tb3RpdmVfYWNjb3VudC5rZXkGOwBUWwdbBlU6Gk1vcGVkOjpCU09OOjpPYmplY3RJZCIRUZXr6h5mz2slAAABSSIZWUQ0bUp1Tk0xVXhTSjhqM0c0UFkGOwBUSSIKZmxhc2gGOwBGbzolQWN0aW9uRGlzcGF0Y2g6OkZsYXNoOjpGbGFzaEhhc2gJOgpAdXNlZG86CFNldAY6CkBoYXNoewY6C25vdGljZVQ6DEBjbG9zZWRGOg1AZmxhc2hlc3sGOwtJQzoeQWN0aXZlU3VwcG9ydDo6U2FmZUJ1ZmZlciIjUGFnZSB3YXMgc3VjY2Vzc2Z1bGx5IHVwZGF0ZWQuBzsAVDoPQGh0bWxfc2FmZVQ6CUBub3cw--45efb3a6083849812d2ca3abf4593f46692ea524;
+      - _dummy_session=BAh7CEkiD3Nlc3Npb25faWQGOgZFRkkiJTA3MTZhM2I1MWU0MmYxMWMxZWQyN2RiYmNjOTc5NWE2BjsAVEkiJ3dhcmRlbi51c2VyLmxvY29tb3RpdmVfYWNjb3VudC5rZXkGOwBUWwhJIhhMb2NvbW90aXZlOjpBY2NvdW50BjsARlsGbzoTQlNPTjo6T2JqZWN0SWQGOgpAZGF0YVsRaVZpAaRpcWkB%2B2kBq2kBnmkzaUVpdmkAaQBpCUkiGUgzUHU3QlFWVzJzS3lCVkVwQ0FYBjsAVEkiCmZsYXNoBjsARm86JUFjdGlvbkRpc3BhdGNoOjpGbGFzaDo6Rmxhc2hIYXNoCToKQHVzZWRvOghTZXQGOgpAaGFzaHsGOgtub3RpY2VUOgxAY2xvc2VkRjoNQGZsYXNoZXN7BjsMSUM6HkFjdGl2ZVN1cHBvcnQ6OlNhZmVCdWZmZXIiI1BhZ2Ugd2FzIHN1Y2Nlc3NmdWxseSB1cGRhdGVkLgc7AFQ6D0BodG1sX3NhZmVUOglAbm93MA%3D%3D--1eadced98fa592ca17362b21319e6970970c3d67;
         domain=.example.com; path=/; HttpOnly
     body:
       encoding: US-ASCII
-      string: ! '{"id":"5195ebf21e66cfebab000005","_id":"5195ebf21e66cfebab000005","created_at":"2013-05-17T08:36:02Z","updated_at":"2013-05-17T08:36:02Z","title":"translated","slug":"translated","parent_id":"5195ebea1e66cf6b25000007","position":0,"response_type":"text/html","cache_strategy":"none","redirect":false,"redirect_type":301,"listed":true,"published":true,"templatized":false,"templatized_from_parent":false,"fullpath":"translated","localized_fullpaths":{"en":"translated","es":"es/translated"},"depth":1,"translated_in":["en"],"raw_template":"{{
+      string: ! '{"id":"51a46d0dab9e2e404500000a","_id":"51a46d0dab9e2e404500000a","created_at":"2013-05-28T10:38:37+02:00","updated_at":"2013-05-28T11:34:01+02:00","title":"translated","slug":"translated","position":0,"response_type":"text/html","cache_strategy":"none","redirect":false,"redirect_type":301,"listed":true,"published":true,"templatized":false,"templatized_from_parent":false,"fullpath":"translated","localized_fullpaths":{"en":"translated","es":"es/translated"},"depth":1,"translated_in":["en"],"raw_template":"{{
         ''hello_world'' | translate}}","escaped_raw_template":"{{ &#x27;hello_world&#x27;
         | translate}}","editable_elements":[]}'
     http_version: 
-  recorded_at: Fri, 17 May 2013 08:36:36 GMT
+  recorded_at: Tue, 28 May 2013 09:34:01 GMT
 - request:
     method: put
-    uri: http://sample.example.com:3000/locomotive/api/pages/5195ebf21e66cf214f000006.json?auth_token=5DU1kqcxNRA6UoXktW5w
+    uri: http://sample.example.com:3000/locomotive/api/pages/51a46d0dab9e2e404500000b.json?auth_token=XFE86yskLuuvCB56wWJX
     body:
       encoding: US-ASCII
-      string: page[title]=Products&page[slug]=products&page[redirect_type]=301&page[listed]=true&page[published]=true&page[cache_strategy]=none&page[response_type]=text%2Fhtml&page[position]=1&page[parent_id]=5195ebea1e66cf6b25000007&page[raw_template]=%7B%25%20extends%20parent%20%25%7D&locale=en
+      string: page[title]=Products&page[slug]=products&page[redirect_type]=301&page[listed]=true&page[templatized]=false&page[published]=true&page[cache_strategy]=none&page[response_type]=text%2Fhtml&page[position]=1&page[seo_title]=Search%20friendly%20products&page[meta_keywords]=fancy%2C%20products%2C%20keywords&page[meta_description]=Fancy%20products%20description&page[parent_id]=51a46d0cab9e2e4045000004&page[raw_template]=%7B%25%20extends%20parent%20%25%7D&locale=en
     headers: {}
   response:
     status:
@@ -518,36 +524,38 @@ http_interactions:
       X-Ua-Compatible:
       - IE=Edge
       Etag:
-      - ! '"76b52be9e6f1c6b1722bb8a6a7b62283"'
+      - ! '"0e72f596deb8777f0c220ae214075b4f"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 13205261ffb4991df832801ca749234c
+      - b752f192ca1d08127b6e48e4cbadaecd
       X-Runtime:
-      - '0.024388'
+      - '0.170843'
       Server:
-      - WEBrick/1.3.1 (Ruby/1.9.3/2013-02-22)
+      - WEBrick/1.3.1 (Ruby/1.9.3/2012-10-12)
       Date:
-      - Fri, 17 May 2013 08:36:36 GMT
+      - Tue, 28 May 2013 09:34:01 GMT
       Content-Length:
-      - '620'
+      - '727'
       Connection:
       - Keep-Alive
       Set-Cookie:
-      - _dummy_session=BAh7CEkiD3Nlc3Npb25faWQGOgZFRkkiJTIxMTQ4YjYyZGVkY2MzNjEyNWFlMGMxYmM0MmNjY2I4BjsAVEkiJ3dhcmRlbi51c2VyLmxvY29tb3RpdmVfYWNjb3VudC5rZXkGOwBUWwdbBlU6Gk1vcGVkOjpCU09OOjpPYmplY3RJZCIRUZXr6h5mz2slAAABSSIZWUQ0bUp1Tk0xVXhTSjhqM0c0UFkGOwBUSSIKZmxhc2gGOwBGbzolQWN0aW9uRGlzcGF0Y2g6OkZsYXNoOjpGbGFzaEhhc2gJOgpAdXNlZG86CFNldAY6CkBoYXNoewY6C25vdGljZVQ6DEBjbG9zZWRGOg1AZmxhc2hlc3sGOwtJQzoeQWN0aXZlU3VwcG9ydDo6U2FmZUJ1ZmZlciIjUGFnZSB3YXMgc3VjY2Vzc2Z1bGx5IHVwZGF0ZWQuBzsAVDoPQGh0bWxfc2FmZVQ6CUBub3cw--490507b1037442d44ed1f131d18dd8499deaa751;
+      - _dummy_session=BAh7CEkiD3Nlc3Npb25faWQGOgZFRkkiJTJkOWM2MTViZDE4YTc5M2JmNDU1ZjJlZmZjNjRhY2FmBjsAVEkiJ3dhcmRlbi51c2VyLmxvY29tb3RpdmVfYWNjb3VudC5rZXkGOwBUWwhJIhhMb2NvbW90aXZlOjpBY2NvdW50BjsARlsGbzoTQlNPTjo6T2JqZWN0SWQGOgpAZGF0YVsRaVZpAaRpcWkB%2B2kBq2kBnmkzaUVpdmkAaQBpCUkiGUgzUHU3QlFWVzJzS3lCVkVwQ0FYBjsAVEkiCmZsYXNoBjsARm86JUFjdGlvbkRpc3BhdGNoOjpGbGFzaDo6Rmxhc2hIYXNoCToKQHVzZWRvOghTZXQGOgpAaGFzaHsGOgtub3RpY2VUOgxAY2xvc2VkRjoNQGZsYXNoZXN7BjsMSUM6HkFjdGl2ZVN1cHBvcnQ6OlNhZmVCdWZmZXIiI1BhZ2Ugd2FzIHN1Y2Nlc3NmdWxseSB1cGRhdGVkLgc7AFQ6D0BodG1sX3NhZmVUOglAbm93MA%3D%3D--8ebea9df3babdb575f33a6debad64e72c022c988;
         domain=.example.com; path=/; HttpOnly
     body:
       encoding: US-ASCII
-      string: ! '{"id":"5195ebf21e66cf214f000006","_id":"5195ebf21e66cf214f000006","created_at":"2013-05-17T08:36:02Z","updated_at":"2013-05-17T08:36:36Z","title":"Products","slug":"products","parent_id":"5195ebea1e66cf6b25000007","position":1,"response_type":"text/html","cache_strategy":"none","redirect":false,"redirect_type":301,"listed":true,"published":true,"templatized":false,"templatized_from_parent":false,"fullpath":"products","localized_fullpaths":{"en":"products","es":"es/products"},"depth":1,"translated_in":["en"],"raw_template":"{%
-        extends parent %}","escaped_raw_template":"{% extends parent %}","editable_elements":[]}'
+      string: ! '{"id":"51a46d0dab9e2e404500000b","_id":"51a46d0dab9e2e404500000b","created_at":"2013-05-28T10:38:37+02:00","updated_at":"2013-05-28T11:34:01+02:00","title":"Products","slug":"products","position":1,"response_type":"text/html","cache_strategy":"none","redirect":false,"redirect_type":301,"listed":true,"published":true,"templatized":false,"templatized_from_parent":false,"fullpath":"products","localized_fullpaths":{"en":"products","es":"es/products"},"depth":1,"translated_in":["en","es"],"raw_template":"{%
+        extends parent %}","escaped_raw_template":"{% extends parent %}","editable_elements":[],"seo_title":"Search
+        friendly products","meta_keywords":"fancy, products, keywords","meta_description":"Fancy
+        products description"}'
     http_version: 
-  recorded_at: Fri, 17 May 2013 08:36:36 GMT
+  recorded_at: Tue, 28 May 2013 09:34:01 GMT
 - request:
     method: put
-    uri: http://sample.example.com:3000/locomotive/api/pages/5195ebf21e66cf6b31000007.json?auth_token=5DU1kqcxNRA6UoXktW5w
+    uri: http://sample.example.com:3000/locomotive/api/pages/51a46d0dab9e2e404500000c.json?auth_token=XFE86yskLuuvCB56wWJX
     body:
       encoding: US-ASCII
-      string: page[title]=Latest&page[slug]=latest&page[redirect_type]=301&page[listed]=true&page[published]=true&page[cache_strategy]=none&page[response_type]=text%2Fhtml&page[position]=0&page[parent_id]=5195ebf21e66cf214f000006&page[raw_template]=%7B%25%20extends%20parent%20%25%7D%0D%0A%7B%25%20block%20content%20%25%7D%0D%0A%20%20The%20name%20of%20the%20latest%20product%20is%3A%20%7B%7B%20contents.products.last.name%20%7D%7D%0D%0A%7B%25%20endblock%20%25%7D&locale=en
+      string: page[title]=Latest&page[slug]=latest&page[redirect_type]=301&page[listed]=true&page[templatized]=false&page[published]=true&page[cache_strategy]=none&page[response_type]=text%2Fhtml&page[position]=0&page[parent_id]=51a46d0dab9e2e404500000b&page[raw_template]=%7B%25%20extends%20parent%20%25%7D%0D%0A%7B%25%20block%20content%20%25%7D%0D%0A%20%20The%20name%20of%20the%20latest%20product%20is%3A%20%7B%7B%20contents.products.last.name%20%7D%7D%0D%0A%7B%25%20endblock%20%25%7D&locale=en
     headers: {}
   response:
     status:
@@ -565,187 +573,170 @@ http_interactions:
       X-Ua-Compatible:
       - IE=Edge
       Etag:
-      - ! '"d1d6793f9e9a07b15577990b107b9256"'
+      - ! '"f5b829201a91ddcc17f208e9944fb95a"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - d3a1be5199c8a5e525efc8f19df74697
+      - 051e8f3ead1dd2aae8976a520f07b0b0
       X-Runtime:
-      - '0.029572'
+      - '0.039559'
       Server:
-      - WEBrick/1.3.1 (Ruby/1.9.3/2013-02-22)
+      - WEBrick/1.3.1 (Ruby/1.9.3/2012-10-12)
       Date:
-      - Fri, 17 May 2013 08:36:36 GMT
+      - Tue, 28 May 2013 09:34:01 GMT
       Content-Length:
-      - '867'
+      - '838'
       Connection:
       - Keep-Alive
       Set-Cookie:
-      - _dummy_session=BAh7CEkiD3Nlc3Npb25faWQGOgZFRkkiJTZlMDExNDNkYTM5MzBmZTliMzUxN2MxNTZiODUwNjhkBjsAVEkiJ3dhcmRlbi51c2VyLmxvY29tb3RpdmVfYWNjb3VudC5rZXkGOwBUWwdbBlU6Gk1vcGVkOjpCU09OOjpPYmplY3RJZCIRUZXr6h5mz2slAAABSSIZWUQ0bUp1Tk0xVXhTSjhqM0c0UFkGOwBUSSIKZmxhc2gGOwBGbzolQWN0aW9uRGlzcGF0Y2g6OkZsYXNoOjpGbGFzaEhhc2gJOgpAdXNlZG86CFNldAY6CkBoYXNoewY6C25vdGljZVQ6DEBjbG9zZWRGOg1AZmxhc2hlc3sGOwtJQzoeQWN0aXZlU3VwcG9ydDo6U2FmZUJ1ZmZlciIjUGFnZSB3YXMgc3VjY2Vzc2Z1bGx5IHVwZGF0ZWQuBzsAVDoPQGh0bWxfc2FmZVQ6CUBub3cw--a3de8638bee2bc3ce477d6c36ebb94463caf1cfa;
+      - _dummy_session=BAh7CEkiD3Nlc3Npb25faWQGOgZFRkkiJTQ4YTFkNDQ4MzIyNzY2ZTA0NzM5ZGNjY2EwYTcxMGE2BjsAVEkiJ3dhcmRlbi51c2VyLmxvY29tb3RpdmVfYWNjb3VudC5rZXkGOwBUWwhJIhhMb2NvbW90aXZlOjpBY2NvdW50BjsARlsGbzoTQlNPTjo6T2JqZWN0SWQGOgpAZGF0YVsRaVZpAaRpcWkB%2B2kBq2kBnmkzaUVpdmkAaQBpCUkiGUgzUHU3QlFWVzJzS3lCVkVwQ0FYBjsAVEkiCmZsYXNoBjsARm86JUFjdGlvbkRpc3BhdGNoOjpGbGFzaDo6Rmxhc2hIYXNoCToKQHVzZWRvOghTZXQGOgpAaGFzaHsGOgtub3RpY2VUOgxAY2xvc2VkRjoNQGZsYXNoZXN7BjsMSUM6HkFjdGl2ZVN1cHBvcnQ6OlNhZmVCdWZmZXIiI1BhZ2Ugd2FzIHN1Y2Nlc3NmdWxseSB1cGRhdGVkLgc7AFQ6D0BodG1sX3NhZmVUOglAbm93MA%3D%3D--f37071037e0582088cf9c7844c90598da4f59130;
         domain=.example.com; path=/; HttpOnly
     body:
       encoding: US-ASCII
-      string: ! '{"id":"5195ebf21e66cf6b31000007","_id":"5195ebf21e66cf6b31000007","created_at":"2013-05-17T08:36:02Z","updated_at":"2013-05-17T08:36:36Z","title":"Latest","slug":"latest","parent_id":"5195ebf21e66cf214f000006","position":0,"response_type":"text/html","cache_strategy":"none","redirect":false,"redirect_type":301,"listed":true,"published":true,"templatized":false,"templatized_from_parent":false,"fullpath":"products/latest","localized_fullpaths":{"en":"products/latest","es":"es/products/latest"},"depth":2,"translated_in":["en"],"raw_template":"{%
+      string: ! '{"id":"51a46d0dab9e2e404500000c","_id":"51a46d0dab9e2e404500000c","created_at":"2013-05-28T10:38:37+02:00","updated_at":"2013-05-28T11:34:01+02:00","title":"Latest","slug":"latest","position":0,"response_type":"text/html","cache_strategy":"none","redirect":false,"redirect_type":301,"listed":true,"published":true,"templatized":false,"templatized_from_parent":false,"fullpath":"products/latest","localized_fullpaths":{"en":"products/latest","es":"es/products/latest"},"depth":2,"translated_in":["en"],"raw_template":"{%
         extends parent %}\r\n{% block content %}\r\n  The name of the latest product
         is: {{ contents.products.last.name }}\r\n{% endblock %}","escaped_raw_template":"{%
         extends parent %}\r\n{% block content %}\r\n  The name of the latest product
         is: {{ contents.products.last.name }}\r\n{% endblock %}","editable_elements":[]}'
     http_version: 
-  recorded_at: Fri, 17 May 2013 08:36:36 GMT
+  recorded_at: Tue, 28 May 2013 09:34:01 GMT
 - request:
     method: put
-    uri: http://sample.example.com:3000/locomotive/api/pages/5195ebea1e66cf6b25000007.json?auth_token=5DU1kqcxNRA6UoXktW5w
+    uri: http://sample.example.com:3000/locomotive/api/pages/51a46d0cab9e2e4045000004.json?auth_token=XFE86yskLuuvCB56wWJX
     body:
       encoding: US-ASCII
-      string: page[title]=P%C3%A1gina%20de%20inicio&page[redirect_type]=301&page[listed]=true&page[published]=true&page[cache_strategy]=none&page[response_type]=text%2Fhtml&page[position]=0&page[raw_template]=New%20content%20of%20the%20home%20page%0D%0A&locale=es
+      string: page[title]=P%C3%A1gina%20de%20inicio&page[redirect_type]=301&page[listed]=true&page[templatized]=false&page[published]=true&page[cache_strategy]=none&page[response_type]=text%2Fhtml&page[position]=0&page[raw_template]=New%20content%20of%20the%20home%20page%0D%0A&locale=es
     headers: {}
   response:
     status:
       code: 200
-      message: !binary |-
-        T0sg
+      message: ! 'OK '
     headers:
-      !binary "TG9jYXRpb24=":
-      - !binary |-
-        aHR0cDovL3NhbXBsZS5leGFtcGxlLmNvbTozMDAwL2xvY29tb3RpdmUvYXBp
-        L3BhZ2Vz
-      !binary "Q29udGVudC1UeXBl":
-      - !binary |-
-        YXBwbGljYXRpb24vanNvbjsgY2hhcnNldD11dGYtOA==
-      !binary "WC1VYS1Db21wYXRpYmxl":
-      - !binary |-
-        SUU9RWRnZQ==
-      !binary "RXRhZw==":
-      - !binary |-
-        IjQzZDhmNTRhMzQyNzEyMTNjNzFiYWIzYmI1MGQxZWVkIg==
-      !binary "Q2FjaGUtQ29udHJvbA==":
-      - !binary |-
-        bWF4LWFnZT0wLCBwcml2YXRlLCBtdXN0LXJldmFsaWRhdGU=
-      !binary "WC1SZXF1ZXN0LUlk":
-      - !binary |-
-        ODQyYmYyMWVhYmRlY2ZjOTc2ZGZmNTUzMmQ1NzgxMjY=
-      !binary "WC1SdW50aW1l":
-      - !binary |-
-        MC4wMjIxNDc=
-      !binary "U2VydmVy":
-      - !binary |-
-        V0VCcmljay8xLjMuMSAoUnVieS8xLjkuMy8yMDEzLTAyLTIyKQ==
-      !binary "RGF0ZQ==":
-      - !binary |-
-        RnJpLCAxNyBNYXkgMjAxMyAwODozNjozNiBHTVQ=
-      !binary "Q29udGVudC1MZW5ndGg=":
-      - !binary |-
-        NTk2
-      !binary "Q29ubmVjdGlvbg==":
-      - !binary |-
-        S2VlcC1BbGl2ZQ==
-      !binary "U2V0LUNvb2tpZQ==":
-      - !binary |-
-        X2R1bW15X3Nlc3Npb249QkFoN0Iwa2lEM05sYzNOcGIyNWZhV1FHT2daRlJr
-        a2lKV0l6TjJFMll6TTBaR1F5WXpFeU5HTTNZVE01TlRNM01qZG1PRFZtTnpj
-        NEJqc0FWRWtpSjNkaGNtUmxiaTUxYzJWeUxteHZZMjl0YjNScGRtVmZZV05q
-        YjNWdWRDNXJaWGtHT3dCVVd3ZGJCbFU2R2sxdmNHVmtPanBDVTA5T09qcFBZ
-        bXBsWTNSSlpDSVJVWlhyNmg1bXoyc2xBQUFCU1NJWldVUTBiVXAxVGsweFZY
-        aFRTamhxTTBjMFVGa0dPd0JVLS02Y2ZjNDgwMTM2NDEzYmJmZjI2OWYyYTc0
-        YzExZDJhMjQ4YjkyZGYzOyBkb21haW49LmV4YW1wbGUuY29tOyBwYXRoPS87
-        IEh0dHBPbmx5
-    body:
-      encoding: ASCII-8BIT
-      string: !binary |-
-        eyJpZCI6IjUxOTVlYmVhMWU2NmNmNmIyNTAwMDAwNyIsIl9pZCI6IjUxOTVl
-        YmVhMWU2NmNmNmIyNTAwMDAwNyIsImNyZWF0ZWRfYXQiOiIyMDEzLTA1LTE3
-        VDA4OjM1OjU0WiIsInVwZGF0ZWRfYXQiOiIyMDEzLTA1LTE3VDA4OjM2OjM2
-        WiIsInRpdGxlIjoiUMOhZ2luYSBkZSBpbmljaW8iLCJzbHVnIjoiaW5kZXgi
-        LCJwb3NpdGlvbiI6MCwicmVzcG9uc2VfdHlwZSI6InRleHQvaHRtbCIsImNh
-        Y2hlX3N0cmF0ZWd5Ijoibm9uZSIsInJlZGlyZWN0IjpmYWxzZSwicmVkaXJl
-        Y3RfdHlwZSI6MzAxLCJsaXN0ZWQiOnRydWUsInB1Ymxpc2hlZCI6dHJ1ZSwi
-        dGVtcGxhdGl6ZWQiOmZhbHNlLCJ0ZW1wbGF0aXplZF9mcm9tX3BhcmVudCI6
-        ZmFsc2UsImZ1bGxwYXRoIjoiaW5kZXgiLCJsb2NhbGl6ZWRfZnVsbHBhdGhz
-        Ijp7ImVuIjoiIiwiZXMiOiJlcyJ9LCJkZXB0aCI6MCwidHJhbnNsYXRlZF9p
-        biI6WyJlbiIsImVzIl0sInJhd190ZW1wbGF0ZSI6Ik5ldyBjb250ZW50IG9m
-        IHRoZSBob21lIHBhZ2VcclxuIiwiZXNjYXBlZF9yYXdfdGVtcGxhdGUiOiJO
-        ZXcgY29udGVudCBvZiB0aGUgaG9tZSBwYWdlXHJcbiIsImVkaXRhYmxlX2Vs
-        ZW1lbnRzIjpbXX0=
-    http_version: 
-  recorded_at: Fri, 17 May 2013 08:36:36 GMT
-- request:
-    method: put
-    uri: http://sample.example.com:3000/locomotive/api/pages/5195ebea1e66cf6b25000008.json?auth_token=5DU1kqcxNRA6UoXktW5w
+      Location:
+      - http://sample.example.com:3000/locomotive/api/pages
+      Content-Type:
+      - application/json; charset=utf-8
+      X-Ua-Compatible:
+      - IE=Edge
+      Etag:
+      - ! '"3f96426f0fca3564a6aee176f3838154"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - e148d069ee14de1625735bd0482ee7b1
+      X-Runtime:
+      - '0.036222'
+      Server:
+      - WEBrick/1.3.1 (Ruby/1.9.3/2012-10-12)
+      Date:
+      - Tue, 28 May 2013 09:34:01 GMT
+      Content-Length:
+      - '610'
+      Connection:
+      - Keep-Alive
+      Set-Cookie:
+      - _dummy_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFRkkiJWZjODlmNmUxMDY1ODYzZmYwMTZiMzcwMmYwNmRjMzQzBjsAVEkiJ3dhcmRlbi51c2VyLmxvY29tb3RpdmVfYWNjb3VudC5rZXkGOwBUWwhJIhhMb2NvbW90aXZlOjpBY2NvdW50BjsARlsGbzoTQlNPTjo6T2JqZWN0SWQGOgpAZGF0YVsRaVZpAaRpcWkB%2B2kBq2kBnmkzaUVpdmkAaQBpCUkiGUgzUHU3QlFWVzJzS3lCVkVwQ0FYBjsAVA%3D%3D--83ec3be4fd84643c2c8cef42c04ca4901eb01ac8;
+        domain=.example.com; path=/; HttpOnly
     body:
       encoding: US-ASCII
-      string: page[title]=P%C3%A1gina%20no%20encontrada&page[redirect_type]=301&page[listed]=true&page[published]=true&page[cache_strategy]=none&page[response_type]=text%2Fhtml&page[position]=1&page[raw_template]=Content%20of%20the%20404%20page&locale=es
+      string: ! '{"id":"51a46d0cab9e2e4045000004","_id":"51a46d0cab9e2e4045000004","created_at":"2013-05-28T10:38:36+02:00","updated_at":"2013-05-28T11:34:01+02:00","title":"P\u00e1gina
+        de inicio","slug":"index","position":0,"response_type":"text/html","cache_strategy":"none","redirect":false,"redirect_type":301,"listed":true,"published":true,"templatized":false,"templatized_from_parent":false,"fullpath":"index","localized_fullpaths":{"en":"","es":"es"},"depth":0,"translated_in":["en","es"],"raw_template":"New
+        content of the home page\r\n","escaped_raw_template":"New content of the home
+        page\r\n","editable_elements":[]}'
+    http_version: 
+  recorded_at: Tue, 28 May 2013 09:34:01 GMT
+- request:
+    method: put
+    uri: http://sample.example.com:3000/locomotive/api/pages/51a46d0cab9e2e4045000005.json?auth_token=XFE86yskLuuvCB56wWJX
+    body:
+      encoding: US-ASCII
+      string: page[title]=P%C3%A1gina%20no%20encontrada&page[redirect_type]=301&page[listed]=true&page[templatized]=false&page[published]=true&page[cache_strategy]=none&page[response_type]=text%2Fhtml&page[position]=1&page[raw_template]=Content%20of%20the%20404%20page&locale=es
     headers: {}
   response:
     status:
       code: 200
-      message: !binary |-
-        T0sg
+      message: ! 'OK '
     headers:
-      !binary "TG9jYXRpb24=":
-      - !binary |-
-        aHR0cDovL3NhbXBsZS5leGFtcGxlLmNvbTozMDAwL2xvY29tb3RpdmUvYXBp
-        L3BhZ2Vz
-      !binary "Q29udGVudC1UeXBl":
-      - !binary |-
-        YXBwbGljYXRpb24vanNvbjsgY2hhcnNldD11dGYtOA==
-      !binary "WC1VYS1Db21wYXRpYmxl":
-      - !binary |-
-        SUU9RWRnZQ==
-      !binary "RXRhZw==":
-      - !binary |-
-        ImMwMmJlNGRkOGY4M2Q3ZjY2ZDA0ZmRiNjU4MzRkMTI3Ig==
-      !binary "Q2FjaGUtQ29udHJvbA==":
-      - !binary |-
-        bWF4LWFnZT0wLCBwcml2YXRlLCBtdXN0LXJldmFsaWRhdGU=
-      !binary "WC1SZXF1ZXN0LUlk":
-      - !binary |-
-        NjcxNWNiNWUzMDU2YWY1OThjM2RjYTc2MjBkMGEyZmI=
-      !binary "WC1SdW50aW1l":
-      - !binary |-
-        MC4wMjE0NTU=
-      !binary "U2VydmVy":
-      - !binary |-
-        V0VCcmljay8xLjMuMSAoUnVieS8xLjkuMy8yMDEzLTAyLTIyKQ==
-      !binary "RGF0ZQ==":
-      - !binary |-
-        RnJpLCAxNyBNYXkgMjAxMyAwODozNjozNiBHTVQ=
-      !binary "Q29udGVudC1MZW5ndGg=":
-      - !binary |-
-        NTg1
-      !binary "Q29ubmVjdGlvbg==":
-      - !binary |-
-        S2VlcC1BbGl2ZQ==
-      !binary "U2V0LUNvb2tpZQ==":
-      - !binary |-
-        X2R1bW15X3Nlc3Npb249QkFoN0Iwa2lEM05sYzNOcGIyNWZhV1FHT2daRlJr
-        a2lKVGs1WTJOaE1qWmhaak0zWVRWa056Sm1Oamt6WVdKak1UZ3lOREkyWVRO
-        akJqc0FWRWtpSjNkaGNtUmxiaTUxYzJWeUxteHZZMjl0YjNScGRtVmZZV05q
-        YjNWdWRDNXJaWGtHT3dCVVd3ZGJCbFU2R2sxdmNHVmtPanBDVTA5T09qcFBZ
-        bXBsWTNSSlpDSVJVWlhyNmg1bXoyc2xBQUFCU1NJWldVUTBiVXAxVGsweFZY
-        aFRTamhxTTBjMFVGa0dPd0JVLS1lNzNiOTljOTEzZjEyMTU0OTUzNTNlNzI5
-        NmQxNjQ2Yjk3ZTQzMjUwOyBkb21haW49LmV4YW1wbGUuY29tOyBwYXRoPS87
-        IEh0dHBPbmx5
+      Location:
+      - http://sample.example.com:3000/locomotive/api/pages
+      Content-Type:
+      - application/json; charset=utf-8
+      X-Ua-Compatible:
+      - IE=Edge
+      Etag:
+      - ! '"8078b8544ebed3fa5a6d439c899f4d37"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - adfccd13c43b77b156c2fdae871283b7
+      X-Runtime:
+      - '0.036033'
+      Server:
+      - WEBrick/1.3.1 (Ruby/1.9.3/2012-10-12)
+      Date:
+      - Tue, 28 May 2013 09:34:01 GMT
+      Content-Length:
+      - '599'
+      Connection:
+      - Keep-Alive
+      Set-Cookie:
+      - _dummy_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFRkkiJTQwYTE2MWQ4NWY5MmNlM2IyYzRiNjQ1ZDZmNjljYjY3BjsAVEkiJ3dhcmRlbi51c2VyLmxvY29tb3RpdmVfYWNjb3VudC5rZXkGOwBUWwhJIhhMb2NvbW90aXZlOjpBY2NvdW50BjsARlsGbzoTQlNPTjo6T2JqZWN0SWQGOgpAZGF0YVsRaVZpAaRpcWkB%2B2kBq2kBnmkzaUVpdmkAaQBpCUkiGUgzUHU3QlFWVzJzS3lCVkVwQ0FYBjsAVA%3D%3D--e5ce96b5c32e90fa4aaa7d248190d0bca97645ad;
+        domain=.example.com; path=/; HttpOnly
     body:
-      encoding: ASCII-8BIT
-      string: !binary |-
-        eyJpZCI6IjUxOTVlYmVhMWU2NmNmNmIyNTAwMDAwOCIsIl9pZCI6IjUxOTVl
-        YmVhMWU2NmNmNmIyNTAwMDAwOCIsImNyZWF0ZWRfYXQiOiIyMDEzLTA1LTE3
-        VDA4OjM1OjU0WiIsInVwZGF0ZWRfYXQiOiIyMDEzLTA1LTE3VDA4OjM2OjAy
-        WiIsInRpdGxlIjoiUMOhZ2luYSBubyBlbmNvbnRyYWRhIiwic2x1ZyI6IjQw
-        NCIsInBvc2l0aW9uIjoxLCJyZXNwb25zZV90eXBlIjoidGV4dC9odG1sIiwi
-        Y2FjaGVfc3RyYXRlZ3kiOiJub25lIiwicmVkaXJlY3QiOmZhbHNlLCJyZWRp
-        cmVjdF90eXBlIjozMDEsImxpc3RlZCI6dHJ1ZSwicHVibGlzaGVkIjp0cnVl
-        LCJ0ZW1wbGF0aXplZCI6ZmFsc2UsInRlbXBsYXRpemVkX2Zyb21fcGFyZW50
-        IjpmYWxzZSwiZnVsbHBhdGgiOiI0MDQiLCJsb2NhbGl6ZWRfZnVsbHBhdGhz
-        Ijp7ImVuIjoiNDA0IiwiZXMiOiJlcy80MDQifSwiZGVwdGgiOjAsInRyYW5z
-        bGF0ZWRfaW4iOlsiZW4iLCJlcyJdLCJyYXdfdGVtcGxhdGUiOiJDb250ZW50
-        IG9mIHRoZSA0MDQgcGFnZSIsImVzY2FwZWRfcmF3X3RlbXBsYXRlIjoiQ29u
-        dGVudCBvZiB0aGUgNDA0IHBhZ2UiLCJlZGl0YWJsZV9lbGVtZW50cyI6W119
+      encoding: US-ASCII
+      string: ! '{"id":"51a46d0cab9e2e4045000005","_id":"51a46d0cab9e2e4045000005","created_at":"2013-05-28T10:38:36+02:00","updated_at":"2013-05-28T11:34:01+02:00","title":"P\u00e1gina
+        no encontrada","slug":"404","position":1,"response_type":"text/html","cache_strategy":"none","redirect":false,"redirect_type":301,"listed":true,"published":true,"templatized":false,"templatized_from_parent":false,"fullpath":"404","localized_fullpaths":{"en":"404","es":"es/404"},"depth":0,"translated_in":["en","es"],"raw_template":"Content
+        of the 404 page","escaped_raw_template":"Content of the 404 page","editable_elements":[]}'
     http_version: 
-  recorded_at: Fri, 17 May 2013 08:36:36 GMT
+  recorded_at: Tue, 28 May 2013 09:34:01 GMT
+- request:
+    method: put
+    uri: http://sample.example.com:3000/locomotive/api/pages/51a46d0dab9e2e404500000b.json?auth_token=XFE86yskLuuvCB56wWJX
+    body:
+      encoding: US-ASCII
+      string: page[title]=Products&page[slug]=products&page[redirect_type]=301&page[listed]=true&page[templatized]=false&page[published]=true&page[cache_strategy]=none&page[response_type]=text%2Fhtml&page[position]=1&page[seo_title]=Productos%20SEO&page[meta_keywords]=palabras%2C%20clave%2C%20productos&page[meta_description]=Descripci%C3%B3n%20molona%20de%20los%20productos&page[parent_id]=51a46d0cab9e2e4045000004&page[raw_template]=%7B%25%20extends%20parent%20%25%7D&locale=es
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ! 'OK '
+    headers:
+      Location:
+      - http://sample.example.com:3000/locomotive/api/pages
+      Content-Type:
+      - application/json; charset=utf-8
+      X-Ua-Compatible:
+      - IE=Edge
+      Etag:
+      - ! '"07aa991102c46525f44a9f226a81c6c9"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 5ab0a687b960995fb19e78e8defa9121
+      X-Runtime:
+      - '0.036215'
+      Server:
+      - WEBrick/1.3.1 (Ruby/1.9.3/2012-10-12)
+      Date:
+      - Tue, 28 May 2013 09:34:01 GMT
+      Content-Length:
+      - '731'
+      Connection:
+      - Keep-Alive
+      Set-Cookie:
+      - _dummy_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFRkkiJTI0MTczMTExN2RlMDg1NGEzMTM4ZTFlNzExMGJiYWYyBjsAVEkiJ3dhcmRlbi51c2VyLmxvY29tb3RpdmVfYWNjb3VudC5rZXkGOwBUWwhJIhhMb2NvbW90aXZlOjpBY2NvdW50BjsARlsGbzoTQlNPTjo6T2JqZWN0SWQGOgpAZGF0YVsRaVZpAaRpcWkB%2B2kBq2kBnmkzaUVpdmkAaQBpCUkiGUgzUHU3QlFWVzJzS3lCVkVwQ0FYBjsAVA%3D%3D--78b964b593765c797bf2d5bbf883c7f583b1895c;
+        domain=.example.com; path=/; HttpOnly
+    body:
+      encoding: US-ASCII
+      string: ! '{"id":"51a46d0dab9e2e404500000b","_id":"51a46d0dab9e2e404500000b","created_at":"2013-05-28T10:38:37+02:00","updated_at":"2013-05-28T11:34:01+02:00","title":"Products","slug":"products","position":1,"response_type":"text/html","cache_strategy":"none","redirect":false,"redirect_type":301,"listed":true,"published":true,"templatized":false,"templatized_from_parent":false,"fullpath":"products","localized_fullpaths":{"en":"products","es":"es/products"},"depth":1,"translated_in":["en","es"],"raw_template":"{%
+        extends parent %}","escaped_raw_template":"{% extends parent %}","editable_elements":[],"seo_title":"Productos
+        SEO","meta_keywords":"palabras, clave, productos","meta_description":"Descripci\u00f3n
+        molona de los productos"}'
+    http_version: 
+  recorded_at: Tue, 28 May 2013 09:34:01 GMT
 - request:
     method: get
-    uri: http://sample.example.com:3000/locomotive/api/theme_assets.json?auth_token=5DU1kqcxNRA6UoXktW5w
+    uri: http://sample.example.com:3000/locomotive/api/theme_assets.json?auth_token=XFE86yskLuuvCB56wWJX
     body:
       encoding: US-ASCII
       string: ''
@@ -764,165 +755,23 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - ced70567f893dd12c4729db64f16430b
+      - 4d528700eeaa5fa3cdaa1a8d3802c02b
       X-Runtime:
-      - '0.015601'
+      - '0.026064'
       Server:
-      - WEBrick/1.3.1 (Ruby/1.9.3/2013-02-22)
+      - WEBrick/1.3.1 (Ruby/1.9.3/2012-10-12)
       Date:
-      - Fri, 17 May 2013 08:36:36 GMT
+      - Tue, 28 May 2013 09:34:01 GMT
       Content-Length:
       - '2'
       Connection:
       - Keep-Alive
       Set-Cookie:
-      - _dummy_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFRkkiJTRjOTkwMzNjYWRiYjgzZWNmMGE4MzNlYjAxZjFkZTJmBjsAVEkiJ3dhcmRlbi51c2VyLmxvY29tb3RpdmVfYWNjb3VudC5rZXkGOwBUWwdbBlU6Gk1vcGVkOjpCU09OOjpPYmplY3RJZCIRUZXr6h5mz2slAAABSSIZWUQ0bUp1Tk0xVXhTSjhqM0c0UFkGOwBU--6226fac0b417699aebec34d98c150846e7006fe7;
+      - _dummy_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFRkkiJTJlYWVlMzFlODc2NWYyNzFjZjRjYmI5ZWQ4OWM1M2ZlBjsAVEkiJ3dhcmRlbi51c2VyLmxvY29tb3RpdmVfYWNjb3VudC5rZXkGOwBUWwhJIhhMb2NvbW90aXZlOjpBY2NvdW50BjsARlsGbzoTQlNPTjo6T2JqZWN0SWQGOgpAZGF0YVsRaVZpAaRpcWkB%2B2kBq2kBnmkzaUVpdmkAaQBpCUkiGUgzUHU3QlFWVzJzS3lCVkVwQ0FYBjsAVA%3D%3D--5aaeb7bf0346d8e9977b8bc9fec0a51f7e5dd978;
         domain=.example.com; path=/; HttpOnly
     body:
       encoding: US-ASCII
       string: ! '[]'
     http_version: 
-  recorded_at: Fri, 17 May 2013 08:36:36 GMT
-- request:
-    method: get
-    uri: http://sample.example.com:3000/locomotive/api/translations.json?auth_token=5DU1kqcxNRA6UoXktW5w
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers: {}
-  response:
-    status:
-      code: 200
-      message: !binary |-
-        T0sg
-    headers:
-      !binary "Q29udGVudC1UeXBl":
-      - !binary |-
-        YXBwbGljYXRpb24vanNvbjsgY2hhcnNldD11dGYtOA==
-      !binary "WC1VYS1Db21wYXRpYmxl":
-      - !binary |-
-        SUU9RWRnZQ==
-      !binary "RXRhZw==":
-      - !binary |-
-        IjEwYTU4MWZhMzZmMTg2ZGM4N2Y3ZjZjZjY0MWMyNmM1Ig==
-      !binary "Q2FjaGUtQ29udHJvbA==":
-      - !binary |-
-        bWF4LWFnZT0wLCBwcml2YXRlLCBtdXN0LXJldmFsaWRhdGU=
-      !binary "WC1SZXF1ZXN0LUlk":
-      - !binary |-
-        MjQ1YTFiMDQ2YzNmNWJlZmJmNmQ3Y2IwNDViMjBmMDY=
-      !binary "WC1SdW50aW1l":
-      - !binary |-
-        MC4wMTQ4MTI=
-      !binary "U2VydmVy":
-      - !binary |-
-        V0VCcmljay8xLjMuMSAoUnVieS8xLjkuMy8yMDEzLTAyLTIyKQ==
-      !binary "RGF0ZQ==":
-      - !binary |-
-        RnJpLCAxNyBNYXkgMjAxMyAwODozNjozNiBHTVQ=
-      !binary "Q29udGVudC1MZW5ndGg=":
-      - !binary |-
-        MjEz
-      !binary "Q29ubmVjdGlvbg==":
-      - !binary |-
-        S2VlcC1BbGl2ZQ==
-      !binary "U2V0LUNvb2tpZQ==":
-      - !binary |-
-        X2R1bW15X3Nlc3Npb249QkFoN0Iwa2lEM05sYzNOcGIyNWZhV1FHT2daRlJr
-        a2lKV1ppWkdZd01HUXdNalUwTVdZNE4yWXhZV1l5T1RNeU5EZGhaVEF6TlRF
-        NEJqc0FWRWtpSjNkaGNtUmxiaTUxYzJWeUxteHZZMjl0YjNScGRtVmZZV05q
-        YjNWdWRDNXJaWGtHT3dCVVd3ZGJCbFU2R2sxdmNHVmtPanBDVTA5T09qcFBZ
-        bXBsWTNSSlpDSVJVWlhyNmg1bXoyc2xBQUFCU1NJWldVUTBiVXAxVGsweFZY
-        aFRTamhxTTBjMFVGa0dPd0JVLS1mOWFkZDQ4YjQ3MmQ5YzA5YzdkOGFmNzYw
-        YzE5YmYwNGE3ZjgzZTIzOyBkb21haW49LmV4YW1wbGUuY29tOyBwYXRoPS87
-        IEh0dHBPbmx5
-    body:
-      encoding: ASCII-8BIT
-      string: !binary |-
-        W3siaWQiOiI1MTk1ZWJmMjFlNjZjZmUxY2UwMDAwMDgiLCJfaWQiOiI1MTk1
-        ZWJmMjFlNjZjZmUxY2UwMDAwMDgiLCJjcmVhdGVkX2F0IjoiMjAxMy0wNS0x
-        N1QwODozNjowMloiLCJ1cGRhdGVkX2F0IjoiMjAxMy0wNS0xN1QwODozNjow
-        MloiLCJrZXkiOiJoZWxsb193b3JsZCIsInZhbHVlcyI6eyJlbiI6IkhlbGxv
-        IHdvcmxkISIsImVzIjoiwqFIb2xhLCBNdW5kbyEifX1d
-    http_version: 
-  recorded_at: Fri, 17 May 2013 08:36:36 GMT
-- request:
-    method: put
-    uri: http://sample.example.com:3000/locomotive/api/translations/5195ebf21e66cfe1ce000008.json?auth_token=5DU1kqcxNRA6UoXktW5w
-    body:
-      encoding: US-ASCII
-      string: translation[key]=hello_world&translation[values][en]=Hello%20world!&translation[values][es]=%C2%A1Hola%2C%20Mundo!
-    headers: {}
-  response:
-    status:
-      code: 200
-      message: !binary |-
-        T0sg
-    headers:
-      !binary "WC1NZXNzYWdl":
-      - !binary |-
-        IlRyYW5zbGF0aW9uIHdhcyBzdWNjZXNzZnVsbHkgdXBkYXRlZC4i
-      !binary "WC1NZXNzYWdlLVR5cGU=":
-      - !binary |-
-        bm90aWNl
-      !binary "TG9jYXRpb24=":
-      - !binary |-
-        aHR0cDovL3NhbXBsZS5leGFtcGxlLmNvbTozMDAwL2xvY29tb3RpdmUvYXBp
-        L3RyYW5zbGF0aW9ucy81MTk1ZWJmMjFlNjZjZmUxY2UwMDAwMDg=
-      !binary "Q29udGVudC1UeXBl":
-      - !binary |-
-        YXBwbGljYXRpb24vanNvbjsgY2hhcnNldD11dGYtOA==
-      !binary "WC1VYS1Db21wYXRpYmxl":
-      - !binary |-
-        SUU9RWRnZQ==
-      !binary "RXRhZw==":
-      - !binary |-
-        ImVlMjQ4NjZkNTIxN2FhYjcwZWNjMGQzNGMyODdjZGIwIg==
-      !binary "Q2FjaGUtQ29udHJvbA==":
-      - !binary |-
-        bWF4LWFnZT0wLCBwcml2YXRlLCBtdXN0LXJldmFsaWRhdGU=
-      !binary "WC1SZXF1ZXN0LUlk":
-      - !binary |-
-        NTViN2VjOWI2MGE4MDk4MjljOTljNGY0ZTNjMzM2MmY=
-      !binary "WC1SdW50aW1l":
-      - !binary |-
-        MC4wMjIzODA=
-      !binary "U2VydmVy":
-      - !binary |-
-        V0VCcmljay8xLjMuMSAoUnVieS8xLjkuMy8yMDEzLTAyLTIyKQ==
-      !binary "RGF0ZQ==":
-      - !binary |-
-        RnJpLCAxNyBNYXkgMjAxMyAwODozNjozNiBHTVQ=
-      !binary "Q29udGVudC1MZW5ndGg=":
-      - !binary |-
-        MjEx
-      !binary "Q29ubmVjdGlvbg==":
-      - !binary |-
-        S2VlcC1BbGl2ZQ==
-      !binary "U2V0LUNvb2tpZQ==":
-      - !binary |-
-        X2R1bW15X3Nlc3Npb249QkFoN0NFa2lEM05sYzNOcGIyNWZhV1FHT2daRlJr
-        a2lKVFZpTURZeFpXUXhOVE16TnpZMU0yVTRZVFl5TkdKa1pqTmxOalU1Tnpr
-        NEJqc0FWRWtpSjNkaGNtUmxiaTUxYzJWeUxteHZZMjl0YjNScGRtVmZZV05q
-        YjNWdWRDNXJaWGtHT3dCVVd3ZGJCbFU2R2sxdmNHVmtPanBDVTA5T09qcFBZ
-        bXBsWTNSSlpDSVJVWlhyNmg1bXoyc2xBQUFCU1NJWldVUTBiVXAxVGsweFZY
-        aFRTamhxTTBjMFVGa0dPd0JVU1NJS1pteGhjMmdHT3dCR2J6b2xRV04wYVc5
-        dVJHbHpjR0YwWTJnNk9rWnNZWE5vT2pwR2JHRnphRWhoYzJnSk9ncEFkWE5s
-        Wkc4NkNGTmxkQVk2Q2tCb1lYTm9ld1k2QzI1dmRHbGpaVlE2REVCamJHOXpa
-        V1JHT2cxQVpteGhjMmhsYzNzR093dEpRem9lUVdOMGFYWmxVM1Z3Y0c5eWRE
-        bzZVMkZtWlVKMVptWmxjaUlxVkhKaGJuTnNZWFJwYjI0Z2QyRnpJSE4xWTJO
-        bGMzTm1kV3hzZVNCMWNHUmhkR1ZrTGdjN0FGUTZEMEJvZEcxc1gzTmhabVZV
-        T2dsQWJtOTNNQSUzRCUzRC0tYTg5MTg3MTRkMmM5ZWMxNDFmYzlhMmQwYzY2
-        YjZkZTBiZGJmYjQwMTsgZG9tYWluPS5leGFtcGxlLmNvbTsgcGF0aD0vOyBI
-        dHRwT25seQ==
-    body:
-      encoding: ASCII-8BIT
-      string: !binary |-
-        eyJpZCI6IjUxOTVlYmYyMWU2NmNmZTFjZTAwMDAwOCIsIl9pZCI6IjUxOTVl
-        YmYyMWU2NmNmZTFjZTAwMDAwOCIsImNyZWF0ZWRfYXQiOiIyMDEzLTA1LTE3
-        VDA4OjM2OjAyWiIsInVwZGF0ZWRfYXQiOiIyMDEzLTA1LTE3VDA4OjM2OjAy
-        WiIsImtleSI6ImhlbGxvX3dvcmxkIiwidmFsdWVzIjp7ImVuIjoiSGVsbG8g
-        d29ybGQhIiwiZXMiOiLCoUhvbGEsIE11bmRvISJ9fQ==
-    http_version: 
-  recorded_at: Fri, 17 May 2013 08:36:36 GMT
-recorded_with: VCR 2.4.0
+  recorded_at: Tue, 28 May 2013 09:34:01 GMT
+recorded_with: VCR 2.5.0
