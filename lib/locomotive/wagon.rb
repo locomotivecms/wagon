@@ -166,9 +166,9 @@ module Locomotive
     protected
     def self.validate_resources(resources, writers_or_readers)
       return if resources.nil?
-      valid_resources = writers_or_readers.map { |thing| thing.to_s.demodulize.gsub(/Writer$|Reader$/, '').downcase } 
+      valid_resources = writers_or_readers.map { |thing| thing.to_s.demodulize.gsub(/Writer$|Reader$/, '').underscore } 
       resources.each do |resource|
-        raise ArgumentError, "'#{resource}' resource not recognized" unless valid_resources.include?(resource)
+        raise ArgumentError, "'#{resource}' resource not recognized. Valid resources are #{valid_resources.join(', ')}." unless valid_resources.include?(resource)
       end
     end
   end
