@@ -31,4 +31,9 @@ describe Locomotive::Wagon::Server do
     get '/songs/song-1'
     last_response.body.should =~ /content_type_size=.8./
   end
+  
+  it "provides count alias on collections" do
+    get '/songs/song-1'
+    last_response.body.should =~ /content_type_count=.8./
+  end
 end

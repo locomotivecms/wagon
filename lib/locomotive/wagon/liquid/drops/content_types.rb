@@ -34,6 +34,7 @@ module Locomotive
           end
 
           alias :length :size
+          alias :count :size
 
           def each(&block)
             self.collection.each(&block)
