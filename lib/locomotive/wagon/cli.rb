@@ -135,11 +135,14 @@ module Locomotive
           end
         end
 
-        desc 'clone NAME HOST EMAIL PASSWORD [PATH]', 'Clone a remote LocomotiveCMS site'
-        method_option :verbose, aliases: '-v', type: 'boolean', default: false, desc: 'display the full error stack trace if an error occurs'
-        def clone(name, host, email, password, path = '.')
+        desc 'clone NAME HOST [PATH]', 'Clone a remote LocomotiveCMS site'
+        method_option :verbose,   aliases: '-v', type: 'boolean', default: false, desc: 'display the full error stack trace if an error occurs'
+        method_option :email,     aliases: '-e', desc: 'email of an administrator account'
+        method_option :password,  aliases: '-p', desc: 'password of an administrator account'
+        method_option :api_key,   aliases: '-a', desc: 'api key of an administrator account'
+        def clone(name, host, path = '.')
           begin
-            if Locomotive::Wagon.clone(name, path, host: host, email: email, password: password)
+            if Locomotive::Wagon.clone(name, path, { host: host }.merge(options))
               self.print_next_instructions_when_site_created(name, path)
             end
           rescue Exception => e

@@ -115,7 +115,7 @@ module Locomotive
       # generate an almost blank site
       require 'locomotive/wagon/generators/site'
       generator = Locomotive::Wagon::Generators::Site::Cloned
-      generator.start [name, path, connection_info]
+      generator.start [name, path, connection_info.symbolize_keys]
 
       # pull the remote site
       self.pull(target_path, options.merge(connection_info).with_indifferent_access, { disable_misc: true })
@@ -162,11 +162,11 @@ module Locomotive
         end
       end
     end
-    
+
     protected
     def self.validate_resources(resources, writers_or_readers)
       return if resources.nil?
-      valid_resources = writers_or_readers.map { |thing| thing.to_s.demodulize.gsub(/Writer$|Reader$/, '').underscore } 
+      valid_resources = writers_or_readers.map { |thing| thing.to_s.demodulize.gsub(/Writer$|Reader$/, '').underscore }
       resources.each do |resource|
         raise ArgumentError, "'#{resource}' resource not recognized. Valid resources are #{valid_resources.join(', ')}." unless valid_resources.include?(resource)
       end
