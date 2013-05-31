@@ -48,6 +48,6 @@ describe Locomotive::Wagon do
       end
     end
     
-    it { should raise_exception(ArgumentError, "'all' resource not recognized") }
+    it { should raise_exception(ArgumentError, /'all' resource not recognized/) }
   end
 end
