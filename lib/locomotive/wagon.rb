@@ -57,6 +57,9 @@ module Locomotive
     #
     def self.push(path, connection_info, options = {})
       if reader = self.require_mounter(path, true)
+        
+        reader.mounting_point.site.domains   = connection_info["domains"]   if connection_info["domains"]
+        reader.mounting_point.site.subdomain = connection_info["subdomain"] if connection_info["subdomain"]
         require 'bundler'
         Bundler.require 'misc'
 
