@@ -13,6 +13,12 @@ published: true
     %meta{:content => "{{ site.meta_description }}", :name => "description"}
     %meta{:content => "{{ site.meta_keywords }}", :name => "keywords"}
 
+    / Fonts
+    {{ 'fonts/awesome.css' | stylesheet_tag }}
+    {{ 'fonts/font-awesome.css' | stylesheet_tag }}
+    /[if IE 7]
+      {{ 'fonts/font-awesome-ie7.min.css' | stylesheet_tag }}
+
     / Le styles
     {{ 'bootstrap.css' | stylesheet_tag }}
     {{ 'bootstrap-responsive.css' | stylesheet_tag }}
@@ -40,7 +46,7 @@ published: true
       .jumbotron
         %h1 Super awesome marketing speak!
         %p.lead Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-        %a.btn.btn-large.btn-success{:href => "#"} Sign up today
+        %a.btn.icon-flag.btn-large.btn-success{:href => "#"} Sign up today
 
       %hr
 
