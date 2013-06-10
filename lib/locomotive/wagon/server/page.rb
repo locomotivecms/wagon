@@ -20,7 +20,7 @@ module Locomotive::Wagon
         page = self.fetch_page
 
         if page
-          self.log "Found page \"#{page.title}\" [/#{page.inspect}]"
+          self.log "Found page \"#{page.title}\" [#{page.safe_fullpath}]"
         end
 
         env['wagon.page'] = page
