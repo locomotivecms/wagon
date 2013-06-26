@@ -22,7 +22,7 @@ module Locomotive
             def render(context)
               current_page = context.registers[:page]
 
-              element = current_page.find_editable_element(context['block'].try(:name), @slug)
+              element = current_page.find_editable_element(self.current_block_name(context), @slug)
 
               if element.present?
                 render_element(context, element)
@@ -35,6 +35,10 @@ module Locomotive
 
             def render_element(context, element)
               element.content
+            end
+
+            def current_block_name(context)
+              context['block'].try(:name)
             end
 
           end
