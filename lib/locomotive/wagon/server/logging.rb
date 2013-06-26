@@ -11,7 +11,7 @@ module Locomotive::Wagon
         log "Started #{env['REQUEST_METHOD'].upcase} \"#{env['PATH_INFO']}\" at #{now}"
 
         app.call(env).tap do |response|
-          done_in_ms = (Time.now - now) * 1000
+          done_in_ms = ((Time.now - now) * 10000).truncate / 10.0
           log "Completed #{code_to_human(response.first)} in #{done_in_ms}ms\n\n"
         end
       end
