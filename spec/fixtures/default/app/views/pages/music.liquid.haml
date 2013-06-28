@@ -25,4 +25,12 @@ position: 2
     {% include 'song' with song %}
     {% endfor %}
 #is_listed{listed: "{{ page.listed? }}"}
+#test_for_scope
+  {% with_scope _slug: "song-3" %}
+  {% assign selected_songs = contents.songs.all %}
+  {% endwith_scope %}
+  {% for s in selected_songs %}
+  %p.scoped_song {{ s._label }}
+  {% endfor %}
+  %p.collection_equality {{ contents.songs.all.size }}={{ contents.songs.size }}
 {% endblock %}

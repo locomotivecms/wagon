@@ -36,4 +36,14 @@ describe Locomotive::Wagon::Server do
     get '/songs/song-1'
     last_response.body.should =~ /content_type_count=.8./
   end
+  
+  it "evaluates collection when called all inside of scope" do
+    get '/music'
+    last_response.body.should =~ /<p class=.scoped_song.>Song #3/
+  end
+  
+  it "size of evaluated unscoped collection eqaul to unevaluated one" do
+    get '/music'
+    last_response.body.should =~ /class=.collection_equality.>8=8/
+  end
 end

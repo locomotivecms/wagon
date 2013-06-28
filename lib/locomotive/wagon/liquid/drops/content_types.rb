@@ -21,6 +21,10 @@ module Locomotive
             @collection = nil
           end
 
+          def all
+            self.collection
+          end
+
           def first
             self.collection.first
           end
