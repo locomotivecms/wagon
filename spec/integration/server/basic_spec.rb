@@ -40,7 +40,7 @@ describe Locomotive::Wagon::Server do
     get '/nb'
     last_response.body.should_not =~ /Powered by/
   end
-  
+
   it 'provides translation in scopes' do
     get '/'
     last_response.body.should =~ /scoped_translation=.French./
@@ -61,15 +61,15 @@ describe Locomotive::Wagon::Server do
 
     it { should_not match(/<nav id="nav">/) }
 
-    it { should match(/<li id="about-us-link" class="link first "><a href="\/about-us" >About Us <\/a><\/li>/) }
+    it { should match(/<li id="about-us-link" class="link first"><a href="\/about-us">About Us<\/a><\/li>/) }
 
-    it { should match(/<li id="music-link" class="link  "><a href="\/music" >Music <\/a><\/li>/) }
+    it { should match(/<li id="music-link" class="link"><a href="\/music">Music<\/a><\/li>/) }
 
-    it { should match(/<li id="store-link" class="link  "><a href="\/store" >Store <\/a><\/li>/) }
+    it { should match(/<li id="store-link" class="link"><a href="\/store">Store<\/a><\/li>/) }
 
-    it { should match(/<li id="contact-link" class="link last "><a href="\/contact" >Contact Us <\/a><\/li>/) }
+    it { should match(/<li id="contact-link" class="link last"><a href="\/contact">Contact Us<\/a><\/li>/) }
 
-    it { should_not match(/<li id="events-link" class="link "><a href="\/events" >Events <\/a><\/li>/) }
+    it { should_not match(/<li id="events-link" class="link"><a href="\/events">Events<\/a><\/li>/) }
 
     describe 'with wrapper' do
 
@@ -79,16 +79,23 @@ describe Locomotive::Wagon::Server do
 
     end
 
+    describe 'very deep' do
+
+      subject { get '/tags/nav_in_deep'; last_response.body }
+
+      it { should match(/<li id=\"john-doe-link\" class=\"link first last\">/) }
+
+    end
 
   end
-  
+
   describe 'contents with_scope' do
     subject { get '/grunge_bands'; last_response.body }
-    
+
     it { should match(/Layne/)}
     it { should_not match(/Peter/) }
   end
-  
+
   describe "pages with_scope" do
     subject { get '/unlisted_pages'; last_response.body }
     it { subject.should match(/Page to test the nav tag/)}

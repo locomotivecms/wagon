@@ -2,6 +2,7 @@ module Locomotive
   module Wagon
     module Liquid
       module Tags
+
         # Display the children pages of the site, current page or the parent page. If not precised, nav is applied on the current page.
         # The html output is based on the ul/li tags.
         #
@@ -20,16 +21,8 @@ module Locomotive
           def initialize(tag_name, markup, tokens, context)
             if markup =~ Syntax
               @source = ($1 || 'page').gsub(/"|'/, '')
-              @options = { id: 'nav', class: '', active_class: 'on', bootstrap: false }
-              markup.scan(::Liquid::TagAttributes) { |key, value| @options[key.to_sym] = value.gsub(/"|'/, '') }
 
-              @options[:exclude] = Regexp.new(@options[:exclude]) if @options[:exclude]
-
-              if @options[:snippet]
-                if template = self.parse_snippet_template(context, @options[:snippet])
-                  @options[:liquid_render] = template
-                end
-              end
+              self.set_options(markup, context)
             else
               raise ::Liquid::SyntaxError.new("Syntax Error in 'nav' - Valid syntax: nav <site|parent|page|<path to a page>> <options>")
             end
@@ -40,45 +33,44 @@ module Locomotive
           def render(context)
             self.set_accessors_from_context(context)
 
-            children_output = []
-
             entries = self.fetch_entries
+            output  = self.build_entries_output(entries)
 
-            entries.each_with_index do |p, index|
-              css = []
-              css << 'first' if index == 0
-              css << 'last' if index == entries.size - 1
-
-              children_output << render_entry_link(p, css.join(' '), 1)
+            if self.no_wrapper?
+              output
+            else
+              self.render_tag(:nav, id: @options[:id], css: @options[:class]) do
+                self.render_tag(:ul) { output }
+              end
             end
-
-            output = children_output.join("\n")
-
-            if @options[:no_wrapper] != 'true'
-              list_class  = !@options[:class].blank? ? %( class="#{@options[:class]}") : ''
-              output      = %{<nav id="#{@options[:id]}"#{list_class}><ul>\n#{output}</ul></nav>}
-            end
-
-            output
           end
 
           protected
 
-          def set_accessors_from_context(context)
-            self.current_page   = context.registers[:page]
-            self.mounting_point = context.registers[:mounting_point]
-          end
+          # Build recursively the links of all the pages.
+          #
+          # @param [ Array ] entries List of pages
+          #
+          # @return [ String ] The final HTML output
+          #
+          def build_entries_output(entries, depth = 1)
+            output  = []
 
-          def parse_snippet_template(context, template_name)
-            source = if template_name.include?('{')
-              template_name
-            else
-              context[:mounting_point].snippets[template_name].try(:source)
+            entries.each_with_index do |page, index|
+              css = []
+              css << 'first'  if index == 0
+              css << 'last'   if index == entries.size - 1
+
+              output << self.render_entry_link(page, css.join(' '), depth)
             end
 
-            source ? ::Liquid::Template.parse(source) : nil
+            output.join("\n")
           end
 
+          # Get all the children of a source: site (index page), parent or page.
+          #
+          # @return [ Array ] List of pages
+          #
           def fetch_entries
             children = (case @source
             when 'site'     then self.mounting_point.pages['index']
@@ -91,7 +83,12 @@ module Locomotive
             children.delete_if { |p| !include_page?(p) }
           end
 
-          # Determines whether or not a page should be a part of the menu
+          # Determine whether or not a page should be a part of the menu.
+          #
+          # @param [ Object ] page The page
+          #
+          # @return [ Boolean ] True if the page can be included or not
+          #
           def include_page?(page)
             if !page.listed? || page.templatized? || !page.published?
               false
@@ -102,62 +99,184 @@ module Locomotive
             end
           end
 
-          # Returns a list element, a link to the page and its children
-          def render_entry_link(page, css, depth)
-            selected = self.current_page.fullpath =~ /^#{page.fullpath}/ ? " #{@options[:active_class]}" : ''
+          # Determine wether or not a page is currently the displayed one.
+          #
+          # @param [ Object ] page The page
+          #
+          # @return [ Boolean ]
+          #
+          def page_selected?(page)
+            self.current_page.fullpath =~ /^#{page.fullpath}/
+          end
 
-            icon = @options[:icon] ? '<span></span>' : ''
+          # Determine if the children of a page have to be rendered or not.
+          # It depends on the depth passed in the option.
+          #
+          # @param [ Object ] page The page
+          # @param [ Integer ] depth The current depth
+          #
+          # @return [ Boolean ] True if the children have to be rendered.
+          #
+          def render_children_for_page?(page, depth)
+            depth.succ <= @options[:depth].to_i &&
+            (page.children || []).select { |child| self.include_page?(child) }.any?
+          end
 
+          # Return the label of an entry. It may use or not the template
+          # given by the snippet option.
+          #
+          # @param [ Object ] page The page
+          #
+          # @return [ String ] The label in HTML
+          #
+          def entry_label(page)
+            icon  = @options[:icon] ? '<span></span>' : ''
             title = @options[:liquid_render] ? @options[:liquid_render].render('page' => page) : page.title
 
-            label = %{#{icon if @options[:icon] != 'after' }#{title}#{icon if @options[:icon] == 'after' }}
+            if icon.blank?
+              title
+            elsif @options[:icon] == 'after'
+              "#{title} #{icon}"
+            else
+              "#{icon} #{title}"
+            end
+          end
 
-            dropdow = ""
-            link_options = ""
-            href = ::I18n.locale.to_s == self.mounting_point.default_locale.to_s ? "/#{page.fullpath}" : "/#{::I18n.locale}/#{page.fullpath}"
-            caret = ""
+          # Return the localized url of an entry (page).
+          #
+          # @param [ Object ] page The page
+          #
+          # @return [ String ] The localized url
+          #
+          def entry_url(page)
+            if ::I18n.locale.to_s == self.mounting_point.default_locale.to_s
+              "/#{page.fullpath}"
+            else
+              "/#{::I18n.locale}/#{page.fullpath}"
+            end
+          end
 
-            if render_children_for_page?(page, depth) && bootstrap?
-              dropdow = "dropdown"
-              link_options = %{class="dropdown-toggle" data-toggle="dropdown"}
-              href = "#"
-              caret = %{<b class="caret"></b>}
+          # Return the css of an entry (page).
+          #
+          # @param [ Object ] page The page
+          # @param [ String ] css The extra css
+          #
+          # @return [ String ] The css
+          #
+          def entry_css(page, css = '')
+            _css = 'link'
+            _css = "#{page}#{@options[:active_class]}" if self.page_selected?(page)
+
+            (_css + " #{css}").strip
+          end
+
+          # Return the HTML output of a page and its children if requested.
+          #
+          # @param [ Object ] page The page
+          # @param [ String ] css The current css to apply to the entry
+          # @param [ Integer] depth Used to know if the children has to be added or not.
+          #
+          # @return [ String ] The HTML output
+          #
+          def render_entry_link(page, css, depth)
+            url       = self.entry_url(page)
+            label     = self.entry_label(page)
+            css       = self.entry_css(page, css)
+            options   = ''
+
+            if self.render_children_for_page?(page, depth) && self.bootstrap?
+              url       = '#'
+              label     += %{ <b class="caret"></b>}
+              css       += ' dropdown'
+              options   = %{ class="dropdown-toggle" data-toggle="dropdown"}
             end
 
-            output  = %{<li id="#{page.slug.to_s.dasherize}-link" class="link#{selected} #{css} #{dropdow}">}
-            output << %{<a href="#{href}" #{link_options}>#{label} #{caret}</a>}
-            output << render_entry_children(page, depth.succ) if (depth.succ <= @options[:depth].to_i)
-            output << %{</li>}
-
-            output.strip
+            self.render_tag(:li, id: "#{page.slug.to_s.dasherize}-link", css: css) do
+              children_output = depth.succ <= @options[:depth].to_i ? self.render_entry_children(page, depth.succ) : ''
+              %{<a href="#{url}"#{options}>#{label}</a>} + children_output
+            end
           end
 
-          def render_children_for_page?(page, depth)
-            depth.succ <= @options[:depth].to_i && page.children.reject { |c| !include_page?(c) }.any?
-          end
-
-          # Recursively creates a nested unordered list for the depth specified
+          # Recursively create a nested unordered list for the depth specified.
+          #
+          # @param [ Array ] entries The children of the page
+          # @param [ Integer ] depth The current depth
+          #
+          # @return [ String ] The HTML code
+          #
           def render_entry_children(page, depth)
-            output = %{}
+            entries = (page.children || []).select { |child| self.include_page?(child) }
+            css     = self.bootstrap? ? 'dropdown-menu' : ''
 
-            children = page.children.reject { |c| !include_page?(c) }
-            if children.present?
-              output = %{<ul id="#{@options[:id]}-#{page.slug.to_s.dasherize}" class="#{bootstrap? ? "dropdown-menu" : ""}">}
-              children.each do |c, page|
-                css = []
-                css << 'first' if children.first == c
-                css << 'last'  if children.last  == c
-
-                output << render_entry_link(c, css.join(' '),depth)
+            unless entries.empty?
+              self.render_tag(:ul, id: "#{@options[:id]}-#{page.slug.to_s.dasherize}", css: css) do
+                self.build_entries_output(entries, depth)
               end
-              output << %{</ul>}
+            else
+              ''
+            end
+          end
+
+          # Set the value (default or assigned by the tag) of the options.
+          #
+          def set_options(markup, context)
+            @options = { id: 'nav', class: '', active_class: 'on', bootstrap: false, no_wrapper: false }
+
+            markup.scan(::Liquid::TagAttributes) { |key, value| @options[key.to_sym] = value.gsub(/"|'/, '') }
+
+            @options[:exclude] = Regexp.new(@options[:exclude]) if @options[:exclude]
+
+            if @options[:snippet]
+              if template = self.parse_snippet_template(context, @options[:snippet])
+                @options[:liquid_render] = template
+              end
+            end
+          end
+
+          # Avoid to call context.registers to get the current page
+          # and the mounting point.
+          #
+          def set_accessors_from_context(context)
+            self.current_page   = context.registers[:page]
+            self.mounting_point = context.registers[:mounting_point]
+          end
+
+          # Parse the template of the snippet give in option of the tag.
+          # If the template_name contains a liquid tag or drop, it will
+          # be used an inline template.
+          #
+          def parse_snippet_template(context, template_name)
+            source = if template_name.include?('{')
+              template_name
+            else
+              context[:mounting_point].snippets[template_name].try(:source)
             end
 
-            output
+            source ? ::Liquid::Template.parse(source) : nil
+          end
+
+          # Render any kind HTML tags. The content of the tag comes from
+          # the block.
+          #
+          # @param [ String ] tag_name Name of the HTML tag (li, ul, div, ...etc).
+          # @param [ String ] html_options Id, class, ..etc
+          #
+          # @return [ String ] The HTML
+          #
+          def render_tag(tag_name, html_options = {}, &block)
+            options = ['']
+            options << %{id="#{html_options[:id]}"} if html_options[:id].present?
+            options << %{class="#{html_options[:css]}"} if html_options[:css].present?
+
+            %{<#{tag_name}#{options.join(' ')}>#{yield}</#{tag_name}>}
           end
 
           def bootstrap?
-            @options[:bootstrap] == 'true' || @options[:bootstrap] == true
+            @options[:bootstrap].to_bool
+          end
+
+          def no_wrapper?
+            @options[:no_wrapper].to_bool
           end
 
           ::Liquid::Template.register_tag('nav', Nav)
