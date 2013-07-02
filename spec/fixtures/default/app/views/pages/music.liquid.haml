@@ -1,5 +1,6 @@
 ---
 listed: true
+handle: our-music
 position: 2
 ---
 {% extends parent %}
@@ -24,5 +25,7 @@ position: 2
     {% for song in contents.songs offset: 4 %}
     {% include 'song' with song %}
     {% endfor %}
-#is_listed{listed: "{{ page.listed? }}"}
+
+#is_listed{ listed: "{{ page.listed? }}" }
+
 {% endblock %}

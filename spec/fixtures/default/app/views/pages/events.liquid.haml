@@ -26,4 +26,12 @@ position: 5
 
   {% endeditable_long_text %}
 
+  %p
+    %strong Discover: {% link_to our-music %}
+    %br
+    %strong {% link_to about-us %}Who are we ?{% endlink_to %}
+    %br
+    {% assign song = contents.songs.first %}
+    %strong {% link_to song %}
+
 {% endblock %}
