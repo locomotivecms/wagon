@@ -44,9 +44,14 @@ describe Locomotive::Wagon::Server do
       last_response.body.should =~ /Discover: <a href="\/music">Music<\/a>/
     end
 
+    it "writes a localized a link" do
+      get '/events'
+      last_response.body.should =~ /Plus à notre sujet: <a href="\/a-notre-sujet">Qui sommes nous \?<\/a>/
+    end
+
     it "writes a link to a page with a custom label" do
       get '/events'
-      last_response.body.should =~ /<a href="\/about-us">Who are we \?<\/a>/
+      last_response.body.should =~ /More about us: <a href="\/about-us">Who are we \?<\/a>/
     end
 
     it "writes a link to a templatized page" do
@@ -54,7 +59,25 @@ describe Locomotive::Wagon::Server do
       last_response.body.should =~ /<a href="\/songs\/song-1">Song #1<\/a>/
     end
 
-
+    it "writes a link to a templatized page with a different handle" do
+      get '/events'
+      last_response.body.should =~ /<a href="\/songs\/song-8">Song #8<\/a>/
+    end
 
   end
+
+  describe 'scope & assigns' do
+
+    it "evaluates collection when called all inside of scope" do
+      get '/music'
+      last_response.body.should =~ /<p class=.scoped_song.>Song #3/
+    end
+
+    it "size of evaluated unscoped collection eqaul to unevaluated one" do
+      get '/music'
+      last_response.body.should =~ /class=.collection_equality.>8=8/
+    end
+
+  end
+
 end

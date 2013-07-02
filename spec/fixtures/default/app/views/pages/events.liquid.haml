@@ -29,9 +29,14 @@ position: 5
   %p
     %strong Discover: {% link_to our-music %}
     %br
-    %strong {% link_to about-us %}Who are we ?{% endlink_to %}
+    %strong More about us: {% link_to about-us %}Who are we ?{% endlink_to %}
+    %br
+    %strong Plus à notre sujet: {% link_to about-us, locale: fr %}Qui sommes nous ?{% endlink_to %}
     %br
     {% assign song = contents.songs.first %}
     %strong {% link_to song %}
+    %br
+    {% assign another_song = contents.songs.last %}
+    %strong {% link_to another_song, with: a-song-template %}
 
 {% endblock %}

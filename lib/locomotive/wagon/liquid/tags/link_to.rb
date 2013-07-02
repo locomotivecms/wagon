@@ -47,6 +47,7 @@ module Locomotive
               page = case handle
               when Locomotive::Mounter::Models::Page          then handle
               when String                                     then fetch_page(mounting_point, handle)
+              when Liquid::Drops::ContentEntry                then fetch_page(mounting_point, handle._source, true)
               when Locomotive::Mounter::Models::ContentEntry  then fetch_page(mounting_point, handle, true)
               else
                 nil
@@ -87,15 +88,16 @@ module Locomotive
           end
 
           def public_page_url(context, page)
-            fullpath        = page.fullpath
             mounting_point  = context.registers[:mounting_point]
 
-            ::Locomotive::Mounter.with_locale(@options['locale']) do
-              fullpath = "#{::I18n.locale}/#{fullpath}" if ::I18n.locale.to_s != mounting_point.default_locale.to_s
+            fullpath = ::Locomotive::Mounter.with_locale(@options['locale']) do
+              page.fullpath.clone
             end
 
+            fullpath = "#{::I18n.locale}/#{fullpath}" if ::I18n.locale.to_s != mounting_point.default_locale.to_s
+
             if page.templatized?
-              fullpath.gsub!('content_type_template', page.content_entry._slug)
+              fullpath.gsub!(/(content_type_template|template)/, page.content_entry._slug)
             end
 
             File.join('/', fullpath)

@@ -1,5 +1,3 @@
-require "locomotive/wagon/scopeable"
-
 module Locomotive
   module Wagon
     module Liquid

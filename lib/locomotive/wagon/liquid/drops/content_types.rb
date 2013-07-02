@@ -1,5 +1,3 @@
-require "locomotive/wagon/scopeable"
-
 module Locomotive
   module Wagon
     module Liquid
@@ -14,11 +12,16 @@ module Locomotive
         end
 
         class ProxyCollection < ::Liquid::Drop
+
           include Scopeable
 
           def initialize(content_type)
             @content_type = content_type
             @collection = nil
+          end
+
+          def all
+            self.collection
           end
 
           def first
@@ -95,7 +98,7 @@ module Locomotive
 
           def collection
             return unless @collection.blank?
-            
+
             @collection = apply_scope(@content_type.entries)
           end
         end

@@ -1,5 +1,6 @@
 require 'liquid'
 require 'locomotive/mounter'
+require 'locomotive/wagon/liquid/scopeable'
 require 'locomotive/wagon/liquid/drops/base'
 require 'locomotive/wagon/liquid/tags/hybrid'
 
