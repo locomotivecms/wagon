@@ -35,7 +35,6 @@ module Locomotive
             result
           end
 
-
           def textile(input)
             ::RedCloth.new(input).to_html
           end

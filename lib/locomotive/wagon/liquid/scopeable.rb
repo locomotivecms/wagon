@@ -14,7 +14,7 @@ module Locomotive
             entries.each do |content|
               accepted = (conditions.map do |key, value|
                 case value
-                when TrueClass, FalseClass, String then content.send(key) == value
+                when TrueClass, FalseClass, String, Integer then content.send(key) == value
                 else
                   true
                 end
