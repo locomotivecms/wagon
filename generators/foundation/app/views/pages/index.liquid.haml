@@ -16,6 +16,8 @@ published: true
     {{ 'foundation.css' | stylesheet_tag }}
 
     {{ 'vendor/custom.modernizr.js' | javascript_tag }}
+
+    {% inline_editor %}
   %body
     .row
       .large-12.columns
@@ -96,7 +98,7 @@ published: true
 
     {{ 'foundation.min.js' | javascript_tag }}
 
-    
+
       / {{ 'foundation/foundation.js' | javascript_tag }}
 
       / {{ 'foundation/foundation.alerts.js' | javascript_tag }}
