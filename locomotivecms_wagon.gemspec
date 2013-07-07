@@ -24,6 +24,8 @@ Gem::Specification.new do |gem|
   gem.add_dependency 'locomotive_liquid',     '~> 2.4.1'
   gem.add_dependency 'RedCloth',              '~> 4.2.9'
   gem.add_dependency 'dragonfly',             '~> 0.9.12'
+  gem.add_dependency 'sprockets',             '~> 2.0'
+  gem.add_dependency 'sprockets-sass',        '~> 1.0.1'
   gem.add_dependency 'rack-cache',            '~> 1.1'
   gem.add_dependency 'better_errors',         '~> 0.7.2'
 
@@ -31,7 +33,7 @@ Gem::Specification.new do |gem|
 
   gem.add_dependency 'httmultiparty',         '0.3.8'
   gem.add_dependency 'will_paginate',         '~> 3.0.3'
-  # gem.add_dependency 'locomotivecms_mounter', '~> 1.1.0'
+  gem.add_dependency 'locomotivecms_mounter', '~> 1.2.0'
 
   gem.add_dependency 'faker',                 '~> 0.9.5'
 

@@ -3,22 +3,29 @@ module Locomotive::Wagon
 
     class DynamicAssets < Middleware
 
+      attr_reader :app, :sprockets, :regexp
+
+      def initialize(app, root)
+        super(app)
+
+        @regexp = /^\/(javascripts|stylesheets)\/(.*)$/
+
+        # make sure Compass is correctly configured
+        Locomotive::Mounter::Extensions::Compass.configure(root)
+
+        @sprockets = Sprockets::Environment.new
+        @sprockets.append_path File.join(root, 'public/stylesheets')
+        @sprockets.append_path File.join(root, 'public/javascripts')
+      end
+
       def call(env)
-        self.set_accessors(env)
+        if env['PATH_INFO'] =~ self.regexp
+          env['PATH_INFO'] = $2
 
-        path = env['PATH_INFO']
-
-        if path =~ /^\/(stylesheets|javascripts)\//
-
-          mime_type = MIME::Types.type_for(path).first.try(:to_s) || 'text/plain'
-          asset     = self.mounting_point.theme_assets.detect do |_asset|
-            _asset.path == path
-          end
-
-          if asset
-            [200, { 'Content-Type' => mime_type }, [asset.content!]]
-          else
-            [404, { 'Content-Type' => mime_type }, ['Asset not found']]
+          begin
+            self.sprockets.call(env)
+          rescue Exception => e
+            raise Locomotive::Wagon::DefaultException.new "Unable to serve a dynamic asset. Please check the logs.", e
           end
         else
           app.call(env)

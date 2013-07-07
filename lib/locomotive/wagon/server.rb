@@ -1,5 +1,7 @@
 require 'better_errors'
 require 'coffee_script'
+require 'sprockets'
+require "sprockets-sass"
 
 require 'locomotive/wagon/listen'
 require 'locomotive/wagon/server/middleware'
@@ -58,7 +60,7 @@ module Locomotive::Wagon
         }
 
         use Favicon
-        use DynamicAssets
+        use DynamicAssets, reader.mounting_point.path
 
         use Logging
 
