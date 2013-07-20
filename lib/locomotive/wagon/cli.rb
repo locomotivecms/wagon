@@ -265,6 +265,10 @@ module Locomotive
             path_to_deploy_file = File.join(path, 'config', 'deploy.yml')
             connection_info = YAML::load(File.open(path_to_deploy_file).read)[env.to_s].with_indifferent_access
 
+            if connection_info[:ssl] && !connection_info[:host].start_with?('https')
+              connection_info[:host] = 'https://' + connection_info[:host]
+            end
+
             if connection_info.nil?
               raise "No #{env.to_s} environment found in the config/deploy.yml file"
             end
