@@ -165,7 +165,7 @@ module Locomotive
           #
           def entry_css(page, css = '')
             _css = 'link'
-            _css = "#{page}#{@options[:active_class]}" if self.page_selected?(page)
+            _css += " #{page} #{@options[:active_class]}" if self.page_selected?(page)
 
             (_css + " #{css}").strip
           end
