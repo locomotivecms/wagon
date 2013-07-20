@@ -97,7 +97,7 @@ module Locomotive
             fullpath = "#{::I18n.locale}/#{fullpath}" if ::I18n.locale.to_s != mounting_point.default_locale.to_s
 
             if page.templatized?
-              fullpath.gsub!(/(content_type_template|template)/, page.content_entry._slug)
+              fullpath.gsub!(/(content[_-]type[_-]template|template)/, page.content_entry._slug)
             end
 
             File.join('/', fullpath)

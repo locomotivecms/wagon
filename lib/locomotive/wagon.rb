@@ -57,9 +57,9 @@ module Locomotive
     #
     def self.push(path, connection_info, options = {})
       if reader = self.require_mounter(path, true)
-        
-        reader.mounting_point.site.domains   = connection_info["domains"]   if connection_info["domains"]
-        reader.mounting_point.site.subdomain = connection_info["subdomain"] if connection_info["subdomain"]
+
+        reader.mounting_point.site.domains   = connection_info['domains']   if connection_info["domains"]
+        reader.mounting_point.site.subdomain = connection_info['subdomain'] if connection_info["subdomain"]
         require 'bundler'
         Bundler.require 'misc'
 
@@ -89,7 +89,7 @@ module Locomotive
 
       connection_info[:uri] = "#{connection_info.delete(:host)}/locomotive/api"
 
-      _options = { console: true }.merge(options)
+      _options = { console: true }.merge(options).symbolize_keys
       _options[:only] = _options.delete(:resources)
 
       reader = Locomotive::Mounter::Reader::Api.instance
@@ -97,7 +97,7 @@ module Locomotive
       reader.run!(_options.merge(connection_info))
 
       writer = Locomotive::Mounter::Writer::FileSystem.instance
-      writer.run!(mounting_point: reader.mounting_point, target_path: path)
+      writer.run!(_options.merge(mounting_point: reader.mounting_point, target_path: path))
     end
 
     # Clone a site from a remote LocomotiveCMS engine.
