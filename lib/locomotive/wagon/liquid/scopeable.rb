@@ -13,8 +13,7 @@ module Locomotive
             # build the chains of conditions
             conditions = _conditions.map { |name, value| Condition.new(name, value) }
 
-            # DEBUG
-            # puts conditions.map(&:to_s).join(', ')
+            Locomotive::Wagon::Logger.info "[with_scope] conditions: #{conditions.map(&:to_s).join(', ')}"
 
             # get only the entries matching ALL the conditions
             entries.find_all do |content|

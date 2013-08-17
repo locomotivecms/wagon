@@ -27,8 +27,8 @@ module Locomotive
           def decode(attributes, context)
             attributes.each_pair do |key, value|
               attributes[key] = (case value
-              when /^true|false$/i  then value == 'true'
-              when /^\/[^\/]*\/$/   then Regexp.new(value[1..-2])
+              when /^true|false$/i    then value == 'true'
+              when /^\/[^\/]*\/$/     then Regexp.new(value[1..-2])
               when /^["|'](.+)["|']$/ then $1.gsub(/^["|']/, '').gsub(/["|']$/, '')
               else
                 context[value] || value
