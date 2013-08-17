@@ -17,3 +17,9 @@ fields:
     label: State of the event
 - notes:
     type: text
+- tags:
+    type: tags
+    label: List of tags
+- price:
+    type: Float
+    label: Price of the event

@@ -11,6 +11,9 @@ name: <%= config[:name] %>
 locales: [en]
 
 # TODO: explain it
+# timezone: Paris
+
+# TODO: explain it
 seo_title: <%= @name %>
 meta_keywords: "some meta keywords"
 meta_description: "some meta description"

@@ -45,3 +45,10 @@ unless String.instance_methods.include?(:to_bool)
     def to_bool; self; end
   end
 end
+
+unless Array.instance_methods.include?(:contains?)
+  class Array
+    def contains?(other); (self & other) == other; end
+  end
+end
+

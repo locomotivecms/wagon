@@ -77,7 +77,7 @@ module Locomotive::Wagon
           'path'              => self.request.path,
           'fullpath'          => self.request.fullpath,
           'url'               => self.request.url,
-          'now'               => Time.now.utc,
+          'now'               => Time.zone.now,
           'today'             => Date.today,
           'locale'            => I18n.locale.to_s,
           'default_locale'    => self.mounting_point.default_locale.to_s,

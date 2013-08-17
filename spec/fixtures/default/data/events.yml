@@ -11,10 +11,14 @@
     date: 2012/06/06
     city: Kansas City
     state: Missouri
+    tags: [awesome, open bar]
+    price: 5.5
 - Browne's Market:
     date: 2012/06/06
     city: Kansas City
     state: Missouri
+    tags: [awesome, open bar]
+    price: 15.0
 - Ballydoyle's:
     date: 2012/06/05
     city: Aurora

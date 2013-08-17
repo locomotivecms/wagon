@@ -4,13 +4,14 @@ module Locomotive
       module Tags
         class WithScope < ::Liquid::Block
 
-          def initialize(tag_name, markup, tokens, context)
-            @options = {}
+          SlashedString = /\/[^\/]*\//
+          TagAttributes = /(\w+|\w+\.\w+)\s*\:\s*(#{SlashedString}|#{::Liquid::QuotedFragment})/
 
-            markup.scan(::Liquid::TagAttributes) do |key, value|
+          def initialize(tag_name, markup, tokens, context)
+            @options = HashWithIndifferentAccess.new
+            markup.scan(TagAttributes) do |key, value|
               @options[key] = value
             end
-
             super
           end
 
@@ -26,8 +27,8 @@ module Locomotive
           def decode(attributes, context)
             attributes.each_pair do |key, value|
               attributes[key] = (case value
-              when /^true|false$/i then value == 'true'
-              when /^[0-9]+$/ then value.to_i
+              when /^true|false$/i  then value == 'true'
+              when /^\/[^\/]*\/$/   then Regexp.new(value[1..-2])
               when /^["|'](.+)["|']$/ then $1.gsub(/^["|']/, '').gsub(/["|']$/, '')
               else
                 context[value] || value

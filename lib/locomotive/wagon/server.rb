@@ -1,7 +1,8 @@
 require 'better_errors'
 require 'coffee_script'
 require 'sprockets'
-require "sprockets-sass"
+require 'sprockets-sass'
+# require 'active_support/time'
 
 require 'locomotive/wagon/listen'
 require 'locomotive/wagon/server/middleware'
@@ -12,6 +13,7 @@ require 'locomotive/wagon/server/entry_submission'
 require 'locomotive/wagon/server/path'
 require 'locomotive/wagon/server/locale'
 require 'locomotive/wagon/server/page'
+require 'locomotive/wagon/server/timezone'
 require 'locomotive/wagon/server/templatized_page'
 require 'locomotive/wagon/server/not_found'
 require 'locomotive/wagon/server/renderer'
@@ -68,6 +70,7 @@ module Locomotive::Wagon
 
         use Path
         use Locale
+        use Timezone
 
         use Page
         use TemplatizedPage

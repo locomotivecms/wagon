@@ -1,0 +1,10 @@
+---
+title: Various uses of the with_scope tag
+---
+{% assign begin   = '2012-06-01 00:00:00' %}
+{% assign end     = '2012-06-10 23:59:59' %}
+{% assign prices  = '5.0,5.5' | split: ',' | map: 'to_f' %}
+
+{% with_scope date.gte: begin, date.lte: end, city: /Kansas/, state.ne: 'Illinois', tags: 'awesome', tags.nin: 'bad', price.in: prices %}
+events={{ contents.events.count }}.
+{% endwith_scope %}

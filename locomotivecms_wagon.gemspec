@@ -28,12 +28,13 @@ Gem::Specification.new do |gem|
   gem.add_dependency 'sprockets-sass',        '~> 1.0.1'
   gem.add_dependency 'rack-cache',            '~> 1.1'
   gem.add_dependency 'better_errors',         '~> 0.7.2'
+  gem.add_dependency 'tzinfo',                '~> 1.0.1'
 
   gem.add_dependency 'listen',                '~> 0.7.0'
 
   gem.add_dependency 'httmultiparty',         '0.3.10'
   gem.add_dependency 'will_paginate',         '~> 3.0.3'
-  gem.add_dependency 'locomotivecms_mounter', '~> 1.2.2'
+  # gem.add_dependency 'locomotivecms_mounter', '~> 1.2.2'
 
   gem.add_dependency 'faker',                 '~> 0.9.5'
 
