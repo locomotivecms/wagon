@@ -114,4 +114,22 @@ describe Locomotive::Wagon::Server do
 
   end
 
+  describe 'session' do
+
+    subject { get '/contest'; last_response.body }
+
+    it { should match(/Your code is: HELLO WORLD/) }
+    it { should_not match(/You've already participated to that contest ! Come back later./) }
+
+    describe 'assign tag' do
+
+      subject { 2.times { get '/contest' }; last_response.body }
+
+      it { should_not match(/Your code is: HELLO WORLD/) }
+      it { should match(/You've already participated to that contest ! Come back later./) }
+
+    end
+
+  end
+
 end

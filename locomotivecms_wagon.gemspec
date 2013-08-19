@@ -21,7 +21,7 @@ Gem::Specification.new do |gem|
   gem.add_dependency 'thor'
   gem.add_dependency 'thin'
   gem.add_dependency 'activesupport',         '~> 3.2.11'
-  gem.add_dependency 'locomotive_liquid',     '~> 2.4.2'
+  gem.add_dependency 'locomotivecms_solid',   '~> 0.2.1'
   gem.add_dependency 'RedCloth',              '~> 4.2.9'
   gem.add_dependency 'dragonfly',             '~> 0.9.12'
   gem.add_dependency 'sprockets',             '~> 2.0'
@@ -34,7 +34,7 @@ Gem::Specification.new do |gem|
 
   gem.add_dependency 'httmultiparty',         '0.3.10'
   gem.add_dependency 'will_paginate',         '~> 3.0.3'
-  # gem.add_dependency 'locomotivecms_mounter', '~> 1.2.2'
+  gem.add_dependency 'locomotivecms_mounter', '~> 1.2.3'
 
   gem.add_dependency 'faker',                 '~> 0.9.5'
 

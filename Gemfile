@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 gemspec
 
 # Development
-gem 'locomotivecms_mounter', path: '../gems/mounter', require: false
+# gem 'locomotivecms_solid', path: '../gems/solid', require: false
+# gem 'locomotivecms_mounter', path: '../gems/mounter', require: false
 
 gem 'rb-fsevent', '~> 0.9.1'

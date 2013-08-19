@@ -11,7 +11,7 @@ module Locomotive::Wagon
             self.redirect_to(self.page.redirect_url, self.page.redirect_type)
           else
             type = self.page.response_type || 'text/html'
-            html = self.render
+            html = self.page.render(self.locomotive_context)
 
             self.log "  Rendered liquid page template"
 
@@ -24,17 +24,6 @@ module Locomotive::Wagon
       end
 
       protected
-
-      def render
-        context = self.locomotive_context
-
-        template = ::Liquid::Template.parse(self.page.source, {
-          page:           self.page,
-          mounting_point: self.mounting_point
-        })
-
-        template.render(context)
-      end
 
       # Build the Liquid context used to render the Locomotive page. It
       # stores both assigns and registers.
@@ -77,12 +66,16 @@ module Locomotive::Wagon
           'path'              => self.request.path,
           'fullpath'          => self.request.fullpath,
           'url'               => self.request.url,
+          'ip_address'        => self.request.ip,
+          'post?'             => self.request.post?,
           'now'               => Time.zone.now,
           'today'             => Date.today,
           'locale'            => I18n.locale.to_s,
           'default_locale'    => self.mounting_point.default_locale.to_s,
           'locales'           => self.mounting_point.locales.map(&:to_s),
-          'current_user'      => {}
+          'current_user'      => {},
+          'session'           => Locomotive::Wagon::Liquid::Drops::SessionProxy.new,
+          'wagon'             => true
         }
       end
 
@@ -92,10 +85,12 @@ module Locomotive::Wagon
       #
       def locomotive_default_registers
         {
+          request:        self.request,
           site:           self.site,
           page:           self.page,
           mounting_point: self.mounting_point,
-          inline_editor:  false
+          inline_editor:  false,
+          logger:         Locomotive::Wagon::Logger
         }
       end
 
