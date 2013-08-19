@@ -1,0 +1,18 @@
+---
+title: A sample contest
+listed: false
+---
+{% extends 'parent' %}
+
+{% block content %}
+
+%h1 Contest sample
+
+{% if session.already_participated %}
+%p You've already participated to that contest ! Come back later.
+{% else %}
+%p Your code is: HELLO WORLD
+{% session_assign already_participated = true %}
+{% endif %}
+
+{% endblock %}
