@@ -34,6 +34,10 @@ module Locomotive
           end
 
           def textile(input)
+            ::RedCloth.new(input).to_html
+          end
+
+          def markdown(input)
             Locomotive::Wagon::Markdown.render(input)
           end
 

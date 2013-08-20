@@ -22,6 +22,7 @@ Gem::Specification.new do |gem|
   gem.add_dependency 'thin',                  '~> 1.5.1'
   gem.add_dependency 'activesupport',         '~> 3.2.11'
   gem.add_dependency 'locomotivecms_solid',   '~> 0.2.1'
+  gem.add_dependency 'RedCloth',              '~> 4.2.8'
   gem.add_dependency 'redcarpet',             '~> 3.0.0'
   gem.add_dependency 'dragonfly',             '~> 0.9.12'
   gem.add_dependency 'sprockets',             '~> 2.0'
