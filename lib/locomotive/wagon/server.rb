@@ -2,7 +2,6 @@ require 'better_errors'
 require 'coffee_script'
 require 'sprockets'
 require 'sprockets-sass'
-# require 'active_support/time'
 
 require 'locomotive/wagon/listen'
 require 'locomotive/wagon/server/middleware'

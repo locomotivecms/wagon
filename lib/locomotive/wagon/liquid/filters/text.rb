@@ -1,5 +1,3 @@
-require 'RedCloth'
-
 module Locomotive
   module Wagon
     module Liquid
@@ -36,7 +34,7 @@ module Locomotive
           end
 
           def textile(input)
-            ::RedCloth.new(input).to_html
+            Locomotive::Wagon::Markdown.render(input)
           end
 
         end
