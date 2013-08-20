@@ -51,6 +51,6 @@ Please, visit the documentation website of LocomotiveCMS.
 
 ## Contact
 
-Feel free to contact me at did at locomotivecms dot com.
+Feel free to contact me (did at locomotivecms dot com).
 
 Copyright (c) 2013 NoCoffee, released under the MIT license
