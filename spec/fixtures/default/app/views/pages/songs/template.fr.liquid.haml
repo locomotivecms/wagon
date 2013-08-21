@@ -1,0 +1,16 @@
+---
+title: Le template d'une chanson
+---
+{% extends 'index' %}
+
+{% block content %}
+
+%h3 {{ song.title }} [FR]
+
+%p {{ song.short_description }}
+
+#is_templatized{templatized: "{{ page.templatized? }}"}
+#content_type_size{content_type_size: "{{ page.content_type.size }}"}
+#content_type_count{content_type_count: "{{ page.content_type.count }}"}
+
+{% endblock %}

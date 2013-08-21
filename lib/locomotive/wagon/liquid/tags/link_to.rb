@@ -32,7 +32,7 @@ module Locomotive
 
               %{<a href="#{path}">#{label}</a>}
             else
-              '' # no page found
+              raise Liquid::PageNotTranslated.new(%{[link_to] Unable to find a page for the #{@handle}. Wrong handle or missing template for your content.})
             end
           end
 
@@ -89,8 +89,14 @@ module Locomotive
 
           def public_page_url(context, page)
             mounting_point  = context.registers[:mounting_point]
+            locale          = @options['locale'] || ::I18n.locale
 
-            fullpath = ::Locomotive::Mounter.with_locale(@options['locale']) do
+            if !page.translated_in?(locale)
+              title = page.title_translations.values.compact.first
+              raise Liquid::PageNotTranslated.new(%{the "#{title}" page is not translated in #{locale.upcase}})
+            end
+
+            fullpath = ::Locomotive::Mounter.with_locale(locale) do
               page.fullpath.clone
             end
 

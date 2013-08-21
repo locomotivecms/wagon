@@ -46,6 +46,12 @@ describe Locomotive::Wagon::Server do
     last_response.body.should =~ /scoped_translation=.French./
   end
 
+  it 'translates a page with link_to tags inside' do
+    get '/fr/notre-musique'
+    last_response.body.should =~ /<h3><a href="\/fr\/songs\/song-8">Song #8<\/a><\/h3>/
+    last_response.body.should =~ /Propulsé par/
+  end
+
   it 'returns all the pages' do
     get '/all'
     last_response.body.should =~ /Home page/

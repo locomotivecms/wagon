@@ -1,5 +1,5 @@
 %li
-  %h3 {{ song.title }}
+  %h3 {% link_to song, with: a-song-template %}
   .cover {{ song.cover.url | image_tag }}
   .info
     {{ song.short_description }}
