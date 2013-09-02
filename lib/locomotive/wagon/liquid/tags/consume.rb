@@ -15,12 +15,12 @@ module Locomotive
         #
         class Consume < ::Liquid::Block
 
-          Syntax = /(#{::Liquid::VariableSignature}+)\s*from\s*(#{::Liquid::QuotedString}+)/
+          Syntax = /(#{::Liquid::VariableSignature}+)\s*from\s*(#{::Liquid::QuotedString}|#{::Liquid::VariableSignature}+)/
 
           def initialize(tag_name, markup, tokens, context)
             if markup =~ Syntax
               @target = $1
-              @url = $2.gsub(/['"]/, '')
+              self.prepare_url($2)
               @options = {}
               markup.scan(::Liquid::TagAttributes) do |key, value|
                 @options[key] = value if key != 'http'
@@ -37,6 +37,10 @@ module Locomotive
             context.stack do
               _response = nil
 
+              if @is_var
+                @url = context[@url]
+              end
+
               begin
                 _response = Locomotive::Wagon::Httparty::Webservice.consume(@url, @options.symbolize_keys)
               rescue Exception => e
@@ -49,10 +53,25 @@ module Locomotive
             end
           end
 
+          protected
+
+          def prepare_url(url)
+            @url    = url
+            @is_var = false
+            if @url.match(::Liquid::QuotedString)
+              @url.gsub!(/['"]/, '')
+            elsif @url.match(::Liquid::VariableSignature)
+              @is_var = true
+            else
+              raise ::Liquid::SyntaxError.new("Syntax Error in 'consume' - Valid syntax: consume <var> from \"<url>\" [username: value, password: value]")
+            end
+          end
+
         end
 
         ::Liquid::Template.register_tag('consume', Consume)
       end
+
     end
   end
 end
