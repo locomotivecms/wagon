@@ -106,7 +106,7 @@ module Locomotive
             if page.templatized?
               if page.content_entry._slug.nil?
                 title = %{#{page.content_entry.content_type.name.singularize} "#{page.content_entry.send(page.content_entry.content_type.label_field_name)}"}
-                raise Liquid::PageNotTranslated.new(%{the #{title} slug is not translated in #{locale.upcase}})
+                raise Liquid::ContentEntryNotTranslated.new(%{the #{title} slug is not translated in #{locale.upcase}})
               end
               fullpath.gsub!(/(content[_-]type[_-]template|template)/, page.content_entry._slug)
             end
