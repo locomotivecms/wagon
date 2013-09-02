@@ -32,6 +32,12 @@ describe Locomotive::Wagon::Server do
     last_response.body.should =~ /Song #1/
   end
 
+  it 'renders a page under a templatized one' do
+    get '/songs/song-1/band'
+    last_response.body.should =~ /Song #1/
+    last_response.body.should =~ /Leader: Eddie/
+  end
+
   it 'translates strings' do
     get '/en'
     last_response.body.should =~ /Powered by/

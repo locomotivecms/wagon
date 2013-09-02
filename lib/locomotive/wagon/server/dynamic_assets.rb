@@ -5,17 +5,12 @@ module Locomotive::Wagon
 
       attr_reader :app, :sprockets, :regexp
 
-      def initialize(app, root)
+      def initialize(app, site_path)
         super(app)
 
-        @regexp = /^\/(javascripts|stylesheets)\/(.*)$/
+        @regexp     = /^\/(javascripts|stylesheets)\/(.*)$/
 
-        # make sure Compass is correctly configured
-        Locomotive::Mounter::Extensions::Compass.configure(root)
-
-        @sprockets = Sprockets::Environment.new
-        @sprockets.append_path File.join(root, 'public/stylesheets')
-        @sprockets.append_path File.join(root, 'public/javascripts')
+        @sprockets  = Locomotive::Mounter::Extensions::Sprockets.environment(site_path)
       end
 
       def call(env)

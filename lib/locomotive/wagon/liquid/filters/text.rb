@@ -33,6 +33,10 @@ module Locomotive
             result
           end
 
+          def encode(input)
+            Rack::Utils.escape(input)
+          end
+
           def textile(input)
             ::RedCloth.new(input).to_html
           end
