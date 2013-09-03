@@ -16,7 +16,7 @@ module Locomotive
             Locomotive::Wagon::Logger.info "[with_scope] conditions: #{conditions.map(&:to_s).join(', ')}"
 
             # get only the entries matching ALL the conditions
-            entries.find_all do |content|
+            entries = entries.find_all do |content|
               accepted = true
 
               conditions.each do |_condition|
@@ -28,6 +28,8 @@ module Locomotive
 
               accepted
             end
+            entries = entries.reject{ |entry| entry.send(entry.content_type.label_field_name).nil? }
+            entries
           end
         end
 
