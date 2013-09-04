@@ -64,6 +64,7 @@ module Locomotive
               if templatized
                 page = mounting_point.pages.values.find do |_page|
                   _page.templatized? &&
+                  !_page.templatized_from_parent &&
                   _page.content_type.slug == handle.content_type.slug &&
                   (@options['with'].nil? || _page.handle == @options['with'])
                 end
@@ -103,7 +104,11 @@ module Locomotive
             fullpath = "#{::I18n.locale}/#{fullpath}" if ::I18n.locale.to_s != mounting_point.default_locale.to_s
 
             if page.templatized?
-              fullpath.gsub!(/(content[_-]type[_-]template|template)/, page.content_entry._slug) unless page.content_entry._slug.nil?
+              if page.content_entry._slug.nil?
+                title = %{#{page.content_entry.content_type.name.singularize} "#{page.content_entry.send(page.content_entry.content_type.label_field_name)}"}
+                raise Liquid::ContentEntryNotTranslated.new(%{the #{title} slug is not translated in #{locale.upcase}})
+              end
+              fullpath.gsub!(/(content[_-]type[_-]template|template)/, page.content_entry._slug)
             end
 
             File.join('/', fullpath)

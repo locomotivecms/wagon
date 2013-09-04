@@ -99,6 +99,11 @@ module Locomotive
           def collection
             return unless @collection.blank?
 
+            # define the default order_by if not set
+            if @context['with_scope'] && !@context['with_scope']['order_by'].blank? && !%w(manually position).include?(@content_type.order_by)
+              @context['with_scope']['order_by'] = @content_type.order_by + '.' + @content_type.order_direction
+            end
+
             @collection = apply_scope(@content_type.entries)
           end
         end
