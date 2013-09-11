@@ -3,8 +3,8 @@
   %head
     %meta{charset: "utf-8"}
     %title {{ site.name }}
-    %meta{name: "keywords", value: ""}
-    %meta{name: "description", value: ""}
+    %meta{name: "keywords", value: "{{ site.meta_keywords }}"}
+    %meta{name: "description", value: "{{ site.meta_description }}"}
   %body
     %h1 {{ page.title }}
     {% block 'main' %}
