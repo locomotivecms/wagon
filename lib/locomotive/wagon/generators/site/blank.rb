@@ -11,7 +11,16 @@ module Locomotive
               version:  Locomotive::Wagon::VERSION
             })
           end
-
+          
+          def choose_haml_over_html
+            if yes?('Do you prefer HAML templates ?')
+              remove_file File.join(self.destination, 'app/views/pages/index.liquid')
+              remove_file File.join(self.destination, 'app/views/pages/404.liquid')
+            else
+              remove_file File.join(self.destination, 'app/views/pages/index.liquid.haml')
+              remove_file File.join(self.destination, 'app/views/pages/404.liquid.haml')
+            end
+          end
         end
 
         Locomotive::Wagon::Generators::Site.register(:blank, Blank, %{

@@ -1,0 +1,12 @@
+!!!
+%html{lang: "en"}
+  %head
+    %meta{charset: "utf-8"}
+    %title {{ site.name }}
+    %meta{name: "keywords", value: ""}
+    %meta{name: "description", value: ""}
+  %body
+    %h1 {{ page.title }}
+    {% block 'main' %}
+    %p Lorem ipsum....
+    {% endblock %}
