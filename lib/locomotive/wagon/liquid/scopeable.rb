@@ -36,7 +36,7 @@ module Locomotive
         def _apply_scope_order(entries, order_by)
           return entries if order_by.blank?
 
-          name, direction = order_by.split('.').map(&:to_sym)
+          name, direction = order_by.split.map(&:to_sym)
 
           Locomotive::Wagon::Logger.info "[with_scope] order_by #{name} #{direction || 'asc'}"
 

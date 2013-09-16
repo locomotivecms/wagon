@@ -68,6 +68,7 @@ module Locomotive::Wagon
           'url'               => self.request.url,
           'ip_address'        => self.request.ip,
           'post?'             => self.request.post?,
+          'host'              => self.request.host_with_port,
           'now'               => Time.zone.now,
           'today'             => Date.today,
           'locale'            => I18n.locale.to_s,

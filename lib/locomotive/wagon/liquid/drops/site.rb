@@ -15,6 +15,10 @@ module Locomotive
             @pages ||= liquify(*apply_scope(self.mounting_point.pages.values))
           end
 
+          def domains
+            self._source.domains
+          end
+
         end
       end
     end
