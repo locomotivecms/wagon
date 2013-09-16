@@ -43,7 +43,7 @@ module Locomotive
                 fragments = ::Date._strptime(input, format)
                 input = ::Date.new(fragments[:year], fragments[:mon], fragments[:mday])
               rescue
-                input = Time.parse(input)
+                input = Time.zone.parse(input)
               end
             end
 
@@ -54,11 +54,12 @@ module Locomotive
 
           alias :format_date :localized_date
 
-          def distance_of_time_in_words(input, *args)
+          def distance_of_time_in_words(input, from_time = Time.zone.now, include_seconds = false)
             return '' if input.blank?
 
-            from_time = input
-            to_time   = args[0] || Time.zone.now
+            # make sure we deals with instances of Time
+            to_time   = to_time(input)
+            from_time = to_time(from_time)
 
             from_time = from_time.to_time if from_time.respond_to?(:to_time)
             to_time = to_time.to_time if to_time.respond_to?(:to_time)
@@ -112,6 +113,17 @@ module Locomotive
                     locale.t(:almost_x_years, count: distance_in_years + 1)
                   end
               end
+            end
+          end
+
+          private
+
+          def to_time(input)
+            case input
+            when Date   then input.to_time
+            when String then Time.zone.parse(input)
+            else
+              input
             end
           end
 
