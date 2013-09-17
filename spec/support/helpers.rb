@@ -22,7 +22,7 @@ module Spec
       reader.run!(path: path)
       Locomotive::Wagon::Server.new(reader, disable_listen: true)
     end
-    
+
     def open_in_browser
       path = File.join(File.dirname(__FILE__), '..', 'tmp', "wagon-#{Time.new.strftime("%Y%m%d%H%M%S")}#{rand(10**10)}.html")
       FileUtils.mkdir_p(File.dirname(path))

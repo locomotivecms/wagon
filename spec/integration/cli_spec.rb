@@ -12,8 +12,8 @@ describe Locomotive::Wagon::CLI do
     VCR.use_cassette("staging") do
       Locomotive::Wagon::CLI::Main.start(['push', 'staging', 'site', '-f'])
     end
-    
+
     WebMock.should_not have_requested(:put, /sites\/.+.json\?auth_token=.+/).with(body: /site\[subdomain\]=sample/)
-    WebMock.should have_requested(:put, /sites\/.+.json\?auth_token=.+/).with(body: /site\[subdomain\]=staging&site\[domains\]\[\]=staging.example.com/).twice
+    WebMock.should have_requested(:put, /sites\/.+.json\?auth_token=.+/).with(body: /site\[subdomain\]=staging&site\[domains\]\[\]=staging.example.com/).once
   end
 end
