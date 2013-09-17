@@ -104,11 +104,7 @@ module Locomotive
             fullpath = "#{::I18n.locale}/#{fullpath}" if ::I18n.locale.to_s != mounting_point.default_locale.to_s
 
             if page.templatized?
-              if page.content_entry._slug.nil?
-                title = %{#{page.content_entry.content_type.name.singularize} "#{page.content_entry.send(page.content_entry.content_type.label_field_name)}"}
-                raise Liquid::ContentEntryNotTranslated.new(%{the #{title} slug is not translated in #{locale.upcase}})
-              end
-              fullpath.gsub!(/(content[_-]type[_-]template|template)/, page.content_entry._slug)
+              fullpath.gsub!(/(content[_-]type[_-]template|template)/, page.content_entry._slug) unless page.content_entry._slug.nil?
             end
 
             File.join('/', fullpath)

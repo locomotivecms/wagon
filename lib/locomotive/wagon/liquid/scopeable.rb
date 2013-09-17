@@ -28,7 +28,7 @@ module Locomotive
 
               accepted
             end
-
+            _entries = _entries.reject{ |entry| entry.send(entry.content_type.label_field_name).nil? }
             self._apply_scope_order(_entries, @context['with_scope']['order_by'])
           end
         end

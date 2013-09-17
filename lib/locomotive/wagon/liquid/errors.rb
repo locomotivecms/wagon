@@ -5,8 +5,6 @@ module Locomotive
 
       class PageNotTranslated < ::Liquid::Error; end
 
-      class ContentEntryNotTranslated < ::Liquid::Error; end
-
       class UnknownConditionInScope < ::Liquid::Error; end
     end
   end
