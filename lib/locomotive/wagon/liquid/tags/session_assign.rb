@@ -14,12 +14,12 @@ module Locomotive
         class SessionAssign < ::Liquid::Tag
           Syntax = /(#{::Liquid::VariableSignature}+)\s*=\s*(#{::Liquid::QuotedFragment}+)/
 
-          def initialize(tag_name, markup, tokens, context)
+          def initialize(tag_name, markup, tokens, options)
             if markup =~ Syntax
               @to = $1
               @from = $2
             else
-              raise ::Liquid::SyntaxError.new("Syntax Error in 'session_assign' - Valid syntax: assign [var] = [source]")
+              raise ::Liquid::SyntaxError.new(options[:locale].t("errors.syntax.session_assign"), options[:line])
             end
 
             super

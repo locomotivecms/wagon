@@ -8,11 +8,11 @@ module Locomotive::Wagon
       def call(env)
         now = Time.now
 
-        log "Started #{env['REQUEST_METHOD'].upcase} \"#{env['PATH_INFO']}\" at #{now}"
+        log "Started #{env['REQUEST_METHOD'].upcase} \"#{env['PATH_INFO']}\" at #{now}".light_white
 
         app.call(env).tap do |response|
           done_in_ms = ((Time.now - now) * 10000).truncate / 10.0
-          log "Completed #{code_to_human(response.first)} in #{done_in_ms}ms\n\n"
+          log "Completed #{code_to_human(response.first)} in #{done_in_ms}ms\n\n".green
         end
       end
 

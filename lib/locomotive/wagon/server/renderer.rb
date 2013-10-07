@@ -11,7 +11,7 @@ module Locomotive::Wagon
             self.redirect_to(self.page.redirect_url, self.page.redirect_type)
           else
             type = self.page.response_type || 'text/html'
-            html = self.page.render(self.locomotive_context)
+            html = self.render_page
 
             self.log "  Rendered liquid page template"
 
@@ -24,6 +24,15 @@ module Locomotive::Wagon
       end
 
       protected
+
+      def render_page
+        context = self.locomotive_context
+        begin
+          self.page.render(context)
+        rescue Exception => e
+          raise RendererException.new(e, self.page.title, self.page.template, context)
+        end
+      end
 
       # Build the Liquid context used to render the Locomotive page. It
       # stores both assigns and registers.
