@@ -79,5 +79,12 @@ describe Locomotive::Wagon::Server do
     end
 
   end
+  
+  describe 'html helpers' do
+    it 'bypass url for css resource' do
+      get '/'
+      last_response.body.should =~ /<link href=("|')http:\/\/fonts\.googleapis\.com\/css\?family=Open\+Sans:400,700("|')/
+    end
+  end
 
 end

@@ -23,11 +23,13 @@ module Locomotive
           def stylesheet_url(input)
             return '' if input.nil?
 
-            input = "/stylesheets/#{input}" unless input =~ /^(\/|https?:)/
-
-            input = "#{input}.css" unless input.ends_with?('.css')
-
-            input
+            if input =~ /^https?:/
+              input
+            else
+              input = "/stylesheets/#{input}" unless input =~ /^\//
+              input = "#{input}.css" unless input.ends_with?('.css')
+              input
+            end
           end
 
           # Write the link to a stylesheet resource
