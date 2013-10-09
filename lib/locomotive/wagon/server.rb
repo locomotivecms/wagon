@@ -74,7 +74,6 @@ module Locomotive::Wagon
 
         use Page
         use TemplatizedPage
-        use NotFound
 
         run Renderer.new
       end

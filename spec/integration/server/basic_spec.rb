@@ -19,6 +19,13 @@ describe Locomotive::Wagon::Server do
 
   it 'shows the 404 page' do
     get '/void'
+    last_response.status.should eq(404)
+    last_response.body.should =~ /page not found/
+  end
+
+  it 'shows the 404 page with 200 status code when its called explicitly' do
+    get '/404'
+    last_response.status.should eq(200)
     last_response.body.should =~ /page not found/
   end
 

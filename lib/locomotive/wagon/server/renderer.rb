@@ -18,8 +18,7 @@ module Locomotive::Wagon
             [200, { 'Content-Type' => type }, [html]]
           end
         else
-          # no page at all, even not the 404 page
-          [404, { 'Content-Type' => 'text/html' }, ['Page not found']]
+          [404, { 'Content-Type' => 'text/html' }, [self.render_404]]
         end
       end
 
@@ -31,6 +30,14 @@ module Locomotive::Wagon
           self.page.render(context)
         rescue Exception => e
           raise RendererException.new(e, self.page.title, self.page.template, context)
+        end
+      end
+      
+      def render_404
+        if self.page = self.mounting_point.pages['404']
+          self.render_page
+        else
+          'Page not found'
         end
       end
 
