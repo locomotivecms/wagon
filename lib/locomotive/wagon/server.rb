@@ -12,7 +12,6 @@ require 'locomotive/wagon/server/locale'
 require 'locomotive/wagon/server/page'
 require 'locomotive/wagon/server/timezone'
 require 'locomotive/wagon/server/templatized_page'
-require 'locomotive/wagon/server/not_found'
 require 'locomotive/wagon/server/renderer'
 
 require 'locomotive/wagon/liquid'
