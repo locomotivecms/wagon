@@ -18,13 +18,13 @@ module Locomotive
 
           attr_accessor :current_page, :mounting_point
 
-          def initialize(tag_name, markup, tokens, context)
+          def initialize(tag_name, markup, tokens, options)
             if markup =~ Syntax
               @source = ($1 || 'page').gsub(/"|'/, '')
 
-              self.set_options(markup, context)
+              self.set_options(markup, options)
             else
-              raise ::Liquid::SyntaxError.new("Syntax Error in 'nav' - Valid syntax: nav <site|parent|page|<path to a page>> <options>")
+              raise ::Liquid::SyntaxError.new(options[:locale].t("errors.syntax.nav"), options[:line])
             end
 
             super
@@ -39,7 +39,7 @@ module Locomotive
             if self.no_wrapper?
               output
             else
-              self.render_tag(:nav, id: @options[:id], css: @options[:class]) do
+              self.render_tag(:nav, id: @_options[:id], css: @_options[:class]) do
                 self.render_tag(:ul) { output }
               end
             end
@@ -92,8 +92,8 @@ module Locomotive
           def include_page?(page)
             if !page.listed? || page.templatized? || !page.published?
               false
-            elsif @options[:exclude]
-              (page.fullpath =~ @options[:exclude]).nil?
+            elsif @_options[:exclude]
+              (page.fullpath =~ @_options[:exclude]).nil?
             else
               true
             end
@@ -118,7 +118,7 @@ module Locomotive
           # @return [ Boolean ] True if the children have to be rendered.
           #
           def render_children_for_page?(page, depth)
-            depth.succ <= @options[:depth].to_i &&
+            depth.succ <= @_options[:depth].to_i &&
             (page.children || []).select { |child| self.include_page?(child) }.any?
           end
 
@@ -130,12 +130,12 @@ module Locomotive
           # @return [ String ] The label in HTML
           #
           def entry_label(page)
-            icon  = @options[:icon] ? '<span></span>' : ''
-            title = @options[:liquid_render] ? @options[:liquid_render].render('page' => page) : page.title
+            icon  = @_options[:icon] ? '<span></span>' : ''
+            title = @_options[:liquid_render] ? @_options[:liquid_render].render('page' => page) : page.title
 
             if icon.blank?
               title
-            elsif @options[:icon] == 'after'
+            elsif @_options[:icon] == 'after'
               "#{title} #{icon}"
             else
               "#{icon} #{title}"
@@ -165,7 +165,7 @@ module Locomotive
           #
           def entry_css(page, css = '')
             _css = 'link'
-            _css += " #{page} #{@options[:active_class]}" if self.page_selected?(page)
+            _css += " #{page} #{@_options[:active_class]}" if self.page_selected?(page)
 
             (_css + " #{css}").strip
           end
@@ -192,7 +192,7 @@ module Locomotive
             end
 
             self.render_tag(:li, id: "#{page.slug.to_s.dasherize}-link", css: css) do
-              children_output = depth.succ <= @options[:depth].to_i ? self.render_entry_children(page, depth.succ) : ''
+              children_output = depth.succ <= @_options[:depth].to_i ? self.render_entry_children(page, depth.succ) : ''
               %{<a href="#{url}"#{options}>#{label}</a>} + children_output
             end
           end
@@ -209,7 +209,7 @@ module Locomotive
             css     = self.bootstrap? ? 'dropdown-menu' : ''
 
             unless entries.empty?
-              self.render_tag(:ul, id: "#{@options[:id]}-#{page.slug.to_s.dasherize}", css: css) do
+              self.render_tag(:ul, id: "#{@_options[:id]}-#{page.slug.to_s.dasherize}", css: css) do
                 self.build_entries_output(entries, depth)
               end
             else
@@ -219,16 +219,16 @@ module Locomotive
 
           # Set the value (default or assigned by the tag) of the options.
           #
-          def set_options(markup, context)
-            @options = { id: 'nav', class: '', active_class: 'on', bootstrap: false, no_wrapper: false }
+          def set_options(markup, options)
+            @_options = { id: 'nav', class: '', active_class: 'on', bootstrap: false, no_wrapper: false }
 
-            markup.scan(::Liquid::TagAttributes) { |key, value| @options[key.to_sym] = value.gsub(/"|'/, '') }
+            markup.scan(::Liquid::TagAttributes) { |key, value| @_options[key.to_sym] = value.gsub(/"|'/, '') }
 
-            @options[:exclude] = Regexp.new(@options[:exclude]) if @options[:exclude]
+            @_options[:exclude] = Regexp.new(@_options[:exclude]) if @_options[:exclude]
 
-            if @options[:snippet]
-              if template = self.parse_snippet_template(context, @options[:snippet])
-                @options[:liquid_render] = template
+            if @_options[:snippet]
+              if template = self.parse_snippet_template(options, @_options[:snippet])
+                @_options[:liquid_render] = template
               end
             end
           end
@@ -272,11 +272,11 @@ module Locomotive
           end
 
           def bootstrap?
-            @options[:bootstrap].to_bool
+            @_options[:bootstrap].to_bool
           end
 
           def no_wrapper?
-            @options[:no_wrapper].to_bool
+            @_options[:no_wrapper].to_bool
           end
 
           ::Liquid::Template.register_tag('nav', Nav)

@@ -24,12 +24,20 @@ module Locomotive
       if reader = self.require_mounter(path, true)
         Bundler.require 'misc'
 
-        require 'thin'
         require 'locomotive/wagon/server'
+        app = Locomotive::Wagon::Server.new(reader)
 
-        server = Thin::Server.new(options[:host], options[:port], Locomotive::Wagon::Server.new(reader))
+        require 'thin'
+        server = Thin::Server.new(options[:host], options[:port], app)
         server.threaded = true # TODO: make it an option ?
         server.start
+
+        # require 'unicorn' # TODO: gem 'unicorn'
+        # server = Unicorn::HttpServer.new(app)
+        # server.start
+
+        # require 'rack'
+        # Rack::Handler::WEBrick.run(app, { :'Port' => options[:port], :'Host' => options[:host] })
       end
     end
 

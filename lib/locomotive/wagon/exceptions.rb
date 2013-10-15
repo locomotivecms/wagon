@@ -20,6 +20,33 @@ module Locomotive
 
     end
 
+    class RendererException < DefaultException
+
+      attr_accessor :name, :template, :liquid_context
+
+      def initialize(exception, name, template, liquid_context)
+        self.name, self.template, self.liquid_context = name, template, liquid_context
+
+        self.log_page_into_backtrace(exception)
+
+        super(exception.message)
+
+        self.set_backtrace(exception.backtrace)
+      end
+
+      def log_page_into_backtrace(exception)
+        line = self.template.line_offset
+        line += (exception.respond_to?(:line) ? exception.line : 0) + 1
+
+        message = "#{self.template.filepath}:#{line}:in `#{self.name}'"
+
+        Locomotive::Wagon::Logger.fatal "[ERROR] #{exception.message} - #{message}\n".red
+
+        exception.backtrace.unshift message
+      end
+
+    end
+
     class MounterException < DefaultException
     end
 

@@ -12,7 +12,6 @@ require 'locomotive/wagon/server/locale'
 require 'locomotive/wagon/server/page'
 require 'locomotive/wagon/server/timezone'
 require 'locomotive/wagon/server/templatized_page'
-require 'locomotive/wagon/server/not_found'
 require 'locomotive/wagon/server/renderer'
 
 require 'locomotive/wagon/liquid'
@@ -30,6 +29,8 @@ module Locomotive::Wagon
       unless options[:disable_listen]
         Locomotive::Wagon::Listen.instance.start(@reader)
       end
+
+      BetterErrors.application_root = reader.mounting_point.path
     end
 
     def call(env)
@@ -41,8 +42,9 @@ module Locomotive::Wagon
 
     def create_rack_app(reader)
       Rack::Builder.new do
-        use BetterErrors::Middleware
         use Rack::Lint
+
+        use BetterErrors::MiddlewareWrapper
 
         use Rack::Session::Cookie, {
           key:          'wagon.session',
@@ -71,8 +73,6 @@ module Locomotive::Wagon
 
         use Page
         use TemplatizedPage
-        use NotFound
-        use Renderer
 
         run Renderer.new
       end

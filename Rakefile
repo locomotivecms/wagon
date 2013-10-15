@@ -39,7 +39,7 @@ namespace :development do
       exit unless Locomotive::Wagon.clone('site', '.', { host: 'sample.example.com:3000', email: 'admin@locomotivecms.com', password: 'locomotive' })
     end
 
-    Locomotive::Wagon.push('site', {host: 'sample.example.com:3000', email: 'admin@locomotivecms.com', password: 'locomotive'}, force: true, force_translations: true, data: true)
+    Locomotive::Wagon.push('site', {host: 'sample.example.com:3000', email: 'admin@locomotivecms.com', password: 'locomotive'}, force: true, translations: false, data: true)
   end
 end
 

@@ -7,13 +7,14 @@ describe Locomotive::Wagon do
     File.exists?('site/config/site.yml').should be_false
     clone_site
     YAML.load_file('site/config/site.yml').should == {
-      'name'      =>'locomotive',
-      'locales'   =>['en', 'es'],
-      'subdomain' =>'sample',
-      'domains'   =>['sample.example.com']
+      'name'      => 'locomotive',
+      'locales'   => ['en', 'es'],
+      'subdomain' => 'sample',
+      'domains'   => ['sample.example.com'],
+      'timezone'  => 'UTC'
     }
   end
-  
+
   it "pulls the expected data" do
     clone_site
     es = YAML.load_file('site/app/views/pages/products.es.liquid')
@@ -37,7 +38,7 @@ describe Locomotive::Wagon do
     end
     WebMock.should have_requested(:put, /pages\/.+.json\?auth_token=.+/).with(body: /page\[raw_template\]=New%20content%20of%20the%20home%20page/).once
   end
-  
+
   describe "push with unrecognized resources" do
     subject do
       lambda do
@@ -47,7 +48,7 @@ describe Locomotive::Wagon do
         end
       end
     end
-    
+
     it { should raise_exception(ArgumentError, /'all' resource not recognized/) }
   end
 end

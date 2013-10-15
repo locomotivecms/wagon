@@ -22,15 +22,15 @@ module Locomotive
 
           Syntax = /(#{::Liquid::Expression}+)?/
 
-          def initialize(tag_name, markup, tokens, context)
-            @options = { label: 'iso', sep: ' | ' }
+          def initialize(tag_name, markup, tokens, options)
+            @_options = { label: 'iso', sep: ' | ' }
 
             if markup =~ Syntax
-              markup.scan(::Liquid::TagAttributes) { |key, value| @options[key.to_sym] = value.gsub(/"|'/, '') }
+              markup.scan(::Liquid::TagAttributes) { |key, value| @_options[key.to_sym] = value.gsub(/"|'/, '') }
 
-              @options[:exclude] = Regexp.new(@options[:exclude]) if @options[:exclude]
+              @_options[:exclude] = Regexp.new(@_options[:exclude]) if @_options[:exclude]
             else
-              raise ::Liquid::SyntaxError.new("Syntax Error in 'locale_switcher' - Valid syntax: locale_switcher <options>")
+              raise ::Liquid::SyntaxError.new(options[:locale].t("errors.syntax.locale_switcher"), options[:line])
             end
 
             super
@@ -60,7 +60,7 @@ module Locomotive
 
                 %(<a href="/#{fullpath}" class="#{css}">#{link_label(locale)}</a>)
               end
-            end.join(@options[:sep])
+            end.join(@_options[:sep])
 
             output += %(</div>)
           end
@@ -74,7 +74,7 @@ module Locomotive
           end
 
           def link_label(locale)
-            case @options[:label]
+            case @_options[:label]
             when 'iso'     then locale
             when 'locale'  then I18n.t("locales.#{locale}")
             when 'title'   then @page.title # FIXME: this returns nil if the page has not been translated in the locale

@@ -18,12 +18,12 @@ module Locomotive
 
           Syntax = /(#{::Liquid::Expression}+)\s+by\s+([0-9]+)/
 
-          def initialize(tag_name, markup, tokens, context)
+          def initialize(tag_name, markup, tokens, options)
             if markup =~ Syntax
               @collection_name = $1
               @per_page = $2.to_i
             else
-              raise ::Liquid::SyntaxError.new("Syntax Error in 'paginate' - Valid syntax: paginate <collection> by <number>")
+              raise ::Liquid::SyntaxError.new(options[:locale].t("errors.syntax.paginate"), options[:line])
             end
 
             super

@@ -16,14 +16,14 @@ module Locomotive
 
           Syntax = /(#{::Liquid::VariableSignature}+)\s*from\s*(#{::Liquid::QuotedString}|#{::Liquid::VariableSignature}+)/
 
-          def initialize(tag_name, markup, tokens, context)
+          def initialize(tag_name, markup, tokens, options)
             if markup =~ Syntax
               @target = $1
 
               self.prepare_url($2)
               self.prepare_options(markup)
             else
-              raise ::Liquid::SyntaxError.new("Syntax Error in 'consume' - Valid syntax: consume <var> from \"<url>\" [username: value, password: value]")
+              raise ::Liquid::SyntaxError.new(options[:locale].t("errors.syntax.consume"), options[:line])
             end
 
             @cache_key = Digest::SHA1.hexdigest(@target)
@@ -77,8 +77,14 @@ module Locomotive
               begin
                 context.scopes.last[@target.to_s] = Locomotive::Wagon::Httparty::Webservice.consume(@url, @options.symbolize_keys)
                 self.cached_response = context.scopes.last[@target.to_s]
+              # rescue Errno::ECONNREFUSED
+              #   raise ConnectionRefused.new(@markup)
               rescue Timeout::Error
                 context.scopes.last[@target.to_s] = self.cached_response
+              rescue ::Liquid::Error => e
+                raise e
+              rescue => e
+                raise ::Liquid::Error.new(e.message, line)
               end
 
               render_all(@nodelist, context)
