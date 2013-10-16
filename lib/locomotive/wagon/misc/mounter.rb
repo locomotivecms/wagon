@@ -4,14 +4,26 @@ module Locomotive
       class Page
 
         def render(context)
-          mounting_point = context.registers[:mounting_point]
+          self.parse(context).render(context)
+        end
 
-          template = ::Liquid::Template.parse(self.source, {
+        protected
+
+        def parse(context)
+          options =  {
             page:           self,
-            mounting_point: mounting_point
-          })
+            mounting_point: context.registers[:mounting_point],
+            error_mode:     :strict,
+            count_lines:    true
+          }
 
-          template.render(context)
+          begin
+            template = ::Liquid::Template.parse(self.source, options)
+          rescue Liquid::SyntaxError => e
+            # do it again on the raw source instead so that the error line matches
+            # the source file.
+            ::Liquid::Template.parse(self.template.raw_source, options)
+          end
         end
 
       end

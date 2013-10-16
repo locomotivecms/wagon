@@ -14,6 +14,17 @@ en:
       et: Estonian
 
   errors:
+    syntax:
+      editable_text: "Syntax Error in 'editable_text' - Valid syntax: editable_text [slug], [options]"
+      editable_file: "Syntax Error in 'editable_file' - Valid syntax: editable_file [slug], [options]"
+      editable_control: "Syntax Error in 'editable_control' - Valid syntax: editable_control [slug], [options]"
+      consume: "Syntax Error in 'consume' - Valid syntax: consume <var> from [url] [, username: value, password: value]"
+      google_analytics: "Syntax Error in 'google_analytics' - Valid syntax: google_analytics [account_id]"
+      link_to: "Syntax Error in 'link_to' - Valid syntax: link_to [page_handle], locale: es (locale is optional)"
+      locale_switcher: "Syntax Error in 'locale_switcher' - Valid syntax: locale_switcher [options]"
+      nav: "Syntax Error in 'nav' - Valid syntax: nav [site|parent|page|<path to a page>] [options]>"
+      paginate: "Syntax Error in 'paginate' - Valid syntax: paginate <collection> by <number>"
+      session_assign: "Syntax Error in 'session_assign' - Valid syntax: session_assign [var] = [source]"
     messages:
       blank: "can't not be blank"
 

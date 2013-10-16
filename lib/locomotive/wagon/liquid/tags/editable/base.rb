@@ -7,13 +7,13 @@ module Locomotive
 
             Syntax = /(#{::Liquid::QuotedFragment})(\s*,\s*#{::Liquid::Expression}+)?/
 
-            def initialize(tag_name, markup, tokens, context)
+            def initialize(tag_name, markup, tokens, options)
               if markup =~ Syntax
                 @slug = $1.gsub(/[\"\']/, '')
-                @options = {}
-                markup.scan(::Liquid::TagAttributes) { |key, value| @options[key.to_sym] = value.gsub(/^'/, '').gsub(/'$/, '') }
+                @_options = {}
+                markup.scan(::Liquid::TagAttributes) { |key, value| @_options[key.to_sym] = value.gsub(/^'/, '').gsub(/'$/, '') }
               else
-                raise ::Liquid::SyntaxError.new("Syntax Error in 'editable_xxx' - Valid syntax: editable_xxx <slug>(, <options>)")
+                raise ::Liquid::SyntaxError.new(options[:locale].t("errors.syntax.#{tag_name}"), options[:line])
               end
 
               super

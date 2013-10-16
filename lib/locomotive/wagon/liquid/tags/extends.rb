@@ -5,10 +5,10 @@ module Locomotive
         class Extends < ::Liquid::Extends
 
           def parse_parent_template
-            mounting_point = @context[:mounting_point]
+            mounting_point = @options[:mounting_point]
 
             page = if @template_name == 'parent'
-              @context[:page].parent
+              @options[:page].parent
             else
               mounting_point.pages[@template_name]
             end

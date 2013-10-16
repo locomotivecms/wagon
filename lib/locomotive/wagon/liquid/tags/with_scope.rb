@@ -7,17 +7,17 @@ module Locomotive
           SlashedString = /\/[^\/]*\//
           TagAttributes = /(\w+|\w+\.\w+)\s*\:\s*(#{SlashedString}|#{::Liquid::QuotedFragment})/
 
-          def initialize(tag_name, markup, tokens, context)
-            @options = HashWithIndifferentAccess.new
+          def initialize(tag_name, markup, tokens, options)
+            @tag_options = HashWithIndifferentAccess.new
             markup.scan(TagAttributes) do |key, value|
-              @options[key] = value
+              @tag_options[key] = value
             end
             super
           end
 
           def render(context)
             context.stack do
-              context['with_scope'] = decode(@options, context)
+              context['with_scope'] = decode(@tag_options, context)
               render_all(@nodelist, context)
             end
           end

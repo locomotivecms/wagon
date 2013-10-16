@@ -6,11 +6,11 @@ module Locomotive
 
           Syntax = /(#{::Liquid::Expression}+)?/
 
-          def initialize(tag_name, markup, tokens, context)
+          def initialize(tag_name, markup, tokens, options)
             if markup =~ Syntax
               @account_id = $1.gsub('\'', '')
             else
-              raise ::Liquid::SyntaxError.new("Syntax Error in 'google_analytics' - Valid syntax: google_analytics <account_id>")
+              raise ::Liquid::SyntaxError.new(options[:locale].t("errors.syntax.google_analytics"), options[:line])
             end
 
             super
