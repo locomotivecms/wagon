@@ -4,10 +4,10 @@ module Locomotive
       module Drops
         class ContentEntry < Base
 
-          delegate :seo_title, :meta_keywords, :meta_description, :to => '_source'
+          delegate :seo_title, :meta_keywords, :meta_description, to: :@_source
 
           def _label
-            @_label ||= self._source._label
+            @_label ||= @_source._label
           end
 
           def _permalink
@@ -32,10 +32,10 @@ module Locomotive
           end
 
           def before_method(meth)
-            return '' if self._source.nil?
+            return '' if @_source.nil?
 
             if not @@forbidden_attributes.include?(meth.to_s)
-              self._source.send(meth)
+              @_source.send(meth)
             else
               nil
             end

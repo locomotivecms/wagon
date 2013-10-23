@@ -36,7 +36,7 @@ module Locomotive
 
       def log_page_into_backtrace(exception)
         line = self.template.line_offset
-        line += (exception.respond_to?(:line) ? exception.line : 0) + 1
+        line += (exception.respond_to?(:line) ? exception.line || 0 : 0) + 1
 
         message = "#{self.template.filepath}:#{line}:in `#{self.name}'"
 

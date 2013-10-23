@@ -7,8 +7,6 @@ module Locomotive
 
           @@forbidden_attributes = %w{_id _version _index}
 
-          attr_reader :_source
-
           def initialize(source)
             @_source = source
           end
@@ -35,6 +33,10 @@ module Locomotive
 
           def liquify(*records, &block)
             self.class.liquify(*records, &block)
+          end
+
+          def _source
+            @_source
           end
 
         end
