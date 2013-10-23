@@ -1,0 +1,15 @@
+development:
+  host: dev.example.com
+  email: john@doe.net
+  password: apassword
+  # api_key: <your api key here>
+staging:
+  host: staging.example.com
+  email: john@doe.net
+  password: apassword
+  # api_key: <your api key here>
+production:
+  host: www.example.com
+  email: john@doe.net
+  password: apassword
+  # api_key: <your api key here>

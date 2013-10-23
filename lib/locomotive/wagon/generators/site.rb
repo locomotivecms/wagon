@@ -95,6 +95,7 @@ end
 require 'locomotive/wagon/generators/site/base'
 require 'locomotive/wagon/generators/site/blank'
 require 'locomotive/wagon/generators/site/bootstrap'
+require 'locomotive/wagon/generators/site/bootstrap3'
 require 'locomotive/wagon/generators/site/foundation'
 require 'locomotive/wagon/generators/site/unzip'
 require 'locomotive/wagon/generators/site/cloned'
