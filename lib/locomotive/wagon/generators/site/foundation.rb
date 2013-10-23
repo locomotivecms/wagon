@@ -27,7 +27,7 @@ module Locomotive
         end
 
         Locomotive::Wagon::Generators::Site.register(:foundation, Foundation, %{
-          A LocomotiveCMS site powered by Foundation (v4.2.1).
+          A LocomotiveCMS site powered by Foundation (v4.3.2).
         })
       end
     end
