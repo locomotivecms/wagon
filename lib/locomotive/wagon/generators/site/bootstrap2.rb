@@ -3,7 +3,7 @@ module Locomotive
     module Generators
       module Site
 
-        class Bootstrap < Base
+        class Bootstrap2 < Base
 
           def copy_sources
             directory('.', self.destination, { recursive: true }, {
@@ -26,8 +26,8 @@ module Locomotive
 
         end
 
-        Locomotive::Wagon::Generators::Site.register(:bootstrap, Bootstrap, %{
-          A LocomotiveCMS site powered by Twitter bootstrap (v2.2.2).
+        Locomotive::Wagon::Generators::Site.register(:bootstrap2, Bootstrap2, %{
+          A LocomotiveCMS site with Twitter Bootstrap (v2.3.2) and Font Awesome (v3.2.1).
         })
       end
     end
