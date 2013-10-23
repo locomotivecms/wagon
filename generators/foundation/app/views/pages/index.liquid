@@ -3,20 +3,15 @@ title: Home page
 published: true
 ---
 <!DOCTYPE html>
-<!--[if IE 8]>         <html class="no-js lt-ie9" lang="en"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
   <title>{{ page.title }}</title>
-
-  {{ 'normalize.css' | stylesheet_tag }}
-
   {{ 'foundation.css' | stylesheet_tag }}
-
   {{ 'vendor/custom.modernizr.js' | javascript_tag }}
-
   {% inline_editor %}
 </head>
 <body>
@@ -24,13 +19,11 @@ published: true
   <div class="row">
     <div class="large-12 columns">
       <h2>Welcome to Foundation</h2>
-      <p>This is version 4.2.1</p>
+      <p>This is version 4.3.2.</p>
       <hr />
     </div>
   </div>
-
   {% block 'main' %}
-
   <div class="row">
     <div class="large-8 columns">
       <h3>The Grid</h3>
@@ -112,8 +105,8 @@ published: true
   ('__proto__' in {} ? '{{ 'vendor/zepto.js' | javascript_url }}' : '{{ 'vendor/jquery.js' | javascript_url }}') +
   '><\/script>')
   </script>
+  
   {{ 'foundation.min.js' | javascript_tag }}
-
   <!--
 
   {{ 'foundation/foundation.js' | javascript_tag }}
@@ -134,8 +127,6 @@ published: true
 
   {{ 'foundation/foundation.orbit.js' | javascript_tag }}
 
-  {{ 'foundation/foundation.placeholder.js' | javascript_tag }}
-
   {{ 'foundation/foundation.reveal.js' | javascript_tag }}
 
   {{ 'foundation/foundation.section.js' | javascript_tag }}
@@ -146,10 +137,14 @@ published: true
 
   {{ 'foundation/foundation.interchange.js' | javascript_tag }}
 
+  {{ 'foundation/foundation.placeholder.js' | javascript_tag }}
+
+  {{ 'foundation/foundation.abide.js' | javascript_tag }}
+  
   -->
 
-  <script>
-    $(document).foundation();
-  </script>
+<script>
+$(document).foundation();
+</script>
 </body>
 </html>
