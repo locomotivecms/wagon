@@ -46,9 +46,9 @@ module Locomotive
 
               page = case handle
               when Locomotive::Mounter::Models::Page          then handle
-              when Liquid::Drops::Page                        then handle.send(:_source)
+              when Liquid::Drops::Page                        then handle.instance_variable_get(:@_source)
               when String                                     then fetch_page(mounting_point, handle)
-              when Liquid::Drops::ContentEntry                then fetch_page(mounting_point, handle.send(:_source), true)
+              when Liquid::Drops::ContentEntry                then fetch_page(mounting_point, handle.instance_variable_get(:@_source), true)
               when Locomotive::Mounter::Models::ContentEntry  then fetch_page(mounting_point, handle, true)
               else
                 nil

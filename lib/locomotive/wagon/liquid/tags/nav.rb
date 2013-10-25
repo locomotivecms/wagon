@@ -106,7 +106,7 @@ module Locomotive
           # @return [ Boolean ]
           #
           def page_selected?(page)
-            self.current_page.fullpath =~ /^#{page.fullpath}/
+            self.current_page.fullpath =~ /^#{page.fullpath}(\/.*)?$/
           end
 
           # Determine if the children of a page have to be rendered or not.
