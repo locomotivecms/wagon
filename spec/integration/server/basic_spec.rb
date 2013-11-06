@@ -74,6 +74,20 @@ describe Locomotive::Wagon::Server do
     last_response.body.should =~ /<li>A song template<\/li>/
   end
 
+  describe 'snippets' do
+
+    it 'includes a basic snippet' do
+      get '/'
+      last_response.body.should =~ /All photos are licensed under Creative Commons\./
+    end
+
+    it 'includes a snippet whose name is composed of dash' do
+      get '/'
+      last_response.body.should =~ /<p>A complicated one name indeed.<\/p>/
+    end
+
+  end
+
   describe 'nav' do
 
     subject { get '/all'; last_response.body }
