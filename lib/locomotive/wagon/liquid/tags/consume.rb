@@ -74,8 +74,6 @@ module Locomotive
               begin
                 context.scopes.last[@target.to_s] = Locomotive::Wagon::Httparty::Webservice.consume(@url, @options.symbolize_keys)
                 self.cached_response = context.scopes.last[@target.to_s]
-              # rescue Errno::ECONNREFUSED
-              #   raise ConnectionRefused.new(@markup)
               rescue Timeout::Error
                 context.scopes.last[@target.to_s] = self.cached_response
               rescue ::Liquid::Error => e
