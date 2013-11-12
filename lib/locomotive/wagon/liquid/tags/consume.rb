@@ -26,28 +26,25 @@ module Locomotive
               raise ::Liquid::SyntaxError.new(options[:locale].t("errors.syntax.consume"), options[:line])
             end
 
-            @cache_key = Digest::SHA1.hexdigest(@target)
             @local_cache_key = self.hash
 
             super
           end
 
           def render(context)
-            if @is_var
-              @url = context[@url]
+            if instance_variable_defined? :@variable_name
+              @url = context[@variable_name]
             end
             render_all_without_cache(context)
           end
 
           protected
 
-          def prepare_url(url)
-            @url    = url
-            @is_var = false
-            if @url.match(::Liquid::QuotedString)
-              @url.gsub!(/['"]/, '')
-            elsif @url.match(::Liquid::VariableSignature)
-              @is_var = true
+          def prepare_url(token)
+            if token.match(::Liquid::QuotedString)
+              @url = token.gsub(/['"]/, '')
+            elsif token.match(::Liquid::VariableSignature)
+              @variable_name = token
             else
               raise ::Liquid::SyntaxError.new("Syntax Error in 'consume' - Valid syntax: consume <var> from \"<url>\" [username: value, password: value]")
             end
@@ -84,7 +81,9 @@ module Locomotive
               rescue ::Liquid::Error => e
                 raise e
               rescue => e
-                raise ::Liquid::Error.new(e.message, line)
+                liquid_e = ::Liquid::Error.new(e.message, line)
+                liquid_e.set_backtrace(e.backtrace)
+                raise liquid_e
               end
 
               render_all(@nodelist, context)
