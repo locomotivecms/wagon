@@ -78,7 +78,7 @@ module Locomotive
             when 'page'     then self.current_page
             else
               self.mounting_point.pages[@source]
-            end).children.clone
+            end).children.try(:clone) || []
 
             children.delete_if { |p| !include_page?(p) }
           end
