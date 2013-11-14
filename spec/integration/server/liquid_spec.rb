@@ -71,15 +71,16 @@ describe Locomotive::Wagon::Server do
     it "evaluates collection when called all inside of scope" do
       get '/music'
       last_response.body.should =~ /<p class=.scoped_song.>Song #3/
+      last_response.body.should =~ /<p class=.scoped_song_link.>\s+<a href=.\/songs\/song-3.>Song #3/m
     end
 
-    it "size of evaluated unscoped collection eqaul to unevaluated one" do
+    it "size of evaluated unscoped collection equal to unevaluated one" do
       get '/music'
       last_response.body.should =~ /class=.collection_equality.>8=8/
     end
 
   end
-  
+
   describe 'html helpers' do
     it 'bypass url for css resource' do
       get '/'
