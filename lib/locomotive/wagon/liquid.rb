@@ -3,6 +3,7 @@ require 'locomotive/mounter'
 require 'locomotive/wagon/liquid/scopeable'
 require 'locomotive/wagon/liquid/drops/base'
 require 'locomotive/wagon/liquid/tags/hybrid'
+require 'locomotive/wagon/liquid/tags/url_helper'
 
 %w{. drops tags filters}.each do |dir|
   Dir[File.join(File.dirname(__FILE__), 'liquid', dir, '*.rb')].each { |lib| require lib }
