@@ -7,7 +7,6 @@ module Locomotive
 
           def render(context)
             name    = @template_name.gsub(/[\"\']/, '')
-
             snippet = context.registers[:mounting_point].snippets[name.gsub('-', '_')]
 
             raise ::Liquid::StandardError.new("Unknown snippet \"#{name}\"") if snippet.nil?
