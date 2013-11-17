@@ -6,7 +6,7 @@ module Locomotive
 
           Syntax = /(#{::Liquid::Expression}+)(#{::Liquid::TagAttributes}?)/
 
-          include UrlHelper
+          include PathHelper
 
           def initialize(tag_name, markup, tokens, options)
             if markup =~ Syntax
@@ -23,7 +23,7 @@ module Locomotive
           end
 
           def render(context)
-            render_url(context) do |page, url|
+            render_path(context) do |page, path|
               label = label_from_page(page)
 
               if @render_as_block
@@ -31,7 +31,7 @@ module Locomotive
                 label = super.html_safe
               end
 
-              %{<a href="#{url}">#{label}</a>}
+              %{<a href="#{path}">#{label}</a>}
             end
           end
 

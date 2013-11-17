@@ -3,18 +3,18 @@ module Locomotive
     module Liquid
       module Tags
 
-        module UrlHelper
+        module PathHelper
 
-          def render_url(context, &block)
+          def render_path(context, &block)
             site  = context.registers[:site]
 
             if page = self.retrieve_page_from_handle(context)
-              url = self.public_page_url(context, page)
+              path = self.public_page_fullpath(context, page)
 
               if block_given?
-                block.call page, url
+                block.call page, path
               else
-                url
+                path
               end
             else
               raise Liquid::PageNotTranslated.new(%{[link_to] Unable to find a page for the #{@handle}. Wrong handle or missing template for your content.})
@@ -64,7 +64,7 @@ module Locomotive
             end
           end
 
-          def public_page_url(context, page)
+          def public_page_fullpath(context, page)
             mounting_point  = context.registers[:mounting_point]
             locale          = @_options['locale'] || ::I18n.locale
 
