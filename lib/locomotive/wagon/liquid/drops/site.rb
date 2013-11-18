@@ -5,18 +5,18 @@ module Locomotive
         class Site < Base
           include Scopeable
 
-          delegate :name, :seo_title, :meta_description, :meta_keywords, :to => '_source'
+          delegate :name, :seo_title, :meta_description, :meta_keywords, to: :@_source
 
           def index
             @index ||= self.mounting_point.pages['index']
           end
 
           def pages
-            @pages ||= liquify(*apply_scope(self.mounting_point.pages.values))
+            liquify(*apply_scope(self.mounting_point.pages.values))
           end
 
           def domains
-            self._source.domains
+            @_source.domains
           end
 
         end

@@ -32,8 +32,10 @@ module Locomotive
         def create_snippet
           extension = self.haml ? 'liquid.haml' : 'liquid'
 
-          options   = { slug: slug, translated: false }
-          file_path = File.join(pages_path, slug)
+          _slug = slug.clone.downcase.gsub(/[-]/, '_')
+
+          options   = { slug: _slug, translated: false }
+          file_path = File.join(pages_path, _slug)
 
           template "template.#{extension}.tt", "#{file_path}.#{extension}", options
 

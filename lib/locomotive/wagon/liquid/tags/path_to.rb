@@ -2,16 +2,28 @@ module Locomotive
   module Wagon
     module Liquid
       module Tags
-        class PathTo < LinkTo
+        class PathTo < ::Liquid::Tag
+
+          include PathHelper
 
           Syntax = /(#{::Liquid::Expression}+)(#{::Liquid::TagAttributes}?)/
 
-          def render(context)
-            if page = self.retrieve_page_from_handle(context)
-              self.public_page_url(context, page)
+          def initialize(tag_name, markup, tokens, context)
+            if markup =~ Syntax
+              @handle = $1
+              @_options = {}
+              markup.scan(::Liquid::TagAttributes) do |key, value|
+                @_options[key] = value
+              end
             else
-              raise Liquid::PageNotTranslated.new(%{[path_to] Unable to find a page for the #{@handle}. Wrong handle or missing template for your content.})
+              raise SyntaxError.new("Syntax Error in 'path_to' - Valid syntax: path_to <page|page_handle|content_entry>(, locale: [fr|de|...], with: <page_handle>")
             end
+
+            super
+          end
+
+          def render(context)
+            render_path(context)
           end
 
         end

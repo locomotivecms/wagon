@@ -1,0 +1,1060 @@
+---
+title: Home page
+published: true
+---
+!!!
+%html{lang: "en"}
+  %head
+    %meta{content: "text/html; charset=UTF-8", "http-equiv" => "content-type"}/
+    %meta{charset: "utf-8"}/
+    %title Bootply.com - Bootstrap 3 Template
+    %meta{content: "Bootply", name: "generator"}/
+    %meta{content: "width=device-width, initial-scale=1, maximum-scale=1", name: "viewport"}/
+  %body
+    %p
+      {{ 'bootstrap.css' | stylesheet_tag }}
+      /[if lt IE 9]
+        <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+      %link{rel: "shortcut icon", href: "/samples/favicon.png"}/
+      %link{rel: "apple-touch-icon-precomposed", sizes: "144x144", href: "/samples/apple-touch-icon-144x144-precomposed.png"}/
+      %link{rel: "apple-touch-icon-precomposed", sizes: "114x114", href: "/samples/apple-touch-icon-114x114-precomposed.png"}/
+      %link{rel: "apple-touch-icon-precomposed", sizes: "72x72", href: "/samples/apple-touch-icon-72x72-precomposed.png"}/
+      %link{rel: "apple-touch-icon-precomposed", href: "/samples/apple-touch-icon-precomposed.png"}/
+
+      / CSS code from Bootply.com editor
+      :css
+        @media screen and (min-width: 992px) {
+          .the-icons li {
+            width: 12.5%;
+          }
+        }
+        .the-buttons > li {
+          float: left;
+          height: 80px;
+          padding: 10px;
+          border: 1px solid #ddd;
+          font-size: 12px;
+          line-height: 1.25;
+          text-align: center;
+          -webkit-box-sizing: border-box;
+          -moz-box-sizing: border-box;
+          box-sizing: border-box;
+          margin: 0 -1px -1px 0;
+        }
+        .the-icons .glyphicon {
+          display: block;
+          margin: 5px auto;
+          vertical-align: middle;
+          margin-right: 3px;
+          font-size: 24px;
+        }
+        .the-icons li {
+          float: left;
+          width: 100px;
+          height: 110px;
+          padding: 10px;
+          border: 1px solid #ddd;
+          font-size: 12px;
+          line-height: 1.25;
+          text-align: center;
+          -webkit-box-sizing: border-box;
+          -moz-box-sizing: border-box;
+          box-sizing: border-box;
+          margin: 0 -1px -1px 0;
+        }
+        .the-icons, .the-buttons {
+          list-style:none;
+        }
+    .container
+      %h1 Bootstrap 3 Template
+      %p.lead A Full Featured Example
+      /
+        Typography
+        \==================================================
+      %section#typography
+        .page-header
+        / Headings & Paragraph Copy
+        .row
+          .col-lg-6
+            .well
+              %h1 h1. Bootstrap 3
+              %h2 h2. Heading 2
+              %h3 h3. Heading 3
+              %h4 h4. Heading 4
+              %h5 h5. Heading 5
+              %h6 h6. Heading 6
+          .col-lg-6
+            %h3 Bootstrap Framework
+            %p In simple terms, a responsive web design figures out what resolution of device it's being served on. Flexible grids then size correctly to fit the screen.
+            %p The new Bootstrap 3 promises to be a smaller build. The separate Bootstrap base and responsive.css files have now been merged into one. There is no more fixed grid, only fluid.
+            %hr/
+            %blockquote.pull-right
+              %p Have you ever had a project where you thought it would be so much better to just throw everything out and start over? I believe that’s what’s happening with BS3.
+              %small
+                %cite{title: "Source Title"} Quasipickle
+      /
+        Bootstrap 3 Navbar
+        \==================================================
+      %section#navbar
+        .page-header
+          %h1 Bootstrap 3 Navbar
+        .container
+          %nav.navbar{role: "navigation"}
+            / Brand and toggle get grouped for better mobile display
+            .navbar-header
+              %button.navbar-toggle{"data-target" => ".navbar-ex1-collapse", "data-toggle" => "collapse", type: "button"}
+                %span.sr-only Toggle navigation
+                %span.icon-bar
+                %span.icon-bar
+                %span.icon-bar
+              %a.navbar-brand{href: "#"} Title
+            / Collect the nav links, forms, and other content for toggling
+            .collapse.navbar-collapse.navbar-ex1-collapse
+              %ul.nav.navbar-nav
+                %li.active
+                  %a{href: "#"} Home
+                %li
+                  %a{href: "#"} Link
+                %li
+                  %a{href: "#"} Link
+                %li.dropdown
+                  %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
+                    Dropdown
+                    %b.caret
+                  %ul.dropdown-menu
+                    %li
+                      %a{href: "#"} Action
+                    %li
+                      %a{href: "#"} One more separated link
+              %ul.nav.navbar-nav.navbar-right
+                %li
+                  %a{href: "#"} Link
+            / /.navbar-collapse
+        .container
+          %nav.navbar.navbar-inverse{role: "navigation"}
+            / Brand and toggle get grouped for better mobile display
+            .navbar-header
+              %button.navbar-toggle{"data-target" => ".navbar-ex1-collapse", "data-toggle" => "collapse", type: "button"}
+                %span.sr-only Toggle navigation
+                %span.icon-bar
+                %span.icon-bar
+                %span.icon-bar
+              %a.navbar-brand{href: "#"} Title
+            / Collect the nav links, forms, and other content for toggling
+            .collapse.navbar-collapse.navbar-ex1-collapse
+              %ul.nav.navbar-nav
+                %li.active
+                  %a{href: "#"} Home
+                %li
+                  %a{href: "#"} Link
+                %li
+                  %a{href: "#"} Link
+                %li.dropdown
+                  %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
+                    Dropdown
+                    %b.caret
+                  %ul.dropdown-menu
+                    %li
+                      %a{href: "#"} Action
+                    %li
+                      %a{href: "#"} One more separated link
+              %ul.nav.navbar-nav.navbar-right
+                %li
+                  %a{href: "#"} Link
+            / /.navbar-collapse
+      /
+        Bootstrap 3 Scaffolding
+        \==================================================
+      %section
+        .page-header
+          %h1 Grid
+          %p.lead Bootstrap 3 scaffolding has changed for improved display on mobile devices
+        .container
+          .row
+            .col-lg-12
+              .well
+                %p col-lg-12
+          .row
+            .col-lg-4
+              .well
+                %p col-lg-4
+            .col-lg-4
+              .well
+                %p col-lg-4
+            .col-lg-4
+              .well
+                %p col-lg-4
+          .row
+            .col-lg-6.col-sm-6
+              .well
+                %p col-lg-6
+            .col-lg-6.col-sm-6
+              .well
+                %p col-lg-6
+          .row
+            .col-lg-9.col-sm-6
+              .well col-lg-9 / col-sm-6
+            .col-lg-3.col-sm-6
+              .well col-lg-3 / col-sm-6
+      /
+        Bootstrap 3 Buttons
+        \==================================================
+      %section#buttons
+        .page-header
+          %h1 Bootstrap 3 Buttons
+          %p.lead With no gradients and borders, Bootstrap 3.0 buttons now have a flatter look
+        %h2 Button Sizes (4)
+        %ul.the-buttons.clearfix
+          %li
+            %a.btn.btn-xs.btn-primary{href: "#"} btn-xs
+          %li
+            %a.btn.btn-sm.btn-primary{href: "#"} btn-sm
+          %li
+            %a.btn.btn-primary{href: "#"} btn
+          %li
+            %a.btn.btn-lg.btn-primary{href: "#"} btn-lg
+        %h2 Button Classes
+        %ul.the-buttons.clearfix
+          %li
+            %a.btn.btn-default{href: "#"} Default
+          %li
+            %a.btn.btn-primary{href: "#"} Primary
+          %li
+            %a.btn.btn-success{href: "#"} Success
+          %li
+            %a.btn.btn-info{href: "#"} Info
+          %li
+            %a.btn.btn-warning{href: "#"} Warning
+          %li
+            %a.btn.btn-danger{href: "#"} Danger
+          %li
+            %a.btn.btn-primary.disabled{href: "#"} Disabled
+          %li
+            %a.btn.btn-link{href: "#"} Link
+          %li
+            / Single button
+            .btn-group
+              %button.btn.btn-default.dropdown-toggle{"data-toggle" => "dropdown", type: "button"}
+                Dropdown
+                %span.caret
+              %ul.dropdown-menu
+                %li
+                  %a{href: "#"} Action
+                %li
+                  %a{href: "#"} Another action
+                %li
+                  %a{href: "#"} Something else here
+                %li.divider
+                %li
+                  %a{href: "#"} Separated link
+          %li
+            %a.btn.btn-info{href: "#"}
+              %i.glyphicon.glyphicon-map-marker
+              Icon
+      /
+        Icons
+        \==================================================
+      %section#icons
+        .page-header
+          %h2 Bootstrap 3 Icons
+          %p.lead The 2.x icons are now replaced by glyphicons in BS3.
+        .row
+          %ul.the-icons.clearfix
+            %li
+              %i.glyphicon.glyphicon-glass
+              glyphicon-glass
+            %li
+              %i.glyphicon.glyphicon-music
+              glyphicon-music
+            %li
+              %i.glyphicon.glyphicon-search
+              glyphicon-search
+            %li
+              %i.glyphicon.glyphicon-envelope
+              glyphicon-envelope
+            %li
+              %i.glyphicon.glyphicon-heart
+              glyphicon-heart
+            %li
+              %i.glyphicon.glyphicon-star
+              glyphicon-star
+            %li
+              %i.glyphicon.glyphicon-star-empty
+              glyphicon-star-empty
+            %li
+              %i.glyphicon.glyphicon-user
+              glyphicon-user
+            %li
+              %i.glyphicon.glyphicon-film
+              glyphicon-film
+            %li
+              %i.glyphicon.glyphicon-th-large
+              glyphicon-th-large
+            %li
+              %i.glyphicon.glyphicon-th
+              glyphicon-th
+            %li
+              %i.glyphicon.glyphicon-th-list
+              glyphicon-th-list
+            %li
+              %i.glyphicon.glyphicon-ok
+              glyphicon-ok
+            %li
+              %i.glyphicon.glyphicon-remove
+              glyphicon-remove
+            %li
+              %i.glyphicon.glyphicon-zoom-in
+              glyphicon-zoom-in
+            %li
+              %i.glyphicon.glyphicon-zoom-out
+              glyphicon-zoom-out
+            %li
+              %i.glyphicon.glyphicon-off
+              glyphicon-off
+            %li
+              %i.glyphicon.glyphicon-signal
+              glyphicon-signal
+            %li
+              %i.glyphicon.glyphicon-cog
+              glyphicon-cog
+            %li
+              %i.glyphicon.glyphicon-trash
+              glyphicon-trash
+            %li
+              %i.glyphicon.glyphicon-home
+              glyphicon-home
+            %li
+              %i.glyphicon.glyphicon-file
+              glyphicon-file
+            %li
+              %i.glyphicon.glyphicon-time
+              glyphicon-time
+            %li
+              %i.glyphicon.glyphicon-road
+              glyphicon-road
+            %li
+              %i.glyphicon.glyphicon-download-alt
+              glyphicon-download-alt
+            %li
+              %i.glyphicon.glyphicon-download
+              glyphicon-download
+            %li
+              %i.glyphicon.glyphicon-upload
+              glyphicon-upload
+            %li
+              %i.glyphicon.glyphicon-inbox
+              glyphicon-inbox
+            %li
+              %i.glyphicon.glyphicon-play-circle
+              glyphicon-play-circle
+            %li
+              %i.glyphicon.glyphicon-repeat
+              glyphicon-repeat
+            %li
+              %i.glyphicon.glyphicon-refresh
+              glyphicon-refresh
+            %li
+              %i.glyphicon.glyphicon-list-alt
+              glyphicon-list-alt
+            %li
+              %i.glyphicon.glyphicon-lock
+              glyphicon-lock
+            %li
+              %i.glyphicon.glyphicon-flag
+              glyphicon-flag
+            %li
+              %i.glyphicon.glyphicon-headphones
+              glyphicon-headphones
+            %li
+              %i.glyphicon.glyphicon-volume-off
+              glyphicon-volume-off
+            %li
+              %i.glyphicon.glyphicon-volume-down
+              glyphicon-volume-down
+            %li
+              %i.glyphicon.glyphicon-volume-up
+              glyphicon-volume-up
+            %li
+              %i.glyphicon.glyphicon-qrcode
+              glyphicon-qrcode
+            %li
+              %i.glyphicon.glyphicon-barcode
+              glyphicon-barcode
+            %li
+              %i.glyphicon.glyphicon-tag
+              glyphicon-tag
+            %li
+              %i.glyphicon.glyphicon-tags
+              glyphicon-tags
+            %li
+              %i.glyphicon.glyphicon-book
+              glyphicon-book
+            %li
+              %i.glyphicon.glyphicon-bookmark
+              glyphicon-bookmark
+            %li
+              %i.glyphicon.glyphicon-print
+              glyphicon-print
+            %li
+              %i.glyphicon.glyphicon-camera
+              glyphicon-camera
+            %li
+              %i.glyphicon.glyphicon-font
+              glyphicon-font
+            %li
+              %i.glyphicon.glyphicon-bold
+              glyphicon-bold
+            %li
+              %i.glyphicon.glyphicon-italic
+              glyphicon-italic
+            %li
+              %i.glyphicon.glyphicon-text-height
+              glyphicon-text-height
+            %li
+              %i.glyphicon.glyphicon-text-width
+              glyphicon-text-width
+            %li
+              %i.glyphicon.glyphicon-align-left
+              glyphicon-align-left
+            %li
+              %i.glyphicon.glyphicon-align-center
+              glyphicon-align-center
+            %li
+              %i.glyphicon.glyphicon-align-right
+              glyphicon-align-right
+            %li
+              %i.glyphicon.glyphicon-align-justify
+              glyphicon-align-justify
+            %li
+              %i.glyphicon.glyphicon-list
+              glyphicon-list
+            %li
+              %i.glyphicon.glyphicon-indent-left
+              glyphicon-indent-left
+            %li
+              %i.glyphicon.glyphicon-indent-right
+              glyphicon-indent-right
+            %li
+              %i.glyphicon.glyphicon-facetime-video
+              glyphicon-facetime-video
+            %li
+              %i.glyphicon.glyphicon-picture
+              glyphicon-picture
+            %li
+              %i.glyphicon.glyphicon-pencil
+              glyphicon-pencil
+            %li
+              %i.glyphicon.glyphicon-map-marker
+              glyphicon-map-marker
+            %li
+              %i.glyphicon.glyphicon-adjust
+              glyphicon-adjust
+            %li
+              %i.glyphicon.glyphicon-tint
+              glyphicon-tint
+            %li
+              %i.glyphicon.glyphicon-edit
+              glyphicon-edit
+            %li
+              %i.glyphicon.glyphicon-share
+              glyphicon-share
+            %li
+              %i.glyphicon.glyphicon-check
+              glyphicon-check
+            %li
+              %i.glyphicon.glyphicon-move
+              glyphicon-move
+            %li
+              %i.glyphicon.glyphicon-step-backward
+              glyphicon-step-backward
+            %li
+              %i.glyphicon.glyphicon-fast-backward
+              glyphicon-fast-backward
+            %li
+              %i.glyphicon.glyphicon-backward
+              glyphicon-backward
+            %li
+              %i.glyphicon.glyphicon-play
+              glyphicon-play
+            %li
+              %i.glyphicon.glyphicon-pause
+              glyphicon-pause
+            %li
+              %i.glyphicon.glyphicon-stop
+              glyphicon-stop
+            %li
+              %i.glyphicon.glyphicon-forward
+              glyphicon-forward
+            %li
+              %i.glyphicon.glyphicon-fast-forward
+              glyphicon-fast-forward
+            %li
+              %i.glyphicon.glyphicon-step-forward
+              glyphicon-step-forward
+            %li
+              %i.glyphicon.glyphicon-eject
+              glyphicon-eject
+            %li
+              %i.glyphicon.glyphicon-chevron-left
+              glyphicon-chevron-left
+            %li
+              %i.glyphicon.glyphicon-chevron-right
+              glyphicon-chevron-right
+            %li
+              %i.glyphicon.glyphicon-plus-sign
+              glyphicon-plus-sign
+            %li
+              %i.glyphicon.glyphicon-minus-sign
+              glyphicon-minus-sign
+            %li
+              %i.glyphicon.glyphicon-remove-sign
+              glyphicon-remove-sign
+            %li
+              %i.glyphicon.glyphicon-ok-sign
+              glyphicon-ok-sign
+            %li
+              %i.glyphicon.glyphicon-question-sign
+              glyphicon-question-sign
+            %li
+              %i.glyphicon.glyphicon-info-sign
+              glyphicon-info-sign
+            %li
+              %i.glyphicon.glyphicon-screenshot
+              glyphicon-screenshot
+            %li
+              %i.glyphicon.glyphicon-remove-circle
+              glyphicon-remove-circle
+            %li
+              %i.glyphicon.glyphicon-ok-circle
+              glyphicon-ok-circle
+            %li
+              %i.glyphicon.glyphicon-ban-circle
+              glyphicon-ban-circle
+            %li
+              %i.glyphicon.glyphicon-arrow-left
+              glyphicon-arrow-left
+            %li
+              %i.glyphicon.glyphicon-arrow-right
+              glyphicon-arrow-right
+            %li
+              %i.glyphicon.glyphicon-arrow-up
+              glyphicon-arrow-up
+            %li
+              %i.glyphicon.glyphicon-arrow-down
+              glyphicon-arrow-down
+            %li
+              %i.glyphicon.glyphicon-share-alt
+              glyphicon-share-alt
+            %li
+              %i.glyphicon.glyphicon-resize-full
+              glyphicon-resize-full
+            %li
+              %i.glyphicon.glyphicon-resize-small
+              glyphicon-resize-small
+            %li
+              %i.glyphicon.glyphicon-plus
+              glyphicon-plus
+            %li
+              %i.glyphicon.glyphicon-minus
+              glyphicon-minus
+            %li
+              %i.glyphicon.glyphicon-asterisk
+              glyphicon-asterisk
+            %li
+              %i.glyphicon.glyphicon-exclamation-sign
+              glyphicon-exclamation-sign
+            %li
+              %i.glyphicon.glyphicon-gift
+              glyphicon-gift
+            %li
+              %i.glyphicon.glyphicon-leaf
+              glyphicon-leaf
+            %li
+              %i.glyphicon.glyphicon-fire
+              glyphicon-fire
+            %li
+              %i.glyphicon.glyphicon-eye-open
+              glyphicon-eye-open
+            %li
+              %i.glyphicon.glyphicon-eye-close
+              glyphicon-eye-close
+            %li
+              %i.glyphicon.glyphicon-warning-sign
+              glyphicon-warning-sign
+            %li
+              %i.glyphicon.glyphicon-plane
+              glyphicon-plane
+            %li
+              %i.glyphicon.glyphicon-calendar
+              glyphicon-calendar
+            %li
+              %i.glyphicon.glyphicon-random
+              glyphicon-random
+            %li
+              %i.glyphicon.glyphicon-comment
+              glyphicon-comment
+            %li
+              %i.glyphicon.glyphicon-magnet
+              glyphicon-magnet
+            %li
+              %i.glyphicon.glyphicon-chevron-up
+              glyphicon-chevron-up
+            %li
+              %i.glyphicon.glyphicon-chevron-down
+              glyphicon-chevron-down
+            %li
+              %i.glyphicon.glyphicon-retweet
+              glyphicon-retweet
+            %li
+              %i.glyphicon.glyphicon-shopping-cart
+              glyphicon-shopping-cart
+            %li
+              %i.glyphicon.glyphicon-folder-close
+              glyphicon-folder-close
+            %li
+              %i.glyphicon.glyphicon-folder-open
+              glyphicon-folder-open
+            %li
+              %i.glyphicon.glyphicon-resize-vertical
+              glyphicon-resize-vertical
+            %li
+              %i.glyphicon.glyphicon-resize-horizontal
+              glyphicon-resize-horizontal
+            %li
+              %i.glyphicon.glyphicon-hdd
+              glyphicon-hdd
+            %li
+              %i.glyphicon.glyphicon-bullhorn
+              glyphicon-bullhorn
+            %li
+              %i.glyphicon.glyphicon-bell
+              glyphicon-bell
+            %li
+              %i.glyphicon.glyphicon-certificate
+              glyphicon-certificate
+            %li
+              %i.glyphicon.glyphicon-thumbs-up
+              glyphicon-thumbs-up
+            %li
+              %i.glyphicon.glyphicon-thumbs-down
+              glyphicon-thumbs-down
+            %li
+              %i.glyphicon.glyphicon-hand-right
+              glyphicon-hand-right
+            %li
+              %i.glyphicon.glyphicon-hand-left
+              glyphicon-hand-left
+            %li
+              %i.glyphicon.glyphicon-hand-up
+              glyphicon-hand-up
+            %li
+              %i.glyphicon.glyphicon-hand-down
+              glyphicon-hand-down
+            %li
+              %i.glyphicon.glyphicon-circle-arrow-right
+              glyphicon-circle-arrow-right
+            %li
+              %i.glyphicon.glyphicon-circle-arrow-left
+              glyphicon-circle-arrow-left
+            %li
+              %i.glyphicon.glyphicon-circle-arrow-up
+              glyphicon-circle-arrow-up
+            %li
+              %i.glyphicon.glyphicon-circle-arrow-down
+              glyphicon-circle-arrow-down
+            %li
+              %i.glyphicon.glyphicon-globe
+              glyphicon-globe
+            %li
+              %i.glyphicon.glyphicon-wrench
+              glyphicon-wrench
+            %li
+              %i.glyphicon.glyphicon-tasks
+              glyphicon-tasks
+            %li
+              %i.glyphicon.glyphicon-filter
+              glyphicon-filter
+            %li
+              %i.glyphicon.glyphicon-briefcase
+              glyphicon-briefcase
+            %li
+              %i.glyphicon.glyphicon-fullscreen
+              glyphicon-fullscreen
+            %li
+              %i.glyphicon.glyphicon-dashboard
+              glyphicon-dashboard
+            %li
+              %i.glyphicon.glyphicon-paperclip
+              glyphicon-paperclip
+            %li
+              %i.glyphicon.glyphicon-heart-empty
+              glyphicon-heart-empty
+            %li
+              %i.glyphicon.glyphicon-link
+              glyphicon-link
+            %li
+              %i.glyphicon.glyphicon-phone
+              glyphicon-phone
+            %li
+              %i.glyphicon.glyphicon-pushpin
+              glyphicon-pushpin
+            %li
+              %i.glyphicon.glyphicon-euro
+              glyphicon-euro
+            %li
+              %i.glyphicon.glyphicon-usd
+              glyphicon-usd
+            %li
+              %i.glyphicon.glyphicon-gbp
+              glyphicon-gbp
+            %li
+              %i.glyphicon.glyphicon-sort
+              glyphicon-sort
+            %li
+              %i.glyphicon.glyphicon-sort-by-alphabet
+              glyphicon-sort-by-alphabet
+            %li
+              %i.glyphicon.glyphicon-sort-by-alphabet-alt
+              glyphicon-sort-by-alphabet-alt
+            %li
+              %i.glyphicon.glyphicon-sort-by-order
+              glyphicon-sort-by-order
+            %li
+              %i.glyphicon.glyphicon-sort-by-order-alt
+              glyphicon-sort-by-order-alt
+            %li
+              %i.glyphicon.glyphicon-sort-by-attributes
+              glyphicon-sort-by-attributes
+            %li
+              %i.glyphicon.glyphicon-sort-by-attributes-alt
+              glyphicon-sort-by-attributes-alt
+            %li
+              %i.glyphicon.glyphicon-unchecked
+              glyphicon-unchecked
+            %li
+              %i.glyphicon.glyphicon-expand
+              glyphicon-expand
+            %li
+              %i.glyphicon.glyphicon-collapse
+              glyphicon-collapse
+            %li
+              %i.glyphicon.glyphicon-collapse-top
+              glyphicon-collapse-top
+      /
+        Forms
+        \==================================================
+      %section#forms
+        .page-header
+          %h2 Forms
+        .row
+          .col-lg-8
+            %h3 Form Inline
+            %form.form-inline.well
+              .col-md-3
+                %input.form-control{placeholder: "Email", type: "text"}/
+              .col-md-3
+                %input.form-control{placeholder: "Password", type: "password"}/
+              .checkbox
+                %label
+                  %input{type: "checkbox"}/
+                  Remember me
+              %button.btn.btn-default{type: "submit"} Sign in
+            %h3 Form Horizontal
+            %form.form-horizontal.well
+              %fieldset
+                %legend Bootstrap 3 Inputs
+                .control-group
+                  %label.control-label{for: "input01"} Text input
+                  .controls
+                    %input#input01.form-control.input-xlarge{type: "text"}/
+                    %p.help-block In addition to freeform text, any HTML5 text-based input appears like so.
+                .control-group
+                  %label.control-label{for: "optionsCheckbox"} Checkbox
+                  .controls
+                    %label.checkbox
+                      %input#optionsCheckbox{type: "checkbox", value: "option1"}/
+                      Option one is this and that—be sure to include why it's great
+                .control-group
+                  %label.control-label{for: "select01"} Select list
+                  .controls
+                    %select#select01.form-control
+                      %option something
+                      %option 2
+                      %option 3
+                      %option 4
+                      %option 5
+                .control-group
+                  %label.control-label{for: "multiSelect"} Multicon-select
+                  .controls
+                    %select#multiSelect.form-control{multiple: "multiple"}
+                      %option 1
+                      %option 2
+                      %option 3
+                      %option 4
+                      %option 5
+                .control-group
+                  %label.control-label{for: "fileInput"} File input
+                  .controls
+                    %input#fileInput.form-control.input-file{type: "file"}/
+                .control-group
+                  %label.control-label{for: "textarea"} Textarea
+                  .controls
+                    %textarea#textarea.form-control.input-xlarge{rows: "3"}
+                .control-group
+                  %label.control-label{for: "optionsCheckbox2"} Disabled checkbox
+                  .controls
+                    %label.checkbox
+                      %input#optionsCheckbox2{disabled: "disabled", type: "checkbox", value: "option1"}/
+                      This is a disabled checkbox
+                .control-group.warning
+                  %label.control-label{for: "inputWarning"} Input with warning
+                  .controls
+                    %input#inputWarning.form-control{type: "text"}/
+                    %span.help-inline Something may have gone wrong
+                %hr/
+                .form-actions
+                  %button.btn.btn-primary{type: "submit"} Save changes
+                  %button.btn{type: "reset"} Cancel
+      /
+        Tables
+        \==================================================
+      %section#tables
+        .page-header
+          %h1 Tables
+        %table.table.table-bordered.table-striped.table-hover
+          %thead
+            %tr
+              %th #
+              %th First Name
+              %th Last Name
+              %th Username
+          %tbody
+            %tr
+              %td 1
+              %td Mark
+              %td Otto
+              %td @mdo
+            %tr
+              %td 2
+              %td Jacob
+              %td Thornton
+              %td @fat
+            %tr
+              %td 3
+              %td Larry
+              %td the Bird
+              %td @twitter
+      /
+        Miscellaneous
+        \==================================================
+      %section#miscellaneous
+        .page-header
+          %h1 Miscellaneous
+        .row
+          .col-lg-4
+            %h3#breadcrumbs Breadcrumbs
+            %ul.breadcrumb
+              %li
+                %a{href: "#"} Home
+                %span.divider
+              %li
+                %a{href: "#"} Library
+                %span.divider
+              %li.active Data
+          .col-lg-4
+            %h3#pagination Pagination
+            %ul.pagination
+              %li
+                %a{href: "#"} «
+              %li
+                %a{href: "#"} 1
+              %li
+                %a{href: "#"} 2
+              %li
+                %a{href: "#"} 3
+              %li
+                %a{href: "#"} 4
+              %li
+                %a{href: "#"} 5
+              %li
+                %a{href: "#"} »
+          .col-lg-4
+            %h3#pager Pagers
+            %ul.pager
+              %li
+                %a{href: "#"} Previous
+              %li
+                %a{href: "#"} Next
+            %ul.pager
+              %li.previous.disabled
+                %a{href: "#"} ? Older
+              %li.next
+                %a{href: "#"} Newer ?
+        /
+          Navs
+          \==================================================
+        .row
+          .col-lg-4
+            %h3#tabs Tabs
+            %ul.nav.nav-tabs
+              %li.active
+                %a{"data-toggle" => "tab", href: "#A"} Section 1
+              %li
+                %a{"data-toggle" => "tab", href: "#B"} Section 2
+              %li
+                %a{"data-toggle" => "tab", href: "#C"} Section 3
+            .tabbable
+              .tab-content
+                #A.tab-pane.active
+                  %p I'm in Section A.
+                #B.tab-pane
+                  %p Howdy, I'm in Section B.
+                #C.tab-pane
+                  %p What up girl, this is Section C.
+          .col-lg-4
+            %h3#pills Pills
+            %ul.nav.nav-pills
+              %li.active
+                %a{href: "#"} Home
+              %li
+                %a{href: "#"} Profile
+              %li.dropdown
+                %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
+                  Dropdown
+                  %b.caret
+                %ul.dropdown-menu
+                  %li
+                    %a{href: "#"} Action
+                  %li
+                    %a{href: "#"} Another action
+                  %li
+                    %a{href: "#"} Something else here
+                  %li.divider
+                  %li
+                    %a{href: "#"} Separated link
+              %li.disabled
+                %a{href: "#"} Disabled link
+          .col-lg-4
+            %h3#list Nav Lists
+            .well{style: "padding: 8px 0;"}
+              %ul.nav.nav-list
+                %li.nav-header List header
+                %li.active
+                  %a{href: "#"} Home
+                %li
+                  %a{href: "#"} Library
+                %li
+                  %a{href: "#"} Applications
+                %li.divider
+                %li
+                  %a{href: "#"} Help
+        /
+          Labels
+          \==================================================
+        .row
+          .col-lg-4
+            %h3#labels Labels
+            %span.label Default
+            %span.label.label-success Success
+            %span.label.label-warning Warning
+            %span.label.label-danger Danger
+            %span.label.label-info Info
+          .col-lg-4
+            %h3#badges Badges
+            %span.badge Default
+          .col-lg-4
+            %h3#badges Progress bars
+            .progress
+              .progress-bar.progress-bar-info{style: "width: 20%"}
+            .progress
+              .progress-bar.progress-bar-success{style: "width: 40%"}
+            .progress
+              .progress-bar.progress-bar-warning{style: "width: 60%"}
+            .progress
+              .progress-bar.progress-bar-danger{style: "width: 80%"}
+        %br/
+        /
+          Panel & ListGroups
+          \==================================================
+        %hr/
+        %h2#panels Bootstrap 3 Panels
+        .row
+          .col-lg-4
+            .panel.panel-default
+              .panel-heading Panel heading
+              .panel-body Hello. This is the Panel content.
+          .col-lg-4
+            .panel.panel-primary
+              .panel-heading Panel primary
+              .panel-body Panels are new in BS3.
+          .col-lg-4
+            .panel.panel-success
+              .panel-heading Panel success
+              .panel-body You can use contextual classes.
+        /
+          ListGroups
+          \==================================================
+        %hr/
+        %h2#panels Bootstrap 3 List Groups
+        .row
+          .col-lg-4
+            %ul.list-group
+              %li.list-group-item List item 1
+              %li.list-group-item List item 2
+              %li.list-group-item Mobile-first
+              %li.list-group-item Responsive
+              %li.list-group-item Lightweight
+          .col-lg-4
+            %ul.list-group
+              %li.list-group-item
+                %span.glyphicon.glyphicon-chevron-right
+                List item 1
+              %li.list-group-item
+                %span.glyphicon.glyphicon-chevron-right
+                List item 2
+              %li.list-group-item
+                %span.glyphicon.glyphicon-chevron-right
+                Mobile-first
+              %li.list-group-item
+                %span.glyphicon.glyphicon-chevron-right
+                Responsive
+              %li.list-group-item
+                %span.glyphicon.glyphicon-chevron-right
+                Lightweight
+          .col-lg-4
+            .list-group
+              %a.list-group-item.active{href: "#"}
+                Linked list group
+                %span.glyphicon.glyphicon-chevron-right
+              %a.list-group-item{href: "#"}
+                Dapibus ac facilisis in
+                %span.glyphicon.glyphicon-chevron-right
+              %a.list-group-item{href: "#"}
+                Morbi leo risus
+                %span.glyphicon.glyphicon-chevron-right
+              %a.list-group-item{href: "#"}
+                Porta ac consectetur ac
+                %span.glyphicon.glyphicon-chevron-right
+              %a.list-group-item{href: "#"}
+                Vestibulum at eros
+                %span.glyphicon.glyphicon-chevron-right
+        /
+          Well Sizes
+          \==================================================
+        %hr/
+        %h2 Well Sizes
+        .row
+          .col-lg-12
+            .well.well-sm
+              \.well-sm
+            .well
+              \.well
+            .well.well-lg
+              \.well-lg
+        %hr/
+      %hr/
+    %script{src: "//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js", type: "text/javascript"}
+    {{ 'bootstrap.min.js' | javascript_tag }}
+    :javascript
+      $(document).ready(function() {
+      });

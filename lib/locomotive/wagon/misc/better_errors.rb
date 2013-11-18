@@ -38,7 +38,7 @@ module BetterErrors
         scope = self.liquid_context.scopes.last.clone
 
         scope.delete_if { |k, _| %w(models contents params session).include?(k) }.tap do |_scope|
-          _scope['site'] = _scope['site']._source.to_hash
+          _scope['site'] = _scope['site'].send(:_source).to_hash
           _scope['page'] = _scope['page'].to_hash.delete_if { |k, _| %w(template).include?(k) }
         end
       else

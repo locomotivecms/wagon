@@ -34,6 +34,8 @@ position: 2
   {% endwith_scope %}
   {% for s in selected_songs %}
   %p.scoped_song {{ s._label }}
+  %p.scoped_song_link
+    %a{ href: "{% path_to s %}" } {{ s._label }}
   {% endfor %}
   %p.collection_equality {{ contents.songs.all.size }}={{ contents.songs.size }}
 
