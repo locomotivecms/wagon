@@ -35,12 +35,12 @@ describe Locomotive::Wagon::Server do
   end
 
   it 'shows a content type template ' do
-    get '/songs/song-1'
+    get '/songs/song-number-1'
     last_response.body.should =~ /Song #1/
   end
 
   it 'renders a page under a templatized one' do
-    get '/songs/song-1/band'
+    get '/songs/song-number-1/band'
     last_response.body.should =~ /Song #1/
     last_response.body.should =~ /Leader: Eddie/
   end
@@ -61,7 +61,7 @@ describe Locomotive::Wagon::Server do
 
   it 'translates a page with link_to tags inside' do
     get '/fr/notre-musique'
-    last_response.body.should =~ /<h3><a href="\/fr\/songs\/song-8">Song #8<\/a><\/h3>/
+    last_response.body.should =~ /<h3><a href="\/fr\/songs\/song-number-8">Song #8<\/a><\/h3>/
     last_response.body.should =~ /Propulsé par/
   end
 

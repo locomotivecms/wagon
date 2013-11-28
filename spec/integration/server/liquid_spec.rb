@@ -13,7 +13,7 @@ describe Locomotive::Wagon::Server do
   end
 
   it "converts {{ page.templatized? }} => true on templatized page" do
-    get '/songs/song-1'
+    get '/songs/song-number-1'
     last_response.body.should =~ /templatized=.true./
   end
 
@@ -28,12 +28,12 @@ describe Locomotive::Wagon::Server do
   end
 
   it "provides an access to page's content_type collection" do
-    get '/songs/song-1'
+    get '/songs/song-number-1'
     last_response.body.should =~ /content_type_size=.8./
   end
 
   it "provides count alias on collections" do
-    get '/songs/song-1'
+    get '/songs/song-number-1'
     last_response.body.should =~ /content_type_count=.8./
   end
 
@@ -56,12 +56,12 @@ describe Locomotive::Wagon::Server do
 
     it "writes a link to a templatized page" do
       get '/events'
-      last_response.body.should =~ /<a href="\/songs\/song-1">Song #1<\/a>/
+      last_response.body.should =~ /<a href="\/songs\/song-number-1">Song #1<\/a>/
     end
 
     it "writes a link to a templatized page with a different handle" do
       get '/events'
-      last_response.body.should =~ /<a href="\/songs\/song-8">Song #8<\/a>/
+      last_response.body.should =~ /<a href="\/songs\/song-number-8">Song #8<\/a>/
     end
 
   end
@@ -71,7 +71,7 @@ describe Locomotive::Wagon::Server do
     it "evaluates collection when called all inside of scope" do
       get '/music'
       last_response.body.should =~ /<p class=.scoped_song.>Song #3/
-      last_response.body.should =~ /<p class=.scoped_song_link.>\s+<a href=.\/songs\/song-3.>Song #3/m
+      last_response.body.should =~ /<p class=.scoped_song_link.>\s+<a href=.\/songs\/song-number-3.>Song #3/m
     end
 
     it "size of evaluated unscoped collection equal to unevaluated one" do
