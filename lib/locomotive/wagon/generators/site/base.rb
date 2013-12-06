@@ -14,6 +14,13 @@ module Locomotive
           argument :name
           argument :target_path
 
+          def copy_sources
+            directory('.', self.destination, { recursive: true }, {
+              name:     self.name,
+              version:  Locomotive::Wagon::VERSION
+            })
+          end
+
           def self.source_root
             File.join(File.dirname(__FILE__), '..', '..', '..', '..', '..', 'generators', self.name.demodulize.underscore)
           end

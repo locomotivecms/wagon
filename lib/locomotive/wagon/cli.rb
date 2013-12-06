@@ -117,10 +117,12 @@ module Locomotive
         end
 
         desc 'init NAME [PATH]', 'Create a brand new LocomotiveCMS site'
-        method_option :template, aliases: '-t', type: 'string', default: 'blank', desc: 'instead of building from a blank site, you can have a pre-fetched site with form a template (see the templates command)'
-        method_option :verbose, aliases: '-v', type: 'boolean', default: false, desc: 'display the full error stack trace if an error occurs'
+        method_option :template,  aliases: '-t', type: 'string', default: 'blank', desc: 'instead of building from a blank site, you can have a pre-fetched site with form a template (see the templates command)'
+        method_option :lib,       aliases: '-l', type: 'string', desc: 'Path to an external ruby lib or generator'
+        method_option :verbose,   aliases: '-v', type: 'boolean', default: false, desc: 'display the full error stack trace if an error occurs'
         def init(name, path = '.')
           require 'locomotive/wagon/generators/site'
+          require File.expand_path(options[:lib]) if options[:lib]
           generator = Locomotive::Wagon::Generators::Site.get(options[:template])
           if generator.nil?
             say "Unknown site template '#{options[:template]}'", :red
@@ -154,8 +156,10 @@ module Locomotive
         subcommand 'generate', Generate
 
         desc 'list_templates', 'List all the templates to create either a site or a content type'
+        method_option :lib, aliases: '-l', type: 'string', desc: 'Path to an external ruby lib or generator'
         def list_templates
           require 'locomotive/wagon/generators/site'
+          require File.expand_path(options[:lib]) if options[:lib]
           if Locomotive::Wagon::Generators::Site.empty?
             say 'No templates', :red
           else
