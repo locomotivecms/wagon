@@ -9,5 +9,4 @@ gemspec
 # gem 'locomotivecms_mounter', path: '../gems/mounter', require: false
 # gem 'locomotivecms_mounter', github: 'locomotivecms/mounter', ref: '34d24feeb8', require: false
 
-
 gem 'rb-fsevent', '~> 0.9.1'
