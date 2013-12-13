@@ -157,7 +157,14 @@ module Locomotive
           end
         end
 
-        desc 'generate TYPE ...ARGS', 'Generate a content_type, page, or snippet'
+        desc 'generate RESOURCE ARGUMENTS', 'Generates a content_type, page, or snippet'
+        long_desc <<-LONGDESC
+          Generates a content_type, page, or snippet
+
+          RESOURCE can be set to content_type, page, or snippet.
+
+          Use wagon generate help [RESOURCE] for usage information and examples.
+        LONGDESC
         subcommand 'generate', Generate
 
         desc 'list_templates', 'List all the templates to create either a site or a content type'
