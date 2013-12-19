@@ -133,6 +133,7 @@ module Locomotive
               end
             rescue GeneratorException => e
               self.print_exception(e, options[:verbose])
+              exit(1)
             end
           end
         end
@@ -149,6 +150,7 @@ module Locomotive
             end
           rescue Exception => e
             self.print_exception(e, options[:verbose])
+            exit(1)
           end
         end
 
@@ -179,6 +181,7 @@ module Locomotive
               Locomotive::Wagon.serve(path, options)
             rescue Exception => e
               say e.message, :red
+              exit(1)
             end
           end
         end
@@ -196,6 +199,7 @@ module Locomotive
                 Locomotive::Wagon.push(path, connection_info, options)
               rescue Exception => e
                 self.print_exception(e, options[:verbose])
+                exit(1)
               end
             end
           end
@@ -211,6 +215,7 @@ module Locomotive
                 Locomotive::Wagon.pull(path, connection_info, options)
               rescue Exception => e
                 self.print_exception(e, options[:verbose])
+                exit(1)
               end
             end
           end
@@ -224,6 +229,7 @@ module Locomotive
                 Locomotive::Wagon.destroy(path, connection_info)
               else
                 say 'The destroy operation has been cancelled', :red
+                exit(1)
               end
             end
           end
