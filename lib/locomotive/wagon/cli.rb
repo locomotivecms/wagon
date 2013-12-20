@@ -44,7 +44,7 @@ module Locomotive
 
           FIELDS format: field_1[:TYPE][:REQUIRED] field_2[:TYPE][:REQUIRED] ...
 
-          TYPE values: string, text, integer, float, boolean, email, date_time, file, tags, select, belongs_to, has_many, or many_to_many. Default is string.
+          TYPE values: string, text, integer, float, boolean, email, date, date_time, file, tags, select, belongs_to, has_many, or many_to_many. Default is string.
 
           To require a field, set REQUIRED to true.
 
