@@ -46,13 +46,13 @@ module Locomotive
 
           TYPE values: string, text, integer, float, boolean, email, date, date_time, file, tags, select, belongs_to, has_many, or many_to_many. Default is string.
 
-          To require a field, set REQUIRED to true.
+          To require a field, set REQUIRED to true. The first field is required by default.
 
           Examples:
 
-            * wagon generate content_type posts title:true published_at:date_time:true body:text
+            * wagon generate content_type posts title published_at:date_time:true body:text
 
-            * wagon generate content_type products title:true price:float photo:file category:belongs_to:true 
+            * wagon generate content_type products title price:float photo:file category:belongs_to:true 
         LONGDESC
         def content_type(name, *fields)
           say('The fields are missing', :red) and return false if fields.empty?
