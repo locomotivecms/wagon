@@ -5,13 +5,6 @@ module Locomotive
 
         class Foundation < Base
 
-          def copy_sources
-            directory('.', self.destination, { recursive: true }, {
-              name:     self.name,
-              version:  Locomotive::Wagon::VERSION
-            })
-          end
-
           def choose_haml_over_html
             if yes?('Do you prefer HAML templates ?')
               remove_file File.join(self.destination, 'app/views/pages/index.liquid')

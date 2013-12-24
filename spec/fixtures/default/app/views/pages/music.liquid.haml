@@ -29,7 +29,7 @@ position: 2
 #is_listed{ listed: "{{ page.listed? }}" }
 
 #test_for_scope
-  {% with_scope _slug: "song-3" %}
+  {% with_scope _slug: "song-number-3" %}
   {% assign selected_songs = contents.songs.all %}
   {% endwith_scope %}
   {% for s in selected_songs %}

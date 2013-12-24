@@ -32,7 +32,7 @@ module Locomotive::Wagon
           raise RendererException.new(e, self.page.title, self.page.template, context)
         end
       end
-      
+
       def render_404
         if self.page = self.mounting_point.pages['404']
           self.render_page
@@ -92,7 +92,8 @@ module Locomotive::Wagon
           'locales'           => self.mounting_point.locales.map(&:to_s),
           'current_user'      => {},
           'session'           => Locomotive::Wagon::Liquid::Drops::SessionProxy.new,
-          'wagon'             => true
+          'wagon'             => true,
+          'editing'           => false
         }
       end
 
