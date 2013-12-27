@@ -77,7 +77,7 @@ module Locomotive
               page.fullpath.clone
             end
 
-            fullpath = "#{::I18n.locale}/#{fullpath}" if ::I18n.locale.to_s != mounting_point.default_locale.to_s && !@_options['force_locale']
+            fullpath = "#{::I18n.locale}/#{fullpath}" if ::I18n.locale.to_s != mounting_point.default_locale.to_s || @_options['force_locale']
 
             if page.templatized?
               if page.content_entry._slug.nil?
