@@ -149,7 +149,7 @@ module Locomotive
           # @return [ String ] The localized url
           #
           def entry_url(page)
-            if ::I18n.locale.to_s == self.mounting_point.default_locale.to_s
+            if ::I18n.locale.to_s == self.mounting_point.default_locale.to_s && !@_options[:force_locale]
               "/#{page.fullpath}"
             else
               "/#{::I18n.locale}/#{page.fullpath}"
