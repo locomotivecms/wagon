@@ -32,7 +32,7 @@ module Locomotive::Wagon
         pages = self.mounting_point.pages.values.find_all do |_page|
           matchers.include?(_page.safe_fullpath) ||
           matchers.include?(_page.safe_fullpath.try(:underscore))
-        end.sort { |a, b| a.position <=> b.position }
+        end.sort_by { |p| p.position || Float::INFINITY }
 
         if pages.size > 1
           self.log "Found multiple pages: #{pages.collect(&:title).join(', ')}"
