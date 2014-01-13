@@ -8,13 +8,17 @@ module Locomotive
 
         class Unzip < Base
 
+          class_option :location, type: :string, default: nil, required: false, desc: 'Location of the zip file'
+
+          @@source_root = nil
+
           def prepare
             remove_file join('tmp')
             empty_directory join('tmp')
           end
 
           def ask_for_location
-            @location = ask('What is the location (on the filesystem or url) of the zip file ?')
+            @location = options[:location] || ask('What is the location (on the filesystem or url) of the zip file ?')
             raise GeneratorException.new('Please enter a location') if @location.blank?
           end
 
@@ -73,7 +77,7 @@ module Locomotive
         end
 
         Locomotive::Wagon::Generators::Site.register(:unzip, Unzip, %{
-          Unzip a local or remote (http, https, ftp) zipped LocomotiveCMS site.
+          Unzip a local or remote (http, https, ftp) zipped site.
         })
       end
     end

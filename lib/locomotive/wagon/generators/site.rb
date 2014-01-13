@@ -37,6 +37,14 @@ module Locomotive
           Locomotive::Wagon::Generators::Site::List.instance._list
         end
 
+        # JSON output of the generators list
+        #
+        # @return [ String ] The JSON output
+        #
+        def self.list_to_json
+          Locomotive::Wagon::Generators::Site::List.instance.to_json
+        end
+
         # Tell if the list of generators is empty or not .
         #
         # @return [ Boolean ] True if empty
@@ -84,6 +92,44 @@ module Locomotive
 
             self._list.last
           end
+
+          # Return the list of site templates in JSON
+          #
+          # @return [ String ] JSON output
+          #
+          def to_json
+            self._list.map do |template|
+              # puts template.klass.class_options.inspect
+              # puts class_options_to_json
+              path = template.klass.source_root ? File.expand_path(template.klass.source_root) : nil
+              icon = path ? File.join(path, 'icon.png') : nil
+
+              {
+                name:         template.name,
+                description:  template.description,
+                path:         path,
+                icon:         icon && File.exists?(icon) ? icon : nil,
+                options:      class_options_to_json(template)
+
+
+              }
+            end.to_json
+          end
+
+          protected
+
+          def class_options_to_json(template)
+            [].tap do |list|
+              template.klass.class_options.each do |name, option|
+                list << {
+                  name:   name,
+                  label:  option.description,
+                  type:   option.type
+                }
+              end
+            end
+          end
+
         end
 
       end

@@ -29,6 +29,20 @@ module Locomotive
             File.join(target_path, name)
           end
 
+          def self.may_use_haml
+            class_option :haml, type: :boolean, default: nil, required: false, desc: 'HAML over HTML?'
+          end
+
+          protected
+
+          def haml?
+            if options[:haml].nil?
+              yes?('Do you prefer HAML templates ?')
+            else
+              options[:haml]
+            end
+          end
+
         end
 
       end

@@ -30,6 +30,17 @@ module Locomotive
 
       end
 
+      module ForceColor
+
+        def force_color_if_asked(options)
+          if options[:force_color]
+            require 'locomotive/wagon/misc/thor'
+            self.shell = Thor::Shell::ForceColor.new
+          end
+        end
+
+      end
+
       class Generate < Thor
 
         include Locomotive::Wagon::CLI::CheckPath
@@ -109,6 +120,9 @@ module Locomotive
       class Main < Thor
 
         include Locomotive::Wagon::CLI::CheckPath
+        include Locomotive::Wagon::CLI::ForceColor
+
+        class_option :force_color, aliases: '-c', type: :boolean, default: false, desc: 'Whether or not to use ANSI color in the output.'
 
         desc 'version', 'Version of the LocomotiveCMS wagon'
         def version
@@ -116,11 +130,12 @@ module Locomotive
           say Locomotive::Wagon::VERSION
         end
 
-        desc 'init NAME [PATH]', 'Create a brand new LocomotiveCMS site'
+        desc 'init NAME [PATH] [OPTIONS]', 'Create a brand new LocomotiveCMS site'
         method_option :template,  aliases: '-t', type: 'string', default: 'blank', desc: 'instead of building from a blank site, you can have a pre-fetched site with form a template (see the templates command)'
         method_option :lib,       aliases: '-l', type: 'string', desc: 'Path to an external ruby lib or generator'
         method_option :verbose,   aliases: '-v', type: 'boolean', default: false, desc: 'display the full error stack trace if an error occurs'
-        def init(name, path = '.')
+        def init(name, path = '.', generator_options = nil)
+          force_color_if_asked(options)
           require 'locomotive/wagon/generators/site'
           require File.expand_path(options[:lib]) if options[:lib]
           generator = Locomotive::Wagon::Generators::Site.get(options[:template])
@@ -128,7 +143,7 @@ module Locomotive
             say "Unknown site template '#{options[:template]}'", :red
           else
             begin
-              if Locomotive::Wagon.init(name, path, generator)
+              if Locomotive::Wagon.init(name, path, generator, generator_options)
                 self.print_next_instructions_when_site_created(name, path)
               end
             rescue GeneratorException => e
@@ -157,16 +172,20 @@ module Locomotive
 
         desc 'list_templates', 'List all the templates to create either a site or a content type'
         method_option :lib, aliases: '-l', type: 'string', desc: 'Path to an external ruby lib or generator'
+        method_option :json, aliases: '-j', type: :boolean, default: false, desc: 'Output the list in JSON'
         def list_templates
+          force_color_if_asked(options)
           require 'locomotive/wagon/generators/site'
           require File.expand_path(options[:lib]) if options[:lib]
           if Locomotive::Wagon::Generators::Site.empty?
             say 'No templates', :red
-          else
+          elsif !options[:json]
             Locomotive::Wagon::Generators::Site.list.each do |info|
               say info.name, :bold, false
               say " - #{info.description}" unless info.description.blank?
             end
+          else
+            say Locomotive::Wagon::Generators::Site.list_to_json
           end
         end
 

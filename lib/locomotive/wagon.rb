@@ -10,9 +10,10 @@ module Locomotive
     # @param [ String ] name The name of the site (underscored)
     # @param [ String ] path The destination path of the site
     # @param [ Object ] generator The wrapping class of the generator itself
+    # @param [ String ] options Options for the generator (ex: --force_haml)
     #
-    def self.init(name, path, generator)
-      generator.klass.start [name, path]
+    def self.init(name, path, generator, options)
+      generator.klass.start [name, path, options]
     end
 
     # Start the thin server which serves the LocomotiveCMS site from the system.

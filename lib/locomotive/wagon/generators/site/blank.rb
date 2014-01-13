@@ -5,8 +5,10 @@ module Locomotive
 
         class Blank < Base
 
+          may_use_haml
+
           def choose_haml_over_html
-            if yes?('Do you prefer HAML templates ?')
+            if haml?
               remove_file File.join(self.destination, 'app/views/pages/index.liquid')
               remove_file File.join(self.destination, 'app/views/pages/404.liquid')
             else
@@ -17,7 +19,7 @@ module Locomotive
         end
 
         Locomotive::Wagon::Generators::Site.register(:blank, Blank, %{
-          A blank LocomotiveCMS site with the minimal files.
+          A blank site with the minimal files.
         })
       end
     end

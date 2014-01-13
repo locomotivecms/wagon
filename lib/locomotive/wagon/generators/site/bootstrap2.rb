@@ -5,8 +5,10 @@ module Locomotive
 
         class Bootstrap2 < Base
 
+          may_use_haml
+
           def choose_haml_over_html
-            if yes?('Do you prefer HAML templates ?')
+            if haml?
               remove_file File.join(self.destination, 'app/views/pages/index.liquid')
               remove_file File.join(self.destination, 'app/views/pages/404.liquid')
               remove_file File.join(self.destination, 'app/views/snippets/footer.liquid')
@@ -20,7 +22,7 @@ module Locomotive
         end
 
         Locomotive::Wagon::Generators::Site.register(:bootstrap2, Bootstrap2, %{
-          A LocomotiveCMS site with Twitter Bootstrap (v2.3.2) and Font Awesome (v3.2.1).
+          A site with Twitter Bootstrap (v2.3.2) and Font Awesome (v3.2.1).
         })
       end
     end
