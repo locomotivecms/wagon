@@ -59,6 +59,10 @@ module Locomotive
             directory('.', self.destination, { recursive: true })
           end
 
+          def bundle_install
+            super
+          end
+
           def self.source_root
             # only way to change the source root from the instance
             @@source_root

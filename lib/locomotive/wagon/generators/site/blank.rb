@@ -16,6 +16,11 @@ module Locomotive
               remove_file File.join(self.destination, 'app/views/pages/404.liquid.haml')
             end
           end
+
+          def bundle_install
+            super
+          end
+
         end
 
         Locomotive::Wagon::Generators::Site.register(:blank, Blank, %{

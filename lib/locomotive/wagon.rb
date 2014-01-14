@@ -9,11 +9,12 @@ module Locomotive
     #
     # @param [ String ] name The name of the site (underscored)
     # @param [ String ] path The destination path of the site
+    # @param [ Boolean ] skip_bundle Do not run bundle install
     # @param [ Object ] generator The wrapping class of the generator itself
     # @param [ String ] options Options for the generator (ex: --force_haml)
     #
-    def self.init(name, path, generator, options)
-      generator.klass.start [name, path, options]
+    def self.init(name, path, skip_bundle, generator, options)
+      generator.klass.start [name, path, skip_bundle, options]
     end
 
     # Start the thin server which serves the LocomotiveCMS site from the system.
@@ -127,7 +128,7 @@ module Locomotive
       # generate an almost blank site
       require 'locomotive/wagon/generators/site'
       generator = Locomotive::Wagon::Generators::Site::Cloned
-      generator.start [name, path, connection_info.symbolize_keys]
+      generator.start [name, path, true, connection_info.symbolize_keys]
 
       # pull the remote site
       self.pull(target_path, options.merge(connection_info).with_indifferent_access, { disable_misc: true })

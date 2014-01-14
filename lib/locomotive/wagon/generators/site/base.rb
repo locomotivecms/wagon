@@ -13,6 +13,7 @@ module Locomotive
 
           argument :name
           argument :target_path
+          argument :skip_bundle
 
           def copy_sources
             directory('.', self.destination, { recursive: true }, {
@@ -25,15 +26,15 @@ module Locomotive
             File.join(File.dirname(__FILE__), '..', '..', '..', '..', '..', 'generators', self.name.demodulize.underscore)
           end
 
-          def destination
-            File.join(target_path, name)
-          end
-
           def self.may_use_haml
             class_option :haml, type: :boolean, default: nil, required: false, desc: 'HAML over HTML?'
           end
 
           protected
+
+          def destination
+            File.join(target_path, name)
+          end
 
           def haml?
             if options[:haml].nil?
@@ -41,6 +42,18 @@ module Locomotive
             else
               options[:haml]
             end
+          end
+
+          def bundle_install
+            return if skip_bundle
+
+            FileUtils.cd self.destination
+
+            say_status :run, "bundle install"
+
+            ENV['BUNDLE_GEMFILE'] = nil
+
+            print `"#{Gem.ruby}" -rubygems "#{Gem.bin_path('bundler', 'bundle')}" install`
           end
 
         end

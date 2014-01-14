@@ -19,6 +19,10 @@ module Locomotive
             end
           end
 
+          def bundle_install
+            super
+          end
+
         end
 
         Locomotive::Wagon::Generators::Site.register(:foundation, Foundation, %{

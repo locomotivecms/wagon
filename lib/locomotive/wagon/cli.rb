@@ -131,9 +131,10 @@ module Locomotive
         end
 
         desc 'init NAME [PATH] [OPTIONS]', 'Create a brand new LocomotiveCMS site'
-        method_option :template,  aliases: '-t', type: 'string', default: 'blank', desc: 'instead of building from a blank site, you can have a pre-fetched site with form a template (see the templates command)'
-        method_option :lib,       aliases: '-l', type: 'string', desc: 'Path to an external ruby lib or generator'
-        method_option :verbose,   aliases: '-v', type: 'boolean', default: false, desc: 'display the full error stack trace if an error occurs'
+        method_option :template,    aliases: '-t', type: 'string', default: 'blank', desc: 'instead of building from a blank site, you can have a pre-fetched site with form a template (see the templates command)'
+        method_option :lib,         aliases: '-l', type: 'string', desc: 'Path to an external ruby lib or generator'
+        method_option :skip_bundle, type: 'boolean', default: false, desc: "Don't run bundle install"
+        method_option :verbose,     aliases: '-v', type: 'boolean', default: false, desc: 'display the full error stack trace if an error occurs'
         def init(name, path = '.', generator_options = nil)
           force_color_if_asked(options)
           require 'locomotive/wagon/generators/site'
@@ -143,8 +144,8 @@ module Locomotive
             say "Unknown site template '#{options[:template]}'", :red
           else
             begin
-              if Locomotive::Wagon.init(name, path, generator, generator_options)
-                self.print_next_instructions_when_site_created(name, path)
+              if Locomotive::Wagon.init(name, path, options[:skip_bundle], generator, generator_options)
+                self.print_next_instructions_when_site_created(name, path, options[:skip_bundle])
               end
             rescue GeneratorException => e
               self.print_exception(e, options[:verbose])
@@ -176,6 +177,7 @@ module Locomotive
         method_option :lib, aliases: '-l', type: 'string', desc: 'Path to an external ruby lib or generator'
         method_option :json, aliases: '-j', type: :boolean, default: false, desc: 'Output the list in JSON'
         def list_templates
+          puts Gem.ruby
           force_color_if_asked(options)
           require 'locomotive/wagon/generators/site'
           require File.expand_path(options[:lib]) if options[:lib]
@@ -260,11 +262,17 @@ module Locomotive
         #
         # @param [ String ] name The name of the site
         # @param [ String ] path The path of the local site
+        # @param [ Boolean ] skip_bundle Do not run bundle install
         #
-        def print_next_instructions_when_site_created(name, path)
+        def print_next_instructions_when_site_created(name, path, skip_bundle)
           say "\nCongratulations, your site \"#{name}\" has been created successfully !", :green
           say 'Next steps:', :bold
-          say "\tcd #{path}/#{name}\n\tbundle install\n\tbundle exec wagon serve\n\topen http://0.0.0.0:3333"
+
+          next_intructions = "\tcd #{path}/#{name}\n\t"
+          next_instructions += "bundle install\n\t" if skip_bundle
+          next_instructions += "bundle exec wagon serve\n\topen http://0.0.0.0:3333"
+
+          say next_instructions
         end
 
         # Print the exception.
