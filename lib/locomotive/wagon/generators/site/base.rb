@@ -45,7 +45,7 @@ module Locomotive
           end
 
           def bundle_install
-            return if skip_bundle
+            return if [true, 'true'].include?(skip_bundle)
 
             FileUtils.cd self.destination
 

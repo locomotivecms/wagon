@@ -144,7 +144,7 @@ module Locomotive
             say "Unknown site template '#{options[:template]}'", :red
           else
             begin
-              if Locomotive::Wagon.init(name, path, options[:skip_bundle], generator, generator_options)
+              if Locomotive::Wagon.init(name, path, options[:skip_bundle].to_s, generator, generator_options)
                 self.print_next_instructions_when_site_created(name, path, options[:skip_bundle])
               end
             rescue GeneratorException => e
@@ -268,7 +268,7 @@ module Locomotive
           say "\nCongratulations, your site \"#{name}\" has been created successfully !", :green
           say 'Next steps:', :bold
 
-          next_intructions = "\tcd #{path}/#{name}\n\t"
+          next_instructions = "\tcd #{path}/#{name}\n\t"
           next_instructions += "bundle install\n\t" if skip_bundle
           next_instructions += "bundle exec wagon serve\n\topen http://0.0.0.0:3333"
 
