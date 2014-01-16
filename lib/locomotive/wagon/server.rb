@@ -26,10 +26,6 @@ module Locomotive::Wagon
       @reader = reader
       @app    = self.create_rack_app(@reader)
 
-      unless options[:disable_listen]
-        Locomotive::Wagon::Listen.instance.start(@reader)
-      end
-
       BetterErrors.application_root = reader.mounting_point.path
     end
 

@@ -28,19 +28,43 @@ module Locomotive
 
         require 'locomotive/wagon/server'
         app = Locomotive::Wagon::Server.new(reader)
+        use_listen = !options[:disable_listen]
+
+        # TODO: new feature -> pick the right Rack handler (Thin, Puma, ...etc)
 
         require 'thin'
-        server = Thin::Server.new(options[:host], options[:port], app)
-        server.threaded = true # TODO: make it an option ?
+        server  = Thin::Server.new(options[:host], options[:port], app)
+        server.threaded = true
+
+        if options[:force]
+          begin
+            self.stop(path)
+            sleep(2) # make sure we wait enough for the Thin process to stop
+          rescue
+          end
+        end
+
+        if options[:daemonize]
+          # very important to get the parent pid in order to differenciate the sub process from the parent one
+          parent_pid = Process.pid
+
+          server.log_file = File.join(File.expand_path(path), 'log', 'thin.log')
+          server.pid_file = File.join(File.expand_path(path), 'log', 'thin.pid')
+          server.daemonize
+
+          use_listen = Process.pid != parent_pid && !options[:disable_listen]
+        end
+
+        Locomotive::Wagon::Listen.instance.start(reader) if use_listen
+
         server.start
-
-        # require 'unicorn' # TODO: gem 'unicorn'
-        # server = Unicorn::HttpServer.new(app)
-        # server.start
-
-        # require 'rack'
-        # Rack::Handler::WEBrick.run(app, { :'Port' => options[:port], :'Host' => options[:host] })
       end
+    end
+
+    def self.stop(path)
+      pid_file = File.join(File.expand_path(path), 'log', 'thin.pid')
+      pid = File.read(pid_file).to_i
+      Process.kill('TERM', pid)
     end
 
     # Generate components for the LocomotiveCMS site such as content types, snippets, pages.

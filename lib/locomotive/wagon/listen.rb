@@ -10,6 +10,13 @@ module Locomotive::Wagon
     end
 
     def start(reader)
+      # if $parent_pid && $parent_pid == Process.pid
+      #   puts "bypassing Listen in the parent process"
+      #   return false
+      # end
+
+      puts "Listening here: #{Process.pid}"
+
       self.reader = reader
 
       self.definitions.each do |definition|
@@ -46,10 +53,10 @@ module Locomotive::Wagon
       path    = File.join(self.reader.mounting_point.path, definition.first)
       path    = File.expand_path(path)
 
-      listener = ::Listen.to(path).filter(filter).change(&reloader)
+      listener = ::Listen.to(path, only: filter, &reloader)
 
       # non blocking listener
-      listener.start(false)
+      listener.start #(false)
     end
 
   end
