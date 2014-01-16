@@ -303,7 +303,7 @@ module Locomotive
         # @param [ Boolean ] verbose Print the full backtrace if true
         #
         def print_exception(exception, verbose)
-          say exception.message + Process.pid.to_s, :red
+          say exception.message, :red
           if verbose
             say "\t" + exception.backtrace.join("\n\t")
           end
