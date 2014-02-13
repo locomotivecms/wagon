@@ -24,6 +24,10 @@ module Locomotive
             self.collection
           end
 
+          def any
+            self.collection.any?
+          end
+
           def first
             self.collection.first
           end
