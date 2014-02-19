@@ -3,7 +3,7 @@ module Locomotive
     module Generators
       module Site
 
-        class Foundation < Base
+        class Foundation5 < Base
 
           may_use_haml
 
@@ -25,8 +25,8 @@ module Locomotive
 
         end
 
-        Locomotive::Wagon::Generators::Site.register(:foundation, Foundation, %{
-          A site powered by Foundation (v4.3.2).
+        Locomotive::Wagon::Generators::Site.register(:foundation5, Foundation5, %{
+          A site powered by Foundation (v5.1.1).
         })
       end
     end
