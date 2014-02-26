@@ -63,7 +63,7 @@ module Locomotive
 
             * wagon generate content_type posts title published_at:date_time:true body:text
 
-            * wagon generate content_type products title price:float photo:file category:belongs_to:true 
+            * wagon generate content_type products title price:float photo:file category:belongs_to:true
         LONGDESC
         def content_type(name, *fields)
           say('The fields are missing', :red) and return false if fields.empty?
@@ -136,7 +136,7 @@ module Locomotive
         end
 
         desc 'init NAME [PATH] [OPTIONS]', 'Create a brand new site'
-        method_option :template,    aliases: '-t', type: 'string', default: 'blank', desc: 'instead of building from a blank site, you can have a pre-fetched site with form a template (see the templates command)'
+        method_option :template,    aliases: '-t', type: 'string', default: 'blank', desc: 'instead of building from a blank site, you can also have a pre-fetched site from a template (see the templates command)'
         method_option :lib,         aliases: '-l', type: 'string', desc: 'Path to an external ruby lib or generator'
         method_option :skip_bundle, type: 'boolean', default: false, desc: "Don't run bundle install"
         method_option :verbose,     aliases: '-v', type: 'boolean', default: false, desc: 'display the full error stack trace if an error occurs'
