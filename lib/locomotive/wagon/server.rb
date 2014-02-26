@@ -23,6 +23,8 @@ module Locomotive::Wagon
     def initialize(reader, options = {})
       Locomotive::Wagon::Dragonfly.setup!(reader.mounting_point.path)
 
+      Sprockets::Sass.add_sass_functions = false
+
       @reader = reader
       @app    = self.create_rack_app(@reader)
 
