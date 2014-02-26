@@ -47,18 +47,23 @@ module Locomotive
 
         class_option :path, aliases: '-p', type: :string, default: '.', optional: true, desc: 'if your LocomotiveCMS site is not in the current path'
 
-        desc 'content_type NAME FIELDS', 'Create a content type with NAME as the slug and FIELDS as the list of fields.'
+        desc 'content_type SLUG FIELDS', 'Creates a content type with the specified slug and fields.'
         long_desc <<-LONGDESC
-          Create a content type with NAME as the slug and FIELDS as the list of fields.
-          The fields follows that schema:
+          Creates a content type with the specified slug and fields.
 
-          field_1[:type][:required] field_2[:type][:required]
+          SLUG should be plural, lowercase, and underscored.
+
+          FIELDS format: field_1[:TYPE][:REQUIRED] field_2[:TYPE][:REQUIRED] ...
+
+          TYPE values: string, text, integer, float, boolean, email, date, date_time, file, tags, select, belongs_to, has_many, or many_to_many. Default is string.
+
+          To require a field, set REQUIRED to true. The first field is required by default.
 
           Examples:
 
-            * wagon generate content_type songs name:string duration:string
+            * wagon generate content_type posts title published_at:date_time:true body:text
 
-            * wagon generate content_type posts title body:text:true published_at:date
+            * wagon generate content_type products title price:float photo:file category:belongs_to:true 
         LONGDESC
         def content_type(name, *fields)
           say('The fields are missing', :red) and return false if fields.empty?
@@ -170,7 +175,14 @@ module Locomotive
           end
         end
 
-        desc 'generate TYPE ...ARGS', 'Generate resources (content_types, page, snippets) for a LocomotiveCMS site'
+        desc 'generate RESOURCE ARGUMENTS', 'Generates a content_type, page, or snippet'
+        long_desc <<-LONGDESC
+          Generates a content_type, page, or snippet
+
+          RESOURCE can be set to content_type, page, or snippet.
+
+          Use wagon generate help [RESOURCE] for usage information and examples.
+        LONGDESC
         subcommand 'generate', Generate
 
         desc 'list_templates', 'List all the templates to create either a site or a content type'
