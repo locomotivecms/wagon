@@ -54,7 +54,7 @@ module Locomotive::Wagon
         use ::Dragonfly::Middleware, :images
 
         use Rack::Static, {
-          urls: ['/images', '/fonts', '/samples'],
+          urls: ['/images', '/fonts', '/samples', '/media'],
           root: File.join(reader.mounting_point.path, 'public')
         }
 
