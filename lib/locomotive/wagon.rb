@@ -71,14 +71,15 @@ module Locomotive
     #
     # @param [ Symbol ] name The name of the generator
     # @param [ Array ] *args The arguments for the generator
+    # @param [ Hash ] options The options for the generator
     #
-    def self.generate(name, *args)
+    def self.generate(name, args, options = {})
       Bundler.require 'misc'
 
       lib = "locomotive/wagon/generators/#{name}"
       require lib
 
-      generator = lib.camelize.constantize.new(args, {}, {})
+      generator = lib.camelize.constantize.new(args, options, {})
       generator.invoke_all
     end
 

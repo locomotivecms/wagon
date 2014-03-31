@@ -74,6 +74,11 @@ module Locomotive
         end
 
         desc 'page FULLPATH', 'Create a page. No need to pass an extension to the FULLPATH arg'
+        method_option :title,         aliases: '-t', type: 'string',    default: nil, desc: 'Title of the page'
+        method_option :haml,          aliases: '-h', type: 'boolean',   default: false, desc: 'add a HAML extension to the file'
+        method_option :listed,        aliases: '-l', type: 'boolean',   default: false, desc: 'tell if the page is listed in the menu'
+        method_option :content_type,  aliases: '-c', type: 'string',    default: nil, desc: 'tell if the page is a template for a content type'
+        method_option :locales,       aliases: '-lo', type: 'string',   default: nil, desc: 'locales for the various translations'
         long_desc <<-LONGDESC
           Create a page. The generator will ask for the extension (liquid or haml) and also
           if the page is localized or not.
@@ -86,8 +91,8 @@ module Locomotive
         LONGDESC
         def page(fullpath)
           if path = check_path!
-            locales = self.site_config(path)['locales']
-            Locomotive::Wagon.generate :page, fullpath, self.options['path'], locales
+            self.options[:default_locales] = self.site_config(path)['locales']
+            Locomotive::Wagon.generate :page, [fullpath, self.options.delete('path')], self.options
           end
         end
 
@@ -102,6 +107,7 @@ module Locomotive
         LONGDESC
         def snippet(slug)
           if path = check_path!
+            raise 'TODO'
             locales = self.site_config(path)['locales']
             Locomotive::Wagon.generate :snippet, slug, self.options['path'], locales
           end

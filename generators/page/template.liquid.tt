@@ -1,5 +1,5 @@
 ---
-title: <%= config[:slug].humanize -%>
+title: <%= config[:title] -%>
 <% if config[:translated] %>
 
 # unique identifier for urls, the same as a permalink
@@ -7,7 +7,7 @@ slug: <%= config[:slug] -%>
 <% end %>
 
 # true if the page is included in the menu
-listed: true
+listed: <% if config[:listed] -%><%= config[:listed] %><% else -%>true<% end -%>
 
 # true if the page is published
 published: true
@@ -19,7 +19,11 @@ published: true
 # redirect_url: "<url to a page or to a remote url>"
 
 # content type that this page is templatizing
+<% if config[:content_type] -%>
+content_type: <%= config[:content_type] -%>
+<% else -%>
 # content_type: "<slug of one of the content types>"
+<% end -%>
 
 # editable_elements:
 #   'some_block/some_slug': "<text>"
