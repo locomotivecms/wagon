@@ -1,10 +1,10 @@
 # encoding: utf-8
 
 require File.dirname(__FILE__) + '/../integration_helper'
-require 'locomotive/wagon/server'
+require 'locomotive/steam/server'
 require 'rack/test'
 
-describe Locomotive::Wagon::Server do
+describe Locomotive::Steam::Server do
 
   include Rack::Test::Methods
 

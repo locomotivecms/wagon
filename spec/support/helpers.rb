@@ -17,10 +17,10 @@ module Spec
 
     def run_server
       path = 'spec/fixtures/default'
-      Locomotive::Wagon::Logger.setup(path, false)
+      Locomotive::Steam::Logger.setup(path, false)
       reader = Locomotive::Mounter::Reader::FileSystem.instance
       reader.run!(path: path)
-      Locomotive::Wagon::Server.new(reader, disable_listen: true)
+      Locomotive::Steam::Server.new(reader, disable_listen: true)
     end
 
     def open_in_browser

@@ -1,10 +1,10 @@
 # encoding: utf-8
 
 require File.dirname(__FILE__) + '/../integration_helper'
-require 'locomotive/wagon/server'
+require 'locomotive/steam/server'
 require 'rack/test'
 
-describe Locomotive::Wagon::Server do
+describe Locomotive::Steam::Server do
 
   include Rack::Test::Methods
 
@@ -46,7 +46,7 @@ describe Locomotive::Wagon::Server do
 
     it "writes a localized a link" do
       get '/events'
-      last_response.body.should =~ /Plus à notre sujet: <a href="\/a-notre-sujet">Qui sommes nous \?<\/a>/
+      last_response.body.should =~ /Plus à notre sujet: <a href="\/fr\/a-notre-sujet">Qui sommes nous \?<\/a>/
     end
 
     it "writes a link to a page with a custom label" do
