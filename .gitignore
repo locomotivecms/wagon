@@ -26,3 +26,5 @@ spec/fixtures/default/log
 /.sass-cache/
 
 /tests
+.ruby-gemset
+.ruby-version
