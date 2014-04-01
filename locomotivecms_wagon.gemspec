@@ -23,8 +23,6 @@ Gem::Specification.new do |gem|
   gem.add_dependency 'activesupport',         '~> 3.2.11'
   gem.add_dependency 'rubyzip',               '~> 1.1.0'
 
-  gem.add_dependency 'listen',                '~> 2.4.0'
-
   gem.add_dependency 'httmultiparty',         '0.3.10'
   gem.add_dependency 'locomotivecms_mounter', '~> 1.4.0'
   gem.add_dependency 'locomotivecms_steam', '~> 0.1.0'
