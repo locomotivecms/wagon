@@ -1,5 +1,11 @@
 # LocomotiveCMS::Wagon
 
+[![Gem Version](https://badge.fury.io/rb/locomotivecms_wagon.svg)](http://badge.fury.io/rb/locomotivecms_wagon)
+[![Code Climate](https://codeclimate.com/github/locomotivecms/wagon.png)](https://codeclimate.com/github/locomotivecms/wagon)
+[![Dependency Status](https://gemnasium.com/locomotivecms/wagon.png)](https://gemnasium.com/locomotivecms/wagon)
+[![Build Status](https://travis-ci.org/locomotivecms/wagon.svg?branch=master)](https://travis-ci.org/locomotivecms/wagon)
+[![Coverage Status](https://coveralls.io/repos/locomotivecms/wagon/badge.png)](https://coveralls.io/r/locomotivecms/wagon)
+
 Wagon is the official site generator for the LocomotiveCMS engine powered by all the efficient and modern HTML development tools (Haml, SASS, Compass, Less).
 
 ## Documentation
