@@ -74,7 +74,7 @@ module Locomotive
     #
     def self.generate(name, *args)
       Bundler.require 'misc'
-
+      binding.pry
       lib = "locomotive/wagon/generators/#{name}"
       require lib
 
