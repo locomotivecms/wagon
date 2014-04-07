@@ -8,6 +8,7 @@ require 'locomotive/wagon/cli'
 describe Locomotive::Wagon::CLI::Main do
   describe '#serve' do
     let(:output) { capture(:stdout) { subject.serve path } }
+
     context 'when no site in path' do
       let(:path) { 'a/path/with/no/site' }
       it 'outputs an explicit error' do
