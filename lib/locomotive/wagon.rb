@@ -26,8 +26,8 @@ module Locomotive
       if reader = self.require_mounter(path, true)
         Bundler.require 'misc'
 
-        require 'locomotive/wagon/server'
-        app = Locomotive::Wagon::Server.new(reader)
+        require 'locomotive/steam/server'
+        app = Locomotive::Steam::Server.new(reader)
         use_listen = !options[:disable_listen]
 
         # TODO: new feature -> pick the right Rack handler (Thin, Puma, ...etc)
@@ -55,7 +55,7 @@ module Locomotive
           use_listen = Process.pid != parent_pid && !options[:disable_listen]
         end
 
-        Locomotive::Wagon::Listen.instance.start(reader) if use_listen
+        Locomotive::Steam::Listen.instance.start(reader) if use_listen
 
         server.start
       end
