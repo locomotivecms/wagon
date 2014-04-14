@@ -2,7 +2,6 @@ module Locomotive
   module Wagon
 
     class Logger
-
       attr_accessor :logger, :logfile_path, :stdout
 
       def initialize
@@ -40,15 +39,9 @@ module Locomotive
         self.instance.setup(path, stdout)
       end
 
-      class << self
-        %w(debug info warn error fatal unknown).each do |name|
-          define_method(name) do |message|
-            self.instance.logger.send(name.to_sym, message)
-          end
-        end
+      def method_missing method, *args
+        self.logger.send method, args
       end
-
     end
-
   end
 end

@@ -27,6 +27,7 @@ Gem::Specification.new do |gem|
   gem.add_dependency 'locomotivecms_mounter', '~> 1.4.0'
   gem.add_dependency 'locomotivecms_steam',  '~> 0.1.0'
   gem.add_dependency 'locomotivecms_common', '~> 0.0.1'
+  gem.add_dependency 'better_errors',         '~> 1.0'
 
   gem.add_dependency 'faker',                 '~> 0.9.5'
 

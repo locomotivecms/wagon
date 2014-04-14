@@ -1,7 +1,5 @@
 require 'locomotive/wagon/version'
 require 'locomotive/wagon/logger'
-require 'locomotive/wagon/exceptions'
-
 module Locomotive
   module Wagon
 
@@ -74,7 +72,6 @@ module Locomotive
     #
     def self.generate(name, *args)
       Bundler.require 'misc'
-      binding.pry
       lib = "locomotive/wagon/generators/#{name}"
       require lib
 
@@ -195,7 +192,7 @@ module Locomotive
           reader.run!(path: path)
           reader
         rescue Exception => e
-          raise Locomotive::Wagon::MounterException.new "Unable to read the local LocomotiveCMS site. Please check the logs.", e
+          raise Locomotive::Common::MounterException.new "Unable to read the local LocomotiveCMS site. Please check the logs.", e
         end
       end
     end
