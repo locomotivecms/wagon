@@ -1,5 +1,8 @@
 require 'locomotive/wagon/version'
 require 'locomotive/wagon/logger'
+require 'locomotive/wagon/listen'
+require 'better_errors'
+
 module Locomotive
   module Wagon
 
@@ -53,7 +56,7 @@ module Locomotive
           use_listen = Process.pid != parent_pid && !options[:disable_listen]
         end
 
-        Locomotive::Steam::Listen.instance.start(reader) if use_listen
+        Locomotive::Wagon::Listen.instance.start(reader) if use_listen
 
         server.start
       end
@@ -180,11 +183,11 @@ module Locomotive
     # @param [ Object ] An instance of the reader is the get_reader parameter has been set.
     #
     def self.require_mounter(path, get_reader = false)
-      Locomotive::Wagon::Logger.setup(path, false)
+      Locomotive::Common::Logger.setup(path, false)
 
       require 'locomotive/mounter'
 
-      Locomotive::Mounter.logger = Locomotive::Wagon::Logger.instance.logger
+      Locomotive::Mounter.logger = Locomotive::Common::Logger.instance.logger
 
       if get_reader
         begin
