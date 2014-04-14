@@ -19,7 +19,7 @@ module Locomotive
 
           def ask_for_location
             @location = options[:location] || ask('What is the location (on the filesystem or url) of the zip file ?')
-            raise GeneratorException.new('Please enter a location') if @location.blank?
+            raise Locomotive::Common::GeneratorException.new('Please enter a location') if @location.blank?
           end
 
           def download_or_copy
@@ -46,7 +46,7 @@ module Locomotive
                   @path = $1 if file.name =~ /(.*)\/config\/site.yml$/
                 end
               end
-            rescue Exception => e
+            rescue Exception # TODO remove catch-all
               raise GeneratorException.new("Unable to unzip the archive")
             end
 

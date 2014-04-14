@@ -1,3 +1,4 @@
+require 'common'
 require 'locomotive/wagon/version'
 require 'locomotive/wagon/logger'
 require 'locomotive/wagon/listen'
@@ -24,6 +25,7 @@ module Locomotive
     # @param [ Hash ] options The options for the thin server (host, port)
     #
     def self.serve(path, options)
+
       if reader = self.require_mounter(path, true)
         Bundler.require 'misc'
 
@@ -55,7 +57,6 @@ module Locomotive
 
           use_listen = Process.pid != parent_pid && !options[:disable_listen]
         end
-
         Locomotive::Wagon::Listen.instance.start(reader) if use_listen
 
         server.start
@@ -183,7 +184,7 @@ module Locomotive
     # @param [ Object ] An instance of the reader is the get_reader parameter has been set.
     #
     def self.require_mounter(path, get_reader = false)
-      Locomotive::Common::Logger.setup(path, false)
+      Locomotive::Common::Logger.setup(File.expand_path(File.join(path, 'log', 'wagon.log')))
 
       require 'locomotive/mounter'
 

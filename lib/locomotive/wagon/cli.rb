@@ -126,7 +126,7 @@ module Locomotive
               if Locomotive::Wagon.init(name, path, options[:skip_bundle].to_s, generator, generator_options)
                 self.print_next_instructions_when_site_created(name, path, options[:skip_bundle])
               end
-            rescue GeneratorException => e
+            rescue Locomotive::Common::GeneratorException => e
               self.print_exception(e, options[:verbose])
               exit(1)
             end
