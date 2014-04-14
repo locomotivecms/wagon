@@ -17,7 +17,7 @@ module Spec
 
     def run_server
       path = 'spec/fixtures/default'
-      Locomotive::Common::Logger.setup(path, false)
+      Locomotive::Common::Logger.setup(File.expand_path(File.join(path, 'log', 'wagon.log')))
       reader = Locomotive::Mounter::Reader::FileSystem.instance
       reader.run!(path: path)
       Locomotive::Steam::Server.new(reader, disable_listen: true)

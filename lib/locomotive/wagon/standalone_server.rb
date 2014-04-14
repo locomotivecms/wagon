@@ -10,7 +10,7 @@ module Locomotive
     class StandaloneServer < Locomotive::Steam::Server
 
       def initialize(path)
-        Locomotive::Common::Logger.setup(path, false)
+        Locomotive::Common::Logger.setup(File.expand_path(File.join(path, 'log', 'wagon.log')))
 
         # get the reader
         reader = Locomotive::Mounter::Reader::FileSystem.instance
