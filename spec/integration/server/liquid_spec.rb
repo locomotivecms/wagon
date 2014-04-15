@@ -46,7 +46,7 @@ describe Locomotive::Wagon::Server do
 
     it "writes a localized a link" do
       get '/events'
-      last_response.body.should =~ /Plus à notre sujet: <a href="\/a-notre-sujet">Qui sommes nous \?<\/a>/
+      last_response.body.should =~ /Plus à notre sujet: <a href="\/fr\/a-notre-sujet">Qui sommes nous \?<\/a>/
     end
 
     it "writes a link to a page with a custom label" do
