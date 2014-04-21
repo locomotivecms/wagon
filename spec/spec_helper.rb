@@ -3,7 +3,6 @@ require 'bundler/setup'
 
 require 'launchy'
 require 'coveralls'
-require 'pry'
 
 require_relative '../lib/locomotive/wagon'
 require_relative 'support'

@@ -4,6 +4,11 @@ require 'locomotive/wagon/version'
 require 'locomotive/wagon/listen'
 require 'better_errors'
 
+begin
+  require 'pry'
+rescue LoadError
+end
+
 module Locomotive
   module Wagon
 
