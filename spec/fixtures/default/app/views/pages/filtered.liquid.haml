@@ -8,3 +8,9 @@ title: Various uses of the with_scope tag
 {% with_scope date.gte: begin, date.lte: end, city: /Kansas/, state.ne: 'Illinois', tags: 'awesome', tags.nin: 'bad', price.in: prices %}
 events={{ contents.events.count }}.
 {% endwith_scope %}
+
+{% assign featured = false %}
+
+{% with_scope featured: featured %}
+bands={{ contents.bands.count }}.
+{% endwith_scope %}

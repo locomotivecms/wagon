@@ -31,7 +31,7 @@ module Locomotive
               when /^\/[^\/]*\/$/     then Regexp.new(value[1..-2])
               when /^["|'](.+)["|']$/ then $1.gsub(/^["|']/, '').gsub(/["|']$/, '')
               else
-                context[value] || value
+                context[value].nil? ? value : context[value]
               end)
             end
           end
