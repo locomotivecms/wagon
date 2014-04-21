@@ -25,17 +25,17 @@ Gem::Specification.new do |gem|
 
   gem.add_dependency 'httmultiparty',         '0.3.10'
   gem.add_dependency 'locomotivecms_mounter', '~> 1.4.0'
-  gem.add_dependency 'locomotivecms_steam',  '~> 0.1.0'
+  # gem.add_dependency 'locomotivecms_steam',  '~> 0.1.1'
   gem.add_dependency 'locomotivecms_common', '~> 0.0.1'
-  gem.add_dependency 'better_errors',         '~> 1.0'
-  gem.add_dependency 'listen',                '~> 2.4.0'
+  gem.add_dependency 'better_errors',         '~> 1.1'
+  gem.add_dependency 'listen',                '~> 2.7'
 
-  gem.add_dependency 'faker',                 '~> 0.9.5'
+  gem.add_dependency 'faker',                 '~> 1.3.0'
 
-  gem.add_development_dependency 'rake',      '~> 10.0.4'
-  gem.add_development_dependency 'rspec',     '~> 2.6.0'
+  gem.add_development_dependency 'rake',      '~> 10.3.1'
+  gem.add_development_dependency 'rspec',     '~> 2.14.1'
   gem.add_development_dependency 'vcr'
-  gem.add_development_dependency 'webmock',   '~> 1.8.0'
+  gem.add_development_dependency 'webmock',   '~> 1.17.4'
   gem.add_development_dependency 'rack-test'
   gem.add_development_dependency 'launchy'
 end

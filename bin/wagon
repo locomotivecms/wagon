@@ -1,11 +1,6 @@
-#!/usr/bin/env ruby
-
-# needed if you launch it without bundler
-$:.unshift(File.expand_path(File.dirname(__FILE__) + '/../lib'))
-
 $stdout.sync = true
 
-require 'locomotive/wagon'
-require 'locomotive/wagon/cli'
+require_relative 'locomotive/wagon'
+require_relative 'locomotive/wagon/cli'
 
 Locomotive::Wagon::CLI::Main.start

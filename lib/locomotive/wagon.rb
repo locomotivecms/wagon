@@ -1,6 +1,6 @@
 require 'common'
+require 'locomotive/wagon/initializers'
 require 'locomotive/wagon/version'
-require 'locomotive/wagon/logger'
 require 'locomotive/wagon/listen'
 require 'better_errors'
 
