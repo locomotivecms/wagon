@@ -38,7 +38,7 @@ module Locomotive
       if reader = self.require_mounter(path, true)
 
         require 'locomotive/steam/server'
-        app = Locomotive::Steam::Server.new(reader)
+        app = Locomotive::Steam::Server.new(reader, serve_assets: true)
         use_listen = !options[:disable_listen]
 
         # TODO: new feature -> pick the right Rack handler (Thin, Puma, ...etc)
