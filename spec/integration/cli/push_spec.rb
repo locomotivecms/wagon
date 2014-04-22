@@ -9,6 +9,7 @@ describe Locomotive::Wagon::CLI do
     deploy = YAML.load_file('site/config/deploy.yml')
     deploy["staging"] = deploy["production"].merge("domains" => ["staging.example.com"], "subdomain" => "staging", "host" => "staging.example.com:3000")
     File.write('site/config/deploy.yml', deploy.to_yaml)
+
     VCR.use_cassette("staging") do
       Locomotive::Wagon::CLI::Main.start(['push', 'staging', 'site', '-f'])
     end

@@ -1,4 +1,8 @@
+require 'rubygems'
+require 'bundler/setup'
+
 require 'common'
+
 require 'locomotive/wagon/initializers'
 require 'locomotive/wagon/version'
 require 'locomotive/wagon/listen'
@@ -32,7 +36,6 @@ module Locomotive
     def self.serve(path, options)
 
       if reader = self.require_mounter(path, true)
-        Bundler.require 'misc'
 
         require 'locomotive/steam/server'
         app = Locomotive::Steam::Server.new(reader)
@@ -80,7 +83,6 @@ module Locomotive
     # @param [ Array ] *args The arguments for the generator
     #
     def self.generate(name, *args)
-      Bundler.require 'misc'
       lib = "locomotive/wagon/generators/#{name}"
       require lib
 
@@ -101,7 +103,6 @@ module Locomotive
         reader.mounting_point.site.domains   = connection_info['domains']   if connection_info["domains"]
         reader.mounting_point.site.subdomain = connection_info['subdomain'] if connection_info["subdomain"]
         require 'bundler'
-        Bundler.require 'misc'
 
         writer = Locomotive::Mounter::Writer::Api.instance
         self.validate_resources(options[:resources], writer.writers)
@@ -124,8 +125,6 @@ module Locomotive
     #
     def self.pull(path, connection_info, options = {})
       self.require_mounter(path)
-
-      Bundler.require 'misc' unless options[:disable_misc]
 
       connection_info[:uri] = "#{connection_info.delete(:host)}/locomotive/api"
 
@@ -190,9 +189,7 @@ module Locomotive
     #
     def self.require_mounter(path, get_reader = false)
       Locomotive::Common::Logger.setup(File.expand_path(File.join(path, 'log', 'wagon.log')))
-
       require 'locomotive/mounter'
-
       Locomotive::Mounter.logger = Locomotive::Common::Logger.instance.logger
 
       if get_reader
@@ -207,6 +204,7 @@ module Locomotive
     end
 
     protected
+
     def self.validate_resources(resources, writers_or_readers)
       return if resources.nil?
       valid_resources = writers_or_readers.map { |thing| thing.to_s.demodulize.gsub(/Writer$|Reader$/, '').underscore }

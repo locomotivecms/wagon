@@ -1,6 +1,11 @@
+#!/usr/bin/env ruby
+
+require 'rubygems'
+require 'bundler/setup'
+
 $stdout.sync = true
 
-require_relative 'locomotive/wagon'
-require_relative 'locomotive/wagon/cli'
+require_relative '../lib/locomotive/wagon'
+require_relative '../lib/locomotive/wagon/cli'
 
 Locomotive::Wagon::CLI::Main.start
