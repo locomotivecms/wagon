@@ -17,4 +17,14 @@ describe 'Complex with_scope conditions' do
     last_response.body.should =~ /events=1./
   end
 
+  it 'returns the right number of bands' do
+    get '/filtered'
+    last_response.body.should =~ /bands=2./
+  end
+
+  it 'returns the first band in the right order' do
+    get '/filtered'
+    last_response.body.should =~ /first event=Browne's Market/
+  end
+
 end

@@ -109,9 +109,7 @@ module Locomotive::Wagon
           end
         end
 
-        [status, { 'Content-Type' => 'application/json' }, [
-          { @content_type.slug.singularize => hash }.to_json
-        ]]
+        [status, { 'Content-Type' => 'application/json' }, [hash.to_json]]
       end
 
     end

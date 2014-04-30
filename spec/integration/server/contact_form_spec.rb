@@ -29,7 +29,7 @@ describe 'ContactForm' do
     describe 'with json request' do
 
       let(:response) { post_contact_form(params, true) }
-      let(:entry) { JSON.parse(response.body)['message'] }
+      let(:entry) { JSON.parse(response.body) }
 
       context 'when not valid' do
 
