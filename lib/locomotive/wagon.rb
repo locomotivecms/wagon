@@ -5,6 +5,47 @@ require 'locomotive/wagon/exceptions'
 module Locomotive
   module Wagon
 
+    # Authenticate an user to the Hosting platform.
+    # If the user does not exist, then create an account for her/him.
+    # At the end, store the API key in the ~/.netrc file
+    #
+    # @param [ String ] email The email of the user
+    # @param [ String ] password The password of the user
+    # @param [ Object ] shell Used to ask for/prompt information
+    #
+    def self.authenticate(email, password, shell)
+      require 'locomotive/wagon/misc/engine_api'
+      require 'netrc'
+
+      api = Locomotive::ClientAPI.new
+
+      if api_key = api.api_key(email, password)
+        # existing account
+        say "You have been successfully authenticated.", :green
+      else
+        # new account?
+        shell.say "No account found for #{email} or invalid credentials", :yellow
+
+        if shell.yes?('Do you want to create a new account? [Y/N]')
+          name = shell.ask 'What is your name?'
+
+          if account = api.create_account(name, email, password)
+            shell.say "Your account has been successfully created.", :green
+            api_key = account['api_key']
+          end
+        end
+      end
+
+      if api_key
+        # record the credentials
+        netrc = Netrc.read
+        netrc[api.host] = email, api_key
+        netrc.save
+      else
+        shell.say "We were unable to authenticate you on our platform.", :red
+      end
+    end
+
     # Create a site from a site generator.
     #
     # @param [ String ] name The name of the site (underscored)

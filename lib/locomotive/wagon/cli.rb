@@ -141,6 +141,16 @@ module Locomotive
           say Locomotive::Wagon::VERSION
         end
 
+        desc 'auth [EMAIL] [PASSWORD]', 'Log into the LocomotiveHosting platform'
+        def auth(email = nil, password = nil)
+          say "LocomotiveHosting Sign in/up\n\n", :bold
+
+          email     ||= ask('Enter your e-mail?')
+          password  ||= ask('Enter your password?')
+
+          Locomotive::Wagon.authenticate(email, password, shell)
+        end
+
         desc 'init NAME [PATH] [OPTIONS]', 'Create a brand new site'
         method_option :template,    aliases: '-t', type: 'string', default: 'blank', desc: 'instead of building from a blank site, you can also have a pre-fetched site from a template (see the templates command)'
         method_option :lib,         aliases: '-l', type: 'string', desc: 'Path to an external ruby lib or generator'
