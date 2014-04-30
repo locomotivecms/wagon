@@ -75,7 +75,7 @@ module Locomotive
 
         desc 'page FULLPATH', 'Create a page. No need to pass an extension to the FULLPATH arg'
         method_option :title,         aliases: '-t', type: 'string',    default: nil, desc: 'Title of the page'
-        method_option :haml,          aliases: '-h', type: 'boolean',   default: false, desc: 'add a HAML extension to the file'
+        method_option :haml,          aliases: '-h', type: 'boolean',   default: nil, desc: 'add a HAML extension to the file'
         method_option :listed,        aliases: '-l', type: 'boolean',   default: false, desc: 'tell if the page is listed in the menu'
         method_option :content_type,  aliases: '-c', type: 'string',    default: nil, desc: 'tell if the page is a template for a content type'
         method_option :locales,       aliases: '-lo', type: 'string',   default: nil, desc: 'locales for the various translations'
