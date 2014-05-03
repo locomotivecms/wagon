@@ -14,13 +14,15 @@ module Locomotive
     # @param [ Object ] shell Used to ask for/prompt information
     #
     def self.authenticate(email, password, shell)
-      require 'locomotive/wagon/misc/engine_api'
+      require 'locomotive/wagon/misc/hosting_api'
       require 'netrc'
 
-      api = Locomotive::ClientAPI.new
+      api_key = nil
+      api     = Locomotive::HostingAPI.new(email, password)
 
-      if api_key = api.api_key(email, password)
+      if api.authenticated?
         # existing account
+        api_key = api.api_key
         say "You have been successfully authenticated.", :green
       else
         # new account?
@@ -29,7 +31,7 @@ module Locomotive
         if shell.yes?('Do you want to create a new account? [Y/N]')
           name = shell.ask 'What is your name?'
 
-          if account = api.create_account(name, email, password)
+          if account = api.create_account(name: name, email: email, password: password)
             shell.say "Your account has been successfully created.", :green
             api_key = account['api_key']
           end
@@ -134,8 +136,8 @@ module Locomotive
     def self.push(path, connection_info, options = {})
       if reader = self.require_mounter(path, true)
 
-        reader.mounting_point.site.domains   = connection_info['domains']   if connection_info["domains"]
-        reader.mounting_point.site.subdomain = connection_info['subdomain'] if connection_info["subdomain"]
+        reader.mounting_point.site.domains   = connection_info['domains']   if connection_info['domains']
+        reader.mounting_point.site.subdomain = connection_info['subdomain'] if connection_info['subdomain']
         require 'bundler'
         Bundler.require 'misc'
 

@@ -346,25 +346,17 @@ module Locomotive
         # @return [ Hash ] The information of the connection or nil if errors
         #
         def retrieve_connection_info(env, path)
-          require 'active_support/core_ext/hash'
-          require 'erb'
-          connection_info = nil
+          require 'locomotive/wagon/misc/deployment_connection'
+
           begin
-            path_to_deploy_file = File.join(path, 'config', 'deploy.yml')
-            env_parsed_deploy_file = ERB.new(File.open(path_to_deploy_file).read).result
-            connection_info = YAML::load(env_parsed_deploy_file)[env.to_s].with_indifferent_access
+            service = Locomotive::Wagon::DeploymentConnection.new(path, shell)
 
-            if connection_info[:ssl] && !connection_info[:host].start_with?('https')
-              connection_info[:host] = 'https://' + connection_info[:host]
-            end
+            service.get_information(env)
 
-            if connection_info.nil?
-              raise "No #{env.to_s} environment found in the config/deploy.yml file"
-            end
           rescue Exception => e
-            say "Unable to read the information about the remote LocomotiveCMS site (#{e.message})", :red
+            say "Unable to read the information about the deployment, reason: #{e.message}", :red
+            nil
           end
-          connection_info
         end
 
       end
