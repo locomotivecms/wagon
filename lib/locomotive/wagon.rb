@@ -18,12 +18,12 @@ module Locomotive
       require 'netrc'
 
       api_key = nil
-      api     = Locomotive::HostingAPI.new(email, password)
+      api     = Locomotive::HostingAPI.new(email: email, password: password)
 
       if api.authenticated?
         # existing account
         api_key = api.api_key
-        say "You have been successfully authenticated.", :green
+        shell.say "You have been successfully authenticated.", :green
       else
         # new account?
         shell.say "No account found for #{email} or invalid credentials", :yellow
@@ -31,9 +31,13 @@ module Locomotive
         if shell.yes?('Do you want to create a new account? [Y/N]')
           name = shell.ask 'What is your name?'
 
-          if account = api.create_account(name: name, email: email, password: password)
+          account = api.create_account(name: name, email: email, password: password)
+
+          if account.success?
             shell.say "Your account has been successfully created.", :green
             api_key = account['api_key']
+          else
+            shell.say "We were unable to create your account, reason(s): #{account.error_messages.join(', ')}", :red
           end
         end
       end
@@ -41,7 +45,7 @@ module Locomotive
       if api_key
         # record the credentials
         netrc = Netrc.read
-        netrc[api.host] = email, api_key
+        netrc[api.domain_with_port] = email, api_key
         netrc.save
       else
         shell.say "We were unable to authenticate you on our platform.", :red
@@ -141,13 +145,12 @@ module Locomotive
         require 'bundler'
         Bundler.require 'misc'
 
-        writer = Locomotive::Mounter::Writer::Api.instance
-        self.validate_resources(options[:resources], writer.writers)
+        writer    = Locomotive::Mounter::Writer::Api.instance
+        resources = self.validate_resources(options[:resources], writer.writers)
 
         connection_info[:uri] = "#{connection_info.delete(:host)}/locomotive/api"
 
-        _options = { mounting_point: reader.mounting_point, console: true }.merge(options).symbolize_keys
-        _options[:only] = _options.delete(:resources)
+        _options = { mounting_point: reader.mounting_point, only: resources, console: true }.merge(options).symbolize_keys
 
         writer.run!(_options.merge(connection_info).with_indifferent_access)
       end
@@ -245,12 +248,21 @@ module Locomotive
     end
 
     protected
+
     def self.validate_resources(resources, writers_or_readers)
       return if resources.nil?
+
+      # FIXME: for an unknown reason, when called from Cocoa, the resources are a string
+      resources = resources.map { |resource| resource.split(' ') }.flatten
+
       valid_resources = writers_or_readers.map { |thing| thing.to_s.demodulize.gsub(/Writer$|Reader$/, '').underscore }
+
       resources.each do |resource|
         raise ArgumentError, "'#{resource}' resource not recognized. Valid resources are #{valid_resources.join(', ')}." unless valid_resources.include?(resource)
       end
+
+      resources
     end
+
   end
 end

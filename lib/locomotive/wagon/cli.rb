@@ -34,8 +34,12 @@ module Locomotive
 
         def force_color_if_asked(options)
           if options[:force_color]
+            # thor
             require 'locomotive/wagon/misc/thor'
             self.shell = Thor::Shell::ForceColor.new
+
+            # bypass colorize code
+            STDOUT.instance_eval { def isatty; true; end; }
           end
         end
 
@@ -163,6 +167,7 @@ module Locomotive
           generator = Locomotive::Wagon::Generators::Site.get(options[:template])
           if generator.nil?
             say "Unknown site template '#{options[:template]}'", :red
+            exit(1)
           else
             begin
               if Locomotive::Wagon.init(name, path, options[:skip_bundle].to_s, generator, generator_options)
@@ -264,6 +269,8 @@ module Locomotive
         method_option :data, aliases: '-d', type: 'boolean', default: false, desc: 'Push the content entries and the editable elements (by default, they are not)'
         method_option :verbose, aliases: '-v', type: 'boolean', default: false, desc: 'display the full error stack trace if an error occurs'
         def push(env, path = '.')
+          force_color_if_asked(options)
+
           if check_path!(path)
             if connection_info = self.retrieve_connection_info(env, path)
               begin
@@ -354,7 +361,7 @@ module Locomotive
             service.get_information(env)
 
           rescue Exception => e
-            say "Unable to read the information about the deployment, reason: #{e.message}", :red
+            self.print_exception(e, options[:verbose])
             nil
           end
         end
