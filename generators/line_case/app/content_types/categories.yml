@@ -1,0 +1,56 @@
+# Public name of this content type
+name: Categories
+
+# TODO: explain
+slug: categories
+
+# Explanation for the backoffice
+description: Category of a project
+
+# Default field (e.g title)
+label_field_name: name
+
+# Order of entries
+order_by: manually # default: manually, also available: created_at or any field slug
+
+# Order direction
+# order_direction: asc # default: asc, also available: desc
+
+# Display entries grouped by <field> in the backoffice
+# group_by: <your field>
+
+# Activate public 'create' API (e.g for a contact form)
+# public_submission_enabled: false
+
+# Emails to be notified on new entries using the public API
+# public_submission_accounts: ['john@acme.net']
+
+# Describe each field. The name shoud always be an underscored string
+fields:
+- name: # Name of the field
+    label: Name
+    type: string
+    required: true
+    hint: A description of the field for the editors
+    localized: false
+
+- description: # Name of the field
+    label: Description
+    type: text
+    required: false
+    hint: A description of the field for the editors
+    localized: false
+    text_formatting: html
+
+- projects: # Name of the field
+    label: Projects
+    type: has_many
+    required: false
+    hint: A description of the field for the editors
+    localized: false    # Define the slug of the target content type (eg. comments)
+    class_name: projects
+    # Define the name of the field referring to Categories in the target content type (eg. post)
+    inverse_of: category
+    # If you want to manage the entries of the relationship directly from the source entry
+    ui_enabled: true
+

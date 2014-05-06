@@ -140,6 +140,7 @@ end
 
 require 'locomotive/wagon/generators/site/base'
 require 'locomotive/wagon/generators/site/blank'
+require 'locomotive/wagon/generators/site/line_case'
 require 'locomotive/wagon/generators/site/bootstrap2'
 require 'locomotive/wagon/generators/site/bootstrap3'
 require 'locomotive/wagon/generators/site/foundation4'

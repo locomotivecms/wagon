@@ -1,0 +1,17 @@
+{% for category in contents.categories %}
+%h2 {{ category.name }}
+
+.text
+  {{ category.description }}
+
+{% if category.projects.size > 0 %}
+%ul.projects.small-block-grid-2.medium-block-grid-4.large-block-grid-6
+  {% for project in category.projects %}
+  %li
+    {% link_to project %}
+    %img{ src: '{{ project.image.url | resize: "300x234#" }}', class: 'th has-tip', title: '{{ project.name }}', alt: '{{ project.name }}', data: { tooltip: '' } }
+    {% endlink_to %}
+  {% endfor %}
+{% endif %}
+
+{% endfor %}

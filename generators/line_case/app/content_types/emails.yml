@@ -1,0 +1,35 @@
+# Public name of this content type
+name: Emails
+
+# TODO: explain
+slug: emails
+
+# Explanation for the backoffice
+description: Emails collected for the newsletter
+
+# Default field (e.g title)
+label_field_name: email
+
+# Order of entries
+order_by: created_at # default: manually, also available: created_at or any field slug
+
+# Order direction
+# order_direction: asc # default: asc, also available: desc
+
+# Display entries grouped by <field> in the backoffice
+# group_by: <your field>
+
+# Activate public 'create' API (e.g for a contact form)
+public_submission_enabled: true
+
+# Emails to be notified on new entries using the public API
+# public_submission_accounts: ['john@acme.net']
+
+# Describe each field. The name shoud always be an underscored string
+fields:
+- email: # Name of the field
+    label: Email
+    type: email
+    required: true
+    hint: An email address submitted from the index page
+    localized: false

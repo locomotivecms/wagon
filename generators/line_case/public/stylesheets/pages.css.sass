@@ -1,0 +1,163 @@
+@import "compass/css3/border-radius"
+@import "compass/css3/transform"
+@import "compass/css3/box-shadow"
+@import "variables"
+
+body
+  font-family: $default-font
+
+h1, h2, h3
+  font-family: $title-font
+
+p, li
+  font-size: 15px
+
+.alert-box.success
+  h3
+    color: #fff
+
+h1
+  font-size: 18px
+  line-height: 18px
+  text-transform: uppercase
+  color: #fff
+
+  a
+    color: #fff
+
+    &:hover
+      color: #fff
+
+header
+  background: $header-color
+  padding: 20px 0px 40px 0px
+
+  position: relative
+
+  #background-image
+    display: block
+    position: absolute
+    top: 0
+    left: 0
+    background: transparent url("/images/banner-header.png") no-repeat right -30px
+    background-size: 1024px
+    width: 100%
+    height: 100%
+    opacity: 0.2
+    z-index: 2
+
+  #logo, #banner
+    position: relative
+    z-index: 3
+
+  #banner
+    margin-top: 40px
+
+    h2
+      color: #fff
+      font-size: 64px
+      line-height: 50px
+      margin-bottom: 20px
+
+    p
+      color: rgba(#fff, 0.6)
+      font-size: 20px
+      font-style: italic
+      font-family: $title-font
+
+#content
+  padding: 40px 0px
+
+  min-height: 300px
+
+  h2
+    color: $title-color
+    text-transform: uppercase
+    font-size: 20px
+    line-height: 20px
+
+  p, ul, ol, dl
+    color: $paragraph-color
+    font-weight: 100
+
+  ul, ol
+    list-style-position: inside
+
+  .projects
+    margin-bottom: 20px
+
+
+footer
+  background: $footer-color
+  padding: 40px 0px
+  height: 100%
+
+  #contact
+    p
+      color: rgba(#fff, 0.3)
+      font-style: italic
+      font-weight: 100
+
+    form
+      input[type=text]
+        background: #080c11
+        color: #fff
+        font-size: 20px
+        font-family: $title-font
+        text-transform: uppercase
+        border: none
+
+        +border-radius(3px)
+
+      span.postfix
+        position: relative
+        right: 40px
+
+        background: #080c11
+        border: none
+        height: 46px
+        line-height: 46px
+
+        i
+          font-size: 20px
+          color: #fff
+
+  #social
+    a
+      display: inline-block
+      width: 60px
+      height: 50px
+      line-height: 50px
+      color: #fff
+      margin-right: 20px
+      text-align: center
+      font-size: 32px
+
+      +border-radius(2px)
+
+      &.rss
+        background-color: $rss-color
+        +box-shadow(0px 3px 0px $rss-border-color)
+        &:active
+          +box-shadow(0px 1px 0px $rss-border-color)
+
+      &.twitter
+        background-color: $twitter-color
+        +box-shadow(0px 3px 0px $twitter-border-color)
+        &:active
+          +box-shadow(0px 1px 0px $twitter-border-color)
+
+      &.dribbble
+        background-color: $dribble-color
+        +box-shadow(0px 3px 0px $dribble-border-color)
+        &:active
+          +box-shadow(0px 1px 0px $dribble-border-color)
+
+      &.linkedin
+        background-color: $linkedin-color
+        +box-shadow(0px 3px 0px $linkedin-border-color)
+        &:active
+          +box-shadow(0px 1px 0px $linkedin-border-color)
+
+      &:active
+        +transform(translate(0, 2px))

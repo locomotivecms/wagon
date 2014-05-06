@@ -126,6 +126,10 @@ module Locomotive
       lib = "locomotive/wagon/generators/#{name}"
       require lib
 
+      puts args.inspect
+      puts options.inspect
+      puts "-------"
+
       generator = lib.camelize.constantize.new(args, options, {})
       generator.invoke_all
     end

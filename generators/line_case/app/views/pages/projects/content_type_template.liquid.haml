@@ -1,0 +1,32 @@
+---
+title: Template page of a project
+
+# true if the page is included in the menu
+listed: false
+
+# true if the page is published
+published: true
+
+# position among sibling pages
+# position: 1
+
+# content type that this page is templatizing
+content_type: "projects"
+
+---
+{% extends index %}
+
+{% block main %}
+
+.row
+  .small-12.columns
+    %h2 {{ project.category.name }} :: {{ project.name }}
+
+.row
+  .small-12.large-8.columns
+    {{ project.description }}
+
+  .small-12.large-4.columns
+    %img{ src: '{{ project.image.url | resize: "300x234#" }}', class: 'th' }
+
+{% endblock %}
