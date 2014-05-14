@@ -1,12 +1,12 @@
 # The name of this site
-# This text displays in the back-office and 
+# This text displays in the back-office and
 # can be used in templates through the site.name global variable
 name: <%= config[:name] %>
 
 # The site's subdomain
 # This option is for sites on multi-site engines
 # The value determines where the site can be accessed under the engine's primary domain
-# subdomain: sample
+subdomain: <%= config[:name].gsub(' ', '-').dasherize.downcase %>
 
 # An array of domain aliases for the site
 # This option is for sites on multi-site engines

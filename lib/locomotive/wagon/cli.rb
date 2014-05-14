@@ -47,33 +47,39 @@ module Locomotive
 
       class Generate < Thor
 
+        include Locomotive::Wagon::CLI::ForceColor
         include Locomotive::Wagon::CLI::CheckPath
 
         class_option :path, aliases: '-p', type: :string, default: '.', optional: true, desc: 'if your LocomotiveCMS site is not in the current path'
 
         desc 'content_type SLUG FIELDS', 'Creates a content type with the specified slug and fields.'
+        method_option :name, aliases: '-n', type: :string, default: nil, optional: true, desc: 'Name of the content type as it will be displayed in the back-office'
         long_desc <<-LONGDESC
           Creates a content type with the specified slug and fields.
 
           SLUG should be plural, lowercase, and underscored.
 
-          FIELDS format: field_1[:TYPE][:REQUIRED] field_2[:TYPE][:REQUIRED] ...
+          FIELDS format: field_1[:TYPE][:LABEL][:REQUIRED][:LOCALIZED][:TARGET_CONTENT_TYPE_SLUG] field_2[:TYPE][:LABEL][:REQUIRED][:LOCALIZED][:TARGET_CONTENT_TYPE_SLUG] ...
 
           TYPE values: string, text, integer, float, boolean, email, date, date_time, file, tags, select, belongs_to, has_many, or many_to_many. Default is string.
 
           To require a field, set REQUIRED to true. The first field is required by default.
 
+          TARGET_CONTENT_TYPE_SLUG is the slug of the content type used in the relationship.
+
           Examples:
 
             * wagon generate content_type posts title published_at:date_time:true body:text
 
-            * wagon generate content_type products title price:float photo:file category:belongs_to:true
+            * wagon generate content_type products title price:float photo:file category:belongs_to:Category:true:false:main_categories
         LONGDESC
         def content_type(name, *fields)
+          force_color_if_asked(options)
+
           say('The fields are missing', :red) and return false if fields.empty?
 
           if check_path!
-            Locomotive::Wagon.generate :content_type, name, self.options['path'], fields
+            Locomotive::Wagon.generate :content_type, [name, fields, self.options.delete('path')], self.options
           end
         end
 
@@ -94,6 +100,8 @@ module Locomotive
             * wagon generate page about_us/me
         LONGDESC
         def page(fullpath)
+          force_color_if_asked(options)
+
           if path = check_path!
             self.options[:default_locales] = self.site_config(path)['locales']
             Locomotive::Wagon.generate :page, [fullpath, self.options.delete('path')], self.options
@@ -110,10 +118,11 @@ module Locomotive
             * wagon generate snippet footer
         LONGDESC
         def snippet(slug)
+          force_color_if_asked(options)
+
           if path = check_path!
-            raise 'TODO'
             locales = self.site_config(path)['locales']
-            Locomotive::Wagon.generate :snippet, slug, self.options['path'], locales
+            Locomotive::Wagon.generate :snippet, [slug, locales, self.options.delete('path')], self.options
           end
         end
 
@@ -137,7 +146,7 @@ module Locomotive
         include Locomotive::Wagon::CLI::CheckPath
         include Locomotive::Wagon::CLI::ForceColor
 
-        class_option :force_color, aliases: '-c', type: :boolean, default: false, desc: 'Whether or not to use ANSI color in the output.'
+        class_option :force_color, type: :boolean, default: false, desc: 'Whether or not to use ANSI color in the output.'
 
         desc 'version', 'Version of the LocomotiveCMS Wagon'
         def version
@@ -170,7 +179,7 @@ module Locomotive
             exit(1)
           else
             begin
-              if Locomotive::Wagon.init(name, path, options[:skip_bundle].to_s, generator, generator_options)
+              if Locomotive::Wagon.init(generator.klass, [name, path, options[:skip_bundle].to_s, generator_options], { force_color: options[:force_color] })
                 self.print_next_instructions_when_site_created(name, path, options[:skip_bundle])
               end
             rescue GeneratorException => e

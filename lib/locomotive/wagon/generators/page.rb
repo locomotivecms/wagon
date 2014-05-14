@@ -8,6 +8,7 @@ module Locomotive
       class Page < Thor::Group
 
         include Thor::Actions
+        include Locomotive::Wagon::CLI::ForceColor
 
         argument :slug
         argument :target_path # path to the site

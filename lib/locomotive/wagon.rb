@@ -54,14 +54,16 @@ module Locomotive
 
     # Create a site from a site generator.
     #
-    # @param [ String ] name The name of the site (underscored)
-    # @param [ String ] path The destination path of the site
-    # @param [ Boolean ] skip_bundle Do not run bundle install
     # @param [ Object ] generator The wrapping class of the generator itself
-    # @param [ String ] options Options for the generator (ex: --force_haml)
+    # @param [ Array ] args [name of the site, destination path of the site, skip bundle flag, force_haml]
+    # @param [ Hash ] options General options (ex: --force-color)
     #
-    def self.init(name, path, skip_bundle, generator, options)
-      generator.klass.start [name, path, skip_bundle, options]
+    def self.init(generator_klass, args, options = {})
+      args, opts = Thor::Options.split(args)
+
+      generator = generator_klass.new(args, opts, {})
+      generator.force_color_if_asked(options)
+      generator.invoke_all
     end
 
     # Start the thin server which serves the LocomotiveCMS site from the system.
@@ -126,11 +128,8 @@ module Locomotive
       lib = "locomotive/wagon/generators/#{name}"
       require lib
 
-      puts args.inspect
-      puts options.inspect
-      puts "-------"
-
-      generator = lib.camelize.constantize.new(args, options, {})
+      generator = lib.camelize.constantize.new(args, options, { behavior: :skip })
+      generator.force_color_if_asked(options)
       generator.invoke_all
     end
 

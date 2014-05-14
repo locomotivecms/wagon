@@ -10,6 +10,7 @@ module Locomotive
         class Base < Thor::Group
 
           include Thor::Actions
+          include Locomotive::Wagon::CLI::ForceColor
 
           argument :name
           argument :target_path
@@ -37,6 +38,7 @@ module Locomotive
           end
 
           def haml?
+            puts options.inspect
             if options[:haml].nil?
               yes?('Do you prefer HAML templates ?')
             else

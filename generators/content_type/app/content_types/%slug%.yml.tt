@@ -1,8 +1,8 @@
 # Human readable name of this type
-name: <%= config[:name].humanize %>
+name: <%= config[:name] %>
 
 # Lowercase, underscored handle used to access this type
-slug: <%= config[:name] %>
+slug: <%= config[:slug] %>
 
 # Explanatory text displayed in the back-office
 description: A description of the content type for the editors
@@ -14,7 +14,7 @@ label_field_name: <%= config[:fields].first.name %>
 order_by: manually
 
 # Valid values: asc (ascending) and desc (descending). Set to asc by default.
-# order_direction: asc 
+# order_direction: asc
 
 # Specify a field slug to group entries by that field in the back-office.
 # group_by: <your field>
@@ -28,7 +28,7 @@ order_by: manually
 # A list describing each field
 fields: <% config[:fields].each_with_index do |field, index| %>
 - <%= field.name -%>: # The lowercase, underscored name of the field
-    label: <%= field.name.humanize %> # Human readable name of the field
+    label: <%= field.label %> # Human readable name of the field
     type: <%= field.type %>
     required: <%= index == 0 ? true : field.required %>
     hint: Explanatory text displayed in the back office
@@ -39,17 +39,17 @@ fields: <% config[:fields].each_with_index do |field, index| %>
     #   fr: ['option1_fr', 'option2_fr']
     select_options: ['option 1', 'option 2', 'option 3']<% end -%><% if field.type == 'belongs_to'%>
     # Slug of the target content type (eg post if this content type is a comment)
-    class_name: <your class slug><% end -%><% if field.type == 'has_many' -%>
+    class_name: <%= field.class_name %><% end -%><% if field.type == 'has_many' -%>
     # Define the slug of the target content type (eg. comments)
-    class_name: <your class slug>
+    class_name: <%= field.class_name %>
     # Define the name of the field referring to <%= config[:name].humanize -%> in the target content type (eg. post)
-    inverse_of: <field in your target content type>
+    inverse_of: <%= field.inverse_of %>
     # If you want to manage the entries of the relationship directly from the source entry
     ui_enabled: true
     <% end -%><% if field.type == 'many_to_many' -%>
     # Define the slug of the target content type
-    class_name: <your class slug>
-    inverse_of: <field in your target content type>
+    class_name: <%= field.class_name %>
+    inverse_of: <%= field.inverse_of %>
     # If you want to manage the entries of the relationship directly from the source entry
     ui_enabled: true
     <% end -%>

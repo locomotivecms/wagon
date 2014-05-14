@@ -8,10 +8,11 @@ module Locomotive
       class Snippet < Thor::Group
 
         include Thor::Actions
+        include Locomotive::Wagon::CLI::ForceColor
 
         argument :slug
-        argument :target_path # path to the site
         argument :locales
+        argument :target_path # path to the site
 
         attr_accessor :haml
 
