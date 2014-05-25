@@ -1,3 +1,4 @@
+require 'rack-livereload'
 require 'better_errors'
 require 'coffee_script'
 
@@ -20,13 +21,16 @@ require 'locomotive/wagon/misc'
 module Locomotive::Wagon
   class Server
 
+    attr_reader :options
+
     def initialize(reader, options = {})
       Locomotive::Wagon::Dragonfly.setup!(reader.mounting_point.path)
 
       Sprockets::Sass.add_sass_functions = false
 
-      @reader = reader
-      @app    = self.create_rack_app(@reader)
+      @reader   = reader
+      @options  = options
+      @app      = self.create_rack_app(@reader, @options)
 
       BetterErrors.application_root = reader.mounting_point.path
     end
@@ -38,8 +42,10 @@ module Locomotive::Wagon
 
     protected
 
-    def create_rack_app(reader)
+    def create_rack_app(reader, options)
       Rack::Builder.new do
+        use Rack::LiveReload, live_reload_port: options[:live_reload_port] unless options[:use_listen]
+
         use Rack::Lint
 
         use BetterErrors::MiddlewareWrapper

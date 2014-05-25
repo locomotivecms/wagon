@@ -3,21 +3,15 @@ require 'listen'
 module Locomotive::Wagon
   class Listen
 
-    attr_accessor :reader
+    attr_accessor :reader, :livereload
 
     def self.instance
       @@instance = new
     end
 
-    def start(reader)
-      # if $parent_pid && $parent_pid == Process.pid
-      #   puts "bypassing Listen in the parent process"
-      #   return false
-      # end
-
-      puts "Listening here: #{Process.pid}"
-
-      self.reader = reader
+    def start(reader, livereload)
+      self.reader     = reader
+      self.livereload = livereload
 
       self.definitions.each do |definition|
         self.apply(definition)
@@ -27,9 +21,10 @@ module Locomotive::Wagon
     def definitions
       [
         ['config', /\.yml/, [:site, :content_types, :pages, :snippets, :content_entries, :translations]],
-        ['app/views', /\.liquid/, [:pages, :snippets]],
+        ['app/views', %r{(pages|snippets)/(.+\.liquid).*}, [:pages, :snippets]],
         ['app/content_types', /\.yml/, [:content_types, :content_entries]],
-        ['data', /\.yml/, :content_entries]
+        ['data', /\.yml/, :content_entries],
+        ['public', %r{((stylesheets|javascripts)/(.+\.(css|js))).*}, []]
       ]
     end
 
@@ -40,12 +35,16 @@ module Locomotive::Wagon
         resources = [*definition.last]
         names     = resources.map { |n| "\"#{n}\"" }.join(', ')
 
-        Locomotive::Wagon::Logger.info "* Reloaded #{names} at #{Time.now}"
+        notify_livereload(definition, added + modified)
 
-        begin
-          reader.reload(resources)
-        rescue Exception => e
-          Locomotive::Wagon::MounterException.new('Unable to reload', e)
+        unless resources.empty?
+          Locomotive::Wagon::Logger.info "* Reloaded #{names} at #{Time.now}"
+
+          begin
+            reader.reload(resources)
+          rescue Exception => e
+            Locomotive::Wagon::MounterException.new('Unable to reload', e)
+          end
         end
       end
 
@@ -56,7 +55,31 @@ module Locomotive::Wagon
       listener = ::Listen.to(path, only: filter, &reloader)
 
       # non blocking listener
-      listener.start #(false)
+      listener.start
+    end
+
+    def notify_livereload(definition, files)
+      transformer = (case definition.first
+      when 'public'     then lambda { |m| "/#{m[1]}"}
+      when 'app/views'  then lambda { |m| "/#{m[2]}".sub(/\.liquid$/, '.html') }
+      else
+        nil
+      end)
+
+      paths = files.map do |file|
+        if transformer && (matches = file.match(definition[1]))
+          transformer.call(matches)
+        else
+          file
+        end
+      end
+
+      livereload.run_on_modifications(paths)
+    end
+
+    def relative_path(path)
+      base_path = self.reader.mounting_point.path
+      relative_path = path.sub(base_path, '')
     end
 
   end

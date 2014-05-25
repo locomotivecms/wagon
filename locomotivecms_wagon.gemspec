@@ -15,7 +15,7 @@ Gem::Specification.new do |gem|
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
-  gem.require_paths = ['lib']
+  gem.require_paths = ['lib', 'vendor']
   gem.executables   = ['wagon']
 
   gem.add_dependency 'thor'
@@ -32,7 +32,10 @@ Gem::Specification.new do |gem|
   gem.add_dependency 'rubyzip',               '~> 1.1.0'
   gem.add_dependency 'netrc',                 '~> 0.7.7'
 
-  gem.add_dependency 'listen',                '~> 2.4.0'
+  gem.add_dependency 'listen',                '~> 2.7.5'
+  gem.add_dependency 'em-websocket',          '~> 0.5'
+  gem.add_dependency 'rack-livereload',       '~> 0.3.15'
+  # gem.add_dependency 'multi_json',            '~> 1.8'
 
   gem.add_dependency 'httmultiparty',         '0.3.10'
   gem.add_dependency 'will_paginate',         '~> 3.0.3'

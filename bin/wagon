@@ -2,6 +2,7 @@
 
 # needed if you launch it without bundler
 $:.unshift(File.expand_path(File.dirname(__FILE__) + '/../lib'))
+$:.unshift(File.expand_path(File.dirname(__FILE__) + '/../vendor'))
 
 $stdout.sync = true
 

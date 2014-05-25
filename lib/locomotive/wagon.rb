@@ -75,23 +75,22 @@ module Locomotive
       if reader = self.require_mounter(path, true)
         Bundler.require 'misc'
 
-        require 'locomotive/wagon/server'
-        app = Locomotive::Wagon::Server.new(reader)
         use_listen = !options[:disable_listen]
 
-        # TODO: new feature -> pick the right Rack handler (Thin, Puma, ...etc)
-
-        require 'thin'
-        server  = Thin::Server.new(options[:host], options[:port], app)
-        server.threaded = true
+        # initialize the guard livereload server
+        require 'locomotive/wagon/misc/livereload'
+        livereload = Locomotive::Wagon::LiveReload.new(options.slice(:host))
 
         if options[:force]
           begin
             self.stop(path)
-            sleep(2) # make sure we wait enough for the Thin process to stop
+            sleep(2) # make sure we wait enough for the server process to stop
           rescue
           end
         end
+
+        # TODO: new feature -> pick the right Rack handler (Thin, Puma, ...etc)
+        server = self.thin_server(reader, options.slice(:host, :port, :disable_listen).merge(live_reload_port: livereload.port))
 
         if options[:daemonize]
           # very important to get the parent pid in order to differenciate the sub process from the parent one
@@ -104,9 +103,21 @@ module Locomotive
           use_listen = Process.pid != parent_pid && !options[:disable_listen]
         end
 
-        Locomotive::Wagon::Listen.instance.start(reader) if use_listen
+        listen_thread = Thread.new do
+          if use_listen
+            Locomotive::Wagon::Listen.instance.start(reader, livereload)
+            livereload.start
+          end
+        end
 
-        server.start
+        server_thread = Thread.new { server.start }
+
+        # hit Control + C to stop
+        Signal.trap('INT')  { EventMachine.stop }
+        Signal.trap('TERM') { EventMachine.stop }
+
+        listen_thread.join
+        server_thread.join
       end
     end
 
@@ -251,6 +262,17 @@ module Locomotive
     end
 
     protected
+
+    def self.thin_server(reader, options)
+      require 'locomotive/wagon/server'
+      app = Locomotive::Wagon::Server.new(reader, options)
+
+      # TODO: new feature -> pick the right Rack handler (Thin, Puma, ...etc)
+      require 'thin'
+      Thin::Server.new(options[:host], options[:port], { signals: false }, app).tap do |server|
+        server.threaded = true
+      end
+    end
 
     def self.validate_resources(resources, writers_or_readers)
       return if resources.nil?
