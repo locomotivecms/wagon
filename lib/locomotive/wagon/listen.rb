@@ -3,15 +3,14 @@ require 'listen'
 module Locomotive::Wagon
   class Listen
 
-    attr_accessor :reader, :livereload
+    attr_accessor :reader
 
     def self.instance
       @@instance = new
     end
 
-    def start(reader, livereload)
-      self.reader     = reader
-      self.livereload = livereload
+    def start(reader)
+      @reader = reader
 
       self.definitions.each do |definition|
         self.apply(definition)
@@ -35,8 +34,6 @@ module Locomotive::Wagon
         resources = [*definition.last]
         names     = resources.map { |n| "\"#{n}\"" }.join(', ')
 
-        notify_livereload(definition, added + modified)
-
         unless resources.empty?
           Locomotive::Wagon::Logger.info "* Reloaded #{names} at #{Time.now}"
 
@@ -56,25 +53,6 @@ module Locomotive::Wagon
 
       # non blocking listener
       listener.start
-    end
-
-    def notify_livereload(definition, files)
-      transformer = (case definition.first
-      when 'public'     then lambda { |m| "/#{m[1]}"}
-      when 'app/views'  then lambda { |m| "/#{m[2]}".sub(/\.liquid$/, '.html') }
-      else
-        nil
-      end)
-
-      paths = files.map do |file|
-        if transformer && (matches = file.match(definition[1]))
-          transformer.call(matches)
-        else
-          file
-        end
-      end
-
-      livereload.run_on_modifications(paths)
     end
 
     def relative_path(path)

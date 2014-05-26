@@ -40,6 +40,10 @@ module Locomotive
         self.instance.setup(path, stdout)
       end
 
+      def self.close
+        self.instance.logger.close
+      end
+
       class << self
         %w(debug info warn error fatal unknown).each do |name|
           define_method(name) do |message|

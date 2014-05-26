@@ -15,12 +15,12 @@ Gem::Specification.new do |gem|
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
-  gem.require_paths = ['lib', 'vendor']
+  gem.require_paths = ['lib']
   gem.executables   = ['wagon']
 
   gem.add_dependency 'thor'
   gem.add_dependency 'thin',                  '~> 1.6.1'
-  gem.add_dependency 'activesupport',         '~> 3.2.11'
+  gem.add_dependency 'activesupport',         '~> 3.2.18'
   gem.add_dependency 'locomotivecms-solid',   '~> 0.2.2.1'
   gem.add_dependency 'RedCloth',              '~> 4.2.8'
   gem.add_dependency 'redcarpet',             '~> 3.0.0'
@@ -33,13 +33,11 @@ Gem::Specification.new do |gem|
   gem.add_dependency 'netrc',                 '~> 0.7.7'
 
   gem.add_dependency 'listen',                '~> 2.7.5'
-  gem.add_dependency 'em-websocket',          '~> 0.5'
   gem.add_dependency 'rack-livereload',       '~> 0.3.15'
-  # gem.add_dependency 'multi_json',            '~> 1.8'
 
   gem.add_dependency 'httmultiparty',         '0.3.10'
   gem.add_dependency 'will_paginate',         '~> 3.0.3'
-  gem.add_dependency 'locomotivecms_mounter', '~> 1.4.0'
+  gem.add_dependency 'locomotivecms_mounter', '~> 1.4.1'
 
   gem.add_dependency 'faker',                 '~> 0.9.5'
 

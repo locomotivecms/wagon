@@ -44,7 +44,7 @@ module Locomotive::Wagon
 
     def create_rack_app(reader, options)
       Rack::Builder.new do
-        use Rack::LiveReload, live_reload_port: options[:live_reload_port] unless options[:use_listen]
+        use Rack::LiveReload, live_reload_port: options[:live_reload_port] if options[:live_reload_port]
 
         use Rack::Lint
 

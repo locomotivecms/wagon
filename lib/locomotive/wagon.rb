@@ -77,10 +77,6 @@ module Locomotive
 
         use_listen = !options[:disable_listen]
 
-        # initialize the guard livereload server
-        require 'locomotive/wagon/misc/livereload'
-        livereload = Locomotive::Wagon::LiveReload.new(options.slice(:host))
-
         if options[:force]
           begin
             self.stop(path)
@@ -90,39 +86,47 @@ module Locomotive
         end
 
         # TODO: new feature -> pick the right Rack handler (Thin, Puma, ...etc)
-        server = self.thin_server(reader, options.slice(:host, :port, :disable_listen).merge(live_reload_port: livereload.port))
+        server = self.thin_server(reader, options.slice(:host, :port, :disable_listen, :live_reload_port))
 
         if options[:daemonize]
           # very important to get the parent pid in order to differenciate the sub process from the parent one
           parent_pid = Process.pid
 
-          server.log_file = File.join(File.expand_path(path), 'log', 'thin.log')
-          server.pid_file = File.join(File.expand_path(path), 'log', 'thin.pid')
+          # The Daemons gem closes all file descriptors when it daemonizes the process. So any logfiles that were opened before the Daemons block will be closed inside the forked process.
+          # So, close the current logger and set it up again when daemonized.
+          Locomotive::Wagon::Logger.close
+
+          server.log_file = File.join(File.expand_path(path), 'log', 'server.log')
+          server.pid_file = File.join(File.expand_path(path), 'log', 'server.pid')
           server.daemonize
 
           use_listen = Process.pid != parent_pid && !options[:disable_listen]
-        end
 
-        listen_thread = Thread.new do
-          if use_listen
-            Locomotive::Wagon::Listen.instance.start(reader, livereload)
-            livereload.start
+          if Process.pid != parent_pid
+            # A "new logger" inside the daemon.
+            Locomotive::Wagon::Logger.setup(path, false)
           end
         end
 
-        server_thread = Thread.new { server.start }
+        # listen_thread = Thread.new do
+        Locomotive::Wagon::Listen.instance.start(reader) if use_listen
+
+        server.start
+        # end
+
+        # server_thread = Thread.new { server.start }
 
         # hit Control + C to stop
-        Signal.trap('INT')  { EventMachine.stop }
-        Signal.trap('TERM') { EventMachine.stop }
+        # Signal.trap('INT')  { EventMachine.stop }
+        # Signal.trap('TERM') { EventMachine.stop }
 
-        listen_thread.join
-        server_thread.join
+        # listen_thread.join
+        # server_thread.join
       end
     end
 
     def self.stop(path)
-      pid_file = File.join(File.expand_path(path), 'log', 'thin.pid')
+      pid_file = File.join(File.expand_path(path), 'log', 'server.pid')
       pid = File.read(pid_file).to_i
       Process.kill('TERM', pid)
     end
@@ -269,7 +273,7 @@ module Locomotive
 
       # TODO: new feature -> pick the right Rack handler (Thin, Puma, ...etc)
       require 'thin'
-      Thin::Server.new(options[:host], options[:port], { signals: false }, app).tap do |server|
+      Thin::Server.new(options[:host], options[:port], { signals: true }, app).tap do |server|
         server.threaded = true
       end
     end
