@@ -336,8 +336,8 @@ module Locomotive
           say 'Next steps:', :bold
 
           next_instructions = "\tcd #{path}/#{name}\n\t"
-          next_instructions += "bundle install\n\t" if skip_bundle
-          next_instructions += "bundle exec wagon serve\n\topen http://0.0.0.0:3333"
+          next_instructions += "bundle install\n\t" unless skip_bundle
+          next_instructions += "#{'bundle exec ' unless skip_bundle}wagon serve\n\topen http://0.0.0.0:3333"
 
           say next_instructions
         end

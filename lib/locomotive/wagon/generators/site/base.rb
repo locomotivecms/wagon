@@ -23,6 +23,14 @@ module Locomotive
             })
           end
 
+          def comment_gemfile
+            return unless skip_bundle?
+
+            gsub_file File.join(self.destination, 'Gemfile'), /^(.*)$/ do |match|
+              "# #{match}"
+            end
+          end
+
           def self.source_root
             File.join(File.dirname(__FILE__), '..', '..', '..', '..', '..', 'generators', self.name.demodulize.underscore)
           end
@@ -38,7 +46,6 @@ module Locomotive
           end
 
           def haml?
-            puts options.inspect
             if options[:haml].nil?
               yes?('Do you prefer HAML templates ?')
             else
@@ -46,8 +53,12 @@ module Locomotive
             end
           end
 
+          def skip_bundle?
+            [true, 'true'].include?(skip_bundle)
+          end
+
           def bundle_install
-            return if [true, 'true'].include?(skip_bundle)
+            return if skip_bundle?
 
             FileUtils.cd self.destination
 

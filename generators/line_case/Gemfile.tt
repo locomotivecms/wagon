@@ -1,8 +1,6 @@
 source 'https://rubygems.org'
 
-# gem 'locomotivecms_wagon', '<%= config[:version] -%>'
-gem 'locomotivecms_mounter', path: '/Users/didier/Documents/LocomotiveCMS/gems/mounter'
-gem 'locomotivecms_wagon', path: '/Users/didier/Documents/LocomotiveCMS/wagon'
+gem 'locomotivecms_wagon', '<%= config[:version] -%>'
 
 group :development do
   # Mac OS X
