@@ -277,12 +277,13 @@ module Locomotive
         method_option :force, aliases: '-f', type: 'boolean', default: false, desc: 'Force the push of a resource'
         method_option :translations, aliases: '-t', type: 'boolean', default: false, desc: 'Push the local translations (by default, they are not)'
         method_option :data, aliases: '-d', type: 'boolean', default: false, desc: 'Push the content entries and the editable elements (by default, they are not)'
+        method_option :shell, type: 'boolean', default: true, desc: 'Use shell to ask for missing connection information like the subdomain (in this case, take a random one)'
         method_option :verbose, aliases: '-v', type: 'boolean', default: false, desc: 'display the full error stack trace if an error occurs'
         def push(env, path = '.')
           force_color_if_asked(options)
 
           if check_path!(path)
-            if connection_info = self.retrieve_connection_info(env, path)
+            if connection_info = self.retrieve_connection_info(env, path, options[:shell])
               begin
                 Locomotive::Wagon.push(path, connection_info, options)
               rescue Exception => e
@@ -359,14 +360,15 @@ module Locomotive
         #
         # @param [ String ] env The environment (development, staging, production, ...etc)
         # @param [ String ] path The path of the local site
+        # @param [ Boolean ] use_shell True by default, use it to ask for missing information (subdomain for instance)
         #
         # @return [ Hash ] The information of the connection or nil if errors
         #
-        def retrieve_connection_info(env, path)
+        def retrieve_connection_info(env, path, use_shell = true)
           require 'locomotive/wagon/misc/deployment_connection'
 
           begin
-            service = Locomotive::Wagon::DeploymentConnection.new(path, shell)
+            service = Locomotive::Wagon::DeploymentConnection.new(path, use_shell ? shell : nil)
 
             service.get_information(env)
 

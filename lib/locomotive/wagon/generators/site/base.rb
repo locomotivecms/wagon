@@ -37,7 +37,7 @@ module Locomotive
           end
 
           def self.may_use_haml
-            class_option :haml, type: :boolean, default: nil, required: false, desc: 'HAML over HTML?'
+            class_option :haml, type: :boolean, default: nil, required: false, desc: 'Use HAML templates?'
           end
 
           protected
