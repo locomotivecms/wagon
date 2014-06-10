@@ -6,6 +6,7 @@ module Locomotive
         class Bootstrap3 < Base
 
           may_use_haml
+          may_use_scss
 
           def choose_haml_over_html
             if haml?
@@ -19,6 +20,17 @@ module Locomotive
             end
           end
 
+          def choose_scss_over_css
+            if scss?
+              remove_file File.join(self.destination, 'public/stylesheets/application.css')
+              remove_file File.join(self.destination, 'public/stylesheets/bootstrap.css')
+            else
+              remove_dir File.join(self.destination, 'public/stylesheets/bootstrap')
+              remove_file File.join(self.destination, 'public/stylesheets/application.css.scss')
+              remove_file File.join(self.destination, 'public/stylesheets/bootstrap.css.scss')
+            end
+          end
+
           def bundle_install
             super
           end
@@ -26,7 +38,7 @@ module Locomotive
         end
 
         Locomotive::Wagon::Generators::Site.register(:bootstrap3, Bootstrap3, %{
-          A site powered by Twitter bootstrap (v3.0.0).
+          A site powered by Twitter bootstrap (v3.1.1).
         })
       end
     end

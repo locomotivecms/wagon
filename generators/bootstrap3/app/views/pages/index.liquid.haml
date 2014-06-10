@@ -7,66 +7,67 @@ published: true
   %head
     %meta{content: "text/html; charset=UTF-8", "http-equiv" => "content-type"}/
     %meta{charset: "utf-8"}/
-    %title Bootply.com - Bootstrap 3 Template
-    %meta{content: "Bootply", name: "generator"}/
+    %title {{ site.name }}
     %meta{content: "width=device-width, initial-scale=1, maximum-scale=1", name: "viewport"}/
-  %body
-    %p
-      {{ 'bootstrap.css' | stylesheet_tag }}
-      /[if lt IE 9]
-        <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
-      %link{rel: "shortcut icon", href: "/samples/favicon.png"}/
-      %link{rel: "apple-touch-icon-precomposed", sizes: "144x144", href: "/samples/apple-touch-icon-144x144-precomposed.png"}/
-      %link{rel: "apple-touch-icon-precomposed", sizes: "114x114", href: "/samples/apple-touch-icon-114x114-precomposed.png"}/
-      %link{rel: "apple-touch-icon-precomposed", sizes: "72x72", href: "/samples/apple-touch-icon-72x72-precomposed.png"}/
-      %link{rel: "apple-touch-icon-precomposed", href: "/samples/apple-touch-icon-precomposed.png"}/
 
-      / CSS code from Bootply.com editor
-      :css
-        @media screen and (min-width: 992px) {
-          .the-icons li {
-            width: 12.5%;
-          }
-        }
-        .the-buttons > li {
-          float: left;
-          height: 80px;
-          padding: 10px;
-          border: 1px solid #ddd;
-          font-size: 12px;
-          line-height: 1.25;
-          text-align: center;
-          -webkit-box-sizing: border-box;
-          -moz-box-sizing: border-box;
-          box-sizing: border-box;
-          margin: 0 -1px -1px 0;
-        }
-        .the-icons .glyphicon {
-          display: block;
-          margin: 5px auto;
-          vertical-align: middle;
-          margin-right: 3px;
-          font-size: 24px;
-        }
+    {{ 'application.css' | stylesheet_tag }}
+
+    /[if lt IE 9]
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    %link{rel: "shortcut icon", href: "/samples/favicon.png"}/
+    %link{rel: "apple-touch-icon-precomposed", sizes: "144x144", href: "/samples/apple-touch-icon-144x144-precomposed.png"}/
+    %link{rel: "apple-touch-icon-precomposed", sizes: "114x114", href: "/samples/apple-touch-icon-114x114-precomposed.png"}/
+    %link{rel: "apple-touch-icon-precomposed", sizes: "72x72", href: "/samples/apple-touch-icon-72x72-precomposed.png"}/
+    %link{rel: "apple-touch-icon-precomposed", href: "/samples/apple-touch-icon-precomposed.png"}/
+
+    / CSS code from Bootply.com editor
+    :css
+      @media screen and (min-width: 992px) {
         .the-icons li {
-          float: left;
-          width: 100px;
-          height: 110px;
-          padding: 10px;
-          border: 1px solid #ddd;
-          font-size: 12px;
-          line-height: 1.25;
-          text-align: center;
-          -webkit-box-sizing: border-box;
-          -moz-box-sizing: border-box;
-          box-sizing: border-box;
-          margin: 0 -1px -1px 0;
+          width: 12.5%;
         }
-        .the-icons, .the-buttons {
-          list-style:none;
-        }
+      }
+      .the-buttons > li {
+        float: left;
+        height: 80px;
+        padding: 10px;
+        border: 1px solid #ddd;
+        font-size: 12px;
+        line-height: 1.25;
+        text-align: center;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        margin: 0 -1px -1px 0;
+      }
+      .the-icons .glyphicon {
+        display: block;
+        margin: 5px auto;
+        vertical-align: middle;
+        margin-right: 3px;
+        font-size: 24px;
+      }
+      .the-icons li {
+        float: left;
+        width: 100px;
+        height: 110px;
+        padding: 10px;
+        border: 1px solid #ddd;
+        font-size: 12px;
+        line-height: 1.25;
+        text-align: center;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        margin: 0 -1px -1px 0;
+      }
+      .the-icons, .the-buttons {
+        list-style:none;
+      }
+
+  %body
     .container
-      %h1 Bootstrap 3 Template
+      %h1 {{ page.title }}
       %p.lead A Full Featured Example
       /
         Typography
