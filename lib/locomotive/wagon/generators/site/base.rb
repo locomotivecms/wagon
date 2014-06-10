@@ -41,7 +41,6 @@ module Locomotive
           end
 
           def self.may_use_scss
-            puts "youpi...."
             class_option :scss, type: :boolean, default: nil, required: false, desc: 'Use SCSS stylesheets?'
           end
 

@@ -170,7 +170,6 @@ module Locomotive
         method_option :skip_bundle, type: 'boolean', default: false, desc: "Don't run bundle install"
         method_option :verbose,     aliases: '-v', type: 'boolean', default: false, desc: 'display the full error stack trace if an error occurs'
         def init(name, path = '.', *generator_options)
-          puts generator_options.inspect
           force_color_if_asked(options)
           require 'locomotive/wagon/generators/site'
           require File.expand_path(options[:lib]) if options[:lib]
