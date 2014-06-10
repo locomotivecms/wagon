@@ -22,20 +22,14 @@ module Locomotive
 
           def choose_scss_over_css
             if scss?
+              remove_file File.join(self.destination, 'public/stylesheets/application.css')
               remove_file File.join(self.destination, 'public/stylesheets/foundation.css')
-              remove_file File.join(self.destination, 'public/stylesheets/foundation.min.css')
               remove_file File.join(self.destination, 'public/stylesheets/normalize.css')
-              remove_file File.join(self.destination, 'public/stylesheets/normalize.min.css')
             else
               remove_dir File.join(self.destination, 'public/stylesheets/foundation')
-              remove_file File.join(self.destination, 'public/stylesheets/app.min.css.scss')
+              remove_file File.join(self.destination, 'public/stylesheets/application.css.scss')
               remove_file File.join(self.destination, 'public/stylesheets/foundation.css.scss')
               remove_file File.join(self.destination, 'public/stylesheets/normalize.css.scss')
-
-              copy_file 'public/stylesheets/foundation.css', File.join(self.destination, 'public/stylesheets/app.css')
-              remove_file File.join(self.destination, 'public/stylesheets/foundation.css')
-              copy_file 'public/stylesheets/foundation.min.css', File.join(self.destination, 'public/stylesheets/app.min.css')
-              remove_file File.join(self.destination, 'public/stylesheets/foundation.min.css')
             end
           end
 

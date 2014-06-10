@@ -7,8 +7,8 @@ published: true
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Foundation 5</title>
-    {{ 'app.min.css' | stylesheet_tag }}
+    <title>{{ site.name }}</title>
+    {{ 'application.css' | stylesheet_tag }}
     {{ 'vendor/modernizr.min.js' | javascript_tag }}
     {% inline_editor %}
   </head>
@@ -16,7 +16,7 @@ published: true
     {% block 'main' %}
     <div class="row">
       <div class="large-12 columns">
-        <h1>Welcome to Foundation 5</h1>
+        <h1>{{ page.title }}</h1>
       </div>
     </div>
     <div class="row">

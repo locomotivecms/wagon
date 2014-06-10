@@ -7,15 +7,15 @@ published: true
   %head
     %meta{charset: "utf-8"}/
     %meta{content: "width=device-width, initial-scale=1.0", name: "viewport"}/
-    %title Foundation 5
-    {{ 'app.min.css' | stylesheet_tag }}
+    %title {{ site.name }}
+    {{ 'application.css' | stylesheet_tag }}
     {{ 'vendor/modernizr.min.js' | javascript_tag }}
     {% inline_editor %}
   %body
     {% block 'main' %}
     .row
       .large-12.columns
-        %h1 Welcome to Foundation 5
+        %h1 {{ page.title }}
     .row
       .large-12.columns
         .panel
