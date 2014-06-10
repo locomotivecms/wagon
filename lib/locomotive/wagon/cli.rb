@@ -164,12 +164,13 @@ module Locomotive
           Locomotive::Wagon.authenticate(email, password, shell)
         end
 
-        desc 'init NAME [PATH] [OPTIONS]', 'Create a brand new site'
+        desc 'init NAME [PATH] [GENERATOR_OPTIONS]', 'Create a brand new site'
         method_option :template,    aliases: '-t', type: 'string', default: 'blank', desc: 'instead of building from a blank site, you can also have a pre-fetched site from a template (see the templates command)'
         method_option :lib,         aliases: '-l', type: 'string', desc: 'Path to an external ruby lib or generator'
         method_option :skip_bundle, type: 'boolean', default: false, desc: "Don't run bundle install"
         method_option :verbose,     aliases: '-v', type: 'boolean', default: false, desc: 'display the full error stack trace if an error occurs'
-        def init(name, path = '.', generator_options = nil)
+        def init(name, path = '.', *generator_options)
+          puts generator_options.inspect
           force_color_if_asked(options)
           require 'locomotive/wagon/generators/site'
           require File.expand_path(options[:lib]) if options[:lib]
@@ -179,7 +180,7 @@ module Locomotive
             exit(1)
           else
             begin
-              if Locomotive::Wagon.init(generator.klass, [name, path, options[:skip_bundle].to_s, generator_options], { force_color: options[:force_color] })
+              if Locomotive::Wagon.init(generator.klass, [name, path, options[:skip_bundle].to_s, *generator_options], { force_color: options[:force_color] })
                 self.print_next_instructions_when_site_created(name, path, options[:skip_bundle])
               end
             rescue GeneratorException => e

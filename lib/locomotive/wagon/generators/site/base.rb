@@ -40,6 +40,11 @@ module Locomotive
             class_option :haml, type: :boolean, default: nil, required: false, desc: 'Use HAML templates?'
           end
 
+          def self.may_use_scss
+            puts "youpi...."
+            class_option :scss, type: :boolean, default: nil, required: false, desc: 'Use SCSS stylesheets?'
+          end
+
           protected
 
           def destination
@@ -48,9 +53,17 @@ module Locomotive
 
           def haml?
             if options[:haml].nil?
-              yes?('Do you prefer HAML templates ?')
+              yes?('Do you prefer HAML templates?')
             else
               options[:haml]
+            end
+          end
+
+          def scss?
+            if options[:scss].nil?
+              yes?('Do you prefer SCSS stylesheets?')
+            else
+              options[:scss]
             end
           end
 
