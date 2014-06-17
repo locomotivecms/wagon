@@ -1,6 +1,8 @@
-# -*- encoding: utf-8 -*-
+#!/usr/bin/env gem build
+
 lib = File.expand_path('../lib', __FILE__)
-$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+$:.unshift(lib) unless $:.include?(lib)
+
 require 'locomotive/wagon/version'
 
 Gem::Specification.new do |gem|
