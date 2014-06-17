@@ -4,7 +4,6 @@
 .config
 .DS_Store
 .rbenv-gemsets
-.rbenv-gemsets
 .ruby-gemset
 .ruby-version
 .sass-cache
@@ -22,6 +21,5 @@ spec/fixtures/default/log
 spec/reports
 test/tmp
 test/version_tmp
-tests
 tests
 tmp
