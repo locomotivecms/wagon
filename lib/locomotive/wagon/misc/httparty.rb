@@ -16,6 +16,8 @@ module Locomotive
           path = uri.request_uri
 
           options.delete(:format) if options[:format] == 'default'
+          options[:format]  = options[:format].gsub(/[\'\"]/, '').to_sym if options.has_key?(:format)
+          options[:headers] = { 'User-Agent' => 'LocomotiveCMS' } if options[:with_user_agent]
 
           username, password = options.delete(:username), options.delete(:password)
           options[:basic_auth] = { username: username, password: password } if username

@@ -26,7 +26,7 @@ Gem::Specification.new do |gem|
   gem.add_dependency 'redcarpet',             '~> 3.0.0'
   gem.add_dependency 'dragonfly',             '~> 0.9.12'
   gem.add_dependency 'sprockets',             '~> 2.0'
-  gem.add_dependency 'sprockets-sass',        '~> 1.0.3'
+  gem.add_dependency 'sprockets-sass',        '~> 1.1.0'
   gem.add_dependency 'rack-cache',            '~> 1.1'
   gem.add_dependency 'better_errors',         '~> 1.0.1'
   gem.add_dependency 'rubyzip',               '~> 1.1.0'
