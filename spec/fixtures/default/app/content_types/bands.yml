@@ -17,3 +17,5 @@ fields:
     class_name: songs
     inverse_of: band
     ui_enabled: true
+- featured:
+    type: boolean

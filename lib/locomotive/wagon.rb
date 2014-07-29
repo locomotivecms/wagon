@@ -9,10 +9,12 @@ module Locomotive
     #
     # @param [ String ] name The name of the site (underscored)
     # @param [ String ] path The destination path of the site
+    # @param [ Boolean ] skip_bundle Do not run bundle install
     # @param [ Object ] generator The wrapping class of the generator itself
+    # @param [ String ] options Options for the generator (ex: --force_haml)
     #
-    def self.init(name, path, generator)
-      generator.klass.start [name, path]
+    def self.init(name, path, skip_bundle, generator, options)
+      generator.klass.start [name, path, skip_bundle, options]
     end
 
     # Start the thin server which serves the LocomotiveCMS site from the system.
@@ -26,19 +28,43 @@ module Locomotive
 
         require 'locomotive/wagon/server'
         app = Locomotive::Wagon::Server.new(reader)
+        use_listen = !options[:disable_listen]
+
+        # TODO: new feature -> pick the right Rack handler (Thin, Puma, ...etc)
 
         require 'thin'
-        server = Thin::Server.new(options[:host], options[:port], app)
-        server.threaded = true # TODO: make it an option ?
+        server  = Thin::Server.new(options[:host], options[:port], app)
+        server.threaded = true
+
+        if options[:force]
+          begin
+            self.stop(path)
+            sleep(2) # make sure we wait enough for the Thin process to stop
+          rescue
+          end
+        end
+
+        if options[:daemonize]
+          # very important to get the parent pid in order to differenciate the sub process from the parent one
+          parent_pid = Process.pid
+
+          server.log_file = File.join(File.expand_path(path), 'log', 'thin.log')
+          server.pid_file = File.join(File.expand_path(path), 'log', 'thin.pid')
+          server.daemonize
+
+          use_listen = Process.pid != parent_pid && !options[:disable_listen]
+        end
+
+        Locomotive::Wagon::Listen.instance.start(reader) if use_listen
+
         server.start
-
-        # require 'unicorn' # TODO: gem 'unicorn'
-        # server = Unicorn::HttpServer.new(app)
-        # server.start
-
-        # require 'rack'
-        # Rack::Handler::WEBrick.run(app, { :'Port' => options[:port], :'Host' => options[:host] })
       end
+    end
+
+    def self.stop(path)
+      pid_file = File.join(File.expand_path(path), 'log', 'thin.pid')
+      pid = File.read(pid_file).to_i
+      Process.kill('TERM', pid)
     end
 
     # Generate components for the LocomotiveCMS site such as content types, snippets, pages.
@@ -126,7 +152,7 @@ module Locomotive
       # generate an almost blank site
       require 'locomotive/wagon/generators/site'
       generator = Locomotive::Wagon::Generators::Site::Cloned
-      generator.start [name, path, connection_info.symbolize_keys]
+      generator.start [name, path, true, connection_info.symbolize_keys]
 
       # pull the remote site
       self.pull(target_path, options.merge(connection_info).with_indifferent_access, { disable_misc: true })

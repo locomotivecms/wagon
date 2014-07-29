@@ -24,6 +24,10 @@ module Locomotive
             self.collection
           end
 
+          def any
+            self.collection.any?
+          end
+
           def first
             self.collection.first
           end
@@ -100,8 +104,10 @@ module Locomotive
             return unless @collection.blank?
 
             # define the default order_by if not set
-            if @context['with_scope'] && !@context['with_scope']['order_by'].blank? && !%w(manually position).include?(@content_type.order_by)
-              @context['with_scope']['order_by'] = @content_type.order_by + '.' + @content_type.order_direction
+            if @context['with_scope'] && @context['with_scope']['order_by'].blank? && !%w(manually position).include?(@content_type.order_by)
+              field     = @content_type.order_by || 'created_at'
+              direction = @content_type.order_direction || 'asc'
+              @context['with_scope']['order_by'] = "#{field}.#{direction}"
             end
 
             @collection = apply_scope(@content_type.entries)

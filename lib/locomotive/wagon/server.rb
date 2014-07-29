@@ -23,12 +23,10 @@ module Locomotive::Wagon
     def initialize(reader, options = {})
       Locomotive::Wagon::Dragonfly.setup!(reader.mounting_point.path)
 
+      Sprockets::Sass.add_sass_functions = false
+
       @reader = reader
       @app    = self.create_rack_app(@reader)
-
-      unless options[:disable_listen]
-        Locomotive::Wagon::Listen.instance.start(@reader)
-      end
 
       BetterErrors.application_root = reader.mounting_point.path
     end
@@ -56,7 +54,7 @@ module Locomotive::Wagon
         use ::Dragonfly::Middleware, :images
 
         use Rack::Static, {
-          urls: ['/images', '/fonts', '/samples'],
+          urls: ['/images', '/fonts', '/samples', '/media'],
           root: File.join(reader.mounting_point.path, 'public')
         }
 

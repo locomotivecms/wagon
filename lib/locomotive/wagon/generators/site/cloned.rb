@@ -16,6 +16,10 @@ module Locomotive
             }.merge(self.connection_info))
           end
 
+          def bundle_install
+            super
+          end
+
         end
       end
     end

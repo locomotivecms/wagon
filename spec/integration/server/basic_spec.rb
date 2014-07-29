@@ -37,6 +37,7 @@ describe Locomotive::Wagon::Server do
   it 'shows a content type template ' do
     get '/songs/song-number-1'
     last_response.body.should =~ /Song #1/
+    last_response.body.should =~ /Sample website | Song #1/
   end
 
   it 'renders a page under a templatized one' do

@@ -1,10 +1,13 @@
 - Pearl Jam:
     leader: Eddie
     kind: grunge
+    featured: false
 - Alice in Chains:
     leader: Layne
     kind: grunge
+    featured: false
 - The who:
     leader: Peter
     kind: rock
+    featured: true
 

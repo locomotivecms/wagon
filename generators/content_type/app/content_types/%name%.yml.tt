@@ -1,40 +1,39 @@
-# Public name of this content type
+# Human readable name of this type
 name: <%= config[:name].humanize %>
 
-# TODO: explain
+# Lowercase, underscored handle used to access this type
 slug: <%= config[:name] %>
 
-# Explanation for the backoffice
+# Explanatory text displayed in the back-office
 description: A description of the content type for the editors
 
-# Default field (e.g title)
+# Slug of field used to identify entries by default, such as the title
 label_field_name: <%= config[:fields].first.name %>
 
-# Order of entries
-order_by: manually # default: manually, also available: created_at or any field slug
+# Valid values: manually, created_at, updated_at, or the slug of any field
+order_by: manually
 
-# Order direction
-# order_direction: asc # default: asc, also available: desc
+# Valid values: asc (ascending) and desc (descending). Set to asc by default.
+# order_direction: asc 
 
-# Display entries grouped by <field> in the backoffice
+# Specify a field slug to group entries by that field in the back-office.
 # group_by: <your field>
 
 # Activate public 'create' API (e.g for a contact form)
 # public_submission_enabled: false
 
-# Emails to be notified on new entries using the public API
-# public_submission_accounts: ['john@acme.net']
+# Array of emails to be notified of new entries made with the public API
+# public_submission_accounts: ['john@example.com']
 
-# Describe each field. The name shoud always be an underscored string
+# A list describing each field
 fields: <% config[:fields].each_with_index do |field, index| %>
-- <%= field.name -%>: # Name of the field
-    label: <%= field.name.humanize %>
+- <%= field.name -%>: # The lowercase, underscored name of the field
+    label: <%= field.name.humanize %> # Human readable name of the field
     type: <%= field.type %>
     required: <%= index == 0 ? true : field.required %>
-    hint: A description of the field for the editors
+    hint: Explanatory text displayed in the back office
     localized: false<% if field.type == 'text' %>
-    # Enable or not the RTE [html|text]
-    # text_formatting: html<% end -%><% if field.type == 'select' -%>
+    # text_formatting: html # html (uses rich text editor) or text (uses plain text editor)<% end -%><% if field.type == 'select' -%>
     # if localized, use
     #   en: ['option1_en', 'option2_en']
     #   fr: ['option1_fr', 'option2_fr']

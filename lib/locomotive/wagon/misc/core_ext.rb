@@ -52,3 +52,11 @@ unless Array.instance_methods.include?(:contains?)
   end
 end
 
+unless Integer.instance_methods.include?(:to_datetime)
+  class Integer
+    def to_datetime
+      Time.at(self).to_datetime
+    end
+  end
+end
+
