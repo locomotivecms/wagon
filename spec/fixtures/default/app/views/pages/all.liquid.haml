@@ -10,4 +10,7 @@ published: false
 <li>{{ page.title }}</li>
 {% endfor %}
 </ul>
+
+{% fetch_page our-music as my_page %}
+<p>Single page: {{ my_page.title }}</p>
 {% endblock %}

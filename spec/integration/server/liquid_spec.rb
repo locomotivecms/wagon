@@ -88,4 +88,11 @@ describe Locomotive::Wagon::Server do
     end
   end
 
+  describe 'fetch_page' do
+    it 'returns the title of a page' do
+      get '/all'
+      last_response.body.should =~ %r(<p>Single page: Music</p>)
+    end
+  end
+
 end
