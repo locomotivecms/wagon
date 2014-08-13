@@ -8,31 +8,10 @@ module Locomotive::Wagon
       def call(env)
         self.set_accessors(env)
 
-        if self.request.post? && env['PATH_INFO'] =~ /^\/entry_submissions\/(.*)/
-          self.process_form($1)
+        if slug = get_content_type_slug(env)
+          self.process_form(slug)
 
-          # puts "html? #{html?} / json? #{json?} / #{self.callback_url} / #{params.inspect}"
-
-          if @entry.valid?
-            if self.html?
-              self.record_submitted_entry
-              self.redirect_to self.callback_url
-            elsif self.json?
-              self.json_response
-            end
-          else
-            if self.html?
-              if self.callback_url =~ /^http:\/\//
-                self.redirect_to self.callback_url
-              else
-                env['PATH_INFO'] = self.callback_url
-                self.liquid_assigns[@content_type.slug.singularize] = @entry
-                app.call(env)
-              end
-            elsif self.json?
-              self.json_response(422)
-            end
-          end
+          self.navigation_behavior(env)
         else
           self.fetch_submitted_entry
 
@@ -40,15 +19,73 @@ module Locomotive::Wagon
         end
       end
 
+      # Render or redirect depending on:
+      # - the status of the content entry (valid or not)
+      # - the presence of a callback or not
+      # - the type of response asked by the browser (html or json)
+      #
+      def navigation_behavior(env)
+        if @entry.valid?
+          navigation_success(env)
+        else
+          navigation_error(env)
+        end
+      end
+
+      def navigation_success(env)
+        if self.html?
+          self.record_submitted_entry
+          self.redirect_to success_location
+        elsif self.json?
+          self.json_response
+        end
+      end
+
+      def navigation_error(env)
+        if self.html?
+          if error_location =~ %r(^http://)
+            self.redirect_to error_location
+          else
+            env['PATH_INFO'] = error_location
+            self.liquid_assigns[@content_type.slug.singularize] = @entry
+            app.call(env)
+          end
+        elsif self.json?
+          self.json_response(422)
+        end
+      end
+
       protected
 
+      def success_location; location(:success); end
+      def error_location; location(:error); end
+
+      def location(state)
+        params[:"#{state}_callback"] || (entry_submissions_path? ? '/' : path_info)
+      end
+
+      def entry_submissions_path?
+        !(path_info =~ %r(^/entry_submissions/)).nil?
+      end
+
+      # Get the slug (or permalink) of the content type either from the PATH_INFO variable (old way)
+      # or from the presence of the content_type_slug param (model_form tag).
+      #
+      def get_content_type_slug(env)
+        if request.post? && (path_info =~ %r(^/entry_submissions/(.*)) || params[:content_type_slug])
+          $1 || params[:content_type_slug]
+        end
+      end
+
+      # Record in session the newly "persisted" content entry.
+      #
       def record_submitted_entry
-        self.request.session[:now] ||= {}
-        self.request.session[:now][:submitted_entry] = [@content_type.slug, @entry._slug]
+        session[:now] ||= {}
+        session[:now][:submitted_entry] = [@content_type.slug, @entry._slug]
       end
 
       def fetch_submitted_entry
-        if data = self.request.session[:now].try(:delete, :submitted_entry)
+        if data = session[:now].try(:delete, :submitted_entry)
           content_type = self.mounting_point.content_types[data.first.to_s]
 
           entry = (content_type.entries || []).detect { |e| e._slug == data.last }
@@ -65,13 +102,13 @@ module Locomotive::Wagon
 
       # Mimic the creation of a content entry with a minimal validation.
       #
-      # @param [ String ] permalink The permalink (or slug) of the content type
+      # @param [ String ] slug The slug (or permalink) of the content type
       #
       #
-      def process_form(permalink)
-        permalink = permalink.split('.').first
+      def process_form(slug)
+        slug = slug.split('.').first
 
-        @content_type = self.mounting_point.content_types[permalink]
+        @content_type = self.mounting_point.content_types[slug]
 
         raise "Unknown content type '#{@content_type.inspect}'" if @content_type.nil?
 
@@ -81,10 +118,6 @@ module Locomotive::Wagon
 
         # if not valid, we do not need to keep track of the entry
         @content_type.entries.delete(@entry) if !@entry.valid?
-      end
-
-      def callback_url
-        (@entry.valid? ? params[:success_callback] : params[:error_callback]) || '/'
       end
 
       # Build the JSON response

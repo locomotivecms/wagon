@@ -3,8 +3,10 @@ module Locomotive::Wagon
 
     class Middleware
 
-      attr_accessor :app, :request, :path, :liquid_assigns
+      extend Forwardable
+      def_delegators :request, :path_info, :session
 
+      attr_accessor :app, :request, :path, :liquid_assigns
       attr_accessor :mounting_point, :page, :content_entry
 
       def initialize(app = nil)
@@ -18,8 +20,8 @@ module Locomotive::Wagon
       protected
 
       def set_accessors(env)
-        self.path           = env['wagon.path']
         self.request        = Rack::Request.new(env)
+        self.path           = env['wagon.path']
         self.mounting_point = env['wagon.mounting_point']
         self.page           = env['wagon.page']
         self.content_entry  = env['wagon.content_entry']

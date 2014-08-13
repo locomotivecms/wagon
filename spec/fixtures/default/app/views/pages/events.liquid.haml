@@ -19,6 +19,27 @@ position: 5
     {% endfor %}
 
 #sidebar.unit.size1of3
+
+  {% model_form 'messages', id: 'contactform' %}
+  %p
+    %label{ :for => 'name' } Name
+    %input{ :type => 'text', :id => 'name', :name => 'content[name]', :placeholder => 'First and last name', :tabindex => '1', required: 'required', value: '{{ message.name }}' }
+    %span {{ message.errors.name }}
+
+  %p
+    %label{ :for => 'email' } Email
+    %input{ :type => 'text', :id => 'email', :name => 'content[email]', :placeholder => 'example@domain.com', :tabindex => '2', required: 'required', value: '{{ message.email }}' }
+    %span {{ message.errors.email }}
+
+  %p
+    %label{ :for => 'comment' } Your Message
+    %textarea{ :id => 'comment', :name => 'content[message]', :tabindex => '3', required: 'required' } {{ message.message }}
+    %span {{ message.errors.message }}
+
+  %p.action
+    %input{ :name => 'submit', :type => 'submit', :tabindex => '4', :value => 'Send Message' }
+  {% endmodel_form %}
+
   {% editable_long_text 'sidebar' %}
 
   %p
