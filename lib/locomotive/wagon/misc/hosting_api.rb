@@ -5,9 +5,9 @@ module Locomotive
 
     include HTTParty
 
-    # base_uri ENV['HOSTING_URL'] || 'http://www.locomotivehosting.com'
+    base_uri ENV['HOSTING_URL'] || 'http://www.locomotivehosting.com'
     # base_uri ENV['HOSTING_URL'] || 'http://www.locomotivehosting.fr'
-    base_uri ENV['HOSTING_URL'] || 'http://www.locomotivehosting.dev:3000'
+    # base_uri ENV['HOSTING_URL'] || 'http://www.locomotivehosting.dev:3000'
 
     def initialize(credentials = nil)
       authenticate(credentials) if credentials
@@ -94,15 +94,19 @@ module Locomotive
       end
 
       def errors
-        return nil if success? || self['errors'].nil?
+        return nil if success? || (self['errors'].nil? && self['error'].nil?)
 
-        @errors ||= self['errors'].delete_if { |attribute, errors| errors.empty? }
+        @errors ||= if self['error']
+          [[nil, [self['error']]]]
+        else
+          self['errors'].delete_if { |attribute, errors| errors.empty? }
+        end
       end
 
       def error_messages
         return nil if success? || errors.nil?
 
-        errors.to_a.map { |attribute, messages| messages.map { |message| "#{attribute} #{message}" } }.flatten
+        errors.to_a.map { |attribute, messages| messages.map { |message| [attribute, message].compact.join(' ') } }.flatten
       end
 
     end
