@@ -73,8 +73,6 @@ module Locomotive
     #
     def self.serve(path, options)
       if reader = self.require_mounter(path, true)
-        Bundler.require 'misc'
-
         use_listen = !options[:disable_listen]
 
         if options[:force]
@@ -160,8 +158,6 @@ module Locomotive
 
         reader.mounting_point.site.domains   = connection_info['domains']   if connection_info['domains']
         reader.mounting_point.site.subdomain = connection_info['subdomain'] if connection_info['subdomain']
-        require 'bundler'
-        Bundler.require 'misc'
 
         writer    = Locomotive::Mounter::Writer::Api.instance
         resources = self.validate_resources(options[:resources], writer.writers)
@@ -182,9 +178,7 @@ module Locomotive
     # @param [ Hash ] options The options passed to the pull process
     #
     def self.pull(path, connection_info, options = {})
-      self.require_mounter(path)
-
-      Bundler.require 'misc' unless options[:disable_misc]
+      self.require_mounter(path, false, options[:disable_misc])
 
       connection_info[:uri] = "#{connection_info.delete(:host)}/locomotive/api"
 
@@ -244,15 +238,21 @@ module Locomotive
     #
     # @param [ String ] path The path to the local site
     # @param [ Boolean ] get_reader Tell if it builds an instance of the reader.
+    # @param [ Boolean ] require_misc Tell if it requires the gems inside the misc bundler group
     #
     # @param [ Object ] An instance of the reader is the get_reader parameter has been set.
     #
-    def self.require_mounter(path, get_reader = false)
+    def self.require_mounter(path, get_reader = false, require_misc = true)
       Locomotive::Wagon::Logger.setup(path, false)
 
       require 'locomotive/mounter'
 
       Locomotive::Mounter.logger = Locomotive::Wagon::Logger.instance.logger
+
+      if require_misc
+        require 'bundler'
+        Bundler.require 'misc'
+      end
 
       if get_reader
         begin

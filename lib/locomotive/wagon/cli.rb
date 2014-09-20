@@ -290,6 +290,8 @@ module Locomotive
                 self.print_exception(e, options[:verbose])
                 exit(1)
               end
+            else
+              exit(1)
             end
           end
         end
