@@ -19,7 +19,7 @@ module Locomotive
 
           begin
             template = ::Liquid::Template.parse(self.source, options)
-          rescue Liquid::SyntaxError => e
+          rescue ::Liquid::SyntaxError => e
             # do it again on the raw source instead so that the error line matches
             # the source file.
             ::Liquid::Template.parse(self.template.raw_source, options)
