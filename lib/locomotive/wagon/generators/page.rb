@@ -16,10 +16,15 @@ module Locomotive
         def create_page
           extension = haml? ? 'liquid.haml' : 'liquid'
 
-          segments = self.slug.split('/').find_all { |segment| segment != '' }
+          segments      = self.slug.split('/').find_all { |segment| segment != '' }
+          max_segments  = segments.size
+
           while segment = segments.pop do
             _options    = self.page_options(slug: segment, translated: false)
             file_path   = File.join(pages_path, segments, segment)
+
+            # the content type option is never deleted for the first segment (the requested template)
+            _options.delete(:content_type) unless segments.size == (max_segments - 1)
 
             template "template.#{extension}.tt", "#{file_path}.#{extension}", _options
 
