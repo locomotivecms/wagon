@@ -2,42 +2,46 @@ module Locomotive
   module Wagon
     module Liquid
       module Tags
-        class WithScope < ::Liquid::Block
 
-          SlashedString = /\/[^\/]*\//
-          TagAttributes = /(\w+|\w+\.\w+)\s*\:\s*(#{SlashedString}|#{::Liquid::QuotedFragment})/
+        class WithScope < Solid::Block
 
-          def initialize(tag_name, markup, tokens, options)
-            @tag_options = HashWithIndifferentAccess.new
-            markup.scan(TagAttributes) do |key, value|
-              @tag_options[key] = value
-            end
-            super
+          OPERATORS = %w(all exists gt gte in lt lte ne nin size near within)
+
+          SYMBOL_OPERATORS_REGEXP = /(\w+\.(#{OPERATORS.join('|')})){1}\s*\:/
+
+          # register the tag
+          tag_name :with_scope
+
+          def initialize(tag_name, arguments_string, tokens, context = {})
+            # convert symbol operators into valid ruby code
+            arguments_string.gsub!(SYMBOL_OPERATORS_REGEXP, ':"\1" =>')
+
+            super(tag_name, arguments_string, tokens, context)
           end
 
-          def render(context)
-            context.stack do
-              context['with_scope'] = decode(@tag_options, context)
-              render_all(@nodelist, context)
+          def display(options = {}, &block)
+            current_context.stack do
+              current_context['with_scope'] = self.decode(options)
+              yield
             end
           end
 
-          private
+          protected
 
-          def decode(attributes, context)
-            attributes.each_pair do |key, value|
-              attributes[key] = (case value
-              when /^true|false$/i    then value == 'true'
-              when /^\/[^\/]*\/$/     then Regexp.new(value[1..-2])
-              when /^["|'](.+)["|']$/ then $1.gsub(/^["|']/, '').gsub(/["|']$/, '')
-              else
-                context[value].nil? ? value : context[value]
-              end)
+          def decode(options)
+            HashWithIndifferentAccess.new.tap do |hash|
+              options.each do |key, value|
+                hash[key] = (case value
+                  # regexp inside a string
+                when /^\/[^\/]*\/$/ then Regexp.new(value[1..-2])
+                else
+                  value
+                end)
+              end
             end
           end
         end
 
-        ::Liquid::Template.register_tag('with_scope', WithScope)
       end
     end
   end
