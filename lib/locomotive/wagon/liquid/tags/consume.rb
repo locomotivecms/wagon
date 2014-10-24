@@ -21,7 +21,7 @@ module Locomotive
               @target = $1
 
               self.prepare_url($2)
-              self.prepare_api_options(markup)
+              self.prepare_api_arguments($3)
             else
               raise ::Liquid::SyntaxError.new(options[:locale].t("errors.syntax.consume"), options[:line])
             end
@@ -32,6 +32,8 @@ module Locomotive
           end
 
           def render(context)
+            self.set_api_options(context)
+
             if instance_variable_defined? :@variable_name
               @url = context[@variable_name]
             end
@@ -50,13 +52,14 @@ module Locomotive
             end
           end
 
-          def prepare_api_options(markup)
-            @api_options = {}
-            markup.scan(::Liquid::TagAttributes) do |key, value|
-              @api_options[key] = value if key != 'http'
-            end
-            @api_options['timeout'] = @api_options['timeout'].to_f if @api_options['timeout']
-            @expires_in = (@api_options.delete('expires_in') || 0).to_i
+          def prepare_api_arguments(string)
+            string = string.gsub(/^(\s*,)/, '').strip
+            @api_arguments = Solid::Arguments.parse(string)
+          end
+
+          def set_api_options(context)
+            @api_options  = @api_arguments.interpolate(context).first || {}
+            @expires_in   = @api_options.delete(:expires_in) || 0
           end
 
           def cached_response
@@ -72,7 +75,7 @@ module Locomotive
           def render_all_without_cache(context)
             context.stack do
               begin
-                context.scopes.last[@target.to_s] = Locomotive::Wagon::Httparty::Webservice.consume(@url, @api_options.symbolize_keys)
+                context.scopes.last[@target.to_s] = Locomotive::Wagon::Httparty::Webservice.consume(@url, @api_options)
                 self.cached_response = context.scopes.last[@target.to_s]
               rescue Timeout::Error
                 context.scopes.last[@target.to_s] = self.cached_response
