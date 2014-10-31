@@ -43,7 +43,7 @@ module Locomotive
               label:      label || name.humanize,
               type:       type || 'string',
               required:   %w(true required).include?(required),
-              localized:  %w(true required).include?(localized)
+              localized:  %w(true localized).include?(localized)
             ).tap do |field|
               if %w(belongs_to has_many many_to_many).include?(type)
                 field.class_name = target_content_type_slug
