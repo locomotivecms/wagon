@@ -88,7 +88,7 @@ module Locomotive
           end
 
           def paginate(options = {})
-            @collection ||= self.collection.paginate(options)
+            @collection = self.collection.paginate(options)
             {
               collection:       @collection,
               current_page:     @collection.current_page,
@@ -101,7 +101,7 @@ module Locomotive
           end
 
           def collection
-            return unless @collection.blank?
+            return @collection unless @collection.blank?
 
             # define the default order_by if not set
             if @context['with_scope'] && @context['with_scope']['order_by'].blank? && !%w(manually position).include?(@content_type.order_by)
