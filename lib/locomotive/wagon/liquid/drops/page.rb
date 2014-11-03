@@ -4,15 +4,25 @@ module Locomotive
       module Drops
         class Page < Base
 
-          delegate :slug, :fullpath, :parent, :depth, :seo_title, :redirect_url, :meta_description, :meta_keywords,
+          delegate :fullpath, :parent, :depth, :seo_title, :redirect_url, :meta_description, :meta_keywords,
                    :templatized?, :published?, :redirect?, :listed?, :handle, to: :@_source
 
           def title
-            if @_source.templatized?
-              @context['entry'].try(:_label) || @_source.title
-            else
-              @_source.title
-            end
+            title =  @_source.templatized? ? @context['entry'].try(:_label) : nil
+            title || @_source.title
+          end
+
+          def slug
+            slug = @_source.templatized? ? @context['entry'].try(:_slug).try(:singularize) : nil
+            slug || @_source.slug
+          end
+
+          def original_title
+            @_source.title
+          end
+
+          def original_slug
+            @_source.slug
           end
 
           def children
