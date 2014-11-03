@@ -50,7 +50,6 @@ module Locomotive
               if templatized
                 page = mounting_point.pages.values.find do |_page|
                   _page.templatized? &&
-                  !_page.templatized_from_parent &&
                   _page.content_type.slug == handle.content_type.slug &&
                   (@_options['with'].nil? || _page.handle == @_options['with'])
                 end
