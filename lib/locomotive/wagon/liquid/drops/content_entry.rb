@@ -15,6 +15,7 @@ module Locomotive
           end
 
           alias :_slug :_permalink
+          alias :_id :_permalink
 
           def next
             self

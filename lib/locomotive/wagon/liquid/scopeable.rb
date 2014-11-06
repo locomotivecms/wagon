@@ -56,6 +56,8 @@ module Locomotive
           def initialize(name, value)
             self.name, self.right_operand = name, value
 
+            self.name = :_slug if %w(id _id).include?(name.to_s)
+
             self.process_right_operand
 
             # default value
