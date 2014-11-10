@@ -103,6 +103,7 @@ module Locomotive
           if Process.pid != parent_pid
             # A "new logger" inside the daemon.
             Locomotive::Wagon::Logger.setup(path, false)
+            Locomotive::Mounter.logger = Locomotive::Wagon::Logger.instance.logger
           end
         end
 
