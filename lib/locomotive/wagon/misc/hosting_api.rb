@@ -94,13 +94,15 @@ module Locomotive
       end
 
       def errors
-        return nil if success? || (self['errors'].nil? && self['error'].nil?)
+        return nil if success?
 
         @errors ||= if self['error']
           [[nil, [self['error']]]]
+        elsif self['errors']
+          self['errors']
         else
-          self['errors'].delete_if { |attribute, errors| errors.empty? }
-        end
+          self.to_a
+        end.delete_if { |attribute, errors| errors.empty? }
       end
 
       def error_messages

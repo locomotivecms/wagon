@@ -12,6 +12,9 @@ listed: <% if config[:listed] -%><%= config[:listed] %><% else -%>true<% end -%>
 # true if the page is published
 published: true
 
+# true if the page can be used as a layout for new pages created by the editors
+# is_layout: true
+
 # position among sibling pages
 # position: 1
 

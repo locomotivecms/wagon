@@ -17,6 +17,10 @@ module Locomotive
             slug || @_source.slug
           end
 
+          def is_layout?
+            @_source.is_layout
+          end
+
           def original_title
             @_source.title
           end

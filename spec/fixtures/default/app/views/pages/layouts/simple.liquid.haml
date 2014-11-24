@@ -1,0 +1,13 @@
+---
+title: My simple layout
+is_layout: true
+---
+!!! XML
+!!!
+%html{ lang: "en" }
+  %head
+
+  %body
+    %h1 {% editable_short_text title %}[TODO]{% endeditable_short_text %}
+    .text
+      {% editable_text content, format: html, rows: 5 %}[TODO]{% editable_text %}
