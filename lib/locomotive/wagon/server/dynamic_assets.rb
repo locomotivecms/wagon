@@ -8,7 +8,7 @@ module Locomotive::Wagon
       def initialize(app, site_path)
         super(app)
 
-        @regexp     = /^\/(javascripts|stylesheets)\/(.*)$/
+        @regexp     = /^\/(javascripts|stylesheets|bower_components)\/(.*)$/
 
         @sprockets  = Locomotive::Mounter::Extensions::Sprockets.environment(site_path)
       end
