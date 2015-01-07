@@ -4,6 +4,9 @@ require 'active_support'
 require 'active_support/core_ext'
 require 'faker'
 
+# Remove I18n warnings (i18n lib is required by faker)
+I18n.enforce_available_locales = false
+
 module Locomotive
   module Wagon
     module Generators
