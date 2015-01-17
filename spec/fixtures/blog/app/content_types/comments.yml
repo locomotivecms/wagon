@@ -1,0 +1,20 @@
+name: Comments
+slug: comments
+description: Comments
+label_field_name: name
+order_by: created_at
+order_direction: asc
+public_submission_enabled: true
+
+fields:
+- name:
+    label: Name
+    type: string
+    required: true
+    localized: false
+
+- description:
+    label: Description
+    type: text
+    required: false
+    localized: false

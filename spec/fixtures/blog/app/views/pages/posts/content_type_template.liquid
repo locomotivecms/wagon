@@ -1,0 +1,15 @@
+---
+title: Post page
+published: false
+content_type: posts
+---
+
+<h1>{{ post.title }}</h1>
+{{ post.description }}
+<hr />
+<p>comments:</p>
+<ul>
+  {% for comment in post.comments %}
+  <li><strong>{{comment.name}}</strong><br />{{ comment.description }}</li>
+  {% endfor %}
+</ul>

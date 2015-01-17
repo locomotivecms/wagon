@@ -1,0 +1,19 @@
+name: Posts
+slug: posts
+description: A description of the content type for the editors
+label_field_name: title
+order_by: manually
+
+fields:
+- title:
+    label: Title
+    type: string
+    required: true
+    localized: false
+
+- description:
+    label: Description
+    type: text
+    required: false
+    localized: false
+    text_formatting: html

@@ -143,6 +143,7 @@ module Locomotive
       require lib
 
       generator = lib.camelize.constantize.new(args, options, { behavior: :skip })
+      generator.destination_root = args.last
       generator.force_color_if_asked(options)
       generator.invoke_all
     end

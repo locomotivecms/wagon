@@ -36,7 +36,7 @@ module Locomotive
           _slug = slug.clone.downcase.gsub(/[-]/, '_')
 
           options   = { slug: _slug, translated: false }
-          file_path = File.join(pages_path, _slug)
+          file_path = File.join(snippets_path, _slug)
 
           template "template.#{extension}.tt", "#{file_path}.#{extension}", options
 
@@ -52,7 +52,7 @@ module Locomotive
 
         protected
 
-        def pages_path
+        def snippets_path
           File.join(target_path, 'app', 'views', 'snippets')
         end
 

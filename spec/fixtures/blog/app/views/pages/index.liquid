@@ -1,0 +1,25 @@
+---
+title: Home page
+published: true
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>{{ site.name }}</title>
+    <meta name="keywords" value="{{ site.meta_keywords }}" />
+    <meta name="description" value="{{ site.meta_description }}" />
+  </head>
+  <body>
+    {% block 'main' %}
+      <h1>{{ page.title }}</h1>
+      <p>keywords = {{ params.q }}</p>
+      <p>post list</p>
+      <ul>
+      {% for post in contents.posts %}
+        <li><a href="/posts/{{ post._permalink }}">{{ post.title }}</a></li>
+      {% endfor %}
+      </ul>
+    {% endblock %}
+  </body>
+</html>

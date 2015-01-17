@@ -1,0 +1,13 @@
+---
+title: List of posts
+published: true
+---
+{% extends 'index' %}
+{% block main %}
+<h1>List of posts</h1>
+<ul>
+  {% for post in contents.posts %}
+  <li><strong>{{post.title}}</strong> (<a href="/posts/{{ post._permalink }}">more</a>)</li>
+  {% endfor %}
+</ul>
+{% endblock %}

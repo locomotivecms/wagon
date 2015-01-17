@@ -55,7 +55,7 @@ module Locomotive
         desc 'content_type SLUG FIELDS', 'Creates a content type with the specified slug and fields.'
         method_option :name, aliases: '-n', type: :string, default: nil, optional: true, desc: 'Name of the content type as it will be displayed in the back-office'
         long_desc <<-LONGDESC
-          Creates a content type with the specified slug and fields.
+          Create a content type with the specified slug and fields.
 
           SLUG should be plural, lowercase, and underscored.
 
@@ -80,6 +80,29 @@ module Locomotive
 
           if check_path!
             Locomotive::Wagon.generate :content_type, [name, fields, self.options.delete('path')], self.options
+          end
+        end
+
+        desc 'relationship SOURCE TYPE TARGET', 'Relate 2 existing content types.'
+        long_desc <<-LONGDESC
+          Relate 2 existing content types.
+
+          SOURCE AND TARGET are the slugs of the content types.
+          There should be plural, lowercase, and underscored.
+
+          TYPE values: belongs_to, has_many, or many_to_many.
+
+          Examples:
+
+            * wagon generate relationship posts belongs_to categories
+
+            * wagon generate relationship projects many_to_many developers
+        LONGDESC
+        def relationship(source, type, target)
+          force_color_if_asked(options)
+
+          if check_path!
+            Locomotive::Wagon.generate :relationship, [source, type, target, self.options.delete('path')], self.options
           end
         end
 
