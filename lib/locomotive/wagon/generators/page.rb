@@ -62,14 +62,19 @@ module Locomotive
         end
 
         def other_locales
-          locales = options[:default_locales]
-          locales.shift
-
+          # Rules:
           # #1 default: [fr, en, es], asked: [en, de], result => [en]
           # #2 default: [fr, en, de], asked: [es], result => []
           # #1 default: [fr, en, es], asked: [fr, en, es], result => [en, es]
 
-          locales & (options[:locales] || [])
+          _locales  = options[:locales] || ''
+          separator = _locales.include?(',') ? ',' : ' '
+
+          _locales  = _locales.split(separator)
+          locales   = options[:default_locales]
+          locales.shift
+
+          locales & (_locales || [])
         end
 
       end

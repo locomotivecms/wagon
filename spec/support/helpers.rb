@@ -30,8 +30,7 @@ module Spec
 
     def remove_working_copy_of_site(name)
       path = working_copy_of_site(name)
-
-      # FileUtils.rm_rf(path)
+      FileUtils.rm_rf(path)
     end
 
     def run_server

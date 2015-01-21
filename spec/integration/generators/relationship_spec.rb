@@ -92,7 +92,7 @@ EXPECTED
   end
 
   def read_content_type(name)
-    File.read(File.join(path, 'app/content_types', "#{name}.yml"))
+    File.read(File.join(path, 'app', 'content_types', "#{name}.yml"))
   end
 
 end
