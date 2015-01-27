@@ -56,6 +56,7 @@ module Locomotive
           in_yaml({
             target_class.singularize => {
               'label'       => target_class.singularize.humanize,
+              'hint'        => 'A description of the relationship for the editors',
               'type'        => 'belongs_to',
               'class_name'  => target_class
             }
@@ -66,6 +67,7 @@ module Locomotive
           in_yaml({
             target_class => {
               'label'       => target_class.humanize,
+              'hint'        => 'A description of the relationship for the editors',
               'type'        => 'has_many',
               'class_name'  => target_class,
               'inverse_of'  => source_class.singularize,
@@ -78,6 +80,7 @@ module Locomotive
           in_yaml({
             target_class => {
               'label'       => target_class.humanize,
+              'hint'        => 'A description of the relationship for the editors',
               'type'        => 'many_to_many',
               'class_name'  => target_class,
               'inverse_of'  => source_class,

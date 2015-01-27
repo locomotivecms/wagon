@@ -46,6 +46,7 @@ describe 'Locomotive::Wagon::Generators::Relationship' do
       read_content_type(:comments).should include <<-EXPECTED
 - post:
     label: Post
+    hint: A description of the relationship for the editors
     type: belongs_to
     class_name: posts
 EXPECTED
@@ -55,6 +56,7 @@ EXPECTED
       read_content_type(:posts).should include <<-EXPECTED
 - comments:
     label: Comments
+    hint: A description of the relationship for the editors
     type: has_many
     class_name: comments
     inverse_of: post
@@ -73,6 +75,7 @@ EXPECTED
       read_content_type(:comments).should include <<-EXPECTED
 - posts:
     label: Posts
+    hint: A description of the relationship for the editors
     type: many_to_many
     class_name: posts
     inverse_of: comments
@@ -83,6 +86,7 @@ EXPECTED
       read_content_type(:posts).should include <<-EXPECTED
 - comments:
     label: Comments
+    hint: A description of the relationship for the editors
     type: many_to_many
     class_name: comments
     inverse_of: posts
