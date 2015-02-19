@@ -49,7 +49,7 @@ module Locomotive::Wagon
       path    = File.join(self.reader.mounting_point.path, definition.first)
       path    = File.expand_path(path)
 
-      listener = ::Listen.to(path, only: filter, &reloader)
+      listener = ::Listen.to(path, {only: filter, force_polling: true}, &reloader)
 
       # non blocking listener
       listener.start
