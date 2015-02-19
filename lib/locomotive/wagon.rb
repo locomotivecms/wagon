@@ -108,7 +108,7 @@ module Locomotive
         end
 
         # listen_thread = Thread.new do
-        Locomotive::Wagon::Listen.instance.start(reader) if use_listen
+        Locomotive::Wagon::Listen.instance.start(reader, options) if use_listen
 
         server.start
         # end

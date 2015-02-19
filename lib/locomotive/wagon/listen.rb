@@ -9,11 +9,11 @@ module Locomotive::Wagon
       @@instance = new
     end
 
-    def start(reader)
+    def start(reader, options)
       @reader = reader
 
       self.definitions.each do |definition|
-        self.apply(definition)
+        self.apply(definition, options)
       end
     end
 
@@ -29,7 +29,7 @@ module Locomotive::Wagon
 
     protected
 
-    def apply(definition)
+    def apply(definition, options)
       reloader = Proc.new do |modified, added, removed|
         resources = [*definition.last]
         names     = resources.map { |n| "\"#{n}\"" }.join(', ')
@@ -49,7 +49,7 @@ module Locomotive::Wagon
       path    = File.join(self.reader.mounting_point.path, definition.first)
       path    = File.expand_path(path)
 
-      listener = ::Listen.to(path, {only: filter, force_polling: true}, &reloader)
+      listener = ::Listen.to(path, {only: filter, force_polling: options[:force_polling]}, &reloader)
 
       # non blocking listener
       listener.start

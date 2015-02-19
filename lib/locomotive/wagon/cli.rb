@@ -262,11 +262,17 @@ module Locomotive
         method_option :port, aliases: '-p', type: 'string', default: '3333', desc: 'The port of the Thin server'
         method_option :daemonize, aliases: '-d', type: 'boolean', default: false, desc: 'Run daemonized Thin server in the background'
         method_option :live_reload_port, aliases: '-l', type: 'string', default: false, desc: 'Include the Livereload javascript in each page'
+        method_option :force_polling, aliases: '-o', type: 'boolean', default: false, desc: 'Force polling of files for reload'
         method_option :force, aliases: '-f', type: 'boolean', default: false, desc: 'Stop the current daemonized Thin server if found before starting a new one'
         method_option :verbose, aliases: '-v', type: 'boolean', default: false, desc: 'display the full error stack trace if an error occurs'
         def serve(path = '.')
           parent_pid = Process.pid
           force_color_if_asked(options)
+
+          if options[:force_polling]
+            say "Listener polling is on."
+          end
+
           if check_path!(path)
             begin
               Locomotive::Wagon.serve(path, options)
