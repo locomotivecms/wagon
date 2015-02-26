@@ -31,7 +31,14 @@ module Locomotive
                 label = super.html_safe
               end
 
-              %{<a href="#{path}">#{label}</a>}
+              if @_options['class']
+                css_classes = @_options['class'].gsub("'", '')
+                class_attr = " class=\"#{css_classes}\""
+              else
+                class_attr = ''
+              end
+
+              %{<a href="#{path}"#{class_attr}>#{label}</a>}
             end
           end
 

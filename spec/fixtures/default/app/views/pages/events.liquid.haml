@@ -59,5 +59,7 @@ position: 5
     %br
     {% assign another_song = contents.songs.last %}
     %strong {% link_to another_song, with: a-song-template %}
-
+    %br
+    {% link_to another_song, class: 'custom-class' %}
+    {% link_to another_song, class: 'custom-class-one custom-class-two' %}
 {% endblock %}

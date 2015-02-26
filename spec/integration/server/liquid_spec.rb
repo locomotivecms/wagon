@@ -64,6 +64,16 @@ describe Locomotive::Wagon::Server do
       last_response.body.should =~ /<a href="\/songs\/song-number-8">Song #8<\/a>/
     end
 
+    it "writes a link with a custom css class" do
+      get '/events'
+      last_response.body.should =~ /<a href="\/songs\/song-number-8" class="custom-class">Song #8<\/a>/
+    end
+
+    it "writes a link with multiple custom css classes" do
+      get '/events'
+      last_response.body.should =~ /<a href="\/songs\/song-number-8" class="custom-class-one custom-class-two">Song #8<\/a>/
+    end
+
   end
 
   describe 'scope & assigns' do
