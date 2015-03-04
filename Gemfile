@@ -11,6 +11,8 @@ gemspec
 
 gem 'rb-fsevent', '~> 0.9.1'
 
+gem 'therubyracer'
+
 group :test do
   gem 'pry'
   gem 'coveralls', require: false

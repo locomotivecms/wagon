@@ -79,7 +79,7 @@ module Locomotive
           # return the connection information
           { 'host' => host, 'api_key' => hosting_api.api_key }.tap do |hash|
             # add ssl only if it is asked
-            hash['ssl'] if hosting_api.ssl?
+            hash['ssl'] = true if hosting_api.ssl?
 
             # insert a new entry for hosting env in the current deploy.yml
             File.open(deploy_file, 'a+') do |f|
