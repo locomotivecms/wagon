@@ -2,7 +2,6 @@ module Locomotive
   module Wagon
     module Liquid
       module Tags
-
         class PathTo < ::Liquid::Tag
 
           include PathHelper

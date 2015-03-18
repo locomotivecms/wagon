@@ -149,11 +149,7 @@ module Locomotive
           # @return [ String ] The localized url
           #
           def entry_url(page)
-            if ::I18n.locale.to_s == self.mounting_point.default_locale.to_s
-              "/#{page.fullpath}"
-            else
-              "/#{::I18n.locale}/#{page.fullpath}"
-            end
+            "/#{::I18n.locale}/#{page.fullpath}"
           end
 
           # Return the css of an entry (page).
