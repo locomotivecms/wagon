@@ -1,6 +1,0 @@
-require 'locomotive/wagon/liquid/tags/editable/base'
-require 'locomotive/wagon/liquid/tags/editable/text'
-require 'locomotive/wagon/liquid/tags/editable/short_text'
-require 'locomotive/wagon/liquid/tags/editable/long_text'
-require 'locomotive/wagon/liquid/tags/editable/file'
-require 'locomotive/wagon/liquid/tags/editable/control'

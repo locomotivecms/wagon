@@ -13,6 +13,10 @@ gem 'rb-fsevent', '~> 0.9.1'
 
 gem 'therubyracer'
 
+gem 'locomotivecms_steam', github: 'locomotivecms/steam', ref: '53a910eb6e', require: false
+gem 'locomotivecms_coal', github: 'locomotivecms/coal', ref: '6ae10e3684', require: false
+
+
 group :test do
   gem 'pry'
   gem 'coveralls', require: false

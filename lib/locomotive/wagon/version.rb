@@ -1,5 +1,5 @@
 module Locomotive
   module Wagon
-    VERSION = '1.5.3'
+    VERSION = '2.0.0-alpha'
   end
 end

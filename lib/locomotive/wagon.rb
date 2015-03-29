@@ -72,62 +72,28 @@ module Locomotive
     # @param [ Hash ] options The options for the thin server (host, port)
     #
     def self.serve(path, options)
-      if reader = self.require_mounter(path, true)
-        use_listen = !options[:disable_listen]
+      self.require_steam(path)
 
-        if options[:force]
-          begin
-            self.stop(path)
-            sleep(2) # make sure we wait enough for the server process to stop
-          rescue
-          end
-        end
+      server      = self.build_server(options)
+      use_listen  = !options[:disable_listen]
 
-        # TODO: new feature -> pick the right Rack handler (Thin, Puma, ...etc)
-        server = self.thin_server(reader, options.slice(:host, :port, :disable_listen, :live_reload_port))
+      self.stop(path, true) if options[:force]
 
-        if options[:daemonize]
-          # very important to get the parent pid in order to differenciate the sub process from the parent one
-          parent_pid = Process.pid
+      use_listen = self.daemonize(path, server, use_listen) if options[:daemonize]
 
-          # The Daemons gem closes all file descriptors when it daemonizes the process. So any logfiles that were opened before the Daemons block will be closed inside the forked process.
-          # So, close the current logger and set it up again when daemonized.
-          Locomotive::Wagon::Logger.close
+      # TODO
+      # Locomotive::Wagon::Listen.instance.start(reader) if use_listen
 
-          server.log_file = File.join(File.expand_path(path), 'log', 'server.log')
-          server.pid_file = File.join(File.expand_path(path), 'log', 'server.pid')
-          server.daemonize
-
-          use_listen = Process.pid != parent_pid && !options[:disable_listen]
-
-          if Process.pid != parent_pid
-            # A "new logger" inside the daemon.
-            Locomotive::Wagon::Logger.setup(path, false)
-            Locomotive::Mounter.logger = Locomotive::Wagon::Logger.instance.logger
-          end
-        end
-
-        # listen_thread = Thread.new do
-        Locomotive::Wagon::Listen.instance.start(reader) if use_listen
-
-        server.start
-        # end
-
-        # server_thread = Thread.new { server.start }
-
-        # hit Control + C to stop
-        # Signal.trap('INT')  { EventMachine.stop }
-        # Signal.trap('TERM') { EventMachine.stop }
-
-        # listen_thread.join
-        # server_thread.join
-      end
+      server.start
     end
 
-    def self.stop(path)
+    def self.stop(path, force = false)
       pid_file = File.join(File.expand_path(path), 'log', 'server.pid')
       pid = File.read(pid_file).to_i
       Process.kill('TERM', pid)
+
+      # make sure we wait enough for the server process to stop
+      sleep(2) if force
     end
 
     # Generate components for the LocomotiveCMS site such as content types, snippets, pages.
@@ -234,51 +200,118 @@ module Locomotive
       Locomotive::Mounter::EngineApi.delete('/current_site.json')
     end
 
-    # Load the Locomotive::Mounter lib and set it up (logger, ...etc).
-    # If the second parameter is set to true, then the method builds
-    # an instance of the reader from the path passed in first parameter.
-    #
-    # @param [ String ] path The path to the local site
-    # @param [ Boolean ] get_reader Tell if it builds an instance of the reader.
-    # @param [ Boolean ] require_misc Tell if it requires the gems inside the misc bundler group
-    #
-    # @param [ Object ] An instance of the reader is the get_reader parameter has been set.
-    #
-    def self.require_mounter(path, get_reader = false, require_misc = true)
+    def self.require_steam(path, require_misc = true)
+      require 'locomotive/steam'
+
+      Locomotive::Steam.configure do |config|
+        config.mode           = :test
+        config.adapter        = { name: :filesystem, path: path }
+        config.serve_assets   = true
+        config.asset_path     = File.expand_path(File.join(path, 'public'))
+        config.minify_assets  = false
+      end
+
       Locomotive::Wagon::Logger.setup(path, false)
-
-      require 'locomotive/mounter'
-
-      Locomotive::Mounter.logger = Locomotive::Wagon::Logger.instance.logger
 
       if require_misc
         require 'bundler'
         Bundler.require 'misc'
       end
 
-      if get_reader
-        begin
-          reader = Locomotive::Mounter::Reader::FileSystem.instance
-          reader.run!(path: path)
-          reader
-        rescue Exception => e
-          raise Locomotive::Wagon::MounterException.new "Unable to read the local LocomotiveCMS site. Please check the logs.", e
-        end
+      # logger = Locomotive::Wagon::Logger.instance.logger
+      # logger.info "YEAAH"
+
+      Locomotive::Common.reset
+      Locomotive::Common.configure do |config|
+        config_file = File.expand_path(File.join(path, 'log', 'wagon.log'))
+        config.notifier = Locomotive::Common::Logger.setup(config_file)
       end
     end
 
+    # # Load the Locomotive::Mounter lib and set it up (logger, ...etc).
+    # # If the second parameter is set to true, then the method builds
+    # # an instance of the reader from the path passed in first parameter.
+    # #
+    # # @param [ String ] path The path to the local site
+    # # @param [ Boolean ] get_reader Tell if it builds an instance of the reader.
+    # # @param [ Boolean ] require_misc Tell if it requires the gems inside the misc bundler group
+    # #
+    # # @param [ Object ] An instance of the reader is the get_reader parameter has been set.
+    # #
+    # def self.require_mounter(path, get_reader = false, require_misc = true)
+    #   Locomotive::Wagon::Logger.setup(path, false)
+
+    #   require 'locomotive/mounter'
+
+    #   Locomotive::Mounter.logger = Locomotive::Wagon::Logger.instance.logger
+
+    #   if require_misc
+    #     require 'bundler'
+    #     Bundler.require 'misc'
+    #   end
+
+    #   if get_reader
+    #     begin
+    #       reader = Locomotive::Mounter::Reader::FileSystem.instance
+    #       reader.run!(path: path)
+    #       reader
+    #     rescue Exception => e
+    #       raise Locomotive::Wagon::MounterException.new "Unable to read the local LocomotiveCMS site. Please check the logs.", e
+    #     end
+    #   end
+    # end
+
     protected
 
-    def self.thin_server(reader, options)
-      require 'locomotive/wagon/server'
-      app = Locomotive::Wagon::Server.new(reader, options)
-
+    def self.build_server(options)
       # TODO: new feature -> pick the right Rack handler (Thin, Puma, ...etc)
+
+      require 'locomotive/steam/server'
       require 'thin'
+
+      app = Locomotive::Steam::Server.to_app
+
       Thin::Server.new(options[:host], options[:port], { signals: true }, app).tap do |server|
         server.threaded = true
       end
     end
+
+    def self.daemonize_server(server, path, use_listen)
+      if options[:daemonize]
+        # very important to get the parent pid in order to differenciate the sub process from the parent one
+        parent_pid = Process.pid
+
+        # The Daemons gem closes all file descriptors when it daemonizes the process. So any logfiles that were opened before the Daemons block will be closed inside the forked process.
+        # So, close the current logger and set it up again when daemonized.
+        Locomotive::Wagon::Logger.close
+
+        server.log_file = File.join(File.expand_path(path), 'log', 'server.log')
+        server.pid_file = File.join(File.expand_path(path), 'log', 'server.pid')
+        server.daemonize
+
+        use_listen = Process.pid != parent_pid && !options[:disable_listen]
+
+        if Process.pid != parent_pid
+          # A "new logger" inside the daemon.
+          Locomotive::Wagon::Logger.setup(path, false)
+          # Locomotive::Mounter.logger = Locomotive::Wagon::Logger.instance.logger
+          Locomotive::Common.configure do |config|
+            config.notifier = Locomotive::Wagon::Logger.instance.logger
+          end
+        end
+      end
+    end
+
+    # def self.thin_server(reader, options)
+    #   require 'locomotive/wagon/server'
+    #   app = Locomotive::Wagon::Server.new(reader, options)
+
+    #   # TODO: new feature -> pick the right Rack handler (Thin, Puma, ...etc)
+    #   require 'thin'
+    #   Thin::Server.new(options[:host], options[:port], { signals: true }, app).tap do |server|
+    #     server.threaded = true
+    #   end
+    # end
 
     def self.validate_resources(resources, writers_or_readers)
       return if resources.nil?

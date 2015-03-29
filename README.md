@@ -37,7 +37,7 @@ Please, visit the documentation website of LocomotiveCMS.
 
 #### Run the server with a default site
 
-    $ bundle exec bin/wagon serve <path to the mounter gem>/spec/fixtures/default
+    $ bundle exec bin/wagon serve spec/fixtures/default
 
 #### Push a site
 
