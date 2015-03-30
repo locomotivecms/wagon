@@ -26,3 +26,7 @@ spec/fixtures/default/log
 /.sass-cache/
 
 /tests
+
+/deprecated
+
+dragonfly.log

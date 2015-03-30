@@ -1,7 +1,3 @@
-require 'locomotive/wagon/version'
-require 'locomotive/wagon/logger'
-require 'locomotive/wagon/exceptions'
-
 module Locomotive
   module Wagon
 
@@ -81,8 +77,7 @@ module Locomotive
 
       use_listen = self.daemonize(path, server, use_listen) if options[:daemonize]
 
-      # TODO
-      # Locomotive::Wagon::Listen.instance.start(reader) if use_listen
+      self.listen(path) if use_listen
 
       server.start
     end
@@ -203,28 +198,17 @@ module Locomotive
     def self.require_steam(path, require_misc = true)
       require 'locomotive/steam'
 
-      Locomotive::Steam.configure do |config|
-        config.mode           = :test
-        config.adapter        = { name: :filesystem, path: path }
-        config.serve_assets   = true
-        config.asset_path     = File.expand_path(File.join(path, 'public'))
-        config.minify_assets  = false
-      end
+      configure_logger(path)
 
-      Locomotive::Wagon::Logger.setup(path, false)
+      Locomotive::Steam.configure do |config|
+        config.mode         = :test
+        config.adapter      = { name: :filesystem, path: path }
+        config.asset_path   = File.expand_path(File.join(path, 'public'))
+      end
 
       if require_misc
         require 'bundler'
         Bundler.require 'misc'
-      end
-
-      # logger = Locomotive::Wagon::Logger.instance.logger
-      # logger.info "YEAAH"
-
-      Locomotive::Common.reset
-      Locomotive::Common.configure do |config|
-        config_file = File.expand_path(File.join(path, 'log', 'wagon.log'))
-        config.notifier = Locomotive::Common::Logger.setup(config_file)
       end
     end
 
@@ -265,7 +249,6 @@ module Locomotive
 
     def self.build_server(options)
       # TODO: new feature -> pick the right Rack handler (Thin, Puma, ...etc)
-
       require 'locomotive/steam/server'
       require 'thin'
 
@@ -277,41 +260,44 @@ module Locomotive
     end
 
     def self.daemonize_server(server, path, use_listen)
-      if options[:daemonize]
-        # very important to get the parent pid in order to differenciate the sub process from the parent one
-        parent_pid = Process.pid
+      # very important to get the parent pid in order to differenciate the sub process from the parent one
+      parent_pid = Process.pid
 
-        # The Daemons gem closes all file descriptors when it daemonizes the process. So any logfiles that were opened before the Daemons block will be closed inside the forked process.
-        # So, close the current logger and set it up again when daemonized.
-        Locomotive::Wagon::Logger.close
+      # The Daemons gem closes all file descriptors when it daemonizes the process. So any logfiles that were opened before the Daemons block will be closed inside the forked process.
+      # So, close the current logger and set it up again when daemonized.
+      # Locomotive::Wagon::Logger.close
+      Locomotive::Common::Logger.close
 
-        server.log_file = File.join(File.expand_path(path), 'log', 'server.log')
-        server.pid_file = File.join(File.expand_path(path), 'log', 'server.pid')
-        server.daemonize
+      server.log_file = File.join(File.expand_path(path), 'log', 'server.log')
+      server.pid_file = File.join(File.expand_path(path), 'log', 'server.pid')
+      server.daemonize
 
-        use_listen = Process.pid != parent_pid && !options[:disable_listen]
+      # use_listen = Process.pid != parent_pid && !options[:disable_listen] # TO BE REMOVED
 
-        if Process.pid != parent_pid
-          # A "new logger" inside the daemon.
-          Locomotive::Wagon::Logger.setup(path, false)
-          # Locomotive::Mounter.logger = Locomotive::Wagon::Logger.instance.logger
-          Locomotive::Common.configure do |config|
-            config.notifier = Locomotive::Wagon::Logger.instance.logger
-          end
-        end
+      if Process.pid != parent_pid
+        # A "new logger" inside the daemon.
+        configure_logger(path)
+
+        use_listen
       end
     end
 
-    # def self.thin_server(reader, options)
-    #   require 'locomotive/wagon/server'
-    #   app = Locomotive::Wagon::Server.new(reader, options)
+    def self.listen(path)
+      require 'locomotive/wagon/listen'
+      require 'locomotive/steam/adapters/filesystem/simple_cache_store'
 
-    #   # TODO: new feature -> pick the right Rack handler (Thin, Puma, ...etc)
-    #   require 'thin'
-    #   Thin::Server.new(options[:host], options[:port], { signals: true }, app).tap do |server|
-    #     server.threaded = true
-    #   end
-    # end
+      cache = Locomotive::Steam::Adapters::Filesystem::SimpleCacheStore.new
+
+      Locomotive::Wagon::Listen.start(path, cache)
+    end
+
+    def self.configure_logger(path)
+      Locomotive::Common.reset
+      Locomotive::Common.configure do |config|
+        notifier_file = File.expand_path(File.join(path, 'log', 'wagon.log'))
+        config.notifier = Locomotive::Common::Logger.setup(notifier_file)
+      end
+    end
 
     def self.validate_resources(resources, writers_or_readers)
       return if resources.nil?

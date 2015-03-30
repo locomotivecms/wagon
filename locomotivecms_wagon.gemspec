@@ -18,16 +18,16 @@ Gem::Specification.new do |gem|
   gem.require_paths = ['lib']
   gem.executables   = ['wagon']
 
-  gem.add_dependency 'thor'
-  gem.add_dependency 'thin',                  '~> 1.6.1'
-  gem.add_dependency 'better_errors',         '~> 1.0.1'
-  gem.add_dependency 'rubyzip',               '~> 1.1.0'
-  gem.add_dependency 'netrc',                 '~> 0.7.7'
+  gem.add_dependency 'thor',                  '~> 0.19.1'
+  gem.add_dependency 'thin',                  '~> 1.6.3'
+  gem.add_dependency 'better_errors',         '~> 2.1.1'
+  gem.add_dependency 'rubyzip',               '~> 1.1.7'
+  gem.add_dependency 'netrc',                 '~> 0.10.3'
 
-  gem.add_dependency 'listen',                '~> 2.7.5'
+  gem.add_dependency 'listen',                '~> 2.10.0'
   gem.add_dependency 'rack-livereload',       '~> 0.3.15'
 
-  gem.add_dependency 'faker',                 '~> 0.9.5'
+  gem.add_dependency 'faker',                 '~> 1.4.3'
 
   gem.add_development_dependency 'rake',      '~> 10.0.4'
   gem.add_development_dependency 'rspec',     '~> 2.6.0'

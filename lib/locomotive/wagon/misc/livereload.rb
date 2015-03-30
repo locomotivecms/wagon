@@ -8,7 +8,7 @@ module Guard
   module UI
     class << self
       def method_missing(meth, *args)
-        Locomotive::Wagon::Logger.send(meth, *args)
+        Locomotive::Common::Logger.send(meth, *args)
       end
     end
   end
@@ -32,7 +32,7 @@ module Locomotive
         tcp_port = Locomotive::Wagon::TcpPort.new(options[:host], 35729)
         @port = tcp_port.first
 
-        Locomotive::Wagon::Logger.debug "Run LiveReload on port '#{@port}'"
+        Locomotive::Common::Logger.debug "service=liveReload action=start port=#{@port}"
 
         @livereload = Guard::LiveReload.new(options.merge(port: @port))
       end

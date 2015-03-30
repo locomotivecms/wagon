@@ -1,78 +1,78 @@
-module Locomotive
-  module Wagon
-    class Dragonfly
+# module Locomotive
+#   module Wagon
+#     class Dragonfly
 
-      attr_accessor :path, :enabled
+#       attr_accessor :path, :enabled
 
-      def enabled?
-        !!self.enabled
-      end
+#       def enabled?
+#         !!self.enabled
+#       end
 
-      def resize_url(source, resize_string)
-        _source = (case source
-        when String then source
-        when Hash   then source['url'] || source[:url]
-        else
-          source.try(:url)
-        end)
+#       def resize_url(source, resize_string)
+#         _source = (case source
+#         when String then source
+#         when Hash   then source['url'] || source[:url]
+#         else
+#           source.try(:url)
+#         end)
 
-        if _source.blank?
-          Locomotive::Wagon::Logger.error "Unable to resize on the fly: #{source.inspect}"
-          return
-        end
+#         if _source.blank?
+#           Locomotive::Wagon::Logger.error "Unable to resize on the fly: #{source.inspect}"
+#           return
+#         end
 
-        return _source unless self.enabled?
+#         return _source unless self.enabled?
 
-        if _source =~ /^http/
-          file = self.class.app.fetch_url(_source)
-        else
-          file = self.class.app.fetch_file(File.join(self.path, 'public', _source))
-        end
+#         if _source =~ /^http/
+#           file = self.class.app.fetch_url(_source)
+#         else
+#           file = self.class.app.fetch_file(File.join(self.path, 'public', _source))
+#         end
 
-        file.process(:thumb, resize_string).url
-      end
+#         file.process(:thumb, resize_string).url
+#       end
 
-      def self.app
-        ::Dragonfly[:images]
-      end
+#       def self.app
+#         ::Dragonfly[:images]
+#       end
 
 
-      def self.instance
-        @@instance ||= new
-      end
+#       def self.instance
+#         @@instance ||= new
+#       end
 
-      def self.setup!(path)
-        self.instance.path    = path
-        self.instance.enabled = false
+#       def self.setup!(path)
+#         self.instance.path    = path
+#         self.instance.enabled = false
 
-        begin
-          require 'rack/cache'
-          require 'dragonfly'
+#         begin
+#           require 'rack/cache'
+#           require 'dragonfly'
 
-          ## initialize Dragonfly ##
-          app = ::Dragonfly[:images].configure_with(:imagemagick)
+#           ## initialize Dragonfly ##
+#           app = ::Dragonfly[:images].configure_with(:imagemagick)
 
-          ## configure it ##
-          ::Dragonfly[:images].configure do |c|
-            convert = `which convert`.strip.presence || '/usr/bin/env convert'
-            c.convert_command  = convert
-            c.identify_command = convert
+#           ## configure it ##
+#           ::Dragonfly[:images].configure do |c|
+#             convert = `which convert`.strip.presence || '/usr/bin/env convert'
+#             c.convert_command  = convert
+#             c.identify_command = convert
 
-            c.allow_fetch_url  = true
-            c.allow_fetch_file = true
+#             c.allow_fetch_url  = true
+#             c.allow_fetch_file = true
 
-            c.url_format = '/images/dynamic/:job/:basename.:format'
-          end
+#             c.url_format = '/images/dynamic/:job/:basename.:format'
+#           end
 
-          self.instance.enabled = true
-        rescue Exception => e
-          Locomotive::Wagon::Logger.warn %{
-[Dragonfly] !disabled!
-[Dragonfly] If you want to take full benefits of all the features in the LocomotiveWagon, we recommend you to install ImageMagick and RMagick. Check out the documentation here: http://doc.locomotivecms.com/editor/installation.
-}
-        end
-      end
+#           self.instance.enabled = true
+#         rescue Exception => e
+#           Locomotive::Wagon::Logger.warn %{
+# [Dragonfly] !disabled!
+# [Dragonfly] If you want to take full benefits of all the features in the LocomotiveWagon, we recommend you to install ImageMagick and RMagick. Check out the documentation here: http://doc.locomotivecms.com/editor/installation.
+# }
+#         end
+#       end
 
-    end
-  end
-end
+#     end
+#   end
+# end
