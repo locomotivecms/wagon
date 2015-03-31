@@ -88,15 +88,8 @@ module Locomotive
     # @param [ Hash ] options The options for the generator
     #
     def self.generate(name, args, options = {})
-      Bundler.require 'misc'
-
-      lib = "locomotive/wagon/generators/#{name}"
-      require lib
-
-      generator = lib.camelize.constantize.new(args, options, { behavior: :skip })
-      generator.destination_root = args.last
-      generator.force_color_if_asked(options)
-      generator.invoke_all
+      require_relative 'wagon/commands/generate_command'
+      Locomotive::Wagon::GenerateCommand.generate(name, args, options)
     end
 
     # Push a site to a remote LocomotiveCMS engine described
