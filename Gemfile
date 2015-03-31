@@ -13,9 +13,9 @@ gem 'rb-fsevent', '~> 0.9.1'
 
 gem 'therubyracer'
 
-gem 'locomotivecms_steam', github: 'locomotivecms/steam', ref: 'ed2af0a', require: false
+gem 'locomotivecms_steam', github: 'locomotivecms/steam', ref: 'b2de77e', require: false
 gem 'locomotivecms_coal', github: 'locomotivecms/coal', ref: '6ae10e3684', require: false
-gem 'locomotivecms_common', github: 'locomotivecms/common', ref: '4327a33', require: false
+gem 'locomotivecms_common', github: 'locomotivecms/common', ref: '1895573', require: false
 
 # gem 'locomotivecms_steam', path: '../in_progress/steam', require: false
 # gem 'locomotivecms_common', path: '../in_progress/common', require: false

@@ -27,21 +27,6 @@ module Locomotive::Wagon
     end
 
     def apply(definition)
-      # reloader = Proc.new do |modified, added, removed|
-      #   resources =
-      #   names     = resources.map { |n| "\"#{n}\"" }.join(', ')
-
-      #   unless resources.empty?
-      #     Locomotive::Common::Logger.info "service=listen resources=#{names} timestamp=#{Time.now}"
-
-      #     begin
-      #       reader.reload(resources)
-      #     rescue Exception => e
-      #       Locomotive::Common::DefaultException.new('Unable to reload', e)
-      #     end
-      #   end
-      # end
-
       reloader  = build_reloader([*definition.last])
       filter    = definition[1]
       _path     = File.expand_path(File.join(self.path, definition.first))
@@ -60,14 +45,6 @@ module Locomotive::Wagon
         end
       end
     end
-
-    # def relative_path(path)
-    #   path.sub(site_path, '')
-    # end
-
-    # def site_path
-    #   self.adapter.site_path
-    # end
 
   end
 
