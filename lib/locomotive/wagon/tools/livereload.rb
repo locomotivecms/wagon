@@ -1,3 +1,5 @@
+require 'rack-livereload'
+
 # Stub Guard
 module Guard
   class Plugin

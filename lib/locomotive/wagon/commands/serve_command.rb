@@ -7,7 +7,7 @@ module Locomotive::Wagon
     def initialize(path, options)
       super(path, options || {})
 
-      @use_listen = !options[:disable_listen]
+      @use_listen = !self.options[:disable_listen]
     end
 
     def self.start(path, options = {})
@@ -15,7 +15,7 @@ module Locomotive::Wagon
     end
 
     def self.stop(path, force = false)
-      new(path).stop(force)
+      new(path, nil).stop(force)
     end
 
     def start
@@ -56,6 +56,11 @@ module Locomotive::Wagon
         config.mode         = :test
         config.adapter      = { name: :filesystem, path: path }
         config.asset_path   = File.expand_path(File.join(path, 'public'))
+
+        if port = options[:live_reload_port]
+          require_relative '../tools/livereload'
+          config.middleware.insert_before Rack::Lint, Rack::LiveReload, live_reload_port: port
+        end
       end
     end
 
