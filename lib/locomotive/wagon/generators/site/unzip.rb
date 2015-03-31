@@ -1,5 +1,5 @@
 require 'open-uri'
-require 'zip/zipfilesystem'
+require 'zip'
 
 module Locomotive
   module Wagon

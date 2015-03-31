@@ -1,3 +1,5 @@
+require_relative 'wagon/exceptions'
+
 module Locomotive
   module Wagon
 
@@ -55,11 +57,8 @@ module Locomotive
     # @param [ Hash ] options General options (ex: --force-color)
     #
     def self.init(generator_klass, args, options = {})
-      args, opts = Thor::Options.split(args)
-
-      generator = generator_klass.new(args, opts, {})
-      generator.force_color_if_asked(options)
-      generator.invoke_all
+      require_relative 'wagon/commands/init_command'
+      Locomotive::Wagon::InitCommand.generate(generator_klass, args, options)
     end
 
     # Start the thin server which serves the LocomotiveCMS site from the system.
