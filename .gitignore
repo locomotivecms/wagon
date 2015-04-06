@@ -2,6 +2,7 @@
 tests
 .sass-cache
 .rbenv-gemsets
+dragonfly.log
 /site
 *.gem
 *.rbc
