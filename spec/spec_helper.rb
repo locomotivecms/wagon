@@ -1,6 +1,5 @@
-require "locomotive/wagon"
-require "rspec"
-require "launchy"
+require 'locomotive/wagon'
+require 'rspec'
 require 'coveralls'
 
 Coveralls.wear!

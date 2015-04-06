@@ -18,6 +18,8 @@ Gem::Specification.new do |gem|
   gem.require_paths = ['lib']
   gem.executables   = ['wagon']
 
+  gem.add_development_dependency 'rake',      '~> 10.0.4'
+
   gem.add_dependency 'thor',                  '~> 0.19.1'
   gem.add_dependency 'thin',                  '~> 1.6.3'
   gem.add_dependency 'rubyzip',               '~> 1.1.7'
@@ -27,11 +29,4 @@ Gem::Specification.new do |gem|
   gem.add_dependency 'rack-livereload',       '~> 0.3.15'
 
   gem.add_dependency 'faker',                 '~> 1.4.3'
-
-  gem.add_development_dependency 'rake',      '~> 10.0.4'
-  gem.add_development_dependency 'rspec',     '~> 2.6.0'
-  gem.add_development_dependency 'vcr'
-  gem.add_development_dependency 'webmock',   '~> 1.8.0'
-  gem.add_development_dependency 'rack-test'
-  gem.add_development_dependency 'launchy'
 end

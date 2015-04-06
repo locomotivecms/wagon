@@ -3,6 +3,8 @@ require_relative 'wagon/exceptions'
 module Locomotive
   module Wagon
 
+    DEFAULT_PLATFORM_URL = 'http://www.lvh.me:3000'.freeze
+
     # Authenticate an user to the Hosting platform.
     # If the user does not exist, then create an account for her/him.
     # At the end, store the API key in the ~/.netrc file
@@ -11,43 +13,9 @@ module Locomotive
     # @param [ String ] password The password of the user
     # @param [ Object ] shell Used to ask for/prompt information
     #
-    def self.authenticate(email, password, shell)
-      require 'locomotive/wagon/misc/hosting_api'
-      require 'netrc'
-
-      api_key = nil
-      api     = Locomotive::HostingAPI.new(email: email, password: password)
-
-      if api.authenticated?
-        # existing account
-        api_key = api.api_key
-        shell.say "You have been successfully authenticated.", :green
-      else
-        # new account?
-        shell.say "No account found for #{email} or invalid credentials", :yellow
-
-        if shell.yes?('Do you want to create a new account? [Y/N]')
-          name = shell.ask 'What is your name?'
-
-          account = api.create_account(name: name, email: email, password: password)
-
-          if account.success?
-            shell.say "Your account has been successfully created.", :green
-            api_key = account['api_key']
-          else
-            shell.say "We were unable to create your account, reason(s): #{account.error_messages.join(', ')}", :red
-          end
-        end
-      end
-
-      if api_key
-        # record the credentials
-        netrc = Netrc.read
-        netrc[api.domain_with_port] = email, api_key
-        netrc.save
-      else
-        shell.say "We were unable to authenticate you on our platform.", :red
-      end
+    def self.authenticate(url, email, password, shell)
+      require_relative 'wagon/commands/authenticate_command'
+      Locomotive::Wagon::AuthenticateCommand.authenticate(url, email, password, shell)
     end
 
     # Create a site from a site generator.

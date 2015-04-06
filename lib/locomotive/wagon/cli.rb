@@ -177,14 +177,16 @@ module Locomotive
           say Locomotive::Wagon::VERSION
         end
 
-        desc 'auth [EMAIL] [PASSWORD]', 'Log into the LocomotiveHosting platform'
-        def auth(email = nil, password = nil)
-          say "LocomotiveHosting Sign in/up\n\n", :bold
+        desc 'auth [EMAIL] [PASSWORD] [PLATFORM_URL]', 'Log into your Locomotive platform'
+        def auth(email = nil, password = nil, platform_url = nil)
+          say "Locomotive Sign in/up\n\n", :bold
 
-          email     ||= ask('Enter your e-mail?')
-          password  ||= ask('Enter your password?')
+          platform_url ||= ask("Enter the URL of your platform? (default: #{Locomotive::Wagon::DEFAULT_PLATFORM_URL})")
+          platform_url = Locomotive::Wagon::DEFAULT_PLATFORM_URL if platform_url.strip == ''
+          while email.to_s.strip == ''; email = ask('Enter your e-mail?'); end
+          while password.to_s.strip == ''; password = ask('Enter your password?', echo: false); end
 
-          Locomotive::Wagon.authenticate(email, password, shell)
+          Locomotive::Wagon.authenticate(platform_url, email, password, shell)
         end
 
         desc 'init NAME [PATH] [GENERATOR_OPTIONS]', 'Create a brand new site'
