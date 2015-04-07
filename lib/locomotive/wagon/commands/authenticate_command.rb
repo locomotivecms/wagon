@@ -47,6 +47,8 @@ module Locomotive::Wagon
       # else
       #   shell.say "We were unable to authenticate you on our platform.", :red
       # end
+
+      true
     end
 
     private
