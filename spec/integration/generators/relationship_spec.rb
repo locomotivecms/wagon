@@ -24,7 +24,7 @@ describe 'Locomotive::Wagon::Generators::Relationship' do
 
       let(:source_slug) { 'authors' }
 
-      it { lambda { subject }.should raise_error 'The authors content type does not exist' }
+      it { expect { subject }.to raise_error 'The authors content type does not exist' }
 
     end
 
@@ -32,7 +32,7 @@ describe 'Locomotive::Wagon::Generators::Relationship' do
 
       let(:type) { 'has_one' }
 
-      it { lambda { subject }.should raise_error 'has_one is an unknown relationship type' }
+      it { expect { subject }.to raise_error 'has_one is an unknown relationship type' }
 
     end
 
@@ -43,7 +43,7 @@ describe 'Locomotive::Wagon::Generators::Relationship' do
     before { subject }
 
     it 'adds code to the source content type' do
-      read_content_type(:comments).should include <<-EXPECTED
+      expect(read_content_type(:comments)).to include <<-EXPECTED
 - post:
     label: Post
     hint: A description of the relationship for the editors
@@ -53,7 +53,7 @@ EXPECTED
     end
 
     it 'adds code the target content type' do
-      read_content_type(:posts).should include <<-EXPECTED
+      expect(read_content_type(:posts)).to include <<-EXPECTED
 - comments:
     label: Comments
     hint: A description of the relationship for the editors
@@ -72,7 +72,7 @@ EXPECTED
     let(:type)  { 'many_to_many' }
 
     it 'adds code to the source content type' do
-      read_content_type(:comments).should include <<-EXPECTED
+      expect(read_content_type(:comments)).to include <<-EXPECTED
 - posts:
     label: Posts
     hint: A description of the relationship for the editors
@@ -83,7 +83,7 @@ EXPECTED
     end
 
     it 'adds code the target content type' do
-      read_content_type(:posts).should include <<-EXPECTED
+      expect(read_content_type(:posts)).to include <<-EXPECTED
 - comments:
     label: Comments
     hint: A description of the relationship for the editors

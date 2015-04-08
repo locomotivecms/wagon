@@ -25,7 +25,7 @@ describe 'Locomotive::Wagon::Generators::Page' do
 
       let(:locales) { '' }
 
-      it { lambda { subject }.should_not raise_error }
+      it { expect { subject }.not_to raise_error }
 
     end
 
@@ -36,11 +36,11 @@ describe 'Locomotive::Wagon::Generators::Page' do
     before { subject }
 
     it 'creates the page in the FS' do
-      File.exists?(page_path('new-page')).should be_true
+      expect(File).to exist(page_path('new-page'))
     end
 
     it 'generates an header in YAML' do
-      read_page('new-page').should include <<-EXPECTED
+      expect(read_page('new-page')).to include <<-EXPECTED
 ---
 title: New-page
 EXPECTED
@@ -51,11 +51,11 @@ EXPECTED
       let(:locales) { 'en fr' }
 
       it 'creates the EN page in the FS' do
-        File.exists?(page_path('new-page')).should be_true
+        expect(File).to exist(page_path('new-page'))
       end
 
       it 'creates the FR page in the FS' do
-        File.exists?(page_path('new-page.fr')).should be_true
+        expect(File).to exist(page_path('new-page.fr'))
       end
 
       describe 'separated by a comma' do
@@ -63,11 +63,11 @@ EXPECTED
         let(:locales) { 'en,fr' }
 
         it 'creates the EN page in the FS' do
-          File.exists?(page_path('new-page')).should be_true
+          expect(File).to exist(page_path('new-page'))
         end
 
         it 'creates the FR page in the FS' do
-          File.exists?(page_path('new-page.fr')).should be_true
+          expect(File).to exist(page_path('new-page.fr'))
         end
 
       end
