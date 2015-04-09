@@ -63,25 +63,29 @@ module Locomotive
     # Push a site to a remote LocomotiveCMS engine described
     # by the config/deploy.yml file of the site and for a specific environment.
     #
+    # @param [ String ] env The environment we deploy the site to
     # @param [ String ] path The path of the site
     # @param [ Hash ] connection_info The information to get connected to the remote site
     # @param [ Hash ] options The options passed to the push process
     #
-    def self.push(path, connection_info, options = {})
-      if reader = self.require_mounter(path, true)
+    def self.push(env, path, options = {})
+      require_relative 'wagon/commands/push_command'
+      Locomotive::Wagon::PushCommand.generate(env, path, options)
 
-        reader.mounting_point.site.domains   = connection_info['domains']   if connection_info['domains']
-        reader.mounting_point.site.subdomain = connection_info['subdomain'] if connection_info['subdomain']
+      # if reader = self.require_mounter(path, true)
 
-        writer    = Locomotive::Mounter::Writer::Api.instance
-        resources = self.validate_resources(options[:resources], writer.writers)
+      #   reader.mounting_point.site.domains   = connection_info['domains']   if connection_info['domains']
+      #   reader.mounting_point.site.subdomain = connection_info['subdomain'] if connection_info['subdomain']
 
-        connection_info[:uri] = "#{connection_info.delete(:host)}/locomotive/api"
+      #   writer    = Locomotive::Mounter::Writer::Api.instance
+      #   resources = self.validate_resources(options[:resources], writer.writers)
 
-        _options = { mounting_point: reader.mounting_point, only: resources, console: true }.merge(options).symbolize_keys
+      #   connection_info[:uri] = "#{connection_info.delete(:host)}/locomotive/api"
 
-        writer.run!(_options.merge(connection_info).with_indifferent_access)
-      end
+      #   _options = { mounting_point: reader.mounting_point, only: resources, console: true }.merge(options).symbolize_keys
+
+      #   writer.run!(_options.merge(connection_info).with_indifferent_access)
+      # end
     end
 
     # Pull a site from a remote LocomotiveCMS engine described

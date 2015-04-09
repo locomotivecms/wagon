@@ -308,16 +308,16 @@ module Locomotive
           force_color_if_asked(options)
 
           if check_path!(path)
-            if connection_info = self.retrieve_connection_info(env, path, options[:shell])
+            # if connection_info = self.retrieve_connection_info(env, path, options[:shell])
               begin
-                Locomotive::Wagon.push(path, connection_info, options)
+                Locomotive::Wagon.push(env, path, options)
               rescue Exception => e
                 self.print_exception(e, options[:verbose])
                 exit(1)
               end
-            else
-              exit(1)
-            end
+            # else
+              # exit(1)
+            # end
           end
         end
 
@@ -382,28 +382,28 @@ module Locomotive
           end
         end
 
-        # From a site specified by a path, retrieve the information of the connection
-        # for a environment located in the config/deploy.yml file of the site.
-        #
-        # @param [ String ] env The environment (development, staging, production, ...etc)
-        # @param [ String ] path The path of the local site
-        # @param [ Boolean ] use_shell True by default, use it to ask for missing information (subdomain for instance)
-        #
-        # @return [ Hash ] The information of the connection or nil if errors
-        #
-        def retrieve_connection_info(env, path, use_shell = true)
-          require 'locomotive/wagon/misc/deployment_connection'
+        # # From a site specified by a path, retrieve the information of the connection
+        # # for a environment located in the config/deploy.yml file of the site.
+        # #
+        # # @param [ String ] env The environment (development, staging, production, ...etc)
+        # # @param [ String ] path The path of the local site
+        # # @param [ Boolean ] use_shell True by default, use it to ask for missing information (subdomain for instance)
+        # #
+        # # @return [ Hash ] The information of the connection or nil if errors
+        # #
+        # def retrieve_connection_info(env, path, use_shell = true)
+        #   require 'locomotive/wagon/misc/deployment_connection'
 
-          begin
-            service = Locomotive::Wagon::DeploymentConnection.new(path, use_shell ? shell : nil)
+        #   begin
+        #     service = Locomotive::Wagon::DeploymentConnection.new(path, use_shell ? shell : nil)
 
-            service.get_information(env)
+        #     service.get_information(env)
 
-          rescue Exception => e
-            self.print_exception(e, options[:verbose])
-            nil
-          end
-        end
+        #   rescue Exception => e
+        #     self.print_exception(e, options[:verbose])
+        #     nil
+        #   end
+        # end
 
       end
 

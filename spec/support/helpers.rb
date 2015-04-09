@@ -1,6 +1,10 @@
 module Spec
   module Helpers
 
+    def default_site_path
+      File.expand_path('../../fixtures/default', __FILE__)
+    end
+
     def reset!
       FileUtils.rm_rf(File.expand_path('../../../site', __FILE__))
     end

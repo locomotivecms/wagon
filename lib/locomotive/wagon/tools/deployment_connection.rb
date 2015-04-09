@@ -30,7 +30,7 @@ module Locomotive
       def get_information(env)
         connection_info = read_from_yaml_file(env)
 
-        # is the user owns a hosting account, then use his credentials
+        # if the user owns a hosting account, then use his credentials
         # to create a new site.
         if connection_info.nil? && env == 'hosting'
           connection_info = read_from_hosting
