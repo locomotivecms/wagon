@@ -1,4 +1,5 @@
 require 'locomotive/coal'
+require 'locomotive/steam'
 require 'netrc'
 
 module Locomotive::Wagon
@@ -6,14 +7,13 @@ module Locomotive::Wagon
   class PushCommand < Struct.new(:env, :path, :options)
 
     def push
-      # puts read_from_yaml_file.inspect
       puts connection_information.inspect
       true
     end
 
     def connection_information
       if information = read_from_yaml_file
-        # the site should exist
+        # the deployment env exists and contains all the information we need to move on
         information
       else
         # 1. ask for the platform URL (or LOCOMOTIVE_PLATFORM_URL env variable) [DONE]
@@ -24,11 +24,12 @@ module Locomotive::Wagon
 
         raise 'You need to run wagon authenticate before going further' if credentials.nil?
 
-        # 3. get an instance of the Steam services => common to the read_from_yaml_file way
-        # 4. load the information about the site (SiteRepository)
-        # 5. ask for a handle if not found (blank: random one)
-        # 6. create the site
-        # 7. update the deploy.yml
+        # 3. get an instance of the Steam services in order to load the information about the site (SiteRepository)
+        site = steam_services.current_site
+
+        # 4. ask for a handle if not found (blank: random one)
+        # 5. create the site
+        # 6. update the deploy.yml
       end
 
       # clean the URI (ssl, without scheme?)
@@ -67,6 +68,22 @@ module Locomotive::Wagon
 
       if credentials = Netrc.read[host_with_port]
         { url: uri.to_s, email: credentials.email, api_key: credentials.api_key }
+      end
+    end
+
+    def steam_services
+      return @steam_services if @steam_services
+
+      Locomotive::Steam.configure do |config|
+        config.mode         = :test
+        config.adapter      = { name: :filesystem, path: path }
+        config.asset_path   = File.expand_path(File.join(path, 'public'))
+      end
+
+      @steam_services = Locomotive::Steam::Services.build_instance.tap do |services|
+        repositories = services.repositories
+        repositories.current_site = repositories.site.all.first
+        services.locale = repositories.current_site.default_locale
       end
     end
 
