@@ -22,9 +22,23 @@ describe Locomotive::Wagon::PushCommand do
 
     context 'unknown env' do
 
+      let(:credentials) { instance_double('Credentials', email: TEST_API_EMAIL, api_key: TEST_API_KEY) }
       let(:env) { 'hosting' }
 
+      before do
+        allow(Netrc).to receive(:read).and_return(TEST_PLATFORM_ALT_URL => credentials)
+        allow(Thor::LineEditor).to receive(:readline).and_return(TEST_PLATFORM_URL.dup)
+      end
+
       it { is_expected.to eq true }
+
+      context 'no previous authentication' do
+
+        let(:credentials) { nil }
+
+        it { expect { subject }.to raise_error('You need to run wagon authenticate before going further') }
+
+      end
 
     end
 

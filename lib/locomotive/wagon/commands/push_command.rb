@@ -6,7 +6,8 @@ module Locomotive::Wagon
   class PushCommand < Struct.new(:env, :path, :options)
 
     def push
-      puts read_from_yaml_file.inspect
+      # puts read_from_yaml_file.inspect
+      puts connection_information.inspect
       true
     end
 
@@ -15,13 +16,14 @@ module Locomotive::Wagon
         # the site should exist
         information
       else
-        # TODO
-        # 1. ask for the platform URL (or LOCOMOTIVE_PLATFORM_URL env variable)
-        platform_url = shell.ask "Enter the URL of your platform? (default: #{default_platform_url})"
+        # 1. ask for the platform URL (or LOCOMOTIVE_PLATFORM_URL env variable) [DONE]
+        platform_url = ask_for_platform_url
 
-        puts platform_url
+        # 2. retrieve email + api_key. If no entry present in the .netrc, raise an error [DONE]
+        credentials = read_from_netrc(platform_url)
 
-        # 2. retrieve email + api_key
+        raise 'You need to run wagon authenticate before going further' if credentials.nil?
+
         # 3. get an instance of the Steam services => common to the read_from_yaml_file way
         # 4. load the information about the site (SiteRepository)
         # 5. ask for a handle if not found (blank: random one)
@@ -34,16 +36,14 @@ module Locomotive::Wagon
       # build an instance of the Coal client class
     end
 
-
-
     private
 
-    def shell
-      options[:shell]
-    end
+    def ask_for_platform_url
+      default = ENV['LOCOMOTIVE_PLATFORM_URL'] || DEFAULT_PLATFORM_URL
 
-    def default_platform_url
-      ENV['LOCOMOTIVE_PLATFORM_URL'] || DEFAULT_PLATFORM_URL
+      url = shell.ask "Enter the URL of your platform? (default: #{default})"
+
+      url.blank? ? default : url
     end
 
     def deploy_file
@@ -61,8 +61,17 @@ module Locomotive::Wagon
       raise "Unable to read the config/deploy.yml file (#{e.message})"
     end
 
-    def read_from_netrc
+    def read_from_netrc(platform_url)
+      uri = URI(platform_url)
+      host_with_port = "#{uri.host}:#{uri.port}"
 
+      if credentials = Netrc.read[host_with_port]
+        { url: uri.to_s, email: credentials.email, api_key: credentials.api_key }
+      end
+    end
+
+    def shell
+      options[:shell]
     end
 
   end
