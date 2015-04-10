@@ -28,7 +28,11 @@ module Locomotive::Wagon
         site = steam_services.current_site
 
         # 4. ask for a handle if not found (blank: random one)
-        # 5. create the site
+        handle = site[:handle] || ask_for_the_site_handle
+
+        puts handle
+
+        # 5. create the site []
         # 6. update the deploy.yml
       end
 
@@ -42,13 +46,13 @@ module Locomotive::Wagon
     def ask_for_platform_url
       default = ENV['LOCOMOTIVE_PLATFORM_URL'] || DEFAULT_PLATFORM_URL
 
-      url = shell.ask "Enter the URL of your platform? (default: #{default})"
+      url = shell.ask "Enter the URL of your platform (default: #{default})"
 
       url.blank? ? default : url
     end
 
-    def deploy_file
-      File.join(path, 'config', 'deploy.yml')
+    def ask_for_the_site_handle
+      shell.ask "Enter the handle of your site (default: random one)"
     end
 
     def read_from_yaml_file
@@ -85,6 +89,10 @@ module Locomotive::Wagon
         repositories.current_site = repositories.site.all.first
         services.locale = repositories.current_site.default_locale
       end
+    end
+
+    def deploy_file
+      File.join(path, 'config', 'deploy.yml')
     end
 
     def shell
