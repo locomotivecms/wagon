@@ -9,7 +9,6 @@ describe Locomotive::Wagon::PushCommand do
   # before { VCR.insert_cassette 'push', record: :new_episodes, match_requests_on: [:method, :query, :body] }
   # after  { VCR.eject_cassette }
 
-  # let(:platform_url)  { TEST_PLATFORM_URL }
   let(:env)       { 'production' }
   let(:path)      { default_site_path }
   let(:shell)     { Thor::Shell::Color.new }
@@ -27,7 +26,7 @@ describe Locomotive::Wagon::PushCommand do
 
       before do
         allow(Netrc).to receive(:read).and_return(TEST_PLATFORM_ALT_URL => credentials)
-        allow(Thor::LineEditor).to receive(:readline).and_return(TEST_PLATFORM_URL.dup)
+        allow(Thor::LineEditor).to receive(:readline).and_return(TEST_PLATFORM_URL.dup, 'acme')
       end
 
       it { is_expected.to eq true }

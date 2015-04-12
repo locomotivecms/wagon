@@ -1,10 +1,19 @@
-require 'locomotive/coal'
 require 'locomotive/steam'
 require 'netrc'
+
+require_relative 'concerns/api_concern'
 
 module Locomotive::Wagon
 
   class PushCommand < Struct.new(:env, :path, :options)
+
+    include ApiConcern
+
+    attr_accessor :platform_url, :credentials
+
+    def self.push(env, path, options)
+      self.new(env, path, options).push
+    end
 
     def push
       puts connection_information.inspect
@@ -17,22 +26,24 @@ module Locomotive::Wagon
         information
       else
         # 1. ask for the platform URL (or LOCOMOTIVE_PLATFORM_URL env variable) [DONE]
-        platform_url = ask_for_platform_url
+        self.platform_url = ask_for_platform_url
 
         # 2. retrieve email + api_key. If no entry present in the .netrc, raise an error [DONE]
-        credentials = read_from_netrc(platform_url)
+        self.credentials = read_from_netrc(self.platform_url)
 
-        raise 'You need to run wagon authenticate before going further' if credentials.nil?
+        raise 'You need to run wagon authenticate before going further' if self.credentials.nil?
 
         # 3. get an instance of the Steam services in order to load the information about the site (SiteRepository)
         site = steam_services.current_site
 
         # 4. ask for a handle if not found (blank: random one)
-        handle = site[:handle] || ask_for_the_site_handle
+        site[:handle] ||= ask_for_the_site_handle
 
-        puts handle
+        # 5. create the site
+        create_remote_site(site)
 
-        # 5. create the site []
+        'TODO'
+
         # 6. update the deploy.yml
       end
 
@@ -43,16 +54,25 @@ module Locomotive::Wagon
 
     private
 
+    def create_remote_site(site)
+      api_client.sites.create(site.attributes).tap do |_site|
+        puts _site.inspect
+      end
+    end
+
     def ask_for_platform_url
       default = ENV['LOCOMOTIVE_PLATFORM_URL'] || DEFAULT_PLATFORM_URL
 
-      url = shell.ask "Enter the URL of your platform (default: #{default})"
+      url = shell.ask "What is the URL of your platform? (default: #{default})"
 
       url.blank? ? default : url
     end
 
     def ask_for_the_site_handle
-      shell.ask "Enter the handle of your site (default: random one)"
+      handle = nil
+      while handle.nil?
+        handle = shell.ask "What is the handle of your site?"
+      end
     end
 
     def read_from_yaml_file
@@ -89,6 +109,10 @@ module Locomotive::Wagon
         repositories.current_site = repositories.site.all.first
         services.locale = repositories.current_site.default_locale
       end
+    end
+
+    def client
+      @client ||= Locomotive::Coal::Client.new(api_url, credentials)
     end
 
     def deploy_file

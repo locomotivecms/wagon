@@ -1,9 +1,12 @@
-require 'locomotive/coal'
 require 'netrc'
+
+require_relative 'concerns/api_concern'
 
 module Locomotive::Wagon
 
   class AuthenticateCommand < Struct.new(:platform_url, :email, :password, :shell)
+
+    include ApiConcern
 
     def self.authenticate(platform_url, email, password, shell)
       self.new(platform_url, email, password, shell).authenticate
@@ -38,7 +41,7 @@ module Locomotive::Wagon
       name = shell.ask 'What is your name?'
 
       begin
-        account = client.my_account.create(name: name, email: email, password: password)
+        account = api_client.my_account.create(name: name, email: email, password: password)
         shell.say "Your account has been successfully created.", :green
         account.api_key
       rescue Locomotive::Coal::Error => e
@@ -60,21 +63,21 @@ module Locomotive::Wagon
 
     def my_account
       begin
-        client.my_account.get
+        api_client.my_account.get
       rescue Locomotive::Coal::UnauthorizedError
         nil
       end
     end
 
-    def client
-      @client ||= Locomotive::Coal::Client.new(api_url, email: email, password: password)
-    end
+    # def client
+    #   @client ||= Locomotive::Coal::Client.new(api_url, email: email, password: password)
+    # end
 
-    def api_url
-      uri = URI(platform_url)
-      uri.merge!('/locomotive/api/v3') if uri.path == '/' || uri.path == ''
-      uri.to_s
-    end
+    # def api_url
+    #   uri = URI(platform_url)
+    #   uri.merge!('/locomotive/api/v3') if uri.path == '/' || uri.path == ''
+    #   uri.to_s
+    # end
 
   end
 
