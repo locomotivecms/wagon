@@ -6,8 +6,8 @@ require 'thor'
 
 describe Locomotive::Wagon::PushCommand do
 
-  # before { VCR.insert_cassette 'push', record: :new_episodes, match_requests_on: [:method, :query, :body] }
-  # after  { VCR.eject_cassette }
+  before { VCR.insert_cassette 'push', record: :new_episodes, match_requests_on: [:method, :query, :body] }
+  after  { VCR.eject_cassette }
 
   let(:env)       { 'production' }
   let(:path)      { default_site_path }
@@ -21,13 +21,15 @@ describe Locomotive::Wagon::PushCommand do
 
     context 'unknown env' do
 
-      let(:credentials) { instance_double('Credentials', email: TEST_API_EMAIL, api_key: TEST_API_KEY) }
+      let(:credentials) { instance_double('Credentials', login: TEST_API_EMAIL, password: TEST_API_KEY) }
       let(:env) { 'hosting' }
 
       before do
         allow(Netrc).to receive(:read).and_return(TEST_PLATFORM_ALT_URL => credentials)
         allow(Thor::LineEditor).to receive(:readline).and_return(TEST_PLATFORM_URL.dup, 'acme')
       end
+
+      after { restore_deploy_file(default_site_path) }
 
       it { is_expected.to eq true }
 

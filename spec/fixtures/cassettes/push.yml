@@ -1,0 +1,132 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://localhost:3000/locomotive/api/v3/tokens.json?api_key=d49cd50f6f0d2b163f48fc73cb249f0244c37074&email=admin@locomotivecms.com&url=http://localhost:3000
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Length:
+      - '0'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '32'
+      Etag:
+      - W/"1fe908e55e46275a5704935dac02818a"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 0a49ccde-4b0c-4982-8355-7b458011889c
+      X-Runtime:
+      - '0.017965'
+      Connection:
+      - keep-alive
+      Server:
+      - thin
+    body:
+      encoding: UTF-8
+      string: '{"token":"i3Pws38yeUQ4Cp58xjSk"}'
+    http_version: 
+  recorded_at: Mon, 13 Apr 2015 09:15:18 GMT
+- request:
+    method: post
+    uri: http://localhost:3000/locomotive/api/v3/sites.json?auth_token=i3Pws38yeUQ4Cp58xjSk&site%5Bdomains%5D%5B0%5D=wagon.example.com&site%5Bdomains%5D%5B1%5D=localhost&site%5Blocales%5D%5B0%5D=en&site%5Blocales%5D%5B1%5D=fr&site%5Blocales%5D%5B2%5D=nb&site%5Bmeta_keywords%5D%5Ben%5D=some%20meta%20keywords&site%5Bmeta_keywords%5D%5Bfr%5D=quelques%20mots%20cles&site%5Bname%5D=Sample%20website&site%5Bseo_title%5D%5Ben%5D=A%20simple%20LocomotiveCMS%20website&site%5Bseo_title%5D%5Bfr%5D=Un%20simple%20LocomotiveCMS%20site%20web
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      X-Locomotive-Account-Email:
+      - admin@locomotivecms.com
+      X-Locomotive-Account-Token:
+      - i3Pws38yeUQ4Cp58xjSk
+      Content-Length:
+      - '0'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '589'
+      Etag:
+      - W/"32617c88a703d2c4b6bc7a1710ea7181"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - d2366b32-e8df-4c1c-89cf-047b2f64a1ba
+      X-Runtime:
+      - '0.050050'
+      Connection:
+      - keep-alive
+      Server:
+      - thin
+    body:
+      encoding: UTF-8
+      string: '{"_id":"552b892764696406eb110000","created_at":"2015-04-13T09:15:19Z","updated_at":"2015-04-13T09:15:19Z","name":"Sample
+        website","handle":"warm-leaves-4626","seo_title":"A simple LocomotiveCMS website","meta_keywords":"some
+        meta keywords","meta_description":null,"robots_txt":null,"locales":["en","fr","nb"],"domains":["wagon.example.com","localhost"],"memberships":[{"_id":"552b892764696406eb120000","created_at":null,"updated_at":null,"role":"admin","account_id":"552b88fe64696412ec000000","name":"Admin","role_name":"Administrator","email":"admin@locomotivecms.com"}],"timezone":"UTC"}'
+    http_version: 
+  recorded_at: Mon, 13 Apr 2015 09:15:19 GMT
+- request:
+    method: post
+    uri: http://localhost:3000/locomotive/api/v3/tokens.json?api_key=d49cd50f6f0d2b163f48fc73cb249f0244c37074&email=admin@locomotivecms.com
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Length:
+      - '0'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '32'
+      Etag:
+      - W/"1fe908e55e46275a5704935dac02818a"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - d781ed41-6dc7-4706-a1b2-24155fbe9f0e
+      X-Runtime:
+      - '0.118848'
+      Connection:
+      - keep-alive
+      Server:
+      - thin
+    body:
+      encoding: UTF-8
+      string: '{"token":"i3Pws38yeUQ4Cp58xjSk"}'
+    http_version: 
+  recorded_at: Mon, 13 Apr 2015 11:44:53 GMT
+recorded_with: VCR 2.9.3

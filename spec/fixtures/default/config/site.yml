@@ -1,8 +1,6 @@
 name: Sample website
 
-subdomain: sample
-
-domains: ['sample.example.com']
+domains: ['wagon.example.com']
 
 locales: ['en', 'fr', 'nb']
 

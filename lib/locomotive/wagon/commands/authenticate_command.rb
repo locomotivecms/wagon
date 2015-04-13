@@ -1,12 +1,12 @@
-require 'netrc'
-
 require_relative 'concerns/api_concern'
+require_relative 'concerns/netrc_concern'
 
 module Locomotive::Wagon
 
   class AuthenticateCommand < Struct.new(:platform_url, :email, :password, :shell)
 
     include ApiConcern
+    include NetrcConcern
 
     def self.authenticate(platform_url, email, password, shell)
       self.new(platform_url, email, password, shell).authenticate
@@ -14,7 +14,7 @@ module Locomotive::Wagon
 
     def authenticate
       if api_key = fetch_api_key
-        record_credentials(api_key)
+        write_credentials_to_netrc(api_host, email, api_key)
       else
         shell.say "Sorry, we were unable to authenticate you on \"#{platform_url}\"", :red
       end
@@ -50,15 +50,6 @@ module Locomotive::Wagon
       end
     end
 
-    def record_credentials(api_key)
-      uri = URI(platform_url)
-      key = "#{uri.host}:#{uri.port}"
-
-      netrc = Netrc.read
-      netrc[key] = email, api_key
-      netrc.save
-    end
-
     private
 
     def my_account
@@ -68,16 +59,6 @@ module Locomotive::Wagon
         nil
       end
     end
-
-    # def client
-    #   @client ||= Locomotive::Coal::Client.new(api_url, email: email, password: password)
-    # end
-
-    # def api_url
-    #   uri = URI(platform_url)
-    #   uri.merge!('/locomotive/api/v3') if uri.path == '/' || uri.path == ''
-    #   uri.to_s
-    # end
 
   end
 
