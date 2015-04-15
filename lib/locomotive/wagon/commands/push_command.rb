@@ -1,18 +1,9 @@
 require 'locomotive/steam'
 
-require_relative 'concerns/api_concern'
-require_relative 'concerns/netrc_concern'
-require_relative 'concerns/deploy_file_concern'
-require_relative 'concerns/steam_concern'
-
-require_relative '../decorators/concerns/to_hash_concern'
-require_relative '../decorators/site_decorator'
-require_relative '../decorators/snippet_decorator'
-require_relative '../decorators/translation_decorator'
-
-require_relative 'push_sub_commands/push_base_command'
-require_relative 'push_sub_commands/push_snippets_command'
-require_relative 'push_sub_commands/push_translations_command'
+require_relative_all 'concerns'
+require_relative_all '../decorators/concerns'
+require_relative_all '../decorators'
+require_relative_all 'push_sub_commands'
 
 module Locomotive::Wagon
 
