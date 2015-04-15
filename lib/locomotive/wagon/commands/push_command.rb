@@ -4,7 +4,15 @@ require_relative 'concerns/api_concern'
 require_relative 'concerns/netrc_concern'
 require_relative 'concerns/deploy_file_concern'
 require_relative 'concerns/steam_concern'
+
+require_relative '../decorators/concerns/to_hash_concern'
 require_relative '../decorators/site_decorator'
+require_relative '../decorators/snippet_decorator'
+require_relative '../decorators/translation_decorator'
+
+require_relative 'push_sub_commands/push_base_command'
+require_relative 'push_sub_commands/push_snippets_command'
+require_relative 'push_sub_commands/push_translations_command'
 
 module Locomotive::Wagon
 
@@ -22,9 +30,15 @@ module Locomotive::Wagon
     end
 
     def push
-      puts connection_information.inspect
+      api_client = api_site_client(connection_information)
+
+      PushSnippetsCommand.push(api_client, steam_services)
+      PushTranslationsCommand.push(api_client, steam_services)
+
       true
     end
+
+    private
 
     def connection_information
       if information = read_deploy_settings(self.env, self.path)
@@ -47,13 +61,11 @@ module Locomotive::Wagon
       end
     end
 
-    private
-
     def create_remote_site
       # get an instance of the Steam services in order to load the information about the site (SiteRepository)
       steam_services.current_site.tap do |site|
         # ask for a handle if not found (blank: random one)
-        site[:handle] ||= ask_for_the_site_handle
+        site[:handle] ||= shell.ask "What is the handle of your site?"
 
         # create the site
         attributes = SiteDecorator.new(site).to_hash
@@ -78,13 +90,6 @@ module Locomotive::Wagon
       url = shell.ask "What is the URL of your platform? (default: #{default})"
 
       self.platform_url = url.blank? ? default : url
-    end
-
-    def ask_for_the_site_handle
-      handle = nil
-      while handle.nil?
-        handle = shell.ask "What is the handle of your site?"
-      end
     end
 
     def shell

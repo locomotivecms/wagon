@@ -23,23 +23,23 @@ module Spec
     #   end
     # end
 
-    def working_copy_of_site(name)
-      tmp_path = File.expand_path('../../tmp', __FILE__)
-      tmp_path = FileUtils.mkdir_p(tmp_path)
-      File.join(tmp_path, name.to_s)
-    end
+    # def working_copy_of_site(name)
+    #   tmp_path = File.expand_path('../../tmp', __FILE__)
+    #   tmp_path = FileUtils.mkdir_p(tmp_path)
+    #   File.join(tmp_path, name.to_s)
+    # end
 
-    def make_working_copy_of_site(name)
-      source = File.join(File.expand_path('../../fixtures', __FILE__), name.to_s)
-      target = working_copy_of_site(name)
+    # def make_working_copy_of_site(name)
+    #   source = File.join(File.expand_path('../../fixtures', __FILE__), name.to_s)
+    #   target = working_copy_of_site(name)
 
-      FileUtils.cp_r(source, target)
-    end
+    #   FileUtils.cp_r(source, target)
+    # end
 
-    def remove_working_copy_of_site(name)
-      path = working_copy_of_site(name)
-      FileUtils.rm_rf(path)
-    end
+    # def remove_working_copy_of_site(name)
+    #   path = working_copy_of_site(name)
+    #   FileUtils.rm_rf(path)
+    # end
 
   end
 end

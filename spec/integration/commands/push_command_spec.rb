@@ -26,12 +26,20 @@ describe Locomotive::Wagon::PushCommand do
 
       before do
         allow(Netrc).to receive(:read).and_return(TEST_PLATFORM_ALT_URL => credentials)
-        allow(Thor::LineEditor).to receive(:readline).and_return(TEST_PLATFORM_URL.dup, 'acme')
+        allow(Thor::LineEditor).to receive(:readline).and_return(TEST_PLATFORM_URL.dup, '')
       end
 
       after { restore_deploy_file(default_site_path) }
 
-      it { is_expected.to eq true }
+      it 'creates a site and push the site' do
+        resources = []
+        ActiveSupport::Notifications.subscribe('wagon.push') do |name, start, finish, id, payload|
+          puts "Pushing #{payload[:resource]}, done in #{(finish - start)}ms"
+          resources << payload[:resource]
+        end
+        is_expected.to eq true
+        expect(resources).to eq %i(snippets translations)
+      end
 
       context 'no previous authentication' do
 

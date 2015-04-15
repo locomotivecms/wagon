@@ -10,8 +10,13 @@ module Locomotive::Wagon
     end
 
     # Instance of the API client to request resources of a site: pages, theme_assets, ...etc.
-    def api_site_client(site)
-      @api_site_client = api_client.scope_by(site)
+    def api_site_client(connection)
+      return @api_site_client if @api_site_client
+
+      _host, _credentials = connection['host'], connection.slice('email', 'api_key', 'password')
+      _options = connection.slice('ssl', 'handle')
+
+      @api_site_client = Locomotive::Coal::Client.new(_host, _credentials, _options)
     end
 
     # Host (+ port) extracted from the platform_url instance variable.
