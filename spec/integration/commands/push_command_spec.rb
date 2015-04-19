@@ -12,7 +12,7 @@ describe Locomotive::Wagon::PushCommand do
   let(:env)       { 'production' }
   let(:path)      { default_site_path }
   let(:shell)     { Thor::Shell::Color.new }
-  let(:options)   { { shell: shell } }
+  let(:options)   { { shell: shell, data: true, verbose: true } }
   let(:command)   { described_class.new(env, path, options) }
 
   describe '#push' do
@@ -34,11 +34,10 @@ describe Locomotive::Wagon::PushCommand do
       it 'creates a site and push the site' do
         resources = []
         ActiveSupport::Notifications.subscribe('wagon.push') do |name, start, finish, id, payload|
-          puts "Pushing #{payload[:resource]}, done in #{(finish - start)}ms"
-          resources << payload[:resource]
+          resources << payload[:name]
         end
-        is_expected.to eq true
-        expect(resources).to eq %i(snippets translations)
+        is_expected.not_to eq nil
+        expect(resources).to eq %w(snippets theme_assets translations)
       end
 
       context 'no previous authentication' do

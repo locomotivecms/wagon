@@ -27,6 +27,7 @@ Gem::Specification.new do |gem|
 
   gem.add_dependency 'listen',                '~> 2.10.0'
   gem.add_dependency 'rack-livereload',       '~> 0.3.15'
+  gem.add_dependency 'yui-compressor',        '~> 0.12.0'
 
   gem.add_dependency 'faker',                 '~> 1.4.3'
 end

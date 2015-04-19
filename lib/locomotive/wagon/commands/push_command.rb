@@ -1,5 +1,7 @@
 require 'locomotive/steam'
 
+require_relative 'loggers/push_logger'
+
 require_relative_all 'concerns'
 require_relative_all '../decorators/concerns'
 require_relative_all '../decorators'
@@ -9,10 +11,15 @@ module Locomotive::Wagon
 
   class PushCommand < Struct.new(:env, :path, :options)
 
+    RESOURCES = %w(snippets theme_assets translations).freeze
+
+    RESOURCES_WITH_CONTENT = %w(translations).freeze
+
     include ApiConcern
     include NetrcConcern
     include DeployFileConcern
     include SteamConcern
+    include InstrumentationConcern
 
     attr_accessor :platform_url, :credentials
 
@@ -21,15 +28,28 @@ module Locomotive::Wagon
     end
 
     def push
+      PushLogger.new if options[:verbose]
+
       api_client = api_site_client(connection_information)
 
-      PushSnippetsCommand.push(api_client, steam_services)
-      PushTranslationsCommand.push(api_client, steam_services)
-
-      true
+      each_resource do |klass|
+        klass.push(api_client, steam_services)
+      end
     end
 
     private
+
+    def each_resource
+      RESOURCES.each do |name|
+        next if !options[:resources].blank? && !options[:resources].include?(name)
+
+        next if RESOURCES_WITH_CONTENT.include?(name) && !options[:data]
+
+        klass = "Locomotive::Wagon::Push#{name.camelcase}Command".constantize
+
+        yield klass
+      end
+    end
 
     def connection_information
       if information = read_deploy_settings(self.env, self.path)
@@ -62,6 +82,8 @@ module Locomotive::Wagon
         attributes = SiteDecorator.new(site).to_hash
         _site = api_client.sites.create(attributes)
         site[:handle] = _site.handle
+
+        instrument :site_created, site: site
       end
     end
 

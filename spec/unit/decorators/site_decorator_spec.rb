@@ -2,6 +2,8 @@
 
 require 'spec_helper'
 require 'ostruct'
+
+require 'locomotive/wagon/decorators/concerns/to_hash_concern'
 require 'locomotive/wagon/decorators/site_decorator'
 
 describe Locomotive::Wagon::SiteDecorator do

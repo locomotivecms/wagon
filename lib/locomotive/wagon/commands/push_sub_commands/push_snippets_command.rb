@@ -2,23 +2,20 @@ module Locomotive::Wagon
 
   class PushSnippetsCommand < PushBaseCommand
 
-    def self.push(api_client, steam_services)
-      new(api_client, steam_services).push
-    end
-
-    def push
-      ActiveSupport::Notifications.instrument('wagon.push', resource: :snippets) do
-        entities.each do |entity|
-          decorated = SnippetDecorator.new(entity, locale, default_locale)
-          api_client.snippets.update(decorated.slug, decorated.to_hash)
-        end
-      end
-    end
-
-    private
-
     def entities
       repositories.snippet.all
+    end
+
+    def decorate(entity)
+      SnippetDecorator.new(entity, locale, default_locale)
+    end
+
+    def persist(decorated_entity)
+      api_client.snippets.update(decorated_entity.slug, decorated_entity.to_hash)
+    end
+
+    def label_for(decorated_entity)
+      decorated_entity.name
     end
 
   end

@@ -7,8 +7,8 @@ require 'locomotive/wagon/cli'
 
 describe 'Locomotive::Wagon::Generators::Page' do
 
-  before                { make_working_copy_of_site(:blog) }
-  after                 { remove_working_copy_of_site(:blog) }
+  before { make_working_copy_of_site(:blog) }
+  after  { remove_working_copy_of_site(:blog) }
 
   let(:path)            { working_copy_of_site(:blog) }
   let(:fullpath)        { 'new-page' }

@@ -9,12 +9,14 @@ module Locomotive
         (__getobj__.domains || []) - ['localhost']
       end
 
-      def robots_txt
-        self[:robots_txt]
+      %i(robots_txt locales timezone seo_title meta_keywords meta_description).each do |name|
+        define_method(name) do
+          self[name]
+        end
       end
 
       def __attributes__
-        %i(name handle robots_txt locales domains timezone seo_title meta_keywords meta_description)
+        %i(name handle robots_txt locales timezone seo_title meta_keywords meta_description)
       end
 
     end
