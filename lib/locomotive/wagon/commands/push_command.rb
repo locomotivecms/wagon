@@ -11,7 +11,7 @@ module Locomotive::Wagon
 
   class PushCommand < Struct.new(:env, :path, :options)
 
-    RESOURCES = %w(snippets theme_assets translations).freeze
+    RESOURCES = %w(content_types snippets theme_assets translations).freeze
 
     RESOURCES_WITH_CONTENT = %w(translations).freeze
 

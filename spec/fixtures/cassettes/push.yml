@@ -25,35 +25,35 @@ http_interactions:
       Content-Length:
       - '32'
       Etag:
-      - W/"d1f7b30db41123dbdfabce85ebf9a043"
+      - W/"c65ac08d9ef359ce1eb4bb7df1af9dea"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 1b7a3940-9ad1-494e-9569-bba9ee1361fc
+      - fcb03439-cafa-4ac9-b0e7-5800274da004
       X-Runtime:
-      - '0.023210'
+      - '0.443010'
       Connection:
       - keep-alive
       Server:
       - thin
     body:
       encoding: UTF-8
-      string: '{"token":"B1UseoZ1BSQUr86t5-Kz"}'
+      string: '{"token":"QV8KyyZto8_qHq_i6Ums"}'
     http_version: 
-  recorded_at: Sun, 19 Apr 2015 18:04:32 GMT
+  recorded_at: Mon, 27 Apr 2015 21:13:41 GMT
 - request:
     method: post
     uri: http://localhost:3000/locomotive/api/v3/sites.json
     body:
       encoding: UTF-8
-      string: auth_token=B1UseoZ1BSQUr86t5-Kz&site%5Bdomains%5D%5B%5D=wagon.example.com&site%5Bhandle%5D=&site%5Blocales%5D%5B%5D=en&site%5Blocales%5D%5B%5D=fr&site%5Blocales%5D%5B%5D=nb&site%5Bmeta_keywords%5D%5Ben%5D=some+meta+keywords&site%5Bmeta_keywords%5D%5Bfr%5D=quelques+mots+cles&site%5Bname%5D=Sample+website&site%5Bseo_title%5D%5Ben%5D=A+simple+LocomotiveCMS+website&site%5Bseo_title%5D%5Bfr%5D=Un+simple+LocomotiveCMS+site+web&site%5Btimezone%5D=%28GMT%2B00%3A00%29+UTC
+      string: auth_token=QV8KyyZto8_qHq_i6Ums&site%5Bhandle%5D=&site%5Blocales%5D%5B%5D=en&site%5Blocales%5D%5B%5D=fr&site%5Blocales%5D%5B%5D=nb&site%5Bmeta_keywords%5D%5Ben%5D=some+meta+keywords&site%5Bmeta_keywords%5D%5Bfr%5D=quelques+mots+cles&site%5Bname%5D=Sample+website&site%5Bseo_title%5D%5Ben%5D=A+simple+LocomotiveCMS+website&site%5Bseo_title%5D%5Bfr%5D=Un+simple+LocomotiveCMS+site+web
     headers:
       Accept:
       - application/json
       X-Locomotive-Account-Email:
       - admin@locomotivecms.com
       X-Locomotive-Account-Token:
-      - B1UseoZ1BSQUr86t5-Kz
+      - QV8KyyZto8_qHq_i6Ums
       Content-Type:
       - application/x-www-form-urlencoded
       Accept-Encoding:
@@ -68,26 +68,26 @@ http_interactions:
       Content-Type:
       - application/json
       Content-Length:
-      - '578'
+      - '559'
       Etag:
-      - W/"7e8e22ced0cd419563fdc4909ffa5109"
+      - W/"74dd62ac7a0716b5cdb8852a145d714c"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 7302a3bb-b38a-4854-a382-3b69f2cdf812
+      - 0fa0c149-eb6d-4284-ba74-ab1cb30387c6
       X-Runtime:
-      - '0.118887'
+      - '0.125416'
       Connection:
       - keep-alive
       Server:
       - thin
     body:
       encoding: UTF-8
-      string: '{"_id":"5533ee3064696402c1490000","created_at":"2015-04-19T18:04:32Z","updated_at":"2015-04-19T18:04:32Z","name":"Sample
-        website","handle":"hollow-swamp-9066","seo_title":"A simple LocomotiveCMS
-        website","meta_keywords":"some meta keywords","meta_description":null,"robots_txt":null,"locales":["en","fr","nb"],"domains":["wagon.example.com"],"memberships":[{"_id":"5533ee3064696402c14a0000","created_at":null,"updated_at":null,"role":"admin","account_id":"5533ee1d6469643196000000","name":"Admin","role_name":"Administrator","email":"admin@locomotivecms.com"}],"timezone":"UTC"}'
+      string: '{"_id":"553ea68664696432517e0000","created_at":"2015-04-27T21:13:42Z","updated_at":"2015-04-27T21:13:42Z","name":"Sample
+        website","handle":"amiable-mist-4708","seo_title":"A simple LocomotiveCMS
+        website","meta_keywords":"some meta keywords","meta_description":null,"robots_txt":null,"locales":["en","fr","nb"],"domains":[],"memberships":[{"_id":"553ea68664696432517f0000","created_at":null,"updated_at":null,"role":"admin","account_id":"553ea66c64696437e4000000","name":"Admin","role_name":"Administrator","email":"admin@locomotivecms.com"}],"timezone":"UTC"}'
     http_version: 
-  recorded_at: Sun, 19 Apr 2015 18:04:32 GMT
+  recorded_at: Mon, 27 Apr 2015 21:13:42 GMT
 - request:
     method: post
     uri: http://localhost:3000/locomotive/api/v3/tokens.json
@@ -113,301 +113,37 @@ http_interactions:
       Content-Length:
       - '32'
       Etag:
-      - W/"d1f7b30db41123dbdfabce85ebf9a043"
+      - W/"c65ac08d9ef359ce1eb4bb7df1af9dea"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 85b6b230-0d1f-48c3-b6d9-7c14e92443bd
+      - 4d436435-bf2b-4e82-83de-eeadc748e7cf
       X-Runtime:
-      - '0.021857'
+      - '0.013748'
       Connection:
       - keep-alive
       Server:
       - thin
     body:
       encoding: UTF-8
-      string: '{"token":"B1UseoZ1BSQUr86t5-Kz"}'
+      string: '{"token":"QV8KyyZto8_qHq_i6Ums"}'
     http_version: 
-  recorded_at: Sun, 19 Apr 2015 18:04:32 GMT
-- request:
-    method: put
-    uri: http://localhost:3000/locomotive/api/v3/snippets/song.json
-    body:
-      encoding: UTF-8
-      string: auth_token=B1UseoZ1BSQUr86t5-Kz&snippet%5Bname%5D=Song&snippet%5Bslug%5D=song&snippet%5Btemplate%5D%5Ben%5D=%3Cli%3E%0A++%3Ch3%3E%3Ca+href%3D%22%2Fsongs%2F%7B%7B+song._permalink+%7D%7D%22%3E%7B%7B+song.title+%7D%7D%3C%2Fa%3E%3C%2Fh3%3E%0A++%3Cdiv+class%3D%22cover%22%3E%7B%7B+song.cover.url+%7C+image_tag+%7D%7D%3C%2Fdiv%3E%0A++%3Cdiv+class%3D%22info%22%3E%0A++++%7B%7B+song.short_description+%7D%7D%0A++++%3Cp+class%3D%22listen%22%3E%0A++++++%3Ca+href%3D%22%7B%7B+song.audio_url+%7D%7D%22%3E%26rarr%3B+Listen+%28%7B%7B+song.duration+%7D%7D+min%29%3C%2Fa%3E%0A++++%3C%2Fp%3E%0A++++%3Cp%3E%C3%A9couter+en+Francais%3C%2Fp%3E%0A++%3C%2Fdiv%3E%0A++%3Cdiv+class%3D%22clear%22%3E%3C%2Fdiv%3E%0A%3C%2Fli%3E&snippet%5Btemplate%5D%5Bfr%5D=%3Cli%3E%0A++%3Ch3%3E%7B%25+link_to+song%2C+with%3A+a-song-template+%25%7D%3C%2Fh3%3E%0A++%3Cdiv+class%3D%27cover%27%3E%7B%7B+song.cover.url+%7C+image_tag+%7D%7D%3C%2Fdiv%3E%0A++%3Cdiv+class%3D%27info%27%3E%0A++++%7B%7B+song.short_description+%7D%7D%0A++++%3Cp+class%3D%27listen%27%3E%0A++++++%3Ca+href%3D%27%7B%7B+song.audio_url+%7D%7D%27%3E%26rarr%3B+%C3%A9couter+%28%7B%7B+song.duration+%7D%7D+min%29%3C%2Fa%3E%0A++++%3C%2Fp%3E%0A++%3C%2Fdiv%3E%0A++%3Cdiv+class%3D%27clear%27%3E%3C%2Fdiv%3E%0A%3C%2Fli%3E%0A&snippet%5Btemplate%5D%5Bnb%5D=%3Cli%3E%0A++%3Ch3%3E%3Ca+href%3D%22%2Fsongs%2F%7B%7B+song._permalink+%7D%7D%22%3E%7B%7B+song.title+%7D%7D%3C%2Fa%3E%3C%2Fh3%3E%0A++%3Cdiv+class%3D%22cover%22%3E%7B%7B+song.cover.url+%7C+image_tag+%7D%7D%3C%2Fdiv%3E%0A++%3Cdiv+class%3D%22info%22%3E%0A++++%7B%7B+song.short_description+%7D%7D%0A++++%3Cp+class%3D%22listen%22%3E%0A++++++%3Ca+href%3D%22%7B%7B+song.audio_url+%7D%7D%22%3E%26rarr%3B+Listen+%28%7B%7B+song.duration+%7D%7D+min%29%3C%2Fa%3E%0A++++%3C%2Fp%3E%0A++++%3Cp%3E%C3%A9couter+en+Francais%3C%2Fp%3E%0A++%3C%2Fdiv%3E%0A++%3Cdiv+class%3D%22clear%22%3E%3C%2Fdiv%3E%0A%3C%2Fli%3E
-    headers:
-      Accept:
-      - application/json
-      X-Locomotive-Account-Email:
-      - admin@locomotivecms.com
-      X-Locomotive-Account-Token:
-      - B1UseoZ1BSQUr86t5-Kz
-      X-Locomotive-Site-Handle:
-      - hollow-swamp-9066
-      Content-Type:
-      - application/x-www-form-urlencoded
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '733'
-      Etag:
-      - W/"ef1ed16ca3d4fa637a9c6b6001c8039b"
-      Cache-Control:
-      - max-age=0, private, must-revalidate
-      X-Request-Id:
-      - 774cb2ad-4886-4c43-9682-a0e0dccd8526
-      X-Runtime:
-      - '0.034778'
-      Connection:
-      - keep-alive
-      Server:
-      - thin
-    body:
-      encoding: ASCII-8BIT
-      string: !binary |-
-        eyJfaWQiOiI1NTMzZWUzMDY0Njk2NDAyYzE0ZDAwMDAiLCJjcmVhdGVkX2F0
-        IjoiMjAxNS0wNC0xOVQxODowNDozMloiLCJ1cGRhdGVkX2F0IjoiMjAxNS0w
-        NC0xOVQxODowNDozMloiLCJuYW1lIjoiU29uZyIsInNsdWciOiJzb25nIiwi
-        dGVtcGxhdGUiOiJcdTAwM2NsaVx1MDAzZVxuICBcdTAwM2NoM1x1MDAzZVx1
-        MDAzY2EgaHJlZj1cIi9zb25ncy97eyBzb25nLl9wZXJtYWxpbmsgfX1cIlx1
-        MDAzZXt7IHNvbmcudGl0bGUgfX1cdTAwM2MvYVx1MDAzZVx1MDAzYy9oM1x1
-        MDAzZVxuICBcdTAwM2NkaXYgY2xhc3M9XCJjb3ZlclwiXHUwMDNle3sgc29u
-        Zy5jb3Zlci51cmwgfCBpbWFnZV90YWcgfX1cdTAwM2MvZGl2XHUwMDNlXG4g
-        IFx1MDAzY2RpdiBjbGFzcz1cImluZm9cIlx1MDAzZVxuICAgIHt7IHNvbmcu
-        c2hvcnRfZGVzY3JpcHRpb24gfX1cbiAgICBcdTAwM2NwIGNsYXNzPVwibGlz
-        dGVuXCJcdTAwM2VcbiAgICAgIFx1MDAzY2EgaHJlZj1cInt7IHNvbmcuYXVk
-        aW9fdXJsIH19XCJcdTAwM2VcdTAwMjZyYXJyOyBMaXN0ZW4gKHt7IHNvbmcu
-        ZHVyYXRpb24gfX0gbWluKVx1MDAzYy9hXHUwMDNlXG4gICAgXHUwMDNjL3Bc
-        dTAwM2VcbiAgICBcdTAwM2NwXHUwMDNlw6ljb3V0ZXIgZW4gRnJhbmNhaXNc
-        dTAwM2MvcFx1MDAzZVxuICBcdTAwM2MvZGl2XHUwMDNlXG4gIFx1MDAzY2Rp
-        diBjbGFzcz1cImNsZWFyXCJcdTAwM2VcdTAwM2MvZGl2XHUwMDNlXG5cdTAw
-        M2MvbGlcdTAwM2UifQ==
-    http_version: 
-  recorded_at: Sun, 19 Apr 2015 18:04:32 GMT
-- request:
-    method: put
-    uri: http://localhost:3000/locomotive/api/v3/snippets/a_complicated-one.json
-    body:
-      encoding: UTF-8
-      string: auth_token=B1UseoZ1BSQUr86t5-Kz&snippet%5Bname%5D=A+complicated-one&snippet%5Bslug%5D=a_complicated-one&snippet%5Btemplate%5D%5Ben%5D=%3Cp%3EA+complicated+one+name+indeed.%3C%2Fp%3E%0A&snippet%5Btemplate%5D%5Bfr%5D=%3Cp%3EA+complicated+one+name+indeed.%3C%2Fp%3E%0A&snippet%5Btemplate%5D%5Bnb%5D=%3Cp%3EA+complicated+one+name+indeed.%3C%2Fp%3E%0A
-    headers:
-      Accept:
-      - application/json
-      X-Locomotive-Account-Email:
-      - admin@locomotivecms.com
-      X-Locomotive-Account-Token:
-      - B1UseoZ1BSQUr86t5-Kz
-      X-Locomotive-Site-Handle:
-      - hollow-swamp-9066
-      Content-Type:
-      - application/x-www-form-urlencoded
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '233'
-      Etag:
-      - W/"746faa1bc3be964617703d47a81e7a26"
-      Cache-Control:
-      - max-age=0, private, must-revalidate
-      X-Request-Id:
-      - c504fec2-ec90-49c5-9972-a0d3a9ac5550
-      X-Runtime:
-      - '0.051218'
-      Connection:
-      - keep-alive
-      Server:
-      - thin
-    body:
-      encoding: UTF-8
-      string: '{"_id":"5533ee3064696402c14e0000","created_at":"2015-04-19T18:04:32Z","updated_at":"2015-04-19T18:04:32Z","name":"A
-        complicated-one","slug":"a_complicated-one","template":"\u003cp\u003eA complicated
-        one name indeed.\u003c/p\u003e\n"}'
-    http_version: 
-  recorded_at: Sun, 19 Apr 2015 18:04:32 GMT
-- request:
-    method: put
-    uri: http://localhost:3000/locomotive/api/v3/snippets/footer.json
-    body:
-      encoding: UTF-8
-      string: auth_token=B1UseoZ1BSQUr86t5-Kz&snippet%5Bname%5D=Footer&snippet%5Bslug%5D=footer&snippet%5Btemplate%5D%5Ben%5D=%3Cp%3E%7B%25+locale_switcher+%25%7D%3C%2Fp%3E%0A%3Cp%3E%0A++%7B%7B+%27powered_by%27+%7C+translate+%7D%7D+%3Ca+href%3D%22http%3A%2F%2Fwww.locomotivecms.com%22%3ELocomotiveCMS%3C%2Fa%3E.+Designed+by+%3Ca+href%3D%22http%3A%2F%2Fwww.sachagreif.com%22%3ESacha+Greif%3C%2Fa%3E.%0A%3C%2Fp%3E%0A%3Cp%3E%0A++All+photos+are+licensed+under+Creative+Commons.+%28see+original+ones+%3Ca+href%3D%27http%3A%2F%2Fwww.flickr.com%2Fphotos%2F38687875%40N00%2F3391588262%2F%27%3Ehere%3C%2Fa%3E+or+%3Ca+href%3D%27http%3A%2F%2Fwww.flickr.com%2Fphotos%2Fcool_dry_place%2F55454498%2F%27%3Ehere%3C%2Fa%3E%29.%0A%3C%2Fp%3E%0A&snippet%5Btemplate%5D%5Bfr%5D=%3Cp%3E%7B%25+locale_switcher+%25%7D%3C%2Fp%3E%0A%3Cp%3E%0A++%7B%7B+%27powered_by%27+%7C+translate+%7D%7D+%3Ca+href%3D%22http%3A%2F%2Fwww.locomotivecms.com%22%3ELocomotiveCMS%3C%2Fa%3E.+Designed+by+%3Ca+href%3D%22http%3A%2F%2Fwww.sachagreif.com%22%3ESacha+Greif%3C%2Fa%3E.%0A%3C%2Fp%3E%0A%3Cp%3E%0A++All+photos+are+licensed+under+Creative+Commons.+%28see+original+ones+%3Ca+href%3D%27http%3A%2F%2Fwww.flickr.com%2Fphotos%2F38687875%40N00%2F3391588262%2F%27%3Ehere%3C%2Fa%3E+or+%3Ca+href%3D%27http%3A%2F%2Fwww.flickr.com%2Fphotos%2Fcool_dry_place%2F55454498%2F%27%3Ehere%3C%2Fa%3E%29.%0A%3C%2Fp%3E%0A&snippet%5Btemplate%5D%5Bnb%5D=%3Cp%3E%7B%25+locale_switcher+%25%7D%3C%2Fp%3E%0A%3Cp%3E%0A++%7B%7B+%27powered_by%27+%7C+translate+%7D%7D+%3Ca+href%3D%22http%3A%2F%2Fwww.locomotivecms.com%22%3ELocomotiveCMS%3C%2Fa%3E.+Designed+by+%3Ca+href%3D%22http%3A%2F%2Fwww.sachagreif.com%22%3ESacha+Greif%3C%2Fa%3E.%0A%3C%2Fp%3E%0A%3Cp%3E%0A++All+photos+are+licensed+under+Creative+Commons.+%28see+original+ones+%3Ca+href%3D%27http%3A%2F%2Fwww.flickr.com%2Fphotos%2F38687875%40N00%2F3391588262%2F%27%3Ehere%3C%2Fa%3E+or+%3Ca+href%3D%27http%3A%2F%2Fwww.flickr.com%2Fphotos%2Fcool_dry_place%2F55454498%2F%27%3Ehere%3C%2Fa%3E%29.%0A%3C%2Fp%3E%0A
-    headers:
-      Accept:
-      - application/json
-      X-Locomotive-Account-Email:
-      - admin@locomotivecms.com
-      X-Locomotive-Account-Token:
-      - B1UseoZ1BSQUr86t5-Kz
-      X-Locomotive-Site-Handle:
-      - hollow-swamp-9066
-      Content-Type:
-      - application/x-www-form-urlencoded
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '726'
-      Etag:
-      - W/"15728bcb9a5b7bfc1c05fb7486b8214a"
-      Cache-Control:
-      - max-age=0, private, must-revalidate
-      X-Request-Id:
-      - 94984fa4-be08-46f8-b699-a659e98b1411
-      X-Runtime:
-      - '0.055816'
-      Connection:
-      - keep-alive
-      Server:
-      - thin
-    body:
-      encoding: UTF-8
-      string: '{"_id":"5533ee3064696402c14f0000","created_at":"2015-04-19T18:04:32Z","updated_at":"2015-04-19T18:04:32Z","name":"Footer","slug":"footer","template":"\u003cp\u003e{%
-        locale_switcher %}\u003c/p\u003e\n\u003cp\u003e\n  {{ ''powered_by'' | translate
-        }} \u003ca href=\"http://www.locomotivecms.com\"\u003eLocomotiveCMS\u003c/a\u003e.
-        Designed by \u003ca href=\"http://www.sachagreif.com\"\u003eSacha Greif\u003c/a\u003e.\n\u003c/p\u003e\n\u003cp\u003e\n  All
-        photos are licensed under Creative Commons. (see original ones \u003ca href=''http://www.flickr.com/photos/38687875@N00/3391588262/''\u003ehere\u003c/a\u003e
-        or \u003ca href=''http://www.flickr.com/photos/cool_dry_place/55454498/''\u003ehere\u003c/a\u003e).\n\u003c/p\u003e\n"}'
-    http_version: 
-  recorded_at: Sun, 19 Apr 2015 18:04:33 GMT
-- request:
-    method: put
-    uri: http://localhost:3000/locomotive/api/v3/snippets/header.json
-    body:
-      encoding: UTF-8
-      string: auth_token=B1UseoZ1BSQUr86t5-Kz&snippet%5Bname%5D=Header&snippet%5Bslug%5D=header&snippet%5Btemplate%5D%5Ben%5D=%3Ch1%3E%7B%7B+site.name+%7D%7D%3C%2Fh1%3E%0A&snippet%5Btemplate%5D%5Bfr%5D=%3Ch1%3E%7B%7B+site.name+%7D%7D%3C%2Fh1%3E%0A&snippet%5Btemplate%5D%5Bnb%5D=%3Ch1%3E%7B%7B+site.name+%7D%7D%3C%2Fh1%3E%0A
-    headers:
-      Accept:
-      - application/json
-      X-Locomotive-Account-Email:
-      - admin@locomotivecms.com
-      X-Locomotive-Account-Token:
-      - B1UseoZ1BSQUr86t5-Kz
-      X-Locomotive-Site-Handle:
-      - hollow-swamp-9066
-      Content-Type:
-      - application/x-www-form-urlencoded
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '198'
-      Etag:
-      - W/"bd544e2da314b0910172260bfac05b19"
-      Cache-Control:
-      - max-age=0, private, must-revalidate
-      X-Request-Id:
-      - 506e4e3f-099f-4811-a4bb-cf3f32351b0e
-      X-Runtime:
-      - '0.048361'
-      Connection:
-      - keep-alive
-      Server:
-      - thin
-    body:
-      encoding: UTF-8
-      string: '{"_id":"5533ee3164696402c1500000","created_at":"2015-04-19T18:04:33Z","updated_at":"2015-04-19T18:04:33Z","name":"Header","slug":"header","template":"\u003ch1\u003e{{
-        site.name }}\u003c/h1\u003e\n"}'
-    http_version: 
-  recorded_at: Sun, 19 Apr 2015 18:04:33 GMT
-- request:
-    method: put
-    uri: http://localhost:3000/locomotive/api/v3/translations/powered_by.json
-    body:
-      encoding: UTF-8
-      string: auth_token=B1UseoZ1BSQUr86t5-Kz&translation%5Bkey%5D=powered_by&translation%5Bvalues%5D%5Ben%5D=Powered+by&translation%5Bvalues%5D%5Bfr%5D=Propuls%C3%A9+par
-    headers:
-      Accept:
-      - application/json
-      X-Locomotive-Account-Email:
-      - admin@locomotivecms.com
-      X-Locomotive-Account-Token:
-      - B1UseoZ1BSQUr86t5-Kz
-      X-Locomotive-Site-Handle:
-      - hollow-swamp-9066
-      Content-Type:
-      - application/x-www-form-urlencoded
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '175'
-      Etag:
-      - W/"8c07da89b2c026879257d06706052132"
-      Cache-Control:
-      - max-age=0, private, must-revalidate
-      X-Request-Id:
-      - 65e7cbb6-5e02-43a8-bdac-b013767f1e0d
-      X-Runtime:
-      - '0.027753'
-      Connection:
-      - keep-alive
-      Server:
-      - thin
-    body:
-      encoding: ASCII-8BIT
-      string: !binary |-
-        eyJfaWQiOiI1NTMzZWUzMTY0Njk2NDAyYzE1MTAwMDAiLCJjcmVhdGVkX2F0
-        IjoiMjAxNS0wNC0xOVQxODowNDozM1oiLCJ1cGRhdGVkX2F0IjoiMjAxNS0w
-        NC0xOVQxODowNDozM1oiLCJrZXkiOiJwb3dlcmVkX2J5IiwidmFsdWVzIjp7
-        ImVuIjoiUG93ZXJlZCBieSIsImZyIjoiUHJvcHVsc8OpIHBhciJ9fQ==
-    http_version: 
-  recorded_at: Sun, 19 Apr 2015 18:04:33 GMT
+  recorded_at: Mon, 27 Apr 2015 21:13:42 GMT
 - request:
     method: get
-    uri: http://localhost:3000/locomotive/api/v3/theme_assets.json
+    uri: http://localhost:3000/locomotive/api/v3/content_types.json
     body:
       encoding: UTF-8
-      string: auth_token=B1UseoZ1BSQUr86t5-Kz
+      string: auth_token=QV8KyyZto8_qHq_i6Ums
     headers:
       Accept:
       - application/json
       X-Locomotive-Account-Email:
       - admin@locomotivecms.com
       X-Locomotive-Account-Token:
-      - B1UseoZ1BSQUr86t5-Kz
+      - QV8KyyZto8_qHq_i6Ums
       X-Locomotive-Site-Handle:
-      - hollow-swamp-9066
+      - amiable-mist-4708
       Content-Type:
       - application/x-www-form-urlencoded
       Accept-Encoding:
@@ -428,9 +164,9 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 6df713ed-3f4d-4fe1-ac55-20b771cf6222
+      - 232de131-3d48-4173-acb7-0b03972aa90b
       X-Runtime:
-      - '0.046841'
+      - '0.054851'
       Connection:
       - keep-alive
       Server:
@@ -439,7 +175,625 @@ http_interactions:
       encoding: UTF-8
       string: "[]"
     http_version: 
-  recorded_at: Sun, 19 Apr 2015 18:04:33 GMT
+  recorded_at: Mon, 27 Apr 2015 21:13:42 GMT
+- request:
+    method: put
+    uri: http://localhost:3000/locomotive/api/v3/content_types/bands.json
+    body:
+      encoding: UTF-8
+      string: auth_token=QV8KyyZto8_qHq_i6Ums&content_type%5Bdescription%5D=List+of+bands&content_type%5Bfields%5D%5B%5D%5Bhint%5D=Name+of+the+band&content_type%5Bfields%5D%5B%5D%5Blabel%5D=Name&content_type%5Bfields%5D%5B%5D%5Bname%5D=name&content_type%5Bfields%5D%5B%5D%5Btype%5D=string&content_type%5Bfields%5D%5B%5D%5Blabel%5D=Fullname+of+the+leader&content_type%5Bfields%5D%5B%5D%5Bname%5D=leader&content_type%5Bfields%5D%5B%5D%5Btype%5D=string&content_type%5Bfields%5D%5B%5D%5Blabel%5D=Music+kind+%28grunge%2C+rock%2C+pop%2C+country%29&content_type%5Bfields%5D%5B%5D%5Bname%5D=kind&content_type%5Bfields%5D%5B%5D%5Btype%5D=select&content_type%5Bfields%5D%5B%5D%5Blabel%5D=Featured&content_type%5Bfields%5D%5B%5D%5Bname%5D=featured&content_type%5Bfields%5D%5B%5D%5Btype%5D=boolean&content_type%5Blabel_field_name%5D=name&content_type%5Bname%5D=Bands&content_type%5Border_by%5D=name&content_type%5Border_direction%5D=asc&content_type%5Bslug%5D=bands
+    headers:
+      Accept:
+      - application/json
+      X-Locomotive-Account-Email:
+      - admin@locomotivecms.com
+      X-Locomotive-Account-Token:
+      - QV8KyyZto8_qHq_i6Ums
+      X-Locomotive-Site-Handle:
+      - amiable-mist-4708
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '1219'
+      Etag:
+      - W/"b65510492dde6d8aaf15feb02e9d7e7a"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - edc99768-a95d-4919-85eb-a7daf23393fb
+      X-Runtime:
+      - '0.082898'
+      Connection:
+      - keep-alive
+      Server:
+      - thin
+    body:
+      encoding: UTF-8
+      string: '{"_id":"553ea6866469643251820000","created_at":"2015-04-27T21:13:42Z","updated_at":"2015-04-27T21:13:42Z","name":"Bands","slug":"bands","description":"List
+        of bands","label_field_name":"name","order_direction":"asc","public_submission_enabled":false,"raw_item_template":null,"fields":[{"_id":"553ea6866469643251830000","created_at":null,"updated_at":null,"name":"name","type":"string","label":"Name","hint":"Name
+        of the band","required":true,"localized":false,"unique":false,"position":0},{"_id":"553ea6866469643251840000","created_at":null,"updated_at":null,"name":"leader","type":"string","label":"Fullname
+        of the leader","hint":null,"required":false,"localized":false,"unique":false,"position":0},{"_id":"553ea6866469643251850000","created_at":null,"updated_at":null,"name":"kind","type":"select","label":"Music
+        kind (grunge, rock, pop, country)","hint":null,"required":false,"localized":false,"unique":false,"position":0,"select_options":[]},{"_id":"553ea6866469643251860000","created_at":null,"updated_at":null,"name":"featured","type":"boolean","label":"Featured","hint":null,"required":false,"localized":false,"unique":false,"position":0}],"order_by":"name","group_by":null,"public_submission_account_emails":[]}'
+    http_version: 
+  recorded_at: Mon, 27 Apr 2015 21:13:42 GMT
+- request:
+    method: put
+    uri: http://localhost:3000/locomotive/api/v3/content_types/events.json
+    body:
+      encoding: UTF-8
+      string: auth_token=QV8KyyZto8_qHq_i6Ums&content_type%5Bdescription%5D=List+of+upcoming+events&content_type%5Bfields%5D%5B%5D%5Bhint%5D=Name+of+the+place&content_type%5Bfields%5D%5B%5D%5Blabel%5D=Place&content_type%5Bfields%5D%5B%5D%5Bname%5D=place&content_type%5Bfields%5D%5B%5D%5Btype%5D=string&content_type%5Bfields%5D%5B%5D%5Bhint%5D=Date+of+the+event&content_type%5Bfields%5D%5B%5D%5Blabel%5D=Date&content_type%5Bfields%5D%5B%5D%5Bname%5D=date&content_type%5Bfields%5D%5B%5D%5Btype%5D=date&content_type%5Bfields%5D%5B%5D%5Blabel%5D=City+of+the+event&content_type%5Bfields%5D%5B%5D%5Bname%5D=city&content_type%5Bfields%5D%5B%5D%5Btype%5D=string&content_type%5Bfields%5D%5B%5D%5Blabel%5D=State+of+the+event&content_type%5Bfields%5D%5B%5D%5Bname%5D=state&content_type%5Bfields%5D%5B%5D%5Btype%5D=string&content_type%5Bfields%5D%5B%5D%5Blabel%5D=Notes&content_type%5Bfields%5D%5B%5D%5Bname%5D=notes&content_type%5Bfields%5D%5B%5D%5Btype%5D=text&content_type%5Bfields%5D%5B%5D%5Blabel%5D=List+of+tags&content_type%5Bfields%5D%5B%5D%5Bname%5D=tags&content_type%5Bfields%5D%5B%5D%5Btype%5D=tags&content_type%5Bfields%5D%5B%5D%5Blabel%5D=Price+of+the+event&content_type%5Bfields%5D%5B%5D%5Bname%5D=price&content_type%5Bfields%5D%5B%5D%5Btype%5D=float&content_type%5Blabel_field_name%5D=place&content_type%5Bname%5D=Events&content_type%5Border_by%5D=created_at&content_type%5Border_direction%5D=asc&content_type%5Bslug%5D=events
+    headers:
+      Accept:
+      - application/json
+      X-Locomotive-Account-Email:
+      - admin@locomotivecms.com
+      X-Locomotive-Account-Token:
+      - QV8KyyZto8_qHq_i6Ums
+      X-Locomotive-Site-Handle:
+      - amiable-mist-4708
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '1816'
+      Etag:
+      - W/"91c3de0fec14dccbb4bd51ea6bba3f86"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - b841aa3b-00fe-4bf2-b2e2-2b1eea3d311d
+      X-Runtime:
+      - '0.087660'
+      Connection:
+      - keep-alive
+      Server:
+      - thin
+    body:
+      encoding: UTF-8
+      string: '{"_id":"553ea6866469643251870000","created_at":"2015-04-27T21:13:42Z","updated_at":"2015-04-27T21:13:42Z","name":"Events","slug":"events","description":"List
+        of upcoming events","label_field_name":"place","order_direction":"asc","public_submission_enabled":false,"raw_item_template":null,"fields":[{"_id":"553ea6866469643251880000","created_at":null,"updated_at":null,"name":"place","type":"string","label":"Place","hint":"Name
+        of the place","required":true,"localized":false,"unique":false,"position":0},{"_id":"553ea6866469643251890000","created_at":null,"updated_at":null,"name":"date","type":"date","label":"Date","hint":"Date
+        of the event","required":false,"localized":false,"unique":false,"position":0},{"_id":"553ea68664696432518a0000","created_at":null,"updated_at":null,"name":"city","type":"string","label":"City
+        of the event","hint":null,"required":false,"localized":false,"unique":false,"position":0},{"_id":"553ea68664696432518b0000","created_at":null,"updated_at":null,"name":"state","type":"string","label":"State
+        of the event","hint":null,"required":false,"localized":false,"unique":false,"position":0},{"_id":"553ea68664696432518c0000","created_at":null,"updated_at":null,"name":"notes","type":"text","label":"Notes","hint":null,"required":false,"localized":false,"unique":false,"position":0,"text_formatting":"html"},{"_id":"553ea68664696432518d0000","created_at":null,"updated_at":null,"name":"tags","type":"tags","label":"List
+        of tags","hint":null,"required":false,"localized":false,"unique":false,"position":0},{"_id":"553ea68664696432518e0000","created_at":null,"updated_at":null,"name":"price","type":"float","label":"Price
+        of the event","hint":null,"required":false,"localized":false,"unique":false,"position":0}],"order_by":"created_at","group_by":null,"public_submission_account_emails":[]}'
+    http_version: 
+  recorded_at: Mon, 27 Apr 2015 21:13:42 GMT
+- request:
+    method: put
+    uri: http://localhost:3000/locomotive/api/v3/content_types/messages.json
+    body:
+      encoding: UTF-8
+      string: auth_token=QV8KyyZto8_qHq_i6Ums&content_type%5Bdescription%5D=Messages+posted+by+new+potential+customers&content_type%5Bfields%5D%5B%5D%5Bhint%5D=Full+name&content_type%5Bfields%5D%5B%5D%5Blabel%5D=Name&content_type%5Bfields%5D%5B%5D%5Bname%5D=name&content_type%5Bfields%5D%5B%5D%5Brequired%5D=true&content_type%5Bfields%5D%5B%5D%5Btype%5D=string&content_type%5Bfields%5D%5B%5D%5Bhint%5D=Email&content_type%5Bfields%5D%5B%5D%5Blabel%5D=Email&content_type%5Bfields%5D%5B%5D%5Bname%5D=email&content_type%5Bfields%5D%5B%5D%5Brequired%5D=true&content_type%5Bfields%5D%5B%5D%5Btype%5D=string&content_type%5Bfields%5D%5B%5D%5Bhint%5D=Customer+message&content_type%5Bfields%5D%5B%5D%5Blabel%5D=Message&content_type%5Bfields%5D%5B%5D%5Bname%5D=message&content_type%5Bfields%5D%5B%5D%5Brequired%5D=true&content_type%5Bfields%5D%5B%5D%5Btype%5D=text&content_type%5Blabel_field_name%5D=name&content_type%5Bname%5D=Messages&content_type%5Border_by%5D=created_at&content_type%5Border_direction%5D=asc&content_type%5Bpublic_submission_enabled%5D=true&content_type%5Bslug%5D=messages
+    headers:
+      Accept:
+      - application/json
+      X-Locomotive-Account-Email:
+      - admin@locomotivecms.com
+      X-Locomotive-Account-Token:
+      - QV8KyyZto8_qHq_i6Ums
+      X-Locomotive-Site-Handle:
+      - amiable-mist-4708
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '1024'
+      Etag:
+      - W/"dbdfd3def6adf59990e8a0438a25ac5c"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - ef7a3bd1-52c9-4f7d-991d-238d51f6b926
+      X-Runtime:
+      - '0.073891'
+      Connection:
+      - keep-alive
+      Server:
+      - thin
+    body:
+      encoding: UTF-8
+      string: '{"_id":"553ea68664696432518f0000","created_at":"2015-04-27T21:13:42Z","updated_at":"2015-04-27T21:13:42Z","name":"Messages","slug":"messages","description":"Messages
+        posted by new potential customers","label_field_name":"name","order_direction":"asc","public_submission_enabled":false,"raw_item_template":null,"fields":[{"_id":"553ea6866469643251900000","created_at":null,"updated_at":null,"name":"name","type":"string","label":"Name","hint":"Full
+        name","required":true,"localized":false,"unique":false,"position":0},{"_id":"553ea6866469643251910000","created_at":null,"updated_at":null,"name":"email","type":"string","label":"Email","hint":"Email","required":true,"localized":false,"unique":false,"position":0},{"_id":"553ea6866469643251920000","created_at":null,"updated_at":null,"name":"message","type":"text","label":"Message","hint":"Customer
+        message","required":true,"localized":false,"unique":false,"position":0,"text_formatting":"html"}],"order_by":"created_at","group_by":null,"public_submission_account_emails":[]}'
+    http_version: 
+  recorded_at: Mon, 27 Apr 2015 21:13:42 GMT
+- request:
+    method: put
+    uri: http://localhost:3000/locomotive/api/v3/content_types/songs.json
+    body:
+      encoding: UTF-8
+      string: auth_token=QV8KyyZto8_qHq_i6Ums&content_type%5Bfields%5D%5B%5D%5Bhint%5D=Title+of+your+song&content_type%5Bfields%5D%5B%5D%5Blabel%5D=Title&content_type%5Bfields%5D%5B%5D%5Bname%5D=title&content_type%5Bfields%5D%5B%5D%5Brequired%5D=true&content_type%5Bfields%5D%5B%5D%5Btype%5D=string&content_type%5Bfields%5D%5B%5D%5Blabel%5D=Cover&content_type%5Bfields%5D%5B%5D%5Bname%5D=cover&content_type%5Bfields%5D%5B%5D%5Brequired%5D=true&content_type%5Bfields%5D%5B%5D%5Btype%5D=file&content_type%5Bfields%5D%5B%5D%5Blabel%5D=Short+description&content_type%5Bfields%5D%5B%5D%5Bname%5D=short_description&content_type%5Bfields%5D%5B%5D%5Btype%5D=text&content_type%5Bfields%5D%5B%5D%5Bhint%5D=Url+to+a+service+like+Blip+for+instance&content_type%5Bfields%5D%5B%5D%5Blabel%5D=Audio+url&content_type%5Bfields%5D%5B%5D%5Bname%5D=audio_url&content_type%5Bfields%5D%5B%5D%5Btype%5D=string&content_type%5Bfields%5D%5B%5D%5Bhint%5D=format+like%3A+mm%3Ass&content_type%5Bfields%5D%5B%5D%5Blabel%5D=Duration&content_type%5Bfields%5D%5B%5D%5Bname%5D=duration&content_type%5Bfields%5D%5B%5D%5Btype%5D=string&content_type%5Blabel_field_name%5D=title&content_type%5Bname%5D=Songs&content_type%5Border_by%5D=_position&content_type%5Border_direction%5D=asc&content_type%5Bslug%5D=songs
+    headers:
+      Accept:
+      - application/json
+      X-Locomotive-Account-Email:
+      - admin@locomotivecms.com
+      X-Locomotive-Account-Token:
+      - QV8KyyZto8_qHq_i6Ums
+      X-Locomotive-Site-Handle:
+      - amiable-mist-4708
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '1444'
+      Etag:
+      - W/"58a631fb88d218c6c89441a21cce92d8"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - efe270e9-278c-43e6-bbeb-1d60a1f6acab
+      X-Runtime:
+      - '0.075978'
+      Connection:
+      - keep-alive
+      Server:
+      - thin
+    body:
+      encoding: UTF-8
+      string: '{"_id":"553ea6866469643251930000","created_at":"2015-04-27T21:13:42Z","updated_at":"2015-04-27T21:13:42Z","name":"Songs","slug":"songs","description":null,"label_field_name":"title","order_direction":"asc","public_submission_enabled":false,"raw_item_template":null,"fields":[{"_id":"553ea6866469643251940000","created_at":null,"updated_at":null,"name":"title","type":"string","label":"Title","hint":"Title
+        of your song","required":true,"localized":false,"unique":false,"position":0},{"_id":"553ea6866469643251950000","created_at":null,"updated_at":null,"name":"cover","type":"file","label":"Cover","hint":null,"required":true,"localized":false,"unique":false,"position":0},{"_id":"553ea6866469643251960000","created_at":null,"updated_at":null,"name":"short_description","type":"text","label":"Short
+        description","hint":"Url to a service like Blip for instance","required":false,"localized":false,"unique":false,"position":0,"text_formatting":"html"},{"_id":"553ea6866469643251970000","created_at":null,"updated_at":null,"name":"audio_url","type":"string","label":"Audio
+        url","hint":"format like: mm:ss","required":false,"localized":false,"unique":false,"position":0},{"_id":"553ea6866469643251980000","created_at":null,"updated_at":null,"name":"duration","type":"string","label":"Duration","hint":null,"required":false,"localized":false,"unique":false,"position":0}],"order_by":"_position","group_by":null,"public_submission_account_emails":[]}'
+    http_version: 
+  recorded_at: Mon, 27 Apr 2015 21:13:42 GMT
+- request:
+    method: put
+    uri: http://localhost:3000/locomotive/api/v3/content_types/updates.json
+    body:
+      encoding: UTF-8
+      string: auth_token=QV8KyyZto8_qHq_i6Ums&content_type%5Bdescription%5D=List+of+updates&content_type%5Bfields%5D%5B%5D%5Bhint%5D=Not+displayed+in+the+website&content_type%5Bfields%5D%5B%5D%5Blabel%5D=Title&content_type%5Bfields%5D%5B%5D%5Blocalized%5D=true&content_type%5Bfields%5D%5B%5D%5Bname%5D=title&content_type%5Bfields%5D%5B%5D%5Btype%5D=string&content_type%5Bfields%5D%5B%5D%5Bhint%5D=Text+displayed+in+the+home+page&content_type%5Bfields%5D%5B%5D%5Blabel%5D=Text&content_type%5Bfields%5D%5B%5D%5Blocalized%5D=true&content_type%5Bfields%5D%5B%5D%5Bname%5D=text&content_type%5Bfields%5D%5B%5D%5Btype%5D=text&content_type%5Bfields%5D%5B%5D%5Bhint%5D=Pick+a+category&content_type%5Bfields%5D%5B%5D%5Blabel%5D=Category&content_type%5Bfields%5D%5B%5D%5Blocalized%5D=true&content_type%5Bfields%5D%5B%5D%5Bname%5D=category&content_type%5Bfields%5D%5B%5D%5Btype%5D=select&content_type%5Bfields%5D%5B%5D%5Bhint%5D=Date+of+the+update&content_type%5Bfields%5D%5B%5D%5Blabel%5D=Date&content_type%5Bfields%5D%5B%5D%5Bname%5D=date&content_type%5Bfields%5D%5B%5D%5Btype%5D=date&content_type%5Blabel_field_name%5D=title&content_type%5Bname%5D=Updates&content_type%5Border_by%5D=date&content_type%5Border_direction%5D=asc&content_type%5Bslug%5D=updates
+    headers:
+      Accept:
+      - application/json
+      X-Locomotive-Account-Email:
+      - admin@locomotivecms.com
+      X-Locomotive-Account-Token:
+      - QV8KyyZto8_qHq_i6Ums
+      X-Locomotive-Site-Handle:
+      - amiable-mist-4708
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '1260'
+      Etag:
+      - W/"40e89d0508cd2abb4654c94432833944"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 14c9ed07-9161-4a77-a88f-18d53c7ffc51
+      X-Runtime:
+      - '0.075980'
+      Connection:
+      - keep-alive
+      Server:
+      - thin
+    body:
+      encoding: UTF-8
+      string: '{"_id":"553ea6866469643251990000","created_at":"2015-04-27T21:13:42Z","updated_at":"2015-04-27T21:13:42Z","name":"Updates","slug":"updates","description":"List
+        of updates","label_field_name":"title","order_direction":"asc","public_submission_enabled":false,"raw_item_template":null,"fields":[{"_id":"553ea68664696432519a0000","created_at":null,"updated_at":null,"name":"title","type":"string","label":"Title","hint":"Not
+        displayed in the website","required":true,"localized":true,"unique":false,"position":0},{"_id":"553ea68664696432519b0000","created_at":null,"updated_at":null,"name":"text","type":"text","label":"Text","hint":"Text
+        displayed in the home page","required":false,"localized":true,"unique":false,"position":0,"text_formatting":"html"},{"_id":"553ea68664696432519c0000","created_at":null,"updated_at":null,"name":"category","type":"select","label":"Category","hint":"Pick
+        a category","required":false,"localized":true,"unique":false,"position":0,"select_options":[]},{"_id":"553ea68664696432519d0000","created_at":null,"updated_at":null,"name":"date","type":"date","label":"Date","hint":"Date
+        of the update","required":false,"localized":false,"unique":false,"position":0}],"order_by":"date","group_by":null,"public_submission_account_emails":[]}'
+    http_version: 
+  recorded_at: Mon, 27 Apr 2015 21:13:42 GMT
+- request:
+    method: put
+    uri: http://localhost:3000/locomotive/api/v3/content_types/bands.json
+    body:
+      encoding: UTF-8
+      string: auth_token=QV8KyyZto8_qHq_i6Ums&content_type%5Bfields%5D%5B%5D%5Binverse_of%5D=band&content_type%5Bfields%5D%5B%5D%5Blabel%5D=Songs&content_type%5Bfields%5D%5B%5D%5Bname%5D=songs&content_type%5Bfields%5D%5B%5D%5Btarget%5D=songs&content_type%5Bfields%5D%5B%5D%5Btype%5D=has_many&content_type%5Bname%5D=Bands&content_type%5Bslug%5D=bands
+    headers:
+      Accept:
+      - application/json
+      X-Locomotive-Account-Email:
+      - admin@locomotivecms.com
+      X-Locomotive-Account-Token:
+      - QV8KyyZto8_qHq_i6Ums
+      X-Locomotive-Site-Handle:
+      - amiable-mist-4708
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '1485'
+      Etag:
+      - W/"3c4a839a33e8b18da63df254adc51b16"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - bbc674fa-41a9-46e2-b15f-81d0fad326b6
+      X-Runtime:
+      - '0.078252'
+      Connection:
+      - keep-alive
+      Server:
+      - thin
+    body:
+      encoding: UTF-8
+      string: '{"_id":"553ea6866469643251820000","created_at":"2015-04-27T21:13:42Z","updated_at":"2015-04-27T21:13:42Z","name":"Bands","slug":"bands","description":"List
+        of bands","label_field_name":"name","order_direction":"asc","public_submission_enabled":false,"raw_item_template":null,"fields":[{"_id":"553ea6866469643251830000","created_at":null,"updated_at":null,"name":"name","type":"string","label":"Name","hint":"Name
+        of the band","required":true,"localized":false,"unique":false,"position":0},{"_id":"553ea6866469643251840000","created_at":null,"updated_at":null,"name":"leader","type":"string","label":"Fullname
+        of the leader","hint":null,"required":false,"localized":false,"unique":false,"position":0},{"_id":"553ea6866469643251850000","created_at":null,"updated_at":null,"name":"kind","type":"select","label":"Music
+        kind (grunge, rock, pop, country)","hint":null,"required":false,"localized":false,"unique":false,"position":0,"select_options":[]},{"_id":"553ea6866469643251860000","created_at":null,"updated_at":null,"name":"featured","type":"boolean","label":"Featured","hint":null,"required":false,"localized":false,"unique":false,"position":0},{"_id":"553ea68664696432519e0000","created_at":null,"updated_at":null,"name":"songs","type":"has_many","label":"Songs","hint":null,"required":false,"localized":false,"unique":false,"position":0,"target":"songs","inverse_of":"band","order_by":null,"ui_enabled":true}],"order_by":"name","group_by":null,"public_submission_account_emails":[]}'
+    http_version: 
+  recorded_at: Mon, 27 Apr 2015 21:13:42 GMT
+- request:
+    method: put
+    uri: http://localhost:3000/locomotive/api/v3/content_types/songs.json
+    body:
+      encoding: UTF-8
+      string: auth_token=QV8KyyZto8_qHq_i6Ums&content_type%5Bfields%5D%5B%5D%5Blabel%5D=Band&content_type%5Bfields%5D%5B%5D%5Bname%5D=band&content_type%5Bfields%5D%5B%5D%5Btarget%5D=bands&content_type%5Bfields%5D%5B%5D%5Btype%5D=belongs_to&content_type%5Bname%5D=Songs&content_type%5Bslug%5D=songs
+    headers:
+      Accept:
+      - application/json
+      X-Locomotive-Account-Email:
+      - admin@locomotivecms.com
+      X-Locomotive-Account-Token:
+      - QV8KyyZto8_qHq_i6Ums
+      X-Locomotive-Site-Handle:
+      - amiable-mist-4708
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '1708'
+      Etag:
+      - W/"8b8d5cb57c63d7432c5a7ff7d6a97c0f"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 59b7d7bd-a064-4d35-8047-a98f8d64f253
+      X-Runtime:
+      - '0.081338'
+      Connection:
+      - keep-alive
+      Server:
+      - thin
+    body:
+      encoding: UTF-8
+      string: '{"_id":"553ea6866469643251930000","created_at":"2015-04-27T21:13:42Z","updated_at":"2015-04-27T21:13:42Z","name":"Songs","slug":"songs","description":null,"label_field_name":"title","order_direction":"asc","public_submission_enabled":false,"raw_item_template":null,"fields":[{"_id":"553ea6866469643251940000","created_at":null,"updated_at":null,"name":"title","type":"string","label":"Title","hint":"Title
+        of your song","required":true,"localized":false,"unique":false,"position":0},{"_id":"553ea6866469643251950000","created_at":null,"updated_at":null,"name":"cover","type":"file","label":"Cover","hint":null,"required":true,"localized":false,"unique":false,"position":0},{"_id":"553ea6866469643251960000","created_at":null,"updated_at":null,"name":"short_description","type":"text","label":"Short
+        description","hint":"Url to a service like Blip for instance","required":false,"localized":false,"unique":false,"position":0,"text_formatting":"html"},{"_id":"553ea6866469643251970000","created_at":null,"updated_at":null,"name":"audio_url","type":"string","label":"Audio
+        url","hint":"format like: mm:ss","required":false,"localized":false,"unique":false,"position":0},{"_id":"553ea6866469643251980000","created_at":null,"updated_at":null,"name":"duration","type":"string","label":"Duration","hint":null,"required":false,"localized":false,"unique":false,"position":0},{"_id":"553ea68664696432519f0000","created_at":null,"updated_at":null,"name":"band","type":"belongs_to","label":"Band","hint":null,"required":false,"localized":false,"unique":false,"position":0,"target":"bands","inverse_of":null,"order_by":null,"ui_enabled":true}],"order_by":"_position","group_by":null,"public_submission_account_emails":[]}'
+    http_version: 
+  recorded_at: Mon, 27 Apr 2015 21:13:42 GMT
+- request:
+    method: put
+    uri: http://localhost:3000/locomotive/api/v3/snippets/song.json
+    body:
+      encoding: UTF-8
+      string: auth_token=QV8KyyZto8_qHq_i6Ums&snippet%5Bname%5D=Song&snippet%5Bslug%5D=song&snippet%5Btemplate%5D%5Ben%5D=%3Cli%3E%0A++%3Ch3%3E%3Ca+href%3D%22%2Fsongs%2F%7B%7B+song._permalink+%7D%7D%22%3E%7B%7B+song.title+%7D%7D%3C%2Fa%3E%3C%2Fh3%3E%0A++%3Cdiv+class%3D%22cover%22%3E%7B%7B+song.cover.url+%7C+image_tag+%7D%7D%3C%2Fdiv%3E%0A++%3Cdiv+class%3D%22info%22%3E%0A++++%7B%7B+song.short_description+%7D%7D%0A++++%3Cp+class%3D%22listen%22%3E%0A++++++%3Ca+href%3D%22%7B%7B+song.audio_url+%7D%7D%22%3E%26rarr%3B+Listen+%28%7B%7B+song.duration+%7D%7D+min%29%3C%2Fa%3E%0A++++%3C%2Fp%3E%0A++++%3Cp%3E%C3%A9couter+en+Francais%3C%2Fp%3E%0A++%3C%2Fdiv%3E%0A++%3Cdiv+class%3D%22clear%22%3E%3C%2Fdiv%3E%0A%3C%2Fli%3E&snippet%5Btemplate%5D%5Bfr%5D=%3Cli%3E%0A++%3Ch3%3E%7B%25+link_to+song%2C+with%3A+a-song-template+%25%7D%3C%2Fh3%3E%0A++%3Cdiv+class%3D%27cover%27%3E%7B%7B+song.cover.url+%7C+image_tag+%7D%7D%3C%2Fdiv%3E%0A++%3Cdiv+class%3D%27info%27%3E%0A++++%7B%7B+song.short_description+%7D%7D%0A++++%3Cp+class%3D%27listen%27%3E%0A++++++%3Ca+href%3D%27%7B%7B+song.audio_url+%7D%7D%27%3E%26rarr%3B+%C3%A9couter+%28%7B%7B+song.duration+%7D%7D+min%29%3C%2Fa%3E%0A++++%3C%2Fp%3E%0A++%3C%2Fdiv%3E%0A++%3Cdiv+class%3D%27clear%27%3E%3C%2Fdiv%3E%0A%3C%2Fli%3E%0A&snippet%5Btemplate%5D%5Bnb%5D=%3Cli%3E%0A++%3Ch3%3E%3Ca+href%3D%22%2Fsongs%2F%7B%7B+song._permalink+%7D%7D%22%3E%7B%7B+song.title+%7D%7D%3C%2Fa%3E%3C%2Fh3%3E%0A++%3Cdiv+class%3D%22cover%22%3E%7B%7B+song.cover.url+%7C+image_tag+%7D%7D%3C%2Fdiv%3E%0A++%3Cdiv+class%3D%22info%22%3E%0A++++%7B%7B+song.short_description+%7D%7D%0A++++%3Cp+class%3D%22listen%22%3E%0A++++++%3Ca+href%3D%22%7B%7B+song.audio_url+%7D%7D%22%3E%26rarr%3B+Listen+%28%7B%7B+song.duration+%7D%7D+min%29%3C%2Fa%3E%0A++++%3C%2Fp%3E%0A++++%3Cp%3E%C3%A9couter+en+Francais%3C%2Fp%3E%0A++%3C%2Fdiv%3E%0A++%3Cdiv+class%3D%22clear%22%3E%3C%2Fdiv%3E%0A%3C%2Fli%3E
+    headers:
+      Accept:
+      - application/json
+      X-Locomotive-Account-Email:
+      - admin@locomotivecms.com
+      X-Locomotive-Account-Token:
+      - QV8KyyZto8_qHq_i6Ums
+      X-Locomotive-Site-Handle:
+      - amiable-mist-4708
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '733'
+      Etag:
+      - W/"a31eb1c8aec8d674658001eb7d048cdc"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 6c78e06e-9109-4205-ab3b-10dc53e6b225
+      X-Runtime:
+      - '0.069951'
+      Connection:
+      - keep-alive
+      Server:
+      - thin
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJfaWQiOiI1NTNlYTY4NjY0Njk2NDMyNTFhMDAwMDAiLCJjcmVhdGVkX2F0
+        IjoiMjAxNS0wNC0yN1QyMToxMzo0MloiLCJ1cGRhdGVkX2F0IjoiMjAxNS0w
+        NC0yN1QyMToxMzo0MloiLCJuYW1lIjoiU29uZyIsInNsdWciOiJzb25nIiwi
+        dGVtcGxhdGUiOiJcdTAwM2NsaVx1MDAzZVxuICBcdTAwM2NoM1x1MDAzZVx1
+        MDAzY2EgaHJlZj1cIi9zb25ncy97eyBzb25nLl9wZXJtYWxpbmsgfX1cIlx1
+        MDAzZXt7IHNvbmcudGl0bGUgfX1cdTAwM2MvYVx1MDAzZVx1MDAzYy9oM1x1
+        MDAzZVxuICBcdTAwM2NkaXYgY2xhc3M9XCJjb3ZlclwiXHUwMDNle3sgc29u
+        Zy5jb3Zlci51cmwgfCBpbWFnZV90YWcgfX1cdTAwM2MvZGl2XHUwMDNlXG4g
+        IFx1MDAzY2RpdiBjbGFzcz1cImluZm9cIlx1MDAzZVxuICAgIHt7IHNvbmcu
+        c2hvcnRfZGVzY3JpcHRpb24gfX1cbiAgICBcdTAwM2NwIGNsYXNzPVwibGlz
+        dGVuXCJcdTAwM2VcbiAgICAgIFx1MDAzY2EgaHJlZj1cInt7IHNvbmcuYXVk
+        aW9fdXJsIH19XCJcdTAwM2VcdTAwMjZyYXJyOyBMaXN0ZW4gKHt7IHNvbmcu
+        ZHVyYXRpb24gfX0gbWluKVx1MDAzYy9hXHUwMDNlXG4gICAgXHUwMDNjL3Bc
+        dTAwM2VcbiAgICBcdTAwM2NwXHUwMDNlw6ljb3V0ZXIgZW4gRnJhbmNhaXNc
+        dTAwM2MvcFx1MDAzZVxuICBcdTAwM2MvZGl2XHUwMDNlXG4gIFx1MDAzY2Rp
+        diBjbGFzcz1cImNsZWFyXCJcdTAwM2VcdTAwM2MvZGl2XHUwMDNlXG5cdTAw
+        M2MvbGlcdTAwM2UifQ==
+    http_version: 
+  recorded_at: Mon, 27 Apr 2015 21:13:42 GMT
+- request:
+    method: put
+    uri: http://localhost:3000/locomotive/api/v3/snippets/a_complicated-one.json
+    body:
+      encoding: UTF-8
+      string: auth_token=QV8KyyZto8_qHq_i6Ums&snippet%5Bname%5D=A+complicated-one&snippet%5Bslug%5D=a_complicated-one&snippet%5Btemplate%5D%5Ben%5D=%3Cp%3EA+complicated+one+name+indeed.%3C%2Fp%3E%0A&snippet%5Btemplate%5D%5Bfr%5D=%3Cp%3EA+complicated+one+name+indeed.%3C%2Fp%3E%0A&snippet%5Btemplate%5D%5Bnb%5D=%3Cp%3EA+complicated+one+name+indeed.%3C%2Fp%3E%0A
+    headers:
+      Accept:
+      - application/json
+      X-Locomotive-Account-Email:
+      - admin@locomotivecms.com
+      X-Locomotive-Account-Token:
+      - QV8KyyZto8_qHq_i6Ums
+      X-Locomotive-Site-Handle:
+      - amiable-mist-4708
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '233'
+      Etag:
+      - W/"d211799df723b3f4831d655c0c60c2d6"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 7952ac75-683b-472c-a903-119914b57cde
+      X-Runtime:
+      - '0.024297'
+      Connection:
+      - keep-alive
+      Server:
+      - thin
+    body:
+      encoding: UTF-8
+      string: '{"_id":"553ea6866469643251a10000","created_at":"2015-04-27T21:13:42Z","updated_at":"2015-04-27T21:13:42Z","name":"A
+        complicated-one","slug":"a_complicated-one","template":"\u003cp\u003eA complicated
+        one name indeed.\u003c/p\u003e\n"}'
+    http_version: 
+  recorded_at: Mon, 27 Apr 2015 21:13:42 GMT
+- request:
+    method: put
+    uri: http://localhost:3000/locomotive/api/v3/snippets/footer.json
+    body:
+      encoding: UTF-8
+      string: auth_token=QV8KyyZto8_qHq_i6Ums&snippet%5Bname%5D=Footer&snippet%5Bslug%5D=footer&snippet%5Btemplate%5D%5Ben%5D=%3Cp%3E%7B%25+locale_switcher+%25%7D%3C%2Fp%3E%0A%3Cp%3E%0A++%7B%7B+%27powered_by%27+%7C+translate+%7D%7D+%3Ca+href%3D%22http%3A%2F%2Fwww.locomotivecms.com%22%3ELocomotiveCMS%3C%2Fa%3E.+Designed+by+%3Ca+href%3D%22http%3A%2F%2Fwww.sachagreif.com%22%3ESacha+Greif%3C%2Fa%3E.%0A%3C%2Fp%3E%0A%3Cp%3E%0A++All+photos+are+licensed+under+Creative+Commons.+%28see+original+ones+%3Ca+href%3D%27http%3A%2F%2Fwww.flickr.com%2Fphotos%2F38687875%40N00%2F3391588262%2F%27%3Ehere%3C%2Fa%3E+or+%3Ca+href%3D%27http%3A%2F%2Fwww.flickr.com%2Fphotos%2Fcool_dry_place%2F55454498%2F%27%3Ehere%3C%2Fa%3E%29.%0A%3C%2Fp%3E%0A&snippet%5Btemplate%5D%5Bfr%5D=%3Cp%3E%7B%25+locale_switcher+%25%7D%3C%2Fp%3E%0A%3Cp%3E%0A++%7B%7B+%27powered_by%27+%7C+translate+%7D%7D+%3Ca+href%3D%22http%3A%2F%2Fwww.locomotivecms.com%22%3ELocomotiveCMS%3C%2Fa%3E.+Designed+by+%3Ca+href%3D%22http%3A%2F%2Fwww.sachagreif.com%22%3ESacha+Greif%3C%2Fa%3E.%0A%3C%2Fp%3E%0A%3Cp%3E%0A++All+photos+are+licensed+under+Creative+Commons.+%28see+original+ones+%3Ca+href%3D%27http%3A%2F%2Fwww.flickr.com%2Fphotos%2F38687875%40N00%2F3391588262%2F%27%3Ehere%3C%2Fa%3E+or+%3Ca+href%3D%27http%3A%2F%2Fwww.flickr.com%2Fphotos%2Fcool_dry_place%2F55454498%2F%27%3Ehere%3C%2Fa%3E%29.%0A%3C%2Fp%3E%0A&snippet%5Btemplate%5D%5Bnb%5D=%3Cp%3E%7B%25+locale_switcher+%25%7D%3C%2Fp%3E%0A%3Cp%3E%0A++%7B%7B+%27powered_by%27+%7C+translate+%7D%7D+%3Ca+href%3D%22http%3A%2F%2Fwww.locomotivecms.com%22%3ELocomotiveCMS%3C%2Fa%3E.+Designed+by+%3Ca+href%3D%22http%3A%2F%2Fwww.sachagreif.com%22%3ESacha+Greif%3C%2Fa%3E.%0A%3C%2Fp%3E%0A%3Cp%3E%0A++All+photos+are+licensed+under+Creative+Commons.+%28see+original+ones+%3Ca+href%3D%27http%3A%2F%2Fwww.flickr.com%2Fphotos%2F38687875%40N00%2F3391588262%2F%27%3Ehere%3C%2Fa%3E+or+%3Ca+href%3D%27http%3A%2F%2Fwww.flickr.com%2Fphotos%2Fcool_dry_place%2F55454498%2F%27%3Ehere%3C%2Fa%3E%29.%0A%3C%2Fp%3E%0A
+    headers:
+      Accept:
+      - application/json
+      X-Locomotive-Account-Email:
+      - admin@locomotivecms.com
+      X-Locomotive-Account-Token:
+      - QV8KyyZto8_qHq_i6Ums
+      X-Locomotive-Site-Handle:
+      - amiable-mist-4708
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '726'
+      Etag:
+      - W/"653f2419274c9acc623e841535e67aa3"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - a6a7257d-4c60-4ca0-97d6-618e20c62187
+      X-Runtime:
+      - '0.032935'
+      Connection:
+      - keep-alive
+      Server:
+      - thin
+    body:
+      encoding: UTF-8
+      string: '{"_id":"553ea6876469643251a20000","created_at":"2015-04-27T21:13:43Z","updated_at":"2015-04-27T21:13:43Z","name":"Footer","slug":"footer","template":"\u003cp\u003e{%
+        locale_switcher %}\u003c/p\u003e\n\u003cp\u003e\n  {{ ''powered_by'' | translate
+        }} \u003ca href=\"http://www.locomotivecms.com\"\u003eLocomotiveCMS\u003c/a\u003e.
+        Designed by \u003ca href=\"http://www.sachagreif.com\"\u003eSacha Greif\u003c/a\u003e.\n\u003c/p\u003e\n\u003cp\u003e\n  All
+        photos are licensed under Creative Commons. (see original ones \u003ca href=''http://www.flickr.com/photos/38687875@N00/3391588262/''\u003ehere\u003c/a\u003e
+        or \u003ca href=''http://www.flickr.com/photos/cool_dry_place/55454498/''\u003ehere\u003c/a\u003e).\n\u003c/p\u003e\n"}'
+    http_version: 
+  recorded_at: Mon, 27 Apr 2015 21:13:43 GMT
+- request:
+    method: put
+    uri: http://localhost:3000/locomotive/api/v3/snippets/header.json
+    body:
+      encoding: UTF-8
+      string: auth_token=QV8KyyZto8_qHq_i6Ums&snippet%5Bname%5D=Header&snippet%5Bslug%5D=header&snippet%5Btemplate%5D%5Ben%5D=%3Ch1%3E%7B%7B+site.name+%7D%7D%3C%2Fh1%3E%0A&snippet%5Btemplate%5D%5Bfr%5D=%3Ch1%3E%7B%7B+site.name+%7D%7D%3C%2Fh1%3E%0A&snippet%5Btemplate%5D%5Bnb%5D=%3Ch1%3E%7B%7B+site.name+%7D%7D%3C%2Fh1%3E%0A
+    headers:
+      Accept:
+      - application/json
+      X-Locomotive-Account-Email:
+      - admin@locomotivecms.com
+      X-Locomotive-Account-Token:
+      - QV8KyyZto8_qHq_i6Ums
+      X-Locomotive-Site-Handle:
+      - amiable-mist-4708
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '198'
+      Etag:
+      - W/"c51f793f7310778fb12c83def10ebdb4"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 827193cb-3920-4244-b65c-fb5890c85879
+      X-Runtime:
+      - '0.046606'
+      Connection:
+      - keep-alive
+      Server:
+      - thin
+    body:
+      encoding: UTF-8
+      string: '{"_id":"553ea6876469643251a30000","created_at":"2015-04-27T21:13:43Z","updated_at":"2015-04-27T21:13:43Z","name":"Header","slug":"header","template":"\u003ch1\u003e{{
+        site.name }}\u003c/h1\u003e\n"}'
+    http_version: 
+  recorded_at: Mon, 27 Apr 2015 21:13:43 GMT
+- request:
+    method: get
+    uri: http://localhost:3000/locomotive/api/v3/theme_assets.json
+    body:
+      encoding: UTF-8
+      string: auth_token=QV8KyyZto8_qHq_i6Ums
+    headers:
+      Accept:
+      - application/json
+      X-Locomotive-Account-Email:
+      - admin@locomotivecms.com
+      X-Locomotive-Account-Token:
+      - QV8KyyZto8_qHq_i6Ums
+      X-Locomotive-Site-Handle:
+      - amiable-mist-4708
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '2'
+      Etag:
+      - W/"d751713988987e9331980363e24189ce"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - f230bc74-df6a-4672-b3c3-462b19b69ef7
+      X-Runtime:
+      - '0.064511'
+      Connection:
+      - keep-alive
+      Server:
+      - thin
+    body:
+      encoding: UTF-8
+      string: "[]"
+    http_version: 
+  recorded_at: Mon, 27 Apr 2015 21:13:43 GMT
 - request:
     method: post
     uri: http://localhost:3000/locomotive/api/v3/theme_assets.json
@@ -1312,7 +1666,7 @@ http_interactions:
         ZW1lX2Fzc2V0W2NoZWNrc3VtXSINCg0KNjA4MDQ0MWZkZTUwYzQ4MzljMjNj
         NzliOTM3ZjAxOTQNCi0tLS0tLS0tLS0tLS1SdWJ5TXVsdGlwYXJ0UG9zdA0K
         Q29udGVudC1EaXNwb3NpdGlvbjogZm9ybS1kYXRhOyBuYW1lPSJhdXRoX3Rv
-        a2VuIg0KDQpCMVVzZW9aMUJTUVVyODZ0NS1Leg0KLS0tLS0tLS0tLS0tLVJ1
+        a2VuIg0KDQpRVjhLeXladG84X3FIcV9pNlVtcw0KLS0tLS0tLS0tLS0tLVJ1
         YnlNdWx0aXBhcnRQb3N0LS0NCg0K
     headers:
       Accept:
@@ -1320,9 +1674,9 @@ http_interactions:
       X-Locomotive-Account-Email:
       - admin@locomotivecms.com
       X-Locomotive-Account-Token:
-      - B1UseoZ1BSQUr86t5-Kz
+      - QV8KyyZto8_qHq_i6Ums
       X-Locomotive-Site-Handle:
-      - hollow-swamp-9066
+      - amiable-mist-4708
       Content-Type:
       - multipart/form-data; boundary=-----------RubyMultipartPost
       Content-Length:
@@ -1341,23 +1695,23 @@ http_interactions:
       Content-Length:
       - '336'
       Etag:
-      - W/"07ead1b27dd449691419afd8e68c7140"
+      - W/"11af7fb127e4e634833537a876b7b56a"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - a35e8ed5-6d9e-4eb3-bf38-27357eec2f00
+      - d090dcb5-e2b1-489e-a485-c3564a9e3d0f
       X-Runtime:
-      - '0.038365'
+      - '0.144473'
       Connection:
       - keep-alive
       Server:
       - thin
     body:
       encoding: UTF-8
-      string: '{"_id":"5533ee3164696402c1520000","created_at":"2015-04-19T18:04:33Z","updated_at":"2015-04-19T18:04:33Z","content_type":"font","folder":"fonts","checksum":"6080441fde50c4839c23c79b937f0194","local_path":"chunkfive-webfont.eot","url":"/sites/5533ee3064696402c1490000/theme/fonts/chunkfive-webfont.eot","size":"37.5
+      string: '{"_id":"553ea6876469643251a40000","created_at":"2015-04-27T21:13:43Z","updated_at":"2015-04-27T21:13:43Z","content_type":"font","folder":"fonts","checksum":"6080441fde50c4839c23c79b937f0194","local_path":"chunkfive-webfont.eot","url":"/sites/553ea68664696432517e0000/theme/fonts/chunkfive-webfont.eot","size":"37.5
         KB","raw_size":38434}'
     http_version: 
-  recorded_at: Sun, 19 Apr 2015 18:04:33 GMT
+  recorded_at: Mon, 27 Apr 2015 21:13:43 GMT
 - request:
     method: post
     uri: http://localhost:3000/locomotive/api/v3/theme_assets.json
@@ -2005,16 +2359,16 @@ http_interactions:
         />\n</font>\n</defs></svg> \r\n-------------RubyMultipartPost\r\nContent-Disposition:
         form-data; name=\"theme_asset[folder]\"\r\n\r\nfonts\r\n-------------RubyMultipartPost\r\nContent-Disposition:
         form-data; name=\"theme_asset[checksum]\"\r\n\r\n57d0f66913a8c0e172ae3fe78ce36e43\r\n-------------RubyMultipartPost\r\nContent-Disposition:
-        form-data; name=\"auth_token\"\r\n\r\nB1UseoZ1BSQUr86t5-Kz\r\n-------------RubyMultipartPost--\r\n\r\n"
+        form-data; name=\"auth_token\"\r\n\r\nQV8KyyZto8_qHq_i6Ums\r\n-------------RubyMultipartPost--\r\n\r\n"
     headers:
       Accept:
       - application/json
       X-Locomotive-Account-Email:
       - admin@locomotivecms.com
       X-Locomotive-Account-Token:
-      - B1UseoZ1BSQUr86t5-Kz
+      - QV8KyyZto8_qHq_i6Ums
       X-Locomotive-Site-Handle:
-      - hollow-swamp-9066
+      - amiable-mist-4708
       Content-Type:
       - multipart/form-data; boundary=-----------RubyMultipartPost
       Content-Length:
@@ -2033,23 +2387,23 @@ http_interactions:
       Content-Length:
       - '336'
       Etag:
-      - W/"a04df0dcef9967419bda330631a5742a"
+      - W/"2f0038a0d515d60fe94c7684f45e3f0b"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 54801a45-a65f-4b76-84c0-155004049b8b
+      - 72e5ec5d-e4e1-4665-ab63-7500ec9aee8a
       X-Runtime:
-      - '0.027506'
+      - '0.025361'
       Connection:
       - keep-alive
       Server:
       - thin
     body:
       encoding: UTF-8
-      string: '{"_id":"5533ee3164696402c1530000","created_at":"2015-04-19T18:04:33Z","updated_at":"2015-04-19T18:04:33Z","content_type":"font","folder":"fonts","checksum":"57d0f66913a8c0e172ae3fe78ce36e43","local_path":"chunkfive-webfont.svg","url":"/sites/5533ee3064696402c1490000/theme/fonts/chunkfive-webfont.svg","size":"49.4
+      string: '{"_id":"553ea6876469643251a50000","created_at":"2015-04-27T21:13:43Z","updated_at":"2015-04-27T21:13:43Z","content_type":"font","folder":"fonts","checksum":"57d0f66913a8c0e172ae3fe78ce36e43","local_path":"chunkfive-webfont.svg","url":"/sites/553ea68664696432517e0000/theme/fonts/chunkfive-webfont.svg","size":"49.4
         KB","raw_size":50602}'
     http_version: 
-  recorded_at: Sun, 19 Apr 2015 18:04:33 GMT
+  recorded_at: Mon, 27 Apr 2015 21:13:43 GMT
 - request:
     method: post
     uri: http://localhost:3000/locomotive/api/v3/theme_assets.json
@@ -2916,7 +3270,7 @@ http_interactions:
         dFtjaGVja3N1bV0iDQoNCjQzOTYzMzQ0NGY5ZDMyYTMwYTQ0NDlkYTk2Nzg1
         M2QyDQotLS0tLS0tLS0tLS0tUnVieU11bHRpcGFydFBvc3QNCkNvbnRlbnQt
         RGlzcG9zaXRpb246IGZvcm0tZGF0YTsgbmFtZT0iYXV0aF90b2tlbiINCg0K
-        QjFVc2VvWjFCU1FVcjg2dDUtS3oNCi0tLS0tLS0tLS0tLS1SdWJ5TXVsdGlw
+        UVY4S3l5WnRvOF9xSHFfaTZVbXMNCi0tLS0tLS0tLS0tLS1SdWJ5TXVsdGlw
         YXJ0UG9zdC0tDQoNCg==
     headers:
       Accept:
@@ -2924,9 +3278,9 @@ http_interactions:
       X-Locomotive-Account-Email:
       - admin@locomotivecms.com
       X-Locomotive-Account-Token:
-      - B1UseoZ1BSQUr86t5-Kz
+      - QV8KyyZto8_qHq_i6Ums
       X-Locomotive-Site-Handle:
-      - hollow-swamp-9066
+      - amiable-mist-4708
       Content-Type:
       - multipart/form-data; boundary=-----------RubyMultipartPost
       Content-Length:
@@ -2945,23 +3299,23 @@ http_interactions:
       Content-Length:
       - '336'
       Etag:
-      - W/"b3cd4dfaf8e86c5607c511c1a15ebcb6"
+      - W/"a46dd5c8d310253f8ad024a4694e44a5"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 373ef3a7-6b7c-4ff8-a8b0-38769f0a6ece
+      - b435db9f-5eb6-4d16-a665-7b8d14a20960
       X-Runtime:
-      - '0.034178'
+      - '0.031953'
       Connection:
       - keep-alive
       Server:
       - thin
     body:
       encoding: UTF-8
-      string: '{"_id":"5533ee3164696402c1540000","created_at":"2015-04-19T18:04:33Z","updated_at":"2015-04-19T18:04:33Z","content_type":"font","folder":"fonts","checksum":"439633444f9d32a30a4449da967853d2","local_path":"chunkfive-webfont.ttf","url":"/sites/5533ee3064696402c1490000/theme/fonts/chunkfive-webfont.ttf","size":"37.3
+      string: '{"_id":"553ea6876469643251a60000","created_at":"2015-04-27T21:13:43Z","updated_at":"2015-04-27T21:13:43Z","content_type":"font","folder":"fonts","checksum":"439633444f9d32a30a4449da967853d2","local_path":"chunkfive-webfont.ttf","url":"/sites/553ea68664696432517e0000/theme/fonts/chunkfive-webfont.ttf","size":"37.3
         KB","raw_size":38156}'
     http_version: 
-  recorded_at: Sun, 19 Apr 2015 18:04:33 GMT
+  recorded_at: Mon, 27 Apr 2015 21:13:43 GMT
 - request:
     method: post
     uri: http://localhost:3000/locomotive/api/v3/theme_assets.json
@@ -3477,7 +3831,7 @@ http_interactions:
         bS1kYXRhOyBuYW1lPSJ0aGVtZV9hc3NldFtjaGVja3N1bV0iDQoNCjgxNzRm
         YTY3ODkwYTZhZjljMGIwNTQzMmQyMWFmZGJkDQotLS0tLS0tLS0tLS0tUnVi
         eU11bHRpcGFydFBvc3QNCkNvbnRlbnQtRGlzcG9zaXRpb246IGZvcm0tZGF0
-        YTsgbmFtZT0iYXV0aF90b2tlbiINCg0KQjFVc2VvWjFCU1FVcjg2dDUtS3oN
+        YTsgbmFtZT0iYXV0aF90b2tlbiINCg0KUVY4S3l5WnRvOF9xSHFfaTZVbXMN
         Ci0tLS0tLS0tLS0tLS1SdWJ5TXVsdGlwYXJ0UG9zdC0tDQoNCg==
     headers:
       Accept:
@@ -3485,9 +3839,9 @@ http_interactions:
       X-Locomotive-Account-Email:
       - admin@locomotivecms.com
       X-Locomotive-Account-Token:
-      - B1UseoZ1BSQUr86t5-Kz
+      - QV8KyyZto8_qHq_i6Ums
       X-Locomotive-Site-Handle:
-      - hollow-swamp-9066
+      - amiable-mist-4708
       Content-Type:
       - multipart/form-data; boundary=-----------RubyMultipartPost
       Content-Length:
@@ -3506,23 +3860,23 @@ http_interactions:
       Content-Length:
       - '338'
       Etag:
-      - W/"c8bab5a10b6eb3cacf9cbce56a09dc33"
+      - W/"0a2b1f7dcf02d111525d43ce0fe0a542"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 82f02d1e-90c3-4cf2-b9de-113026629891
+      - 572b7947-c4f0-458a-9261-8b939038e92b
       X-Runtime:
-      - '0.037649'
+      - '0.030875'
       Connection:
       - keep-alive
       Server:
       - thin
     body:
       encoding: UTF-8
-      string: '{"_id":"5533ee3164696402c1550000","created_at":"2015-04-19T18:04:33Z","updated_at":"2015-04-19T18:04:33Z","content_type":"font","folder":"fonts","checksum":"8174fa67890a6af9c0b05432d21afdbd","local_path":"chunkfive-webfont.woff","url":"/sites/5533ee3064696402c1490000/theme/fonts/chunkfive-webfont.woff","size":"21.9
+      string: '{"_id":"553ea6876469643251a70000","created_at":"2015-04-27T21:13:43Z","updated_at":"2015-04-27T21:13:43Z","content_type":"font","folder":"fonts","checksum":"8174fa67890a6af9c0b05432d21afdbd","local_path":"chunkfive-webfont.woff","url":"/sites/553ea68664696432517e0000/theme/fonts/chunkfive-webfont.woff","size":"21.9
         KB","raw_size":22384}'
     http_version: 
-  recorded_at: Sun, 19 Apr 2015 18:04:33 GMT
+  recorded_at: Mon, 27 Apr 2015 21:13:43 GMT
 - request:
     method: post
     uri: http://localhost:3000/locomotive/api/v3/theme_assets.json
@@ -3822,8 +4176,8 @@ http_interactions:
         bnQtRGlzcG9zaXRpb246IGZvcm0tZGF0YTsgbmFtZT0idGhlbWVfYXNzZXRb
         Y2hlY2tzdW1dIg0KDQozZjZhMTVmMmNlODkyMzUwOTJhZTI1YjEyNTA4NGRk
         Nw0KLS0tLS0tLS0tLS0tLVJ1YnlNdWx0aXBhcnRQb3N0DQpDb250ZW50LURp
-        c3Bvc2l0aW9uOiBmb3JtLWRhdGE7IG5hbWU9ImF1dGhfdG9rZW4iDQoNCkIx
-        VXNlb1oxQlNRVXI4NnQ1LUt6DQotLS0tLS0tLS0tLS0tUnVieU11bHRpcGFy
+        c3Bvc2l0aW9uOiBmb3JtLWRhdGE7IG5hbWU9ImF1dGhfdG9rZW4iDQoNClFW
+        OEt5eVp0bzhfcUhxX2k2VW1zDQotLS0tLS0tLS0tLS0tUnVieU11bHRpcGFy
         dFBvc3QtLQ0KDQo=
     headers:
       Accept:
@@ -3831,9 +4185,9 @@ http_interactions:
       X-Locomotive-Account-Email:
       - admin@locomotivecms.com
       X-Locomotive-Account-Token:
-      - B1UseoZ1BSQUr86t5-Kz
+      - QV8KyyZto8_qHq_i6Ums
       X-Locomotive-Site-Handle:
-      - hollow-swamp-9066
+      - amiable-mist-4708
       Content-Type:
       - multipart/form-data; boundary=-----------RubyMultipartPost
       Content-Length:
@@ -3852,23 +4206,23 @@ http_interactions:
       Content-Length:
       - '311'
       Etag:
-      - W/"57805e186f1e11dc48b1c66e66165d56"
+      - W/"f26373e677881ed4b941975bcb4468f5"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - e9b5fa96-5323-42cc-bb6c-8879f2f8e1cc
+      - 853d4bf8-1407-4850-9618-c091980c062a
       X-Runtime:
-      - '0.103387'
+      - '0.092608'
       Connection:
       - keep-alive
       Server:
       - thin
     body:
       encoding: UTF-8
-      string: '{"_id":"5533ee3164696402c1560000","created_at":"2015-04-19T18:04:33Z","updated_at":"2015-04-19T18:04:33Z","content_type":"image","folder":"images","checksum":"3f6a15f2ce89235092ae25b125084dd7","local_path":"top.jpg","url":"/sites/5533ee3064696402c1490000/theme/images/top.jpg","size":"12.4
+      string: '{"_id":"553ea6876469643251a80000","created_at":"2015-04-27T21:13:43Z","updated_at":"2015-04-27T21:13:43Z","content_type":"image","folder":"images","checksum":"3f6a15f2ce89235092ae25b125084dd7","local_path":"top.jpg","url":"/sites/553ea68664696432517e0000/theme/images/top.jpg","size":"12.4
         KB","raw_size":12697}'
     http_version: 
-  recorded_at: Sun, 19 Apr 2015 18:04:33 GMT
+  recorded_at: Mon, 27 Apr 2015 21:13:43 GMT
 - request:
     method: post
     uri: http://localhost:3000/locomotive/api/v3/theme_assets.json
@@ -4129,7 +4483,7 @@ http_interactions:
         ZGF0YTsgbmFtZT0idGhlbWVfYXNzZXRbY2hlY2tzdW1dIg0KDQo0NzNmNjM0
         MDUzMTcyYTY1NmIzOGY0ZDc5MWQyOTRjOA0KLS0tLS0tLS0tLS0tLVJ1YnlN
         dWx0aXBhcnRQb3N0DQpDb250ZW50LURpc3Bvc2l0aW9uOiBmb3JtLWRhdGE7
-        IG5hbWU9ImF1dGhfdG9rZW4iDQoNCkIxVXNlb1oxQlNRVXI4NnQ1LUt6DQot
+        IG5hbWU9ImF1dGhfdG9rZW4iDQoNClFWOEt5eVp0bzhfcUhxX2k2VW1zDQot
         LS0tLS0tLS0tLS0tUnVieU11bHRpcGFydFBvc3QtLQ0KDQo=
     headers:
       Accept:
@@ -4137,9 +4491,9 @@ http_interactions:
       X-Locomotive-Account-Email:
       - admin@locomotivecms.com
       X-Locomotive-Account-Token:
-      - B1UseoZ1BSQUr86t5-Kz
+      - QV8KyyZto8_qHq_i6Ums
       X-Locomotive-Site-Handle:
-      - hollow-swamp-9066
+      - amiable-mist-4708
       Content-Type:
       - multipart/form-data; boundary=-----------RubyMultipartPost
       Content-Length:
@@ -4158,23 +4512,23 @@ http_interactions:
       Content-Length:
       - '320'
       Etag:
-      - W/"305f8e2f5808af05275ba5b1b4356170"
+      - W/"a9a1ed6363bad696188ce96626d3dd37"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - afbdbf78-963c-432e-b816-94e69499f57f
+      - 0ceee435-0ef8-48ba-a777-01b8cf39603f
       X-Runtime:
-      - '0.053721'
+      - '0.027220'
       Connection:
       - keep-alive
       Server:
       - thin
     body:
       encoding: UTF-8
-      string: '{"_id":"5533ee3164696402c1570000","created_at":"2015-04-19T18:04:33Z","updated_at":"2015-04-19T18:04:33Z","content_type":"font","folder":"fonts","checksum":"473f634053172a656b38f4d791d294c8","local_path":"chunkfive.otf","url":"/sites/5533ee3064696402c1490000/theme/fonts/chunkfive.otf","size":"10.7
+      string: '{"_id":"553ea6876469643251a90000","created_at":"2015-04-27T21:13:43Z","updated_at":"2015-04-27T21:13:43Z","content_type":"font","folder":"fonts","checksum":"473f634053172a656b38f4d791d294c8","local_path":"chunkfive.otf","url":"/sites/553ea68664696432517e0000/theme/fonts/chunkfive.otf","size":"10.7
         KB","raw_size":10916}'
     http_version: 
-  recorded_at: Sun, 19 Apr 2015 18:04:33 GMT
+  recorded_at: Mon, 27 Apr 2015 21:13:43 GMT
 - request:
     method: post
     uri: http://localhost:3000/locomotive/api/v3/theme_assets.json
@@ -4195,7 +4549,7 @@ http_interactions:
         IG5hbWU9InRoZW1lX2Fzc2V0W2NoZWNrc3VtXSINCg0KZWRiMjkzMDI4Zjlj
         MDdmMmQ2OTJkMDY2Y2Q4YTQ1OGENCi0tLS0tLS0tLS0tLS1SdWJ5TXVsdGlw
         YXJ0UG9zdA0KQ29udGVudC1EaXNwb3NpdGlvbjogZm9ybS1kYXRhOyBuYW1l
-        PSJhdXRoX3Rva2VuIg0KDQpCMVVzZW9aMUJTUVVyODZ0NS1Leg0KLS0tLS0t
+        PSJhdXRoX3Rva2VuIg0KDQpRVjhLeXladG84X3FIcV9pNlVtcw0KLS0tLS0t
         LS0tLS0tLVJ1YnlNdWx0aXBhcnRQb3N0LS0NCg0K
     headers:
       Accept:
@@ -4203,9 +4557,9 @@ http_interactions:
       X-Locomotive-Account-Email:
       - admin@locomotivecms.com
       X-Locomotive-Account-Token:
-      - B1UseoZ1BSQUr86t5-Kz
+      - QV8KyyZto8_qHq_i6Ums
       X-Locomotive-Site-Handle:
-      - hollow-swamp-9066
+      - amiable-mist-4708
       Content-Type:
       - multipart/form-data; boundary=-----------RubyMultipartPost
       Content-Length:
@@ -4224,23 +4578,23 @@ http_interactions:
       Content-Length:
       - '317'
       Etag:
-      - W/"36f765b1d0e456f8295da8ff315aa391"
+      - W/"857eed4ca5d205a8399ccb597a2d6a94"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 59dc4bab-8a22-46d3-919c-8c8cdc4c5a8f
+      - ba7324cc-d766-42d0-9eb3-28f6a56ddbec
       X-Runtime:
-      - '0.091547'
+      - '0.056832'
       Connection:
       - keep-alive
       Server:
       - thin
     body:
       encoding: UTF-8
-      string: '{"_id":"5533ee3164696402c1580000","created_at":"2015-04-19T18:04:33Z","updated_at":"2015-04-19T18:04:33Z","content_type":"image","folder":"images","checksum":"edb293028f9c07f2d692d066cd8a458a","local_path":"nav_on.png","url":"/sites/5533ee3064696402c1490000/theme/images/nav_on.png","size":"115
+      string: '{"_id":"553ea6876469643251aa0000","created_at":"2015-04-27T21:13:43Z","updated_at":"2015-04-27T21:13:43Z","content_type":"image","folder":"images","checksum":"edb293028f9c07f2d692d066cd8a458a","local_path":"nav_on.png","url":"/sites/553ea68664696432517e0000/theme/images/nav_on.png","size":"115
         Bytes","raw_size":115}'
     http_version: 
-  recorded_at: Sun, 19 Apr 2015 18:04:33 GMT
+  recorded_at: Mon, 27 Apr 2015 21:13:43 GMT
 - request:
     method: post
     uri: http://localhost:3000/locomotive/api/v3/theme_assets.json
@@ -4431,8 +4785,8 @@ http_interactions:
         c3Bvc2l0aW9uOiBmb3JtLWRhdGE7IG5hbWU9InRoZW1lX2Fzc2V0W2NoZWNr
         c3VtXSINCg0KOTNjMjkxMTI4N2E1NzU0YmVkNjVhMDI4YzZhYTRhN2MNCi0t
         LS0tLS0tLS0tLS1SdWJ5TXVsdGlwYXJ0UG9zdA0KQ29udGVudC1EaXNwb3Np
-        dGlvbjogZm9ybS1kYXRhOyBuYW1lPSJhdXRoX3Rva2VuIg0KDQpCMVVzZW9a
-        MUJTUVVyODZ0NS1Leg0KLS0tLS0tLS0tLS0tLVJ1YnlNdWx0aXBhcnRQb3N0
+        dGlvbjogZm9ybS1kYXRhOyBuYW1lPSJhdXRoX3Rva2VuIg0KDQpRVjhLeXla
+        dG84X3FIcV9pNlVtcw0KLS0tLS0tLS0tLS0tLVJ1YnlNdWx0aXBhcnRQb3N0
         LS0NCg0K
     headers:
       Accept:
@@ -4440,9 +4794,9 @@ http_interactions:
       X-Locomotive-Account-Email:
       - admin@locomotivecms.com
       X-Locomotive-Account-Token:
-      - B1UseoZ1BSQUr86t5-Kz
+      - QV8KyyZto8_qHq_i6Ums
       X-Locomotive-Site-Handle:
-      - hollow-swamp-9066
+      - amiable-mist-4708
       Content-Type:
       - multipart/form-data; boundary=-----------RubyMultipartPost
       Content-Length:
@@ -4461,23 +4815,23 @@ http_interactions:
       Content-Length:
       - '325'
       Etag:
-      - W/"31d3e879779f63f59b139171103c1271"
+      - W/"d498ef2842b586cdcf6755c3c4731282"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 31aaa7d7-bea2-44ba-ad4e-e8fdbaad4d6b
+      - 951ca51a-a33b-48c7-9ccc-6f40da253a9d
       X-Runtime:
-      - '0.063848'
+      - '0.047538'
       Connection:
       - keep-alive
       Server:
       - thin
     body:
       encoding: UTF-8
-      string: '{"_id":"5533ee3164696402c1590000","created_at":"2015-04-19T18:04:33Z","updated_at":"2015-04-19T18:04:33Z","content_type":"image","folder":"images","checksum":"93c2911287a5754bed65a028c6aa4a7c","local_path":"photo_frame.png","url":"/sites/5533ee3064696402c1490000/theme/images/photo_frame.png","size":"7.6
+      string: '{"_id":"553ea6876469643251ab0000","created_at":"2015-04-27T21:13:43Z","updated_at":"2015-04-27T21:13:43Z","content_type":"image","folder":"images","checksum":"93c2911287a5754bed65a028c6aa4a7c","local_path":"photo_frame.png","url":"/sites/553ea68664696432517e0000/theme/images/photo_frame.png","size":"7.6
         KB","raw_size":7780}'
     http_version: 
-  recorded_at: Sun, 19 Apr 2015 18:04:33 GMT
+  recorded_at: Mon, 27 Apr 2015 21:13:43 GMT
 - request:
     method: post
     uri: http://localhost:3000/locomotive/api/v3/theme_assets.json
@@ -4522,8 +4876,8 @@ http_interactions:
         dGlvbjogZm9ybS1kYXRhOyBuYW1lPSJ0aGVtZV9hc3NldFtjaGVja3N1bV0i
         DQoNCjg5ZTAyNzUxODVlNjYxNjM5ZmIxNDEzMDQxMDg0M2I2DQotLS0tLS0t
         LS0tLS0tUnVieU11bHRpcGFydFBvc3QNCkNvbnRlbnQtRGlzcG9zaXRpb246
-        IGZvcm0tZGF0YTsgbmFtZT0iYXV0aF90b2tlbiINCg0KQjFVc2VvWjFCU1FV
-        cjg2dDUtS3oNCi0tLS0tLS0tLS0tLS1SdWJ5TXVsdGlwYXJ0UG9zdC0tDQoN
+        IGZvcm0tZGF0YTsgbmFtZT0iYXV0aF90b2tlbiINCg0KUVY4S3l5WnRvOF9x
+        SHFfaTZVbXMNCi0tLS0tLS0tLS0tLS1SdWJ5TXVsdGlwYXJ0UG9zdC0tDQoN
         Cg==
     headers:
       Accept:
@@ -4531,9 +4885,9 @@ http_interactions:
       X-Locomotive-Account-Email:
       - admin@locomotivecms.com
       X-Locomotive-Account-Token:
-      - B1UseoZ1BSQUr86t5-Kz
+      - QV8KyyZto8_qHq_i6Ums
       X-Locomotive-Site-Handle:
-      - hollow-swamp-9066
+      - amiable-mist-4708
       Content-Type:
       - multipart/form-data; boundary=-----------RubyMultipartPost
       Content-Length:
@@ -4552,23 +4906,23 @@ http_interactions:
       Content-Length:
       - '310'
       Etag:
-      - W/"7537b935d4b0f6969be112657edf41a5"
+      - W/"85be60d2c2d2592784290a8dd1b4c637"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - d0e0a8c3-5ae2-4d11-bcf9-6c6f76271cef
+      - 735154f7-d567-446e-bfc1-c24f56def6f9
       X-Runtime:
-      - '0.071465'
+      - '0.049147'
       Connection:
       - keep-alive
       Server:
       - thin
     body:
       encoding: UTF-8
-      string: '{"_id":"5533ee3164696402c15a0000","created_at":"2015-04-19T18:04:33Z","updated_at":"2015-04-19T18:04:33Z","content_type":"image","folder":"images","checksum":"89e0275185e661639fb14130410843b6","local_path":"sep.png","url":"/sites/5533ee3064696402c1490000/theme/images/sep.png","size":"1.18
+      string: '{"_id":"553ea6876469643251ac0000","created_at":"2015-04-27T21:13:43Z","updated_at":"2015-04-27T21:13:43Z","content_type":"image","folder":"images","checksum":"89e0275185e661639fb14130410843b6","local_path":"sep.png","url":"/sites/553ea68664696432517e0000/theme/images/sep.png","size":"1.18
         KB","raw_size":1213}'
     http_version: 
-  recorded_at: Sun, 19 Apr 2015 18:04:33 GMT
+  recorded_at: Mon, 27 Apr 2015 21:13:43 GMT
 - request:
     method: post
     uri: http://localhost:3000/locomotive/api/v3/theme_assets.json
@@ -4593,7 +4947,7 @@ http_interactions:
         c3NldFtjaGVja3N1bV0iDQoNCmIzYWQzYmZhMmFmZjlkZTkxM2JmNDJmODRh
         ZDFmZWNmDQotLS0tLS0tLS0tLS0tUnVieU11bHRpcGFydFBvc3QNCkNvbnRl
         bnQtRGlzcG9zaXRpb246IGZvcm0tZGF0YTsgbmFtZT0iYXV0aF90b2tlbiIN
-        Cg0KQjFVc2VvWjFCU1FVcjg2dDUtS3oNCi0tLS0tLS0tLS0tLS1SdWJ5TXVs
+        Cg0KUVY4S3l5WnRvOF9xSHFfaTZVbXMNCi0tLS0tLS0tLS0tLS1SdWJ5TXVs
         dGlwYXJ0UG9zdC0tDQoNCg==
     headers:
       Accept:
@@ -4601,9 +4955,9 @@ http_interactions:
       X-Locomotive-Account-Email:
       - admin@locomotivecms.com
       X-Locomotive-Account-Token:
-      - B1UseoZ1BSQUr86t5-Kz
+      - QV8KyyZto8_qHq_i6Ums
       X-Locomotive-Site-Handle:
-      - hollow-swamp-9066
+      - amiable-mist-4708
       Content-Type:
       - multipart/form-data; boundary=-----------RubyMultipartPost
       Content-Length:
@@ -4622,23 +4976,23 @@ http_interactions:
       Content-Length:
       - '326'
       Etag:
-      - W/"315786bdbb558ca7600dcfab27c8f7ab"
+      - W/"d853676c669e82de3726cc5b929f8937"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 16e1c1b1-9603-406f-91ad-d97ce3f105ec
+      - 7df693d7-ccd0-4a36-9237-9343d26249dc
       X-Runtime:
-      - '0.039216'
+      - '0.027471'
       Connection:
       - keep-alive
       Server:
       - thin
     body:
       encoding: UTF-8
-      string: '{"_id":"5533ee3264696402c15b0000","created_at":"2015-04-19T18:04:34Z","updated_at":"2015-04-19T18:04:34Z","content_type":"stylesheet","folder":"fonts","checksum":"b3ad3bfa2aff9de913bf42f84ad1fecf","local_path":"chunkfive.css","url":"/sites/5533ee3064696402c1490000/theme/fonts/chunkfive.css","size":"279
+      string: '{"_id":"553ea6886469643251ad0000","created_at":"2015-04-27T21:13:44Z","updated_at":"2015-04-27T21:13:44Z","content_type":"stylesheet","folder":"fonts","checksum":"b3ad3bfa2aff9de913bf42f84ad1fecf","local_path":"chunkfive.css","url":"/sites/553ea68664696432517e0000/theme/fonts/chunkfive.css","size":"279
         Bytes","raw_size":279}'
     http_version: 
-  recorded_at: Sun, 19 Apr 2015 18:04:34 GMT
+  recorded_at: Mon, 27 Apr 2015 21:13:44 GMT
 - request:
     method: post
     uri: http://localhost:3000/locomotive/api/v3/theme_assets.json
@@ -4650,16 +5004,16 @@ http_interactions:
         world\")})}).call(this);\r\n-------------RubyMultipartPost\r\nContent-Disposition:
         form-data; name=\"theme_asset[folder]\"\r\n\r\njavascripts\r\n-------------RubyMultipartPost\r\nContent-Disposition:
         form-data; name=\"theme_asset[checksum]\"\r\n\r\ndafcc4a2f059c53e47bf8d7ea4dd1e11\r\n-------------RubyMultipartPost\r\nContent-Disposition:
-        form-data; name=\"auth_token\"\r\n\r\nB1UseoZ1BSQUr86t5-Kz\r\n-------------RubyMultipartPost--\r\n\r\n"
+        form-data; name=\"auth_token\"\r\n\r\nQV8KyyZto8_qHq_i6Ums\r\n-------------RubyMultipartPost--\r\n\r\n"
     headers:
       Accept:
       - application/json
       X-Locomotive-Account-Email:
       - admin@locomotivecms.com
       X-Locomotive-Account-Token:
-      - B1UseoZ1BSQUr86t5-Kz
+      - QV8KyyZto8_qHq_i6Ums
       X-Locomotive-Site-Handle:
-      - hollow-swamp-9066
+      - amiable-mist-4708
       Content-Type:
       - multipart/form-data; boundary=-----------RubyMultipartPost
       Content-Length:
@@ -4678,23 +5032,23 @@ http_interactions:
       Content-Length:
       - '338'
       Etag:
-      - W/"2c8d8b4de40efcc8b45eeac8f03e3efe"
+      - W/"9946b18152231a35e56fd74d961b51cf"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - f28d6cda-daca-45c3-9b2f-1e7e5ba74524
+      - 868e5621-1d70-43d5-9a46-bcdb29fc7a75
       X-Runtime:
-      - '0.037330'
+      - '0.033518'
       Connection:
       - keep-alive
       Server:
       - thin
     body:
       encoding: UTF-8
-      string: '{"_id":"5533ee3264696402c15c0000","created_at":"2015-04-19T18:04:34Z","updated_at":"2015-04-19T18:04:34Z","content_type":"javascript","folder":"javascripts","checksum":"dafcc4a2f059c53e47bf8d7ea4dd1e11","local_path":"application.js","url":"/sites/5533ee3064696402c1490000/theme/javascripts/application.js","size":"84
+      string: '{"_id":"553ea6896469643251ae0000","created_at":"2015-04-27T21:13:45Z","updated_at":"2015-04-27T21:13:45Z","content_type":"javascript","folder":"javascripts","checksum":"dafcc4a2f059c53e47bf8d7ea4dd1e11","local_path":"application.js","url":"/sites/553ea68664696432517e0000/theme/javascripts/application.js","size":"84
         Bytes","raw_size":84}'
     http_version: 
-  recorded_at: Sun, 19 Apr 2015 18:04:34 GMT
+  recorded_at: Mon, 27 Apr 2015 21:13:45 GMT
 - request:
     method: post
     uri: http://localhost:3000/locomotive/api/v3/theme_assets.json
@@ -4705,16 +5059,16 @@ http_interactions:
         binary\r\n\r\nconsole.log(\"hello world\");\r\n-------------RubyMultipartPost\r\nContent-Disposition:
         form-data; name=\"theme_asset[folder]\"\r\n\r\njavascripts\r\n-------------RubyMultipartPost\r\nContent-Disposition:
         form-data; name=\"theme_asset[checksum]\"\r\n\r\nd05d02ecb331afbe373db79b0a88ef36\r\n-------------RubyMultipartPost\r\nContent-Disposition:
-        form-data; name=\"auth_token\"\r\n\r\nB1UseoZ1BSQUr86t5-Kz\r\n-------------RubyMultipartPost--\r\n\r\n"
+        form-data; name=\"auth_token\"\r\n\r\nQV8KyyZto8_qHq_i6Ums\r\n-------------RubyMultipartPost--\r\n\r\n"
     headers:
       Accept:
       - application/json
       X-Locomotive-Account-Email:
       - admin@locomotivecms.com
       X-Locomotive-Account-Token:
-      - B1UseoZ1BSQUr86t5-Kz
+      - QV8KyyZto8_qHq_i6Ums
       X-Locomotive-Site-Handle:
-      - hollow-swamp-9066
+      - amiable-mist-4708
       Content-Type:
       - multipart/form-data; boundary=-----------RubyMultipartPost
       Content-Length:
@@ -4733,23 +5087,23 @@ http_interactions:
       Content-Length:
       - '328'
       Etag:
-      - W/"4739804a77ee4097712d89897404fa1c"
+      - W/"398173697f53bbfd67b5a0a91f1ac208"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - e11a0979-cdd6-4663-b758-924fc65c851d
+      - 52ce7ff4-772b-4db3-9bdb-c8492cf6f0a6
       X-Runtime:
-      - '0.031729'
+      - '0.027383'
       Connection:
       - keep-alive
       Server:
       - thin
     body:
       encoding: UTF-8
-      string: '{"_id":"5533ee3364696402c15d0000","created_at":"2015-04-19T18:04:35Z","updated_at":"2015-04-19T18:04:35Z","content_type":"javascript","folder":"javascripts","checksum":"d05d02ecb331afbe373db79b0a88ef36","local_path":"common.js","url":"/sites/5533ee3064696402c1490000/theme/javascripts/common.js","size":"27
+      string: '{"_id":"553ea6896469643251af0000","created_at":"2015-04-27T21:13:45Z","updated_at":"2015-04-27T21:13:45Z","content_type":"javascript","folder":"javascripts","checksum":"d05d02ecb331afbe373db79b0a88ef36","local_path":"common.js","url":"/sites/553ea68664696432517e0000/theme/javascripts/common.js","size":"27
         Bytes","raw_size":27}'
     http_version: 
-  recorded_at: Sun, 19 Apr 2015 18:04:35 GMT
+  recorded_at: Mon, 27 Apr 2015 21:13:45 GMT
 - request:
     method: post
     uri: http://localhost:3000/locomotive/api/v3/theme_assets.json
@@ -4781,16 +5135,16 @@ http_interactions:
         p{text-align:center;font-size:12px}\r\n-------------RubyMultipartPost\r\nContent-Disposition:
         form-data; name=\"theme_asset[folder]\"\r\n\r\nstylesheets\r\n-------------RubyMultipartPost\r\nContent-Disposition:
         form-data; name=\"theme_asset[checksum]\"\r\n\r\n3bacf4c2b7877e230e6990d72dae7724\r\n-------------RubyMultipartPost\r\nContent-Disposition:
-        form-data; name=\"auth_token\"\r\n\r\nB1UseoZ1BSQUr86t5-Kz\r\n-------------RubyMultipartPost--\r\n\r\n"
+        form-data; name=\"auth_token\"\r\n\r\nQV8KyyZto8_qHq_i6Ums\r\n-------------RubyMultipartPost--\r\n\r\n"
     headers:
       Accept:
       - application/json
       X-Locomotive-Account-Email:
       - admin@locomotivecms.com
       X-Locomotive-Account-Token:
-      - B1UseoZ1BSQUr86t5-Kz
+      - QV8KyyZto8_qHq_i6Ums
       X-Locomotive-Site-Handle:
-      - hollow-swamp-9066
+      - amiable-mist-4708
       Content-Type:
       - multipart/form-data; boundary=-----------RubyMultipartPost
       Content-Length:
@@ -4809,23 +5163,23 @@ http_interactions:
       Content-Length:
       - '341'
       Etag:
-      - W/"5dc4fdab9165f3a47ddcd144e925334e"
+      - W/"a7e19027f6f01ce1d3343b33fd870cd6"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 81f5abcd-8731-4d5c-9d4f-0cad838220d9
+      - 04115059-b24e-4bb5-8c16-113c979ca0e4
       X-Runtime:
-      - '0.040697'
+      - '0.043982'
       Connection:
       - keep-alive
       Server:
       - thin
     body:
       encoding: UTF-8
-      string: '{"_id":"5533ee3364696402c15e0000","created_at":"2015-04-19T18:04:35Z","updated_at":"2015-04-19T18:04:35Z","content_type":"stylesheet","folder":"stylesheets","checksum":"3bacf4c2b7877e230e6990d72dae7724","local_path":"application.css","url":"/sites/5533ee3064696402c1490000/theme/stylesheets/application.css","size":"2.51
+      string: '{"_id":"553ea68a6469643251b00000","created_at":"2015-04-27T21:13:46Z","updated_at":"2015-04-27T21:13:46Z","content_type":"stylesheet","folder":"stylesheets","checksum":"3bacf4c2b7877e230e6990d72dae7724","local_path":"application.css","url":"/sites/553ea68664696432517e0000/theme/stylesheets/application.css","size":"2.51
         KB","raw_size":2573}'
     http_version: 
-  recorded_at: Sun, 19 Apr 2015 18:04:35 GMT
+  recorded_at: Mon, 27 Apr 2015 21:13:46 GMT
 - request:
     method: post
     uri: http://localhost:3000/locomotive/api/v3/theme_assets.json
@@ -4836,16 +5190,16 @@ http_interactions:
         binary\r\n\r\n#header{color:#4d926f}h2{color:#4d926f}\r\n-------------RubyMultipartPost\r\nContent-Disposition:
         form-data; name=\"theme_asset[folder]\"\r\n\r\nstylesheets/other\r\n-------------RubyMultipartPost\r\nContent-Disposition:
         form-data; name=\"theme_asset[checksum]\"\r\n\r\n15d3d9555deface69d6ab9e7fd972638\r\n-------------RubyMultipartPost\r\nContent-Disposition:
-        form-data; name=\"auth_token\"\r\n\r\nB1UseoZ1BSQUr86t5-Kz\r\n-------------RubyMultipartPost--\r\n\r\n"
+        form-data; name=\"auth_token\"\r\n\r\nQV8KyyZto8_qHq_i6Ums\r\n-------------RubyMultipartPost--\r\n\r\n"
     headers:
       Accept:
       - application/json
       X-Locomotive-Account-Email:
       - admin@locomotivecms.com
       X-Locomotive-Account-Token:
-      - B1UseoZ1BSQUr86t5-Kz
+      - QV8KyyZto8_qHq_i6Ums
       X-Locomotive-Site-Handle:
-      - hollow-swamp-9066
+      - amiable-mist-4708
       Content-Type:
       - multipart/form-data; boundary=-----------RubyMultipartPost
       Content-Length:
@@ -4864,23 +5218,95 @@ http_interactions:
       Content-Length:
       - '346'
       Etag:
-      - W/"6959c7bbe5edb23750cc761787e750b2"
+      - W/"2f5a35599678a74ef82465def5739a7f"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - a4c2baa7-1adb-4f66-93e1-fba4d066fca0
+      - 20e24027-a7d1-4c1e-aa8b-c3ba3ce586c5
       X-Runtime:
-      - '0.030460'
+      - '0.032676'
       Connection:
       - keep-alive
       Server:
       - thin
     body:
       encoding: UTF-8
-      string: '{"_id":"5533ee3464696402c15f0000","created_at":"2015-04-19T18:04:36Z","updated_at":"2015-04-19T18:04:36Z","content_type":"stylesheet","folder":"stylesheets/other","checksum":"15d3d9555deface69d6ab9e7fd972638","local_path":"other/extra.css","url":"/sites/5533ee3064696402c1490000/theme/stylesheets/other/extra.css","size":"39
+      string: '{"_id":"553ea68a6469643251b10000","created_at":"2015-04-27T21:13:46Z","updated_at":"2015-04-27T21:13:46Z","content_type":"stylesheet","folder":"stylesheets/other","checksum":"15d3d9555deface69d6ab9e7fd972638","local_path":"other/extra.css","url":"/sites/553ea68664696432517e0000/theme/stylesheets/other/extra.css","size":"39
         Bytes","raw_size":39}'
     http_version: 
-  recorded_at: Sun, 19 Apr 2015 18:04:36 GMT
+  recorded_at: Mon, 27 Apr 2015 21:13:46 GMT
+- request:
+    method: post
+    uri: http://localhost:3000/locomotive/api/v3/theme_assets.json
+    body:
+      encoding: UTF-8
+      string: "-------------RubyMultipartPost\r\nContent-Disposition: form-data; name=\"theme_asset[source]\";
+        filename=\"style.css\"\r\nContent-Length: 1452\r\nContent-Type: application/octet-stream\r\nContent-Transfer-Encoding:
+        binary\r\n\r\nhtml html,html body,html div,html span,html applet,html object,html
+        iframe,html h1,html h2,html h3,html h4,html h5,html h6,html p,html blockquote,html
+        pre,html a,html abbr,html acronym,html address,html big,html cite,html code,html
+        del,html dfn,html em,html img,html ins,html kbd,html q,html s,html samp,html
+        small,html strike,html strong,html sub,html sup,html tt,html var,html b,html
+        u,html i,html center,html dl,html dt,html dd,html ol,html ul,html li,html
+        fieldset,html form,html label,html legend,html table,html caption,html tbody,html
+        tfoot,html thead,html tr,html th,html td,html article,html aside,html canvas,html
+        details,html embed,html figure,html figcaption,html footer,html header,html
+        hgroup,html menu,html nav,html output,html ruby,html section,html summary,html
+        time,html mark,html audio,html video{margin:0;padding:0;border:0;font:inherit;font-size:100%;vertical-align:baseline}html
+        html{line-height:1}html ol,html ul{list-style:none}html table{border-collapse:collapse;border-spacing:0}html
+        caption,html th,html td{text-align:left;font-weight:normal;vertical-align:middle}html
+        q,html blockquote{quotes:none}html q:before,html q:after,html blockquote:before,html
+        blockquote:after{content:\"\";content:none}html a img{border:0}html article,html
+        aside,html details,html figcaption,html figure,html footer,html header,html
+        hgroup,html main,html menu,html nav,html section,html summary{display:block}body{background:red}body
+        h1{color:green}\r\n-------------RubyMultipartPost\r\nContent-Disposition:
+        form-data; name=\"theme_asset[folder]\"\r\n\r\nstylesheets/other\r\n-------------RubyMultipartPost\r\nContent-Disposition:
+        form-data; name=\"theme_asset[checksum]\"\r\n\r\nad2e36fdbc6b9ea164f875e19af0c90e\r\n-------------RubyMultipartPost\r\nContent-Disposition:
+        form-data; name=\"auth_token\"\r\n\r\nQV8KyyZto8_qHq_i6Ums\r\n-------------RubyMultipartPost--\r\n\r\n"
+    headers:
+      Accept:
+      - application/json
+      X-Locomotive-Account-Email:
+      - admin@locomotivecms.com
+      X-Locomotive-Account-Token:
+      - QV8KyyZto8_qHq_i6Ums
+      X-Locomotive-Site-Handle:
+      - amiable-mist-4708
+      Content-Type:
+      - multipart/form-data; boundary=-----------RubyMultipartPost
+      Content-Length:
+      - '2053'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '347'
+      Etag:
+      - W/"cee2fa9cfb6c90dccb94e1c7d604eb22"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - b195b56c-7c03-4f50-8892-979b7850a57d
+      X-Runtime:
+      - '0.031769'
+      Connection:
+      - keep-alive
+      Server:
+      - thin
+    body:
+      encoding: UTF-8
+      string: '{"_id":"553ea68b6469643251b20000","created_at":"2015-04-27T21:13:47Z","updated_at":"2015-04-27T21:13:47Z","content_type":"stylesheet","folder":"stylesheets/other","checksum":"ad2e36fdbc6b9ea164f875e19af0c90e","local_path":"other/style.css","url":"/sites/553ea68664696432517e0000/theme/stylesheets/other/style.css","size":"1.42
+        KB","raw_size":1452}'
+    http_version: 
+  recorded_at: Mon, 27 Apr 2015 21:13:47 GMT
 - request:
     method: post
     uri: http://localhost:3000/locomotive/api/v3/theme_assets.json
@@ -4944,7 +5370,7 @@ http_interactions:
         bWU9InRoZW1lX2Fzc2V0W2NoZWNrc3VtXSINCg0KOWM4ZDU5OWMxOWZmZGEz
         YWEyZTE1N2I3YTFkMWViY2UNCi0tLS0tLS0tLS0tLS1SdWJ5TXVsdGlwYXJ0
         UG9zdA0KQ29udGVudC1EaXNwb3NpdGlvbjogZm9ybS1kYXRhOyBuYW1lPSJh
-        dXRoX3Rva2VuIg0KDQpCMVVzZW9aMUJTUVVyODZ0NS1Leg0KLS0tLS0tLS0t
+        dXRoX3Rva2VuIg0KDQpRVjhLeXladG84X3FIcV9pNlVtcw0KLS0tLS0tLS0t
         LS0tLVJ1YnlNdWx0aXBhcnRQb3N0LS0NCg0K
     headers:
       Accept:
@@ -4952,9 +5378,9 @@ http_interactions:
       X-Locomotive-Account-Email:
       - admin@locomotivecms.com
       X-Locomotive-Account-Token:
-      - B1UseoZ1BSQUr86t5-Kz
+      - QV8KyyZto8_qHq_i6Ums
       X-Locomotive-Site-Handle:
-      - hollow-swamp-9066
+      - amiable-mist-4708
       Content-Type:
       - multipart/form-data; boundary=-----------RubyMultipartPost
       Content-Length:
@@ -4973,108 +5399,38 @@ http_interactions:
       Content-Length:
       - '331'
       Etag:
-      - W/"acfb96da332f75b142fcde607a324d27"
+      - W/"c28f119bce65ebcf99006b053e40dc5f"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 18b86b2a-42a6-449d-ac5d-6065bcf284b7
+      - fdef8a81-72a6-43b3-8a28-7e94b0738bf4
       X-Runtime:
-      - '0.030301'
+      - '0.031999'
       Connection:
       - keep-alive
       Server:
       - thin
     body:
       encoding: UTF-8
-      string: '{"_id":"5533ee3464696402c1600000","created_at":"2015-04-19T18:04:36Z","updated_at":"2015-04-19T18:04:36Z","content_type":"stylesheet","folder":"stylesheets","checksum":"9c8d599c19ffda3aa2e157b7a1d1ebce","local_path":"reboot.css","url":"/sites/5533ee3064696402c1490000/theme/stylesheets/reboot.css","size":"1.99
+      string: '{"_id":"553ea68b6469643251b30000","created_at":"2015-04-27T21:13:47Z","updated_at":"2015-04-27T21:13:47Z","content_type":"stylesheet","folder":"stylesheets","checksum":"9c8d599c19ffda3aa2e157b7a1d1ebce","local_path":"reboot.css","url":"/sites/553ea68664696432517e0000/theme/stylesheets/reboot.css","size":"1.99
         KB","raw_size":2041}'
     http_version: 
-  recorded_at: Sun, 19 Apr 2015 18:04:36 GMT
+  recorded_at: Mon, 27 Apr 2015 21:13:47 GMT
 - request:
-    method: post
-    uri: http://localhost:3000/locomotive/api/v3/theme_assets.json
+    method: put
+    uri: http://localhost:3000/locomotive/api/v3/translations/powered_by.json
     body:
       encoding: UTF-8
-      string: "-------------RubyMultipartPost\r\nContent-Disposition: form-data; name=\"theme_asset[source]\";
-        filename=\"style.css\"\r\nContent-Length: 1452\r\nContent-Type: application/octet-stream\r\nContent-Transfer-Encoding:
-        binary\r\n\r\nhtml html,html body,html div,html span,html applet,html object,html
-        iframe,html h1,html h2,html h3,html h4,html h5,html h6,html p,html blockquote,html
-        pre,html a,html abbr,html acronym,html address,html big,html cite,html code,html
-        del,html dfn,html em,html img,html ins,html kbd,html q,html s,html samp,html
-        small,html strike,html strong,html sub,html sup,html tt,html var,html b,html
-        u,html i,html center,html dl,html dt,html dd,html ol,html ul,html li,html
-        fieldset,html form,html label,html legend,html table,html caption,html tbody,html
-        tfoot,html thead,html tr,html th,html td,html article,html aside,html canvas,html
-        details,html embed,html figure,html figcaption,html footer,html header,html
-        hgroup,html menu,html nav,html output,html ruby,html section,html summary,html
-        time,html mark,html audio,html video{margin:0;padding:0;border:0;font:inherit;font-size:100%;vertical-align:baseline}html
-        html{line-height:1}html ol,html ul{list-style:none}html table{border-collapse:collapse;border-spacing:0}html
-        caption,html th,html td{text-align:left;font-weight:normal;vertical-align:middle}html
-        q,html blockquote{quotes:none}html q:before,html q:after,html blockquote:before,html
-        blockquote:after{content:\"\";content:none}html a img{border:0}html article,html
-        aside,html details,html figcaption,html figure,html footer,html header,html
-        hgroup,html main,html menu,html nav,html section,html summary{display:block}body{background:red}body
-        h1{color:green}\r\n-------------RubyMultipartPost\r\nContent-Disposition:
-        form-data; name=\"theme_asset[folder]\"\r\n\r\nstylesheets/other\r\n-------------RubyMultipartPost\r\nContent-Disposition:
-        form-data; name=\"theme_asset[checksum]\"\r\n\r\nad2e36fdbc6b9ea164f875e19af0c90e\r\n-------------RubyMultipartPost\r\nContent-Disposition:
-        form-data; name=\"auth_token\"\r\n\r\nB1UseoZ1BSQUr86t5-Kz\r\n-------------RubyMultipartPost--\r\n\r\n"
+      string: auth_token=QV8KyyZto8_qHq_i6Ums&translation%5Bkey%5D=powered_by&translation%5Bvalues%5D%5Ben%5D=Powered+by&translation%5Bvalues%5D%5Bfr%5D=Propuls%C3%A9+par
     headers:
       Accept:
       - application/json
       X-Locomotive-Account-Email:
       - admin@locomotivecms.com
       X-Locomotive-Account-Token:
-      - B1UseoZ1BSQUr86t5-Kz
+      - QV8KyyZto8_qHq_i6Ums
       X-Locomotive-Site-Handle:
-      - hollow-swamp-9066
-      Content-Type:
-      - multipart/form-data; boundary=-----------RubyMultipartPost
-      Content-Length:
-      - '2053'
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 201
-      message: Created
-    headers:
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '347'
-      Etag:
-      - W/"0b346de210199e0347e37d1df48a258d"
-      Cache-Control:
-      - max-age=0, private, must-revalidate
-      X-Request-Id:
-      - b27f3032-1e9e-4ad7-827e-e84390ff4b8d
-      X-Runtime:
-      - '0.032761'
-      Connection:
-      - keep-alive
-      Server:
-      - thin
-    body:
-      encoding: UTF-8
-      string: '{"_id":"5533f48d64696402c1610000","created_at":"2015-04-19T18:31:41Z","updated_at":"2015-04-19T18:31:41Z","content_type":"stylesheet","folder":"stylesheets/other","checksum":"ad2e36fdbc6b9ea164f875e19af0c90e","local_path":"other/style.css","url":"/sites/5533ee3064696402c1490000/theme/stylesheets/other/style.css","size":"1.42
-        KB","raw_size":1452}'
-    http_version: 
-  recorded_at: Sun, 19 Apr 2015 18:31:41 GMT
-- request:
-    method: post
-    uri: http://localhost:3000/locomotive/api/v3/sites.json
-    body:
-      encoding: UTF-8
-      string: auth_token=B1UseoZ1BSQUr86t5-Kz&site%5Bhandle%5D=&site%5Blocales%5D%5B%5D=en&site%5Blocales%5D%5B%5D=fr&site%5Blocales%5D%5B%5D=nb&site%5Bmeta_keywords%5D%5Ben%5D=some+meta+keywords&site%5Bmeta_keywords%5D%5Bfr%5D=quelques+mots+cles&site%5Bname%5D=Sample+website&site%5Bseo_title%5D%5Ben%5D=A+simple+LocomotiveCMS+website&site%5Bseo_title%5D%5Bfr%5D=Un+simple+LocomotiveCMS+site+web
-    headers:
-      Accept:
-      - application/json
-      X-Locomotive-Account-Email:
-      - admin@locomotivecms.com
-      X-Locomotive-Account-Token:
-      - B1UseoZ1BSQUr86t5-Kz
+      - amiable-mist-4708
       Content-Type:
       - application/x-www-form-urlencoded
       Accept-Encoding:
@@ -5083,30 +5439,32 @@ http_interactions:
       - Ruby
   response:
     status:
-      code: 201
-      message: Created
+      code: 200
+      message: OK
     headers:
       Content-Type:
       - application/json
       Content-Length:
-      - '561'
+      - '175'
       Etag:
-      - W/"e1afd88b9161c0bc2b106818af5ff231"
+      - W/"499e2061fa18a765955eed168433727a"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 7b10d7f3-3ce7-4a72-bbba-2a61bf0d9722
+      - a509e72a-10bb-49d9-8132-2e062c77364b
       X-Runtime:
-      - '0.121637'
+      - '0.057106'
       Connection:
       - keep-alive
       Server:
       - thin
     body:
-      encoding: UTF-8
-      string: '{"_id":"55341f3664696402c1630000","created_at":"2015-04-19T21:33:42Z","updated_at":"2015-04-19T21:33:42Z","name":"Sample
-        website","handle":"wandering-surf-3324","seo_title":"A simple LocomotiveCMS
-        website","meta_keywords":"some meta keywords","meta_description":null,"robots_txt":null,"locales":["en","fr","nb"],"domains":[],"memberships":[{"_id":"55341f3664696402c1640000","created_at":null,"updated_at":null,"role":"admin","account_id":"5533ee1d6469643196000000","name":"Admin","role_name":"Administrator","email":"admin@locomotivecms.com"}],"timezone":"UTC"}'
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJfaWQiOiI1NTNlYTY4YjY0Njk2NDMyNTFiNDAwMDAiLCJjcmVhdGVkX2F0
+        IjoiMjAxNS0wNC0yN1QyMToxMzo0N1oiLCJ1cGRhdGVkX2F0IjoiMjAxNS0w
+        NC0yN1QyMToxMzo0N1oiLCJrZXkiOiJwb3dlcmVkX2J5IiwidmFsdWVzIjp7
+        ImVuIjoiUG93ZXJlZCBieSIsImZyIjoiUHJvcHVsc8OpIHBhciJ9fQ==
     http_version: 
-  recorded_at: Sun, 19 Apr 2015 21:33:42 GMT
+  recorded_at: Mon, 27 Apr 2015 21:13:47 GMT
 recorded_with: VCR 2.9.3
