@@ -1,20 +1,26 @@
 module Locomotive::Wagon
 
-  class PushBaseCommand < Struct.new(:api_client, :steam_services)
+  class PushBaseCommand < Struct.new(:api_client, :steam_services, :content_assets_pusher)
 
     extend Forwardable
 
     def_delegators :steam_services, :current_site, :locale, :repositories
 
-    def self.push(api_client, steam_services)
-      new(api_client, steam_services).push
+    def self.push(api_client, steam_services, content_assets_pusher)
+      new(api_client, steam_services, content_assets_pusher).push
     end
 
     def push
       instrument do
         instrument :start
-        self._push
+        self._push_with_timezone
         instrument :done
+      end
+    end
+
+    def _push_with_timezone
+      Time.use_zone(current_site.try(:timezone)) do
+        _push
       end
     end
 

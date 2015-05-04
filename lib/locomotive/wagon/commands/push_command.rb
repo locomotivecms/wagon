@@ -11,9 +11,9 @@ module Locomotive::Wagon
 
   class PushCommand < Struct.new(:env, :path, :options)
 
-    RESOURCES = %w(content_types snippets theme_assets translations).freeze
+    RESOURCES = %w(content_types content_entries snippets theme_assets translations).freeze
 
-    RESOURCES_WITH_CONTENT = %w(translations).freeze
+    RESOURCES_WITH_CONTENT = %w(content_entries translations).freeze
 
     include ApiConcern
     include NetrcConcern
@@ -32,8 +32,10 @@ module Locomotive::Wagon
 
       api_client = api_site_client(connection_information)
 
+      content_assets_pusher = Locomotive::Wagon::PushContentAssetsCommand.new(api_client, steam_services)
+
       each_resource do |klass|
-        klass.push(api_client, steam_services)
+        klass.push(api_client, steam_services, content_assets_pusher)
       end
     end
 

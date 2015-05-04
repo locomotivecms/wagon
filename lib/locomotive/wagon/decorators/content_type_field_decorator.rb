@@ -50,7 +50,7 @@ module Locomotive
       end
 
       def select_options
-        return nil unless type == :select
+        return nil unless type.to_sym == :select
 
         @_select_options ||= __getobj__.select_options.all.map { |o| SelectOptionDecorator.new(o) }
       end

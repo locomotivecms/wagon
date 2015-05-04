@@ -15,7 +15,7 @@ gem 'therubyracer'
 
 # gem 'locomotivecms_steam', github: 'locomotivecms/steam', ref: 'b2de77e', require: false
 # gem 'locomotivecms_coal', github: 'locomotivecms/coal', ref: '32b2844', require: false
-gem 'locomotivecms_common', github: 'locomotivecms/common', ref: '1895573', require: false
+gem 'locomotivecms_common', github: 'locomotivecms/common', ref: '3046b79893', require: false
 
 gem 'locomotivecms_coal', path: '../in_progress/coal', require: false
 gem 'locomotivecms_steam', path: '../in_progress/steam', require: false

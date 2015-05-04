@@ -2,11 +2,12 @@
     date: 2012/06/11
     city: Fort Collins
     state: Colorado
-    notes: '<p>Lorem ipsum<img src="/samples/assets/" alt="" /></p>'
+    notes: '<p>Lorem ipsum<br/><img src="/samples/photo.jpg" alt="" /></p>'
 - Quixote's True Blue:
     date: 2012/06/10
     city: Denver
     state: Colorado
+    notes: '<p>Lorem ipsum<br/><img src="/samples/photo.jpg" alt="" /></p>'
 - Kelly's Westport Inn:
     date: 2012/06/06
     city: Kansas City

@@ -34,7 +34,8 @@ module Locomotive
       end
 
       def realname
-        # will not change even if we change the filepath (or source)
+        # - memoize it because it will not change even if we change the filepath (or source)
+        # - we keep the first extension and drop the others (.coffee, .scss, ...etc)
         @realname ||= File.basename(filepath).split('.')[0..1].join('.')
       end
 
