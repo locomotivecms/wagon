@@ -8,12 +8,21 @@ module Locomotive
         include ::HTTParty
 
         def self.consume(url, options = {})
+          method = options.delete(:method).try(:to_sym) || :get
+
           url = ::HTTParty.normalize_base_uri(url)
 
           uri = URI.parse(url)
-          options[:base_uri] = "#{uri.scheme}://#{uri.host}"
-          options[:base_uri] += ":#{uri.port}" if uri.port != 80
-          path = uri.request_uri
+          path = uri.path.blank? ? '/' : uri.path
+
+          if uri.query
+            params = Rack::Utils.parse_nested_query(uri.query)
+            key = method == :post ? :body : :query
+            options[key] = params unless params.blank?
+          end
+
+          uri.query = nil; uri.path = ''
+          options[:base_uri] = uri.to_s
 
           options.delete(:format) if options[:format] == 'default'
           options[:format]  = options[:format].gsub(/[\'\"]/, '').to_sym if options.has_key?(:format)
@@ -22,11 +31,9 @@ module Locomotive
           username, password = options.delete(:username), options.delete(:password)
           options[:basic_auth] = { username: username, password: password } if username
 
-          path ||= '/'
+          Locomotive::Wagon::Logger.debug "[WebService] consuming #{path}, #{options.inspect}"
 
-          # Locomotive::Wagon::Logger.debug "[WebService] consuming #{path}, #{options.inspect}"
-
-          response = self.get(path, options)
+          response = self.send(method, path, options)
 
           if response.code == 200
             _response = response.parsed_response
