@@ -5,22 +5,36 @@ module Locomotive
 
       include ToHashConcern
 
-      # def id
-      #   slug
-      # end
-
-      # def template
-      #   {}.tap do |translations|
-      #     __getobj__.template_path.translations.each do |locale, _|
-      #       __with_locale__(locale) do
-      #         translations[locale] = self.liquid_source
-      #       end
-      #     end
-      #   end
-      # end
-
       def __attributes__
-        %i(title)
+        %i(title slug handle response_type published
+          position listed
+          is_layout allow_layout
+          redirect_url redirect_type
+          seo_title meta_keywords meta_description
+          editable_elements
+          template)
+      end
+
+      def is_layout
+        self[:is_layout]
+      end
+
+      def allow_layout
+        self[:allow_layout]
+      end
+
+      def response_type
+        self[:response_type]
+      end
+
+      def editable_elements
+        __getobj__.editable_elements.all.map do |element|
+          EditableElementDecorator.new(element, __locale__)
+        end
+      end
+
+      def template
+        self.liquid_source
       end
 
     end

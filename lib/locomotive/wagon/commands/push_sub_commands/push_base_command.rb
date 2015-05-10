@@ -33,8 +33,8 @@ module Locomotive::Wagon
           instrument :persist_with_success
         rescue SkipPersistingException => e
           instrument :skip_persisting
-        rescue Exception => e
-          instrument :persist_with_error, message: e.message
+        # rescue Exception => e
+        #   instrument :persist_with_error, message: e.message
         end
       end
     end
@@ -50,6 +50,10 @@ module Locomotive::Wagon
 
     def default_locale
       current_site.default_locale
+    end
+
+    def locales
+      current_site.locales
     end
 
     def path
