@@ -40,8 +40,7 @@ module Locomotive
       end
 
       def decorate_file_field(value)
-        filepath = File.join(__base_path__, 'public', value.base, value.filename)
-        Locomotive::Coal::UploadIO.new(filepath, nil, value.filename)
+        asset_io(File.join(value.base, value.filename))
       end
 
       def decorate_date_time_field(value)

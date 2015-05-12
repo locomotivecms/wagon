@@ -11,6 +11,10 @@ module Locomotive::Wagon
       end
     end
 
+    def asset_io(local_path)
+      __content_assets_pusher__.decorate(local_path).source
+    end
+
   end
 
 end

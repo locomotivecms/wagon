@@ -2,30 +2,28 @@ module Locomotive::Wagon
 
   class PushPagesCommand < PushBaseCommand
 
-    # TODO:
-    # - get the id if it exists (fullpath in the default locale)
-    # - content asset pusher
-    # - do not send editable elements without the -d option
-    # x i18ndecorator for editable_elements
-    # - persist
-    # - load remote entities (modify both coal + engine to pass the locale)
-
     def entities
-      binding.pry
       repositories.page.all
     end
 
     def decorate(entity)
-      PageDecorator.new(entity, locale)
+      _decorate(entity).tap do |decorated|
+        if parent = repositories.page.parent_of(entity)
+          decorated[:parent] = _decorate(parent).fullpath
+        end
+      end
     end
 
     def persist(decorated_entity)
-      translated_in(decorated_entity) do |locale|
-        puts locale.to_s + ' - ' + decorated_entity.to_hash.inspect
-      end
+      decorated_entity._id = remote_id = remote_entity_id(decorated_entity.fullpath)
 
-      # puts decorated_entity.to_hash
-      # api_client.snippets.update(decorated_entity.slug, decorated_entity.to_hash)
+      translated_in(decorated_entity) do |locale|
+        if remote_id.nil?
+          remote_id = api_client.pages.create(decorated_entity.to_hash)._id
+        else
+          api_client.pages.update(remote_id, decorated_entity.to_hash, locale)
+        end
+      end
     end
 
     def label_for(decorated_entity)
@@ -40,12 +38,20 @@ module Locomotive::Wagon
 
     private
 
+    def _decorate(entity)
+      PageDecorator.new(entity, default_locale, content_assets_pusher)
+    end
+
+    def remote_entity_id(fullpath)
+      remote_entities[fullpath] || remote_entities[fullpath.dasherize]
+    end
+
     def remote_entities
       return @remote_entities if @remote_entities
 
       @remote_entities = {}.tap do |hash|
-        api_client.pages.all.each do |entity|
-          hash[entity.fullpath] = entity
+        api_client.pages.fullpaths(default_locale).each do |entity|
+          hash[entity.fullpath] = entity._id
         end
       end
     end
