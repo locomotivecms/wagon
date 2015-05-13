@@ -12,7 +12,10 @@ module Locomotive
           end
 
           def id
-            (@_source.respond_to?(:id) ? @_source.id : nil) || 'new'
+            (@_source.respond_to?(:id) ? @_source.id : nil) ||
+            (@_source.respond_to?(:slug) ? @_source.slug : nil) ||
+            (@_source.respond_to?(:_slug) ? @_source._slug : nil) ||
+            'new'
           end
 
           # converts an array of records to an array of liquid drops
