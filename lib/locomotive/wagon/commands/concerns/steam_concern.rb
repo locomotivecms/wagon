@@ -15,8 +15,8 @@ module Locomotive::Wagon
 
       @steam_services = Locomotive::Steam::Services.build_instance.tap do |services|
         repositories = services.repositories
-        repositories.current_site = repositories.site.all.first
-        services.locale = repositories.current_site.default_locale
+        services.set_site(repositories.site.all.first)
+        services.locale = services.current_site.default_locale
       end
     end
 
