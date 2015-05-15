@@ -1,5 +1,6 @@
 ---
 title: Home page
+handle: home
 ---
 !!! XML
 !!!
@@ -36,7 +37,7 @@ title: Home page
       #menu
         %ul#nav
           %li#home{ :class => "{% if page.fullpath == 'index' %}on{% endif %} link" }
-            %a{ :href => '/' } Home
+            %a{ :href => '{% path_to home %}' } Home
           {% nav site, no_wrapper: true, exclude: 'events' %}
         .clear
 
@@ -51,7 +52,7 @@ title: Home page
           %p
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse vitae egestas neque. Proin ac ante ante, sit amet egestas purus. Fusce tincidunt mattis sapien eget sodales. Cras aliquet odio eu nisl dapibus placerat.
             %br
-            %a{ :href => '/about_us' } read more...
+            %a{ :href => '/about-us' } read more...
           {% endeditable_long_text %}
         {% endblock %}
 
