@@ -70,22 +70,7 @@ module Locomotive
     #
     def self.push(env, path, options = {})
       require_relative 'wagon/commands/push_command'
-      Locomotive::Wagon::PushCommand.generate(env, path, options)
-
-      # if reader = self.require_mounter(path, true)
-
-      #   reader.mounting_point.site.domains   = connection_info['domains']   if connection_info['domains']
-      #   reader.mounting_point.site.subdomain = connection_info['subdomain'] if connection_info['subdomain']
-
-      #   writer    = Locomotive::Mounter::Writer::Api.instance
-      #   resources = self.validate_resources(options[:resources], writer.writers)
-
-      #   connection_info[:uri] = "#{connection_info.delete(:host)}/locomotive/api"
-
-      #   _options = { mounting_point: reader.mounting_point, only: resources, console: true }.merge(options).symbolize_keys
-
-      #   writer.run!(_options.merge(connection_info).with_indifferent_access)
-      # end
+      Locomotive::Wagon::PushCommand.push(env, path, options)
     end
 
     # Pull a site from a remote LocomotiveCMS engine described
@@ -96,19 +81,20 @@ module Locomotive
     # @param [ Hash ] options The options passed to the pull process
     #
     def self.pull(path, connection_info, options = {})
-      self.require_mounter(path, false, options[:disable_misc])
+      raise 'TODO'
+      # self.require_mounter(path, false, options[:disable_misc])
 
-      connection_info[:uri] = "#{connection_info.delete(:host)}/locomotive/api"
+      # connection_info[:uri] = "#{connection_info.delete(:host)}/locomotive/api"
 
-      _options = { console: true }.merge(options).symbolize_keys
-      _options[:only] = _options.delete(:resources)
+      # _options = { console: true }.merge(options).symbolize_keys
+      # _options[:only] = _options.delete(:resources)
 
-      reader = Locomotive::Mounter::Reader::Api.instance
-      self.validate_resources(_options[:only], reader.readers)
-      reader.run!(_options.merge(connection_info))
+      # reader = Locomotive::Mounter::Reader::Api.instance
+      # self.validate_resources(_options[:only], reader.readers)
+      # reader.run!(_options.merge(connection_info))
 
-      writer = Locomotive::Mounter::Writer::FileSystem.instance
-      writer.run!(_options.merge(mounting_point: reader.mounting_point, target_path: path))
+      # writer = Locomotive::Mounter::Writer::FileSystem.instance
+      # writer.run!(_options.merge(mounting_point: reader.mounting_point, target_path: path))
     end
 
     # Clone a site from a remote LocomotiveCMS engine.
@@ -119,20 +105,21 @@ module Locomotive
     # @param [ Hash ] options The options for the API reader
     #
     def self.clone(name, path, connection_info, options = {})
-      target_path = File.expand_path(File.join(path, name))
+      raise 'TODO'
+      # target_path = File.expand_path(File.join(path, name))
 
-      if File.exists?(target_path)
-        puts "Path already exists. If it's an existing site, you might want to pull instead of clone."
-        return false
-      end
+      # if File.exists?(target_path)
+      #   puts "Path already exists. If it's an existing site, you might want to pull instead of clone."
+      #   return false
+      # end
 
-      # generate an almost blank site
-      require 'locomotive/wagon/generators/site'
-      generator = Locomotive::Wagon::Generators::Site::Cloned
-      generator.start [name, path, true, connection_info.symbolize_keys]
+      # # generate an almost blank site
+      # require 'locomotive/wagon/generators/site'
+      # generator = Locomotive::Wagon::Generators::Site::Cloned
+      # generator.start [name, path, true, connection_info.symbolize_keys]
 
-      # pull the remote site
-      self.pull(target_path, options.merge(connection_info).with_indifferent_access, { disable_misc: true })
+      # # pull the remote site
+      # self.pull(target_path, options.merge(connection_info).with_indifferent_access, { disable_misc: true })
     end
 
     # Destroy a remote site
@@ -142,30 +129,31 @@ module Locomotive
     # @param [ Hash ] options The options passed to the push process
     #
     def self.destroy(path, connection_info, options = {})
-      self.require_mounter(path)
+      raise 'TODO'
+      # self.require_mounter(path)
 
-      connection_info['uri'] = "#{connection_info.delete('host')}/locomotive/api"
+      # connection_info['uri'] = "#{connection_info.delete('host')}/locomotive/api"
 
-      Locomotive::Mounter::EngineApi.set_token connection_info.symbolize_keys
-      Locomotive::Mounter::EngineApi.delete('/current_site.json')
+      # Locomotive::Mounter::EngineApi.set_token connection_info.symbolize_keys
+      # Locomotive::Mounter::EngineApi.delete('/current_site.json')
     end
 
-    protected
+    # protected
 
-    def self.validate_resources(resources, writers_or_readers)
-      return if resources.nil?
+    # def self.validate_resources(resources, writers_or_readers)
+    #   return if resources.nil?
 
-      # FIXME: for an unknown reason, when called from Cocoa, the resources are a string
-      resources = resources.map { |resource| resource.split(' ') }.flatten
+    #   # FIXME: for an unknown reason, when called from Cocoa, the resources are a string
+    #   resources = resources.map { |resource| resource.split(' ') }.flatten
 
-      valid_resources = writers_or_readers.map { |thing| thing.to_s.demodulize.gsub(/Writer$|Reader$/, '').underscore }
+    #   valid_resources = writers_or_readers.map { |thing| thing.to_s.demodulize.gsub(/Writer$|Reader$/, '').underscore }
 
-      resources.each do |resource|
-        raise ArgumentError, "'#{resource}' resource not recognized. Valid resources are #{valid_resources.join(', ')}." unless valid_resources.include?(resource)
-      end
+    #   resources.each do |resource|
+    #     raise ArgumentError, "'#{resource}' resource not recognized. Valid resources are #{valid_resources.join(', ')}." unless valid_resources.include?(resource)
+    #   end
 
-      resources
-    end
+    #   resources
+    # end
 
   end
 end

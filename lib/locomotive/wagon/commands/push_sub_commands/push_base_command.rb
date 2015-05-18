@@ -57,7 +57,7 @@ module Locomotive::Wagon
     end
 
     def path
-      repositories.adapter.options[:path]
+      File.expand_path(repositories.adapter.options[:path])
     end
 
     class SkipPersistingException < Exception

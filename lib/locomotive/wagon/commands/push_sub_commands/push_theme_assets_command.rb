@@ -1,4 +1,5 @@
 require 'tempfile'
+require 'pry'
 
 module Locomotive::Wagon
 
@@ -36,9 +37,7 @@ module Locomotive::Wagon
       return unless entity.stylesheet_or_javascript?
 
       Tempfile.new(entity.realname).tap do |file|
-        env = Locomotive::Steam::SprocketsEnvironment.new(File.join(path, 'public'), minify: true)
-
-        file.write(env[entity.short_relative_url].to_s)
+        file.write(sprockets_env[entity.short_relative_url].to_s)
 
         entity.filepath = file.path
 
@@ -63,6 +62,10 @@ module Locomotive::Wagon
           hash[relative_url] = entity
         end
       end
+    end
+
+    def sprockets_env
+      @sprockets_env ||= Locomotive::Steam::SprocketsEnvironment.new(File.join(path, 'public'), minify: true)
     end
 
   end

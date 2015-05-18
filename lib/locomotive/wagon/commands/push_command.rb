@@ -2,10 +2,12 @@ require 'locomotive/steam'
 
 require_relative 'loggers/push_logger'
 
-require_relative_all 'concerns'
-require_relative_all '../decorators/concerns'
-require_relative_all '../decorators'
-require_relative_all 'push_sub_commands'
+require_relative_all  'concerns'
+require_relative_all  '../decorators/concerns'
+require_relative_all  '../decorators'
+
+require_relative      'push_sub_commands/push_base_command'
+require_relative_all  'push_sub_commands'
 
 module Locomotive::Wagon
 
