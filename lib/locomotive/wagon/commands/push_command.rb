@@ -11,7 +11,7 @@ require_relative_all  'push_sub_commands'
 
 module Locomotive::Wagon
 
-  class PushCommand < Struct.new(:env, :path, :options)
+  class PushCommand < Struct.new(:env, :path, :options, :shell)
 
     RESOURCES = %w(content_types content_entries pages snippets theme_assets translations).freeze
 
@@ -25,8 +25,8 @@ module Locomotive::Wagon
 
     attr_accessor :platform_url, :credentials
 
-    def self.push(env, path, options)
-      self.new(env, path, options).push
+    def self.push(env, path, options, shell)
+      self.new(env, path, options, shell).push
     end
 
     def push
@@ -80,7 +80,7 @@ module Locomotive::Wagon
       # get an instance of the Steam services in order to load the information about the site (SiteRepository)
       steam_services.current_site.tap do |site|
         # ask for a handle if not found (blank: random one)
-        site[:handle] ||= shell.ask "What is the handle of your site?"
+        site[:handle] ||= shell.try(:ask, "What is the handle of your site?")
 
         # create the site
         attributes = SiteDecorator.new(site).to_hash
@@ -104,13 +104,9 @@ module Locomotive::Wagon
     def ask_for_platform_url
       default = ENV['LOCOMOTIVE_PLATFORM_URL'] || DEFAULT_PLATFORM_URL
 
-      url = shell.ask "What is the URL of your platform? (default: #{default})"
+      url = shell.try(:ask, "What is the URL of your platform? (default: #{default})")
 
       self.platform_url = url.blank? ? default : url
-    end
-
-    def shell
-      options[:shell]
     end
 
   end

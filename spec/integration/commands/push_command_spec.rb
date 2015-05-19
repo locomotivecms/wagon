@@ -12,8 +12,8 @@ describe Locomotive::Wagon::PushCommand do
   let(:env)       { 'production' }
   let(:path)      { default_site_path }
   let(:shell)     { Thor::Shell::Color.new }
-  let(:options)   { { shell: shell, data: true, verbose: true } }
-  let(:command)   { described_class.new(env, path, options) }
+  let(:options)   { { data: true, verbose: true } }
+  let(:command)   { described_class.new(env, path, options, shell) }
 
   describe '#push' do
 

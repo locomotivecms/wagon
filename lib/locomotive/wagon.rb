@@ -65,12 +65,12 @@ module Locomotive
     #
     # @param [ String ] env The environment we deploy the site to
     # @param [ String ] path The path of the site
-    # @param [ Hash ] connection_info The information to get connected to the remote site
+    # @param [ Object ] shell The Thor shell used to ask for information if needed
     # @param [ Hash ] options The options passed to the push process
     #
-    def self.push(env, path, options = {})
+    def self.push(env, path, options = {}, shell)
       require_relative 'wagon/commands/push_command'
-      Locomotive::Wagon::PushCommand.push(env, path, options)
+      Locomotive::Wagon::PushCommand.push(env, path, options, shell)
     end
 
     # Pull a site from a remote LocomotiveCMS engine described

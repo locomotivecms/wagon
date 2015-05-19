@@ -300,14 +300,14 @@ module Locomotive
         desc 'push ENV [PATH]', 'Push a site to a remote LocomotiveCMS Engine'
         method_option :resources, aliases: '-r', type: 'array', default: nil, desc: 'Only push the resource(s) passed in argument'
         method_option :data, aliases: '-d', type: 'boolean', default: false, desc: 'Push the content entries and the editable elements (by default, they are not)'
-        method_option :shell, type: 'boolean', default: true, desc: 'Use shell to ask for missing connection information like the subdomain (in this case, take a random one)'
+        method_option :shell, type: 'boolean', default: true, desc: 'Use shell to ask for missing connection information like the site handle (in this case, take a random one)'
         method_option :verbose, aliases: '-v', type: 'boolean', default: false, desc: 'display the full error stack trace if an error occurs'
         def push(env, path = '.')
           force_color_if_asked(options)
 
           if check_path!(path)
             begin
-              Locomotive::Wagon.push(env, path, options)
+              Locomotive::Wagon.push(env, path, options, options[:shell] ? shell : nil)
             rescue Exception => e
               self.print_exception(e, options[:verbose])
               exit(1)
