@@ -21,11 +21,13 @@ gem 'therubyracer'
 # gem 'locomotivecms_steam', path: '../in_progress/steam', require: false
 # gem 'locomotivecms_common', path: '../in_progress/common', require: false
 
+group :development, :test do
+  gem 'pry-byebug',         '~> 3.1.0'
+end
+
 group :test do
   gem 'rspec',              '~> 3.2.0'
   gem 'json_spec',          '~> 1.1.4'
-
-  gem 'pry-byebug',         '~> 3.1.0'
 
   gem 'webmock'
   gem 'vcr'

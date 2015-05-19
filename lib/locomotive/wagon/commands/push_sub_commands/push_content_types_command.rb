@@ -44,7 +44,7 @@ module Locomotive::Wagon
     private
 
     def remote_fields_for(slug)
-      (remote_entities[slug].try(:fields) || []).map { |f| f[:name] }
+      (remote_entities[slug].try(:fields) || []).map { |f| f['name'] }
     end
 
     def remote_entities

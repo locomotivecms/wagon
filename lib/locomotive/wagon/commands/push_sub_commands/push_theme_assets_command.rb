@@ -1,5 +1,4 @@
 require 'tempfile'
-require 'pry'
 
 module Locomotive::Wagon
 

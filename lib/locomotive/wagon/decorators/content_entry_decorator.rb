@@ -40,6 +40,7 @@ module Locomotive
       end
 
       def decorate_file_field(value)
+        return nil if value.nil? || value.filename.blank?
         asset_io(File.join(value.base, value.filename))
       end
 
