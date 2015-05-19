@@ -10,7 +10,7 @@ describe Locomotive::Wagon::CLI do
   describe '#version' do
 
     let(:command) { Locomotive::Wagon::CLI::Main.start(['version']) }
-    it { is_expected.to eq '2.0.0-alpha.1' }
+    it { is_expected.to match /^2.0.0/ }
 
   end
 
