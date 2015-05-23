@@ -41,9 +41,22 @@ module Locomotive::Wagon
       Proc.new do |modified, added, removed|
         resources.each do |resource|
           Locomotive::Common::Logger.info "service=listen action=reload resource=#{resource} timestamp=#{Time.now}"
-          cache.delete(resource)
+
+          clear_cache_for(resource, modified + added + removed)
         end
       end
+    end
+
+    def clear_cache_for(resource, files)
+      keys = case resource
+      when :sites then '_sites'
+      when :content_entries
+        files.map { |f| "site_1_content_type_#{File.basename(f, '.yml')}_content_entries" }
+      else
+        "site_1_#{resource}"
+      end
+
+      [*keys].each { |key| cache.delete(key) }
     end
 
   end

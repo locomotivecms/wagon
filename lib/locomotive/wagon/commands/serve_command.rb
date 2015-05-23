@@ -47,6 +47,8 @@ module Locomotive::Wagon
 
     def require_steam
       require 'locomotive/steam'
+      require 'locomotive/steam/server'
+      require 'locomotive/wagon/middlewares/error_page'
       require 'bundler'
       Bundler.require 'misc'
 
@@ -61,6 +63,8 @@ module Locomotive::Wagon
           require_relative '../tools/livereload'
           config.middleware.insert_before Rack::Lint, Rack::LiveReload, live_reload_port: port
         end
+
+        config.middleware.insert_before Rack::Lint, Locomotive::Wagon::Middlewares::ErrorPage
       end
     end
 
@@ -97,7 +101,6 @@ module Locomotive::Wagon
 
     def build_server
       # TODO: new feature -> pick the right Rack handler (Thin, Puma, ...etc)
-      require 'locomotive/steam/server'
       require 'thin'
 
       app = Locomotive::Steam::Server.to_app
