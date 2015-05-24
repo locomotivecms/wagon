@@ -78,8 +78,8 @@ module Locomotive
 
           say('The fields are missing', :red) and return false if fields.empty?
 
-          if check_path!
-            Locomotive::Wagon.generate :content_type, [name, fields, self.options.delete('path')], self.options
+          if path = check_path!
+            Locomotive::Wagon.generate :content_type, [name, fields, path], self.options
           end
         end
 
@@ -101,8 +101,8 @@ module Locomotive
         def relationship(source, type, target)
           force_color_if_asked(options)
 
-          if check_path!
-            Locomotive::Wagon.generate :relationship, [source, type, target, self.options.delete('path')], self.options
+          if path = check_path!
+            Locomotive::Wagon.generate :relationship, [source, type, target, path], self.options
           end
         end
 
@@ -127,7 +127,7 @@ module Locomotive
 
           if path = check_path!
             self.options[:default_locales] = self.site_config(path)['locales']
-            Locomotive::Wagon.generate :page, [fullpath, self.options.delete('path')], self.options
+            Locomotive::Wagon.generate :page, [fullpath, path], self.options
           end
         end
 
@@ -145,7 +145,7 @@ module Locomotive
 
           if path = check_path!
             locales = self.site_config(path)['locales']
-            Locomotive::Wagon.generate :snippet, [slug, locales, self.options.delete('path')], self.options
+            Locomotive::Wagon.generate :snippet, [slug, locales, path], self.options
           end
         end
 
