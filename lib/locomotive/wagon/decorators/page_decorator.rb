@@ -38,7 +38,11 @@ module Locomotive
       end
 
       def is_layout
-        self[:is_layout]
+        if self[:is_layout].nil?
+          !(__getobj__._fullpath =~ %r(^layouts/)).nil?
+        else
+          self[:is_layout]
+        end
       end
 
       def allow_layout
