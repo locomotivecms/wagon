@@ -56,7 +56,9 @@ module Locomotive
           alias :count :size
 
           def each(&block)
-            self.collection.each(&block)
+            if !self.collection.nil? then
+              self.collection.each(&block)
+            end
           end
 
           def public_submission_url
