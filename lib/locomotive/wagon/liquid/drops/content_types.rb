@@ -46,7 +46,7 @@ module Locomotive
 
           def size
             if !self.collection.nil? then
-              self.collection.first
+              self.collection.size
             else
               0
             end
