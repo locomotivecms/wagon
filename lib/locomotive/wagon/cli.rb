@@ -230,7 +230,7 @@ module Locomotive
           end
         end
 
-        desc 'generate RESOURCE ARGUMENTS', 'Generates a content_type, page, or snippet'
+        desc 'generate RESOURCE ARGUMENTS [PATH]', 'Generates a content_type, page, or snippet'
         long_desc <<-LONGDESC
           Generates a content_type, page, or snippet
 
