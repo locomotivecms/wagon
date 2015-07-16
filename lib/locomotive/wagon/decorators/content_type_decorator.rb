@@ -14,7 +14,7 @@ module Locomotive
         %i(name slug description label_field_name fields
           order_by order_direction group_by
           public_submission_enabled public_submission_accounts
-          raw_item_template)
+          raw_item_template display_settings)
       end
 
       def fields
@@ -54,6 +54,10 @@ module Locomotive
 
       def raw_item_template
         self[:raw_item_template]
+      end
+
+      def display_settings
+        self[:display_settings]
       end
 
       def with_relationships?
