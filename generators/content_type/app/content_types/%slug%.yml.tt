@@ -25,10 +25,12 @@ order_by: manually
 # Array of emails to be notified of new entries made with the public API
 # public_submission_accounts: ['john@example.com']
 
-# Control the display of the seo and advanced tabs in the back-office.
+# Control the display of the content type in the back-office.
 # display_settings:
-#   seo: false
-#   advanced: false
+#   seo: false              # display the SEO tab for the content entries
+#   advanced: false         # display the Advanced tab for the content entries
+#   position: 1             # position in the sidebar menu
+#   hidden: false           # hidden for authors?
 
 # A list describing each field
 fields: <% config[:fields].each_with_index do |field, index| %>
