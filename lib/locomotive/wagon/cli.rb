@@ -221,7 +221,7 @@ module Locomotive
         method_option :api_key,   aliases: '-a', desc: 'api key of an administrator account'
         def clone(name, host, path = '.')
           begin
-            if Locomotive::Wagon.clone(name, path, { host: host }.merge(options))
+            if Locomotive::Wagon.clone(name, path, { host: host }.merge(options), shell)
               self.print_next_instructions_when_site_created(name, path)
             end
           rescue Exception => e

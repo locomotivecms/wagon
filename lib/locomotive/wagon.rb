@@ -104,8 +104,11 @@ module Locomotive
     # @param [ Hash ] connection_info The host, email and password needed to access the remote engine
     # @param [ Hash ] options The options for the API reader
     #
-    def self.clone(name, path, connection_info, options = {})
-      raise 'TODO'
+    def self.clone(name, path, options, shell)
+      require_relative 'wagon/commands/clone_command'
+      Locomotive::Wagon::CloneCommand.clone(name, path, options, shell)
+
+      # raise 'TODO'
       # target_path = File.expand_path(File.join(path, name))
 
       # if File.exists?(target_path)
