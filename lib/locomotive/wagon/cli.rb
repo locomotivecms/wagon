@@ -300,6 +300,7 @@ module Locomotive
         method_option :force, aliases: '-f', type: 'boolean', default: false, desc: 'Force the push of a resource'
         method_option :translations, aliases: '-t', type: 'boolean', default: false, desc: 'Push the local translations (by default, they are not)'
         method_option :data, aliases: '-d', type: 'boolean', default: false, desc: 'Push the content entries and the editable elements (by default, they are not)'
+        method_option :only_resource, aliases: '-o', type: 'array', default: [], desc: 'Push only the resources whose slug / fullpath matches the list of strings passed in argument'
         method_option :shell, type: 'boolean', default: true, desc: 'Use shell to ask for missing connection information like the subdomain (in this case, take a random one)'
         method_option :verbose, aliases: '-v', type: 'boolean', default: false, desc: 'display the full error stack trace if an error occurs'
         def push(env, path = '.')
