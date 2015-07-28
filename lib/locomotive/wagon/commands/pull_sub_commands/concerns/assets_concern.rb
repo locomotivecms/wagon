@@ -62,3 +62,7 @@ module Locomotive::Wagon
         nil
       end
     end
+
+  end
+
+end

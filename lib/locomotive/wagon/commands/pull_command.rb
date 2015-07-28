@@ -14,7 +14,7 @@ module Locomotive::Wagon
   class PullCommand < Struct.new(:env, :path, :options, :shell)
 
     # RESOURCES = %w(site pages content_types content_entries snippets theme_assets translations).freeze
-    RESOURCES = %w(pages).freeze
+    RESOURCES = %w(snippets).freeze
 
     include ApiConcern
     include DeployFileConcern

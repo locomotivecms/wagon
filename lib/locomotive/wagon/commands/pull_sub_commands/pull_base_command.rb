@@ -1,4 +1,4 @@
-require_relative 'concerns/assets_concern'
+require_relative './concerns/assets_concern'
 
 module Locomotive::Wagon
 
