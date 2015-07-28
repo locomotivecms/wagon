@@ -29,7 +29,7 @@ module Locomotive::Wagon
       ActiveSupport::Notifications.instrument(name, { name: resource_name }.merge(payload), &block)
     end
 
-    def dump(attributes, options)
+    def dump(attributes, options = {})
       _attributes = attributes.dup
 
       [*options[:inline]].each do |name|
@@ -40,7 +40,12 @@ module Locomotive::Wagon
     end
 
     def write_to_file(filepath, content = nil, &block)
-      File.open(File.join(path, filepath), 'w+') do |file|
+      _filepath = File.join(path, filepath)
+
+      folder = File.dirname(_filepath)
+      FileUtils.mkdir_p(folder) unless File.exists?(folder)
+
+      File.open(_filepath, 'w+') do |file|
         file.write(content ? content : yield)
       end
     end

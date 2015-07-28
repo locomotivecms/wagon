@@ -21,11 +21,7 @@ module Locomotive::Wagon
 
     def snippet_filepath(snippet, locale)
       filename = locale == default_locale ? snippet.slug : "#{snippet.slug}.#{locale}"
-
-      filepath = File.join('app', 'views', 'snippets', filename + '.liquid').tap do |filepath|
-        folder = File.dirname(filepath)
-        FileUtils.mkdir_p(folder) unless File.exists?(folder)
-      end
+      File.join('app', 'views', 'snippets', filename + '.liquid')
     end
 
   end

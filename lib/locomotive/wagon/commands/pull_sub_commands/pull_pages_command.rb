@@ -45,13 +45,9 @@ EOF
       _attributes.to_yaml
     end
 
-    def page_filepath(page, locale)
+    def filepath(page, locale)
       fullpath = locale == default_locale ? page.fullpath : "#{fullpaths[page._id]}.#{locale}"
-
-      filepath = File.join('app', 'views', 'pages', fullpath + '.liquid').tap do |filepath|
-        folder = File.dirname(filepath)
-        FileUtils.mkdir_p(folder) unless File.exists?(folder)
-      end
+      File.join('app', 'views', 'pages', fullpath + '.liquid')
     end
 
   end
