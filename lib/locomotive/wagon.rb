@@ -80,21 +80,9 @@ module Locomotive
     # @param [ Hash ] connection_info The information to get connected to the remote site
     # @param [ Hash ] options The options passed to the pull process
     #
-    def self.pull(path, connection_info, options = {})
-      raise 'TODO'
-      # self.require_mounter(path, false, options[:disable_misc])
-
-      # connection_info[:uri] = "#{connection_info.delete(:host)}/locomotive/api"
-
-      # _options = { console: true }.merge(options).symbolize_keys
-      # _options[:only] = _options.delete(:resources)
-
-      # reader = Locomotive::Mounter::Reader::Api.instance
-      # self.validate_resources(_options[:only], reader.readers)
-      # reader.run!(_options.merge(connection_info))
-
-      # writer = Locomotive::Mounter::Writer::FileSystem.instance
-      # writer.run!(_options.merge(mounting_point: reader.mounting_point, target_path: path))
+    def self.pull(env, path, options = {}, shell)
+      require_relative 'wagon/commands/pull_command'
+      Locomotive::Wagon::PullCommand.pull(env, path, options, shell)
     end
 
     # Clone a site from a remote LocomotiveCMS engine.
@@ -107,22 +95,6 @@ module Locomotive
     def self.clone(name, path, options, shell)
       require_relative 'wagon/commands/clone_command'
       Locomotive::Wagon::CloneCommand.clone(name, path, options, shell)
-
-      # raise 'TODO'
-      # target_path = File.expand_path(File.join(path, name))
-
-      # if File.exists?(target_path)
-      #   puts "Path already exists. If it's an existing site, you might want to pull instead of clone."
-      #   return false
-      # end
-
-      # # generate an almost blank site
-      # require 'locomotive/wagon/generators/site'
-      # generator = Locomotive::Wagon::Generators::Site::Cloned
-      # generator.start [name, path, true, connection_info.symbolize_keys]
-
-      # # pull the remote site
-      # self.pull(target_path, options.merge(connection_info).with_indifferent_access, { disable_misc: true })
     end
 
     # Destroy a remote site

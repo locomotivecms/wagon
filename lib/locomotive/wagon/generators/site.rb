@@ -110,8 +110,6 @@ module Locomotive
                 path:         path,
                 icon:         icon && File.exists?(icon) ? icon : nil,
                 options:      class_options_to_json(template)
-
-
               }
             end.to_json
           end

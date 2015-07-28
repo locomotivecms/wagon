@@ -21,7 +21,9 @@ module Locomotive
 
           path = path == '.' ? Dir.pwd : File.expand_path(path)
 
-          (File.exists?(File.join(path, 'config', 'site.yml')) ? path : nil).tap do |_path|
+          site_or_deploy_file = File.exists?(File.join(path, 'config', 'site.yml')) || File.exists?(File.join(path, 'config', 'deploy.yml'))
+
+          (site_or_deploy_file ? path : nil).tap do |_path|
             if _path.nil?
               say 'The path does not point to a LocomotiveCMS site', :red
             end
@@ -35,7 +37,7 @@ module Locomotive
         def force_color_if_asked(options)
           if options[:force_color]
             # thor
-            require 'locomotive/wagon/misc/thor'
+            require 'locomotive/wagon/tools/thor'
             self.shell = Thor::Shell::ForceColor.new
 
             # bypass colorize code
@@ -216,8 +218,9 @@ module Locomotive
 
         desc 'clone NAME HOST [PATH]', 'Clone a remote LocomotiveCMS site'
         method_option :verbose,   aliases: '-v', type: 'boolean', default: false, desc: 'display the full error stack trace if an error occurs'
+        method_option :handle,    aliases: '-h', desc: 'handle of your site'
         method_option :email,     aliases: '-e', desc: 'email of an administrator account'
-        method_option :password,  aliases: '-p', desc: 'password of an administrator account'
+        method_option :password,  aliases: '-p', desc: 'password of an administrator account (use api_key instead)'
         method_option :api_key,   aliases: '-a', desc: 'api key of an administrator account'
         def clone(name, host, path = '.')
           begin
@@ -320,14 +323,20 @@ module Locomotive
         method_option :verbose, aliases: '-v', type: 'boolean', default: false, desc: 'display the full error stack trace if an error occurs'
         def pull(env, path = '.')
           if check_path!(path)
-            if connection_info = self.retrieve_connection_info(env, path)
-              begin
-                Locomotive::Wagon.pull(path, connection_info, options)
-              rescue Exception => e
-                self.print_exception(e, options[:verbose])
-                exit(1)
-              end
+            begin
+              Locomotive::Wagon.pull(env, path, options, options[:shell] ? shell : nil)
+            rescue Exception => e
+              self.print_exception(e, options[:verbose])
+              exit(1)
             end
+            # if connection_info = self.retrieve_connection_info(env, path)
+            #   begin
+            #     Locomotive::Wagon.pull(path, connection_info, options)
+            #   rescue Exception => e
+            #     self.print_exception(e, options[:verbose])
+            #     exit(1)
+            #   end
+            # end
           end
         end
 
