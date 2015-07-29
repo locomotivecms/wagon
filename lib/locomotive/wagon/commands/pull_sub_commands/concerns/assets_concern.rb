@@ -12,10 +12,15 @@ module Locomotive::Wagon
     def replace_asset_urls(content)
       return '' if content.blank?
 
-      content.force_encoding('utf-8').gsub(/\/sites\/[0-9a-f]{24}\/(assets|pages|theme)\/(([^;.]+)\/)*([a-zA-Z_\-0-9]+)\.([a-z]{2,3})/) do |url|
-        folder = $1 == 'theme' ? $3 : File.join('samples', $1)
+      content.force_encoding('utf-8').gsub(/\/sites\/[0-9a-f]{24}\/(assets|pages|theme|content_entry[0-9a-f]{24})\/(([^;.]+)\/)*([a-zA-Z_\-0-9]+)\.([a-z]{2,3})/) do |url|
+        filename = "#{$4}.#{$5}"
+        folder = case $1
+        when 'theme'            then $3
+        when /\Acontent_entry/  then File.join('samples', 'content_entries')
+        else File.join('samples', $1)
+        end
 
-        if filepath = write_asset(url, File.join(path, 'public', folder, "#{$4}.#{$5}"))
+        if filepath = write_asset(url, File.join(path, 'public', folder, filename))
           File.join('', folder, File.basename(filepath))
         else
           ''

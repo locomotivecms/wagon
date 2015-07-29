@@ -29,14 +29,16 @@ module Locomotive::Wagon
       ActiveSupport::Notifications.instrument(name, { name: resource_name }.merge(payload), &block)
     end
 
-    def dump(attributes, options = {})
-      _attributes = attributes.dup
-
-      [*options[:inline]].each do |name|
-        _attributes[name] = StyledYAML.inline(_attributes[name])
-      end
-
-      StyledYAML.dump(_attributes).gsub(/\A---\n/, '')
+    def dump(element, options = {})
+      if element.is_a?(Hash)
+        StyledYAML.dump(element.dup.tap do |attributes|
+          [*options[:inline]].each do |name|
+            attributes[name] = StyledYAML.inline(attributes[name])
+          end
+        end)
+      else
+        element.to_yaml
+      end.gsub(/\A---\n/, '')
     end
 
     def clean_attributes(attributes)
@@ -44,15 +46,19 @@ module Locomotive::Wagon
       attributes.delete_if { |_, v| v.nil? || v == '' || (v.is_a?(Hash) && v.empty?) }
     end
 
-    def write_to_file(filepath, content = nil, &block)
+    def write_to_file(filepath, content = nil, mode = 'w+', &block)
       _filepath = File.join(path, filepath)
 
       folder = File.dirname(_filepath)
       FileUtils.mkdir_p(folder) unless File.exists?(folder)
 
-      File.open(_filepath, 'w+') do |file|
+      File.open(_filepath, mode) do |file|
         file.write(content ? content : yield)
       end
+    end
+
+    def reset_file(filepath)
+      FileUtils.rm(filepath) if File.exists?(filepath)
     end
 
     def resource_name
