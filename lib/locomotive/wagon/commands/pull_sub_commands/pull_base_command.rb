@@ -39,6 +39,11 @@ module Locomotive::Wagon
       StyledYAML.dump(_attributes).gsub(/\A---\n/, '')
     end
 
+    def clean_attributes(attributes)
+      # remove nil or empty values
+      attributes.delete_if { |_, v| v.nil? || v == '' || (v.is_a?(Hash) && v.empty?) }
+    end
+
     def write_to_file(filepath, content = nil, &block)
       _filepath = File.join(path, filepath)
 

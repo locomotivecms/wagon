@@ -39,8 +39,7 @@ EOF
         hash
       end
 
-      # remove nil or empty values
-      _attributes.delete_if { |_, v| v.nil? || v == '' || (v.is_a?(Hash) && v.empty?) }
+      clean_attributes(attributes)
 
       _attributes.to_yaml
     end
