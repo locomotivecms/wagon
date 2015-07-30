@@ -27,24 +27,24 @@ EOF
     private
 
     def yaml_attributes(page, locale)
-      _attributes = page.attributes.slice('title', 'slug', 'handle', 'position', 'listed', 'published', 'redirect_url', 'is_layout', 'content_type', 'seo_title', 'meta_description', 'meta_keywords')
+      attributes = page.attributes.slice('title', 'slug', 'handle', 'position', 'listed', 'published', 'redirect_url', 'is_layout', 'content_type', 'seo_title', 'meta_description', 'meta_keywords')
 
       if locale != default_locale
-        _attributes.delete_if { |k, _| %w(handle position listed published is_layout content_type).include?(k) }
+        attributes.delete_if { |k, _| %w(handle position listed published is_layout content_type).include?(k) }
       end
 
       # editable elements
-      _attributes['editable_elements'] = page.editable_elements.inject({}) do |hash, el|
-        hash["#{el['block']}/#{el['slug']}"] = replace_asset_urls(el['content'])
+      attributes['editable_elements'] = page.editable_elements.inject({}) do |hash, el|
+        hash["#{el['block']}/#{el['slug']}"] = replace_asset_urls(el['content']) if el['content']
         hash
       end
 
       clean_attributes(attributes)
 
-      _attributes.to_yaml
+      attributes.to_yaml
     end
 
-    def filepath(page, locale)
+    def page_filepath(page, locale)
       fullpath = locale == default_locale ? page.fullpath : "#{fullpaths[page._id]}.#{locale}"
       File.join('app', 'views', 'pages', fullpath + '.liquid')
     end

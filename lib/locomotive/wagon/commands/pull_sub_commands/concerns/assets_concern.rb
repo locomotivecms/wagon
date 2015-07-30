@@ -15,9 +15,9 @@ module Locomotive::Wagon
       content.force_encoding('utf-8').gsub(/\/sites\/[0-9a-f]{24}\/(assets|pages|theme|content_entry[0-9a-f]{24})\/(([^;.]+)\/)*([a-zA-Z_\-0-9]+)\.([a-z]{2,3})/) do |url|
         filename = "#{$4}.#{$5}"
         folder = case $1
+        when 'assets', 'pages'  then File.join('samples', $1)
         when 'theme'            then $3
         when /\Acontent_entry/  then File.join('samples', 'content_entries')
-        else File.join('samples', $1)
         end
 
         if filepath = write_asset(url, File.join(path, 'public', folder, filename))
