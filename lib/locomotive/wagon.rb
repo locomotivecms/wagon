@@ -99,36 +99,14 @@ module Locomotive
 
     # Destroy a remote site
     #
+    # @param [ String ] env The environment we use to deploy the site to
     # @param [ String ] path The path of the site
-    # @param [ Hash ] connection_info The information to get connected to the remote site
-    # @param [ Hash ] options The options passed to the push process
+    # @param [ Hash ] options The options passed to the destroy command
     #
-    def self.destroy(path, connection_info, options = {})
-      raise 'TODO'
-      # self.require_mounter(path)
-
-      # connection_info['uri'] = "#{connection_info.delete('host')}/locomotive/api"
-
-      # Locomotive::Mounter::EngineApi.set_token connection_info.symbolize_keys
-      # Locomotive::Mounter::EngineApi.delete('/current_site.json')
+    def self.destroy(env, path, options = {})
+      require_relative 'wagon/commands/destroy_command'
+      Locomotive::Wagon::DestroyCommand.destroy(env, path, options)
     end
-
-    # protected
-
-    # def self.validate_resources(resources, writers_or_readers)
-    #   return if resources.nil?
-
-    #   # FIXME: for an unknown reason, when called from Cocoa, the resources are a string
-    #   resources = resources.map { |resource| resource.split(' ') }.flatten
-
-    #   valid_resources = writers_or_readers.map { |thing| thing.to_s.demodulize.gsub(/Writer$|Reader$/, '').underscore }
-
-    #   resources.each do |resource|
-    #     raise ArgumentError, "'#{resource}' resource not recognized. Valid resources are #{valid_resources.join(', ')}." unless valid_resources.include?(resource)
-    #   end
-
-    #   resources
-    # end
 
   end
 end

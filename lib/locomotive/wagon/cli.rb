@@ -335,13 +335,11 @@ module Locomotive
         desc 'destroy ENV [PATH]', 'Destroy a remote LocomotiveCMS Engine'
         def destroy(env, path = '.')
           if check_path!(path)
-            if connection_info = self.retrieve_connection_info(env, path)
-              if ask('Are you sure ?', limited_to: %w(yes no)) == 'yes'
-                Locomotive::Wagon.destroy(path, connection_info)
-              else
-                say 'The destroy operation has been cancelled', :red
-                exit(1)
-              end
+            if ask('Are you sure?', limited_to: %w(yes no)) == 'yes'
+              Locomotive::Wagon.destroy(env, path)
+            else
+              say 'The destroy operation has been cancelled', :red
+              exit(1)
             end
           end
         end

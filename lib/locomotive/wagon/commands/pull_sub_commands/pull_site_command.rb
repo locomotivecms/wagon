@@ -23,6 +23,8 @@ module Locomotive::Wagon
     private
 
     def write_icon(url)
+      return if url.blank?
+
       unless url =~ /\Ahttp:\/\//
         base = api_client.uri.dup.tap { |u| u.path = '' }.to_s
         url = URI.join(base, url).to_s
