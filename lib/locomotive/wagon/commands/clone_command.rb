@@ -23,11 +23,11 @@ module Locomotive::Wagon
     def create_site
       require 'locomotive/wagon/generators/site'
       generator = Locomotive::Wagon::Generators::Site::Cloned
-      generator.start [name, path, true, connection_info]
+      generator.start [name, path, 'true', connection_info]
     end
 
     def pull_site
-      raise 'TODO: call the pull command'
+      Locomotive::Wagon.pull('production', File.join(path, name), options.symbolize_keys, shell)
     end
 
   end

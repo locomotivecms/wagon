@@ -217,15 +217,15 @@ module Locomotive
         end
 
         desc 'clone NAME HOST [PATH]', 'Clone a remote LocomotiveCMS site'
-        method_option :verbose,   aliases: '-v', type: 'boolean', default: false, desc: 'display the full error stack trace if an error occurs'
-        method_option :handle,    aliases: '-h', desc: 'handle of your site'
-        method_option :email,     aliases: '-e', desc: 'email of an administrator account'
-        method_option :password,  aliases: '-p', desc: 'password of an administrator account (use api_key instead)'
-        method_option :api_key,   aliases: '-a', desc: 'api key of an administrator account'
+        option :verbose,   aliases: '-v', type: 'boolean', default: false, desc: 'display the full error stack trace if an error occurs'
+        option :handle,    aliases: '-h', desc: 'handle of your site'
+        option :email,     aliases: '-e', desc: 'email of an administrator account'
+        option :password,  aliases: '-p', desc: 'password of an administrator account (use api_key instead)'
+        option :api_key,   aliases: '-a', desc: 'api key of an administrator account'
         def clone(name, host, path = '.')
           begin
             if Locomotive::Wagon.clone(name, path, { host: host }.merge(options), shell)
-              self.print_next_instructions_when_site_created(name, path)
+              self.print_next_instructions_when_site_created(name, path, true)
             end
           rescue Exception => e
             self.print_exception(e, options[:verbose])
@@ -329,14 +329,6 @@ module Locomotive
               self.print_exception(e, options[:verbose])
               exit(1)
             end
-            # if connection_info = self.retrieve_connection_info(env, path)
-            #   begin
-            #     Locomotive::Wagon.pull(path, connection_info, options)
-            #   rescue Exception => e
-            #     self.print_exception(e, options[:verbose])
-            #     exit(1)
-            #   end
-            # end
           end
         end
 
