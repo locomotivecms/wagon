@@ -14,7 +14,7 @@ module Locomotive::Wagon
 
   class SyncCommand < Struct.new(:env, :path, :options)
 
-    # RESOURCES = %w(pages content_entries theme_assets).freeze
+    # RESOURCES = %w(pages content_entries translations).freeze
     RESOURCES = %w(pages).freeze
 
     include ApiConcern
