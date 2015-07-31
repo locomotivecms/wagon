@@ -244,8 +244,8 @@ module Locomotive
         subcommand 'generate', Generate
 
         desc 'list_templates', 'List all the templates to create either a site or a content type'
-        method_option :lib, aliases: '-l', type: 'string', desc: 'Path to an external ruby lib or generator'
-        method_option :json, aliases: '-j', type: :boolean, default: false, desc: 'Output the list in JSON'
+        option :lib, aliases: '-l', type: 'string', desc: 'Path to an external ruby lib or generator'
+        option :json, aliases: '-j', type: :boolean, default: false, desc: 'Output the list in JSON'
         def list_templates
           force_color_if_asked(options)
           require 'locomotive/wagon/generators/site'
@@ -263,12 +263,12 @@ module Locomotive
         end
 
         desc 'serve [PATH]', 'Serve a site from the file system'
-        method_option :host, aliases: '-h', type: 'string', default: '0.0.0.0', desc: 'The host (address) of the Thin server'
-        method_option :port, aliases: '-p', type: 'string', default: '3333', desc: 'The port of the Thin server'
-        method_option :daemonize, aliases: '-d', type: 'boolean', default: false, desc: 'Run daemonized Thin server in the background'
-        method_option :live_reload_port, aliases: '-l', type: 'string', default: false, desc: 'Include the Livereload javascript in each page'
-        method_option :force, aliases: '-f', type: 'boolean', default: false, desc: 'Stop the current daemonized Thin server if found before starting a new one'
-        method_option :verbose, aliases: '-v', type: 'boolean', default: false, desc: 'display the full error stack trace if an error occurs'
+        option :host, aliases: '-h', type: 'string', default: '0.0.0.0', desc: 'The host (address) of the Thin server'
+        option :port, aliases: '-p', type: 'string', default: '3333', desc: 'The port of the Thin server'
+        option :daemonize, aliases: '-d', type: 'boolean', default: false, desc: 'Run daemonized Thin server in the background'
+        option :live_reload_port, aliases: '-l', type: 'string', default: false, desc: 'Include the Livereload javascript in each page'
+        option :force, aliases: '-f', type: 'boolean', default: false, desc: 'Stop the current daemonized Thin server if found before starting a new one'
+        option :verbose, aliases: '-v', type: 'boolean', default: false, desc: 'display the full error stack trace if an error occurs'
         def serve(path = '.')
           parent_pid = Process.pid
           force_color_if_asked(options)
@@ -301,10 +301,10 @@ module Locomotive
         end
 
         desc 'deploy ENV [PATH]', 'Deploy a site to a remote Locomotive Engine'
-        method_option :resources, aliases: '-r', type: 'array', default: nil, desc: 'Only push the resource(s) passed in argument'
-        method_option :data, aliases: '-d', type: 'boolean', default: false, desc: 'Push the content entries and the editable elements (by default, they are not)'
-        method_option :shell, type: 'boolean', default: true, desc: 'Use shell to ask for missing connection information like the site handle (in this case, take a random one)'
-        method_option :verbose, aliases: '-v', type: 'boolean', default: false, desc: 'display the full error stack trace if an error occurs'
+        option :resources, aliases: '-r', type: 'array', default: nil, desc: 'Only push the resource(s) passed in argument'
+        option :data, aliases: '-d', type: 'boolean', default: false, desc: 'Push the content entries and the editable elements (by default, they are not)'
+        option :shell, type: 'boolean', default: true, desc: 'Use shell to ask for missing connection information like the site handle (in this case, take a random one)'
+        option :verbose, aliases: '-v', type: 'boolean', default: false, desc: 'display the full error stack trace if an error occurs'
         def deploy(env, path = '.')
           force_color_if_asked(options)
 
@@ -319,8 +319,8 @@ module Locomotive
         end
 
         desc 'sync ENV [PATH]', 'Synchronize the local content with the one from a remote Locomotive site.'
-        method_option :resources, aliases: '-r', type: 'array', default: nil, desc: 'Only pull the resource(s) passed (pages, content_entries, translations) in argument'
-        method_option :verbose, aliases: '-v', type: 'boolean', default: false, desc: 'display the full error stack trace if an error occurs'
+        option :resources, aliases: '-r', type: 'array', default: nil, desc: 'Only pull the resource(s) passed (pages, content_entries, translations) in argument'
+        option :verbose, aliases: '-v', type: 'boolean', default: false, desc: 'display the full error stack trace if an error occurs'
         def sync(env, path = '.')
           if check_path!(path)
             begin
@@ -333,8 +333,8 @@ module Locomotive
         end
 
         desc 'pull ENV [PATH]', '[DEPRECATED, use sync instead] Pull a site from a remote Locomotive Engine.'
-        method_option :resources, aliases: '-r', type: 'array', default: nil, desc: 'Only pull the resource(s) passed in argument'
-        method_option :verbose, aliases: '-v', type: 'boolean', default: false, desc: 'display the full error stack trace if an error occurs'
+        option :resources, aliases: '-r', type: 'array', default: nil, desc: 'Only pull the resource(s) passed in argument'
+        option :verbose, aliases: '-v', type: 'boolean', default: false, desc: 'display the full error stack trace if an error occurs'
         def pull(env, path = '.')
           if check_path!(path)
             begin

@@ -2,18 +2,20 @@ require 'locomotive/common'
 
 require_relative '../tools/styled_yaml'
 
-require_relative 'loggers/pull_logger'
+require_relative 'loggers/sync_logger'
 
 require_relative_all  'concerns'
 
 require_relative      'pull_sub_commands/pull_base_command'
 require_relative_all  'pull_sub_commands'
+require_relative_all  'sync_sub_commands'
 
 module Locomotive::Wagon
 
   class SyncCommand < Struct.new(:env, :path, :options)
 
-    RESOURCES = %w(pages content_entries theme_assets).freeze
+    # RESOURCES = %w(pages content_entries theme_assets).freeze
+    RESOURCES = %w(pages).freeze
 
     include ApiConcern
     include DeployFileConcern
@@ -24,15 +26,14 @@ module Locomotive::Wagon
     end
 
     def sync
-      raise 'TODO'
-      # PullLogger.new if options[:verbose]
+      SyncLogger.new if options[:verbose]
 
-      # api_client = api_site_client(connection_information)
-      # site = api_client.current_site.get
+      api_client = api_site_client(connection_information)
+      site = api_client.current_site.get
 
-      # each_resource do |klass|
-      #   klass.pull(api_client, site, path)
-      # end
+      each_resource do |klass|
+        klass.sync(api_client, site, path)
+      end
     end
 
     private
@@ -41,7 +42,7 @@ module Locomotive::Wagon
       RESOURCES.each do |name|
         next if !options[:resources].blank? && !options[:resources].include?(name)
 
-        klass = "Locomotive::Wagon::Pull#{name.camelcase}Command".constantize
+        klass = "Locomotive::Wagon::Sync#{name.camelcase}Command".constantize
 
         yield klass
       end

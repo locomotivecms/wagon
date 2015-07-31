@@ -25,7 +25,7 @@ module Locomotive::Wagon
     end
 
     def instrument(action = nil, payload = {}, &block)
-      name = ['wagon.pull', [*action]].flatten.compact.join('.')
+      name = [instrument_base_name, [*action]].flatten.compact.join('.')
       ActiveSupport::Notifications.instrument(name, { name: resource_name }.merge(payload), &block)
     end
 
@@ -59,6 +59,10 @@ module Locomotive::Wagon
 
     def reset_file(filepath)
       FileUtils.rm(filepath) if File.exists?(filepath)
+    end
+
+    def instrument_base_name
+      'wagon.pull'
     end
 
     def resource_name
