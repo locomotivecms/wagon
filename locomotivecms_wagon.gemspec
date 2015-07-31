@@ -20,6 +20,7 @@ Gem::Specification.new do |gem|
 
   gem.add_dependency 'thor'
   gem.add_dependency 'thin',                  '~> 1.6.1'
+  gem.add_dependency 'celluloid',             '~> 0.16.0'
   gem.add_dependency 'activesupport',         '~> 3.2.18'
   gem.add_dependency 'locomotivecms-solid',   '~> 0.2.2.1'
   gem.add_dependency 'RedCloth',              '~> 4.2.8'
