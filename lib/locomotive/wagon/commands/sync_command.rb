@@ -5,6 +5,7 @@ require_relative '../tools/styled_yaml'
 require_relative 'loggers/sync_logger'
 
 require_relative_all  'concerns'
+require_relative      'sync_sub_commands/concerns/base_concern'
 
 require_relative      'pull_sub_commands/pull_base_command'
 require_relative_all  'pull_sub_commands'
@@ -15,7 +16,7 @@ module Locomotive::Wagon
   class SyncCommand < Struct.new(:env, :path, :options)
 
     # RESOURCES = %w(pages content_entries translations).freeze
-    RESOURCES = %w(pages).freeze
+    RESOURCES = %w(content_entries).freeze
 
     include ApiConcern
     include DeployFileConcern

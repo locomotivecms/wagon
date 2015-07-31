@@ -1,19 +1,8 @@
 module Locomotive::Wagon
 
-  class SyncPagesCommand < SyncBaseCommand
+  class SyncPagesCommand < PullPagesCommand
 
-    attr_reader :fullpaths
-
-    def _sync
-      @fullpaths = {}
-
-      locales.each do |locale|
-        api_client.pages.all(locale).each do |page|
-          fullpaths[page._id] = page.fullpath if locale == default_locale
-          write_page(page, locale)
-        end
-      end
-    end
+    include Locomotive::Wagon::BaseConcern
 
     def write_page(page, locale = nil)
       if attributes = editable_elements_attributes(page, locale)
@@ -45,11 +34,6 @@ module Locomotive::Wagon
           s.gsub(/---\Z/) { |_s| "#{replacement}\n---" }
         end
       end
-    end
-
-    def page_filepath(page, locale)
-      fullpath = locale == default_locale ? page.fullpath : "#{fullpaths[page._id]}.#{locale}"
-      File.join('app', 'views', 'pages', fullpath + '.liquid')
     end
 
   end

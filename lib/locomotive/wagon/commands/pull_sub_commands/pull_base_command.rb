@@ -58,7 +58,8 @@ module Locomotive::Wagon
     end
 
     def reset_file(filepath)
-      FileUtils.rm(filepath) if File.exists?(filepath)
+      _filepath = File.join(path, filepath)
+      FileUtils.rm(_filepath) if File.exists?(_filepath)
     end
 
     def instrument_base_name
