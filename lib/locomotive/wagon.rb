@@ -85,6 +85,18 @@ module Locomotive
       Locomotive::Wagon::PullCommand.pull(env, path, options, shell)
     end
 
+    # Synchronize the local content with the one from a remote Locomotive engine.
+    # by the config/deploy.yml file of the site and for a specific environment.
+    #
+    # @param [ String ] path The path of the site
+    # @param [ Hash ] connection_info The information to get connected to the remote site
+    # @param [ Hash ] options The options passed to the pull process
+    #
+    def self.sync(env, path, options = {})
+      require_relative 'wagon/commands/sync_command'
+      Locomotive::Wagon::SyncCommand.sync(env, path, options)
+    end
+
     # Clone a site from a remote LocomotiveCMS engine.
     #
     # @param [ String ] name Name of the site (arbitrary)

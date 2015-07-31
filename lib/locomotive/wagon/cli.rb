@@ -9,12 +9,12 @@ module Locomotive
 
         protected
 
-        # Check if the path given in option ('.' by default) points to a LocomotiveCMS
+        # Check if the path given in option ('.' by default) points to a Locomotive
         # site. It is also possible to pass a path other than the one from the options.
         #
         # @param [ String ] path The optional path of the site instead of options['path']
         #
-        # @return [ String ] The fullpath to the LocomotiveCMS site or nil if it is not a valid site.
+        # @return [ String ] The fullpath to the Locomotive site or nil if it is not a valid site.
         #
         def check_path!(path = nil)
           path ||= options['path']
@@ -25,7 +25,7 @@ module Locomotive
 
           (site_or_deploy_file ? path : nil).tap do |_path|
             if _path.nil?
-              say 'The path does not point to a LocomotiveCMS site', :red
+              say 'The path does not point to a Locomotive site', :red
             end
           end
         end
@@ -52,7 +52,7 @@ module Locomotive
         include Locomotive::Wagon::CLI::ForceColor
         include Locomotive::Wagon::CLI::CheckPath
 
-        class_option :path, aliases: '-p', type: :string, default: '.', optional: true, desc: 'if your LocomotiveCMS site is not in the current path'
+        class_option :path, aliases: '-p', type: :string, default: '.', optional: true, desc: 'if your Locomotive site is not in the current path'
 
         desc 'content_type SLUG FIELDS', 'Creates a content type with the specified slug and fields.'
         method_option :name, aliases: '-n', type: :string, default: nil, optional: true, desc: 'Name of the content type as it will be displayed in the back-office'
@@ -153,10 +153,10 @@ module Locomotive
 
         protected
 
-        # Read the YAML config file of a LocomotiveCMS site.
+        # Read the YAML config file of a Locomotive site.
         # The path should be returned by the check_path! method first.
         #
-        # @param [ String ] path The full path to a LocomotiveCMS site.
+        # @param [ String ] path The full path to a Locomotive site.
         #
         # @return [ Hash ] The site
         #
@@ -173,7 +173,7 @@ module Locomotive
 
         class_option :force_color, type: :boolean, default: false, desc: 'Whether or not to use ANSI color in the output.'
 
-        desc 'version', 'Version of the LocomotiveCMS Wagon'
+        desc 'version', 'Version of the Locomotive Wagon'
         def version
           require 'locomotive/wagon/version'
           say Locomotive::Wagon::VERSION
@@ -216,13 +216,13 @@ module Locomotive
           end
         end
 
-        desc 'clone NAME HOST [PATH]', 'Clone a remote LocomotiveCMS site'
+        desc 'backup NAME HOST [PATH]', 'Backup a remote Locomotive site'
         option :verbose,   aliases: '-v', type: 'boolean', default: false, desc: 'display the full error stack trace if an error occurs'
         option :handle,    aliases: '-h', desc: 'handle of your site'
         option :email,     aliases: '-e', desc: 'email of an administrator account'
         option :password,  aliases: '-p', desc: 'password of an administrator account (use api_key instead)'
         option :api_key,   aliases: '-a', desc: 'api key of an administrator account'
-        def clone(name, host, path = '.')
+        def backup(name, host, path = '.')
           begin
             if Locomotive::Wagon.clone(name, path, { host: host }.merge(options), shell)
               self.print_next_instructions_when_site_created(name, path, true)
@@ -300,12 +300,12 @@ module Locomotive
           end
         end
 
-        desc 'push ENV [PATH]', 'Push a site to a remote LocomotiveCMS Engine'
+        desc 'deploy ENV [PATH]', 'Deploy a site to a remote Locomotive Engine'
         method_option :resources, aliases: '-r', type: 'array', default: nil, desc: 'Only push the resource(s) passed in argument'
         method_option :data, aliases: '-d', type: 'boolean', default: false, desc: 'Push the content entries and the editable elements (by default, they are not)'
         method_option :shell, type: 'boolean', default: true, desc: 'Use shell to ask for missing connection information like the site handle (in this case, take a random one)'
         method_option :verbose, aliases: '-v', type: 'boolean', default: false, desc: 'display the full error stack trace if an error occurs'
-        def push(env, path = '.')
+        def deploy(env, path = '.')
           force_color_if_asked(options)
 
           if check_path!(path)
@@ -318,7 +318,21 @@ module Locomotive
           end
         end
 
-        desc 'pull ENV [PATH]', 'Pull a site from a remote LocomotiveCMS Engine'
+        desc 'sync ENV [PATH]', 'Synchronize the local content with the one from a remote Locomotive site.'
+        method_option :resources, aliases: '-r', type: 'array', default: nil, desc: 'Only pull the resource(s) passed (pages, content_entries, translations) in argument'
+        method_option :verbose, aliases: '-v', type: 'boolean', default: false, desc: 'display the full error stack trace if an error occurs'
+        def sync(env, path = '.')
+          if check_path!(path)
+            begin
+              Locomotive::Wagon.sync(env, path, options)
+            rescue Exception => e
+              self.print_exception(e, options[:verbose])
+              exit(1)
+            end
+          end
+        end
+
+        desc 'pull ENV [PATH]', '[DEPRECATED, use sync instead] Pull a site from a remote Locomotive Engine.'
         method_option :resources, aliases: '-r', type: 'array', default: nil, desc: 'Only pull the resource(s) passed in argument'
         method_option :verbose, aliases: '-v', type: 'boolean', default: false, desc: 'display the full error stack trace if an error occurs'
         def pull(env, path = '.')
@@ -332,7 +346,7 @@ module Locomotive
           end
         end
 
-        desc 'destroy ENV [PATH]', 'Destroy a remote LocomotiveCMS Engine'
+        desc 'destroy ENV [PATH]', 'Destroy a remote Locomotive site'
         def destroy(env, path = '.')
           if check_path!(path)
             if ask('Are you sure?', limited_to: %w(yes no)) == 'yes'
@@ -343,6 +357,9 @@ module Locomotive
             end
           end
         end
+
+        # aliases
+        map push: :deploy, clone: :backup
 
         protected
 
@@ -374,29 +391,6 @@ module Locomotive
             say "\t" + exception.backtrace.join("\n\t")
           end
         end
-
-        # # From a site specified by a path, retrieve the information of the connection
-        # # for a environment located in the config/deploy.yml file of the site.
-        # #
-        # # @param [ String ] env The environment (development, staging, production, ...etc)
-        # # @param [ String ] path The path of the local site
-        # # @param [ Boolean ] use_shell True by default, use it to ask for missing information (subdomain for instance)
-        # #
-        # # @return [ Hash ] The information of the connection or nil if errors
-        # #
-        # def retrieve_connection_info(env, path, use_shell = true)
-        #   require 'locomotive/wagon/misc/deployment_connection'
-
-        #   begin
-        #     service = Locomotive::Wagon::DeploymentConnection.new(path, use_shell ? shell : nil)
-
-        #     service.get_information(env)
-
-        #   rescue Exception => e
-        #     self.print_exception(e, options[:verbose])
-        #     nil
-        #   end
-        # end
 
       end
 
