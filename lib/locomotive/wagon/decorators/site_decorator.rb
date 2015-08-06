@@ -28,5 +28,13 @@ module Locomotive
 
     end
 
+    class IconSiteDecorator < SiteDecorator
+
+      def __attributes__
+        %i(picture)
+      end
+
+    end
+
   end
 end

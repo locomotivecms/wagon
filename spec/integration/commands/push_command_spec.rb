@@ -37,7 +37,7 @@ describe Locomotive::Wagon::PushCommand do
           resources << payload[:name]
         end
         is_expected.not_to eq nil
-        expect(resources).to eq %w(content_types content_entries pages snippets theme_assets translations)
+        expect(resources).to eq %w(site content_types content_entries pages snippets theme_assets translations)
       end
 
       context 'no previous authentication' do
