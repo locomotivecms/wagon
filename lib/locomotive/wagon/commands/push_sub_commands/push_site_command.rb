@@ -12,7 +12,6 @@ module Locomotive::Wagon
 
     def persist(decorated_entity)
       _attributes = decorated_entity.to_hash
-
       if !_attributes.empty? && api_client.current_site.get.attributes[:picture_url].nil?
         api_client.current_site.update(_attributes)
       else

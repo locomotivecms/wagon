@@ -5,6 +5,11 @@ module Locomotive
 
       include ToHashConcern
 
+      def initialize(entity, persisted = false)
+        @persisted = persisted
+        super(entity)
+      end
+
       def __attributes__
         %i(name type label hint required localized unique position
           text_formatting select_options
@@ -50,7 +55,7 @@ module Locomotive
       end
 
       def select_options
-        return nil unless type.to_sym == :select
+        return nil if type.to_sym != :select || @persisted
 
         @_select_options ||= __getobj__.select_options.all.map { |o| SelectOptionDecorator.new(o) }
       end

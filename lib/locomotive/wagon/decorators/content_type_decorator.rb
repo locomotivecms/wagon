@@ -20,12 +20,12 @@ module Locomotive
       def fields
         return @fields if @fields
 
-        @fields = __getobj__.fields.no_associations.map { |f| ContentTypeFieldDecorator.new(f) }
+        @fields = __getobj__.fields.no_associations.map { |f| ContentTypeFieldDecorator.new(f, @existing_fields.include?(f.name)) }
 
         @existing_fields.each do |name|
           # the field exists remotely but does not exist locally, delete it
           if __getobj__.fields.by_name(name).nil?
-            @fields << { name: name, _destroy: true }
+            @fields.insert(0, { name: name, _destroy: true })
           end
         end
 

@@ -17,7 +17,7 @@ module Locomotive::Wagon
     end
 
     def prepare_value_for_hash(value)
-      if value.is_a?(Array) && value.first.respond_to?(:__attributes__)
+      if value.is_a?(Array) && value.any? { |v| v.respond_to?(:__attributes__) }
         value.map(&:to_hash)
       elsif value.is_a?(Array) && value.empty?
         nil # reset the array
