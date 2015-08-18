@@ -102,7 +102,7 @@ module Locomotive
           end
 
           def paginate(options = {})
-            @collection = self.all().paginate(options)
+            @collection = self.collection.paginate(options)
             {
               collection:       @collection,
               current_page:     @collection.current_page,
