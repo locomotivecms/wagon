@@ -57,8 +57,7 @@ module Locomotive::Wagon
 
       @remote_entities = {}.tap do |hash|
         api_client.theme_assets.all.each do |entity|
-          relative_url = "#{entity.folder}/#{entity.local_path}"
-          hash[relative_url] = entity
+          hash[entity.local_path] = entity
         end
       end
     end
