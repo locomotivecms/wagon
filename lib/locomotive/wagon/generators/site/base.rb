@@ -2,6 +2,7 @@ require 'thor/group'
 require 'active_support'
 require 'active_support/core_ext'
 require 'active_support/core_ext/string/inflections'
+require 'locomotive/wagon/version'
 
 module Locomotive
   module Wagon

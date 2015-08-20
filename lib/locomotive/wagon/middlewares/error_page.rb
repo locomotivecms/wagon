@@ -2,8 +2,6 @@ require 'erb'
 require 'locomotive/steam/middlewares/threadsafe'
 require 'locomotive/steam/middlewares/helpers'
 
-require 'pry-byebug'
-
 module Locomotive::Wagon
   module Middlewares
 
