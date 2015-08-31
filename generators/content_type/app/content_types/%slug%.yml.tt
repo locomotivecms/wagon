@@ -32,6 +32,9 @@ order_by: manually
 #   position: 1             # position in the sidebar menu
 #   hidden: false           # hidden for authors?
 
+# By default, the back-office displays the _label property (see label_field_name) of the content entry. This can be modified by writing your own Liquid template below:
+# entry_template: '<a href="{{ link }}">{{ entry._label }}</a>' # The default template
+
 # A list describing each field
 fields: <% config[:fields].each_with_index do |field, index| %>
 - <%= field.name -%>: # The lowercase, underscored name of the field

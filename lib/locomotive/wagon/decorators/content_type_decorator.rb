@@ -14,7 +14,7 @@ module Locomotive
         %i(name slug description label_field_name fields
           order_by order_direction group_by
           public_submission_enabled public_submission_accounts
-          raw_item_template display_settings)
+          entry_template display_settings)
       end
 
       def fields
@@ -52,8 +52,8 @@ module Locomotive
         self[:public_submission_accounts]
       end
 
-      def raw_item_template
-        self[:raw_item_template]
+      def entry_template
+        self[:entry_template]
       end
 
       def display_settings
