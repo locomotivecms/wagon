@@ -29,8 +29,6 @@ module Locomotive
       end
 
       def text_formatting
-        return nil unless type == :text
-
         self[:text_formatting]
       end
 
