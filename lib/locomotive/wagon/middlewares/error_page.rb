@@ -1,5 +1,5 @@
 require 'erb'
-require 'locomotive/steam/middlewares/threadsafe'
+require 'locomotive/steam/middlewares/thread_safe'
 require 'locomotive/steam/middlewares/helpers'
 
 module Locomotive::Wagon
