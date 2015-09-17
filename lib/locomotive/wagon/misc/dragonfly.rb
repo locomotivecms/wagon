@@ -54,7 +54,11 @@ module Locomotive
 
           ## configure it ##
           ::Dragonfly[:images].configure do |c|
-            convert = `which convert`.strip.presence || '/usr/bin/env convert'
+            if Gem.win_platform?
+              convert = `where convert`.strip.presence || 'C:/ImageMagick/convert.exe'
+            else
+              convert = `which convert`.strip.presence || '/usr/bin/env convert'
+            end
             c.convert_command  = convert
             c.identify_command = convert
 
