@@ -37,7 +37,7 @@ module Locomotive
         # - memoize it because it will not change even if we change the filepath (or source)
         # - we keep the first extension and drop the others (.coffee, .scss, ...etc)
         @realname ||= if Sprockets.engine_extensions.include?(File.extname(filepath))
-          File.basename(filepath).split('.')[0..1].join('.')
+          File.basename(filepath).split('.')[0..-2].join('.')
         else
           File.basename(filepath)
         end
