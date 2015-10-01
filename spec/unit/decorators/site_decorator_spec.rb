@@ -24,7 +24,7 @@ describe Locomotive::Wagon::SiteDecorator do
   describe '#to_hash' do
 
     let(:seo_title) { instance_double('I18nField', translations: { en: 'Hi', fr: 'Bonjour' }) }
-    let(:attributes) { { name: 'Acme', handle: nil, seo_title: seo_title } }
+    let(:attributes) { { name: 'Acme', handle: nil, seo_title: seo_title, locales: nil } }
     let(:site) { OpenStruct.new(attributes) }
 
     subject { decorator.to_hash }

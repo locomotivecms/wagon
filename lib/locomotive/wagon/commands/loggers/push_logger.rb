@@ -18,6 +18,10 @@ module Locomotive::Wagon
         log "persisting #{event.payload[:label]}", :white, 2, true
       end
 
+      subscribe :warning do |event|
+        log "Warning: #{event.payload[:message]}", :yellow
+      end
+
       subscribe :skip_persisting do |event|
         log ' [' + 'skip'.colorize(:yellow) + ']'
       end
@@ -34,31 +38,9 @@ module Locomotive::Wagon
 
     private
 
-    # def log(message, color = nil, ident = nil, print = false)
-    #   ident = ' ' * (ident || 0)
-
-    #   message = "#{ident}#{message.gsub("\n", "\n" + ident)}"
-    #   message = message.colorize(color) if color
-
-    #   if print
-    #     print message
-    #   else
-    #     puts message
-    #   end
-    # end
-
     def subscribe(action = nil, &block)
       _subscribe('push', action, &block)
     end
-
-    # def subscribe(action = nil, &block)
-    #   name = ['wagon', 'push', [*action]].flatten.compact.join('.')
-
-    #   ActiveSupport::Notifications.subscribe(name) do |*args|
-    #     event = ActiveSupport::Notifications::Event.new *args
-    #     yield(event)
-    #   end
-    # end
 
   end
 

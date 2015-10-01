@@ -13,10 +13,12 @@ module Locomotive
         picture_path = __getobj__.picture
         if picture_path && File.exists?(picture_path)
           Locomotive::Coal::UploadIO.new(picture_path, nil, 'icon.png')
+        else
+          nil
         end
       end
 
-      %i(robots_txt locales timezone seo_title meta_keywords meta_description).each do |name|
+      %i(robots_txt timezone seo_title meta_keywords meta_description).each do |name|
         define_method(name) do
           self[name]
         end
@@ -28,10 +30,10 @@ module Locomotive
 
     end
 
-    class IconSiteDecorator < SiteDecorator
+    class UpdateSiteDecorator < SiteDecorator
 
       def __attributes__
-        %i(picture)
+        %i(picture locales)
       end
 
     end

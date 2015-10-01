@@ -33,8 +33,9 @@ module Locomotive::Wagon
           instrument :persist_with_success
         rescue SkipPersistingException => e
           instrument :skip_persisting
-        # rescue Exception => e
-        #   instrument :persist_with_error, message: e.message
+        rescue Exception => e
+          instrument :persist_with_error, message: e.message
+          raise e
         end
       end
     end

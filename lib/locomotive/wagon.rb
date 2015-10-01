@@ -3,7 +3,7 @@ require_relative 'wagon/exceptions'
 module Locomotive
   module Wagon
 
-    DEFAULT_PLATFORM_URL = 'http://www.lvh.me:3000'.freeze
+    DEFAULT_PLATFORM_URL = 'http://locomotive.works'.freeze
 
     # Authenticate an user to the Hosting platform.
     # If the user does not exist, then create an account for her/him.

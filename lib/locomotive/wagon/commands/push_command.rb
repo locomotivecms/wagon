@@ -34,6 +34,8 @@ module Locomotive::Wagon
 
       api_client = api_site_client(connection_information)
 
+      validate!(api_client, steam_services)
+
       content_assets_pusher = Locomotive::Wagon::PushContentAssetsCommand.new(api_client, steam_services)
 
       each_resource do |klass|
@@ -42,6 +44,22 @@ module Locomotive::Wagon
     end
 
     private
+
+    # To push all the other resources, the big requirement is to
+    # have the same locales between the local site and the remote one.
+    def validate!(api_client, steam_services)
+      site        = SiteDecorator.new(steam_services.repositories.site.first)
+      remote_site = Locomotive::Steam::Site.new(api_client.current_site.get.attributes)
+
+      if site.default_locale != remote_site.default_locale &&
+        remote_site[:content_version].try(:to_i) > 0
+        raise "Your Wagon site locale (#{site.default_locale}) is not the same as the one in the back-office (#{remote_site.default_locale})."
+      end
+
+      if site.locales != remote_site.locales
+        instrument :warning, message: "Your Wagon site locales (#{site.locales.join(', ')}) are not the same as the ones in the back-office (#{remote_site.locales.join(', ')})."
+      end
+    end
 
     def each_resource
       RESOURCES.each do |name|
