@@ -12,6 +12,7 @@ Gemfile.lock
 InstalledFiles
 _yardoc
 coverage
+bin/wagon_dev.rb
 doc/
 lib/bundler/man
 pkg
