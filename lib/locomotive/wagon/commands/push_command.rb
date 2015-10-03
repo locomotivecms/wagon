@@ -32,14 +32,14 @@ module Locomotive::Wagon
     def push
       PushLogger.new if options[:verbose]
 
-      api_client = api_site_client(connection_information)
+      api_client = build_api_site_client(connection_information)
 
-      validate!(api_client, steam_services)
+      validate!
 
       content_assets_pusher = Locomotive::Wagon::PushContentAssetsCommand.new(api_client, steam_services)
 
       each_resource do |klass|
-        klass.push(api_client, steam_services, content_assets_pusher)
+        klass.push(api_client, steam_services, content_assets_pusher, remote_site)
       end
     end
 
@@ -47,17 +47,13 @@ module Locomotive::Wagon
 
     # To push all the other resources, the big requirement is to
     # have the same locales between the local site and the remote one.
-    def validate!(api_client, steam_services)
-      site        = SiteDecorator.new(steam_services.repositories.site.first)
-      remote_site = Locomotive::Steam::Site.new(api_client.current_site.get.attributes)
-
-      if site.default_locale != remote_site.default_locale &&
-        remote_site[:content_version].try(:to_i) > 0
-        raise "Your Wagon site locale (#{site.default_locale}) is not the same as the one in the back-office (#{remote_site.default_locale})."
+    def validate!
+      if local_site.default_locale != remote_site.default_locale && remote_site.edited?
+        raise "Your Wagon site locale (#{local_site.default_locale}) is not the same as the one in the back-office (#{remote_site.default_locale})."
       end
 
-      if site.locales != remote_site.locales
-        instrument :warning, message: "Your Wagon site locales (#{site.locales.join(', ')}) are not the same as the ones in the back-office (#{remote_site.locales.join(', ')})."
+      if local_site.locales != remote_site.locales
+        instrument :warning, message: "Your Wagon site locales (#{local_site.locales.join(', ')}) are not the same as the ones in the back-office (#{remote_site.locales.join(', ')})."
       end
     end
 
@@ -125,6 +121,19 @@ module Locomotive::Wagon
       url = shell.try(:ask, "What is the URL of your platform? (default: #{default})")
 
       self.platform_url = url.blank? ? default : url
+    end
+
+    def local_site
+      return @local_site if @local_site
+      @local_site = SiteDecorator.new(steam_services.repositories.site.first)
+    end
+
+    def remote_site
+      return @remote_site if @remote_site
+
+      attributes    = @api_site_client.current_site.get.attributes
+      _site         = Locomotive::Steam::Site.new(attributes)
+      @remote_site  = SiteDecorator.new(_site)
     end
 
   end

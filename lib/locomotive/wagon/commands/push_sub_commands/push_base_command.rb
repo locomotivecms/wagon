@@ -1,13 +1,13 @@
 module Locomotive::Wagon
 
-  class PushBaseCommand < Struct.new(:api_client, :steam_services, :content_assets_pusher)
+  class PushBaseCommand < Struct.new(:api_client, :steam_services, :content_assets_pusher, :remote_site)
 
     extend Forwardable
 
     def_delegators :steam_services, :current_site, :locale, :repositories
 
-    def self.push(api_client, steam_services, content_assets_pusher)
-      new(api_client, steam_services, content_assets_pusher).push
+    def self.push(api_client, steam_services, content_assets_pusher, remote_site)
+      new(api_client, steam_services, content_assets_pusher, remote_site).push
     end
 
     def push

@@ -28,6 +28,10 @@ module Locomotive
         %i(name handle robots_txt locales timezone seo_title meta_keywords meta_description picture)
       end
 
+      def edited?
+        self[:content_version].try(:to_i) > 0
+      end
+
     end
 
     class UpdateSiteDecorator < SiteDecorator

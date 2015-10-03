@@ -6,10 +6,11 @@ module Locomotive
       include ToHashConcern
       include PersistAssetsConcern
 
-      attr_accessor :__content_assets_pusher__
+      attr_accessor :__content_assets_pusher__, :__site_edited__
 
-      def initialize(object, locale = nil, content_assets_pusher)
+      def initialize(object, locale = nil, content_assets_pusher, site_edited)
         self.__content_assets_pusher__ = content_assets_pusher
+        self.__site_edited__ = site_edited
         super(object, locale, nil)
       end
 
@@ -24,7 +25,10 @@ module Locomotive
           content_type
           template)
 
-        _attributes -= %i(editable_elements) if persisted?
+        # remove the attributes that end-users might have modified in the back-office
+        if persisted? && __site_edited__
+          _attributes -= %i(title published listed position seo_title meta_keywords meta_description editable_elements)
+        end
 
         _attributes
       end

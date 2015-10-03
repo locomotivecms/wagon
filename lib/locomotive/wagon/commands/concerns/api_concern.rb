@@ -19,6 +19,8 @@ module Locomotive::Wagon
       @api_site_client = Locomotive::Coal::Client.new(_host, _credentials, _options)
     end
 
+    alias :build_api_site_client :api_site_client
+
     # Host (+ port) extracted from the platform_url instance variable.
     # If port equals 80, do not add it to the host.
     #
