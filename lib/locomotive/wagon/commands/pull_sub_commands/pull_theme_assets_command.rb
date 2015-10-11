@@ -21,7 +21,7 @@ module Locomotive::Wagon
     private
 
     def theme_asset_filepath(asset)
-      File.join('public', asset.folder, asset.local_path)
+      File.join('public', asset.local_path)
     end
 
   end

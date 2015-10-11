@@ -131,7 +131,14 @@ module Locomotive::Wagon
     def remote_site
       return @remote_site if @remote_site
 
-      attributes    = @api_site_client.current_site.get.attributes
+      attribute = nil
+
+      begin
+        attributes = @api_site_client.current_site.get.attributes
+      rescue Locomotive::Coal::UnknownResourceError
+        raise 'Sorry, we were unable to find your site on the remote platform. Check the information in your config/deploy.yml file.'
+      end
+
       _site         = Locomotive::Steam::Site.new(attributes)
       @remote_site  = SiteDecorator.new(_site)
     end

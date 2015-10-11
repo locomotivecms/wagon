@@ -29,7 +29,7 @@ module Locomotive
       end
 
       def edited?
-        self[:content_version].try(:to_i) > 0
+        (self[:content_version].try(:to_i) || 0) > 0
       end
 
     end

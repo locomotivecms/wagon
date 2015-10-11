@@ -47,7 +47,7 @@ module Locomotive::Wagon
     def fetch_content_types(&block)
       api_client.content_types.all.each do |content_type|
         content_type.attributes['localized_names'] = content_type.fields.map { |f| f['localized'] ? f['name'] : nil }.compact
-        content_type.attributes['urls_names'] = content_type.fields.map { |f| %w(file text).include?(f['type']) ? f['name'] : nil }.compact
+        content_type.attributes['urls_names'] = content_type.fields.map { |f| %w(file string text).include?(f['type']) ? f['name'] : nil }.compact
         yield(content_type)
       end
     end
