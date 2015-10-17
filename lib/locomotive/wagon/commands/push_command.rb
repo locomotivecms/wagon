@@ -32,6 +32,8 @@ module Locomotive::Wagon
     def push
       PushLogger.new if options[:verbose]
 
+      require_misc_gems
+
       api_client = build_api_site_client(connection_information)
 
       validate!
@@ -141,6 +143,11 @@ module Locomotive::Wagon
 
       _site         = Locomotive::Steam::Site.new(attributes)
       @remote_site  = SiteDecorator.new(_site)
+    end
+
+    def require_misc_gems
+      require 'bundler'
+      Bundler.require 'misc'
     end
 
   end

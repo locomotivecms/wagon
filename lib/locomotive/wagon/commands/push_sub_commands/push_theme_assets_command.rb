@@ -15,6 +15,8 @@ module Locomotive::Wagon
     end
 
     def persist(decorated_entity)
+      return if decorated_entity.realname.starts_with?('_')
+
       precompile(decorated_entity)
 
       if (_entity = remote_entity(decorated_entity)).nil?
