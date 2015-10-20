@@ -13,7 +13,9 @@ module Locomotive
       def __attributes__
         %i(name slug description label_field_name fields
           order_by order_direction group_by
-          public_submission_enabled public_submission_accounts
+          public_submission_enabled
+          public_submission_accounts
+          public_submission_title_template
           entry_template display_settings)
       end
 
@@ -50,6 +52,10 @@ module Locomotive
 
       def public_submission_accounts
         self[:public_submission_accounts]
+      end
+
+      def public_submission_title_template
+        self[:public_submission_title_template]
       end
 
       def entry_template
