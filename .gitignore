@@ -2,6 +2,7 @@
 tests
 .sass-cache
 .rbenv-gemsets
+bin/wagon_dev.rb
 dragonfly.log
 /site
 *.gem
