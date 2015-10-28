@@ -78,7 +78,7 @@ module Locomotive::Wagon
           'models'            => Locomotive::Wagon::Liquid::Drops::ContentTypes.new,
           'contents'          => Locomotive::Wagon::Liquid::Drops::ContentTypes.new,
           'current_page'      => self.params[:page],
-          'params'            => self.params.stringify_keys,
+          'params'            => self.params.deep_stringify_keys,
           'path'              => self.request.path,
           'fullpath'          => self.request.fullpath,
           'url'               => self.request.url,
