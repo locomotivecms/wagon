@@ -5,10 +5,18 @@ module Locomotive::Wagon
     include Locomotive::Wagon::BaseConcern
 
     def write_page(page, locale = nil)
-      if attributes = editable_elements_attributes(page, locale)
-        new_content = replace_editable_elements(page_filepath(page, locale), dump(attributes))
+      filepath = page_filepath(page, locale)
 
-        write_to_file(page_filepath(page, locale), new_content)
+      if File.exists?(filepath)
+        # only copy the content of the editable elements
+        if attributes = editable_elements_attributes(page, locale)
+          new_content = replace_editable_elements(filepath, dump(attributes))
+
+          write_to_file(filepath, new_content)
+        end
+      else
+        # pull the whole page
+        super
       end
     end
 
@@ -34,6 +42,22 @@ module Locomotive::Wagon
           s.gsub(/---\Z/) { |_s| "#{replacement}\n---" }
         end
       end
+    end
+
+    def page_filepath(page, locale)
+      fullpath = locale == default_locale ? page.fullpath : "#{fullpaths[page._id]}.#{locale}"
+
+      # HAML template?
+      if File.exists?(filepath = _page_filepath(fullpath, '.haml'))
+        return filepath
+      end
+
+      # simple Liquid template OR the page does not exist in the local site
+      _page_filepath(fullpath)
+    end
+
+    def _page_filepath(fullpath, additional_extension = '')
+      File.join('app', 'views', 'pages', fullpath + ".liquid#{additional_extension}")
     end
 
   end
