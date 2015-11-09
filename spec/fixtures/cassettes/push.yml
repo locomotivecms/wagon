@@ -23512,4 +23512,1575 @@ http_interactions:
         ImVuIjoiUG93ZXJlZCBieSIsImZyIjoiUHJvcHVsc8OpIHBhciJ9fQ==
     http_version: 
   recorded_at: Sat, 03 Oct 2015 22:53:34 GMT
+- request:
+    method: post
+    uri: http://localhost:3000/locomotive/api/v3/theme_assets.json
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        LS0tLS0tLS0tLS0tLVJ1YnlNdWx0aXBhcnRQb3N0DQpDb250ZW50LURpc3Bv
+        c2l0aW9uOiBmb3JtLWRhdGE7IG5hbWU9InRoZW1lX2Fzc2V0W3NvdXJjZV0i
+        OyBmaWxlbmFtZT0iY2h1bmtmaXZlLmNzcyINCkNvbnRlbnQtTGVuZ3RoOiAz
+        MDcNCkNvbnRlbnQtVHlwZTogYXBwbGljYXRpb24vb2N0ZXQtc3RyZWFtDQpD
+        b250ZW50LVRyYW5zZmVyLUVuY29kaW5nOiBiaW5hcnkNCg0KQGZvbnQtZmFj
+        ZSB7CiAgZm9udC1mYW1pbHk6ICdDaHVua0ZpdmVSb21hbic7CiAgc3JjOiB1
+        cmwoJ2NodW5rZml2ZS13ZWJmb250LmVvdCcpOwogIHNyYzogbG9jYWwoJ+KY
+        uicpLCB1cmwoJ2NodW5rZml2ZS13ZWJmb250LndvZmYnKSBmb3JtYXQoJ3dv
+        ZmYnKSwgdXJsKCdjaHVua2ZpdmUtd2ViZm9udC50dGYnKSBmb3JtYXQoJ3Ry
+        dWV0eXBlJyksIHVybCgnY2h1bmtmaXZlLXdlYmZvbnQuc3ZnI3dlYmZvbnR3
+        bFo1ZWM4dicpIGZvcm1hdCgnc3ZnJyk7CiAgZm9udC13ZWlnaHQ6IG5vcm1h
+        bDsKICBmb250LXN0eWxlOiBub3JtYWw7Cn0KCg0KLS0tLS0tLS0tLS0tLVJ1
+        YnlNdWx0aXBhcnRQb3N0DQpDb250ZW50LURpc3Bvc2l0aW9uOiBmb3JtLWRh
+        dGE7IG5hbWU9InRoZW1lX2Fzc2V0W2ZvbGRlcl0iDQoNCmZvbnRzDQotLS0t
+        LS0tLS0tLS0tUnVieU11bHRpcGFydFBvc3QNCkNvbnRlbnQtRGlzcG9zaXRp
+        b246IGZvcm0tZGF0YTsgbmFtZT0idGhlbWVfYXNzZXRbY2hlY2tzdW1dIg0K
+        DQplMDNhMWYxNTAwYTViZjA5OTcwNzY0Nzc2YmI0YTUzNA0KLS0tLS0tLS0t
+        LS0tLVJ1YnlNdWx0aXBhcnRQb3N0DQpDb250ZW50LURpc3Bvc2l0aW9uOiBm
+        b3JtLWRhdGE7IG5hbWU9ImF1dGhfdG9rZW4iDQoNCmEybXVLOVRlQm1WcnBB
+        NVhyWVFhDQotLS0tLS0tLS0tLS0tUnVieU11bHRpcGFydFBvc3QtLQ0KDQo=
+    headers:
+      Accept:
+      - application/json
+      X-Locomotive-Account-Email:
+      - admin@locomotivecms.com
+      X-Locomotive-Account-Token:
+      - a2muK9TeBmVrpA5XrYQa
+      X-Locomotive-Site-Handle:
+      - zealous-volcano-9917
+      Content-Type:
+      - multipart/form-data; boundary=-----------RubyMultipartPost
+      Content-Length:
+      - '899'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Content-Type:
+      - text/html; charset=utf-8
+      Content-Length:
+      - '136496'
+      X-Request-Id:
+      - 71c5e825-da05-44b4-a56f-b09f6b0258cc
+      X-Runtime:
+      - '0.235490'
+      Set-Cookie:
+      - __profilin=p%3Dt; path=/
+      - __profilin=p%3Dt; path=/
+      Connection:
+      - keep-alive
+      Server:
+      - thin
+    body:
+      encoding: UTF-8
+      string: "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"utf-8\"
+        />\n  <title>Action Controller: Exception caught</title>\n  <style>\n    body
+        {\n      background-color: #FAFAFA;\n      color: #333;\n      margin: 0px;\n
+        \   }\n\n    body, p, ol, ul, td {\n      font-family: helvetica, verdana,
+        arial, sans-serif;\n      font-size:   13px;\n      line-height: 18px;\n    }\n\n
+        \   pre {\n      font-size: 11px;\n      white-space: pre-wrap;\n    }\n\n
+        \   pre.box {\n      border: 1px solid #EEE;\n      padding: 10px;\n      margin:
+        0px;\n      width: 958px;\n    }\n\n    header {\n      color: #F0F0F0;\n
+        \     background: #C52F24;\n      padding: 0.5em 1.5em;\n    }\n\n    h1 {\n
+        \     margin: 0.2em 0;\n      line-height: 1.1em;\n      font-size: 2em;\n
+        \   }\n\n    h2 {\n      color: #C52F24;\n      line-height: 25px;\n    }\n\n
+        \   .details {\n      border: 1px solid #D0D0D0;\n      border-radius: 4px;\n
+        \     margin: 1em 0px;\n      display: block;\n      width: 978px;\n    }\n\n
+        \   .summary {\n      padding: 8px 15px;\n      border-bottom: 1px solid #D0D0D0;\n
+        \     display: block;\n    }\n\n    .details pre {\n      margin: 5px;\n      border:
+        none;\n    }\n\n    #container {\n      box-sizing: border-box;\n      width:
+        100%;\n      padding: 0 1.5em;\n    }\n\n    .source * {\n      margin: 0px;\n
+        \     padding: 0px;\n    }\n\n    .source {\n      border: 1px solid #D9D9D9;\n
+        \     background: #ECECEC;\n      width: 978px;\n    }\n\n    .source pre
+        {\n      padding: 10px 0px;\n      border: none;\n    }\n\n    .source .data
+        {\n      font-size: 80%;\n      overflow: auto;\n      background-color: #FFF;\n
+        \   }\n\n    .info {\n      padding: 0.5em;\n    }\n\n    .source .data .line_numbers
+        {\n      background-color: #ECECEC;\n      color: #AAA;\n      padding: 1em
+        .5em;\n      border-right: 1px solid #DDD;\n      text-align: right;\n    }\n\n
+        \   .line {\n      padding-left: 10px;\n    }\n\n    .line:hover {\n      background-color:
+        #F6F6F6;\n    }\n\n    .line.active {\n      background-color: #FFCCCC;\n
+        \   }\n\n    a { color: #980905; }\n    a:visited { color: #666; }\n    a:hover
+        { color: #C52F24; }\n\n      #route_table {\n    margin: 0 auto 0;\n    border-collapse:
+        collapse;\n  }\n\n  #route_table td {\n    padding: 0 30px;\n  }\n\n  #route_table
+        tr.bottom th {\n    padding-bottom: 10px;\n    line-height: 15px;\n  }\n\n
+        \ #route_table .matched_paths {\n    background-color: LightGoldenRodYellow;\n
+        \ }\n\n  #route_table .matched_paths {\n    border-bottom: solid 3px SlateGrey;\n
+        \ }\n\n  #path_search {\n    width: 80%;\n    font-size: inherit;\n  }\n\n
+        \ </style>\n\n  <script>\n    var toggle = function(id) {\n      var s = document.getElementById(id).style;\n
+        \     s.display = s.display == 'none' ? 'block' : 'none';\n      return false;\n
+        \   }\n    var show = function(id) {\n      document.getElementById(id).style.display
+        = 'block';\n    }\n    var hide = function(id) {\n      document.getElementById(id).style.display
+        = 'none';\n    }\n    var toggleTrace = function() {\n      return toggle('blame_trace');\n
+        \   }\n    var toggleSessionDump = function() {\n      return toggle('session_dump');\n
+        \   }\n    var toggleEnvDump = function() {\n      return toggle('env_dump');\n
+        \   }\n  </script>\n</head>\n<body>\n\n<header>\n  <h1>Routing Error</h1>\n</header>\n<div
+        id=\"container\">\n  <h2>No route matches [POST] &quot;/locomotive/api/v3/theme_assets.json&quot;</h2>\n\n
+        \ \n<p><code>Rails.root: /Users/nboie/development/bluewater/fusion</code></p>\n\n<div
+        id=\"traces\">\n    <a href=\"#\" onclick=\"hide(&#39;Framework-Trace&#39;);hide(&#39;Full-Trace&#39;);show(&#39;Application-Trace&#39;);;
+        return false;\">Application Trace</a> |\n    <a href=\"#\" onclick=\"hide(&#39;Application-Trace&#39;);hide(&#39;Full-Trace&#39;);show(&#39;Framework-Trace&#39;);;
+        return false;\">Framework Trace</a> |\n    <a href=\"#\" onclick=\"hide(&#39;Application-Trace&#39;);hide(&#39;Framework-Trace&#39;);show(&#39;Full-Trace&#39;);;
+        return false;\">Full Trace</a> \n\n    <div id=\"Application-Trace\" style=\"display:
+        block;\">\n      <pre><code></code></pre>\n    </div>\n    <div id=\"Framework-Trace\"
+        style=\"display: none;\">\n      <pre><code>actionpack (4.1.9) lib/action_dispatch/middleware/debug_exceptions.rb:21:in
+        `call&#39;\nactionpack (4.1.9) lib/action_dispatch/middleware/show_exceptions.rb:30:in
+        `call&#39;\nrailties (4.1.9) lib/rails/rack/logger.rb:38:in `call_app&#39;\nrailties
+        (4.1.9) lib/rails/rack/logger.rb:20:in `block in call&#39;\nactivesupport
+        (4.1.9) lib/active_support/tagged_logging.rb:68:in `block in tagged&#39;\nactivesupport
+        (4.1.9) lib/active_support/tagged_logging.rb:26:in `tagged&#39;\nactivesupport
+        (4.1.9) lib/active_support/tagged_logging.rb:68:in `tagged&#39;\nrailties
+        (4.1.9) lib/rails/rack/logger.rb:20:in `call&#39;\nactionpack (4.1.9) lib/action_dispatch/middleware/request_id.rb:21:in
+        `call&#39;\nrack (1.5.2) lib/rack/methodoverride.rb:21:in `call&#39;\nrack
+        (1.5.2) lib/rack/runtime.rb:17:in `call&#39;\nrack (1.5.2) lib/rack/lock.rb:17:in
+        `call&#39;\nactionpack (4.1.9) lib/action_dispatch/middleware/static.rb:84:in
+        `call&#39;\nrack (1.5.2) lib/rack/sendfile.rb:112:in `call&#39;\nairbrake
+        (4.1.0) lib/airbrake/user_informer.rb:16:in `_call&#39;\nairbrake (4.1.0)
+        lib/airbrake/user_informer.rb:12:in `call&#39;\nrack-mini-profiler (0.9.1)
+        lib/mini_profiler/profiler.rb:300:in `call&#39;\nrailties (4.1.9) lib/rails/engine.rb:514:in
+        `call&#39;\nrailties (4.1.9) lib/rails/application.rb:144:in `call&#39;\nrack
+        (1.5.2) lib/rack/content_length.rb:14:in `call&#39;\nthin (1.6.4) lib/thin/connection.rb:86:in
+        `block in pre_process&#39;\nthin (1.6.4) lib/thin/connection.rb:84:in `catch&#39;\nthin
+        (1.6.4) lib/thin/connection.rb:84:in `pre_process&#39;\nthin (1.6.4) lib/thin/connection.rb:53:in
+        `process&#39;\nthin (1.6.4) lib/thin/connection.rb:39:in `receive_data&#39;\neventmachine
+        (1.0.8) lib/eventmachine.rb:193:in `run_machine&#39;\neventmachine (1.0.8)
+        lib/eventmachine.rb:193:in `run&#39;\nthin (1.6.4) lib/thin/backends/base.rb:73:in
+        `start&#39;\nthin (1.6.4) lib/thin/server.rb:162:in `start&#39;\nrack (1.5.2)
+        lib/rack/handler/thin.rb:16:in `run&#39;\nrack (1.5.2) lib/rack/server.rb:264:in
+        `start&#39;\nrailties (4.1.9) lib/rails/commands/server.rb:69:in `start&#39;\nrailties
+        (4.1.9) lib/rails/commands/commands_tasks.rb:81:in `block in server&#39;\nrailties
+        (4.1.9) lib/rails/commands/commands_tasks.rb:76:in `tap&#39;\nrailties (4.1.9)
+        lib/rails/commands/commands_tasks.rb:76:in `server&#39;\nrailties (4.1.9)
+        lib/rails/commands/commands_tasks.rb:40:in `run_command!&#39;\nrailties (4.1.9)
+        lib/rails/commands.rb:17:in `&lt;top (required)&gt;&#39;\nscript/rails:7:in
+        `require&#39;\nscript/rails:7:in `&lt;main&gt;&#39;</code></pre>\n    </div>\n
+        \   <div id=\"Full-Trace\" style=\"display: none;\">\n      <pre><code>actionpack
+        (4.1.9) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call&#39;\nactionpack
+        (4.1.9) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call&#39;\nrailties
+        (4.1.9) lib/rails/rack/logger.rb:38:in `call_app&#39;\nrailties (4.1.9) lib/rails/rack/logger.rb:20:in
+        `block in call&#39;\nactivesupport (4.1.9) lib/active_support/tagged_logging.rb:68:in
+        `block in tagged&#39;\nactivesupport (4.1.9) lib/active_support/tagged_logging.rb:26:in
+        `tagged&#39;\nactivesupport (4.1.9) lib/active_support/tagged_logging.rb:68:in
+        `tagged&#39;\nrailties (4.1.9) lib/rails/rack/logger.rb:20:in `call&#39;\nactionpack
+        (4.1.9) lib/action_dispatch/middleware/request_id.rb:21:in `call&#39;\nrack
+        (1.5.2) lib/rack/methodoverride.rb:21:in `call&#39;\nrack (1.5.2) lib/rack/runtime.rb:17:in
+        `call&#39;\nrack (1.5.2) lib/rack/lock.rb:17:in `call&#39;\nactionpack (4.1.9)
+        lib/action_dispatch/middleware/static.rb:84:in `call&#39;\nrack (1.5.2) lib/rack/sendfile.rb:112:in
+        `call&#39;\nairbrake (4.1.0) lib/airbrake/user_informer.rb:16:in `_call&#39;\nairbrake
+        (4.1.0) lib/airbrake/user_informer.rb:12:in `call&#39;\nrack-mini-profiler
+        (0.9.1) lib/mini_profiler/profiler.rb:300:in `call&#39;\nrailties (4.1.9)
+        lib/rails/engine.rb:514:in `call&#39;\nrailties (4.1.9) lib/rails/application.rb:144:in
+        `call&#39;\nrack (1.5.2) lib/rack/content_length.rb:14:in `call&#39;\nthin
+        (1.6.4) lib/thin/connection.rb:86:in `block in pre_process&#39;\nthin (1.6.4)
+        lib/thin/connection.rb:84:in `catch&#39;\nthin (1.6.4) lib/thin/connection.rb:84:in
+        `pre_process&#39;\nthin (1.6.4) lib/thin/connection.rb:53:in `process&#39;\nthin
+        (1.6.4) lib/thin/connection.rb:39:in `receive_data&#39;\neventmachine (1.0.8)
+        lib/eventmachine.rb:193:in `run_machine&#39;\neventmachine (1.0.8) lib/eventmachine.rb:193:in
+        `run&#39;\nthin (1.6.4) lib/thin/backends/base.rb:73:in `start&#39;\nthin
+        (1.6.4) lib/thin/server.rb:162:in `start&#39;\nrack (1.5.2) lib/rack/handler/thin.rb:16:in
+        `run&#39;\nrack (1.5.2) lib/rack/server.rb:264:in `start&#39;\nrailties (4.1.9)
+        lib/rails/commands/server.rb:69:in `start&#39;\nrailties (4.1.9) lib/rails/commands/commands_tasks.rb:81:in
+        `block in server&#39;\nrailties (4.1.9) lib/rails/commands/commands_tasks.rb:76:in
+        `tap&#39;\nrailties (4.1.9) lib/rails/commands/commands_tasks.rb:76:in `server&#39;\nrailties
+        (4.1.9) lib/rails/commands/commands_tasks.rb:40:in `run_command!&#39;\nrailties
+        (4.1.9) lib/rails/commands.rb:17:in `&lt;top (required)&gt;&#39;\nscript/rails:7:in
+        `require&#39;\nscript/rails:7:in `&lt;main&gt;&#39;</code></pre>\n    </div>\n</div>\n\n\n
+        \   <h2>\n      Routes\n    </h2>\n\n    <p>\n      Routes match in priority
+        from top to bottom\n    </p>\n\n    \n<table id='route_table' class='route_table'>\n
+        \ <thead>\n    <tr>\n      <th>Helper</th>\n      <th>HTTP Verb</th>\n      <th>Path</th>\n
+        \     <th>Controller#Action</th>\n    </tr>\n    <tr class='bottom'>\n      <th>\n
+        \       <a data-route-helper=\"_path\" href=\"#\" title=\"Returns a relative
+        path (without the http or domain)\">Path</a> /\n        <a data-route-helper=\"_url\"
+        href=\"#\" title=\"Returns an absolute url (with the http and domain)\">Url</a>\n
+        \     </th>\n      <th>\n      </th>\n      <th>\n        <input id=\"path_search\"
+        name=\"path[]\" placeholder=\"Path Match\" type=\"search\" />\n      </th>\n
+        \     <th>\n      </th>\n    </tr>\n  </thead>\n  <tbody class='matched_paths'
+        id='matched_paths'>\n  </tbody>\n  <tbody>\n    <tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name=''>\n  </td>\n  <td data-route-verb=''>\n    \n  </td>\n
+        \ <td data-route-path='/resque' data-regexp='^\\/resque'>\n    /resque\n  </td>\n
+        \ <td data-route-reqs='#&lt;Resque::Server app_file=&quot;/Users/nboie/.rvm/gems/ruby-2.1.5@fusion/gems/resque-1.25.2/lib/resque/server.rb&quot;&gt;'>\n
+        \   #&lt;Resque::Server app_file=&quot;/Users/nboie/.rvm/gems/ruby-2.1.5@fusion/gems/resque-1.25.2/lib/resque/server.rb&quot;&gt;\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name='fusion_reports_order_counts_by_tactic_report'>\n
+        \     fusion_reports_order_counts_by_tactic_report<span class='helper'>_path</span>\n
+        \ </td>\n  <td data-route-verb='POST'>\n    POST\n  </td>\n  <td data-route-path='/fusion_reports/order_counts_by_tactic_report(.:format)'
+        data-regexp='^\\/fusion_reports\\/order_counts_by_tactic_report(?:\\.([^\\/.?]+))?$'>\n
+        \   /fusion_reports/order_counts_by_tactic_report(.:format)\n  </td>\n  <td
+        data-route-reqs='fusion_reports/order_counts_by_tactic_reports#create'>\n
+        \   fusion_reports/order_counts_by_tactic_reports#create\n  </td>\n</tr>\n<tr
+        class='route_row' data-helper='path'>\n  <td data-route-name='new_fusion_reports_order_counts_by_tactic_report'>\n
+        \     new_fusion_reports_order_counts_by_tactic_report<span class='helper'>_path</span>\n
+        \ </td>\n  <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/fusion_reports/order_counts_by_tactic_report/new(.:format)'
+        data-regexp='^\\/fusion_reports\\/order_counts_by_tactic_report\\/new(?:\\.([^\\/.?]+))?$'>\n
+        \   /fusion_reports/order_counts_by_tactic_report/new(.:format)\n  </td>\n
+        \ <td data-route-reqs='fusion_reports/order_counts_by_tactic_reports#new'>\n
+        \   fusion_reports/order_counts_by_tactic_reports#new\n  </td>\n</tr>\n<tr
+        class='route_row' data-helper='path'>\n  <td data-route-name=''>\n  </td>\n
+        \ <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/fusion_reports/order_counts_by_tactic_report(.:format)'
+        data-regexp='^\\/fusion_reports\\/order_counts_by_tactic_report(?:\\.([^\\/.?]+))?$'>\n
+        \   /fusion_reports/order_counts_by_tactic_report(.:format)\n  </td>\n  <td
+        data-route-reqs='fusion_reports/order_counts_by_tactic_reports#show'>\n    fusion_reports/order_counts_by_tactic_reports#show\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name='fusion_reports_subscription_billing_management_index'>\n
+        \     fusion_reports_subscription_billing_management_index<span class='helper'>_path</span>\n
+        \ </td>\n  <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/fusion_reports/subscription_billing/management(.:format)'
+        data-regexp='^\\/fusion_reports\\/subscription_billing\\/management(?:\\.([^\\/.?]+))?$'>\n
+        \   /fusion_reports/subscription_billing/management(.:format)\n  </td>\n  <td
+        data-route-reqs='fusion_reports/subscription_billing/management#index'>\n
+        \   fusion_reports/subscription_billing/management#index\n  </td>\n</tr>\n<tr
+        class='route_row' data-helper='path'>\n  <td data-route-name='fusion_reports_subscription_billing_workflows'>\n
+        \     fusion_reports_subscription_billing_workflows<span class='helper'>_path</span>\n
+        \ </td>\n  <td data-route-verb='POST'>\n    POST\n  </td>\n  <td data-route-path='/fusion_reports/subscription_billing/workflows(.:format)'
+        data-regexp='^\\/fusion_reports\\/subscription_billing\\/workflows(?:\\.([^\\/.?]+))?$'>\n
+        \   /fusion_reports/subscription_billing/workflows(.:format)\n  </td>\n  <td
+        data-route-reqs='fusion_reports/subscription_billing/workflows#create'>\n
+        \   fusion_reports/subscription_billing/workflows#create\n  </td>\n</tr>\n<tr
+        class='route_row' data-helper='path'>\n  <td data-route-name='fusion_workflow_list_stats_report'>\n
+        \     fusion_workflow_list_stats_report<span class='helper'>_path</span>\n
+        \ </td>\n  <td data-route-verb='POST'>\n    POST\n  </td>\n  <td data-route-path='/fusion_workflows/:fusion_workflow_id/list_stats_report(.:format)'
+        data-regexp='^\\/fusion_workflows\\/([^\\/.?]+)\\/list_stats_report(?:\\.([^\\/.?]+))?$'>\n
+        \   /fusion_workflows/:fusion_workflow_id/list_stats_report(.:format)\n  </td>\n
+        \ <td data-route-reqs='fusion_workflows/list_stats_reports#create'>\n    fusion_workflows/list_stats_reports#create\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name='new_fusion_workflow_list_stats_report'>\n
+        \     new_fusion_workflow_list_stats_report<span class='helper'>_path</span>\n
+        \ </td>\n  <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/fusion_workflows/:fusion_workflow_id/list_stats_report/new(.:format)'
+        data-regexp='^\\/fusion_workflows\\/([^\\/.?]+)\\/list_stats_report\\/new(?:\\.([^\\/.?]+))?$'>\n
+        \   /fusion_workflows/:fusion_workflow_id/list_stats_report/new(.:format)\n
+        \ </td>\n  <td data-route-reqs='fusion_workflows/list_stats_reports#new'>\n
+        \   fusion_workflows/list_stats_reports#new\n  </td>\n</tr>\n<tr class='route_row'
+        data-helper='path'>\n  <td data-route-name='edit_fusion_workflow_list_stats_report'>\n
+        \     edit_fusion_workflow_list_stats_report<span class='helper'>_path</span>\n
+        \ </td>\n  <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/fusion_workflows/:fusion_workflow_id/list_stats_report/edit(.:format)'
+        data-regexp='^\\/fusion_workflows\\/([^\\/.?]+)\\/list_stats_report\\/edit(?:\\.([^\\/.?]+))?$'>\n
+        \   /fusion_workflows/:fusion_workflow_id/list_stats_report/edit(.:format)\n
+        \ </td>\n  <td data-route-reqs='fusion_workflows/list_stats_reports#edit'>\n
+        \   fusion_workflows/list_stats_reports#edit\n  </td>\n</tr>\n<tr class='route_row'
+        data-helper='path'>\n  <td data-route-name=''>\n  </td>\n  <td data-route-verb='GET'>\n
+        \   GET\n  </td>\n  <td data-route-path='/fusion_workflows/:fusion_workflow_id/list_stats_report(.:format)'
+        data-regexp='^\\/fusion_workflows\\/([^\\/.?]+)\\/list_stats_report(?:\\.([^\\/.?]+))?$'>\n
+        \   /fusion_workflows/:fusion_workflow_id/list_stats_report(.:format)\n  </td>\n
+        \ <td data-route-reqs='fusion_workflows/list_stats_reports#show'>\n    fusion_workflows/list_stats_reports#show\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name=''>\n
+        \ </td>\n  <td data-route-verb='PATCH'>\n    PATCH\n  </td>\n  <td data-route-path='/fusion_workflows/:fusion_workflow_id/list_stats_report(.:format)'
+        data-regexp='^\\/fusion_workflows\\/([^\\/.?]+)\\/list_stats_report(?:\\.([^\\/.?]+))?$'>\n
+        \   /fusion_workflows/:fusion_workflow_id/list_stats_report(.:format)\n  </td>\n
+        \ <td data-route-reqs='fusion_workflows/list_stats_reports#update'>\n    fusion_workflows/list_stats_reports#update\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name=''>\n
+        \ </td>\n  <td data-route-verb='PUT'>\n    PUT\n  </td>\n  <td data-route-path='/fusion_workflows/:fusion_workflow_id/list_stats_report(.:format)'
+        data-regexp='^\\/fusion_workflows\\/([^\\/.?]+)\\/list_stats_report(?:\\.([^\\/.?]+))?$'>\n
+        \   /fusion_workflows/:fusion_workflow_id/list_stats_report(.:format)\n  </td>\n
+        \ <td data-route-reqs='fusion_workflows/list_stats_reports#update'>\n    fusion_workflows/list_stats_reports#update\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name=''>\n
+        \ </td>\n  <td data-route-verb='DELETE'>\n    DELETE\n  </td>\n  <td data-route-path='/fusion_workflows/:fusion_workflow_id/list_stats_report(.:format)'
+        data-regexp='^\\/fusion_workflows\\/([^\\/.?]+)\\/list_stats_report(?:\\.([^\\/.?]+))?$'>\n
+        \   /fusion_workflows/:fusion_workflow_id/list_stats_report(.:format)\n  </td>\n
+        \ <td data-route-reqs='fusion_workflows/list_stats_reports#destroy'>\n    fusion_workflows/list_stats_reports#destroy\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name='fusion_workflow_carrier_routes_for_list'>\n
+        \     fusion_workflow_carrier_routes_for_list<span class='helper'>_path</span>\n
+        \ </td>\n  <td data-route-verb='POST'>\n    POST\n  </td>\n  <td data-route-path='/fusion_workflows/:fusion_workflow_id/carrier_routes_for_list(.:format)'
+        data-regexp='^\\/fusion_workflows\\/([^\\/.?]+)\\/carrier_routes_for_list(?:\\.([^\\/.?]+))?$'>\n
+        \   /fusion_workflows/:fusion_workflow_id/carrier_routes_for_list(.:format)\n
+        \ </td>\n  <td data-route-reqs='fusion_workflows/carrier_routes_for_lists#create'>\n
+        \   fusion_workflows/carrier_routes_for_lists#create\n  </td>\n</tr>\n<tr
+        class='route_row' data-helper='path'>\n  <td data-route-name='new_fusion_workflow_carrier_routes_for_list'>\n
+        \     new_fusion_workflow_carrier_routes_for_list<span class='helper'>_path</span>\n
+        \ </td>\n  <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/fusion_workflows/:fusion_workflow_id/carrier_routes_for_list/new(.:format)'
+        data-regexp='^\\/fusion_workflows\\/([^\\/.?]+)\\/carrier_routes_for_list\\/new(?:\\.([^\\/.?]+))?$'>\n
+        \   /fusion_workflows/:fusion_workflow_id/carrier_routes_for_list/new(.:format)\n
+        \ </td>\n  <td data-route-reqs='fusion_workflows/carrier_routes_for_lists#new'>\n
+        \   fusion_workflows/carrier_routes_for_lists#new\n  </td>\n</tr>\n<tr class='route_row'
+        data-helper='path'>\n  <td data-route-name='edit_fusion_workflow_carrier_routes_for_list'>\n
+        \     edit_fusion_workflow_carrier_routes_for_list<span class='helper'>_path</span>\n
+        \ </td>\n  <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/fusion_workflows/:fusion_workflow_id/carrier_routes_for_list/edit(.:format)'
+        data-regexp='^\\/fusion_workflows\\/([^\\/.?]+)\\/carrier_routes_for_list\\/edit(?:\\.([^\\/.?]+))?$'>\n
+        \   /fusion_workflows/:fusion_workflow_id/carrier_routes_for_list/edit(.:format)\n
+        \ </td>\n  <td data-route-reqs='fusion_workflows/carrier_routes_for_lists#edit'>\n
+        \   fusion_workflows/carrier_routes_for_lists#edit\n  </td>\n</tr>\n<tr class='route_row'
+        data-helper='path'>\n  <td data-route-name=''>\n  </td>\n  <td data-route-verb='GET'>\n
+        \   GET\n  </td>\n  <td data-route-path='/fusion_workflows/:fusion_workflow_id/carrier_routes_for_list(.:format)'
+        data-regexp='^\\/fusion_workflows\\/([^\\/.?]+)\\/carrier_routes_for_list(?:\\.([^\\/.?]+))?$'>\n
+        \   /fusion_workflows/:fusion_workflow_id/carrier_routes_for_list(.:format)\n
+        \ </td>\n  <td data-route-reqs='fusion_workflows/carrier_routes_for_lists#show'>\n
+        \   fusion_workflows/carrier_routes_for_lists#show\n  </td>\n</tr>\n<tr class='route_row'
+        data-helper='path'>\n  <td data-route-name=''>\n  </td>\n  <td data-route-verb='PATCH'>\n
+        \   PATCH\n  </td>\n  <td data-route-path='/fusion_workflows/:fusion_workflow_id/carrier_routes_for_list(.:format)'
+        data-regexp='^\\/fusion_workflows\\/([^\\/.?]+)\\/carrier_routes_for_list(?:\\.([^\\/.?]+))?$'>\n
+        \   /fusion_workflows/:fusion_workflow_id/carrier_routes_for_list(.:format)\n
+        \ </td>\n  <td data-route-reqs='fusion_workflows/carrier_routes_for_lists#update'>\n
+        \   fusion_workflows/carrier_routes_for_lists#update\n  </td>\n</tr>\n<tr
+        class='route_row' data-helper='path'>\n  <td data-route-name=''>\n  </td>\n
+        \ <td data-route-verb='PUT'>\n    PUT\n  </td>\n  <td data-route-path='/fusion_workflows/:fusion_workflow_id/carrier_routes_for_list(.:format)'
+        data-regexp='^\\/fusion_workflows\\/([^\\/.?]+)\\/carrier_routes_for_list(?:\\.([^\\/.?]+))?$'>\n
+        \   /fusion_workflows/:fusion_workflow_id/carrier_routes_for_list(.:format)\n
+        \ </td>\n  <td data-route-reqs='fusion_workflows/carrier_routes_for_lists#update'>\n
+        \   fusion_workflows/carrier_routes_for_lists#update\n  </td>\n</tr>\n<tr
+        class='route_row' data-helper='path'>\n  <td data-route-name=''>\n  </td>\n
+        \ <td data-route-verb='DELETE'>\n    DELETE\n  </td>\n  <td data-route-path='/fusion_workflows/:fusion_workflow_id/carrier_routes_for_list(.:format)'
+        data-regexp='^\\/fusion_workflows\\/([^\\/.?]+)\\/carrier_routes_for_list(?:\\.([^\\/.?]+))?$'>\n
+        \   /fusion_workflows/:fusion_workflow_id/carrier_routes_for_list(.:format)\n
+        \ </td>\n  <td data-route-reqs='fusion_workflows/carrier_routes_for_lists#destroy'>\n
+        \   fusion_workflows/carrier_routes_for_lists#destroy\n  </td>\n</tr>\n<tr
+        class='route_row' data-helper='path'>\n  <td data-route-name='fusion_workflow_check_gcdata_status'>\n
+        \     fusion_workflow_check_gcdata_status<span class='helper'>_path</span>\n
+        \ </td>\n  <td data-route-verb='POST'>\n    POST\n  </td>\n  <td data-route-path='/fusion_workflows/:fusion_workflow_id/check_gcdata_status(.:format)'
+        data-regexp='^\\/fusion_workflows\\/([^\\/.?]+)\\/check_gcdata_status(?:\\.([^\\/.?]+))?$'>\n
+        \   /fusion_workflows/:fusion_workflow_id/check_gcdata_status(.:format)\n
+        \ </td>\n  <td data-route-reqs='fusion_workflows/check_gcdata_statuses#create'>\n
+        \   fusion_workflows/check_gcdata_statuses#create\n  </td>\n</tr>\n<tr class='route_row'
+        data-helper='path'>\n  <td data-route-name='new_fusion_workflow_check_gcdata_status'>\n
+        \     new_fusion_workflow_check_gcdata_status<span class='helper'>_path</span>\n
+        \ </td>\n  <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/fusion_workflows/:fusion_workflow_id/check_gcdata_status/new(.:format)'
+        data-regexp='^\\/fusion_workflows\\/([^\\/.?]+)\\/check_gcdata_status\\/new(?:\\.([^\\/.?]+))?$'>\n
+        \   /fusion_workflows/:fusion_workflow_id/check_gcdata_status/new(.:format)\n
+        \ </td>\n  <td data-route-reqs='fusion_workflows/check_gcdata_statuses#new'>\n
+        \   fusion_workflows/check_gcdata_statuses#new\n  </td>\n</tr>\n<tr class='route_row'
+        data-helper='path'>\n  <td data-route-name='edit_fusion_workflow_check_gcdata_status'>\n
+        \     edit_fusion_workflow_check_gcdata_status<span class='helper'>_path</span>\n
+        \ </td>\n  <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/fusion_workflows/:fusion_workflow_id/check_gcdata_status/edit(.:format)'
+        data-regexp='^\\/fusion_workflows\\/([^\\/.?]+)\\/check_gcdata_status\\/edit(?:\\.([^\\/.?]+))?$'>\n
+        \   /fusion_workflows/:fusion_workflow_id/check_gcdata_status/edit(.:format)\n
+        \ </td>\n  <td data-route-reqs='fusion_workflows/check_gcdata_statuses#edit'>\n
+        \   fusion_workflows/check_gcdata_statuses#edit\n  </td>\n</tr>\n<tr class='route_row'
+        data-helper='path'>\n  <td data-route-name=''>\n  </td>\n  <td data-route-verb='GET'>\n
+        \   GET\n  </td>\n  <td data-route-path='/fusion_workflows/:fusion_workflow_id/check_gcdata_status(.:format)'
+        data-regexp='^\\/fusion_workflows\\/([^\\/.?]+)\\/check_gcdata_status(?:\\.([^\\/.?]+))?$'>\n
+        \   /fusion_workflows/:fusion_workflow_id/check_gcdata_status(.:format)\n
+        \ </td>\n  <td data-route-reqs='fusion_workflows/check_gcdata_statuses#show'>\n
+        \   fusion_workflows/check_gcdata_statuses#show\n  </td>\n</tr>\n<tr class='route_row'
+        data-helper='path'>\n  <td data-route-name=''>\n  </td>\n  <td data-route-verb='PATCH'>\n
+        \   PATCH\n  </td>\n  <td data-route-path='/fusion_workflows/:fusion_workflow_id/check_gcdata_status(.:format)'
+        data-regexp='^\\/fusion_workflows\\/([^\\/.?]+)\\/check_gcdata_status(?:\\.([^\\/.?]+))?$'>\n
+        \   /fusion_workflows/:fusion_workflow_id/check_gcdata_status(.:format)\n
+        \ </td>\n  <td data-route-reqs='fusion_workflows/check_gcdata_statuses#update'>\n
+        \   fusion_workflows/check_gcdata_statuses#update\n  </td>\n</tr>\n<tr class='route_row'
+        data-helper='path'>\n  <td data-route-name=''>\n  </td>\n  <td data-route-verb='PUT'>\n
+        \   PUT\n  </td>\n  <td data-route-path='/fusion_workflows/:fusion_workflow_id/check_gcdata_status(.:format)'
+        data-regexp='^\\/fusion_workflows\\/([^\\/.?]+)\\/check_gcdata_status(?:\\.([^\\/.?]+))?$'>\n
+        \   /fusion_workflows/:fusion_workflow_id/check_gcdata_status(.:format)\n
+        \ </td>\n  <td data-route-reqs='fusion_workflows/check_gcdata_statuses#update'>\n
+        \   fusion_workflows/check_gcdata_statuses#update\n  </td>\n</tr>\n<tr class='route_row'
+        data-helper='path'>\n  <td data-route-name=''>\n  </td>\n  <td data-route-verb='DELETE'>\n
+        \   DELETE\n  </td>\n  <td data-route-path='/fusion_workflows/:fusion_workflow_id/check_gcdata_status(.:format)'
+        data-regexp='^\\/fusion_workflows\\/([^\\/.?]+)\\/check_gcdata_status(?:\\.([^\\/.?]+))?$'>\n
+        \   /fusion_workflows/:fusion_workflow_id/check_gcdata_status(.:format)\n
+        \ </td>\n  <td data-route-reqs='fusion_workflows/check_gcdata_statuses#destroy'>\n
+        \   fusion_workflows/check_gcdata_statuses#destroy\n  </td>\n</tr>\n<tr class='route_row'
+        data-helper='path'>\n  <td data-route-name='fusion_workflow_review_workflow_result'>\n
+        \     fusion_workflow_review_workflow_result<span class='helper'>_path</span>\n
+        \ </td>\n  <td data-route-verb='POST'>\n    POST\n  </td>\n  <td data-route-path='/fusion_workflows/:fusion_workflow_id/review_workflow_result(.:format)'
+        data-regexp='^\\/fusion_workflows\\/([^\\/.?]+)\\/review_workflow_result(?:\\.([^\\/.?]+))?$'>\n
+        \   /fusion_workflows/:fusion_workflow_id/review_workflow_result(.:format)\n
+        \ </td>\n  <td data-route-reqs='fusion_workflows/review_workflow_results#create'>\n
+        \   fusion_workflows/review_workflow_results#create\n  </td>\n</tr>\n<tr class='route_row'
+        data-helper='path'>\n  <td data-route-name='new_fusion_workflow_review_workflow_result'>\n
+        \     new_fusion_workflow_review_workflow_result<span class='helper'>_path</span>\n
+        \ </td>\n  <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/fusion_workflows/:fusion_workflow_id/review_workflow_result/new(.:format)'
+        data-regexp='^\\/fusion_workflows\\/([^\\/.?]+)\\/review_workflow_result\\/new(?:\\.([^\\/.?]+))?$'>\n
+        \   /fusion_workflows/:fusion_workflow_id/review_workflow_result/new(.:format)\n
+        \ </td>\n  <td data-route-reqs='fusion_workflows/review_workflow_results#new'>\n
+        \   fusion_workflows/review_workflow_results#new\n  </td>\n</tr>\n<tr class='route_row'
+        data-helper='path'>\n  <td data-route-name='edit_fusion_workflow_review_workflow_result'>\n
+        \     edit_fusion_workflow_review_workflow_result<span class='helper'>_path</span>\n
+        \ </td>\n  <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/fusion_workflows/:fusion_workflow_id/review_workflow_result/edit(.:format)'
+        data-regexp='^\\/fusion_workflows\\/([^\\/.?]+)\\/review_workflow_result\\/edit(?:\\.([^\\/.?]+))?$'>\n
+        \   /fusion_workflows/:fusion_workflow_id/review_workflow_result/edit(.:format)\n
+        \ </td>\n  <td data-route-reqs='fusion_workflows/review_workflow_results#edit'>\n
+        \   fusion_workflows/review_workflow_results#edit\n  </td>\n</tr>\n<tr class='route_row'
+        data-helper='path'>\n  <td data-route-name=''>\n  </td>\n  <td data-route-verb='GET'>\n
+        \   GET\n  </td>\n  <td data-route-path='/fusion_workflows/:fusion_workflow_id/review_workflow_result(.:format)'
+        data-regexp='^\\/fusion_workflows\\/([^\\/.?]+)\\/review_workflow_result(?:\\.([^\\/.?]+))?$'>\n
+        \   /fusion_workflows/:fusion_workflow_id/review_workflow_result(.:format)\n
+        \ </td>\n  <td data-route-reqs='fusion_workflows/review_workflow_results#show'>\n
+        \   fusion_workflows/review_workflow_results#show\n  </td>\n</tr>\n<tr class='route_row'
+        data-helper='path'>\n  <td data-route-name=''>\n  </td>\n  <td data-route-verb='PATCH'>\n
+        \   PATCH\n  </td>\n  <td data-route-path='/fusion_workflows/:fusion_workflow_id/review_workflow_result(.:format)'
+        data-regexp='^\\/fusion_workflows\\/([^\\/.?]+)\\/review_workflow_result(?:\\.([^\\/.?]+))?$'>\n
+        \   /fusion_workflows/:fusion_workflow_id/review_workflow_result(.:format)\n
+        \ </td>\n  <td data-route-reqs='fusion_workflows/review_workflow_results#update'>\n
+        \   fusion_workflows/review_workflow_results#update\n  </td>\n</tr>\n<tr class='route_row'
+        data-helper='path'>\n  <td data-route-name=''>\n  </td>\n  <td data-route-verb='PUT'>\n
+        \   PUT\n  </td>\n  <td data-route-path='/fusion_workflows/:fusion_workflow_id/review_workflow_result(.:format)'
+        data-regexp='^\\/fusion_workflows\\/([^\\/.?]+)\\/review_workflow_result(?:\\.([^\\/.?]+))?$'>\n
+        \   /fusion_workflows/:fusion_workflow_id/review_workflow_result(.:format)\n
+        \ </td>\n  <td data-route-reqs='fusion_workflows/review_workflow_results#update'>\n
+        \   fusion_workflows/review_workflow_results#update\n  </td>\n</tr>\n<tr class='route_row'
+        data-helper='path'>\n  <td data-route-name=''>\n  </td>\n  <td data-route-verb='DELETE'>\n
+        \   DELETE\n  </td>\n  <td data-route-path='/fusion_workflows/:fusion_workflow_id/review_workflow_result(.:format)'
+        data-regexp='^\\/fusion_workflows\\/([^\\/.?]+)\\/review_workflow_result(?:\\.([^\\/.?]+))?$'>\n
+        \   /fusion_workflows/:fusion_workflow_id/review_workflow_result(.:format)\n
+        \ </td>\n  <td data-route-reqs='fusion_workflows/review_workflow_results#destroy'>\n
+        \   fusion_workflows/review_workflow_results#destroy\n  </td>\n</tr>\n<tr
+        class='route_row' data-helper='path'>\n  <td data-route-name='fusion_workflow_review_orders_stat'>\n
+        \     fusion_workflow_review_orders_stat<span class='helper'>_path</span>\n
+        \ </td>\n  <td data-route-verb='POST'>\n    POST\n  </td>\n  <td data-route-path='/fusion_workflows/:fusion_workflow_id/review_orders_stat(.:format)'
+        data-regexp='^\\/fusion_workflows\\/([^\\/.?]+)\\/review_orders_stat(?:\\.([^\\/.?]+))?$'>\n
+        \   /fusion_workflows/:fusion_workflow_id/review_orders_stat(.:format)\n  </td>\n
+        \ <td data-route-reqs='fusion_workflows/review_orders_stats#create'>\n    fusion_workflows/review_orders_stats#create\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name='new_fusion_workflow_review_orders_stat'>\n
+        \     new_fusion_workflow_review_orders_stat<span class='helper'>_path</span>\n
+        \ </td>\n  <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/fusion_workflows/:fusion_workflow_id/review_orders_stat/new(.:format)'
+        data-regexp='^\\/fusion_workflows\\/([^\\/.?]+)\\/review_orders_stat\\/new(?:\\.([^\\/.?]+))?$'>\n
+        \   /fusion_workflows/:fusion_workflow_id/review_orders_stat/new(.:format)\n
+        \ </td>\n  <td data-route-reqs='fusion_workflows/review_orders_stats#new'>\n
+        \   fusion_workflows/review_orders_stats#new\n  </td>\n</tr>\n<tr class='route_row'
+        data-helper='path'>\n  <td data-route-name='edit_fusion_workflow_review_orders_stat'>\n
+        \     edit_fusion_workflow_review_orders_stat<span class='helper'>_path</span>\n
+        \ </td>\n  <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/fusion_workflows/:fusion_workflow_id/review_orders_stat/edit(.:format)'
+        data-regexp='^\\/fusion_workflows\\/([^\\/.?]+)\\/review_orders_stat\\/edit(?:\\.([^\\/.?]+))?$'>\n
+        \   /fusion_workflows/:fusion_workflow_id/review_orders_stat/edit(.:format)\n
+        \ </td>\n  <td data-route-reqs='fusion_workflows/review_orders_stats#edit'>\n
+        \   fusion_workflows/review_orders_stats#edit\n  </td>\n</tr>\n<tr class='route_row'
+        data-helper='path'>\n  <td data-route-name=''>\n  </td>\n  <td data-route-verb='GET'>\n
+        \   GET\n  </td>\n  <td data-route-path='/fusion_workflows/:fusion_workflow_id/review_orders_stat(.:format)'
+        data-regexp='^\\/fusion_workflows\\/([^\\/.?]+)\\/review_orders_stat(?:\\.([^\\/.?]+))?$'>\n
+        \   /fusion_workflows/:fusion_workflow_id/review_orders_stat(.:format)\n  </td>\n
+        \ <td data-route-reqs='fusion_workflows/review_orders_stats#show'>\n    fusion_workflows/review_orders_stats#show\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name=''>\n
+        \ </td>\n  <td data-route-verb='PATCH'>\n    PATCH\n  </td>\n  <td data-route-path='/fusion_workflows/:fusion_workflow_id/review_orders_stat(.:format)'
+        data-regexp='^\\/fusion_workflows\\/([^\\/.?]+)\\/review_orders_stat(?:\\.([^\\/.?]+))?$'>\n
+        \   /fusion_workflows/:fusion_workflow_id/review_orders_stat(.:format)\n  </td>\n
+        \ <td data-route-reqs='fusion_workflows/review_orders_stats#update'>\n    fusion_workflows/review_orders_stats#update\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name=''>\n
+        \ </td>\n  <td data-route-verb='PUT'>\n    PUT\n  </td>\n  <td data-route-path='/fusion_workflows/:fusion_workflow_id/review_orders_stat(.:format)'
+        data-regexp='^\\/fusion_workflows\\/([^\\/.?]+)\\/review_orders_stat(?:\\.([^\\/.?]+))?$'>\n
+        \   /fusion_workflows/:fusion_workflow_id/review_orders_stat(.:format)\n  </td>\n
+        \ <td data-route-reqs='fusion_workflows/review_orders_stats#update'>\n    fusion_workflows/review_orders_stats#update\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name=''>\n
+        \ </td>\n  <td data-route-verb='DELETE'>\n    DELETE\n  </td>\n  <td data-route-path='/fusion_workflows/:fusion_workflow_id/review_orders_stat(.:format)'
+        data-regexp='^\\/fusion_workflows\\/([^\\/.?]+)\\/review_orders_stat(?:\\.([^\\/.?]+))?$'>\n
+        \   /fusion_workflows/:fusion_workflow_id/review_orders_stat(.:format)\n  </td>\n
+        \ <td data-route-reqs='fusion_workflows/review_orders_stats#destroy'>\n    fusion_workflows/review_orders_stats#destroy\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name='fusion_workflow_email_suppression_report'>\n
+        \     fusion_workflow_email_suppression_report<span class='helper'>_path</span>\n
+        \ </td>\n  <td data-route-verb='POST'>\n    POST\n  </td>\n  <td data-route-path='/fusion_workflows/:fusion_workflow_id/email_suppression_report(.:format)'
+        data-regexp='^\\/fusion_workflows\\/([^\\/.?]+)\\/email_suppression_report(?:\\.([^\\/.?]+))?$'>\n
+        \   /fusion_workflows/:fusion_workflow_id/email_suppression_report(.:format)\n
+        \ </td>\n  <td data-route-reqs='fusion_workflows/email_suppression_reports#create'>\n
+        \   fusion_workflows/email_suppression_reports#create\n  </td>\n</tr>\n<tr
+        class='route_row' data-helper='path'>\n  <td data-route-name='new_fusion_workflow_email_suppression_report'>\n
+        \     new_fusion_workflow_email_suppression_report<span class='helper'>_path</span>\n
+        \ </td>\n  <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/fusion_workflows/:fusion_workflow_id/email_suppression_report/new(.:format)'
+        data-regexp='^\\/fusion_workflows\\/([^\\/.?]+)\\/email_suppression_report\\/new(?:\\.([^\\/.?]+))?$'>\n
+        \   /fusion_workflows/:fusion_workflow_id/email_suppression_report/new(.:format)\n
+        \ </td>\n  <td data-route-reqs='fusion_workflows/email_suppression_reports#new'>\n
+        \   fusion_workflows/email_suppression_reports#new\n  </td>\n</tr>\n<tr class='route_row'
+        data-helper='path'>\n  <td data-route-name='edit_fusion_workflow_email_suppression_report'>\n
+        \     edit_fusion_workflow_email_suppression_report<span class='helper'>_path</span>\n
+        \ </td>\n  <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/fusion_workflows/:fusion_workflow_id/email_suppression_report/edit(.:format)'
+        data-regexp='^\\/fusion_workflows\\/([^\\/.?]+)\\/email_suppression_report\\/edit(?:\\.([^\\/.?]+))?$'>\n
+        \   /fusion_workflows/:fusion_workflow_id/email_suppression_report/edit(.:format)\n
+        \ </td>\n  <td data-route-reqs='fusion_workflows/email_suppression_reports#edit'>\n
+        \   fusion_workflows/email_suppression_reports#edit\n  </td>\n</tr>\n<tr class='route_row'
+        data-helper='path'>\n  <td data-route-name=''>\n  </td>\n  <td data-route-verb='GET'>\n
+        \   GET\n  </td>\n  <td data-route-path='/fusion_workflows/:fusion_workflow_id/email_suppression_report(.:format)'
+        data-regexp='^\\/fusion_workflows\\/([^\\/.?]+)\\/email_suppression_report(?:\\.([^\\/.?]+))?$'>\n
+        \   /fusion_workflows/:fusion_workflow_id/email_suppression_report(.:format)\n
+        \ </td>\n  <td data-route-reqs='fusion_workflows/email_suppression_reports#show'>\n
+        \   fusion_workflows/email_suppression_reports#show\n  </td>\n</tr>\n<tr class='route_row'
+        data-helper='path'>\n  <td data-route-name=''>\n  </td>\n  <td data-route-verb='PATCH'>\n
+        \   PATCH\n  </td>\n  <td data-route-path='/fusion_workflows/:fusion_workflow_id/email_suppression_report(.:format)'
+        data-regexp='^\\/fusion_workflows\\/([^\\/.?]+)\\/email_suppression_report(?:\\.([^\\/.?]+))?$'>\n
+        \   /fusion_workflows/:fusion_workflow_id/email_suppression_report(.:format)\n
+        \ </td>\n  <td data-route-reqs='fusion_workflows/email_suppression_reports#update'>\n
+        \   fusion_workflows/email_suppression_reports#update\n  </td>\n</tr>\n<tr
+        class='route_row' data-helper='path'>\n  <td data-route-name=''>\n  </td>\n
+        \ <td data-route-verb='PUT'>\n    PUT\n  </td>\n  <td data-route-path='/fusion_workflows/:fusion_workflow_id/email_suppression_report(.:format)'
+        data-regexp='^\\/fusion_workflows\\/([^\\/.?]+)\\/email_suppression_report(?:\\.([^\\/.?]+))?$'>\n
+        \   /fusion_workflows/:fusion_workflow_id/email_suppression_report(.:format)\n
+        \ </td>\n  <td data-route-reqs='fusion_workflows/email_suppression_reports#update'>\n
+        \   fusion_workflows/email_suppression_reports#update\n  </td>\n</tr>\n<tr
+        class='route_row' data-helper='path'>\n  <td data-route-name=''>\n  </td>\n
+        \ <td data-route-verb='DELETE'>\n    DELETE\n  </td>\n  <td data-route-path='/fusion_workflows/:fusion_workflow_id/email_suppression_report(.:format)'
+        data-regexp='^\\/fusion_workflows\\/([^\\/.?]+)\\/email_suppression_report(?:\\.([^\\/.?]+))?$'>\n
+        \   /fusion_workflows/:fusion_workflow_id/email_suppression_report(.:format)\n
+        \ </td>\n  <td data-route-reqs='fusion_workflows/email_suppression_reports#destroy'>\n
+        \   fusion_workflows/email_suppression_reports#destroy\n  </td>\n</tr>\n<tr
+        class='route_row' data-helper='path'>\n  <td data-route-name='fusion_workflow_review_coupon'>\n
+        \     fusion_workflow_review_coupon<span class='helper'>_path</span>\n  </td>\n
+        \ <td data-route-verb='POST'>\n    POST\n  </td>\n  <td data-route-path='/fusion_workflows/:fusion_workflow_id/review_coupon(.:format)'
+        data-regexp='^\\/fusion_workflows\\/([^\\/.?]+)\\/review_coupon(?:\\.([^\\/.?]+))?$'>\n
+        \   /fusion_workflows/:fusion_workflow_id/review_coupon(.:format)\n  </td>\n
+        \ <td data-route-reqs='fusion_workflows/review_coupons#create'>\n    fusion_workflows/review_coupons#create\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name='new_fusion_workflow_review_coupon'>\n
+        \     new_fusion_workflow_review_coupon<span class='helper'>_path</span>\n
+        \ </td>\n  <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/fusion_workflows/:fusion_workflow_id/review_coupon/new(.:format)'
+        data-regexp='^\\/fusion_workflows\\/([^\\/.?]+)\\/review_coupon\\/new(?:\\.([^\\/.?]+))?$'>\n
+        \   /fusion_workflows/:fusion_workflow_id/review_coupon/new(.:format)\n  </td>\n
+        \ <td data-route-reqs='fusion_workflows/review_coupons#new'>\n    fusion_workflows/review_coupons#new\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name='edit_fusion_workflow_review_coupon'>\n
+        \     edit_fusion_workflow_review_coupon<span class='helper'>_path</span>\n
+        \ </td>\n  <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/fusion_workflows/:fusion_workflow_id/review_coupon/edit(.:format)'
+        data-regexp='^\\/fusion_workflows\\/([^\\/.?]+)\\/review_coupon\\/edit(?:\\.([^\\/.?]+))?$'>\n
+        \   /fusion_workflows/:fusion_workflow_id/review_coupon/edit(.:format)\n  </td>\n
+        \ <td data-route-reqs='fusion_workflows/review_coupons#edit'>\n    fusion_workflows/review_coupons#edit\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name=''>\n
+        \ </td>\n  <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/fusion_workflows/:fusion_workflow_id/review_coupon(.:format)'
+        data-regexp='^\\/fusion_workflows\\/([^\\/.?]+)\\/review_coupon(?:\\.([^\\/.?]+))?$'>\n
+        \   /fusion_workflows/:fusion_workflow_id/review_coupon(.:format)\n  </td>\n
+        \ <td data-route-reqs='fusion_workflows/review_coupons#show'>\n    fusion_workflows/review_coupons#show\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name=''>\n
+        \ </td>\n  <td data-route-verb='PATCH'>\n    PATCH\n  </td>\n  <td data-route-path='/fusion_workflows/:fusion_workflow_id/review_coupon(.:format)'
+        data-regexp='^\\/fusion_workflows\\/([^\\/.?]+)\\/review_coupon(?:\\.([^\\/.?]+))?$'>\n
+        \   /fusion_workflows/:fusion_workflow_id/review_coupon(.:format)\n  </td>\n
+        \ <td data-route-reqs='fusion_workflows/review_coupons#update'>\n    fusion_workflows/review_coupons#update\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name=''>\n
+        \ </td>\n  <td data-route-verb='PUT'>\n    PUT\n  </td>\n  <td data-route-path='/fusion_workflows/:fusion_workflow_id/review_coupon(.:format)'
+        data-regexp='^\\/fusion_workflows\\/([^\\/.?]+)\\/review_coupon(?:\\.([^\\/.?]+))?$'>\n
+        \   /fusion_workflows/:fusion_workflow_id/review_coupon(.:format)\n  </td>\n
+        \ <td data-route-reqs='fusion_workflows/review_coupons#update'>\n    fusion_workflows/review_coupons#update\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name=''>\n
+        \ </td>\n  <td data-route-verb='DELETE'>\n    DELETE\n  </td>\n  <td data-route-path='/fusion_workflows/:fusion_workflow_id/review_coupon(.:format)'
+        data-regexp='^\\/fusion_workflows\\/([^\\/.?]+)\\/review_coupon(?:\\.([^\\/.?]+))?$'>\n
+        \   /fusion_workflows/:fusion_workflow_id/review_coupon(.:format)\n  </td>\n
+        \ <td data-route-reqs='fusion_workflows/review_coupons#destroy'>\n    fusion_workflows/review_coupons#destroy\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name='fusion_workflow_campaign_count'>\n
+        \     fusion_workflow_campaign_count<span class='helper'>_path</span>\n  </td>\n
+        \ <td data-route-verb='POST'>\n    POST\n  </td>\n  <td data-route-path='/fusion_workflows/:fusion_workflow_id/campaign_count(.:format)'
+        data-regexp='^\\/fusion_workflows\\/([^\\/.?]+)\\/campaign_count(?:\\.([^\\/.?]+))?$'>\n
+        \   /fusion_workflows/:fusion_workflow_id/campaign_count(.:format)\n  </td>\n
+        \ <td data-route-reqs='fusion_workflows/campaign_counts#create'>\n    fusion_workflows/campaign_counts#create\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name='new_fusion_workflow_campaign_count'>\n
+        \     new_fusion_workflow_campaign_count<span class='helper'>_path</span>\n
+        \ </td>\n  <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/fusion_workflows/:fusion_workflow_id/campaign_count/new(.:format)'
+        data-regexp='^\\/fusion_workflows\\/([^\\/.?]+)\\/campaign_count\\/new(?:\\.([^\\/.?]+))?$'>\n
+        \   /fusion_workflows/:fusion_workflow_id/campaign_count/new(.:format)\n  </td>\n
+        \ <td data-route-reqs='fusion_workflows/campaign_counts#new'>\n    fusion_workflows/campaign_counts#new\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name='edit_fusion_workflow_campaign_count'>\n
+        \     edit_fusion_workflow_campaign_count<span class='helper'>_path</span>\n
+        \ </td>\n  <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/fusion_workflows/:fusion_workflow_id/campaign_count/edit(.:format)'
+        data-regexp='^\\/fusion_workflows\\/([^\\/.?]+)\\/campaign_count\\/edit(?:\\.([^\\/.?]+))?$'>\n
+        \   /fusion_workflows/:fusion_workflow_id/campaign_count/edit(.:format)\n
+        \ </td>\n  <td data-route-reqs='fusion_workflows/campaign_counts#edit'>\n
+        \   fusion_workflows/campaign_counts#edit\n  </td>\n</tr>\n<tr class='route_row'
+        data-helper='path'>\n  <td data-route-name=''>\n  </td>\n  <td data-route-verb='GET'>\n
+        \   GET\n  </td>\n  <td data-route-path='/fusion_workflows/:fusion_workflow_id/campaign_count(.:format)'
+        data-regexp='^\\/fusion_workflows\\/([^\\/.?]+)\\/campaign_count(?:\\.([^\\/.?]+))?$'>\n
+        \   /fusion_workflows/:fusion_workflow_id/campaign_count(.:format)\n  </td>\n
+        \ <td data-route-reqs='fusion_workflows/campaign_counts#show'>\n    fusion_workflows/campaign_counts#show\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name=''>\n
+        \ </td>\n  <td data-route-verb='PATCH'>\n    PATCH\n  </td>\n  <td data-route-path='/fusion_workflows/:fusion_workflow_id/campaign_count(.:format)'
+        data-regexp='^\\/fusion_workflows\\/([^\\/.?]+)\\/campaign_count(?:\\.([^\\/.?]+))?$'>\n
+        \   /fusion_workflows/:fusion_workflow_id/campaign_count(.:format)\n  </td>\n
+        \ <td data-route-reqs='fusion_workflows/campaign_counts#update'>\n    fusion_workflows/campaign_counts#update\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name=''>\n
+        \ </td>\n  <td data-route-verb='PUT'>\n    PUT\n  </td>\n  <td data-route-path='/fusion_workflows/:fusion_workflow_id/campaign_count(.:format)'
+        data-regexp='^\\/fusion_workflows\\/([^\\/.?]+)\\/campaign_count(?:\\.([^\\/.?]+))?$'>\n
+        \   /fusion_workflows/:fusion_workflow_id/campaign_count(.:format)\n  </td>\n
+        \ <td data-route-reqs='fusion_workflows/campaign_counts#update'>\n    fusion_workflows/campaign_counts#update\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name=''>\n
+        \ </td>\n  <td data-route-verb='DELETE'>\n    DELETE\n  </td>\n  <td data-route-path='/fusion_workflows/:fusion_workflow_id/campaign_count(.:format)'
+        data-regexp='^\\/fusion_workflows\\/([^\\/.?]+)\\/campaign_count(?:\\.([^\\/.?]+))?$'>\n
+        \   /fusion_workflows/:fusion_workflow_id/campaign_count(.:format)\n  </td>\n
+        \ <td data-route-reqs='fusion_workflows/campaign_counts#destroy'>\n    fusion_workflows/campaign_counts#destroy\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name='fusion_workflow_diagram'>\n
+        \     fusion_workflow_diagram<span class='helper'>_path</span>\n  </td>\n
+        \ <td data-route-verb='POST'>\n    POST\n  </td>\n  <td data-route-path='/fusion_workflows/:fusion_workflow_id/diagram(.:format)'
+        data-regexp='^\\/fusion_workflows\\/([^\\/.?]+)\\/diagram(?:\\.([^\\/.?]+))?$'>\n
+        \   /fusion_workflows/:fusion_workflow_id/diagram(.:format)\n  </td>\n  <td
+        data-route-reqs='fusion_workflows/diagram#create'>\n    fusion_workflows/diagram#create\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name='new_fusion_workflow_diagram'>\n
+        \     new_fusion_workflow_diagram<span class='helper'>_path</span>\n  </td>\n
+        \ <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/fusion_workflows/:fusion_workflow_id/diagram/new(.:format)'
+        data-regexp='^\\/fusion_workflows\\/([^\\/.?]+)\\/diagram\\/new(?:\\.([^\\/.?]+))?$'>\n
+        \   /fusion_workflows/:fusion_workflow_id/diagram/new(.:format)\n  </td>\n
+        \ <td data-route-reqs='fusion_workflows/diagram#new'>\n    fusion_workflows/diagram#new\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name='edit_fusion_workflow_diagram'>\n
+        \     edit_fusion_workflow_diagram<span class='helper'>_path</span>\n  </td>\n
+        \ <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/fusion_workflows/:fusion_workflow_id/diagram/edit(.:format)'
+        data-regexp='^\\/fusion_workflows\\/([^\\/.?]+)\\/diagram\\/edit(?:\\.([^\\/.?]+))?$'>\n
+        \   /fusion_workflows/:fusion_workflow_id/diagram/edit(.:format)\n  </td>\n
+        \ <td data-route-reqs='fusion_workflows/diagram#edit'>\n    fusion_workflows/diagram#edit\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name=''>\n
+        \ </td>\n  <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/fusion_workflows/:fusion_workflow_id/diagram(.:format)'
+        data-regexp='^\\/fusion_workflows\\/([^\\/.?]+)\\/diagram(?:\\.([^\\/.?]+))?$'>\n
+        \   /fusion_workflows/:fusion_workflow_id/diagram(.:format)\n  </td>\n  <td
+        data-route-reqs='fusion_workflows/diagram#show'>\n    fusion_workflows/diagram#show\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name=''>\n
+        \ </td>\n  <td data-route-verb='PATCH'>\n    PATCH\n  </td>\n  <td data-route-path='/fusion_workflows/:fusion_workflow_id/diagram(.:format)'
+        data-regexp='^\\/fusion_workflows\\/([^\\/.?]+)\\/diagram(?:\\.([^\\/.?]+))?$'>\n
+        \   /fusion_workflows/:fusion_workflow_id/diagram(.:format)\n  </td>\n  <td
+        data-route-reqs='fusion_workflows/diagram#update'>\n    fusion_workflows/diagram#update\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name=''>\n
+        \ </td>\n  <td data-route-verb='PUT'>\n    PUT\n  </td>\n  <td data-route-path='/fusion_workflows/:fusion_workflow_id/diagram(.:format)'
+        data-regexp='^\\/fusion_workflows\\/([^\\/.?]+)\\/diagram(?:\\.([^\\/.?]+))?$'>\n
+        \   /fusion_workflows/:fusion_workflow_id/diagram(.:format)\n  </td>\n  <td
+        data-route-reqs='fusion_workflows/diagram#update'>\n    fusion_workflows/diagram#update\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name=''>\n
+        \ </td>\n  <td data-route-verb='DELETE'>\n    DELETE\n  </td>\n  <td data-route-path='/fusion_workflows/:fusion_workflow_id/diagram(.:format)'
+        data-regexp='^\\/fusion_workflows\\/([^\\/.?]+)\\/diagram(?:\\.([^\\/.?]+))?$'>\n
+        \   /fusion_workflows/:fusion_workflow_id/diagram(.:format)\n  </td>\n  <td
+        data-route-reqs='fusion_workflows/diagram#destroy'>\n    fusion_workflows/diagram#destroy\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name='fusion_workflow_fusion_workflow_states'>\n
+        \     fusion_workflow_fusion_workflow_states<span class='helper'>_path</span>\n
+        \ </td>\n  <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/fusion_workflows/:fusion_workflow_id/fusion_workflow_states(.:format)'
+        data-regexp='^\\/fusion_workflows\\/([^\\/.?]+)\\/fusion_workflow_states(?:\\.([^\\/.?]+))?$'>\n
+        \   /fusion_workflows/:fusion_workflow_id/fusion_workflow_states(.:format)\n
+        \ </td>\n  <td data-route-reqs='fusion_workflows/fusion_workflow_states#index'>\n
+        \   fusion_workflows/fusion_workflow_states#index\n  </td>\n</tr>\n<tr class='route_row'
+        data-helper='path'>\n  <td data-route-name=''>\n  </td>\n  <td data-route-verb='POST'>\n
+        \   POST\n  </td>\n  <td data-route-path='/fusion_workflows/:fusion_workflow_id/fusion_workflow_states(.:format)'
+        data-regexp='^\\/fusion_workflows\\/([^\\/.?]+)\\/fusion_workflow_states(?:\\.([^\\/.?]+))?$'>\n
+        \   /fusion_workflows/:fusion_workflow_id/fusion_workflow_states(.:format)\n
+        \ </td>\n  <td data-route-reqs='fusion_workflows/fusion_workflow_states#create'>\n
+        \   fusion_workflows/fusion_workflow_states#create\n  </td>\n</tr>\n<tr class='route_row'
+        data-helper='path'>\n  <td data-route-name='new_fusion_workflow_fusion_workflow_state'>\n
+        \     new_fusion_workflow_fusion_workflow_state<span class='helper'>_path</span>\n
+        \ </td>\n  <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/fusion_workflows/:fusion_workflow_id/fusion_workflow_states/new(.:format)'
+        data-regexp='^\\/fusion_workflows\\/([^\\/.?]+)\\/fusion_workflow_states\\/new(?:\\.([^\\/.?]+))?$'>\n
+        \   /fusion_workflows/:fusion_workflow_id/fusion_workflow_states/new(.:format)\n
+        \ </td>\n  <td data-route-reqs='fusion_workflows/fusion_workflow_states#new'>\n
+        \   fusion_workflows/fusion_workflow_states#new\n  </td>\n</tr>\n<tr class='route_row'
+        data-helper='path'>\n  <td data-route-name='edit_fusion_workflow_fusion_workflow_state'>\n
+        \     edit_fusion_workflow_fusion_workflow_state<span class='helper'>_path</span>\n
+        \ </td>\n  <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/fusion_workflows/:fusion_workflow_id/fusion_workflow_states/:id/edit(.:format)'
+        data-regexp='^\\/fusion_workflows\\/([^\\/.?]+)\\/fusion_workflow_states\\/([^\\/.?]+)\\/edit(?:\\.([^\\/.?]+))?$'>\n
+        \   /fusion_workflows/:fusion_workflow_id/fusion_workflow_states/:id/edit(.:format)\n
+        \ </td>\n  <td data-route-reqs='fusion_workflows/fusion_workflow_states#edit'>\n
+        \   fusion_workflows/fusion_workflow_states#edit\n  </td>\n</tr>\n<tr class='route_row'
+        data-helper='path'>\n  <td data-route-name='fusion_workflow_fusion_workflow_state'>\n
+        \     fusion_workflow_fusion_workflow_state<span class='helper'>_path</span>\n
+        \ </td>\n  <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/fusion_workflows/:fusion_workflow_id/fusion_workflow_states/:id(.:format)'
+        data-regexp='^\\/fusion_workflows\\/([^\\/.?]+)\\/fusion_workflow_states\\/([^\\/.?]+)(?:\\.([^\\/.?]+))?$'>\n
+        \   /fusion_workflows/:fusion_workflow_id/fusion_workflow_states/:id(.:format)\n
+        \ </td>\n  <td data-route-reqs='fusion_workflows/fusion_workflow_states#show'>\n
+        \   fusion_workflows/fusion_workflow_states#show\n  </td>\n</tr>\n<tr class='route_row'
+        data-helper='path'>\n  <td data-route-name=''>\n  </td>\n  <td data-route-verb='PATCH'>\n
+        \   PATCH\n  </td>\n  <td data-route-path='/fusion_workflows/:fusion_workflow_id/fusion_workflow_states/:id(.:format)'
+        data-regexp='^\\/fusion_workflows\\/([^\\/.?]+)\\/fusion_workflow_states\\/([^\\/.?]+)(?:\\.([^\\/.?]+))?$'>\n
+        \   /fusion_workflows/:fusion_workflow_id/fusion_workflow_states/:id(.:format)\n
+        \ </td>\n  <td data-route-reqs='fusion_workflows/fusion_workflow_states#update'>\n
+        \   fusion_workflows/fusion_workflow_states#update\n  </td>\n</tr>\n<tr class='route_row'
+        data-helper='path'>\n  <td data-route-name=''>\n  </td>\n  <td data-route-verb='PUT'>\n
+        \   PUT\n  </td>\n  <td data-route-path='/fusion_workflows/:fusion_workflow_id/fusion_workflow_states/:id(.:format)'
+        data-regexp='^\\/fusion_workflows\\/([^\\/.?]+)\\/fusion_workflow_states\\/([^\\/.?]+)(?:\\.([^\\/.?]+))?$'>\n
+        \   /fusion_workflows/:fusion_workflow_id/fusion_workflow_states/:id(.:format)\n
+        \ </td>\n  <td data-route-reqs='fusion_workflows/fusion_workflow_states#update'>\n
+        \   fusion_workflows/fusion_workflow_states#update\n  </td>\n</tr>\n<tr class='route_row'
+        data-helper='path'>\n  <td data-route-name=''>\n  </td>\n  <td data-route-verb='DELETE'>\n
+        \   DELETE\n  </td>\n  <td data-route-path='/fusion_workflows/:fusion_workflow_id/fusion_workflow_states/:id(.:format)'
+        data-regexp='^\\/fusion_workflows\\/([^\\/.?]+)\\/fusion_workflow_states\\/([^\\/.?]+)(?:\\.([^\\/.?]+))?$'>\n
+        \   /fusion_workflows/:fusion_workflow_id/fusion_workflow_states/:id(.:format)\n
+        \ </td>\n  <td data-route-reqs='fusion_workflows/fusion_workflow_states#destroy'>\n
+        \   fusion_workflows/fusion_workflow_states#destroy\n  </td>\n</tr>\n<tr class='route_row'
+        data-helper='path'>\n  <td data-route-name='fusion_workflows'>\n      fusion_workflows<span
+        class='helper'>_path</span>\n  </td>\n  <td data-route-verb='GET'>\n    GET\n
+        \ </td>\n  <td data-route-path='/fusion_workflows(.:format)' data-regexp='^\\/fusion_workflows(?:\\.([^\\/.?]+))?$'>\n
+        \   /fusion_workflows(.:format)\n  </td>\n  <td data-route-reqs='fusion_workflows#index'>\n
+        \   fusion_workflows#index\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name=''>\n  </td>\n  <td data-route-verb='POST'>\n    POST\n
+        \ </td>\n  <td data-route-path='/fusion_workflows(.:format)' data-regexp='^\\/fusion_workflows(?:\\.([^\\/.?]+))?$'>\n
+        \   /fusion_workflows(.:format)\n  </td>\n  <td data-route-reqs='fusion_workflows#create'>\n
+        \   fusion_workflows#create\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name='new_fusion_workflow'>\n      new_fusion_workflow<span
+        class='helper'>_path</span>\n  </td>\n  <td data-route-verb='GET'>\n    GET\n
+        \ </td>\n  <td data-route-path='/fusion_workflows/new(.:format)' data-regexp='^\\/fusion_workflows\\/new(?:\\.([^\\/.?]+))?$'>\n
+        \   /fusion_workflows/new(.:format)\n  </td>\n  <td data-route-reqs='fusion_workflows#new'>\n
+        \   fusion_workflows#new\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name='edit_fusion_workflow'>\n      edit_fusion_workflow<span
+        class='helper'>_path</span>\n  </td>\n  <td data-route-verb='GET'>\n    GET\n
+        \ </td>\n  <td data-route-path='/fusion_workflows/:id/edit(.:format)' data-regexp='^\\/fusion_workflows\\/([^\\/.?]+)\\/edit(?:\\.([^\\/.?]+))?$'>\n
+        \   /fusion_workflows/:id/edit(.:format)\n  </td>\n  <td data-route-reqs='fusion_workflows#edit'>\n
+        \   fusion_workflows#edit\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name='fusion_workflow'>\n      fusion_workflow<span class='helper'>_path</span>\n
+        \ </td>\n  <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/fusion_workflows/:id(.:format)'
+        data-regexp='^\\/fusion_workflows\\/([^\\/.?]+)(?:\\.([^\\/.?]+))?$'>\n    /fusion_workflows/:id(.:format)\n
+        \ </td>\n  <td data-route-reqs='fusion_workflows#show'>\n    fusion_workflows#show\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name=''>\n
+        \ </td>\n  <td data-route-verb='PATCH'>\n    PATCH\n  </td>\n  <td data-route-path='/fusion_workflows/:id(.:format)'
+        data-regexp='^\\/fusion_workflows\\/([^\\/.?]+)(?:\\.([^\\/.?]+))?$'>\n    /fusion_workflows/:id(.:format)\n
+        \ </td>\n  <td data-route-reqs='fusion_workflows#update'>\n    fusion_workflows#update\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name=''>\n
+        \ </td>\n  <td data-route-verb='PUT'>\n    PUT\n  </td>\n  <td data-route-path='/fusion_workflows/:id(.:format)'
+        data-regexp='^\\/fusion_workflows\\/([^\\/.?]+)(?:\\.([^\\/.?]+))?$'>\n    /fusion_workflows/:id(.:format)\n
+        \ </td>\n  <td data-route-reqs='fusion_workflows#update'>\n    fusion_workflows#update\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name=''>\n
+        \ </td>\n  <td data-route-verb='DELETE'>\n    DELETE\n  </td>\n  <td data-route-path='/fusion_workflows/:id(.:format)'
+        data-regexp='^\\/fusion_workflows\\/([^\\/.?]+)(?:\\.([^\\/.?]+))?$'>\n    /fusion_workflows/:id(.:format)\n
+        \ </td>\n  <td data-route-reqs='fusion_workflows#destroy'>\n    fusion_workflows#destroy\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name='new_client_reports_brand_affiliate_order_reports'>\n
+        \     new_client_reports_brand_affiliate_order_reports<span class='helper'>_path</span>\n
+        \ </td>\n  <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/client_reports/brand/:brand_id/affiliates/:affiliate_number/order_reports/new(.:format)'
+        data-regexp='^\\/client_reports\\/brand\\/([^\\/.?]+)\\/affiliates\\/([^\\/.?]+)\\/order_reports\\/new(?:\\.([^\\/.?]+))?$'>\n
+        \   /client_reports/brand/:brand_id/affiliates/:affiliate_number/order_reports/new(.:format)\n
+        \ </td>\n  <td data-route-reqs='client_reports/order_reports#new'>\n    client_reports/order_reports#new\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name='client_reports_brand_affiliate_order_reports'>\n
+        \     client_reports_brand_affiliate_order_reports<span class='helper'>_path</span>\n
+        \ </td>\n  <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/client_reports/brand/:brand_id/affiliates/:affiliate_number/order_reports(.:format)'
+        data-regexp='^\\/client_reports\\/brand\\/([^\\/.?]+)\\/affiliates\\/([^\\/.?]+)\\/order_reports(?:\\.([^\\/.?]+))?$'>\n
+        \   /client_reports/brand/:brand_id/affiliates/:affiliate_number/order_reports(.:format)\n
+        \ </td>\n  <td data-route-reqs='client_reports/order_reports#show'>\n    client_reports/order_reports#show\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name='new_client_reports_brand_affiliate_barcode_reports'>\n
+        \     new_client_reports_brand_affiliate_barcode_reports<span class='helper'>_path</span>\n
+        \ </td>\n  <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/client_reports/brand/:brand_id/affiliates/:affiliate_number/barcode_reports/new(.:format)'
+        data-regexp='^\\/client_reports\\/brand\\/([^\\/.?]+)\\/affiliates\\/([^\\/.?]+)\\/barcode_reports\\/new(?:\\.([^\\/.?]+))?$'>\n
+        \   /client_reports/brand/:brand_id/affiliates/:affiliate_number/barcode_reports/new(.:format)\n
+        \ </td>\n  <td data-route-reqs='client_reports/barcode_reports#new'>\n    client_reports/barcode_reports#new\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name='client_reports_brand_affiliate_barcode_reports'>\n
+        \     client_reports_brand_affiliate_barcode_reports<span class='helper'>_path</span>\n
+        \ </td>\n  <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/client_reports/brand/:brand_id/affiliates/:affiliate_number/barcode_reports(.:format)'
+        data-regexp='^\\/client_reports\\/brand\\/([^\\/.?]+)\\/affiliates\\/([^\\/.?]+)\\/barcode_reports(?:\\.([^\\/.?]+))?$'>\n
+        \   /client_reports/brand/:brand_id/affiliates/:affiliate_number/barcode_reports(.:format)\n
+        \ </td>\n  <td data-route-reqs='client_reports/barcode_reports#show'>\n    client_reports/barcode_reports#show\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name='client_reports_brand_affiliate'>\n
+        \     client_reports_brand_affiliate<span class='helper'>_path</span>\n  </td>\n
+        \ <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/client_reports/brand/:brand_id/affiliates/:number(.:format)'
+        data-regexp='^\\/client_reports\\/brand\\/([^\\/.?]+)\\/affiliates\\/([^\\/.?]+)(?:\\.([^\\/.?]+))?$'>\n
+        \   /client_reports/brand/:brand_id/affiliates/:number(.:format)\n  </td>\n
+        \ <td data-route-reqs='client_reports/affiliates#show'>\n    client_reports/affiliates#show\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name='seeds_seeds'>\n
+        \     seeds_seeds<span class='helper'>_path</span>\n  </td>\n  <td data-route-verb='GET'>\n
+        \   GET\n  </td>\n  <td data-route-path='/seeds/seeds(.:format)' data-regexp='^\\/seeds\\/seeds(?:\\.([^\\/.?]+))?$'>\n
+        \   /seeds/seeds(.:format)\n  </td>\n  <td data-route-reqs='seeds/seeds#index'>\n
+        \   seeds/seeds#index\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name='seeds_seed'>\n      seeds_seed<span class='helper'>_path</span>\n
+        \ </td>\n  <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/seeds/seeds/:id(.:format)'
+        data-regexp='^\\/seeds\\/seeds\\/([^\\/.?]+)(?:\\.([^\\/.?]+))?$'>\n    /seeds/seeds/:id(.:format)\n
+        \ </td>\n  <td data-route-reqs='seeds/seeds#show'>\n    seeds/seeds#show\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name='list_batch'>\n
+        \     list_batch<span class='helper'>_path</span>\n  </td>\n  <td data-route-verb='GET'>\n
+        \   GET\n  </td>\n  <td data-route-path='/list_batches/:id(.:format)' data-regexp='^\\/list_batches\\/([^\\/.?]+)(?:\\.([^\\/.?]+))?$'>\n
+        \   /list_batches/:id(.:format)\n  </td>\n  <td data-route-reqs='list_batches#show'>\n
+        \   list_batches#show\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name='mediums'>\n      mediums<span class='helper'>_path</span>\n
+        \ </td>\n  <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/mediums(.:format)'
+        data-regexp='^\\/mediums(?:\\.([^\\/.?]+))?$'>\n    /mediums(.:format)\n  </td>\n
+        \ <td data-route-reqs='mediums#index'>\n    mediums#index\n  </td>\n</tr>\n<tr
+        class='route_row' data-helper='path'>\n  <td data-route-name=''>\n  </td>\n
+        \ <td data-route-verb='POST'>\n    POST\n  </td>\n  <td data-route-path='/mediums(.:format)'
+        data-regexp='^\\/mediums(?:\\.([^\\/.?]+))?$'>\n    /mediums(.:format)\n  </td>\n
+        \ <td data-route-reqs='mediums#create'>\n    mediums#create\n  </td>\n</tr>\n<tr
+        class='route_row' data-helper='path'>\n  <td data-route-name='new_medium'>\n
+        \     new_medium<span class='helper'>_path</span>\n  </td>\n  <td data-route-verb='GET'>\n
+        \   GET\n  </td>\n  <td data-route-path='/mediums/new(.:format)' data-regexp='^\\/mediums\\/new(?:\\.([^\\/.?]+))?$'>\n
+        \   /mediums/new(.:format)\n  </td>\n  <td data-route-reqs='mediums#new'>\n
+        \   mediums#new\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name='edit_medium'>\n      edit_medium<span class='helper'>_path</span>\n
+        \ </td>\n  <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/mediums/:id/edit(.:format)'
+        data-regexp='^\\/mediums\\/([^\\/.?]+)\\/edit(?:\\.([^\\/.?]+))?$'>\n    /mediums/:id/edit(.:format)\n
+        \ </td>\n  <td data-route-reqs='mediums#edit'>\n    mediums#edit\n  </td>\n</tr>\n<tr
+        class='route_row' data-helper='path'>\n  <td data-route-name='medium'>\n      medium<span
+        class='helper'>_path</span>\n  </td>\n  <td data-route-verb='GET'>\n    GET\n
+        \ </td>\n  <td data-route-path='/mediums/:id(.:format)' data-regexp='^\\/mediums\\/([^\\/.?]+)(?:\\.([^\\/.?]+))?$'>\n
+        \   /mediums/:id(.:format)\n  </td>\n  <td data-route-reqs='mediums#show'>\n
+        \   mediums#show\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name=''>\n  </td>\n  <td data-route-verb='PATCH'>\n    PATCH\n
+        \ </td>\n  <td data-route-path='/mediums/:id(.:format)' data-regexp='^\\/mediums\\/([^\\/.?]+)(?:\\.([^\\/.?]+))?$'>\n
+        \   /mediums/:id(.:format)\n  </td>\n  <td data-route-reqs='mediums#update'>\n
+        \   mediums#update\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name=''>\n  </td>\n  <td data-route-verb='PUT'>\n    PUT\n
+        \ </td>\n  <td data-route-path='/mediums/:id(.:format)' data-regexp='^\\/mediums\\/([^\\/.?]+)(?:\\.([^\\/.?]+))?$'>\n
+        \   /mediums/:id(.:format)\n  </td>\n  <td data-route-reqs='mediums#update'>\n
+        \   mediums#update\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name=''>\n  </td>\n  <td data-route-verb='DELETE'>\n    DELETE\n
+        \ </td>\n  <td data-route-path='/mediums/:id(.:format)' data-regexp='^\\/mediums\\/([^\\/.?]+)(?:\\.([^\\/.?]+))?$'>\n
+        \   /mediums/:id(.:format)\n  </td>\n  <td data-route-reqs='mediums#destroy'>\n
+        \   mediums#destroy\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name='brands'>\n      brands<span class='helper'>_path</span>\n
+        \ </td>\n  <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/brands(.:format)'
+        data-regexp='^\\/brands(?:\\.([^\\/.?]+))?$'>\n    /brands(.:format)\n  </td>\n
+        \ <td data-route-reqs='brands#index'>\n    brands#index\n  </td>\n</tr>\n<tr
+        class='route_row' data-helper='path'>\n  <td data-route-name=''>\n  </td>\n
+        \ <td data-route-verb='POST'>\n    POST\n  </td>\n  <td data-route-path='/brands(.:format)'
+        data-regexp='^\\/brands(?:\\.([^\\/.?]+))?$'>\n    /brands(.:format)\n  </td>\n
+        \ <td data-route-reqs='brands#create'>\n    brands#create\n  </td>\n</tr>\n<tr
+        class='route_row' data-helper='path'>\n  <td data-route-name='new_brand'>\n
+        \     new_brand<span class='helper'>_path</span>\n  </td>\n  <td data-route-verb='GET'>\n
+        \   GET\n  </td>\n  <td data-route-path='/brands/new(.:format)' data-regexp='^\\/brands\\/new(?:\\.([^\\/.?]+))?$'>\n
+        \   /brands/new(.:format)\n  </td>\n  <td data-route-reqs='brands#new'>\n
+        \   brands#new\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name='edit_brand'>\n      edit_brand<span class='helper'>_path</span>\n
+        \ </td>\n  <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/brands/:id/edit(.:format)'
+        data-regexp='^\\/brands\\/([^\\/.?]+)\\/edit(?:\\.([^\\/.?]+))?$'>\n    /brands/:id/edit(.:format)\n
+        \ </td>\n  <td data-route-reqs='brands#edit'>\n    brands#edit\n  </td>\n</tr>\n<tr
+        class='route_row' data-helper='path'>\n  <td data-route-name='brand'>\n      brand<span
+        class='helper'>_path</span>\n  </td>\n  <td data-route-verb='GET'>\n    GET\n
+        \ </td>\n  <td data-route-path='/brands/:id(.:format)' data-regexp='^\\/brands\\/([^\\/.?]+)(?:\\.([^\\/.?]+))?$'>\n
+        \   /brands/:id(.:format)\n  </td>\n  <td data-route-reqs='brands#show'>\n
+        \   brands#show\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name=''>\n  </td>\n  <td data-route-verb='PATCH'>\n    PATCH\n
+        \ </td>\n  <td data-route-path='/brands/:id(.:format)' data-regexp='^\\/brands\\/([^\\/.?]+)(?:\\.([^\\/.?]+))?$'>\n
+        \   /brands/:id(.:format)\n  </td>\n  <td data-route-reqs='brands#update'>\n
+        \   brands#update\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name=''>\n  </td>\n  <td data-route-verb='PUT'>\n    PUT\n
+        \ </td>\n  <td data-route-path='/brands/:id(.:format)' data-regexp='^\\/brands\\/([^\\/.?]+)(?:\\.([^\\/.?]+))?$'>\n
+        \   /brands/:id(.:format)\n  </td>\n  <td data-route-reqs='brands#update'>\n
+        \   brands#update\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name=''>\n  </td>\n  <td data-route-verb='DELETE'>\n    DELETE\n
+        \ </td>\n  <td data-route-path='/brands/:id(.:format)' data-regexp='^\\/brands\\/([^\\/.?]+)(?:\\.([^\\/.?]+))?$'>\n
+        \   /brands/:id(.:format)\n  </td>\n  <td data-route-reqs='brands#destroy'>\n
+        \   brands#destroy\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name='criteria_spec_columns'>\n      criteria_spec_columns<span
+        class='helper'>_path</span>\n  </td>\n  <td data-route-verb='GET'>\n    GET\n
+        \ </td>\n  <td data-route-path='/criteria_spec_columns(.:format)' data-regexp='^\\/criteria_spec_columns(?:\\.([^\\/.?]+))?$'>\n
+        \   /criteria_spec_columns(.:format)\n  </td>\n  <td data-route-reqs='criteria_spec_columns#index'>\n
+        \   criteria_spec_columns#index\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name=''>\n  </td>\n  <td data-route-verb='POST'>\n    POST\n
+        \ </td>\n  <td data-route-path='/criteria_spec_columns(.:format)' data-regexp='^\\/criteria_spec_columns(?:\\.([^\\/.?]+))?$'>\n
+        \   /criteria_spec_columns(.:format)\n  </td>\n  <td data-route-reqs='criteria_spec_columns#create'>\n
+        \   criteria_spec_columns#create\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name='new_criteria_spec_column'>\n      new_criteria_spec_column<span
+        class='helper'>_path</span>\n  </td>\n  <td data-route-verb='GET'>\n    GET\n
+        \ </td>\n  <td data-route-path='/criteria_spec_columns/new(.:format)' data-regexp='^\\/criteria_spec_columns\\/new(?:\\.([^\\/.?]+))?$'>\n
+        \   /criteria_spec_columns/new(.:format)\n  </td>\n  <td data-route-reqs='criteria_spec_columns#new'>\n
+        \   criteria_spec_columns#new\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name='edit_criteria_spec_column'>\n      edit_criteria_spec_column<span
+        class='helper'>_path</span>\n  </td>\n  <td data-route-verb='GET'>\n    GET\n
+        \ </td>\n  <td data-route-path='/criteria_spec_columns/:id/edit(.:format)'
+        data-regexp='^\\/criteria_spec_columns\\/([^\\/.?]+)\\/edit(?:\\.([^\\/.?]+))?$'>\n
+        \   /criteria_spec_columns/:id/edit(.:format)\n  </td>\n  <td data-route-reqs='criteria_spec_columns#edit'>\n
+        \   criteria_spec_columns#edit\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name='criteria_spec_column'>\n      criteria_spec_column<span
+        class='helper'>_path</span>\n  </td>\n  <td data-route-verb='GET'>\n    GET\n
+        \ </td>\n  <td data-route-path='/criteria_spec_columns/:id(.:format)' data-regexp='^\\/criteria_spec_columns\\/([^\\/.?]+)(?:\\.([^\\/.?]+))?$'>\n
+        \   /criteria_spec_columns/:id(.:format)\n  </td>\n  <td data-route-reqs='criteria_spec_columns#show'>\n
+        \   criteria_spec_columns#show\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name=''>\n  </td>\n  <td data-route-verb='PATCH'>\n    PATCH\n
+        \ </td>\n  <td data-route-path='/criteria_spec_columns/:id(.:format)' data-regexp='^\\/criteria_spec_columns\\/([^\\/.?]+)(?:\\.([^\\/.?]+))?$'>\n
+        \   /criteria_spec_columns/:id(.:format)\n  </td>\n  <td data-route-reqs='criteria_spec_columns#update'>\n
+        \   criteria_spec_columns#update\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name=''>\n  </td>\n  <td data-route-verb='PUT'>\n    PUT\n
+        \ </td>\n  <td data-route-path='/criteria_spec_columns/:id(.:format)' data-regexp='^\\/criteria_spec_columns\\/([^\\/.?]+)(?:\\.([^\\/.?]+))?$'>\n
+        \   /criteria_spec_columns/:id(.:format)\n  </td>\n  <td data-route-reqs='criteria_spec_columns#update'>\n
+        \   criteria_spec_columns#update\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name=''>\n  </td>\n  <td data-route-verb='DELETE'>\n    DELETE\n
+        \ </td>\n  <td data-route-path='/criteria_spec_columns/:id(.:format)' data-regexp='^\\/criteria_spec_columns\\/([^\\/.?]+)(?:\\.([^\\/.?]+))?$'>\n
+        \   /criteria_spec_columns/:id(.:format)\n  </td>\n  <td data-route-reqs='criteria_spec_columns#destroy'>\n
+        \   criteria_spec_columns#destroy\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name='production_package'>\n      production_package<span
+        class='helper'>_path</span>\n  </td>\n  <td data-route-verb='GET'>\n    GET\n
+        \ </td>\n  <td data-route-path='/production_packages/:id(.:format)' data-regexp='^\\/production_packages\\/([^\\/.?]+)(?:\\.([^\\/.?]+))?$'>\n
+        \   /production_packages/:id(.:format)\n  </td>\n  <td data-route-reqs='production_packages#show'>\n
+        \   production_packages#show\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name='clear_settings_criteria_specs'>\n      clear_settings_criteria_specs<span
+        class='helper'>_path</span>\n  </td>\n  <td data-route-verb='GET'>\n    GET\n
+        \ </td>\n  <td data-route-path='/criteria_specs/clear_settings(.:format)'
+        data-regexp='^\\/criteria_specs\\/clear_settings(?:\\.([^\\/.?]+))?$'>\n    /criteria_specs/clear_settings(.:format)\n
+        \ </td>\n  <td data-route-reqs='criteria_specs#clear_settings'>\n    criteria_specs#clear_settings\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name='criteria_specs'>\n
+        \     criteria_specs<span class='helper'>_path</span>\n  </td>\n  <td data-route-verb='GET'>\n
+        \   GET\n  </td>\n  <td data-route-path='/criteria_specs(.:format)' data-regexp='^\\/criteria_specs(?:\\.([^\\/.?]+))?$'>\n
+        \   /criteria_specs(.:format)\n  </td>\n  <td data-route-reqs='criteria_specs#index'>\n
+        \   criteria_specs#index\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name=''>\n  </td>\n  <td data-route-verb='POST'>\n    POST\n
+        \ </td>\n  <td data-route-path='/criteria_specs(.:format)' data-regexp='^\\/criteria_specs(?:\\.([^\\/.?]+))?$'>\n
+        \   /criteria_specs(.:format)\n  </td>\n  <td data-route-reqs='criteria_specs#create'>\n
+        \   criteria_specs#create\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name='new_criteria_spec'>\n      new_criteria_spec<span class='helper'>_path</span>\n
+        \ </td>\n  <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/criteria_specs/new(.:format)'
+        data-regexp='^\\/criteria_specs\\/new(?:\\.([^\\/.?]+))?$'>\n    /criteria_specs/new(.:format)\n
+        \ </td>\n  <td data-route-reqs='criteria_specs#new'>\n    criteria_specs#new\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name='edit_criteria_spec'>\n
+        \     edit_criteria_spec<span class='helper'>_path</span>\n  </td>\n  <td
+        data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/criteria_specs/:id/edit(.:format)'
+        data-regexp='^\\/criteria_specs\\/([^\\/.?]+)\\/edit(?:\\.([^\\/.?]+))?$'>\n
+        \   /criteria_specs/:id/edit(.:format)\n  </td>\n  <td data-route-reqs='criteria_specs#edit'>\n
+        \   criteria_specs#edit\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name='criteria_spec'>\n      criteria_spec<span class='helper'>_path</span>\n
+        \ </td>\n  <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/criteria_specs/:id(.:format)'
+        data-regexp='^\\/criteria_specs\\/([^\\/.?]+)(?:\\.([^\\/.?]+))?$'>\n    /criteria_specs/:id(.:format)\n
+        \ </td>\n  <td data-route-reqs='criteria_specs#show'>\n    criteria_specs#show\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name=''>\n
+        \ </td>\n  <td data-route-verb='PATCH'>\n    PATCH\n  </td>\n  <td data-route-path='/criteria_specs/:id(.:format)'
+        data-regexp='^\\/criteria_specs\\/([^\\/.?]+)(?:\\.([^\\/.?]+))?$'>\n    /criteria_specs/:id(.:format)\n
+        \ </td>\n  <td data-route-reqs='criteria_specs#update'>\n    criteria_specs#update\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name=''>\n
+        \ </td>\n  <td data-route-verb='PUT'>\n    PUT\n  </td>\n  <td data-route-path='/criteria_specs/:id(.:format)'
+        data-regexp='^\\/criteria_specs\\/([^\\/.?]+)(?:\\.([^\\/.?]+))?$'>\n    /criteria_specs/:id(.:format)\n
+        \ </td>\n  <td data-route-reqs='criteria_specs#update'>\n    criteria_specs#update\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name=''>\n
+        \ </td>\n  <td data-route-verb='DELETE'>\n    DELETE\n  </td>\n  <td data-route-path='/criteria_specs/:id(.:format)'
+        data-regexp='^\\/criteria_specs\\/([^\\/.?]+)(?:\\.([^\\/.?]+))?$'>\n    /criteria_specs/:id(.:format)\n
+        \ </td>\n  <td data-route-reqs='criteria_specs#destroy'>\n    criteria_specs#destroy\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name='clear_settings_log_entries'>\n
+        \     clear_settings_log_entries<span class='helper'>_path</span>\n  </td>\n
+        \ <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/log_entries/clear_settings(.:format)'
+        data-regexp='^\\/log_entries\\/clear_settings(?:\\.([^\\/.?]+))?$'>\n    /log_entries/clear_settings(.:format)\n
+        \ </td>\n  <td data-route-reqs='log_entries#clear_settings'>\n    log_entries#clear_settings\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name='log_entries'>\n
+        \     log_entries<span class='helper'>_path</span>\n  </td>\n  <td data-route-verb='GET'>\n
+        \   GET\n  </td>\n  <td data-route-path='/log_entries(.:format)' data-regexp='^\\/log_entries(?:\\.([^\\/.?]+))?$'>\n
+        \   /log_entries(.:format)\n  </td>\n  <td data-route-reqs='log_entries#index'>\n
+        \   log_entries#index\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name=''>\n  </td>\n  <td data-route-verb='POST'>\n    POST\n
+        \ </td>\n  <td data-route-path='/log_entries(.:format)' data-regexp='^\\/log_entries(?:\\.([^\\/.?]+))?$'>\n
+        \   /log_entries(.:format)\n  </td>\n  <td data-route-reqs='log_entries#create'>\n
+        \   log_entries#create\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name='new_log_entry'>\n      new_log_entry<span class='helper'>_path</span>\n
+        \ </td>\n  <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/log_entries/new(.:format)'
+        data-regexp='^\\/log_entries\\/new(?:\\.([^\\/.?]+))?$'>\n    /log_entries/new(.:format)\n
+        \ </td>\n  <td data-route-reqs='log_entries#new'>\n    log_entries#new\n  </td>\n</tr>\n<tr
+        class='route_row' data-helper='path'>\n  <td data-route-name='edit_log_entry'>\n
+        \     edit_log_entry<span class='helper'>_path</span>\n  </td>\n  <td data-route-verb='GET'>\n
+        \   GET\n  </td>\n  <td data-route-path='/log_entries/:id/edit(.:format)'
+        data-regexp='^\\/log_entries\\/([^\\/.?]+)\\/edit(?:\\.([^\\/.?]+))?$'>\n
+        \   /log_entries/:id/edit(.:format)\n  </td>\n  <td data-route-reqs='log_entries#edit'>\n
+        \   log_entries#edit\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name='log_entry'>\n      log_entry<span class='helper'>_path</span>\n
+        \ </td>\n  <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/log_entries/:id(.:format)'
+        data-regexp='^\\/log_entries\\/([^\\/.?]+)(?:\\.([^\\/.?]+))?$'>\n    /log_entries/:id(.:format)\n
+        \ </td>\n  <td data-route-reqs='log_entries#show'>\n    log_entries#show\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name=''>\n
+        \ </td>\n  <td data-route-verb='PATCH'>\n    PATCH\n  </td>\n  <td data-route-path='/log_entries/:id(.:format)'
+        data-regexp='^\\/log_entries\\/([^\\/.?]+)(?:\\.([^\\/.?]+))?$'>\n    /log_entries/:id(.:format)\n
+        \ </td>\n  <td data-route-reqs='log_entries#update'>\n    log_entries#update\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name=''>\n
+        \ </td>\n  <td data-route-verb='PUT'>\n    PUT\n  </td>\n  <td data-route-path='/log_entries/:id(.:format)'
+        data-regexp='^\\/log_entries\\/([^\\/.?]+)(?:\\.([^\\/.?]+))?$'>\n    /log_entries/:id(.:format)\n
+        \ </td>\n  <td data-route-reqs='log_entries#update'>\n    log_entries#update\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name=''>\n
+        \ </td>\n  <td data-route-verb='DELETE'>\n    DELETE\n  </td>\n  <td data-route-path='/log_entries/:id(.:format)'
+        data-regexp='^\\/log_entries\\/([^\\/.?]+)(?:\\.([^\\/.?]+))?$'>\n    /log_entries/:id(.:format)\n
+        \ </td>\n  <td data-route-reqs='log_entries#destroy'>\n    log_entries#destroy\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name='edit_carrier_routes_list'>\n
+        \     edit_carrier_routes_list<span class='helper'>_path</span>\n  </td>\n
+        \ <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/lists/:id/edit_carrier_routes(.:format)'
+        data-regexp='^\\/lists\\/([^\\/.?]+)\\/edit_carrier_routes(?:\\.([^\\/.?]+))?$'>\n
+        \   /lists/:id/edit_carrier_routes(.:format)\n  </td>\n  <td data-route-reqs='lists#edit_carrier_routes'>\n
+        \   lists#edit_carrier_routes\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name='copy_carrier_routes_list'>\n      copy_carrier_routes_list<span
+        class='helper'>_path</span>\n  </td>\n  <td data-route-verb='GET'>\n    GET\n
+        \ </td>\n  <td data-route-path='/lists/:id/copy_carrier_routes(.:format)'
+        data-regexp='^\\/lists\\/([^\\/.?]+)\\/copy_carrier_routes(?:\\.([^\\/.?]+))?$'>\n
+        \   /lists/:id/copy_carrier_routes(.:format)\n  </td>\n  <td data-route-reqs='lists#copy_carrier_routes'>\n
+        \   lists#copy_carrier_routes\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name='select_carrier_routes_list'>\n      select_carrier_routes_list<span
+        class='helper'>_path</span>\n  </td>\n  <td data-route-verb='GET'>\n    GET\n
+        \ </td>\n  <td data-route-path='/lists/:id/select_carrier_routes(.:format)'
+        data-regexp='^\\/lists\\/([^\\/.?]+)\\/select_carrier_routes(?:\\.([^\\/.?]+))?$'>\n
+        \   /lists/:id/select_carrier_routes(.:format)\n  </td>\n  <td data-route-reqs='lists#select_carrier_routes'>\n
+        \   lists#select_carrier_routes\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name='update_carrier_routes_list'>\n      update_carrier_routes_list<span
+        class='helper'>_path</span>\n  </td>\n  <td data-route-verb='PUT'>\n    PUT\n
+        \ </td>\n  <td data-route-path='/lists/:id/update_carrier_routes(.:format)'
+        data-regexp='^\\/lists\\/([^\\/.?]+)\\/update_carrier_routes(?:\\.([^\\/.?]+))?$'>\n
+        \   /lists/:id/update_carrier_routes(.:format)\n  </td>\n  <td data-route-reqs='lists#update_carrier_routes'>\n
+        \   lists#update_carrier_routes\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name='show_carrier_routes_modal_list'>\n      show_carrier_routes_modal_list<span
+        class='helper'>_path</span>\n  </td>\n  <td data-route-verb='GET'>\n    GET\n
+        \ </td>\n  <td data-route-path='/lists/:id/show_carrier_routes_modal(.:format)'
+        data-regexp='^\\/lists\\/([^\\/.?]+)\\/show_carrier_routes_modal(?:\\.([^\\/.?]+))?$'>\n
+        \   /lists/:id/show_carrier_routes_modal(.:format)\n  </td>\n  <td data-route-reqs='lists#show_carrier_routes_modal'>\n
+        \   lists#show_carrier_routes_modal\n  </td>\n</tr>\n<tr class='route_row'
+        data-helper='path'>\n  <td data-route-name='lists'>\n      lists<span class='helper'>_path</span>\n
+        \ </td>\n  <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/lists(.:format)'
+        data-regexp='^\\/lists(?:\\.([^\\/.?]+))?$'>\n    /lists(.:format)\n  </td>\n
+        \ <td data-route-reqs='lists#index'>\n    lists#index\n  </td>\n</tr>\n<tr
+        class='route_row' data-helper='path'>\n  <td data-route-name=''>\n  </td>\n
+        \ <td data-route-verb='POST'>\n    POST\n  </td>\n  <td data-route-path='/lists(.:format)'
+        data-regexp='^\\/lists(?:\\.([^\\/.?]+))?$'>\n    /lists(.:format)\n  </td>\n
+        \ <td data-route-reqs='lists#create'>\n    lists#create\n  </td>\n</tr>\n<tr
+        class='route_row' data-helper='path'>\n  <td data-route-name='new_list'>\n
+        \     new_list<span class='helper'>_path</span>\n  </td>\n  <td data-route-verb='GET'>\n
+        \   GET\n  </td>\n  <td data-route-path='/lists/new(.:format)' data-regexp='^\\/lists\\/new(?:\\.([^\\/.?]+))?$'>\n
+        \   /lists/new(.:format)\n  </td>\n  <td data-route-reqs='lists#new'>\n    lists#new\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name='edit_list'>\n
+        \     edit_list<span class='helper'>_path</span>\n  </td>\n  <td data-route-verb='GET'>\n
+        \   GET\n  </td>\n  <td data-route-path='/lists/:id/edit(.:format)' data-regexp='^\\/lists\\/([^\\/.?]+)\\/edit(?:\\.([^\\/.?]+))?$'>\n
+        \   /lists/:id/edit(.:format)\n  </td>\n  <td data-route-reqs='lists#edit'>\n
+        \   lists#edit\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name='list'>\n      list<span class='helper'>_path</span>\n
+        \ </td>\n  <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/lists/:id(.:format)'
+        data-regexp='^\\/lists\\/([^\\/.?]+)(?:\\.([^\\/.?]+))?$'>\n    /lists/:id(.:format)\n
+        \ </td>\n  <td data-route-reqs='lists#show'>\n    lists#show\n  </td>\n</tr>\n<tr
+        class='route_row' data-helper='path'>\n  <td data-route-name=''>\n  </td>\n
+        \ <td data-route-verb='PATCH'>\n    PATCH\n  </td>\n  <td data-route-path='/lists/:id(.:format)'
+        data-regexp='^\\/lists\\/([^\\/.?]+)(?:\\.([^\\/.?]+))?$'>\n    /lists/:id(.:format)\n
+        \ </td>\n  <td data-route-reqs='lists#update'>\n    lists#update\n  </td>\n</tr>\n<tr
+        class='route_row' data-helper='path'>\n  <td data-route-name=''>\n  </td>\n
+        \ <td data-route-verb='PUT'>\n    PUT\n  </td>\n  <td data-route-path='/lists/:id(.:format)'
+        data-regexp='^\\/lists\\/([^\\/.?]+)(?:\\.([^\\/.?]+))?$'>\n    /lists/:id(.:format)\n
+        \ </td>\n  <td data-route-reqs='lists#update'>\n    lists#update\n  </td>\n</tr>\n<tr
+        class='route_row' data-helper='path'>\n  <td data-route-name=''>\n  </td>\n
+        \ <td data-route-verb='DELETE'>\n    DELETE\n  </td>\n  <td data-route-path='/lists/:id(.:format)'
+        data-regexp='^\\/lists\\/([^\\/.?]+)(?:\\.([^\\/.?]+))?$'>\n    /lists/:id(.:format)\n
+        \ </td>\n  <td data-route-reqs='lists#destroy'>\n    lists#destroy\n  </td>\n</tr>\n<tr
+        class='route_row' data-helper='path'>\n  <td data-route-name='blacklisted_expirations'>\n
+        \     blacklisted_expirations<span class='helper'>_path</span>\n  </td>\n
+        \ <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/blacklisted_expirations(.:format)'
+        data-regexp='^\\/blacklisted_expirations(?:\\.([^\\/.?]+))?$'>\n    /blacklisted_expirations(.:format)\n
+        \ </td>\n  <td data-route-reqs='blacklisted_expirations#index'>\n    blacklisted_expirations#index\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name=''>\n
+        \ </td>\n  <td data-route-verb='POST'>\n    POST\n  </td>\n  <td data-route-path='/blacklisted_expirations(.:format)'
+        data-regexp='^\\/blacklisted_expirations(?:\\.([^\\/.?]+))?$'>\n    /blacklisted_expirations(.:format)\n
+        \ </td>\n  <td data-route-reqs='blacklisted_expirations#create'>\n    blacklisted_expirations#create\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name='new_blacklisted_expiration'>\n
+        \     new_blacklisted_expiration<span class='helper'>_path</span>\n  </td>\n
+        \ <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/blacklisted_expirations/new(.:format)'
+        data-regexp='^\\/blacklisted_expirations\\/new(?:\\.([^\\/.?]+))?$'>\n    /blacklisted_expirations/new(.:format)\n
+        \ </td>\n  <td data-route-reqs='blacklisted_expirations#new'>\n    blacklisted_expirations#new\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name='edit_blacklisted_expiration'>\n
+        \     edit_blacklisted_expiration<span class='helper'>_path</span>\n  </td>\n
+        \ <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/blacklisted_expirations/:id/edit(.:format)'
+        data-regexp='^\\/blacklisted_expirations\\/([^\\/.?]+)\\/edit(?:\\.([^\\/.?]+))?$'>\n
+        \   /blacklisted_expirations/:id/edit(.:format)\n  </td>\n  <td data-route-reqs='blacklisted_expirations#edit'>\n
+        \   blacklisted_expirations#edit\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name='blacklisted_expiration'>\n      blacklisted_expiration<span
+        class='helper'>_path</span>\n  </td>\n  <td data-route-verb='GET'>\n    GET\n
+        \ </td>\n  <td data-route-path='/blacklisted_expirations/:id(.:format)' data-regexp='^\\/blacklisted_expirations\\/([^\\/.?]+)(?:\\.([^\\/.?]+))?$'>\n
+        \   /blacklisted_expirations/:id(.:format)\n  </td>\n  <td data-route-reqs='blacklisted_expirations#show'>\n
+        \   blacklisted_expirations#show\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name=''>\n  </td>\n  <td data-route-verb='PATCH'>\n    PATCH\n
+        \ </td>\n  <td data-route-path='/blacklisted_expirations/:id(.:format)' data-regexp='^\\/blacklisted_expirations\\/([^\\/.?]+)(?:\\.([^\\/.?]+))?$'>\n
+        \   /blacklisted_expirations/:id(.:format)\n  </td>\n  <td data-route-reqs='blacklisted_expirations#update'>\n
+        \   blacklisted_expirations#update\n  </td>\n</tr>\n<tr class='route_row'
+        data-helper='path'>\n  <td data-route-name=''>\n  </td>\n  <td data-route-verb='PUT'>\n
+        \   PUT\n  </td>\n  <td data-route-path='/blacklisted_expirations/:id(.:format)'
+        data-regexp='^\\/blacklisted_expirations\\/([^\\/.?]+)(?:\\.([^\\/.?]+))?$'>\n
+        \   /blacklisted_expirations/:id(.:format)\n  </td>\n  <td data-route-reqs='blacklisted_expirations#update'>\n
+        \   blacklisted_expirations#update\n  </td>\n</tr>\n<tr class='route_row'
+        data-helper='path'>\n  <td data-route-name=''>\n  </td>\n  <td data-route-verb='DELETE'>\n
+        \   DELETE\n  </td>\n  <td data-route-path='/blacklisted_expirations/:id(.:format)'
+        data-regexp='^\\/blacklisted_expirations\\/([^\\/.?]+)(?:\\.([^\\/.?]+))?$'>\n
+        \   /blacklisted_expirations/:id(.:format)\n  </td>\n  <td data-route-reqs='blacklisted_expirations#destroy'>\n
+        \   blacklisted_expirations#destroy\n  </td>\n</tr>\n<tr class='route_row'
+        data-helper='path'>\n  <td data-route-name='dmas'>\n      dmas<span class='helper'>_path</span>\n
+        \ </td>\n  <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/dmas(.:format)'
+        data-regexp='^\\/dmas(?:\\.([^\\/.?]+))?$'>\n    /dmas(.:format)\n  </td>\n
+        \ <td data-route-reqs='dmas#index'>\n    dmas#index\n  </td>\n</tr>\n<tr class='route_row'
+        data-helper='path'>\n  <td data-route-name=''>\n  </td>\n  <td data-route-verb='POST'>\n
+        \   POST\n  </td>\n  <td data-route-path='/dmas(.:format)' data-regexp='^\\/dmas(?:\\.([^\\/.?]+))?$'>\n
+        \   /dmas(.:format)\n  </td>\n  <td data-route-reqs='dmas#create'>\n    dmas#create\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name='new_dma'>\n
+        \     new_dma<span class='helper'>_path</span>\n  </td>\n  <td data-route-verb='GET'>\n
+        \   GET\n  </td>\n  <td data-route-path='/dmas/new(.:format)' data-regexp='^\\/dmas\\/new(?:\\.([^\\/.?]+))?$'>\n
+        \   /dmas/new(.:format)\n  </td>\n  <td data-route-reqs='dmas#new'>\n    dmas#new\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name='edit_dma'>\n
+        \     edit_dma<span class='helper'>_path</span>\n  </td>\n  <td data-route-verb='GET'>\n
+        \   GET\n  </td>\n  <td data-route-path='/dmas/:id/edit(.:format)' data-regexp='^\\/dmas\\/([^\\/.?]+)\\/edit(?:\\.([^\\/.?]+))?$'>\n
+        \   /dmas/:id/edit(.:format)\n  </td>\n  <td data-route-reqs='dmas#edit'>\n
+        \   dmas#edit\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name='dma'>\n      dma<span class='helper'>_path</span>\n
+        \ </td>\n  <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/dmas/:id(.:format)'
+        data-regexp='^\\/dmas\\/([^\\/.?]+)(?:\\.([^\\/.?]+))?$'>\n    /dmas/:id(.:format)\n
+        \ </td>\n  <td data-route-reqs='dmas#show'>\n    dmas#show\n  </td>\n</tr>\n<tr
+        class='route_row' data-helper='path'>\n  <td data-route-name=''>\n  </td>\n
+        \ <td data-route-verb='PATCH'>\n    PATCH\n  </td>\n  <td data-route-path='/dmas/:id(.:format)'
+        data-regexp='^\\/dmas\\/([^\\/.?]+)(?:\\.([^\\/.?]+))?$'>\n    /dmas/:id(.:format)\n
+        \ </td>\n  <td data-route-reqs='dmas#update'>\n    dmas#update\n  </td>\n</tr>\n<tr
+        class='route_row' data-helper='path'>\n  <td data-route-name=''>\n  </td>\n
+        \ <td data-route-verb='PUT'>\n    PUT\n  </td>\n  <td data-route-path='/dmas/:id(.:format)'
+        data-regexp='^\\/dmas\\/([^\\/.?]+)(?:\\.([^\\/.?]+))?$'>\n    /dmas/:id(.:format)\n
+        \ </td>\n  <td data-route-reqs='dmas#update'>\n    dmas#update\n  </td>\n</tr>\n<tr
+        class='route_row' data-helper='path'>\n  <td data-route-name=''>\n  </td>\n
+        \ <td data-route-verb='DELETE'>\n    DELETE\n  </td>\n  <td data-route-path='/dmas/:id(.:format)'
+        data-regexp='^\\/dmas\\/([^\\/.?]+)(?:\\.([^\\/.?]+))?$'>\n    /dmas/:id(.:format)\n
+        \ </td>\n  <td data-route-reqs='dmas#destroy'>\n    dmas#destroy\n  </td>\n</tr>\n<tr
+        class='route_row' data-helper='path'>\n  <td data-route-name='order_recipients'>\n
+        \     order_recipients<span class='helper'>_path</span>\n  </td>\n  <td data-route-verb='GET'>\n
+        \   GET\n  </td>\n  <td data-route-path='/orders/:order_id/recipients(.:format)'
+        data-regexp='^\\/orders\\/([^\\/.?]+)\\/recipients(?:\\.([^\\/.?]+))?$'>\n
+        \   /orders/:order_id/recipients(.:format)\n  </td>\n  <td data-route-reqs='recipients#index'>\n
+        \   recipients#index\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name='image_order'>\n      image_order<span class='helper'>_path</span>\n
+        \ </td>\n  <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/orders/:id/image(.:format)'
+        data-regexp='^\\/orders\\/([^\\/.?]+)\\/image(?:\\.([^\\/.?]+))?$'>\n    /orders/:id/image(.:format)\n
+        \ </td>\n  <td data-route-reqs='orders#image'>\n    orders#image\n  </td>\n</tr>\n<tr
+        class='route_row' data-helper='path'>\n  <td data-route-name='cancel_order'>\n
+        \     cancel_order<span class='helper'>_path</span>\n  </td>\n  <td data-route-verb='PUT'>\n
+        \   PUT\n  </td>\n  <td data-route-path='/orders/:id/cancel(.:format)' data-regexp='^\\/orders\\/([^\\/.?]+)\\/cancel(?:\\.([^\\/.?]+))?$'>\n
+        \   /orders/:id/cancel(.:format)\n  </td>\n  <td data-route-reqs='orders#cancel'>\n
+        \   orders#cancel\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name='clear_settings_orders'>\n      clear_settings_orders<span
+        class='helper'>_path</span>\n  </td>\n  <td data-route-verb='GET'>\n    GET\n
+        \ </td>\n  <td data-route-path='/orders/clear_settings(.:format)' data-regexp='^\\/orders\\/clear_settings(?:\\.([^\\/.?]+))?$'>\n
+        \   /orders/clear_settings(.:format)\n  </td>\n  <td data-route-reqs='orders#clear_settings'>\n
+        \   orders#clear_settings\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name='orders'>\n      orders<span class='helper'>_path</span>\n
+        \ </td>\n  <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/orders(.:format)'
+        data-regexp='^\\/orders(?:\\.([^\\/.?]+))?$'>\n    /orders(.:format)\n  </td>\n
+        \ <td data-route-reqs='orders#index'>\n    orders#index\n  </td>\n</tr>\n<tr
+        class='route_row' data-helper='path'>\n  <td data-route-name='order'>\n      order<span
+        class='helper'>_path</span>\n  </td>\n  <td data-route-verb='GET'>\n    GET\n
+        \ </td>\n  <td data-route-path='/orders/:id(.:format)' data-regexp='^\\/orders\\/([^\\/.?]+)(?:\\.([^\\/.?]+))?$'>\n
+        \   /orders/:id(.:format)\n  </td>\n  <td data-route-reqs='orders#show'>\n
+        \   orders#show\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name='run_workflow_definition'>\n      run_workflow_definition<span
+        class='helper'>_path</span>\n  </td>\n  <td data-route-verb='GET'>\n    GET\n
+        \ </td>\n  <td data-route-path='/workflow_definitions/:id/run(.:format)' data-regexp='^\\/workflow_definitions\\/([^\\/.?]+)\\/run(?:\\.([^\\/.?]+))?$'>\n
+        \   /workflow_definitions/:id/run(.:format)\n  </td>\n  <td data-route-reqs='workflow_definitions#run'>\n
+        \   workflow_definitions#run\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name=''>\n  </td>\n  <td data-route-verb='POST'>\n    POST\n
+        \ </td>\n  <td data-route-path='/workflow_definitions/:id/run(.:format)' data-regexp='^\\/workflow_definitions\\/([^\\/.?]+)\\/run(?:\\.([^\\/.?]+))?$'>\n
+        \   /workflow_definitions/:id/run(.:format)\n  </td>\n  <td data-route-reqs='workflow_definitions#run'>\n
+        \   workflow_definitions#run\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name='archive_workflow_definition'>\n      archive_workflow_definition<span
+        class='helper'>_path</span>\n  </td>\n  <td data-route-verb='PUT'>\n    PUT\n
+        \ </td>\n  <td data-route-path='/workflow_definitions/:id/archive(.:format)'
+        data-regexp='^\\/workflow_definitions\\/([^\\/.?]+)\\/archive(?:\\.([^\\/.?]+))?$'>\n
+        \   /workflow_definitions/:id/archive(.:format)\n  </td>\n  <td data-route-reqs='workflow_definitions#archive'>\n
+        \   workflow_definitions#archive\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name='diagram_workflow_definition'>\n      diagram_workflow_definition<span
+        class='helper'>_path</span>\n  </td>\n  <td data-route-verb='GET'>\n    GET\n
+        \ </td>\n  <td data-route-path='/workflow_definitions/:id/diagram(.:format)'
+        data-regexp='^\\/workflow_definitions\\/([^\\/.?]+)\\/diagram(?:\\.([^\\/.?]+))?$'>\n
+        \   /workflow_definitions/:id/diagram(.:format)\n  </td>\n  <td data-route-reqs='workflow_definitions#diagram'>\n
+        \   workflow_definitions#diagram\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name='clear_settings_workflow_definitions'>\n      clear_settings_workflow_definitions<span
+        class='helper'>_path</span>\n  </td>\n  <td data-route-verb='GET'>\n    GET\n
+        \ </td>\n  <td data-route-path='/workflow_definitions/clear_settings(.:format)'
+        data-regexp='^\\/workflow_definitions\\/clear_settings(?:\\.([^\\/.?]+))?$'>\n
+        \   /workflow_definitions/clear_settings(.:format)\n  </td>\n  <td data-route-reqs='workflow_definitions#clear_settings'>\n
+        \   workflow_definitions#clear_settings\n  </td>\n</tr>\n<tr class='route_row'
+        data-helper='path'>\n  <td data-route-name='workflow_definitions'>\n      workflow_definitions<span
+        class='helper'>_path</span>\n  </td>\n  <td data-route-verb='GET'>\n    GET\n
+        \ </td>\n  <td data-route-path='/workflow_definitions(.:format)' data-regexp='^\\/workflow_definitions(?:\\.([^\\/.?]+))?$'>\n
+        \   /workflow_definitions(.:format)\n  </td>\n  <td data-route-reqs='workflow_definitions#index'>\n
+        \   workflow_definitions#index\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name=''>\n  </td>\n  <td data-route-verb='POST'>\n    POST\n
+        \ </td>\n  <td data-route-path='/workflow_definitions(.:format)' data-regexp='^\\/workflow_definitions(?:\\.([^\\/.?]+))?$'>\n
+        \   /workflow_definitions(.:format)\n  </td>\n  <td data-route-reqs='workflow_definitions#create'>\n
+        \   workflow_definitions#create\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name='new_workflow_definition'>\n      new_workflow_definition<span
+        class='helper'>_path</span>\n  </td>\n  <td data-route-verb='GET'>\n    GET\n
+        \ </td>\n  <td data-route-path='/workflow_definitions/new(.:format)' data-regexp='^\\/workflow_definitions\\/new(?:\\.([^\\/.?]+))?$'>\n
+        \   /workflow_definitions/new(.:format)\n  </td>\n  <td data-route-reqs='workflow_definitions#new'>\n
+        \   workflow_definitions#new\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name='edit_workflow_definition'>\n      edit_workflow_definition<span
+        class='helper'>_path</span>\n  </td>\n  <td data-route-verb='GET'>\n    GET\n
+        \ </td>\n  <td data-route-path='/workflow_definitions/:id/edit(.:format)'
+        data-regexp='^\\/workflow_definitions\\/([^\\/.?]+)\\/edit(?:\\.([^\\/.?]+))?$'>\n
+        \   /workflow_definitions/:id/edit(.:format)\n  </td>\n  <td data-route-reqs='workflow_definitions#edit'>\n
+        \   workflow_definitions#edit\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name='workflow_definition'>\n      workflow_definition<span
+        class='helper'>_path</span>\n  </td>\n  <td data-route-verb='GET'>\n    GET\n
+        \ </td>\n  <td data-route-path='/workflow_definitions/:id(.:format)' data-regexp='^\\/workflow_definitions\\/([^\\/.?]+)(?:\\.([^\\/.?]+))?$'>\n
+        \   /workflow_definitions/:id(.:format)\n  </td>\n  <td data-route-reqs='workflow_definitions#show'>\n
+        \   workflow_definitions#show\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name=''>\n  </td>\n  <td data-route-verb='PATCH'>\n    PATCH\n
+        \ </td>\n  <td data-route-path='/workflow_definitions/:id(.:format)' data-regexp='^\\/workflow_definitions\\/([^\\/.?]+)(?:\\.([^\\/.?]+))?$'>\n
+        \   /workflow_definitions/:id(.:format)\n  </td>\n  <td data-route-reqs='workflow_definitions#update'>\n
+        \   workflow_definitions#update\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name=''>\n  </td>\n  <td data-route-verb='PUT'>\n    PUT\n
+        \ </td>\n  <td data-route-path='/workflow_definitions/:id(.:format)' data-regexp='^\\/workflow_definitions\\/([^\\/.?]+)(?:\\.([^\\/.?]+))?$'>\n
+        \   /workflow_definitions/:id(.:format)\n  </td>\n  <td data-route-reqs='workflow_definitions#update'>\n
+        \   workflow_definitions#update\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name=''>\n  </td>\n  <td data-route-verb='DELETE'>\n    DELETE\n
+        \ </td>\n  <td data-route-path='/workflow_definitions/:id(.:format)' data-regexp='^\\/workflow_definitions\\/([^\\/.?]+)(?:\\.([^\\/.?]+))?$'>\n
+        \   /workflow_definitions/:id(.:format)\n  </td>\n  <td data-route-reqs='workflow_definitions#destroy'>\n
+        \   workflow_definitions#destroy\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name='pause_workflow_model'>\n      pause_workflow_model<span
+        class='helper'>_path</span>\n  </td>\n  <td data-route-verb='GET'>\n    GET\n
+        \ </td>\n  <td data-route-path='/workflow_models/:id/pause(.:format)' data-regexp='^\\/workflow_models\\/([^\\/.?]+)\\/pause(?:\\.([^\\/.?]+))?$'>\n
+        \   /workflow_models/:id/pause(.:format)\n  </td>\n  <td data-route-reqs='workflows#pause'>\n
+        \   workflows#pause\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name=''>\n  </td>\n  <td data-route-verb='PUT'>\n    PUT\n
+        \ </td>\n  <td data-route-path='/workflow_models/:id/pause(.:format)' data-regexp='^\\/workflow_models\\/([^\\/.?]+)\\/pause(?:\\.([^\\/.?]+))?$'>\n
+        \   /workflow_models/:id/pause(.:format)\n  </td>\n  <td data-route-reqs='workflows#pause'>\n
+        \   workflows#pause\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name='resume_workflow_model'>\n      resume_workflow_model<span
+        class='helper'>_path</span>\n  </td>\n  <td data-route-verb='GET'>\n    GET\n
+        \ </td>\n  <td data-route-path='/workflow_models/:id/resume(.:format)' data-regexp='^\\/workflow_models\\/([^\\/.?]+)\\/resume(?:\\.([^\\/.?]+))?$'>\n
+        \   /workflow_models/:id/resume(.:format)\n  </td>\n  <td data-route-reqs='workflows#resume'>\n
+        \   workflows#resume\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name=''>\n  </td>\n  <td data-route-verb='PUT'>\n    PUT\n
+        \ </td>\n  <td data-route-path='/workflow_models/:id/resume(.:format)' data-regexp='^\\/workflow_models\\/([^\\/.?]+)\\/resume(?:\\.([^\\/.?]+))?$'>\n
+        \   /workflow_models/:id/resume(.:format)\n  </td>\n  <td data-route-reqs='workflows#resume'>\n
+        \   workflows#resume\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name='cancel_workflow_model'>\n      cancel_workflow_model<span
+        class='helper'>_path</span>\n  </td>\n  <td data-route-verb='GET'>\n    GET\n
+        \ </td>\n  <td data-route-path='/workflow_models/:id/cancel(.:format)' data-regexp='^\\/workflow_models\\/([^\\/.?]+)\\/cancel(?:\\.([^\\/.?]+))?$'>\n
+        \   /workflow_models/:id/cancel(.:format)\n  </td>\n  <td data-route-reqs='workflows#cancel'>\n
+        \   workflows#cancel\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name=''>\n  </td>\n  <td data-route-verb='PUT'>\n    PUT\n
+        \ </td>\n  <td data-route-path='/workflow_models/:id/cancel(.:format)' data-regexp='^\\/workflow_models\\/([^\\/.?]+)\\/cancel(?:\\.([^\\/.?]+))?$'>\n
+        \   /workflow_models/:id/cancel(.:format)\n  </td>\n  <td data-route-reqs='workflows#cancel'>\n
+        \   workflows#cancel\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name='diagram_workflow_model'>\n      diagram_workflow_model<span
+        class='helper'>_path</span>\n  </td>\n  <td data-route-verb='GET'>\n    GET\n
+        \ </td>\n  <td data-route-path='/workflow_models/:id/diagram(.:format)' data-regexp='^\\/workflow_models\\/([^\\/.?]+)\\/diagram(?:\\.([^\\/.?]+))?$'>\n
+        \   /workflow_models/:id/diagram(.:format)\n  </td>\n  <td data-route-reqs='workflows#diagram'>\n
+        \   workflows#diagram\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name='clear_settings_workflow_models'>\n      clear_settings_workflow_models<span
+        class='helper'>_path</span>\n  </td>\n  <td data-route-verb='GET'>\n    GET\n
+        \ </td>\n  <td data-route-path='/workflow_models/clear_settings(.:format)'
+        data-regexp='^\\/workflow_models\\/clear_settings(?:\\.([^\\/.?]+))?$'>\n
+        \   /workflow_models/clear_settings(.:format)\n  </td>\n  <td data-route-reqs='workflows#clear_settings'>\n
+        \   workflows#clear_settings\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name='workflow_models'>\n      workflow_models<span class='helper'>_path</span>\n
+        \ </td>\n  <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/workflow_models(.:format)'
+        data-regexp='^\\/workflow_models(?:\\.([^\\/.?]+))?$'>\n    /workflow_models(.:format)\n
+        \ </td>\n  <td data-route-reqs='workflows#index'>\n    workflows#index\n  </td>\n</tr>\n<tr
+        class='route_row' data-helper='path'>\n  <td data-route-name=''>\n  </td>\n
+        \ <td data-route-verb='POST'>\n    POST\n  </td>\n  <td data-route-path='/workflow_models(.:format)'
+        data-regexp='^\\/workflow_models(?:\\.([^\\/.?]+))?$'>\n    /workflow_models(.:format)\n
+        \ </td>\n  <td data-route-reqs='workflows#create'>\n    workflows#create\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name='new_workflow_model'>\n
+        \     new_workflow_model<span class='helper'>_path</span>\n  </td>\n  <td
+        data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/workflow_models/new(.:format)'
+        data-regexp='^\\/workflow_models\\/new(?:\\.([^\\/.?]+))?$'>\n    /workflow_models/new(.:format)\n
+        \ </td>\n  <td data-route-reqs='workflows#new'>\n    workflows#new\n  </td>\n</tr>\n<tr
+        class='route_row' data-helper='path'>\n  <td data-route-name='edit_workflow_model'>\n
+        \     edit_workflow_model<span class='helper'>_path</span>\n  </td>\n  <td
+        data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/workflow_models/:id/edit(.:format)'
+        data-regexp='^\\/workflow_models\\/([^\\/.?]+)\\/edit(?:\\.([^\\/.?]+))?$'>\n
+        \   /workflow_models/:id/edit(.:format)\n  </td>\n  <td data-route-reqs='workflows#edit'>\n
+        \   workflows#edit\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name='workflow_model'>\n      workflow_model<span class='helper'>_path</span>\n
+        \ </td>\n  <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/workflow_models/:id(.:format)'
+        data-regexp='^\\/workflow_models\\/([^\\/.?]+)(?:\\.([^\\/.?]+))?$'>\n    /workflow_models/:id(.:format)\n
+        \ </td>\n  <td data-route-reqs='workflows#show'>\n    workflows#show\n  </td>\n</tr>\n<tr
+        class='route_row' data-helper='path'>\n  <td data-route-name=''>\n  </td>\n
+        \ <td data-route-verb='PATCH'>\n    PATCH\n  </td>\n  <td data-route-path='/workflow_models/:id(.:format)'
+        data-regexp='^\\/workflow_models\\/([^\\/.?]+)(?:\\.([^\\/.?]+))?$'>\n    /workflow_models/:id(.:format)\n
+        \ </td>\n  <td data-route-reqs='workflows#update'>\n    workflows#update\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name=''>\n
+        \ </td>\n  <td data-route-verb='PUT'>\n    PUT\n  </td>\n  <td data-route-path='/workflow_models/:id(.:format)'
+        data-regexp='^\\/workflow_models\\/([^\\/.?]+)(?:\\.([^\\/.?]+))?$'>\n    /workflow_models/:id(.:format)\n
+        \ </td>\n  <td data-route-reqs='workflows#update'>\n    workflows#update\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name=''>\n
+        \ </td>\n  <td data-route-verb='DELETE'>\n    DELETE\n  </td>\n  <td data-route-path='/workflow_models/:id(.:format)'
+        data-regexp='^\\/workflow_models\\/([^\\/.?]+)(?:\\.([^\\/.?]+))?$'>\n    /workflow_models/:id(.:format)\n
+        \ </td>\n  <td data-route-reqs='workflows#destroy'>\n    workflows#destroy\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name='complete_workflow_activity'>\n
+        \     complete_workflow_activity<span class='helper'>_path</span>\n  </td>\n
+        \ <td data-route-verb='PUT'>\n    PUT\n  </td>\n  <td data-route-path='/activities/:id/complete(.:format)'
+        data-regexp='^\\/activities\\/([^\\/.?]+)\\/complete(?:\\.([^\\/.?]+))?$'>\n
+        \   /activities/:id/complete(.:format)\n  </td>\n  <td data-route-reqs='workflow_activities#complete'>\n
+        \   workflow_activities#complete\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name='approve_workflow_activity'>\n      approve_workflow_activity<span
+        class='helper'>_path</span>\n  </td>\n  <td data-route-verb='PUT'>\n    PUT\n
+        \ </td>\n  <td data-route-path='/activities/:id/approve(.:format)' data-regexp='^\\/activities\\/([^\\/.?]+)\\/approve(?:\\.([^\\/.?]+))?$'>\n
+        \   /activities/:id/approve(.:format)\n  </td>\n  <td data-route-reqs='workflow_activities#approve'>\n
+        \   workflow_activities#approve\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name='reject_workflow_activity'>\n      reject_workflow_activity<span
+        class='helper'>_path</span>\n  </td>\n  <td data-route-verb='GET'>\n    GET\n
+        \ </td>\n  <td data-route-path='/activities/:id/reject(.:format)' data-regexp='^\\/activities\\/([^\\/.?]+)\\/reject(?:\\.([^\\/.?]+))?$'>\n
+        \   /activities/:id/reject(.:format)\n  </td>\n  <td data-route-reqs='workflow_activities#reject'>\n
+        \   workflow_activities#reject\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name=''>\n  </td>\n  <td data-route-verb='PUT'>\n    PUT\n
+        \ </td>\n  <td data-route-path='/activities/:id/reject(.:format)' data-regexp='^\\/activities\\/([^\\/.?]+)\\/reject(?:\\.([^\\/.?]+))?$'>\n
+        \   /activities/:id/reject(.:format)\n  </td>\n  <td data-route-reqs='workflow_activities#reject'>\n
+        \   workflow_activities#reject\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name='replay_workflow_activity'>\n      replay_workflow_activity<span
+        class='helper'>_path</span>\n  </td>\n  <td data-route-verb='PUT'>\n    PUT\n
+        \ </td>\n  <td data-route-path='/activities/:id/replay(.:format)' data-regexp='^\\/activities\\/([^\\/.?]+)\\/replay(?:\\.([^\\/.?]+))?$'>\n
+        \   /activities/:id/replay(.:format)\n  </td>\n  <td data-route-reqs='workflow_activities#replay'>\n
+        \   workflow_activities#replay\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name='reassign_workflow_activity'>\n      reassign_workflow_activity<span
+        class='helper'>_path</span>\n  </td>\n  <td data-route-verb='PUT'>\n    PUT\n
+        \ </td>\n  <td data-route-path='/activities/:id/reassign(.:format)' data-regexp='^\\/activities\\/([^\\/.?]+)\\/reassign(?:\\.([^\\/.?]+))?$'>\n
+        \   /activities/:id/reassign(.:format)\n  </td>\n  <td data-route-reqs='workflow_activities#reassign'>\n
+        \   workflow_activities#reassign\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name='api_complete_workflow_activity'>\n      api_complete_workflow_activity<span
+        class='helper'>_path</span>\n  </td>\n  <td data-route-verb='GET'>\n    GET\n
+        \ </td>\n  <td data-route-path='/activities/:id/api_complete(.:format)' data-regexp='^\\/activities\\/([^\\/.?]+)\\/api_complete(?:\\.([^\\/.?]+))?$'>\n
+        \   /activities/:id/api_complete(.:format)\n  </td>\n  <td data-route-reqs='workflow_activities#api_complete'>\n
+        \   workflow_activities#api_complete\n  </td>\n</tr>\n<tr class='route_row'
+        data-helper='path'>\n  <td data-route-name='api_fail_workflow_activity'>\n
+        \     api_fail_workflow_activity<span class='helper'>_path</span>\n  </td>\n
+        \ <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/activities/:id/api_fail(.:format)'
+        data-regexp='^\\/activities\\/([^\\/.?]+)\\/api_fail(?:\\.([^\\/.?]+))?$'>\n
+        \   /activities/:id/api_fail(.:format)\n  </td>\n  <td data-route-reqs='workflow_activities#api_fail'>\n
+        \   workflow_activities#api_fail\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name='clear_settings_workflow_activities'>\n      clear_settings_workflow_activities<span
+        class='helper'>_path</span>\n  </td>\n  <td data-route-verb='GET'>\n    GET\n
+        \ </td>\n  <td data-route-path='/activities/clear_settings(.:format)' data-regexp='^\\/activities\\/clear_settings(?:\\.([^\\/.?]+))?$'>\n
+        \   /activities/clear_settings(.:format)\n  </td>\n  <td data-route-reqs='workflow_activities#clear_settings'>\n
+        \   workflow_activities#clear_settings\n  </td>\n</tr>\n<tr class='route_row'
+        data-helper='path'>\n  <td data-route-name='workflow_activities'>\n      workflow_activities<span
+        class='helper'>_path</span>\n  </td>\n  <td data-route-verb='GET'>\n    GET\n
+        \ </td>\n  <td data-route-path='/activities(.:format)' data-regexp='^\\/activities(?:\\.([^\\/.?]+))?$'>\n
+        \   /activities(.:format)\n  </td>\n  <td data-route-reqs='workflow_activities#index'>\n
+        \   workflow_activities#index\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name=''>\n  </td>\n  <td data-route-verb='POST'>\n    POST\n
+        \ </td>\n  <td data-route-path='/activities(.:format)' data-regexp='^\\/activities(?:\\.([^\\/.?]+))?$'>\n
+        \   /activities(.:format)\n  </td>\n  <td data-route-reqs='workflow_activities#create'>\n
+        \   workflow_activities#create\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name='new_workflow_activity'>\n      new_workflow_activity<span
+        class='helper'>_path</span>\n  </td>\n  <td data-route-verb='GET'>\n    GET\n
+        \ </td>\n  <td data-route-path='/activities/new(.:format)' data-regexp='^\\/activities\\/new(?:\\.([^\\/.?]+))?$'>\n
+        \   /activities/new(.:format)\n  </td>\n  <td data-route-reqs='workflow_activities#new'>\n
+        \   workflow_activities#new\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name='edit_workflow_activity'>\n      edit_workflow_activity<span
+        class='helper'>_path</span>\n  </td>\n  <td data-route-verb='GET'>\n    GET\n
+        \ </td>\n  <td data-route-path='/activities/:id/edit(.:format)' data-regexp='^\\/activities\\/([^\\/.?]+)\\/edit(?:\\.([^\\/.?]+))?$'>\n
+        \   /activities/:id/edit(.:format)\n  </td>\n  <td data-route-reqs='workflow_activities#edit'>\n
+        \   workflow_activities#edit\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name='workflow_activity'>\n      workflow_activity<span class='helper'>_path</span>\n
+        \ </td>\n  <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/activities/:id(.:format)'
+        data-regexp='^\\/activities\\/([^\\/.?]+)(?:\\.([^\\/.?]+))?$'>\n    /activities/:id(.:format)\n
+        \ </td>\n  <td data-route-reqs='workflow_activities#show'>\n    workflow_activities#show\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name=''>\n
+        \ </td>\n  <td data-route-verb='PATCH'>\n    PATCH\n  </td>\n  <td data-route-path='/activities/:id(.:format)'
+        data-regexp='^\\/activities\\/([^\\/.?]+)(?:\\.([^\\/.?]+))?$'>\n    /activities/:id(.:format)\n
+        \ </td>\n  <td data-route-reqs='workflow_activities#update'>\n    workflow_activities#update\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name=''>\n
+        \ </td>\n  <td data-route-verb='PUT'>\n    PUT\n  </td>\n  <td data-route-path='/activities/:id(.:format)'
+        data-regexp='^\\/activities\\/([^\\/.?]+)(?:\\.([^\\/.?]+))?$'>\n    /activities/:id(.:format)\n
+        \ </td>\n  <td data-route-reqs='workflow_activities#update'>\n    workflow_activities#update\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name=''>\n
+        \ </td>\n  <td data-route-verb='DELETE'>\n    DELETE\n  </td>\n  <td data-route-path='/activities/:id(.:format)'
+        data-regexp='^\\/activities\\/([^\\/.?]+)(?:\\.([^\\/.?]+))?$'>\n    /activities/:id(.:format)\n
+        \ </td>\n  <td data-route-reqs='workflow_activities#destroy'>\n    workflow_activities#destroy\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name=''>\n
+        \ </td>\n  <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/test_resources/:id/:action(.:format)'
+        data-regexp='^\\/test_resources\\/([^\\/.?]+)\\/([^\\/.?]+)(?:\\.([^\\/.?]+))?$'>\n
+        \   /test_resources/:id/:action(.:format)\n  </td>\n  <td data-route-reqs='test_workflow_activity_resources#:action'>\n
+        \   test_workflow_activity_resources#:action\n  </td>\n</tr>\n<tr class='route_row'
+        data-helper='path'>\n  <td data-route-name=''>\n  </td>\n  <td data-route-verb='GET'>\n
+        \   GET\n  </td>\n  <td data-route-path='/great_clips_resources/:id/:action(.:format)'
+        data-regexp='^\\/great_clips_resources\\/([^\\/.?]+)\\/([^\\/.?]+)(?:\\.([^\\/.?]+))?$'>\n
+        \   /great_clips_resources/:id/:action(.:format)\n  </td>\n  <td data-route-reqs='great_clips_workflow_activity_resources#:action'>\n
+        \   great_clips_workflow_activity_resources#:action\n  </td>\n</tr>\n<tr class='route_row'
+        data-helper='path'>\n  <td data-route-name='download_file_workflow_activity_resource'>\n
+        \     download_file_workflow_activity_resource<span class='helper'>_path</span>\n
+        \ </td>\n  <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/resources/:id/download_file(.:format)'
+        data-regexp='^\\/resources\\/([^\\/.?]+)\\/download_file(?:\\.([^\\/.?]+))?$'>\n
+        \   /resources/:id/download_file(.:format)\n  </td>\n  <td data-route-reqs='workflow_activity_resources#download_file'>\n
+        \   workflow_activity_resources#download_file\n  </td>\n</tr>\n<tr class='route_row'
+        data-helper='path'>\n  <td data-route-name='clear_carrier_routes_settings_workflow_activity_resource'>\n
+        \     clear_carrier_routes_settings_workflow_activity_resource<span class='helper'>_path</span>\n
+        \ </td>\n  <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/resources/:id/clear_carrier_routes_settings(.:format)'
+        data-regexp='^\\/resources\\/([^\\/.?]+)\\/clear_carrier_routes_settings(?:\\.([^\\/.?]+))?$'>\n
+        \   /resources/:id/clear_carrier_routes_settings(.:format)\n  </td>\n  <td
+        data-route-reqs='workflow_activity_resources#clear_carrier_routes_settings'>\n
+        \   workflow_activity_resources#clear_carrier_routes_settings\n  </td>\n</tr>\n<tr
+        class='route_row' data-helper='path'>\n  <td data-route-name='view_carrier_routes_for_list_workflow_activity_resource'>\n
+        \     view_carrier_routes_for_list_workflow_activity_resource<span class='helper'>_path</span>\n
+        \ </td>\n  <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/resources/:id/view_carrier_routes_for_list(.:format)'
+        data-regexp='^\\/resources\\/([^\\/.?]+)\\/view_carrier_routes_for_list(?:\\.([^\\/.?]+))?$'>\n
+        \   /resources/:id/view_carrier_routes_for_list(.:format)\n  </td>\n  <td
+        data-route-reqs='workflow_activity_resources#view_carrier_routes_for_list'>\n
+        \   workflow_activity_resources#view_carrier_routes_for_list\n  </td>\n</tr>\n<tr
+        class='route_row' data-helper='path'>\n  <td data-route-name='campaign_counts_workflow_activity_resource'>\n
+        \     campaign_counts_workflow_activity_resource<span class='helper'>_path</span>\n
+        \ </td>\n  <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/resources/:id/campaign_counts(.:format)'
+        data-regexp='^\\/resources\\/([^\\/.?]+)\\/campaign_counts(?:\\.([^\\/.?]+))?$'>\n
+        \   /resources/:id/campaign_counts(.:format)\n  </td>\n  <td data-route-reqs='workflow_activity_resources#campaign_counts'>\n
+        \   workflow_activity_resources#campaign_counts\n  </td>\n</tr>\n<tr class='route_row'
+        data-helper='path'>\n  <td data-route-name=''>\n  </td>\n  <td data-route-verb='GET'>\n
+        \   GET\n  </td>\n  <td data-route-path='/resources/:id/:action(.:format)'
+        data-regexp='^\\/resources\\/([^\\/.?]+)\\/([^\\/.?]+)(?:\\.([^\\/.?]+))?$'>\n
+        \   /resources/:id/:action(.:format)\n  </td>\n  <td data-route-reqs='workflow_activity_resources#:action'>\n
+        \   workflow_activity_resources#:action\n  </td>\n</tr>\n<tr class='route_row'
+        data-helper='path'>\n  <td data-route-name='workflow_activity_resources'>\n
+        \     workflow_activity_resources<span class='helper'>_path</span>\n  </td>\n
+        \ <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/resources(.:format)'
+        data-regexp='^\\/resources(?:\\.([^\\/.?]+))?$'>\n    /resources(.:format)\n
+        \ </td>\n  <td data-route-reqs='workflow_activity_resources#index'>\n    workflow_activity_resources#index\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name=''>\n
+        \ </td>\n  <td data-route-verb='POST'>\n    POST\n  </td>\n  <td data-route-path='/resources(.:format)'
+        data-regexp='^\\/resources(?:\\.([^\\/.?]+))?$'>\n    /resources(.:format)\n
+        \ </td>\n  <td data-route-reqs='workflow_activity_resources#create'>\n    workflow_activity_resources#create\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name='new_workflow_activity_resource'>\n
+        \     new_workflow_activity_resource<span class='helper'>_path</span>\n  </td>\n
+        \ <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/resources/new(.:format)'
+        data-regexp='^\\/resources\\/new(?:\\.([^\\/.?]+))?$'>\n    /resources/new(.:format)\n
+        \ </td>\n  <td data-route-reqs='workflow_activity_resources#new'>\n    workflow_activity_resources#new\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name='edit_workflow_activity_resource'>\n
+        \     edit_workflow_activity_resource<span class='helper'>_path</span>\n  </td>\n
+        \ <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/resources/:id/edit(.:format)'
+        data-regexp='^\\/resources\\/([^\\/.?]+)\\/edit(?:\\.([^\\/.?]+))?$'>\n    /resources/:id/edit(.:format)\n
+        \ </td>\n  <td data-route-reqs='workflow_activity_resources#edit'>\n    workflow_activity_resources#edit\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name='workflow_activity_resource'>\n
+        \     workflow_activity_resource<span class='helper'>_path</span>\n  </td>\n
+        \ <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/resources/:id(.:format)'
+        data-regexp='^\\/resources\\/([^\\/.?]+)(?:\\.([^\\/.?]+))?$'>\n    /resources/:id(.:format)\n
+        \ </td>\n  <td data-route-reqs='workflow_activity_resources#show'>\n    workflow_activity_resources#show\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name=''>\n
+        \ </td>\n  <td data-route-verb='PATCH'>\n    PATCH\n  </td>\n  <td data-route-path='/resources/:id(.:format)'
+        data-regexp='^\\/resources\\/([^\\/.?]+)(?:\\.([^\\/.?]+))?$'>\n    /resources/:id(.:format)\n
+        \ </td>\n  <td data-route-reqs='workflow_activity_resources#update'>\n    workflow_activity_resources#update\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name=''>\n
+        \ </td>\n  <td data-route-verb='PUT'>\n    PUT\n  </td>\n  <td data-route-path='/resources/:id(.:format)'
+        data-regexp='^\\/resources\\/([^\\/.?]+)(?:\\.([^\\/.?]+))?$'>\n    /resources/:id(.:format)\n
+        \ </td>\n  <td data-route-reqs='workflow_activity_resources#update'>\n    workflow_activity_resources#update\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name=''>\n
+        \ </td>\n  <td data-route-verb='DELETE'>\n    DELETE\n  </td>\n  <td data-route-path='/resources/:id(.:format)'
+        data-regexp='^\\/resources\\/([^\\/.?]+)(?:\\.([^\\/.?]+))?$'>\n    /resources/:id(.:format)\n
+        \ </td>\n  <td data-route-reqs='workflow_activity_resources#destroy'>\n    workflow_activity_resources#destroy\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name='admin_index'>\n
+        \     admin_index<span class='helper'>_path</span>\n  </td>\n  <td data-route-verb='GET'>\n
+        \   GET\n  </td>\n  <td data-route-path='/admin/index(.:format)' data-regexp='^\\/admin\\/index(?:\\.([^\\/.?]+))?$'>\n
+        \   /admin/index(.:format)\n  </td>\n  <td data-route-reqs='admin#index'>\n
+        \   admin#index\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name='admin_brands'>\n      admin_brands<span class='helper'>_path</span>\n
+        \ </td>\n  <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/admin/brands(.:format)'
+        data-regexp='^\\/admin\\/brands(?:\\.([^\\/.?]+))?$'>\n    /admin/brands(.:format)\n
+        \ </td>\n  <td data-route-reqs='brands#index'>\n    brands#index\n  </td>\n</tr>\n<tr
+        class='route_row' data-helper='path'>\n  <td data-route-name='admin_criteria_specs'>\n
+        \     admin_criteria_specs<span class='helper'>_path</span>\n  </td>\n  <td
+        data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/admin/criteria_specs(.:format)'
+        data-regexp='^\\/admin\\/criteria_specs(?:\\.([^\\/.?]+))?$'>\n    /admin/criteria_specs(.:format)\n
+        \ </td>\n  <td data-route-reqs='criteria_specs#index'>\n    criteria_specs#index\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name='admin_workflow_definitions'>\n
+        \     admin_workflow_definitions<span class='helper'>_path</span>\n  </td>\n
+        \ <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/admin/workflow_definitions(.:format)'
+        data-regexp='^\\/admin\\/workflow_definitions(?:\\.([^\\/.?]+))?$'>\n    /admin/workflow_definitions(.:format)\n
+        \ </td>\n  <td data-route-reqs='workflow_definitions#index'>\n    workflow_definitions#index\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name='admin'>\n
+        \     admin<span class='helper'>_path</span>\n  </td>\n  <td data-route-verb='GET'>\n
+        \   GET\n  </td>\n  <td data-route-path='/admin(.:format)' data-regexp='^\\/admin(?:\\.([^\\/.?]+))?$'>\n
+        \   /admin(.:format)\n  </td>\n  <td data-route-reqs='admin#index'>\n    admin#index\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name=''>\n
+        \ </td>\n  <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/audits/:type/:id(.:format)'
+        data-regexp='^\\/audits\\/([^\\/.?]+)\\/([^\\/.?]+)(?:\\.([^\\/.?]+))?$'>\n
+        \   /audits/:type/:id(.:format)\n  </td>\n  <td data-route-reqs='audits#history'>\n
+        \   audits#history\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name='docs_icons'>\n      docs_icons<span class='helper'>_path</span>\n
+        \ </td>\n  <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/docs/icons(.:format)'
+        data-regexp='^\\/docs\\/icons(?:\\.([^\\/.?]+))?$'>\n    /docs/icons(.:format)\n
+        \ </td>\n  <td data-route-reqs='docs#icons'>\n    docs#icons\n  </td>\n</tr>\n<tr
+        class='route_row' data-helper='path'>\n  <td data-route-name='docs_test_ajax'>\n
+        \     docs_test_ajax<span class='helper'>_path</span>\n  </td>\n  <td data-route-verb='GET'>\n
+        \   GET\n  </td>\n  <td data-route-path='/docs/test_ajax(.:format)' data-regexp='^\\/docs\\/test_ajax(?:\\.([^\\/.?]+))?$'>\n
+        \   /docs/test_ajax(.:format)\n  </td>\n  <td data-route-reqs='docs#test_ajax'>\n
+        \   docs#test_ajax\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name=''>\n  </td>\n  <td data-route-verb='GET'>\n    GET\n
+        \ </td>\n  <td data-route-path='/medium/:medium/brand/:brandkey/criteria(.:format)'
+        data-regexp='^\\/medium\\/([^\\/.?]+)\\/brand\\/([^\\/.?]+)\\/criteria(?:\\.([^\\/.?]+))?$'>\n
+        \   /medium/:medium/brand/:brandkey/criteria(.:format)\n  </td>\n  <td data-route-reqs='criteria_specs#api_index'>\n
+        \   criteria_specs#api_index\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name=''>\n  </td>\n  <td data-route-verb='GET'>\n    GET\n
+        \ </td>\n  <td data-route-path='/medium/:medium/brand/:brandkey/criteria/titles(.:format)'
+        data-regexp='^\\/medium\\/([^\\/.?]+)\\/brand\\/([^\\/.?]+)\\/criteria\\/titles(?:\\.([^\\/.?]+))?$'>\n
+        \   /medium/:medium/brand/:brandkey/criteria/titles(.:format)\n  </td>\n  <td
+        data-route-reqs='criteria_specs#api_index {:titles_only=&gt;true}'>\n    criteria_specs#api_index
+        {:titles_only=&gt;true}\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name=''>\n  </td>\n  <td data-route-verb='GET'>\n    GET\n
+        \ </td>\n  <td data-route-path='/medium/:medium/brand/:brandkey/criteria/:id(.:format)'
+        data-regexp='^\\/medium\\/([^\\/.?]+)\\/brand\\/([^\\/.?]+)\\/criteria\\/([^\\/.?]+)(?:\\.([^\\/.?]+))?$'>\n
+        \   /medium/:medium/brand/:brandkey/criteria/:id(.:format)\n  </td>\n  <td
+        data-route-reqs='criteria_specs#api_show'>\n    criteria_specs#api_show\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name=''>\n
+        \ </td>\n  <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/medium/:medium/brand/:brandkey/affiliate/:affiliateid/criteria/:id(.:format)'
+        data-regexp='^\\/medium\\/([^\\/.?]+)\\/brand\\/([^\\/.?]+)\\/affiliate\\/([^\\/.?]+)\\/criteria\\/([^\\/.?]+)(?:\\.([^\\/.?]+))?$'>\n
+        \   /medium/:medium/brand/:brandkey/affiliate/:affiliateid/criteria/:id(.:format)\n
+        \ </td>\n  <td data-route-reqs='criteria_specs#api_show'>\n    criteria_specs#api_show\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name=''>\n
+        \ </td>\n  <td data-route-verb='POST'>\n    POST\n  </td>\n  <td data-route-path='/medium/:medium/brand/:brandkey/criteria/:criteriakey/list(.:format)'
+        data-regexp='^\\/medium\\/([^\\/.?]+)\\/brand\\/([^\\/.?]+)\\/criteria\\/([^\\/.?]+)\\/list(?:\\.([^\\/.?]+))?$'>\n
+        \   /medium/:medium/brand/:brandkey/criteria/:criteriakey/list(.:format)\n
+        \ </td>\n  <td data-route-reqs='lists#api_create'>\n    lists#api_create\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name=''>\n
+        \ </td>\n  <td data-route-verb='POST'>\n    POST\n  </td>\n  <td data-route-path='/medium/:medium/brand/:brandkey/criteria/:criteriakey/estimate(.:format)'
+        data-regexp='^\\/medium\\/([^\\/.?]+)\\/brand\\/([^\\/.?]+)\\/criteria\\/([^\\/.?]+)\\/estimate(?:\\.([^\\/.?]+))?$'>\n
+        \   /medium/:medium/brand/:brandkey/criteria/:criteriakey/estimate(.:format)\n
+        \ </td>\n  <td data-route-reqs='lists#api_estimate'>\n    lists#api_estimate\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name=''>\n
+        \ </td>\n  <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/medium/:medium/brand/:brandkey/criteria/:criteriakey/list/:id(.:format)'
+        data-regexp='^\\/medium\\/([^\\/.?]+)\\/brand\\/([^\\/.?]+)\\/criteria\\/([^\\/.?]+)\\/list\\/([^\\/.?]+)(?:\\.([^\\/.?]+))?$'>\n
+        \   /medium/:medium/brand/:brandkey/criteria/:criteriakey/list/:id(.:format)\n
+        \ </td>\n  <td data-route-reqs='lists#api_show'>\n    lists#api_show\n  </td>\n</tr>\n<tr
+        class='route_row' data-helper='path'>\n  <td data-route-name=''>\n  </td>\n
+        \ <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/medium/:medium/brand/:brandkey/criteria/:criteriakey/list/:id/download(.:format)'
+        data-regexp='^\\/medium\\/([^\\/.?]+)\\/brand\\/([^\\/.?]+)\\/criteria\\/([^\\/.?]+)\\/list\\/([^\\/.?]+)\\/download(?:\\.([^\\/.?]+))?$'>\n
+        \   /medium/:medium/brand/:brandkey/criteria/:criteriakey/list/:id/download(.:format)\n
+        \ </td>\n  <td data-route-reqs='lists#api_download'>\n    lists#api_download\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name=''>\n
+        \ </td>\n  <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/medium/:medium/brand/:brandkey/criteria/:criteriakey/list/:id/cancel(.:format)'
+        data-regexp='^\\/medium\\/([^\\/.?]+)\\/brand\\/([^\\/.?]+)\\/criteria\\/([^\\/.?]+)\\/list\\/([^\\/.?]+)\\/cancel(?:\\.([^\\/.?]+))?$'>\n
+        \   /medium/:medium/brand/:brandkey/criteria/:criteriakey/list/:id/cancel(.:format)\n
+        \ </td>\n  <td data-route-reqs='lists#api_cancel'>\n    lists#api_cancel\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name=''>\n
+        \ </td>\n  <td data-route-verb='POST'>\n    POST\n  </td>\n  <td data-route-path='/medium/:medium/brand/:brandkey/criteria/:criteriakey/list/:id/result(.:format)'
+        data-regexp='^\\/medium\\/([^\\/.?]+)\\/brand\\/([^\\/.?]+)\\/criteria\\/([^\\/.?]+)\\/list\\/([^\\/.?]+)\\/result(?:\\.([^\\/.?]+))?$'>\n
+        \   /medium/:medium/brand/:brandkey/criteria/:criteriakey/list/:id/result(.:format)\n
+        \ </td>\n  <td data-route-reqs='list_results#create'>\n    list_results#create\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name='utilities_new_peachtree'>\n
+        \     utilities_new_peachtree<span class='helper'>_path</span>\n  </td>\n
+        \ <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/utilities/new_peachtree(.:format)'
+        data-regexp='^\\/utilities\\/new_peachtree(?:\\.([^\\/.?]+))?$'>\n    /utilities/new_peachtree(.:format)\n
+        \ </td>\n  <td data-route-reqs='utilities#new_peachtree'>\n    utilities#new_peachtree\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name='utilities_upload_peachtree'>\n
+        \     utilities_upload_peachtree<span class='helper'>_path</span>\n  </td>\n
+        \ <td data-route-verb='POST'>\n    POST\n  </td>\n  <td data-route-path='/utilities/upload_peachtree(.:format)'
+        data-regexp='^\\/utilities\\/upload_peachtree(?:\\.([^\\/.?]+))?$'>\n    /utilities/upload_peachtree(.:format)\n
+        \ </td>\n  <td data-route-reqs='utilities#upload_peachtree'>\n    utilities#upload_peachtree\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name='utilities'>\n
+        \     utilities<span class='helper'>_path</span>\n  </td>\n  <td data-route-verb='GET'>\n
+        \   GET\n  </td>\n  <td data-route-path='/utilities(.:format)' data-regexp='^\\/utilities(?:\\.([^\\/.?]+))?$'>\n
+        \   /utilities(.:format)\n  </td>\n  <td data-route-reqs='utilities#index'>\n
+        \   utilities#index\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name='utilities_generate_speedeon'>\n      utilities_generate_speedeon<span
+        class='helper'>_path</span>\n  </td>\n  <td data-route-verb='POST'>\n    POST\n
+        \ </td>\n  <td data-route-path='/utilities/generate_speedeon(.:format)' data-regexp='^\\/utilities\\/generate_speedeon(?:\\.([^\\/.?]+))?$'>\n
+        \   /utilities/generate_speedeon(.:format)\n  </td>\n  <td data-route-reqs='utilities#generate_speedeon'>\n
+        \   utilities#generate_speedeon\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name='utilities_generate_accudata'>\n      utilities_generate_accudata<span
+        class='helper'>_path</span>\n  </td>\n  <td data-route-verb='POST'>\n    POST\n
+        \ </td>\n  <td data-route-path='/utilities/generate_accudata(.:format)' data-regexp='^\\/utilities\\/generate_accudata(?:\\.([^\\/.?]+))?$'>\n
+        \   /utilities/generate_accudata(.:format)\n  </td>\n  <td data-route-reqs='utilities#generate_accudata'>\n
+        \   utilities#generate_accudata\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name='new_user_session'>\n      new_user_session<span class='helper'>_path</span>\n
+        \ </td>\n  <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/users/sign_in(.:format)'
+        data-regexp='^\\/users\\/sign_in(?:\\.([^\\/.?]+))?$'>\n    /users/sign_in(.:format)\n
+        \ </td>\n  <td data-route-reqs='devise/sessions#new'>\n    devise/sessions#new\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name='user_session'>\n
+        \     user_session<span class='helper'>_path</span>\n  </td>\n  <td data-route-verb='POST'>\n
+        \   POST\n  </td>\n  <td data-route-path='/users/sign_in(.:format)' data-regexp='^\\/users\\/sign_in(?:\\.([^\\/.?]+))?$'>\n
+        \   /users/sign_in(.:format)\n  </td>\n  <td data-route-reqs='devise/sessions#create'>\n
+        \   devise/sessions#create\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name='destroy_user_session'>\n      destroy_user_session<span
+        class='helper'>_path</span>\n  </td>\n  <td data-route-verb='DELETE'>\n    DELETE\n
+        \ </td>\n  <td data-route-path='/users/sign_out(.:format)' data-regexp='^\\/users\\/sign_out(?:\\.([^\\/.?]+))?$'>\n
+        \   /users/sign_out(.:format)\n  </td>\n  <td data-route-reqs='devise/sessions#destroy'>\n
+        \   devise/sessions#destroy\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name='health_check'>\n      health_check<span class='helper'>_path</span>\n
+        \ </td>\n  <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/health_check(.:format)'
+        data-regexp='^\\/health_check(?:\\.([^\\/.?]+))?$'>\n    /health_check(.:format)\n
+        \ </td>\n  <td data-route-reqs='application#health_check'>\n    application#health_check\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name='boom'>\n
+        \     boom<span class='helper'>_path</span>\n  </td>\n  <td data-route-verb='GET'>\n
+        \   GET\n  </td>\n  <td data-route-path='/boom(.:format)' data-regexp='^\\/boom(?:\\.([^\\/.?]+))?$'>\n
+        \   /boom(.:format)\n  </td>\n  <td data-route-reqs='application#boom'>\n
+        \   application#boom\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name='sessions_index'>\n      sessions_index<span class='helper'>_path</span>\n
+        \ </td>\n  <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/sessions/index(.:format)'
+        data-regexp='^\\/sessions\\/index(?:\\.([^\\/.?]+))?$'>\n    /sessions/index(.:format)\n
+        \ </td>\n  <td data-route-reqs='sessions#index'>\n    sessions#index\n  </td>\n</tr>\n<tr
+        class='route_row' data-helper='path'>\n  <td data-route-name='sessions_sweep'>\n
+        \     sessions_sweep<span class='helper'>_path</span>\n  </td>\n  <td data-route-verb='POST'>\n
+        \   POST\n  </td>\n  <td data-route-path='/sessions/sweep(.:format)' data-regexp='^\\/sessions\\/sweep(?:\\.([^\\/.?]+))?$'>\n
+        \   /sessions/sweep(.:format)\n  </td>\n  <td data-route-reqs='sessions#sweep'>\n
+        \   sessions#sweep\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name='sessions_expire_sessions'>\n      sessions_expire_sessions<span
+        class='helper'>_path</span>\n  </td>\n  <td data-route-verb='POST'>\n    POST\n
+        \ </td>\n  <td data-route-path='/sessions/expire_sessions(.:format)' data-regexp='^\\/sessions\\/expire_sessions(?:\\.([^\\/.?]+))?$'>\n
+        \   /sessions/expire_sessions(.:format)\n  </td>\n  <td data-route-reqs='sessions#expire_sessions'>\n
+        \   sessions#expire_sessions\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name='root'>\n      root<span class='helper'>_path</span>\n
+        \ </td>\n  <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/'
+        data-regexp='^\\/$'>\n    /\n  </td>\n  <td data-route-reqs='fusion_workflows#index'>\n
+        \   fusion_workflows#index\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name=''>\n  </td>\n  <td data-route-verb='GET'>\n    GET\n
+        \ </td>\n  <td data-route-path='/*not_found(.:format)' data-regexp='^\\/((.+?))(?:\\.([^\\/.?]+))?$'>\n
+        \   /*not_found(.:format)\n  </td>\n  <td data-route-reqs='errors#not_found'>\n
+        \   errors#not_found\n  </td>\n</tr>\n\n  </tbody>\n</table>\n\n<script type='text/javascript'>\n
+        \ function each(elems, func) {\n    if (!elems instanceof Array) { elems =
+        [elems]; }\n    for (var i = 0, len = elems.length; i < len; i++) {\n      func(elems[i]);\n
+        \   }\n  }\n\n  function setValOn(elems, val) {\n    each(elems, function(elem)
+        {\n      elem.innerHTML = val;\n    });\n  }\n\n  function onClick(elems,
+        func) {\n    each(elems, function(elem) {\n      elem.onclick = func;\n    });\n
+        \ }\n\n  // Enables functionality to toggle between `_path` and `_url` helper
+        suffixes\n  function setupRouteToggleHelperLinks() {\n    var toggleLinks
+        = document.querySelectorAll('#route_table [data-route-helper]');\n    onClick(toggleLinks,
+        function(){\n      var helperTxt   = this.getAttribute(\"data-route-helper\"),\n
+        \         helperElems = document.querySelectorAll('[data-route-name] span.helper');\n
+        \     setValOn(helperElems, helperTxt);\n    });\n  }\n\n  // takes an array
+        of elements with a data-regexp attribute and\n  // passes their parent <tr>
+        into the callback function\n  // if the regexp matches a given path\n  function
+        eachElemsForPath(elems, path, func) {\n    each(elems, function(e){\n      var
+        reg = e.getAttribute(\"data-regexp\");\n      if (path.match(RegExp(reg)))
+        {\n        func(e.parentNode.cloneNode(true));\n      }\n    })\n  }\n\n  //
+        Ensure path always starts with a slash \"/\" and remove params or fragments\n
+        \ function sanitizePath(path) {\n    var path = path.charAt(0) == '/' ? path
+        : \"/\" + path;\n    return path.replace(/\\#.*|\\?.*/, '');\n  }\n\n  //
+        Enables path search functionality\n  function setupMatchPaths() {\n    var
+        regexpElems     = document.querySelectorAll('#route_table [data-regexp]'),\n
+        \       pathElem        = document.querySelector('#path_search'),\n        selectedSection
+        = document.querySelector('#matched_paths'),\n        noMatchText     = '<tr><th
+        colspan=\"4\">None</th></tr>';\n\n\n    // Remove matches if no path is present\n
+        \   pathElem.onblur = function(e) {\n      if (pathElem.value === \"\") selectedSection.innerHTML
+        = \"\";\n    }\n\n    // On key press perform a search for matching paths\n
+        \   pathElem.onkeyup = function(e){\n      var path        = sanitizePath(pathElem.value),\n
+        \         defaultText = '<tr><th colspan=\"4\">Paths Matching (' + escape(path)
+        + '):</th></tr>';\n\n      // Clear out results section\n      selectedSection.innerHTML=
+        defaultText;\n\n      // Display matches if they exist\n      eachElemsForPath(regexpElems,
+        path, function(e){\n        selectedSection.appendChild(e);\n      });\n\n
+        \     // If no match present, tell the user\n      if (selectedSection.innerHTML
+        === defaultText) {\n        selectedSection.innerHTML = selectedSection.innerHTML
+        + noMatchText;\n      }\n    }\n  }\n\n  setupMatchPaths();\n  setupRouteToggleHelperLinks();\n</script>\n\n</div>\n\n\n</body>\n</html>\n"
+    http_version: 
+  recorded_at: Mon, 26 Oct 2015 02:11:39 GMT
 recorded_with: VCR 2.9.3

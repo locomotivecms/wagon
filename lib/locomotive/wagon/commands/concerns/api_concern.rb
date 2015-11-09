@@ -44,6 +44,10 @@ module Locomotive::Wagon
       end
     end
 
+    def connection_information_from_env_and_path
+      read_deploy_settings(self.env, self.path)
+    end
+
     private
 
     def api_uri
