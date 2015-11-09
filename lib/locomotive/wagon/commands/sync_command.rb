@@ -28,7 +28,7 @@ module Locomotive::Wagon
     def sync
       SyncLogger.new if options[:verbose]
 
-      api_client = api_site_client(connection_information)
+      api_client = api_site_client(connection_information_from_env_and_path)
       site = api_client.current_site.get
 
       each_resource do |klass|
@@ -46,10 +46,6 @@ module Locomotive::Wagon
 
         yield klass
       end
-    end
-
-    def connection_information
-      read_deploy_settings(self.env, self.path)
     end
 
   end
