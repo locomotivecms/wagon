@@ -55,6 +55,16 @@ describe Locomotive::Wagon::ThemeAssetDecorator do
         it { is_expected.to eq 'application.css' }
       end
 
+      describe 'jquery.pluginXy.css' do
+        let(:filepath) { '/somewhere/mysite/public/stylesheets/jquery.pluginXy.css' }
+        it { is_expected.to eq 'jquery.pluginXy.css' }
+      end
+
+      describe 'jquery.pluginXy.css.scss' do
+        let(:filepath) { '/somewhere/mysite/public/stylesheets/jquery.pluginXy.css' }
+        it { is_expected.to eq 'jquery.pluginXy.css' }
+      end
+
     end
 
     describe 'js' do
