@@ -21,7 +21,7 @@ module Locomotive::Wagon
     # @raise [ ArgumentError ] unless the given resources is in RESOURCES
     def delete
       if RESOURCES.include?(resource)
-        api_client.send(resource_method).destroy(slug)
+        client.send(resource_method).destroy(slug)
       else
         raise ArgumentError, "Resource must be one of #{RESOURCES.join(?,)}"
       end
@@ -34,11 +34,11 @@ module Locomotive::Wagon
     end
 
     def current_site
-      @current_site ||= api_client.current_site
+      @current_site ||= client.current_site
     end
 
-    def api_client
-      @api_client ||= api_site_client(connection_information_from_env_and_path)
+    def client
+      @api_site_client ||= api_site_client(connection_information_from_env_and_path)
     end
 
   end
