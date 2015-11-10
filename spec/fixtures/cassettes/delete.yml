@@ -1,0 +1,569 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://www.example.com:3000/locomotive/api/v3/tokens.json
+    body:
+      encoding: UTF-8
+      string: api_key=d49cd50f6f0d2b163f48fc73cb249f0244c37074&email=admin%40locomotivecms.com
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Content-Type:
+      - application/json
+      Etag:
+      - W/"759937b2fcd331319003f12520075378"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 15513caa-071c-436e-8948-097a532d067d
+      X-Runtime:
+      - '0.085456'
+      Content-Length:
+      - '32'
+    body:
+      encoding: UTF-8
+      string: '{"token":"YwabxyhKGciVnBPtx8Wm"}'
+    http_version: 
+  recorded_at: Tue, 10 Nov 2015 02:25:54 GMT
+- request:
+    method: delete
+    uri: http://www.example.com:3000/locomotive/api/v3/theme_assets/564141a4cde736424c0000bd.json?auth_token=YwabxyhKGciVnBPtx8Wm
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      X-Locomotive-Account-Email:
+      - admin@locomotivecms.com
+      X-Locomotive-Account-Token:
+      - YwabxyhKGciVnBPtx8Wm
+      X-Locomotive-Site-Handle:
+      - pleasant-winds-1002
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Etag:
+      - W/"cce70ed7353e85b65e1ec10ea2026f18"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 75455681-4acf-4b40-b39c-0affc1d80ca0
+      X-Runtime:
+      - '4.488276'
+      Content-Length:
+      - '361'
+    body:
+      encoding: UTF-8
+      string: '{"_id":"564141a4cde736424c0000bd","created_at":"2015-11-10T01:00:20Z","updated_at":"2015-11-10T01:00:20Z","content_type":"image","local_path":"images/photo_frame.png","folder":"images","checksum":"93c2911287a5754bed65a028c6aa4a7c","filename":"photo_frame.png","url":"/sites/5641419bcde736424c000000/theme/images/photo_frame.png","size":"7.6
+        KB","raw_size":7780}'
+    http_version: 
+  recorded_at: Tue, 10 Nov 2015 02:25:58 GMT
+- request:
+    method: delete
+    uri: http://www.example.com:3000/locomotive/api/v3/pages/564141a1cde736424c00009a.json?auth_token=YwabxyhKGciVnBPtx8Wm
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      X-Locomotive-Account-Email:
+      - admin@locomotivecms.com
+      X-Locomotive-Account-Token:
+      - YwabxyhKGciVnBPtx8Wm
+      X-Locomotive-Site-Handle:
+      - pleasant-winds-1002
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Etag:
+      - W/"16563f46b5c58a0317314b08bb1b6b2a"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 676470cd-baa8-4e5e-81c1-4a959042eef1
+      X-Runtime:
+      - '0.543713'
+      Content-Length:
+      - '2567'
+    body:
+      encoding: UTF-8
+      string: '{"_id":"564141a1cde736424c00009a","created_at":"2015-11-10T01:00:18Z","updated_at":"2015-11-10T01:00:18Z","title":"About
+        Us","parent_id":"5641419bcde736424c000002","position":1,"handle":"about-us","depth":1,"response_type":"text/html","listed":true,"published":true,"translated_in":["en","fr","nb"],"cache_enabled":true,"slug":"about-us","fullpath":"about-us","localized_fullpaths":{"en":"about-us","fr":"fr/a-notre-sujet","nb":"nb/om-oss"},"redirect":false,"redirect_url":"","redirect_type":301,"templatized":false,"templatized_from_parent":false,"content_type":null,"is_layout":false,"allow_layout":false,"template":"{%
+        extends parent %}\n{% block content %}\n{% editable_long_text ''content''
+        %}\n\u003cp\u003e\n  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Curabitur vitae tincidunt urna. Nunc felis purus, ultricies et venenatis bibendum,
+        fringilla eu lectus. Sed cursus, sem at blandit mattis, libero quam egestas
+        tortor, eget cursus dolor tellus id nunc. Quisque mauris diam, tincidunt in
+        commodo sed, feugiat eu nibh. Nulla erat nunc, dapibus vel eleifend et, egestas
+        sed quam. Vestibulum mollis eros at dolor vulputate vel sollicitudin enim
+        convallis. Etiam velit nisi, rutrum vel sagittis facilisis, pretium id lorem.
+        Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
+        mus. Pellentesque mauris nisl, consequat sed tincidunt nec, lacinia in odio.
+        In hac habitasse platea dictumst. Nam semper libero aliquam turpis gravida
+        vel varius erat vulputate. Integer consequat ipsum vitae augue porttitor ullamcorper.
+        Nam vulputate aliquet ante at gravida. Vestibulum luctus urna et dui hendrerit
+        eu suscipit velit varius. Sed ornare eleifend sem, vitae pharetra dolor sodales
+        egestas. Mauris lobortis hendrerit odio, vitae porttitor urna rutrum at. Ut
+        at lectus erat, nec dictum dolor. Praesent in sapien interdum nibh euismod
+        vestibulum. Vestibulum tincidunt pulvinar accumsan.\n\u003c/p\u003e\n{% endeditable_long_text
+        %}\n{% endblock %}\n","editable_elements":[{"_id":"564141a1cde736424c00009b","created_at":"2015-11-10T01:00:18Z","updated_at":"2015-11-10T01:00:18Z","slug":"page_image","block":"banner","hint":null,"priority":0,"fixed":false,"content":null,"type":"EditableFile"},{"_id":"564141a1cde736424c00009c","created_at":"2015-11-10T01:00:18Z","updated_at":"2015-11-10T01:00:18Z","slug":"pitch","block":"banner","hint":null,"priority":0,"fixed":false,"content":"\u003ch2\u003eAbout
+        us\u003c/h2\u003e\u003cp\u003eLorem ipsum...\u003c/p\u003e","type":""}],"seo_title":null,"meta_keywords":null,"meta_description":null}'
+    http_version: 
+  recorded_at: Tue, 10 Nov 2015 02:46:59 GMT
+- request:
+    method: delete
+    uri: http://www.example.com:3000/locomotive/api/v3/content_types/5641419ccde736424c00000d.json?auth_token=YwabxyhKGciVnBPtx8Wm
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      X-Locomotive-Account-Email:
+      - admin@locomotivecms.com
+      X-Locomotive-Account-Token:
+      - YwabxyhKGciVnBPtx8Wm
+      X-Locomotive-Site-Handle:
+      - pleasant-winds-1002
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Etag:
+      - W/"d07b3d3d520d8cf1a986dcc74ec553bd"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 7ee2b37f-c551-4410-8df3-fbae158e012b
+      X-Runtime:
+      - '2.605434'
+      Content-Length:
+      - '1909'
+    body:
+      encoding: UTF-8
+      string: '{"_id":"5641419ccde736424c00000d","created_at":"2015-11-10T01:00:12Z","updated_at":"2015-11-10T01:00:12Z","name":"Events","slug":"events","description":"List
+        of upcoming events","label_field_name":"place","order_direction":"asc","public_submission_enabled":false,"public_submission_accounts":[],"public_submission_title_template":null,"entry_template":null,"display_settings":null,"fields":[{"_id":"5641419ccde736424c00000e","created_at":null,"updated_at":null,"name":"place","type":"string","label":"Place","hint":"Name
+        of the place","required":true,"localized":false,"unique":false,"position":0},{"_id":"5641419ccde736424c00000f","created_at":null,"updated_at":null,"name":"date","type":"date","label":"Date","hint":"Date
+        of the event","required":false,"localized":false,"unique":false,"position":1},{"_id":"5641419ccde736424c000010","created_at":null,"updated_at":null,"name":"city","type":"string","label":"City
+        of the event","hint":null,"required":false,"localized":false,"unique":false,"position":2},{"_id":"5641419ccde736424c000011","created_at":null,"updated_at":null,"name":"state","type":"string","label":"State
+        of the event","hint":null,"required":false,"localized":false,"unique":false,"position":3},{"_id":"5641419ccde736424c000012","created_at":null,"updated_at":null,"name":"notes","type":"text","label":"Notes","hint":null,"required":false,"localized":false,"unique":false,"position":4,"text_formatting":"html"},{"_id":"5641419ccde736424c000013","created_at":null,"updated_at":null,"name":"tags","type":"tags","label":"List
+        of tags","hint":null,"required":false,"localized":false,"unique":false,"position":5},{"_id":"5641419ccde736424c000014","created_at":null,"updated_at":null,"name":"price","type":"float","label":"Price
+        of the event","hint":null,"required":false,"localized":false,"unique":false,"position":6}],"order_by":"created_at","group_by":null,"public_submission_account_emails":[]}'
+    http_version: 
+  recorded_at: Tue, 10 Nov 2015 02:49:15 GMT
+- request:
+    method: delete
+    uri: http://www.example.com:3000/locomotive/api/v3/snippets/564141a3cde736424c0000b2.json?auth_token=YwabxyhKGciVnBPtx8Wm
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      X-Locomotive-Account-Email:
+      - admin@locomotivecms.com
+      X-Locomotive-Account-Token:
+      - YwabxyhKGciVnBPtx8Wm
+      X-Locomotive-Site-Handle:
+      - pleasant-winds-1002
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Etag:
+      - W/"900ce57540de9ab5c95ac5a5c4a7ba2d"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 8146613c-4dd0-4e98-85ca-efcda31cd476
+      X-Runtime:
+      - '0.251823'
+      Content-Length:
+      - '744'
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJfaWQiOiI1NjQxNDFhM2NkZTczNjQyNGMwMDAwYjIiLCJjcmVhdGVkX2F0
+        IjoiMjAxNS0xMS0xMFQwMTowMDoxOVoiLCJ1cGRhdGVkX2F0IjoiMjAxNS0x
+        MS0xMFQwMTowMDoxOVoiLCJuYW1lIjoiU29uZyIsInNsdWciOiJzb25nIiwi
+        dGVtcGxhdGUiOiJcdTAwM2NsaVx1MDAzZVxuICBcdTAwM2NoM1x1MDAzZVx1
+        MDAzY2EgaHJlZj1cInslIHBhdGhfdG8gc29uZywgd2l0aDogYS1zb25nLXRl
+        bXBsYXRlICV9XCJcdTAwM2V7eyBzb25nLnRpdGxlIH19XHUwMDNjL2FcdTAw
+        M2VcdTAwM2MvaDNcdTAwM2VcbiAgXHUwMDNjZGl2IGNsYXNzPVwiY292ZXJc
+        Ilx1MDAzZXt7IHNvbmcuY292ZXIgfCBpbWFnZV90YWcgfX1cdTAwM2MvZGl2
+        XHUwMDNlXG4gIFx1MDAzY2RpdiBjbGFzcz1cImluZm9cIlx1MDAzZVxuICAg
+        IHt7IHNvbmcuc2hvcnRfZGVzY3JpcHRpb24gfX1cbiAgICBcdTAwM2NwIGNs
+        YXNzPVwibGlzdGVuXCJcdTAwM2VcbiAgICAgIFx1MDAzY2EgaHJlZj1cInt7
+        IHNvbmcuYXVkaW9fdXJsIH19XCJcdTAwM2VcdTAwMjZyYXJyOyBMaXN0ZW4g
+        KHt7IHNvbmcuZHVyYXRpb24gfX0gbWluKVx1MDAzYy9hXHUwMDNlXG4gICAg
+        XHUwMDNjL3BcdTAwM2VcbiAgICBcdTAwM2NwXHUwMDNlw6ljb3V0ZXIgZW4g
+        RnJhbmNhaXNcdTAwM2MvcFx1MDAzZVxuICBcdTAwM2MvZGl2XHUwMDNlXG4g
+        IFx1MDAzY2RpdiBjbGFzcz1cImNsZWFyXCJcdTAwM2VcdTAwM2MvZGl2XHUw
+        MDNlXG5cdTAwM2MvbGlcdTAwM2VcbiJ9
+    http_version: 
+  recorded_at: Tue, 10 Nov 2015 02:50:43 GMT
+- request:
+    method: delete
+    uri: http://www.example.com:3000/locomotive/api/v3/translations/564141a5cde736424c0000c6.json?auth_token=YwabxyhKGciVnBPtx8Wm
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      X-Locomotive-Account-Email:
+      - admin@locomotivecms.com
+      X-Locomotive-Account-Token:
+      - YwabxyhKGciVnBPtx8Wm
+      X-Locomotive-Site-Handle:
+      - pleasant-winds-1002
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Etag:
+      - W/"15421fb6ae8d8a71bb2b6144a152cb71"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - e5174aec-b4c8-4f90-8b53-7d086e7736be
+      X-Runtime:
+      - '0.286872'
+      Content-Length:
+      - '175'
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJfaWQiOiI1NjQxNDFhNWNkZTczNjQyNGMwMDAwYzYiLCJjcmVhdGVkX2F0
+        IjoiMjAxNS0xMS0xMFQwMTowMDoyMVoiLCJ1cGRhdGVkX2F0IjoiMjAxNS0x
+        MS0xMFQwMTowMDoyMVoiLCJrZXkiOiJwb3dlcmVkX2J5IiwidmFsdWVzIjp7
+        ImVuIjoiUG93ZXJlZCBieSIsImZyIjoiUHJvcHVsc8OpIHBhciJ9fQ==
+    http_version: 
+  recorded_at: Tue, 10 Nov 2015 02:52:16 GMT
+- request:
+    method: delete
+    uri: http://www.example.com:3000/locomotive/api/v3/content_assets/5641419dcde736424c000033.json?auth_token=YwabxyhKGciVnBPtx8Wm
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      X-Locomotive-Account-Email:
+      - admin@locomotivecms.com
+      X-Locomotive-Account-Token:
+      - YwabxyhKGciVnBPtx8Wm
+      X-Locomotive-Site-Handle:
+      - pleasant-winds-1002
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Etag:
+      - W/"677d8aad793e5ed6ca3954c461d78a0a"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - f3889e11-39c9-4c93-8132-3f7e1483593a
+      X-Runtime:
+      - '0.282872'
+      Content-Length:
+      - '1150'
+    body:
+      encoding: UTF-8
+      string: '{"_id":"5641419dcde736424c000033","created_at":"2015-11-10T01:00:13Z","updated_at":"2015-11-10T01:00:13Z","content_type":"image","width":602,"height":397,"vignette_url":"/images/dynamic/W1siZmYiLCIvVXNlcnMvbmJvaWUvZGV2ZWxvcG1lbnQvb3Blbl9zb3VyY2UvbG9jb21vdGl2ZS9lbmdpbmUtY2xvbmUvc3BlYy9kdW1teS9wdWJsaWMvc2l0ZXMvNTY0MTQxOWJjZGU3MzY0MjRjMDAwMDAwL2Fzc2V0cy81NjQxNDE5ZGNkZTczNjQyNGMwMDAwMzMvcGhvdG8uanBnIl0sWyJwIiwidGh1bWIiLCI4NXg4NSMiXV0/photo.jpg?sha=99b2143b6e34e681","alternative_vignette_url":"/images/dynamic/W1siZmYiLCIvVXNlcnMvbmJvaWUvZGV2ZWxvcG1lbnQvb3Blbl9zb3VyY2UvbG9jb21vdGl2ZS9lbmdpbmUtY2xvbmUvc3BlYy9kdW1teS9wdWJsaWMvc2l0ZXMvNTY0MTQxOWJjZGU3MzY0MjRjMDAwMDAwL2Fzc2V0cy81NjQxNDE5ZGNkZTczNjQyNGMwMDAwMzMvcGhvdG8uanBnIl0sWyJwIiwidGh1bWIiLCIxOTB4MTIwXHUwMDNlIix7ImZvcm1hdCI6InBuZyIsImZyYW1lIjowfV0sWyJwIiwiZW5jb2RlIiwicG5nIl1d/photo.png?sha=37be0d3767488d5f","checksum":"e1aff5628ca068751b333cf1b69dd978","filename":"photo.jpg","short_name":"photo.jpg","extname":null,"full_filename":"photo.jpg","content_type_text":"image","with_thumbnail":true,"raw_size":163476,"url":"/sites/5641419bcde736424c000000/assets/5641419dcde736424c000033/photo.jpg"}'
+    http_version: 
+  recorded_at: Tue, 10 Nov 2015 02:53:01 GMT
+- request:
+    method: delete
+    uri: http://www.example.com:3000/locomotive/api/v3/pages/bogus_id.json?auth_token=YwabxyhKGciVnBPtx8Wm
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      X-Locomotive-Account-Email:
+      - admin@locomotivecms.com
+      X-Locomotive-Account-Token:
+      - YwabxyhKGciVnBPtx8Wm
+      X-Locomotive-Site-Handle:
+      - pleasant-winds-1002
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Content-Type:
+      - application/json
+      Cache-Control:
+      - no-cache
+      X-Request-Id:
+      - 06f77617-3933-4c3e-a58c-8bd92e673538
+      X-Runtime:
+      - '0.164048'
+      Content-Length:
+      - '30'
+    body:
+      encoding: UTF-8
+      string: '{"error":"Resource not found"}'
+    http_version: 
+  recorded_at: Tue, 10 Nov 2015 02:58:08 GMT
+- request:
+    method: delete
+    uri: http://www.example.com:3000/locomotive/api/v3/content_types/bogus_id.json?auth_token=YwabxyhKGciVnBPtx8Wm
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      X-Locomotive-Account-Email:
+      - admin@locomotivecms.com
+      X-Locomotive-Account-Token:
+      - YwabxyhKGciVnBPtx8Wm
+      X-Locomotive-Site-Handle:
+      - pleasant-winds-1002
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Content-Type:
+      - application/json
+      Cache-Control:
+      - no-cache
+      X-Request-Id:
+      - addc3dfb-f964-4257-b521-b08298c6a765
+      X-Runtime:
+      - '0.126871'
+      Content-Length:
+      - '30'
+    body:
+      encoding: UTF-8
+      string: '{"error":"Resource not found"}'
+    http_version: 
+  recorded_at: Tue, 10 Nov 2015 02:58:09 GMT
+- request:
+    method: delete
+    uri: http://www.example.com:3000/locomotive/api/v3/snippets/bogus_id.json?auth_token=YwabxyhKGciVnBPtx8Wm
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      X-Locomotive-Account-Email:
+      - admin@locomotivecms.com
+      X-Locomotive-Account-Token:
+      - YwabxyhKGciVnBPtx8Wm
+      X-Locomotive-Site-Handle:
+      - pleasant-winds-1002
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Content-Type:
+      - application/json
+      Cache-Control:
+      - no-cache
+      X-Request-Id:
+      - 881472ef-af1e-4f2e-89a3-728f6fe39834
+      X-Runtime:
+      - '0.121552'
+      Content-Length:
+      - '30'
+    body:
+      encoding: UTF-8
+      string: '{"error":"Resource not found"}'
+    http_version: 
+  recorded_at: Tue, 10 Nov 2015 02:58:09 GMT
+- request:
+    method: delete
+    uri: http://www.example.com:3000/locomotive/api/v3/theme_assets/bogus_id.json?auth_token=YwabxyhKGciVnBPtx8Wm
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      X-Locomotive-Account-Email:
+      - admin@locomotivecms.com
+      X-Locomotive-Account-Token:
+      - YwabxyhKGciVnBPtx8Wm
+      X-Locomotive-Site-Handle:
+      - pleasant-winds-1002
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Content-Type:
+      - application/json
+      Cache-Control:
+      - no-cache
+      X-Request-Id:
+      - 1965a9bd-1d74-4208-a24d-3901f794ed8b
+      X-Runtime:
+      - '3.823642'
+      Content-Length:
+      - '30'
+    body:
+      encoding: UTF-8
+      string: '{"error":"Resource not found"}'
+    http_version: 
+  recorded_at: Tue, 10 Nov 2015 02:58:13 GMT
+- request:
+    method: delete
+    uri: http://www.example.com:3000/locomotive/api/v3/translations/bogus_id.json?auth_token=YwabxyhKGciVnBPtx8Wm
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      X-Locomotive-Account-Email:
+      - admin@locomotivecms.com
+      X-Locomotive-Account-Token:
+      - YwabxyhKGciVnBPtx8Wm
+      X-Locomotive-Site-Handle:
+      - pleasant-winds-1002
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Content-Type:
+      - application/json
+      Cache-Control:
+      - no-cache
+      X-Request-Id:
+      - e92e12ee-08e7-4d77-a1b9-17c22dbe7044
+      X-Runtime:
+      - '0.112986'
+      Content-Length:
+      - '30'
+    body:
+      encoding: UTF-8
+      string: '{"error":"Resource not found"}'
+    http_version: 
+  recorded_at: Tue, 10 Nov 2015 02:58:13 GMT
+- request:
+    method: delete
+    uri: http://www.example.com:3000/locomotive/api/v3/content_assets/bogus_id.json?auth_token=YwabxyhKGciVnBPtx8Wm
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      X-Locomotive-Account-Email:
+      - admin@locomotivecms.com
+      X-Locomotive-Account-Token:
+      - YwabxyhKGciVnBPtx8Wm
+      X-Locomotive-Site-Handle:
+      - pleasant-winds-1002
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Content-Type:
+      - application/json
+      Cache-Control:
+      - no-cache
+      X-Request-Id:
+      - 5cdfe1d2-1990-4657-8f4a-6d2229970e79
+      X-Runtime:
+      - '0.123914'
+      Content-Length:
+      - '30'
+    body:
+      encoding: UTF-8
+      string: '{"error":"Resource not found"}'
+    http_version: 
+  recorded_at: Tue, 10 Nov 2015 02:58:13 GMT
+recorded_with: VCR 2.9.3
