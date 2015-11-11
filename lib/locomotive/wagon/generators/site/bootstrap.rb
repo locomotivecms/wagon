@@ -32,8 +32,8 @@ module Locomotive
               remove_file File.join(self.destination, 'public/stylesheets/bootstrap.css')
             else
               remove_dir File.join(self.destination, 'public/stylesheets/bootstrap')
-              remove_file File.join(self.destination, 'public/stylesheets/application.css.scss')
-              remove_file File.join(self.destination, 'public/stylesheets/_bootstrap.css.scss')
+              remove_file File.join(self.destination, 'public/stylesheets/application.scss')
+              remove_file File.join(self.destination, 'public/stylesheets/bootstrap.scss')
             end
           end
 
