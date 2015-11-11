@@ -1,0 +1,19 @@
+%nav.navbar.navbar-default.navbar-fixed-top
+  .container
+    .navbar-header
+      %button.navbar-toggle.collapsed{"aria-controls" => "navbar", "aria-expanded" => "false", "data-target" => "#navbar", "data-toggle" => "collapse", type: "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      %a.navbar-brand{href: "{% path_to home %}"} {{ site.name }}
+    #navbar.navbar-collapse.collapse
+      %ul.nav.navbar-nav.navbar-right
+        %li{class: "{% if page.handle == 'home' %}active{% endif %}" }
+          %a{ href: "{% path_to home %}"} Home
+        {% for page_in_nav in site.pages %}
+        {% if page_in_nav.depth == 1 %}
+        %li{class: "{% if page.fullpath == page_in_nav.fullpath %}active{% endif %}" }
+          {% link_to page_in_nav %}
+        {% endif %}
+        {% endfor %}

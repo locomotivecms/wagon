@@ -49,7 +49,7 @@ module Locomotive::Wagon
 
     def clear_cache_for(resource, files)
       keys = case resource
-      when :sites then '_sites'
+      when :site  then '_sites'
       when :content_entries
         files.map { |f| "site_1_content_type_#{File.basename(f, '.yml')}_content_entries" }
       else

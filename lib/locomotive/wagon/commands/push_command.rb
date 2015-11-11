@@ -43,6 +43,8 @@ module Locomotive::Wagon
       each_resource do |klass|
         klass.push(api_client, steam_services, content_assets_pusher, remote_site)
       end
+
+      display_result_message
     end
 
     private
@@ -148,6 +150,20 @@ module Locomotive::Wagon
     def require_misc_gems
       require 'bundler'
       Bundler.require 'misc'
+    end
+
+    def display_result_message
+      shell.say 'Your site has been deployed.', :green
+
+      if remote_site.respond_to?(:preview_url)
+        shell.say "\nTo preview your site, visit: #{remote_site.preview_url.light_white}"
+      end
+
+      if remote_site.respond_to?(:sign_in_url)
+        shell.say "To edit the content of your site, visit: #{remote_site.sign_in_url.light_white}"
+      end
+
+      true
     end
 
   end

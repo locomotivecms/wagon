@@ -1,0 +1,29 @@
+---
+title: Simple
+is_layout: true
+---
+{% extends 'layouts/default' %}
+
+{% block content %}
+
+{% block header, short_name: true, priority: 1 %}
+.container
+  .jumbotron
+    {% editable_text jumbotron, rows: 5, priority: 1 %}
+    %h1 Wagon bootstrap template
+    %p This is a simple site with editable sections like this one. No content types.
+    {% endeditable_text %}
+{% endblock %}
+
+.container
+  {% block main, short_name: true %}
+  .row
+    .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
+      {% editable_text body %}
+      %p
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe nostrum ullam eveniet pariatur voluptates odit, fuga atque ea nobis sit soluta odio, adipisci quas excepturi maxime quae totam ducimus consectetur?
+      %p
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius praesentium recusandae illo eaque architecto error, repellendus iusto reprehenderit, doloribus, minus sunt. Numquam at quae voluptatum in officia voluptas voluptatibus, minus!
+      {% endeditable_text %}
+  {% endblock %}
+{% endblock %}
