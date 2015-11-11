@@ -22,6 +22,7 @@ module Locomotive::Wagon
     include DeployFileConcern
     include SteamConcern
     include InstrumentationConcern
+    include SpinnerConcern
 
     attr_accessor :platform_url, :credentials
 
@@ -30,8 +31,17 @@ module Locomotive::Wagon
     end
 
     def push
-      PushLogger.new if options[:verbose]
+      if options[:verbose]
+        PushLogger.new
+        _push
+      else
+        show_wait_spinner('Deploying...') { _push }
+      end
+    end
 
+    private
+
+    def _push
       require_misc_gems
 
       api_client = build_api_site_client(connection_information)
@@ -44,10 +54,8 @@ module Locomotive::Wagon
         klass.push(api_client, steam_services, content_assets_pusher, remote_site)
       end
 
-      display_result_message
+      print_result_message
     end
-
-    private
 
     # To push all the other resources, the big requirement is to
     # have the same locales between the local site and the remote one.
@@ -98,7 +106,7 @@ module Locomotive::Wagon
       # get an instance of the Steam services in order to load the information about the site (SiteRepository)
       steam_services.current_site.tap do |site|
         # ask for a handle if not found (blank: random one)
-        site[:handle] ||= shell.try(:ask, "What is the handle of your site?")
+        site[:handle] ||= shell.try(:ask, "What is the handle of your site? (default: a random one)")
 
         # create the site
         attributes = SiteDecorator.new(site).to_hash
@@ -152,8 +160,8 @@ module Locomotive::Wagon
       Bundler.require 'misc'
     end
 
-    def display_result_message
-      shell.say 'Your site has been deployed.', :green
+    def print_result_message
+      shell.say "\n\nYour site has been deployed.", :green
 
       if remote_site.respond_to?(:preview_url)
         shell.say "\nTo preview your site, visit: #{remote_site.preview_url.light_white}"

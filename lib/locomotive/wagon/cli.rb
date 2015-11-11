@@ -225,7 +225,7 @@ module Locomotive
         def backup(name, host, path = '.')
           begin
             if Locomotive::Wagon.clone(name, path, { host: host }.merge(options), shell)
-              self.print_next_instructions_when_site_created(name, path, true)
+              self.print_next_instructions_when_site_created(name, path, false)
             end
           rescue Exception => e
             self.print_exception(e, options[:verbose])
@@ -324,7 +324,7 @@ module Locomotive
         def sync(env, path = '.')
           if check_path!(path)
             begin
-              Locomotive::Wagon.sync(env, path, options)
+              Locomotive::Wagon.sync(env, path, options, shell)
             rescue Exception => e
               self.print_exception(e, options[:verbose])
               exit(1)
@@ -338,7 +338,7 @@ module Locomotive
         def pull(env, path = '.')
           if check_path!(path)
             begin
-              Locomotive::Wagon.pull(env, path, options, options[:shell] ? shell : nil)
+              Locomotive::Wagon.pull(env, path, options, shell)
             rescue Exception => e
               self.print_exception(e, options[:verbose])
               exit(1)

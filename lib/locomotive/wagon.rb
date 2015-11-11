@@ -92,9 +92,9 @@ module Locomotive
     # @param [ Hash ] connection_info The information to get connected to the remote site
     # @param [ Hash ] options The options passed to the pull process
     #
-    def self.sync(env, path, options = {})
+    def self.sync(env, path, options = {}, shell)
       require_relative 'wagon/commands/sync_command'
-      Locomotive::Wagon::SyncCommand.sync(env, path, options)
+      Locomotive::Wagon::SyncCommand.sync(env, path, options, shell)
     end
 
     # Clone a site from a remote LocomotiveCMS engine.

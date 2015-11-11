@@ -18,23 +18,33 @@ module Locomotive::Wagon
     include ApiConcern
     include DeployFileConcern
     include InstrumentationConcern
+    include SpinnerConcern
 
     def self.pull(env, path, options, shell)
       self.new(env, path, options, shell).pull
     end
 
     def pull
-      PullLogger.new if options[:verbose]
+      if options[:verbose]
+        PullLogger.new
+        _pull
+      else
+        show_wait_spinner('Pulling...') { _pull }
+      end
+    end
 
+    private
+
+    def _pull
       api_client = api_site_client(connection_information)
       site = api_client.current_site.get
 
       each_resource do |klass|
         klass.pull(api_client, site, path)
       end
-    end
 
-    private
+      print_result_message
+    end
 
     def each_resource
       RESOURCES.each do |name|
@@ -48,6 +58,11 @@ module Locomotive::Wagon
 
     def connection_information
       read_deploy_settings(self.env, self.path)
+    end
+
+    def print_result_message
+      shell.say "\n\nThe templates, theme assets and content have been pulled from the remote version.", :green
+      true
     end
 
   end
