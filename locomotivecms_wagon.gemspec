@@ -24,7 +24,7 @@ Gem::Specification.new do |gem|
   gem.add_dependency 'activesupport',         '~> 3.2.18'
   gem.add_dependency 'locomotivecms-solid',   '~> 0.2.2.1'
   gem.add_dependency 'RedCloth',              '~> 4.2.8'
-  gem.add_dependency 'redcarpet',             '~> 3.0.0'
+  gem.add_dependency 'redcarpet',             '~> 3.3.2'
   gem.add_dependency 'dragonfly',             '~> 0.9.12'
   gem.add_dependency 'rack-cache',            '~> 1.1'
   gem.add_dependency 'better_errors',         '~> 1.0.1'
