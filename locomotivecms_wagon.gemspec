@@ -11,6 +11,7 @@ Gem::Specification.new do |gem|
   gem.description   = %q{The LocomotiveCMS wagon is a site generator for the LocomotiveCMS engine}
   gem.summary       = %q{The LocomotiveCMS wagon is a site generator for the LocomotiveCMS engine powered by all the efficient and modern HTML development tools (Haml, SASS, Compass, Less).}
   gem.homepage      = 'http://www.locomotivecms.com'
+  gem.license       = 'MIT'
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
@@ -26,9 +27,9 @@ Gem::Specification.new do |gem|
   gem.add_dependency 'netrc',                 '~> 0.10.3'
 
   gem.add_dependency 'locomotivecms_coal',    '~> 1.0.0.rc1'
-  gem.add_dependency 'locomotivecms_steam',   '~> 1.0.0.rc2'
+  gem.add_dependency 'locomotivecms_steam',   '~> 1.0.0.rc3'
 
-  gem.add_dependency 'listen',                '~> 2.10.0'
+  gem.add_dependency 'listen',                '~> 3.0.4'
   gem.add_dependency 'rack-livereload',       '~> 0.3.15'
   gem.add_dependency 'yui-compressor',        '~> 0.12.0'
 

@@ -24,9 +24,10 @@ module Locomotive::Wagon
 
     def fetch_api_key
       if my_account
+        shell.say "\nYou have been successfully authenticated.", :green
         my_account.api_key
       else
-        shell.say "No account found for #{email} or invalid credentials", :yellow
+        shell.say "\nNo account found for #{email} or invalid credentials", :yellow
 
         # shall we create a new account?
         if shell.yes?('Do you want to create a new account? [Y/N]')
