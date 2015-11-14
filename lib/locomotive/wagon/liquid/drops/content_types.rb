@@ -21,30 +21,44 @@ module Locomotive
           end
 
           def all
-            self.collection
+            self.collection || []
           end
 
           def any
-            self.collection.any?
+            !self.collection.nil? && collection.any?
           end
 
           def first
-            self.collection.first
+            if !self.collection.nil? then
+              self.collection.first
+            else
+              nil
+            end
           end
 
           def last
-            self.collection.last
+            if !self.collection.nil? then
+              self.collection.last
+            else
+              nil
+            end
           end
 
           def size
-            self.collection.size
+            if !self.collection.nil? then
+              self.collection.size
+            else
+              0
+            end
           end
 
           alias :length :size
           alias :count :size
 
           def each(&block)
-            self.collection.each(&block)
+            if !self.collection.nil? then
+              self.collection.each(&block)
+            end
           end
 
           def public_submission_url
