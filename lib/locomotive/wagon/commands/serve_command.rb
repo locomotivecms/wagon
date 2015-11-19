@@ -59,8 +59,8 @@ module Locomotive::Wagon
         config.adapter      = { name: :filesystem, path: File.expand_path(path) }
         config.asset_path   = File.expand_path(File.join(path, 'public'))
 
-        if port = options[:live_reload_port]
-          require_relative '../tools/livereload'
+        if (port = options[:live_reload_port]).to_i > 0
+          require 'rack-livereload'
           config.middleware.insert_before Rack::Lint, Rack::LiveReload, live_reload_port: port
         end
 
