@@ -9,7 +9,7 @@
 // $light-orange: #ff8c00;
 // $navbar-default-color: $light-orange;
 
-$icon-font-path: "/fonts/bootstrap";
+$icon-font-path: "../fonts/bootstrap/" !default;
 
 // Core variables and mixins
 @import "bootstrap/variables";
