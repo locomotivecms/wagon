@@ -19,13 +19,14 @@ module Locomotive::Wagon
 
       precompile(decorated_entity)
 
-      if (_entity = remote_entity(decorated_entity)).nil?
+      resource = if (_entity = remote_entity(decorated_entity)).nil?
         api_client.theme_assets.create(decorated_entity.to_hash)
       else
         raise SkipPersistingException.new if same?(decorated_entity, _entity)
-
         api_client.theme_assets.update(_entity._id, decorated_entity.to_hash)
       end
+
+      register_url(resource)
     end
 
     def label_for(decorated_entity)
@@ -38,11 +39,24 @@ module Locomotive::Wagon
       return unless entity.stylesheet_or_javascript?
 
       Tempfile.new(entity.realname).tap do |file|
-        file.write(sprockets_env[entity.short_relative_url].to_s)
+        content = sprockets_env[entity.short_relative_url].to_s
+
+        # replace paths to images or fonts by the absolute URL used in the Engine
+        replace_assets!(content)
+
+        file.write(content)
 
         entity.filepath = file.path
 
         file.close
+      end
+    end
+
+    def replace_assets!(content)
+      content.gsub!(/([("'])\/((images|fonts)\/[^)"']+)([)"''])/) do
+        leading_char, local_path, trailing_char = $1, $2, $4
+        local_path.gsub!(/\?[^\/]+\Z/, '') # remove query string if present
+        "#{leading_char}#{(@remote_urls || {})[local_path] || local_path}#{trailing_char}"
       end
     end
 
@@ -60,8 +74,14 @@ module Locomotive::Wagon
       @remote_entities = {}.tap do |hash|
         api_client.theme_assets.all.each do |entity|
           hash[entity.local_path] = entity
+          register_url(entity)
         end
       end
+    end
+
+    def register_url(resource)
+      @remote_urls ||= {}
+      @remote_urls[resource.local_path] = "#{resource.url}?#{resource.checksum}"
     end
 
     def sprockets_env
