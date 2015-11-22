@@ -41,9 +41,6 @@ describe Locomotive::Wagon::DeleteCommand do
       end
     end
 
-    context 'by slug' do
-      
-    end
   end
 
   context 'resource does not exist' do
