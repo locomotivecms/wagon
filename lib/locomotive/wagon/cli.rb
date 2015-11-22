@@ -358,6 +358,22 @@ module Locomotive
           end
         end
 
+        desc 'delete ENV [PATH] [RESOURCE] [SLUG]', 'Delete a resource from a remote Locomotive Engine.'
+        long_desc <<-LONGDESC
+          Deletes a pages, content_type, snippet, theme_asset, translation, or content_asset from the remote Locomotive Engine.
+
+          RESOURCE can be set to pages, content_type, content_entrie, snippet, theme_asset, translation, or content_asset.
+          SLUG is the slug of the specific resource to delete
+        LONGDESC
+        def delete(env, path, resource, slug)
+          if ask('Are you sure?', limited_to: %w(yes no)) == 'yes'
+            Locomotive::Wagon.delete(env, resource, slug)
+          else
+            say 'The delete operation has been cancelled', :red
+            exit(1)
+          end
+        end
+
         # aliases
         map push: :deploy, clone: :backup
 

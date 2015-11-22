@@ -120,5 +120,16 @@ module Locomotive
       Locomotive::Wagon::DestroyCommand.destroy(env, path, options)
     end
 
+    # Delete a remote resource
+    #
+    # @param [ String ] env The environment we use to deploy the site to
+    # @param [ String ] path The path of the site
+    # @param [ String ] resource The resource from which we want to delete an entry
+    # @param [ String ] slug The slug of the resource to delete
+    def self.delete(env, path, resource, slug)
+      require_relative 'wagon/commands/delete_command'
+      Locomotive::Wagon::DeleteCommand.delete(env, path, resource, slug)
+    end
+
   end
 end
