@@ -1,0 +1,18 @@
+---
+title: Page not found
+published: true
+---
+{% extends 'layouts/default' %}
+
+{% block content %}
+
+<div class="container">
+  <div class="jumbotron">
+    {% editable_text jumbotron, rows: 5, priority: 1 %}
+      <h1 class="text-danger">Arrggggh, page not found</h1>
+      <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+    {% endeditable_text %}
+  </div>
+</div>
+
+{% endblock %}

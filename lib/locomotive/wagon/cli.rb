@@ -225,7 +225,7 @@ module Locomotive
         def backup(name, host, path = '.')
           begin
             if Locomotive::Wagon.clone(name, path, { host: host }.merge(options), shell)
-              self.print_next_instructions_when_site_created(name, path, true)
+              self.print_next_instructions_when_site_created(name, path, false)
             end
           rescue Exception => e
             self.print_exception(e, options[:verbose])
@@ -266,7 +266,7 @@ module Locomotive
         option :host, aliases: '-h', type: 'string', default: '0.0.0.0', desc: 'The host (address) of the Thin server'
         option :port, aliases: '-p', type: 'string', default: '3333', desc: 'The port of the Thin server'
         option :daemonize, aliases: '-d', type: 'boolean', default: false, desc: 'Run daemonized Thin server in the background'
-        option :live_reload_port, aliases: '-l', type: 'string', default: false, desc: 'Include the Livereload javascript in each page'
+        option :live_reload_port, aliases: '-l', type: 'string', default: '35729', desc: 'The port the LiveReload javascript lib needs to listen for changes (35729 by default)'
         option :force, aliases: '-f', type: 'boolean', default: false, desc: 'Stop the current daemonized Thin server if found before starting a new one'
         option :verbose, aliases: '-v', type: 'boolean', default: false, desc: 'display the full error stack trace if an error occurs'
         def serve(path = '.')
@@ -324,7 +324,7 @@ module Locomotive
         def sync(env, path = '.')
           if check_path!(path)
             begin
-              Locomotive::Wagon.sync(env, path, options)
+              Locomotive::Wagon.sync(env, path, options, shell)
             rescue Exception => e
               self.print_exception(e, options[:verbose])
               exit(1)
@@ -338,7 +338,7 @@ module Locomotive
         def pull(env, path = '.')
           if check_path!(path)
             begin
-              Locomotive::Wagon.pull(env, path, options, options[:shell] ? shell : nil)
+              Locomotive::Wagon.pull(env, path, options, shell)
             rescue Exception => e
               self.print_exception(e, options[:verbose])
               exit(1)

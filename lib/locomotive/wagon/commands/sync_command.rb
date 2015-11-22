@@ -13,30 +13,41 @@ require_relative_all  'sync_sub_commands'
 
 module Locomotive::Wagon
 
-  class SyncCommand < Struct.new(:env, :path, :options)
+  class SyncCommand < Struct.new(:env, :path, :options, :shell)
 
     RESOURCES = %w(pages content_entries translations).freeze
 
     include ApiConcern
     include DeployFileConcern
     include InstrumentationConcern
+    include SpinnerConcern
 
-    def self.sync(env, path, options)
-      self.new(env, path, options).sync
+    def self.sync(env, path, options, shell)
+      self.new(env, path, options, shell).sync
     end
 
     def sync
-      SyncLogger.new if options[:verbose]
+      if options[:verbose]
+        SyncLogger.new
+        _sync
+      else
+        show_wait_spinner('Syncing content...') { _sync }
+      end
+    end
 
-      api_client = api_site_client(connection_information_from_env_and_path)
+    private
+
+    def _sync
+      api_client = api_site_client(connection_information)
+
       site = api_client.current_site.get
 
       each_resource do |klass|
         klass.sync(api_client, site, path)
       end
-    end
 
-    private
+      print_result_message
+    end
 
     def each_resource
       RESOURCES.each do |name|
@@ -46,6 +57,15 @@ module Locomotive::Wagon
 
         yield klass
       end
+    end
+
+    def connection_information
+      read_deploy_settings(self.env, self.path)
+    end
+
+    def print_result_message
+      shell.say "\n\nThe content of your local Wagon site has been updated.", :green
+      true
     end
 
   end
