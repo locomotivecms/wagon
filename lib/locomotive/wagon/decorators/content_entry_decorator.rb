@@ -87,8 +87,15 @@ module Locomotive
       end
 
       def decorate_many_to_many_field(value)
-        return nil if value.nil?
-        value.all.map { |entry| entry._slug.try(:[], __locale__) }.compact
+        entries = value.all
+
+        if entries.empty?
+          nil
+        elsif entries.size == 1 && entries.first == ''
+          [nil]
+        else
+          entries.map { |entry| entry._slug.try(:[], __locale__) }.compact
+        end.tap { |o| puts o.inspect }
       end
 
       def decorate_has_many_field(value)
