@@ -42,7 +42,7 @@ module Locomotive::Wagon
         folder, ext = File.dirname(filepath), File.extname(filepath)
         basename = File.basename(filepath, ext)
 
-        find_unique_filepath(File.join(folder, "#{basename}-#{index}#{ext}"), binary, index + 1)
+        find_unique_filepath(File.join(folder, "#{basename}-#{index}#{ext}"), binary_file, index + 1)
       else
         filepath
       end

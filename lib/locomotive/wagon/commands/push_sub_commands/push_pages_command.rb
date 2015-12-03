@@ -39,7 +39,8 @@ module Locomotive::Wagon
     private
 
     def _decorate(entity)
-      PageDecorator.new(entity, default_locale, content_assets_pusher, remote_site.edited?)
+      persist_content = with_data? || !remote_site.edited?
+      PageDecorator.new(entity, default_locale, content_assets_pusher, persist_content)
     end
 
     def remote_entity_id(fullpath)

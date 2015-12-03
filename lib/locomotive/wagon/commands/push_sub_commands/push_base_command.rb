@@ -7,7 +7,9 @@ module Locomotive::Wagon
     def_delegators :steam_services, :current_site, :locale, :repositories
 
     def self.push(api_client, steam_services, content_assets_pusher, remote_site)
-      new(api_client, steam_services, content_assets_pusher, remote_site).push
+      instance = new(api_client, steam_services, content_assets_pusher, remote_site)
+      yield instance if block_given?
+      instance.push
     end
 
     def push
@@ -59,6 +61,14 @@ module Locomotive::Wagon
 
     def path
       File.expand_path(repositories.adapter.options[:path])
+    end
+
+    def with_data
+      @with_data = true
+    end
+
+    def with_data?
+      !!@with_data
     end
 
     class SkipPersistingException < Exception

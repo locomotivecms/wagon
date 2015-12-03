@@ -31,27 +31,29 @@ module Locomotive::Wagon
     end
 
     def push
+      require_misc_gems
+
+      api_client = build_api_site_client(connection_information)
+
       if options[:verbose]
         PushLogger.new
-        _push
+        _push(api_client)
       else
-        show_wait_spinner('Deploying...') { _push }
+        show_wait_spinner('Deploying...') { _push(api_client) }
       end
     end
 
     private
 
-    def _push
-      require_misc_gems
-
-      api_client = build_api_site_client(connection_information)
-
+    def _push(api_client)
       validate!
 
       content_assets_pusher = Locomotive::Wagon::PushContentAssetsCommand.new(api_client, steam_services)
 
       each_resource do |klass|
-        klass.push(api_client, steam_services, content_assets_pusher, remote_site)
+        klass.push(api_client, steam_services, content_assets_pusher, remote_site) do |pusher|
+          pusher.with_data if options[:data]
+        end
       end
 
       print_result_message
