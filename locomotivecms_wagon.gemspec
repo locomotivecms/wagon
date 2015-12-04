@@ -27,7 +27,7 @@ Gem::Specification.new do |gem|
   gem.add_dependency 'netrc',                 '~> 0.10.3'
 
   gem.add_dependency 'locomotivecms_common',  '~> 0.0.5'
-  gem.add_dependency 'locomotivecms_coal',    '~> 1.0.0.rc2'
+  gem.add_dependency 'locomotivecms_coal',    '~> 1.0.0.rc3'
   gem.add_dependency 'locomotivecms_steam',   '~> 1.0.0.rc6'
 
   gem.add_dependency 'listen',                '~> 3.0.4'

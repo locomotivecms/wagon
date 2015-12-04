@@ -39,6 +39,7 @@ module Locomotive::Wagon
 
     def _sync
       api_client = api_site_client(connection_information)
+
       site = api_client.current_site.get
 
       each_resource do |klass|
