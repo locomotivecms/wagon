@@ -36,8 +36,12 @@ module Locomotive::Wagon
     private
 
     def delete_site
-      client.current_site.destroy.tap do |response|
-        shell.say "The site specified in your #{env} environment has been deleted.", :green
+      if shell.ask('Please, type the handle of your site') == client.options[:handle]
+        client.current_site.destroy.tap do |response|
+          shell.say "The remote site specified in your #{env} environment has been deleted.", :green
+        end
+      else
+        shell.say 'The delete operation has been cancelled', :red
       end
     end
 

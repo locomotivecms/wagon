@@ -29,6 +29,8 @@ describe Locomotive::Wagon::DeleteCommand do
     let(:client_api)  { Locomotive::Coal::Client.new(api_uri, api_credentials, handle: 'short-lived') }
     let(:_client_api) { Locomotive::Coal::Client.new(api_uri, api_credentials) }
 
+    before { allow(shell).to receive(:ask).and_return 'short-lived' }
+
     before { _client_api.sites.create(name: 'ShortLived', handle: 'short-lived') }
 
     subject { described_class.delete(env, path, 'site', nil, shell) }
