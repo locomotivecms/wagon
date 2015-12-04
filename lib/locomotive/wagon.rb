@@ -109,15 +109,15 @@ module Locomotive
       Locomotive::Wagon::CloneCommand.clone(name, path, options, shell)
     end
 
-    # Destroy a remote site
+    # Delete one or all remote resource(s)
     #
     # @param [ String ] env The environment we use to deploy the site to
     # @param [ String ] path The path of the site
-    # @param [ Hash ] options The options passed to the destroy command
-    #
-    def self.destroy(env, path, options = {})
-      require_relative 'wagon/commands/destroy_command'
-      Locomotive::Wagon::DestroyCommand.destroy(env, path, options)
+    # @param [ String ] resource The resource from which we want to delete an entry or all entries
+    # @param [ String ] slug The slug of the resource to delete
+    def self.delete(env, path, resource, slug, shell)
+      require_relative 'wagon/commands/delete_command'
+      Locomotive::Wagon::DeleteCommand.delete(env, path, resource, slug, shell)
     end
 
   end

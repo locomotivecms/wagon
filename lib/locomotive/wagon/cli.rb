@@ -346,15 +346,23 @@ module Locomotive
           end
         end
 
-        desc 'destroy ENV [PATH]', 'Destroy a remote Locomotive site'
-        def destroy(env, path = '.')
-          if check_path!(path)
-            if ask('Are you sure?', limited_to: %w(yes no)) == 'yes'
-              Locomotive::Wagon.destroy(env, path)
-            else
-              say 'The destroy operation has been cancelled', :red
-              exit(1)
-            end
+        desc 'delete ENV RESOURCE [SLUG] [PATH]', 'Delete a resource from a remote Locomotive Engine.'
+        long_desc <<-LONGDESC
+          Deletes a site, page, content_type, snippet, theme_asset or translation from the remote Locomotive Engine.
+
+          It can also delete all the items of a resource if you pass: content_types, snippets, theme_assets or translations as the RESOURCE.
+
+          If you need to delete the whole site for the current ENV, just pass site as the RESOURCE.
+
+          RESOURCE can be set to site, page, content_type(s), snippet(s), theme_asset(s) or translation(s).
+          SLUG is the slug of the specific resource to delete
+        LONGDESC
+        def delete(env, resource, slug = nil, path = '.')
+          if ask('Are you sure?', limited_to: %w(yes no)) == 'yes'
+            Locomotive::Wagon.delete(env, path, resource, slug, shell)
+          else
+            say 'The delete operation has been cancelled', :red
+            exit(1)
           end
         end
 
