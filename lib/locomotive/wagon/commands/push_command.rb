@@ -100,7 +100,7 @@ module Locomotive::Wagon
           'handle'  => site.handle,
           'email'   => credentials[:email],
           'api_key' => credentials[:api_key]
-        })
+        }.tap { |options| options['ssl'] = true if api_host.ends_with?(':443') })
       end
     end
 

@@ -13,3 +13,4 @@
 #   email: john@doe.net
 #   password: apassword
 #   # api_key: <your api key here>
+#   # ssl: true
