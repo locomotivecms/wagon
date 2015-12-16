@@ -1,0 +1,70 @@
+# encoding: utf-8
+
+require 'spec_helper'
+
+require 'chronic'
+require 'locomotive/steam'
+require 'locomotive/wagon/decorators/concerns/to_hash_concern'
+require 'locomotive/wagon/decorators/concerns/persist_assets_concern'
+require 'locomotive/wagon/decorators/content_entry_decorator'
+
+describe Locomotive::Wagon::ContentEntryDecorator do
+
+  let(:content_type)  { instance_double('ContentType', fields: fields) }
+  let(:entry)         { instance_double('ContentEntry', attributes.merge(content_type: content_type, localized_attributes: [])) }
+  let(:decorator)     { described_class.new(entry, 'en', '.') }
+
+  before { allow(decorator).to receive(:_slug).and_return('sample') }
+
+  describe '#to_hash' do
+
+    describe 'no field' do
+
+      let(:fields)      { instance_double('Fields', by_name: nil, no_associations: []) }
+      let(:attributes)  { {} }
+
+      subject { decorator.to_hash }
+
+      it { is_expected.to eq({}) }
+
+    end
+
+    describe 'string field' do
+
+      let(:field)       { instance_double('Field', name: 'title', type: 'string') }
+      let(:fields)      { instance_double('Fields', by_name: field, no_associations: [field]) }
+      let(:attributes)  { { title: 'Hello world' } }
+
+      subject { decorator.to_hash }
+
+      it { is_expected.to eq({ _slug: 'sample', title: 'Hello world' }) }
+
+    end
+
+    describe 'date field' do
+
+      let(:field)       { instance_double('Field', name: 'posted_at', type: 'date') }
+      let(:fields)      { instance_double('Fields', by_name: field, no_associations: [field]) }
+      let(:attributes)  { { posted_at: Chronic.parse('2015-09-26').to_date } }
+
+      subject { decorator.to_hash }
+
+      it { is_expected.to eq({ _slug: 'sample', posted_at: '2015-09-26' }) }
+
+    end
+
+    describe 'date time field' do
+
+      let(:field)       { instance_double('Field', name: 'posted_at', type: 'date_time') }
+      let(:fields)      { instance_double('Fields', by_name: field, no_associations: [field]) }
+      let(:attributes)  { { posted_at: Chronic.parse('2015-11-11 18:00:00 +0100').to_datetime } }
+
+      subject { decorator.to_hash }
+
+      it { is_expected.to eq({ _slug: 'sample', posted_at: '2015-11-11T18:00:00+01:00' }) }
+
+    end
+
+  end
+
+end

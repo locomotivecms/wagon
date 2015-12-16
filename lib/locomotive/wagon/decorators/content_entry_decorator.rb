@@ -95,7 +95,7 @@ module Locomotive
           [nil]
         else
           entries.map { |entry| entry._slug.try(:[], __locale__) }.compact
-        end.tap { |o| puts o.inspect }
+        end
       end
 
       def decorate_has_many_field(value)
