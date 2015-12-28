@@ -2,7 +2,6 @@
 
 require 'spec_helper'
 
-require 'chronic'
 require 'locomotive/steam'
 require 'locomotive/wagon/decorators/concerns/to_hash_concern'
 require 'locomotive/wagon/decorators/concerns/persist_assets_concern'
@@ -13,6 +12,8 @@ describe Locomotive::Wagon::ContentEntryDecorator do
   let(:content_type)  { instance_double('ContentType', fields: fields) }
   let(:entry)         { instance_double('ContentEntry', attributes.merge(content_type: content_type, localized_attributes: [])) }
   let(:decorator)     { described_class.new(entry, 'en', '.') }
+
+  before { Chronic.time_class = Time.zone }
 
   before { allow(decorator).to receive(:_slug).and_return('sample') }
 
@@ -57,11 +58,11 @@ describe Locomotive::Wagon::ContentEntryDecorator do
 
       let(:field)       { instance_double('Field', name: 'posted_at', type: 'date_time') }
       let(:fields)      { instance_double('Fields', by_name: field, no_associations: [field]) }
-      let(:attributes)  { { posted_at: Chronic.parse('2015-11-11 18:00:00 +0100').to_datetime } }
+      let(:attributes)  { { posted_at: Chronic.parse('2015-11-11 18:00:00').to_datetime } }
 
       subject { decorator.to_hash }
 
-      it { is_expected.to eq({ _slug: 'sample', posted_at: '2015-11-11T18:00:00+01:00' }) }
+      it { is_expected.to eq({ _slug: 'sample', posted_at: '2015-11-11T17:00:00+00:00' }) }
 
     end
 

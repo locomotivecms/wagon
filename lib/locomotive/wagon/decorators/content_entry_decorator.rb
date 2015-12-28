@@ -45,11 +45,14 @@ module Locomotive
       end
 
       def decorate_date_time_field(value)
+        value.utc.try(:iso8601)
+      end
+
+      def decorate_date_field(value)
         value.try(:iso8601)
       end
 
       alias :decorate_time_field :decorate_date_time_field
-      alias :decorate_date_field :decorate_date_time_field
 
       def to_hash
         if (hash = super).keys == [:_slug]
