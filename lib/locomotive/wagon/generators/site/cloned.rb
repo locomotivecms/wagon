@@ -20,6 +20,10 @@ module Locomotive
             super
           end
 
+          def comment_gemfile
+            false
+          end
+
         end
       end
     end
