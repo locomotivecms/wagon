@@ -3,7 +3,10 @@ module Locomotive::Wagon
   class PushPagesCommand < PushBaseCommand
 
     def entities
-      repositories.page.all
+      repositories.page.all.map do |entity|
+        next if skip?(entity)
+        entity
+      end.compact
     end
 
     def decorate(entity)
@@ -65,6 +68,14 @@ module Locomotive::Wagon
           end
         end
       end
+    end
+
+    def skip?(entity)
+      return false if @only_entities.blank?
+
+      _path = entity.template_path[default_locale].gsub('./app/views/pages/', '')
+
+      !@only_entities.any? { |regexp| regexp.match(_path) }
     end
 
   end
