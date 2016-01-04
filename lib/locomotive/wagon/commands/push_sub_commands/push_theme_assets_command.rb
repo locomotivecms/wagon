@@ -6,8 +6,9 @@ module Locomotive::Wagon
 
     def entities
       repositories.theme_asset.all.map do |entity|
+        next if skip?(entity)
         decorated = ThemeAssetDecorator.new(entity)
-      end.sort { |a, b| a.priority <=> b.priority }
+      end.compact.sort { |a, b| a.priority <=> b.priority }
     end
 
     def decorate(entity)
@@ -86,6 +87,14 @@ module Locomotive::Wagon
 
     def sprockets_env
       @sprockets_env ||= Locomotive::Steam::SprocketsEnvironment.new(File.join(path, 'public'), minify: true)
+    end
+
+    def skip?(entity)
+      return false if @only_entities.blank?
+
+      _source = entity.source.gsub('./public/', '')
+
+      !@only_entities.any? { |regexp| regexp.match(_source) }
     end
 
   end

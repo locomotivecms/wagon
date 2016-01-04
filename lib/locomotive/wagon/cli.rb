@@ -302,6 +302,7 @@ module Locomotive
 
         desc 'deploy ENV [PATH]', 'Deploy a site to a remote Locomotive Engine'
         option :resources, aliases: '-r', type: 'array', default: nil, desc: 'Only push the resource(s) passed in argument'
+        option :filter, aliases: '-f', type: 'array', default: nil, desc: 'Push specific resource entries'
         option :data, aliases: '-d', type: 'boolean', default: false, desc: 'Push the content entries and the editable elements (by default, they are not)'
         option :shell, type: 'boolean', default: true, desc: 'Use shell to ask for missing connection information like the site handle (in this case, take a random one)'
         option :verbose, aliases: '-v', type: 'boolean', default: false, desc: 'display the full error stack trace if an error occurs'

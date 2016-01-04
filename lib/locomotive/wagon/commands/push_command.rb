@@ -5,6 +5,7 @@ require_relative 'loggers/push_logger'
 require_relative_all  'concerns'
 require_relative_all  '../decorators/concerns'
 require_relative_all  '../decorators'
+require_relative      '../tools/glob'
 
 require_relative      'push_sub_commands/push_base_command'
 require_relative_all  'push_sub_commands'
@@ -53,6 +54,7 @@ module Locomotive::Wagon
       each_resource do |klass|
         klass.push(api_client, steam_services, content_assets_pusher, remote_site) do |pusher|
           pusher.with_data if options[:data]
+          pusher.only(options[:filter]) unless options[:filter].blank?
         end
       end
 

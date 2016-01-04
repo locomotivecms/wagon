@@ -1,6 +1,6 @@
 module Locomotive::Wagon
 
-  class PushBaseCommand < Struct.new(:api_client, :steam_services, :content_assets_pusher, :remote_site)
+  class PushBaseCommand < Struct.new(:api_client, :steam_services, :content_assets_pusher, :remote_site, :filter)
 
     extend Forwardable
 
@@ -69,6 +69,12 @@ module Locomotive::Wagon
 
     def with_data?
       !!@with_data
+    end
+
+    def only(entities)
+      @only_entities = entities.map do |entity_or_filter|
+        Locomotive::Wagon::Glob.new(entity_or_filter.gsub(/\A\//, '')).to_regexp
+      end
     end
 
     class SkipPersistingException < Exception
