@@ -13,7 +13,7 @@
 <% when 'date' -%>
     <%= field.name -%>: <%= Time.now.strftime('%Y/%m/%d') -%> # YYYY/MM/DD
 <% when 'file' -%>
-    <%= field.name -%>: null # Path to a file in the public/samples folder or to a remote and external file.
+    # <%= field.name -%>: /samples/<%= config[:slug] -%>/yourfile.txt # Path to a file in the public/samples folder or to a remote and external file.
 <% when 'belongs_to' -%>
     <%= field.name -%>: null # Slug of the target entry
 <% when 'many_to_many' -%>
