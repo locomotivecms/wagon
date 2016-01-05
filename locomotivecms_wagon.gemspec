@@ -28,7 +28,7 @@ Gem::Specification.new do |gem|
 
   gem.add_dependency 'locomotivecms_common',  '~> 0.0.5'
   gem.add_dependency 'locomotivecms_coal',    '~> 1.0.0.rc4'
-  # gem.add_dependency 'locomotivecms_steam',   '~> 1.0.0.rc9'
+  gem.add_dependency 'locomotivecms_steam',   '~> 1.0.0.rc10'
 
   gem.add_dependency 'listen',                '~> 3.0.4'
   gem.add_dependency 'rack-livereload',       '~> 0.3.16'
