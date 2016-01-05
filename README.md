@@ -1,47 +1,53 @@
-# LocomotiveCMS::Wagon
+# Wagon
 
 [![Gem Version](https://badge.fury.io/rb/locomotivecms_wagon.svg)](http://badge.fury.io/rb/locomotivecms_wagon) [![Code Climate](https://codeclimate.com/github/locomotivecms/wagon/badges/gpa.svg)](https://codeclimate.com/github/locomotivecms/wagon) [![Dependency Status](https://gemnasium.com/locomotivecms/wagon.png)](https://gemnasium.com/locomotivecms/wagon) [![Build Status](https://travis-ci.org/locomotivecms/wagon.svg?branch=master)](https://travis-ci.org/locomotivecms/wagon) [![Coverage Status](https://coveralls.io/repos/locomotivecms/wagon/badge.svg?branch=master)](https://coveralls.io/r/locomotivecms/wagon?branch=master)
 
-Wagon is the official site generator for the LocomotiveCMS engine powered by all the efficient and modern HTML development tools (Haml, SASS, Compass, Less).
+Wagon is a command line tool that let's you develop for Locomotive right on your local machine.
+
+With Wagon, you can generate the scaffolding for a new Locomotive site and start adding the content types and templates you need using any text editor. And thanks to Wagon's built-in web server, you can preview the site with your computer's web browser.
+
+Wagon can also deploy sites to any Locomotive Engine using the wagon deploy command. Your changes will immediately be reflected on that site without restarting or making any changes to the Engine server app.
+
+To help you work faster, Wagon comes with support for tools like SASS, LESS, HAML, and CoffeeScript. It also works well with source version control systems like git and svn.
+
+**Note:** The previous version of Wagon (v1.5.8) is available in the *[v1.5.x](https://github.com/locomotivecms/wagon/tree/v1.5.x)* branch
 
 ## Documentation
 
-Please, visit the documentation website of LocomotiveCMS.
+Please, visit the documentation website of Locomotive.
 
-  [http://doc.locomotivecms.com](http://doc.locomotivecms.com)
+  [http://locomotive-v3.locomotivecms.com](http://locomotive-v3.readme.io)
+
+**Note:** The documentation for the previous version (v1.5.x) is available [here](http://doc.locomotivecms.com).
 
 ## Developers / Contributors
 
-### Get the development of the mounter
+### Get the development version of the Steam gem
 
-    $ git clone git://github.com/locomotivecms/mounter.git
+    $ git clone git://github.com/locomotivecms/steam.git
 
   Note: If you want to contribute, you may consider to fork it instead
 
-### Get the source of the wagon
+### Get the source of Wagon
 
     $ git clone git://github.com/locomotivecms/wagon.git
     $ cd wagon
 
   Note: Again, if you want to contribute, you may consider to fork it instead
 
-  Modify the Gemfile to change the link to the *mounter* gem which should point to your local installation of the mounter.
+  Modify the Gemfile to change the link to the *steam* gem which should point to your local installation of Steam.
 
     $ bundle install
 
 ### Test it
 
+#### Run the spec tests
+
+    $ bundle exec rake spec
+
 #### Run the server with a default site
 
     $ bundle exec bin/wagon serve spec/fixtures/default
-
-#### Push a site
-
-    $ bundle exec bin/wagon push <path to your LocomotiveCMS local site> <url of your remote LocomotiveCMS site> <email of your admin account> <password>
-
-#### Pull a site
-
-    $ bundle exec bin/wagon pull <url of your remote LocomotiveCMS site> <email of your admin account> <password>
 
 ## Contributing
 
@@ -55,4 +61,4 @@ Please, visit the documentation website of LocomotiveCMS.
 
 Feel free to contact me (did at locomotivecms dot com).
 
-Copyright (c) 2013 NoCoffee, released under the MIT license
+Copyright (c) 2015 NoCoffee, released under the MIT license
