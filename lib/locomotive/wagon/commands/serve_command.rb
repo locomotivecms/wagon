@@ -103,6 +103,9 @@ module Locomotive::Wagon
       # TODO: new feature -> pick the right Rack handler (Thin, Puma, ...etc)
       require 'thin'
 
+      # Thin in debug mode
+      # Thin::Logging.debug = true
+
       app = Locomotive::Steam::Server.to_app
 
       Thin::Server.new(options[:host], options[:port], { signals: true }, app).tap do |server|
