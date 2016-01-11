@@ -30,7 +30,20 @@ module Locomotive::Wagon
 
       clean_attributes(attributes)
 
+      # select_options
+      attributes['select_options'] = select_options_yaml(attributes['select_options']) if field['type'] == 'select'
+
       { field['name'] => attributes }
+    end
+
+    def select_options_yaml(options)
+      if locales.size > 1
+        locales.inject do |_options, locale|
+          _options[locale] = attributes.map { |option| options['name'][locale.to_s] }
+        end
+      else
+        options.map { |option| option['name'][default_locale] }
+      end
     end
 
     def content_type_filepath(content_type)
