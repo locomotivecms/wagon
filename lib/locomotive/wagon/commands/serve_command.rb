@@ -106,7 +106,7 @@ module Locomotive::Wagon
       # Thin in debug mode
       # Thin::Logging.debug = true
 
-      app = Locomotive::Steam::Server.to_app
+      app = Locomotive::Steam.to_app
 
       Thin::Server.new(options[:host], options[:port], { signals: true }, app).tap do |server|
         server.threaded = true
