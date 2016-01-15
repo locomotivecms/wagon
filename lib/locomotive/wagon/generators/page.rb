@@ -62,6 +62,8 @@ module Locomotive
         end
 
         def other_locales
+          return @other_locales if @other_locales
+
           # Rules:
           # #1 default: [fr, en, es], asked: [en, de], result => [en]
           # #2 default: [fr, en, de], asked: [es], result => []
@@ -74,7 +76,7 @@ module Locomotive
           locales   = options[:default_locales]
           locales.shift
 
-          locales & (_locales || [])
+          @other_locales = locales & (_locales || [])
         end
 
       end
