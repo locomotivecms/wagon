@@ -48,8 +48,8 @@ module Locomotive
       end
 
       def ui_enabled
-        return nil unless is_relationship?
-        self[:order_by]
+        return nil if self[:ui_enabled].nil?
+        self[:ui_enabled]
       end
 
       def select_options
