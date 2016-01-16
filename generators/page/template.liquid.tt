@@ -23,6 +23,9 @@ published: true
 # sets a redirection to the given url (301)
 # redirect_url: "<url to a page or to a remote url>"
 
+# other unique identifier of this page. To be used with the path_to liquid tag.
+# handle: my-page-handle
+
 # content type that this page is templatizing
 <% if config[:content_type] -%>
 content_type: <%= config[:content_type] -%>
