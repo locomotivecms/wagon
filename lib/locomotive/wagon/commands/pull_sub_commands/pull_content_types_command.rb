@@ -37,12 +37,18 @@ module Locomotive::Wagon
     end
 
     def select_options_yaml(options)
+      return if options.blank?
+
+      ordered_options = options.sort { |option| option['position'] }
+
       if locales.size > 1
-        locales.inject do |_options, locale|
-          _options[locale] = attributes.map { |option| options['name'][locale.to_s] }
+        {}.tap do |_options|
+          ordered_options.each do |option|
+            locales.each { |locale| (_options[locale] ||= []) << option['name'][locale.to_s] }
+          end
         end
       else
-        options.map { |option| option['name'][default_locale] }
+        ordered_options.map { |option| option['name'][default_locale] }
       end
     end
 
