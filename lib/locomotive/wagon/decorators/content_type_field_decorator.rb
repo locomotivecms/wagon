@@ -13,7 +13,7 @@ module Locomotive
       def __attributes__
         %i(name type label hint required localized unique position
           text_formatting select_options
-          target inverse_of order_by ui_enabled)
+          target inverse_of order_by ui_enabled default)
       end
 
       def type
