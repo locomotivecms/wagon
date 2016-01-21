@@ -1,5 +1,7 @@
 # Wagon
 
+[![Join the chat at https://gitter.im/locomotivecms/wagon](https://badges.gitter.im/locomotivecms/wagon.svg)](https://gitter.im/locomotivecms/wagon?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 [![Gem Version](https://badge.fury.io/rb/locomotivecms_wagon.svg)](http://badge.fury.io/rb/locomotivecms_wagon) [![Code Climate](https://codeclimate.com/github/locomotivecms/wagon/badges/gpa.svg)](https://codeclimate.com/github/locomotivecms/wagon) [![Dependency Status](https://gemnasium.com/locomotivecms/wagon.png)](https://gemnasium.com/locomotivecms/wagon) [![Build Status](https://travis-ci.org/locomotivecms/wagon.svg?branch=master)](https://travis-ci.org/locomotivecms/wagon) [![Coverage Status](https://coveralls.io/repos/locomotivecms/wagon/badge.svg?branch=master)](https://coveralls.io/r/locomotivecms/wagon?branch=master)
 
 Wagon is a command line tool that let's you develop for Locomotive right on your local machine.
