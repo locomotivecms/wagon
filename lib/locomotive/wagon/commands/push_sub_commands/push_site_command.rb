@@ -19,6 +19,8 @@ module Locomotive::Wagon
       # push the locales as long as there is no content on the remote site yet
       _attributes.delete(:locales) if remote_site.edited?
 
+      _attributes.delete(:metafields) unless with_data?
+
       if _attributes.present?
         api_client.current_site.update(_attributes)
       else
