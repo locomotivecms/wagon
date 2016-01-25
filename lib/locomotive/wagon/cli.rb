@@ -270,15 +270,15 @@ module Locomotive
         option :force, aliases: '-f', type: 'boolean', default: false, desc: 'Stop the current daemonized Thin server if found before starting a new one'
         option :verbose, aliases: '-v', type: 'boolean', default: false, desc: 'display the full error stack trace if an error occurs'
         def serve(path = '.')
-          parent_pid = Process.pid
+          # parent_pid = Process.pid
           force_color_if_asked(options)
           if check_path!(path)
             begin
-              Locomotive::Wagon.serve(path, options)
-            rescue SystemExit => e
-              if parent_pid == Process.pid
-                say "Your site is served now.", :green
-              end
+              Locomotive::Wagon.serve(path, options, shell)
+            # rescue SystemExit => e
+            #   if parent_pid == Process.pid
+            #     say "Your site is served now.", :green
+            #   end
             rescue Exception => e
               self.print_exception(e, options[:verbose])
               exit(1)
@@ -291,8 +291,7 @@ module Locomotive
           force_color_if_asked(options)
           if check_path!(path)
             begin
-              Locomotive::Wagon.stop(path)
-              say "Your site is not served anymore.", :green
+              Locomotive::Wagon.stop(path, false, shell)
             rescue Exception => e
               say e.message, :red
               exit(1)

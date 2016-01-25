@@ -34,9 +34,9 @@ module Locomotive
     # @param [ String ] path The path of the site
     # @param [ Hash ] options The options for the thin server (host, port)
     #
-    def self.serve(path, options)
+    def self.serve(path, options, shell)
       require_relative 'wagon/commands/serve_command'
-      Locomotive::Wagon::ServeCommand.start(path, options)
+      Locomotive::Wagon::ServeCommand.start(path, options, shell)
     end
 
     # Stop the thin server.
@@ -44,9 +44,9 @@ module Locomotive
     # @param [ String ] path The path of the site
     # @param [ Hash ] force If true, block the current thread for 2s
     #
-    def self.stop(path, force = false)
+    def self.stop(path, force = false, shell)
       require_relative 'wagon/commands/serve_command'
-      Locomotive::Wagon::ServeCommand.stop(path, force)
+      Locomotive::Wagon::ServeCommand.stop(path, force, shell)
     end
 
     # Generate components for the LocomotiveCMS site such as content types, snippets, pages.

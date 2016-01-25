@@ -1,21 +1,18 @@
 module Locomotive::Wagon
 
-  class ServeCommand < Struct.new(:path, :options)
+  class ServeCommand < Struct.new(:path, :options, :shell)
 
-    attr_reader :use_listen
-
-    def initialize(path, options)
-      super(path, options || {})
-
-      @use_listen = !self.options[:disable_listen]
+    def initialize(path, options, shell)
+      super(path, options || {}, shell)
+      @parent_id = nil
     end
 
-    def self.start(path, options = {})
-      new(path, options).start
+    def self.start(path, options = {}, shell)
+      new(path, options, shell).start
     end
 
-    def self.stop(path, force = false)
-      new(path, nil).stop(force)
+    def self.stop(path, force = false, shell)
+      new(path, nil, shell).stop(force)
     end
 
     def start
@@ -25,19 +22,35 @@ module Locomotive::Wagon
       # Steam is our rendering engine
       require_steam
 
-      daemonize if options[:daemonize]
+      if options[:daemonize]
+        daemonize
+      else
+        setup_signals
+
+        show_start_message
+      end
 
       # if a page, a content type or any resources of the site is getting modified,
-      # then the cache of Steam will be notified.
-      listen if use_listen
+      # then the cache of Steam will be cleared.
+      listen if @parent_pid.nil? || Process.pid != @parent_pid
 
       # let's start!
       server.start
+
+    rescue SystemExit => e
+      show_start_message if @parent_pid == Process.pid
     end
 
     def stop(force = false)
+      unless File.exists?(server_pid_file)
+        shell.say "No Wagon server is running.", :red
+        return
+      end
+
       pid = File.read(server_pid_file).to_i
       Process.kill('TERM', pid)
+
+      shell.say "\nShutting down Wagon server"
 
       # make sure we wait enough for the server process to stop
       sleep(2) if force
@@ -70,7 +83,7 @@ module Locomotive::Wagon
 
     def daemonize
       # very important to get the parent pid in order to differenciate the sub process from the parent one
-      parent_pid = Process.pid
+      @parent_pid = Process.pid
 
       # The Daemons gem closes all file descriptors when it daemonizes the process. So any logfiles that were opened before the Daemons block will be closed inside the forked process.
       # So, close the current logger and set it up again when daemonized.
@@ -78,12 +91,11 @@ module Locomotive::Wagon
 
       server.log_file = server_log_file
       server.pid_file = server_pid_file
+
       server.daemonize
 
-      use_listen = use_listen && Process.pid != parent_pid
-
       # A "new logger" inside the daemon.
-      configure_logger if Process.pid != parent_pid
+      configure_logger if Process.pid != @parent_pid
     end
 
     def listen
@@ -103,20 +115,37 @@ module Locomotive::Wagon
       # TODO: new feature -> pick the right Rack handler (Thin, Puma, ...etc)
       require 'thin'
 
-      # Thin in debug mode
-      # Thin::Logging.debug = true
+      # Do not display the default Thin server startup message
+      Thin::Logging.logger = Logger.new(server_log_file)
+
+      # Thin in debug mode only if the THIN_DEBUG_ON has been set in the shell
+      Thin::Logging.debug = ENV['THIN_DEBUG_ON']
 
       app = Locomotive::Steam.to_app
 
-      Thin::Server.new(options[:host], options[:port], { signals: true }, app).tap do |server|
+      Thin::Server.new(options[:host], options[:port], { signals: false }, app).tap do |server|
         server.threaded = true
+        server.log_file = server_log_file
       end
     end
 
     def configure_logger
       Locomotive::Common.reset
       Locomotive::Common.configure do |config|
-        config.notifier = Locomotive::Common::Logger.setup(log_file)
+        logger = options[:daemonize] ? log_file : nil
+        config.notifier = Locomotive::Common::Logger.setup(logger)
+      end
+    end
+
+    def setup_signals
+      %w(INT TERM).each do |signal|
+        trap(signal) do
+          show_stop_message
+
+          EM.add_timer(1) do
+            server.stop
+          end
+        end
       end
     end
 
@@ -130,6 +159,14 @@ module Locomotive::Wagon
 
     def log_file
       File.expand_path(File.join(path, 'log', 'wagon.log'))
+    end
+
+    def show_start_message
+      shell.say "Your site is served now.\nBrowse http://#{options[:host]}:#{options[:port]}\n\n", :green
+    end
+
+    def show_stop_message
+      shell.say "\nShutting down Wagon server"
     end
 
   end
