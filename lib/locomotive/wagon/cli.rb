@@ -268,7 +268,8 @@ module Locomotive
         option :daemonize, aliases: '-d', type: 'boolean', default: false, desc: 'Run daemonized Thin server in the background'
         option :live_reload_port, aliases: '-l', type: 'string', default: '35729', desc: 'The port the LiveReload javascript lib needs to listen for changes (35729 by default)'
         option :force, aliases: '-f', type: 'boolean', default: false, desc: 'Stop the current daemonized Thin server if found before starting a new one'
-        option :verbose, aliases: '-v', type: 'boolean', default: false, desc: 'display the full error stack trace if an error occurs'
+        option :verbose, aliases: '-v', type: 'boolean', default: false, desc: 'Display the full error stack trace if an error occurs'
+        option :debug, type: 'boolean', default: false, desc: 'Display some debugging information (rack middleware stack)'
         def serve(path = '.')
           force_color_if_asked(options)
           if check_path!(path)
