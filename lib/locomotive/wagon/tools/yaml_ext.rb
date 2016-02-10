@@ -4,7 +4,7 @@ module Locomotive
     module YamlExt
 
       def self.transform(hash, &block)
-        return if hash.blank?
+        return if hash.blank? || !hash.respond_to?(:has_key?)
 
         hash.each do |key, value|
           case value
