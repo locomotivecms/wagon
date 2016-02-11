@@ -26,3 +26,17 @@ locales: [en]
 seo_title: <%= @name %>
 meta_keywords: "some meta keywords"
 meta_description: "some meta description"
+
+# Each site can have its own set of custom properties organized in namespaces.
+# First, define namespaces and their fields in the config/metafields_schema.yml file.
+# Finally, set default values below as described in the example.
+# You can access them in your liquid templates and snippets:
+#   {{ site.metafields.<namespace>.<field> }}
+#
+# Example:
+#
+# metafields:
+#   shop:
+#     address: 700 South Laflin Street
+#   theme:
+#     background_image: "/samples/background.png"
