@@ -6,7 +6,7 @@ gemspec
 gem 'rb-fsevent', '~> 0.9.1'
 
 # Development
-gem 'locomotivecms_steam', github: 'locomotivecms/steam', ref: 'ee5b98e', require: false
+# gem 'locomotivecms_steam', github: 'locomotivecms/steam', ref: 'ee5b98e', require: false
 # gem 'locomotivecms_coal', github: 'locomotivecms/coal', ref: '32b2844', require: false
 # gem 'locomotivecms_common', github: 'locomotivecms/common', ref: '3046b79893', require: false
 

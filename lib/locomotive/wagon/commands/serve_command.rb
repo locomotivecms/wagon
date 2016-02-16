@@ -67,7 +67,7 @@ module Locomotive::Wagon
 
       configure_logger
 
-      respond_to_notifications
+      subscribe_to_notifications
 
       Locomotive::Steam.configure do |config|
         config.mode         = :test
@@ -139,7 +139,7 @@ module Locomotive::Wagon
       end
     end
 
-    def respond_to_notifications
+    def subscribe_to_notifications
       # Page not found
       ActiveSupport::Notifications.subscribe('steam.render.page_not_found') do |name, start, finish, id, payload|
         fullpath, locale, default_locale = payload[:path], payload[:locale], payload[:default_locale]
