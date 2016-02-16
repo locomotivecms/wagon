@@ -67,6 +67,8 @@ module Locomotive::Wagon
 
       configure_logger
 
+      respond_to_notifications
+
       Locomotive::Steam.configure do |config|
         config.mode         = :test
         config.adapter      = { name: :filesystem, path: File.expand_path(path) }
@@ -134,6 +136,19 @@ module Locomotive::Wagon
       Locomotive::Common.configure do |config|
         logger = options[:daemonize] ? log_file : nil
         config.notifier = Locomotive::Common::Logger.setup(logger)
+      end
+    end
+
+    def respond_to_notifications
+      # Page not found
+      ActiveSupport::Notifications.subscribe('steam.render.page_not_found') do |name, start, finish, id, payload|
+        fullpath, locale, default_locale = payload[:path], payload[:locale], payload[:default_locale]
+
+        filepath = File.join(File.expand_path(path), 'app', 'views', 'pages', fullpath + (locale != default_locale ? ".#{locale}" : '') + '.liquid')
+
+        message = "[Tip]".light_white + " add a new page in your Wagon site at this location: " + filepath.light_white
+
+        Locomotive::Common::Logger.info (' ' * 2) + message
       end
     end
 
