@@ -41,7 +41,7 @@ module Locomotive::Wagon
         end
       end
 
-      { entry[default_locale].attributes[content_type.label_field_name] => clean_attributes(attributes) }
+      { entry[default_locale].attributes[content_type.label_field_name].to_s => clean_attributes(attributes) }
     end
 
     def fetch_content_types(&block)
