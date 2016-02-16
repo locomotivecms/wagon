@@ -7,7 +7,7 @@ module Locomotive::Wagon
     end
 
     def decorate(entity)
-      SnippetDecorator.new(entity, locale, default_locale)
+      SnippetDecorator.new(entity, locale, content_assets_pusher)
     end
 
     def persist(decorated_entity)
