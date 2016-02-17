@@ -17,104 +17,63 @@ http_interactions:
       - Ruby
   response:
     status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Content-Type:
+      - application/json
+      X-Error-Detail:
+      - Invalid email or password.
+      Cache-Control:
+      - no-cache
+      X-Request-Id:
+      - 4c1dde74-5ab5-47e1-878b-6bafaa3ae31d
+      X-Runtime:
+      - '0.491453'
+      Content-Length:
+      - '40'
+    body:
+      encoding: UTF-8
+      string: '{"message":"Invalid email or password."}'
+    http_version: 
+  recorded_at: Wed, 17 Feb 2016 20:59:45 GMT
+- request:
+    method: post
+    uri: http://localhost:3000/locomotive/api/v3/my_account.json
+    body:
+      encoding: UTF-8
+      string: account%5Bemail%5D=john%40doe.net&account%5Bname%5D=John&account%5Bpassword%5D=asimplepassword
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
       code: 201
       message: Created
     headers:
       Content-Type:
       - application/json
       Etag:
-      - W/"bc2668dfce49ce8b86c24c5238a6ad8a"
+      - W/"ecd8bcbc56ad219c12f928c0c7642228"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - ac82d4d7-0fab-42e5-b204-e7b3aeb1dc0c
+      - 163cedb0-c315-4318-905a-2ca2184c2865
       X-Runtime:
-      - '0.538828'
-      Content-Length:
-      - '32'
-    body:
-      encoding: UTF-8
-      string: '{"token":"4UbNL-FP8WQsnonBusPw"}'
-    http_version: 
-  recorded_at: Tue, 16 Feb 2016 00:46:20 GMT
-- request:
-    method: get
-    uri: http://localhost:3000/locomotive/api/v3/my_account.json?auth_token=4UbNL-FP8WQsnonBusPw
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept:
-      - application/json
-      X-Locomotive-Account-Email:
-      - john@doe.net
-      X-Locomotive-Account-Token:
-      - 4UbNL-FP8WQsnonBusPw
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json
-      Etag:
-      - W/"1fede7cbfdb8717942bf763b9ce2c37d"
-      Cache-Control:
-      - max-age=0, private, must-revalidate
-      X-Request-Id:
-      - 89d151cf-949c-43e4-857e-e35e27388fda
-      X-Runtime:
-      - '0.063627'
+      - '0.086436'
       Content-Length:
       - '250'
     body:
       encoding: UTF-8
-      string: '{"_id":"56c265bdc365114365000000","created_at":"2016-02-15T23:56:45Z","updated_at":"2016-02-15T23:56:45Z","name":"John","email":"john@doe.net","locale":"en","api_key":"69f81710e41bd4fe8693d0447a31e7bfcf07d8d7","super_admin":false,"local_admin":false}'
+      string: '{"_id":"56c4df41c3651180309c60d3","created_at":"2016-02-17T20:59:45Z","updated_at":"2016-02-17T20:59:45Z","name":"John","email":"john@doe.net","locale":"en","api_key":"3f7bb7a02a1ad6c3e285beda89e6e8a3f75d9154","super_admin":false,"local_admin":false}'
     http_version: 
-  recorded_at: Tue, 16 Feb 2016 00:46:20 GMT
-- request:
-    method: get
-    uri: http://localhost:3000/locomotive/api/v3/my_account.json?auth_token=4UbNL-FP8WQsnonBusPw
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept:
-      - application/json
-      X-Locomotive-Account-Email:
-      - john@doe.net
-      X-Locomotive-Account-Token:
-      - 4UbNL-FP8WQsnonBusPw
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json
-      Etag:
-      - W/"1fede7cbfdb8717942bf763b9ce2c37d"
-      Cache-Control:
-      - max-age=0, private, must-revalidate
-      X-Request-Id:
-      - 4b88417d-24af-40e4-a6b3-3211ce98e6cf
-      X-Runtime:
-      - '0.020165'
-      Content-Length:
-      - '250'
-    body:
-      encoding: UTF-8
-      string: '{"_id":"56c265bdc365114365000000","created_at":"2016-02-15T23:56:45Z","updated_at":"2016-02-15T23:56:45Z","name":"John","email":"john@doe.net","locale":"en","api_key":"69f81710e41bd4fe8693d0447a31e7bfcf07d8d7","super_admin":false,"local_admin":false}'
-    http_version: 
-  recorded_at: Tue, 16 Feb 2016 00:46:21 GMT
+  recorded_at: Wed, 17 Feb 2016 20:59:45 GMT
 - request:
     method: post
     uri: http://localhost:3000/locomotive/api/v3/tokens.json
@@ -138,23 +97,23 @@ http_interactions:
       Content-Type:
       - application/json
       Etag:
-      - W/"3cc699723ac44b6b16405f0c666c9bc3"
+      - W/"9f0203483ba848323bbda0b85ed7725e"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - e347d042-8a3a-4ee0-9126-4973edd50f4d
+      - 4aed7a00-f72d-4367-890b-d827b3cff156
       X-Runtime:
-      - '0.021840'
+      - '0.015710'
       Content-Length:
       - '32'
     body:
       encoding: UTF-8
-      string: '{"token":"C2t1wxAuKy7YPAHVva29"}'
+      string: '{"token":"e1QSfNaw8zQM7rWX5CPf"}'
     http_version: 
-  recorded_at: Tue, 16 Feb 2016 00:46:21 GMT
+  recorded_at: Wed, 17 Feb 2016 20:59:45 GMT
 - request:
     method: get
-    uri: http://localhost:3000/locomotive/api/v3/my_account.json?auth_token=C2t1wxAuKy7YPAHVva29
+    uri: http://localhost:3000/locomotive/api/v3/my_account.json?auth_token=e1QSfNaw8zQM7rWX5CPf
     body:
       encoding: US-ASCII
       string: ''
@@ -164,7 +123,7 @@ http_interactions:
       X-Locomotive-Account-Email:
       - admin@locomotivecms.com
       X-Locomotive-Account-Token:
-      - C2t1wxAuKy7YPAHVva29
+      - e1QSfNaw8zQM7rWX5CPf
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       User-Agent:
@@ -177,23 +136,23 @@ http_interactions:
       Content-Type:
       - application/json
       Etag:
-      - W/"6dc03a13985e38bbf77d96a5b9803c04"
+      - W/"7d8f03d047be776ab17daf20e33dc4ad"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 1217e1b0-1f5d-4ef1-b22b-af9a2cced709
+      - 18bee298-4a65-4938-9e2f-f80f0c82f53e
       X-Runtime:
-      - '0.019349'
+      - '0.027460'
       Content-Length:
       - '261'
     body:
       encoding: UTF-8
-      string: '{"_id":"56c25ac5c36511433f000000","created_at":"2016-02-15T23:09:57Z","updated_at":"2016-02-15T23:09:57Z","name":"Admin","email":"admin@locomotivecms.com","locale":"en","api_key":"d49cd50f6f0d2b163f48fc73cb249f0244c37074","super_admin":false,"local_admin":true}'
+      string: '{"_id":"56c4df17c36511800c8b9037","created_at":"2016-02-17T20:59:03Z","updated_at":"2016-02-17T20:59:03Z","name":"Admin","email":"admin@locomotivecms.com","locale":"en","api_key":"d49cd50f6f0d2b163f48fc73cb249f0244c37074","super_admin":false,"local_admin":true}'
     http_version: 
-  recorded_at: Tue, 16 Feb 2016 00:46:21 GMT
+  recorded_at: Wed, 17 Feb 2016 20:59:45 GMT
 - request:
     method: get
-    uri: http://localhost:3000/locomotive/api/v3/my_account.json?auth_token=C2t1wxAuKy7YPAHVva29
+    uri: http://localhost:3000/locomotive/api/v3/my_account.json?auth_token=e1QSfNaw8zQM7rWX5CPf
     body:
       encoding: US-ASCII
       string: ''
@@ -203,7 +162,7 @@ http_interactions:
       X-Locomotive-Account-Email:
       - admin@locomotivecms.com
       X-Locomotive-Account-Token:
-      - C2t1wxAuKy7YPAHVva29
+      - e1QSfNaw8zQM7rWX5CPf
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       User-Agent:
@@ -216,18 +175,18 @@ http_interactions:
       Content-Type:
       - application/json
       Etag:
-      - W/"6dc03a13985e38bbf77d96a5b9803c04"
+      - W/"7d8f03d047be776ab17daf20e33dc4ad"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 92680a0a-6313-4a81-990c-f2d0d158fee5
+      - 58ee0cc3-0a25-43f6-ab83-ec81d9ed63ff
       X-Runtime:
-      - '0.019043'
+      - '0.015876'
       Content-Length:
       - '261'
     body:
       encoding: UTF-8
-      string: '{"_id":"56c25ac5c36511433f000000","created_at":"2016-02-15T23:09:57Z","updated_at":"2016-02-15T23:09:57Z","name":"Admin","email":"admin@locomotivecms.com","locale":"en","api_key":"d49cd50f6f0d2b163f48fc73cb249f0244c37074","super_admin":false,"local_admin":true}'
+      string: '{"_id":"56c4df17c36511800c8b9037","created_at":"2016-02-17T20:59:03Z","updated_at":"2016-02-17T20:59:03Z","name":"Admin","email":"admin@locomotivecms.com","locale":"en","api_key":"d49cd50f6f0d2b163f48fc73cb249f0244c37074","super_admin":false,"local_admin":true}'
     http_version: 
-  recorded_at: Tue, 16 Feb 2016 00:46:21 GMT
+  recorded_at: Wed, 17 Feb 2016 20:59:45 GMT
 recorded_with: VCR 3.0.0

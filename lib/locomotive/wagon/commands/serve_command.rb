@@ -28,6 +28,8 @@ module Locomotive::Wagon
         setup_signals
 
         show_start_message
+
+        show_rack_middleware_stack if options[:debug]
       end
 
       # if a page, a content type or any resources of the site is getting modified,
@@ -174,6 +176,16 @@ module Locomotive::Wagon
 
     def log_file
       File.expand_path(File.join(path, 'log', 'wagon.log'))
+    end
+
+    def show_rack_middleware_stack
+      shell.say "[Rendering stack]".colorize(color: :light_white, background: :blue)
+
+      Locomotive::Steam.configuration.middleware.list.each do |middleware|
+        shell.say "\t" + middleware.first.first.inspect
+      end
+
+      shell.say "\n"
     end
 
     def show_start_message

@@ -1,5 +1,7 @@
 require 'tempfile'
 
+require_relative '../../../tools/yaml_ext.rb'
+
 module Locomotive::Wagon
 
   module AssetsConcern
@@ -27,6 +29,12 @@ module Locomotive::Wagon
         else
           ''
         end
+      end
+    end
+
+    def replace_asset_urls_in_hash(hash)
+      Locomotive::Wagon::YamlExt.transform(hash) do |value|
+        replace_asset_urls(value)
       end
     end
 

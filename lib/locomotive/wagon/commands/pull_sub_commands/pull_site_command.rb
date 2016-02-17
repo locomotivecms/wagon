@@ -3,7 +3,7 @@ module Locomotive::Wagon
   class PullSiteCommand < PullBaseCommand
 
     def _pull
-      attributes = current_site.attributes.slice('name', 'locales', 'domains', 'timezone', 'seo_title', 'meta_keywords', 'meta_description', 'picture_thumbnail_url')
+      attributes = current_site.attributes.slice('name', 'locales', 'domains', 'timezone', 'seo_title', 'meta_keywords', 'meta_description', 'picture_thumbnail_url', 'metafields', 'metafields_schema')
 
       locales.each_with_index do |locale, index|
         if index == 0
@@ -12,6 +12,10 @@ module Locomotive::Wagon
           add_other_locale(attributes, locale)
         end
       end if locales.size > 1
+
+      decode_metafields(attributes)
+
+      write_metafields_schema(attributes.delete('metafields_schema'))
 
       write_icon(attributes.delete('picture_thumbnail_url'))
 
@@ -33,6 +37,25 @@ module Locomotive::Wagon
       File.open(File.join(path, 'icon.png'), 'wb') do |file|
         file.write Faraday.get(url).body
       end
+    end
+
+    def write_metafields_schema(schema)
+      return if schema.blank?
+
+      File.open(File.join(path, 'config', 'metafields_schema.yml'), 'wb') do |file|
+        file.write JSON.parse(schema).to_yaml
+      end
+    end
+
+    def decode_metafields(attributes)
+      metafields = attributes['metafields']
+
+      return if metafields.blank?
+
+      # metafields come under a JSON string format.
+      metafields = JSON.parse(metafields)
+
+      attributes['metafields'] = replace_asset_urls_in_hash(metafields)
     end
 
     def localized_attributes(&block)

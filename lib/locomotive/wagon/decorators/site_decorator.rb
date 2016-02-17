@@ -4,9 +4,21 @@ module Locomotive
     class SiteDecorator < SimpleDelegator
 
       include ToHashConcern
+      include PersistAssetsConcern
+
+      attr_accessor :__content_assets_pusher__
 
       def domains
         (__getobj__.domains || []) - ['localhost']
+      end
+
+      def metafields_schema
+        self[:metafields_schema].try(:to_json)
+      end
+
+      def metafields
+        replace_with_content_assets_in_hash!(self[:metafields])
+        self[:metafields].try(:to_json)
       end
 
       def picture
@@ -18,7 +30,7 @@ module Locomotive
         end
       end
 
-      %i(robots_txt timezone seo_title meta_keywords meta_description metafields_schema metafields).each do |name|
+      %i(robots_txt timezone seo_title meta_keywords meta_description).each do |name|
         define_method(name) do
           self[name]
         end

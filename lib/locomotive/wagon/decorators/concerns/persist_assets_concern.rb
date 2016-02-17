@@ -1,3 +1,5 @@
+require_relative '../../tools/yaml_ext.rb'
+
 module Locomotive::Wagon
 
   module PersistAssetsConcern
@@ -8,6 +10,12 @@ module Locomotive::Wagon
       text.to_s.gsub(/\/samples\/\S*\.[a-zA-Z0-9]+/) do |match|
         url = __content_assets_pusher__.persist(match)
         url || match
+      end
+    end
+
+    def replace_with_content_assets_in_hash!(hash)
+      Locomotive::Wagon::YamlExt.transform(hash) do |value|
+        replace_with_content_assets!(value)
       end
     end
 
