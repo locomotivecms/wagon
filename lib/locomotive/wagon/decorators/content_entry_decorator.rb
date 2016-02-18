@@ -45,6 +45,7 @@ module Locomotive
       end
 
       def decorate_date_time_field(value)
+        return nil if value.nil?
         value.utc.try(:iso8601)
       end
 
