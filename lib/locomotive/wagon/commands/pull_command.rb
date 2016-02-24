@@ -62,7 +62,7 @@ module Locomotive::Wagon
     end
 
     def print_result_message
-      shell.say "\n\nThe templates, theme assets and content have been pulled from the remote version.", :green
+      shell.try(:say, "\n\nThe templates, theme assets and content have been pulled from the remote version.", :green)
       true
     end
 
