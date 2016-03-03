@@ -8,9 +8,10 @@ module Locomotive::Wagon
       return @steam_services if @steam_services
 
       Locomotive::Steam.configure do |config|
-        config.mode         = :test
-        config.adapter      = { name: :filesystem, path: path }
-        config.asset_path   = File.expand_path(File.join(path, 'public'))
+        config.mode           = :test
+        config.adapter        = { name: :filesystem, path: path }
+        config.asset_path     = File.expand_path(File.join(path, 'public'))
+        config.minify_assets  = true
       end
 
       @steam_services = Locomotive::Steam::Services.build_instance.tap do |services|

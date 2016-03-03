@@ -134,6 +134,9 @@ module Locomotive::Wagon
     end
 
     def configure_logger
+      # make sure the logs folder exist and get rid of that ugly error message if it doesn't
+      FileUtils.mkdir_p(File.join(path, 'log'))
+
       Locomotive::Common.reset
       Locomotive::Common.configure do |config|
         logger = options[:daemonize] ? log_file : nil
