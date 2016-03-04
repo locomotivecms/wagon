@@ -151,6 +151,15 @@ module Locomotive
           end
         end
 
+        desc 'site_metafields', 'Generate the missing file to describe the site metafields'
+        def site_metafields
+          force_color_if_asked(options)
+
+          if path = check_path!
+            Locomotive::Wagon.generate :site_metafields, [path], self.options
+          end
+        end
+
         protected
 
         # Read the YAML config file of a Locomotive site.
