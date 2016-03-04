@@ -34,5 +34,5 @@ Gem::Specification.new do |gem|
   gem.add_dependency 'rack-livereload',       '~> 0.3.16'
   gem.add_dependency 'yui-compressor',        '~> 0.12.0'
 
-  gem.add_dependency 'faker',                 '~> 1.4.3'
+  gem.add_dependency 'faker',                 '~> 1.6'
 end
