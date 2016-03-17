@@ -86,7 +86,8 @@ module Locomotive::Wagon
     end
 
     def sprockets_env
-      @sprockets_env ||= Locomotive::Steam::SprocketsEnvironment.new(File.join(path, 'public'), minify: true)
+      @sprockets_env ||= Locomotive::Steam::SprocketsEnvironment.new(File.join(path, 'public'),
+        minify: ENV['WAGON_NO_MINIFY_ASSETS'].present? ? false : true)
     end
 
     def skip?(entity)
