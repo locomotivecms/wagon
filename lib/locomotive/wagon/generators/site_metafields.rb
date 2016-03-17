@@ -21,9 +21,11 @@ module Locomotive
         def add_instructions
           append_to_file 'config/site.yml', <<-EOF
 
-# You can change the label of the metafields section in the Locomotive Engine left sidebar.
-# Default label is "Properties".
-# metafields_label: Store settings
+# You can control the display of the "Properties" section in the back-office
+# metafields_ui:
+#   label: Store settings # use a hash for localized versions
+#   icon: shopping-cart # FontAwesome icons without the leading "fa-" string.
+#   hint: "Lorem ipsum..."
 
 # Each site can have its own set of custom properties organized in namespaces.
 # First, define namespaces and their fields in the config/metafields_schema.yml file.

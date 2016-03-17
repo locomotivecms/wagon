@@ -399,9 +399,13 @@ module Locomotive
         # @param [ Boolean ] verbose Print the full backtrace if true
         #
         def print_exception(exception, verbose)
-          say exception.message, :red
           if verbose
-            say "\t" + exception.backtrace.join("\n\t")
+            say "\n# Error description:", :bold
+            say exception.message, :red
+            say "\n# Backtrace:", :bold
+            say "\n\t" + exception.backtrace.join("\n\t")
+          else
+            say "\n\nError(s) found. Please use the -v option to display the full exception", :red
           end
         end
 

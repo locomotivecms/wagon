@@ -12,8 +12,8 @@ module Locomotive
         (__getobj__.domains || []) - ['localhost']
       end
 
-      def metafields_label
-        self[:metafields_label]
+      def metafields_ui
+        self[:metafields_ui].try(:to_json)
       end
 
       def metafields_schema
@@ -41,7 +41,7 @@ module Locomotive
       end
 
       def __attributes__
-        %i(name handle robots_txt locales timezone seo_title meta_keywords meta_description picture metafields_schema metafields metafields_label)
+        %i(name handle robots_txt locales timezone seo_title meta_keywords meta_description picture metafields_schema metafields metafields_ui)
       end
 
       def edited?
@@ -53,7 +53,7 @@ module Locomotive
     class UpdateSiteDecorator < SiteDecorator
 
       def __attributes__
-        %i(picture locales metafields_schema metafields metafields_label)
+        %i(picture locales metafields_schema metafields metafields_ui)
       end
 
     end

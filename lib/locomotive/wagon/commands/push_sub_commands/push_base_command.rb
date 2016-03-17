@@ -35,6 +35,9 @@ module Locomotive::Wagon
           instrument :persist_with_success
         rescue SkipPersistingException => e
           instrument :skip_persisting
+        rescue Locomotive::Coal::ServerSideError => e
+          instrument :persist_with_error, message: 'Locomotive Back-office error. Contact your administrator or check your application logs.'
+          raise e
         rescue Exception => e
           instrument :persist_with_error, message: e.message
           raise e
