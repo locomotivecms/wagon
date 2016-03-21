@@ -7,14 +7,16 @@ http_interactions:
       encoding: UTF-8
       string: email=john%40doe.net&password=asimplepassword
     headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.7.1, ruby 2.2.3 (2015-08-18))
       Accept:
       - application/json
+      Accept-Encoding:
+      - gzip,deflate
+      Date:
+      - Mon, 21 Mar 2016 17:36:40 GMT
       Content-Type:
       - application/x-www-form-urlencoded
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      User-Agent:
-      - Ruby
   response:
     status:
       code: 401
@@ -27,16 +29,16 @@ http_interactions:
       Cache-Control:
       - no-cache
       X-Request-Id:
-      - 4c1dde74-5ab5-47e1-878b-6bafaa3ae31d
+      - f97c50d2-f8ae-4fd8-bce0-3b623afae5f3
       X-Runtime:
-      - '0.491453'
+      - '0.448075'
       Content-Length:
       - '40'
     body:
       encoding: UTF-8
       string: '{"message":"Invalid email or password."}'
     http_version: 
-  recorded_at: Wed, 17 Feb 2016 20:59:45 GMT
+  recorded_at: Mon, 21 Mar 2016 17:36:41 GMT
 - request:
     method: post
     uri: http://localhost:3000/locomotive/api/v3/my_account.json
@@ -44,14 +46,16 @@ http_interactions:
       encoding: UTF-8
       string: account%5Bemail%5D=john%40doe.net&account%5Bname%5D=John&account%5Bpassword%5D=asimplepassword
     headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.7.1, ruby 2.2.3 (2015-08-18))
       Accept:
       - application/json
+      Accept-Encoding:
+      - gzip,deflate
+      Date:
+      - Mon, 21 Mar 2016 17:36:41 GMT
       Content-Type:
       - application/x-www-form-urlencoded
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      User-Agent:
-      - Ruby
   response:
     status:
       code: 201
@@ -60,20 +64,20 @@ http_interactions:
       Content-Type:
       - application/json
       Etag:
-      - W/"ecd8bcbc56ad219c12f928c0c7642228"
+      - W/"13d961357bc8b2ce65f4f13ee8adba85"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 163cedb0-c315-4318-905a-2ca2184c2865
+      - a3c557e9-41e9-44dc-ae1d-91af5ddd3b96
       X-Runtime:
-      - '0.086436'
+      - '0.098826'
       Content-Length:
       - '250'
     body:
       encoding: UTF-8
-      string: '{"_id":"56c4df41c3651180309c60d3","created_at":"2016-02-17T20:59:45Z","updated_at":"2016-02-17T20:59:45Z","name":"John","email":"john@doe.net","locale":"en","api_key":"3f7bb7a02a1ad6c3e285beda89e6e8a3f75d9154","super_admin":false,"local_admin":false}'
+      string: '{"_id":"56f03129c36511207342cbcb","created_at":"2016-03-21T17:36:41Z","updated_at":"2016-03-21T17:36:41Z","name":"John","email":"john@doe.net","locale":"en","api_key":"901baf472a28a8e3a6a871255c90b232de964686","super_admin":false,"local_admin":false}'
     http_version: 
-  recorded_at: Wed, 17 Feb 2016 20:59:45 GMT
+  recorded_at: Mon, 21 Mar 2016 17:36:41 GMT
 - request:
     method: post
     uri: http://localhost:3000/locomotive/api/v3/tokens.json
@@ -81,14 +85,16 @@ http_interactions:
       encoding: UTF-8
       string: email=admin%40locomotivecms.com&password=locomotive
     headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.7.1, ruby 2.2.3 (2015-08-18))
       Accept:
       - application/json
+      Accept-Encoding:
+      - gzip,deflate
+      Date:
+      - Mon, 21 Mar 2016 17:36:41 GMT
       Content-Type:
       - application/x-www-form-urlencoded
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      User-Agent:
-      - Ruby
   response:
     status:
       code: 201
@@ -97,37 +103,39 @@ http_interactions:
       Content-Type:
       - application/json
       Etag:
-      - W/"9f0203483ba848323bbda0b85ed7725e"
+      - W/"3cfd61d41b23cdfb3d8833133c136131"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 4aed7a00-f72d-4367-890b-d827b3cff156
+      - 805ec3c4-ce19-4edb-bd06-6b499447f2a1
       X-Runtime:
-      - '0.015710'
+      - '0.016118'
       Content-Length:
       - '32'
     body:
       encoding: UTF-8
-      string: '{"token":"e1QSfNaw8zQM7rWX5CPf"}'
+      string: '{"token":"V8VMCfCsp7XzQLvAd1AY"}'
     http_version: 
-  recorded_at: Wed, 17 Feb 2016 20:59:45 GMT
+  recorded_at: Mon, 21 Mar 2016 17:36:41 GMT
 - request:
     method: get
-    uri: http://localhost:3000/locomotive/api/v3/my_account.json?auth_token=e1QSfNaw8zQM7rWX5CPf
+    uri: http://localhost:3000/locomotive/api/v3/my_account.json?auth_token=V8VMCfCsp7XzQLvAd1AY
     body:
-      encoding: US-ASCII
+      encoding: UTF-8
       string: ''
     headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.7.1, ruby 2.2.3 (2015-08-18))
       Accept:
       - application/json
+      Accept-Encoding:
+      - gzip,deflate
+      Date:
+      - Mon, 21 Mar 2016 17:36:41 GMT
       X-Locomotive-Account-Email:
       - admin@locomotivecms.com
       X-Locomotive-Account-Token:
-      - e1QSfNaw8zQM7rWX5CPf
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      User-Agent:
-      - Ruby
+      - V8VMCfCsp7XzQLvAd1AY
   response:
     status:
       code: 200
@@ -136,37 +144,39 @@ http_interactions:
       Content-Type:
       - application/json
       Etag:
-      - W/"7d8f03d047be776ab17daf20e33dc4ad"
+      - W/"2ce6a3f4e073d2d83a53613d0139477e"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 18bee298-4a65-4938-9e2f-f80f0c82f53e
+      - e4ca46c9-4c89-42db-9bdb-ca21e8adb1a9
       X-Runtime:
-      - '0.027460'
+      - '0.029466'
       Content-Length:
       - '261'
     body:
       encoding: UTF-8
-      string: '{"_id":"56c4df17c36511800c8b9037","created_at":"2016-02-17T20:59:03Z","updated_at":"2016-02-17T20:59:03Z","name":"Admin","email":"admin@locomotivecms.com","locale":"en","api_key":"d49cd50f6f0d2b163f48fc73cb249f0244c37074","super_admin":false,"local_admin":true}'
+      string: '{"_id":"56f03072c365112052cab389","created_at":"2016-03-21T17:33:38Z","updated_at":"2016-03-21T17:33:38Z","name":"Admin","email":"admin@locomotivecms.com","locale":"en","api_key":"d49cd50f6f0d2b163f48fc73cb249f0244c37074","super_admin":false,"local_admin":true}'
     http_version: 
-  recorded_at: Wed, 17 Feb 2016 20:59:45 GMT
+  recorded_at: Mon, 21 Mar 2016 17:36:41 GMT
 - request:
     method: get
-    uri: http://localhost:3000/locomotive/api/v3/my_account.json?auth_token=e1QSfNaw8zQM7rWX5CPf
+    uri: http://localhost:3000/locomotive/api/v3/my_account.json?auth_token=V8VMCfCsp7XzQLvAd1AY
     body:
-      encoding: US-ASCII
+      encoding: UTF-8
       string: ''
     headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.7.1, ruby 2.2.3 (2015-08-18))
       Accept:
       - application/json
+      Accept-Encoding:
+      - gzip,deflate
+      Date:
+      - Mon, 21 Mar 2016 17:36:41 GMT
       X-Locomotive-Account-Email:
       - admin@locomotivecms.com
       X-Locomotive-Account-Token:
-      - e1QSfNaw8zQM7rWX5CPf
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      User-Agent:
-      - Ruby
+      - V8VMCfCsp7XzQLvAd1AY
   response:
     status:
       code: 200
@@ -175,18 +185,18 @@ http_interactions:
       Content-Type:
       - application/json
       Etag:
-      - W/"7d8f03d047be776ab17daf20e33dc4ad"
+      - W/"2ce6a3f4e073d2d83a53613d0139477e"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 58ee0cc3-0a25-43f6-ab83-ec81d9ed63ff
+      - 059e56ad-ec66-4fa7-98a4-85f7eb38746c
       X-Runtime:
-      - '0.015876'
+      - '0.019939'
       Content-Length:
       - '261'
     body:
       encoding: UTF-8
-      string: '{"_id":"56c4df17c36511800c8b9037","created_at":"2016-02-17T20:59:03Z","updated_at":"2016-02-17T20:59:03Z","name":"Admin","email":"admin@locomotivecms.com","locale":"en","api_key":"d49cd50f6f0d2b163f48fc73cb249f0244c37074","super_admin":false,"local_admin":true}'
+      string: '{"_id":"56f03072c365112052cab389","created_at":"2016-03-21T17:33:38Z","updated_at":"2016-03-21T17:33:38Z","name":"Admin","email":"admin@locomotivecms.com","locale":"en","api_key":"d49cd50f6f0d2b163f48fc73cb249f0244c37074","super_admin":false,"local_admin":true}'
     http_version: 
-  recorded_at: Wed, 17 Feb 2016 20:59:45 GMT
+  recorded_at: Mon, 21 Mar 2016 17:36:41 GMT
 recorded_with: VCR 3.0.0

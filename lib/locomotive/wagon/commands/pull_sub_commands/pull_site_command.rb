@@ -39,11 +39,23 @@ module Locomotive::Wagon
       end
     end
 
-    def write_metafields_schema(schema)
-      return if schema.blank?
+    def decode_metafields_schema(schema)
+      if schema.is_a?(Array)
+        schema = array_of_hash_to_hash(schema, 'name') do |namespace|
+          namespace['fields'] = array_of_hash_to_hash(namespace.delete('fields'), 'name')
+        end
+      end
+
+      schema
+    end
+
+    def write_metafields_schema(json)
+      return if json.blank?
+
+      schema = decode_metafields_schema(JSON.parse(json))
 
       File.open(File.join(path, 'config', 'metafields_schema.yml'), 'wb') do |file|
-        file.write JSON.parse(schema).to_yaml
+        file.write schema.to_yaml
       end
     end
 
@@ -56,6 +68,16 @@ module Locomotive::Wagon
       metafields = JSON.parse(metafields)
 
       attributes['metafields'] = replace_asset_urls_in_hash(metafields)
+    end
+
+    def array_of_hash_to_hash(array, name, &block)
+      {}.tap do |hash|
+        (array || []).each do |element|
+          key = element.delete(name)
+          hash[key] = element
+          yield element if block_given?
+        end
+      end
     end
 
     def localized_attributes(&block)

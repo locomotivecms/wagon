@@ -30,6 +30,11 @@ module Locomotive
           _attributes -= %i(title published listed position seo_title meta_keywords meta_description editable_elements)
         end
 
+        # no need to update the slug if this is for an update
+        # in case of a localized site, if this is a new page, the _id will remain empty
+        # for the other locales.
+        _attributes -= %i(slug) if persisted?
+
         _attributes
       end
 
@@ -75,6 +80,11 @@ module Locomotive
 
       def template
         replace_with_content_assets!(self.liquid_source)
+      end
+
+      def folder_path
+        *segments, slug = fullpath.split('/')
+        segments.join('/')
       end
 
       private
