@@ -151,7 +151,11 @@ module Locomotive::Wagon
 
         filepath = File.join(File.expand_path(path), 'app', 'views', 'pages', fullpath + (locale != default_locale ? ".#{locale}" : '') + '.liquid')
 
-        message = "[Tip]".light_white + " add a new page in your Wagon site at this location: " + filepath.light_white
+        message = if File.exists?(filepath)
+          "[Warning]".red + ' by default and unless you overide the slug in the YAML header of your page, Wagon will replace underscores by dashes in your page slug. Try this instead: ' + fullpath.dasherize.light_white
+        else
+          "[Tip]".light_white + " add a new page in your Wagon site at this location: " + filepath.light_white
+        end
 
         Locomotive::Common::Logger.info (' ' * 2) + message
       end

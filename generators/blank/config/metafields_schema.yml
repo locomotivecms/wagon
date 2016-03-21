@@ -2,7 +2,7 @@
 #
 # Syntax:
 #
-# - <namespace_1>: # no empty spaces, only digits and underscores
+# <namespace_1>: # no empty spaces, only digits and underscores
 #   label: <my label> # used as the label of a tab in the back-office
 #   # label: # if you want to provide the label in another language (back-office)
 #   #   en: <your label in English if the local of the current user is English>
@@ -22,7 +22,7 @@
 #     # <name_2>:
 #     #   ...
 #
-# - <namespace_2>:
+# <namespace_2>:
 #   # ...
 #
 #
