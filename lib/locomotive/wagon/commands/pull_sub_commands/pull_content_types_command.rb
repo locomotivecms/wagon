@@ -17,7 +17,7 @@ module Locomotive::Wagon
     private
 
     def yaml_attributes(content_type)
-      content_type.attributes.slice('name', 'slug', 'description', 'label_field_name', 'order_by', 'order_direction', 'group_by', 'public_submission_enabled', 'public_submission_account_emails', 'display_settings').tap do |attributes|
+      content_type.attributes.slice('name', 'slug', 'description', 'label_field_name', 'order_by', 'order_direction', 'group_by', 'public_submission_enabled', 'public_submission_account_emails', 'display_settings', 'entry_template', 'filter_fields').tap do |attributes|
         # fields
         attributes['fields'] = content_type.fields.map { |f| field_yaml_attributes(f) }
 
