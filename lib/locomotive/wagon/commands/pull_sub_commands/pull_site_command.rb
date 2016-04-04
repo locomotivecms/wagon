@@ -14,6 +14,7 @@ module Locomotive::Wagon
       end if locales.size > 1
 
       decode_metafields(attributes)
+      decode_metafields_ui(attributes)
 
       write_metafields_schema(attributes.delete('metafields_schema'))
 
@@ -60,14 +61,13 @@ module Locomotive::Wagon
     end
 
     def decode_metafields(attributes)
-      metafields = attributes['metafields']
+      decode_json_attribute(attributes, 'metafields') do |metafields|
+        replace_asset_urls_in_hash(metafields)
+      end
+    end
 
-      return if metafields.blank?
-
-      # metafields come under a JSON string format.
-      metafields = JSON.parse(metafields)
-
-      attributes['metafields'] = replace_asset_urls_in_hash(metafields)
+    def decode_metafields_ui(attributes)
+      decode_json_attribute(attributes, 'metafields_ui')
     end
 
     def array_of_hash_to_hash(array, name, &block)
@@ -78,6 +78,17 @@ module Locomotive::Wagon
           yield element if block_given?
         end
       end
+    end
+
+    def decode_json_attribute(attributes, name, &block)
+      value = attributes.delete(name)
+
+      return if value.blank?
+
+      # JSON string -> Hash
+      _value = JSON.parse(value)
+
+      attributes[name] = block_given? ? yield(_value) : _value
     end
 
     def localized_attributes(&block)
