@@ -117,7 +117,11 @@ module Locomotive::Wagon
     def skip?(entity)
       return false if @only_entities.blank?
 
-      _path = entity.template_path[default_locale].gsub('./app/views/pages/', '')
+      template_path = entity.template_path[default_locale]
+
+      return true if template_path == false
+
+      _path = template_path.gsub('./app/views/pages/', '')
 
       !@only_entities.any? { |regexp| regexp.match(_path) }
     end

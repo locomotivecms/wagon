@@ -46,6 +46,11 @@ module Locomotive::Wagon
           ordered_options.each do |option|
             locales.each { |locale| (_options[locale] ||= []) << option['name'][locale.to_s] }
           end
+
+          # if all the values of a locale are nil, then no need to keep that locale
+          locales.each do |locale|
+            _options.delete(locale) if _options[locale].all? { |v| v.blank? }
+          end
         end
       else
         ordered_options.map { |option| option['name'][default_locale] }

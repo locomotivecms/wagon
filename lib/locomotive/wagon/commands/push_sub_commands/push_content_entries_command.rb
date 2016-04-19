@@ -7,7 +7,7 @@ module Locomotive::Wagon
     alias_method :default_push, :_push
 
     def _push
-      (%i(without_relationships only_relationships) + other_locales).each do |step|
+      ([:without_relationships] + other_locales + [:only_relationships]).each do |step|
         @step = step
         default_push
       end

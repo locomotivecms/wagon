@@ -1,5 +1,7 @@
 module Locomotive::Wagon
 
+  SiteFinder = Struct.new(:repository, :request) { def find; repository.first; end; }
+
   class ServeCommand < Struct.new(:path, :options, :shell)
 
     def initialize(path, options, shell)
@@ -82,6 +84,14 @@ module Locomotive::Wagon
         end
 
         config.middleware.insert_before Rack::Lint, Locomotive::Wagon::Middlewares::ErrorPage
+
+        config.services_hook = -> (services) {
+          if services.request
+            services.defer(:site_finder) do
+              SiteFinder.new(services.repositories.site, services.request)
+            end
+          end
+        }
       end
     end
 

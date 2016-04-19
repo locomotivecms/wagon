@@ -40,7 +40,7 @@ module Locomotive::Wagon
       return unless entity.stylesheet_or_javascript?
 
       Tempfile.new(entity.realname).tap do |file|
-        content = sprockets_env[entity.short_relative_url].to_s
+        content = compress_and_minify(entity)
 
         # replace paths to images or fonts by the absolute URL used in the Engine
         replace_assets!(content)
@@ -83,6 +83,16 @@ module Locomotive::Wagon
     def register_url(resource)
       @remote_urls ||= {}
       @remote_urls[resource.local_path] = "#{resource.url}?#{resource.checksum}"
+    end
+
+    def compress_and_minify(entity)
+      begin
+        sprockets_env[entity.short_relative_url].to_s
+      rescue Locomotive::Steam::YUICompressorRuntimeError => e
+        instrument :warning, message: "Unable to compress and minify it, number of errors (#{e.errors.size})\n#{e.errors.join("\n")}"
+        # use the original file instead
+        File.read(File.join(path, entity.source))
+      end
     end
 
     def sprockets_env
