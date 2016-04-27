@@ -26,9 +26,8 @@ Gem::Specification.new do |gem|
   gem.add_dependency 'rubyzip',               '~> 1.1.7'
   gem.add_dependency 'netrc',                 '~> 0.10.3'
 
-  gem.add_dependency 'locomotivecms_common',  '~> 0.1.0'
-  gem.add_dependency 'locomotivecms_coal',    '~> 1.1.0'
-  gem.add_dependency 'locomotivecms_steam',   '~> 1.1.0'
+  gem.add_dependency 'locomotivecms_coal',    '~> 1.2.0'
+  gem.add_dependency 'locomotivecms_steam',   '~> 1.1.1'
 
   gem.add_dependency 'listen',                '~> 3.0.4'
   gem.add_dependency 'rack-livereload',       '~> 0.3.16'
