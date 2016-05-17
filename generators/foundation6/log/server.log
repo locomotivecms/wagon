@@ -1,0 +1,7 @@
+# Logfile created on 2016-05-09 12:21:18 -0500 by logger.rb/44203
+I, [2016-05-09T12:21:18.836825 #3350]  INFO -- : Thin web server (v1.6.4 codename Gob Bluth)
+I, [2016-05-09T12:21:18.836924 #3350]  INFO -- : Maximum connections set to 1024
+I, [2016-05-09T12:21:18.836956 #3350]  INFO -- : Listening on 0.0.0.0:3333, CTRL+C to stop
+I, [2016-05-09T12:21:48.431407 #3556]  INFO -- : Thin web server (v1.6.4 codename Gob Bluth)
+I, [2016-05-09T12:21:48.431499 #3556]  INFO -- : Maximum connections set to 1024
+I, [2016-05-09T12:21:48.431527 #3556]  INFO -- : Listening on 0.0.0.0:3333, CTRL+C to stop
