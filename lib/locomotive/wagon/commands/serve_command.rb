@@ -63,6 +63,7 @@ module Locomotive::Wagon
     private
 
     def require_steam
+      require 'haml'
       require 'locomotive/steam'
       require 'locomotive/steam/server'
       require 'locomotive/wagon/middlewares/error_page'

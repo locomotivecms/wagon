@@ -30,6 +30,7 @@ Gem::Specification.new do |gem|
   gem.add_dependency 'locomotivecms_coal',    '~> 1.2.0'
   gem.add_dependency 'locomotivecms_steam',   '~> 1.2.0.beta'
 
+  gem.add_dependency 'haml',                  '~> 4.0.7'
   gem.add_dependency 'listen',                '~> 3.0.4'
   gem.add_dependency 'rack-livereload',       '~> 0.3.16'
   gem.add_dependency 'yui-compressor',        '~> 0.12.0'

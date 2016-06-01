@@ -160,6 +160,7 @@ module Locomotive::Wagon
     end
 
     def require_misc_gems
+      require 'haml'
       require 'bundler'
       Bundler.require 'misc'
     end
