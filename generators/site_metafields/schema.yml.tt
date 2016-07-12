@@ -12,7 +12,7 @@
 #     <name_1>:
 #       label: <my label> # used as the label of the HTML input. Use a hash if you want it in another languages.
 #       hint: <my hint> # used as the hint of the HTML input. Use a hash if you want it in another languages.
-#       type: <string|text|integer|float|file|image|boolean|select|color>
+#       type: <string|text|integer|float|image|boolean|select|color>
 #       localized: <true|false> # if the value is scoped by the current locale when rendering the site.
 #       position: <0..n> # position of the input in the form
 #       select_options: [array]
