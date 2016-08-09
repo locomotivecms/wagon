@@ -27,9 +27,9 @@ module Locomotive
               remove_file File.join(self.destination, 'public/stylesheets/normalize.css')
             else
               remove_dir File.join(self.destination, 'public/stylesheets/foundation')
-              remove_file File.join(self.destination, 'public/stylesheets/application.css.scss')
-              remove_file File.join(self.destination, 'public/stylesheets/foundation.css.scss')
-              remove_file File.join(self.destination, 'public/stylesheets/normalize.css.scss')
+              remove_file File.join(self.destination, 'public/stylesheets/application.scss')
+              remove_file File.join(self.destination, 'public/stylesheets/foundation.scss')
+              remove_file File.join(self.destination, 'public/stylesheets/normalize.scss')
             end
           end
 
