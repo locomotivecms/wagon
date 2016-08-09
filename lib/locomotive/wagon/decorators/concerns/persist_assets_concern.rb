@@ -7,9 +7,9 @@ module Locomotive::Wagon
     def replace_with_content_assets!(text)
       return text if text.blank?
 
-      text.to_s.gsub(/\/samples\/\S*\.[a-zA-Z0-9]+/) do |match|
-        url = __content_assets_pusher__.persist(match)
-        url || match
+      text.to_s.gsub(/([^a-zA-Z0-9])(\/samples\/\S*\.[a-zA-Z0-9]+)/) do
+        url = __content_assets_pusher__.persist($2) || $2
+        $1 + url
       end
     end
 
