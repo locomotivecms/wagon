@@ -1,3 +1,4 @@
+
 source 'https://rubygems.org'
 
 # Specify your gem's dependencies in wagon.gemspec
@@ -8,7 +9,7 @@ gem 'rb-fsevent', '~> 0.9.1'
 # Development
 # gem 'locomotivecms_common', github: 'locomotivecms/common', ref: '257047b', require: false
 # gem 'locomotivecms_coal',   github: 'locomotivecms/coal',   ref: 'f4ff435', require: false
-gem 'locomotivecms_steam',  github: 'locomotivecms/steam',  ref: 'b439507', require: false
+# gem 'locomotivecms_steam',  github: 'locomotivecms/steam',  ref: 'b439507', require: false
 
 # Local development
 # gem 'locomotivecms_coal', path: '../gems/coal', require: false
