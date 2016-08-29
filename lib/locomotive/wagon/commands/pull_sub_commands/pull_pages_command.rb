@@ -21,6 +21,7 @@ module Locomotive::Wagon
 #{yaml_attributes(page, locale)}---
 #{replace_asset_urls(page.template)}
 EOF
+        .gsub(/\n$/, '')
       end
     end
 
