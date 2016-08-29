@@ -86,7 +86,8 @@ describe Locomotive::Wagon::PushPagesCommand do
 
     let(:handle)  { nil }
     let(:folder)  { '' }
-    let(:page)    { instance_double('Page', fullpath: 'modified-about-us', folder_path: folder, handle: handle) }
+    let(:locale)  { :en }
+    let(:page)    { instance_double('Page', fullpath: 'modified-about-us', folder_path: folder, handle: handle, __locale__: locale, __default_locale__: :en) }
 
     subject { command.send(:can_update?, page) }
 
@@ -108,6 +109,14 @@ describe Locomotive::Wagon::PushPagesCommand do
         it { is_expected.to eq false }
 
       end
+
+    end
+
+    context 'another locale' do
+
+      let(:locale) { :fr }
+
+      it { is_expected.to eq true }
 
     end
 

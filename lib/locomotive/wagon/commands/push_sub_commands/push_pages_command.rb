@@ -49,7 +49,10 @@ module Locomotive::Wagon
     end
 
     def can_update?(local_entity)
-      if local_entity.handle && id = remote_entity_id_from_handle(local_entity)
+      # checking pathes only if the current locale is the default one
+      if  local_entity.__locale__.to_s == default_locale.to_s &&
+          local_entity.handle &&
+          id = remote_entity_id_from_handle(local_entity)
         remote_entity_folder_path(id) == local_entity.folder_path
       else
         true
@@ -79,7 +82,7 @@ module Locomotive::Wagon
 
       @remote_entities = {}.tap do |hash|
         api_client.pages.fullpaths(default_locale).each do |entity|
-          hash[entity.fullpath]       = entity._id
+          hash[entity.fullpath] = entity._id
 
           if entity.respond_to?(:handle) && entity.handle.present?
             # to_sym: trick to not have conflicts with fullpaths

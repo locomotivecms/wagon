@@ -8,10 +8,10 @@ module Locomotive
 
       attr_accessor :__content_assets_pusher__, :__persist_content__
 
-      def initialize(object, locale = nil, content_assets_pusher, persist_content)
+      def initialize(object, locale, content_assets_pusher, persist_content)
         self.__content_assets_pusher__ = content_assets_pusher
         self.__persist_content__ = persist_content
-        super(object, locale, nil)
+        super(object, locale, nil) # we don't need a fallback to the default locale
       end
 
       def __attributes__
