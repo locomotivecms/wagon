@@ -27,7 +27,6 @@ module Locomotive::Wagon
     def yaml_attributes(content_type, entry)
       fields            = %w(_slug) + content_type.fields.map { |f| f['name'] } + %w(seo_title meta_description meta_keywords)
       localized_fields  = (content_type.attributes['localized_names'] || []) + %w(_slug seo_title meta_description meta_keywords)
-      fields_with_urls  = content_type.attributes['urls_names']
 
       attributes = {}
 
@@ -40,6 +39,8 @@ module Locomotive::Wagon
           value_of(content_type, entry, default_locale, name)
         end
       end
+
+      attributes['_visible'] = false unless entry[default_locale].attributes['_visible'] == true
 
       { entry[default_locale].attributes[content_type.label_field_name].to_s => clean_attributes(attributes) }
     end

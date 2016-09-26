@@ -28,7 +28,11 @@ EOF
     private
 
     def yaml_attributes(page, locale)
-      attributes = page.attributes.slice('title', 'slug', 'handle', 'position', 'listed', 'published', 'redirect_url', 'is_layout', 'content_type', 'seo_title', 'meta_description', 'meta_keywords')
+      keys = ['title', 'slug', 'handle', 'position', 'listed', 'published', 'redirect_url', 'is_layout', 'content_type', 'seo_title', 'meta_description', 'meta_keywords']
+
+      keys << 'response_type' if page.attributes['response_type'] != 'text/html'
+
+      attributes = page.attributes.slice(*keys)
 
       if locale != default_locale
         attributes.delete_if { |k, _| %w(handle position listed published is_layout content_type).include?(k) }

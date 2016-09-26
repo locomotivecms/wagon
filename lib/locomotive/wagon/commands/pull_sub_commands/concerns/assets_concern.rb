@@ -6,7 +6,7 @@ module Locomotive::Wagon
 
   module AssetsConcern
 
-    REGEX = /(https?:\/\/\S+)?\/sites\/[0-9a-f]{24}\/(assets|pages|theme|content_entry[0-9a-f]{24})\/(([^;.]+)\/)*([a-zA-Z_\-0-9.%]+)\.([A-Za-z]{2,})(\?\w+)?/
+    REGEX = /(https?:\/\/\S+)?\/sites\/[0-9a-f]{24}\/(assets|pages|theme|content_entry[0-9a-f]{24})\/(([^;.]+)\/)*([a-zA-Z_\-0-9.%]+)(\?\w+)?/
 
     # The content assets on the remote engine follows the format: /sites/<id>/assets/<type>/<file>
     # This method replaces these urls by their local representation. <type>/<file>
@@ -17,7 +17,7 @@ module Locomotive::Wagon
       return '' if content.blank?
 
       content.force_encoding('utf-8').gsub(REGEX) do |url|
-        filename = "#{$5}.#{$6}"
+        filename = $5
         folder = case $2
         when 'assets', 'pages'  then File.join('samples', $2)
         when 'theme'            then $4
