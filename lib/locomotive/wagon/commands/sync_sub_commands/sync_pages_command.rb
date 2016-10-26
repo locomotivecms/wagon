@@ -32,7 +32,7 @@ module Locomotive::Wagon
     end
 
     def replace_editable_elements(filepath, replacement)
-      content   = File.read(File.join(path, filepath))
+      content   = File.read(File.join(path, filepath), encoding: 'utf-8')
       existing  = content =~ /\A.*?editable_elements:.*?\n---/m
 
       content.gsub /\A---(.*?)\n---/m do |s|
