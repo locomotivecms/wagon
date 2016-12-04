@@ -41,9 +41,13 @@ module Locomotive::Wagon
 
     def remote_entities
       return @remote_entities if @remote_entities
-
       @remote_entities = {}.tap do |hash|
-        api_client.content_assets.all.each do |entity|
+        begin
+          all_content_assets = api_client.content_assets.all
+        rescue
+          all_content_assets = []
+        end
+        all_content_assets.each do |entity|
           hash[entity.full_filename] = entity
         end
       end

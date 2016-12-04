@@ -3,7 +3,12 @@ module Locomotive::Wagon
   class PullContentAssetsCommand < PullBaseCommand
 
     def _pull
-      api_client.content_assets.all.each do |asset|
+      begin
+        all_content_assets = api_client.content_assets.all
+      rescue
+        all_content_assets = []
+      end
+      all_content_assets.each do |asset|
         write_content_asset(asset)
       end
     end
