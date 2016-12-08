@@ -53,6 +53,10 @@ module Locomotive
         value.try(:iso8601)
       end
 
+      def decorate_json_field(value)
+        value.to_json
+      end
+
       alias :decorate_time_field :decorate_date_time_field
 
       def to_hash
