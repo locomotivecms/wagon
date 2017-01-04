@@ -10,17 +10,22 @@ module Locomotive
       end
 
       def source
-        Locomotive::Coal::UploadIO.new(filepath, nil, filename)
+        Locomotive::Coal::UploadIO.new(_readfile(filepath), nil, filename)
       end
 
       def checksum
-        Digest::MD5.hexdigest(File.read(filepath))
+        Digest::MD5.hexdigest(_readfile(filepath) { |io| io.read })
       end
 
       def filename
         File.basename(filepath)
       end
 
+      private
+      
+      def _readfile(path, &block)
+        File.open(path, 'rb', &block)
+      end
     end
 
   end
