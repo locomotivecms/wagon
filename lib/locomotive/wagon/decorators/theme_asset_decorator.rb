@@ -21,7 +21,7 @@ module Locomotive
       end
 
       def source
-        Locomotive::Coal::UploadIO.new(filepath, nil, realname)
+        Locomotive::Coal::UploadIO.new(_readfile(filepath), nil, realname)
       end
 
       def priority
@@ -33,7 +33,7 @@ module Locomotive
       end
 
       def checksum
-        Digest::MD5.hexdigest(File.read(filepath))
+        Digest::MD5.hexdigest(_readfile(filepath) { |io| io.read })
       end
 
       # - memoize it because it will not change even if we change the filepath (or source)
@@ -70,6 +70,10 @@ module Locomotive
         if new_extension = EXTENSIONS_TABLE[extension]
           File.basename(filename, extension) + new_extension
         end
+      end
+      
+      def _readfile(path, &block)
+        File.open(path, 'rb', &block)
       end
 
     end
