@@ -33,6 +33,10 @@ content_type: <%= config[:content_type] -%>
 # editable_elements:
 #   'some_block/some_slug': "<text>"
 #   'some_block/some_slug': "<relative path to the file under the public/samples folder>"
+
+# Control the display of the page in the back-office.
+# display_settings:
+#   hidden: true          # hidden for authors?
 ---
 {% extends parent %}
 

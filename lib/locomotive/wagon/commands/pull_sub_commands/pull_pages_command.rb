@@ -28,7 +28,7 @@ EOF
     private
 
     def yaml_attributes(page, locale)
-      keys = ['title', 'slug', 'handle', 'position', 'listed', 'published', 'redirect_url', 'is_layout', 'content_type', 'seo_title', 'meta_description', 'meta_keywords']
+      keys = ['title', 'slug', 'handle', 'position', 'listed', 'published', 'redirect_url', 'is_layout', 'content_type', 'seo_title', 'meta_description', 'meta_keywords', 'display_settings']
 
       keys << 'response_type' if page.attributes['response_type'] != 'text/html'
 

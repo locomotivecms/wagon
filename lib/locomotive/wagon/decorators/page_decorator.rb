@@ -23,7 +23,8 @@ module Locomotive
           seo_title meta_keywords meta_description
           editable_elements
           content_type
-          template)
+          template
+          display_settings)
 
         # remove the attributes that end-users might have modified in the back-office
         if persisted? && !__persist_content__
@@ -64,6 +65,10 @@ module Locomotive
 
       def parent
         self[:parent]
+      end
+
+      def display_settings
+        self[:display_settings]
       end
 
       def content_type
