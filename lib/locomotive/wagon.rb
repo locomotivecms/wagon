@@ -1,3 +1,4 @@
+require_relative 'wagon/version'
 require_relative 'wagon/exceptions'
 
 module Locomotive
