@@ -1,8 +1,10 @@
 require 'locomotive/wagon'
 require 'rspec'
-require 'coveralls'
+require 'simplecov'
 
-Coveralls.wear!
+SimpleCov.start do
+  add_filter 'spec/'
+end
 
 Dir["#{File.expand_path('../support', __FILE__)}/*.rb"].each do |file|
   require file

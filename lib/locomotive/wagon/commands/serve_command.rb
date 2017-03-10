@@ -75,9 +75,10 @@ module Locomotive::Wagon
       subscribe_to_notifications
 
       Locomotive::Steam.configure do |config|
-        config.mode         = :test
-        config.adapter      = { name: :filesystem, path: File.expand_path(path) }
-        config.asset_path   = File.expand_path(File.join(path, 'public'))
+        config.mode           = :test
+        config.adapter        = { name: :filesystem, path: File.expand_path(path) }
+        config.asset_path     = File.expand_path(File.join(path, 'public'))
+        config.minify_assets  = false
 
         if (port = options[:live_reload_port]).to_i > 0
           require 'rack-livereload'

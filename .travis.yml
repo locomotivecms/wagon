@@ -1,7 +1,11 @@
 language: ruby
 rvm:
-  - 2.1.1
+  - 2.3.3
 before_install:
   - export TZ=Paris
   - date
-
+addons:
+  code_climate:
+    repo_token: 8d9c25de4eff1cd06d3accdc09775397e1a81be67e2a159453ba4e4408acae16
+after_success:
+  - bundle exec codeclimate-test-reporter

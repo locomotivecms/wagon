@@ -88,8 +88,8 @@ module Locomotive::Wagon
     def compress_and_minify(entity)
       begin
         sprockets_env[entity.short_relative_url].to_s
-      rescue Locomotive::Steam::YUICompressorRuntimeError => e
-        instrument :warning, message: "Unable to compress and minify it, number of errors (#{e.errors.size})\n#{e.errors.join("\n")}"
+      rescue Exception => e
+        instrument :warning, message: "Unable to compress and minify it, error: #{e.message}"
         # use the original file instead
         File.read(File.join(path, entity.source))
       end
