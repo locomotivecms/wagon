@@ -1,3 +1,5 @@
+require "bundler"
+
 module Locomotive::Wagon
 
   SiteFinder = Struct.new(:repository, :request) { def find; repository.first; end; }
@@ -73,7 +75,6 @@ module Locomotive::Wagon
       configure_logger
 
       subscribe_to_notifications
-
       Locomotive::Steam.configure do |config|
         config.mode           = :test
         config.adapter        = { name: :filesystem, path: File.expand_path(path) }
@@ -84,7 +85,6 @@ module Locomotive::Wagon
           require 'rack-livereload'
           config.middleware.insert_before Rack::Lint, Rack::LiveReload, live_reload_port: port
         end
-
         config.middleware.insert_before Rack::Lint, Locomotive::Wagon::Middlewares::ErrorPage
 
         config.services_hook = -> (services) {
@@ -95,6 +95,7 @@ module Locomotive::Wagon
           end
         }
       end
+      Bundler.require(:default)
     end
 
     def daemonize
