@@ -163,17 +163,17 @@ handle: home
 .w3-row-padding
   .w3-third
     .w3-card-2
-      %img{:alt => "Car", :src => "/images/car.jpg", :style => "width:100%"}/
+      %img{:alt => "Car", :src => "{{ 'car.jpg' | theme_image_url }}", :style => "width:100%"}/
       .w3-container
         %p w3-card-2
   .w3-third
     .w3-card-4
-      %img{:alt => "Car", :src => "/images/car.jpg", :style => "width:100%"}/
+      %img{:alt => "Car", :src => "{{ 'car.jpg' | theme_image_url }}", :style => "width:100%"}/
       .w3-container
         %p w3-card-4
   .w3-third
     .w3-card-4
-      %img{:alt => "Car", :src => "/images/car.jpg", :style => "width:100%"}/
+      %img{:alt => "Car", :src => "{{ 'car.jpg' | theme_image_url }}", :style => "width:100%"}/
       .w3-container
         %p w3-card-4
 .w3-container
@@ -261,10 +261,10 @@ handle: home
 %hr/
 %h2.w3-center Slideshows
 .w3-content{:style => "max-width:800px;position:relative"}
-  %img.mySlides.w3-animate-opacity{:src => "/images/fjords.jpg", :style => "width:100%"}/
-  %img.mySlides.w3-animate-opacity{:src => "/images/lights.jpg", :style => "width:100%"}/
-  %img.mySlides.w3-animate-opacity{:src => "/images/mountains.jpg", :style => "width:100%"}/
-  %img.mySlides.w3-animate-opacity{:src => "/images/forest.jpg", :style => "width:100%"}/
+  %img.mySlides.w3-animate-opacity{:src => "{{ 'fjords.jpg' | theme_image_url }}", :style => "width:100%"}/
+  %img.mySlides.w3-animate-opacity{:src => "{{ 'lights.jpg' | theme_image_url }}", :style => "width:100%"}/
+  %img.mySlides.w3-animate-opacity{:src => "{{ 'mountains.jpg' | theme_image_url }}", :style => "width:100%"}/
+  %img.mySlides.w3-animate-opacity{:src => "{{ 'forest.jpg' | theme_image_url }}", :style => "width:100%"}/
   %a.w3-button.w3-hover-dark-grey{:onclick => "plusDivs(-1)", :style => "position:absolute;top:45%;left:0;"} «
   %a.w3-button.w3-hover-dark-grey{:onclick => "plusDivs(+1)", :style => "position:absolute;top:45%;right:0;"} »
 .w3-container

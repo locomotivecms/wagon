@@ -212,7 +212,7 @@ handle: home
 <div class="w3-row-padding">
   <div class="w3-third">
     <div class="w3-card-2">
-      <img src="/images/car.jpg" alt="Car" style="width:100%">
+      <img src="{{ 'car.jpg' | theme_image_url }}" alt="Car" style="width:100%">
       <div class="w3-container">
         <p>w3-card-2</p>
       </div>
@@ -220,7 +220,7 @@ handle: home
   </div>
   <div class="w3-third">
     <div class="w3-card-4">
-      <img src="/images/car.jpg" alt="Car" style="width:100%">
+      <img src="{{ 'car.jpg' | theme_image_url }}" alt="Car" style="width:100%">
       <div class="w3-container">
         <p>w3-card-4</p>
       </div>
@@ -228,7 +228,7 @@ handle: home
   </div>
   <div class="w3-third">
     <div class="w3-card-4">
-      <img src="/images/car.jpg" alt="Car" style="width:100%">
+      <img src="{{ 'car.jpg' | theme_image_url }}" alt="Car" style="width:100%">
       <div class="w3-container">
         <p>w3-card-4</p>
       </div>
@@ -345,10 +345,10 @@ handle: home
 <hr>
 <h2 class="w3-center">Slideshows</h2>
 <div class="w3-content" style="max-width:800px;position:relative">
-  <img class="mySlides w3-animate-opacity" src="/images/fjords.jpg" style="width:100%">
-  <img class="mySlides w3-animate-opacity" src="/images/lights.jpg" style="width:100%">
-  <img class="mySlides w3-animate-opacity" src="/images/mountains.jpg" style="width:100%">
-  <img class="mySlides w3-animate-opacity" src="/images/forest.jpg" style="width:100%">
+  <img class="mySlides w3-animate-opacity" src="{{ 'fjords.jpg' | theme_image_url }}" style="width:100%">
+  <img class="mySlides w3-animate-opacity" src="{{ 'lights.jpg' | theme_image_url }}" style="width:100%">
+  <img class="mySlides w3-animate-opacity" src="{{ 'mountains.jpg' | theme_image_url }}" style="width:100%">
+  <img class="mySlides w3-animate-opacity" src="{{ 'forest.jpg' | theme_image_url }}" style="width:100%">
   <a class="w3-button w3-hover-dark-grey" style="position:absolute;top:45%;left:0;" onclick="plusDivs(-1)">«</a>
   <a class="w3-button w3-hover-dark-grey" style="position:absolute;top:45%;right:0;" onclick="plusDivs(+1)">»</a>
 </div>
