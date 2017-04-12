@@ -1,0 +1,16 @@
+---
+title: Page not found
+published: true
+---
+{% extends 'layouts/default' %}
+
+{% block content %}
+
+<div class="w3-container w3-blue">
+	{% editable_text 404, rows: 5, priority: 1 %}
+  <h1>Page not found</h1>
+  <p>Not a problem though.</p>
+  <p>You can return to where you were just a second ago by clicking on the previous page button or simply using the menu.</p>
+  {% endeditable_text %}
+</div>
+{% endblock %}

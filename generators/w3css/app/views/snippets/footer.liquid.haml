@@ -1,0 +1,16 @@
+/ Footer
+%footer.w3-container.w3-theme-dark.w3-padding-16
+  %h3 Footer
+  %p
+    Powered by
+    = succeed "\u{a0}\u{a9}" do
+      %a{:href => "https://www.w3schools.com/w3css/default.asp", :target => "_blank"} w3.css
+  .w3-tooltip.w3-right{:style => "position:relative;bottom:55px;"}
+    %span.w3-text.w3-theme-light.w3-padding> Go To Top
+     
+    %a.w3-text-white{:href => "#myHeader"}
+      %span.w3-xlarge
+        %i.fa.fa-chevron-circle-up
+  %p
+    Remember to check out our  
+    %a.w3-btn.w3-theme-light{:href => "w3css_references.asp", :target => "_blank"} W3.CSS Reference

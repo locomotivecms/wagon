@@ -1,0 +1,56 @@
+# Site metafield schema
+#
+# Syntax:
+#
+# <namespace_1>: # no empty spaces, only digits and underscores
+#   label: <my label> # used as the label of a tab in the back-office
+#   # label: # if you want to provide the label in another language (back-office)
+#   #   en: <your label in English if the local of the current user is English>
+#   #   fr: <your label in French>
+#   position: <0..n> # position of the tab in the menu
+#   fields:
+#     <name_1>:
+#       label: <my label> # used as the label of the HTML input. Use a hash if you want it in another languages.
+#       hint: <my hint> # used as the hint of the HTML input. Use a hash if you want it in another languages.
+#       type: <string|text|integer|float|image|boolean|select|color>
+#       localized: <true|false> # if the value is scoped by the current locale when rendering the site.
+#       position: <0..n> # position of the input in the form
+#       select_options: [array]
+#       # select_options:
+#       #   <option_value_1>: <label> # use a hash instead if you want it in another languages.
+#       #   <option_value_2>: <label> # use a hash instead if you want it in another languages.
+#     # <name_2>:
+#     #   ...
+#
+# <namespace_2>:
+#   # ...
+#
+#
+# Simple example:
+#
+# shop:
+#   label: My shop location
+#   fields:
+#     address:
+#       type: string
+#       hint: "Ex: 7 allee Albert Camus"
+#     city:
+#       type: string
+#       hint: "Chicago, Paris, Blagnac, Toulouse"
+#     zip_code:
+#       type: string
+#       hint: "Digits only"
+#     hours:
+#       type: text
+#       hint: "Free text here"
+# theme:
+#   fields:
+#     background_image:
+#       type: image
+#       hint: full screen image (min: 3000px x 3000px)
+#     link_color:
+#       type: color
+#     font:
+#       type: select
+#       select_options: ['helvetica', 'Noto']
+

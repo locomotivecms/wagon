@@ -1,0 +1,23 @@
+---
+title: Default layout
+is_layout: false
+---
+!!!
+%html
+%head
+%title {{ site.name }}
+%meta{:charset => "UTF-8"}/
+%meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
+%link{:href => "{{ 'favicon.png' | theme_image_url }}", :rel => "shortcut icon"}/
+{{ 'w3c.css' | stylesheet_tag }}
+{{ 'application.css' | stylesheet_tag }}
+%link{:href => "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css", :rel => "stylesheet"}/
+%body
+{% include 'nav' %}
+
+{% block content %}
+{% endblock %}
+
+{% include 'footer' %}
+
+{{ 'application.js' | javascript_tag }}

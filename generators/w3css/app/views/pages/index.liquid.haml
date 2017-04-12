@@ -1,0 +1,359 @@
+---
+title: Home page
+published: true
+handle: home
+---
+{% extends 'layouts/simple' %}
+
+{% block content/main %}
+#id01.w3-modal
+  .w3-modal-content.w3-card-4.w3-animate-top
+    %header.w3-container.w3-theme-l1
+      %span.w3-button.w3-display-topright{:onclick => "document.getElementById('id01').style.display='none'"} Ã—
+      %h4 Oh snap! We just showed you a modal..
+      %h5
+        Because we can
+        %i.fa.fa-smile-o
+    .w3-padding
+      %p Cool huh? Ok, enough teasing around..
+      %p
+        Go to our
+        %a.w3-btn{:href => "/w3css/default.asp"} W3.CSS Tutorial
+        to learn more!
+    %footer.w3-container.w3-theme-l1
+      %p Modal footer
+.w3-row-padding.w3-center.w3-margin-top
+  .w3-third
+    .w3-card-2.w3-container{:style => "min-height:460px"}
+      %h3 Responsive
+      %br/
+      %i.fa.fa-desktop.w3-margin-bottom.w3-text-theme{:style => "font-size:120px"}
+      %p Built-in responsiveness
+      %p Mobile first fluid grid
+      %p Fits any screen sizes
+      %p PC Tablet and Mobile
+  .w3-third
+    .w3-card-2.w3-container{:style => "min-height:460px"}
+      %h3 Standard CSS
+      %br/
+      %i.fa.fa-css3.w3-margin-bottom.w3-text-theme{:style => "font-size:120px"}
+      %p Standard CSS only
+      %p Easy to learn
+      %p No need for jQuery
+      %p No JavaScript library
+  .w3-third
+    .w3-card-2.w3-container{:style => "min-height:460px"}
+      %h3 Design
+      %br/
+      %i.fa.fa-diamond.w3-margin-bottom.w3-text-theme{:style => "font-size:120px"}
+      %p Paper like design
+      %p Bold colors and shadows
+      %p Equal across platforms
+      %p Equal across devices
+.w3-container
+  %hr/
+  .w3-center
+    %h2 Color Classes
+  .w3-row
+    .w3-col.w3-container.m2.w3-red
+      %p Red
+    .w3-col.w3-container.m2.w3-blue
+      %p Blue
+    .w3-col.w3-container.m2.w3-blue-grey
+      %p Blue Grey
+    .w3-col.w3-container.m2.w3-teal
+      %p Teal
+    .w3-col.w3-container.m2.w3-yellow
+      %p Yellow
+    .w3-col.w3-container.m2.w3-orange
+      %p Orange
+  %hr/
+  .w3-center
+    %h2 Built-In Responsiveness
+    %p.w3-large Resize the page to see the effect!
+  %br/
+  .w3-row.w3-border
+    .w3-half.w3-container.w3-blue.w3-border
+      %h5 w3-half
+      %p The w3-half class uses half (50%) of the screen window.
+      %p On small screens (max 600 pixels) it automatically resizes to full screen width.
+    .w3-half.w3-container
+      %h5 w3-half
+  %br/
+  .w3-row.w3-border
+    .w3-third.w3-container.w3-green
+      %h5 w3-third
+      %p The w3-third class uses one third (33.33%) of the screen widow.
+      %p On small screens (max 600 pixels) it automatically resizes to full screen width.
+    .w3-third.w3-container
+      %h5 w3-third
+    .w3-third.w3-container
+      %h5 w3-third
+  %br/
+  .w3-row.w3-border
+    .w3-quarter.w3-container.w3-red
+      %h5 w3-quarter
+      %p The w3-quarter class uses one quarter (25%) of the screen window.
+      %p On small screens (max 600 pixels) it automatically resizes to full screen width.
+    .w3-quarter.w3-container
+      %h5 w3-quarter
+    .w3-quarter.w3-container
+      %h5 w3-quarter
+    .w3-quarter.w3-container
+      %h5 w3-quarter
+  .w3-center
+    %h2 Containers
+    %p Use containers to create headers, sections and footers.
+  %header.w3-container.w3-blue-grey
+    %h2 Header
+  .w3-padding.w3-white.w3-display-container
+    %span.w3-button.w3-display-topright{:onclick => "this.parentElement.style.display='none'"}
+      %i.fa.fa-remove
+    %h2 London
+    %p London is the capital city of England. It is the most populous city in the United Kingdom, with a metropolitan area of over 13 million inhabitants.
+    %p Standing on the River Thames, London has been a major settlement for two millennia, its history going back to its founding by the Romans, who named it Londinium.
+    %p By the way, you can add a close icon to all containers if you want the ability to hide them. Look to your right!
+  %footer.w3-container.w3-blue-grey
+    %h5 Footer
+    %p.w3-opacity Footer information goes here
+  %hr/
+  .w3-center
+    %h2 Color Themes
+    %p The color themes have been designed to work harmoniously with each other.
+.w3-row-padding
+  .w3-half
+    .w3-card.white
+      .w3-container.w3-indigo
+        %h3 Theme Indigo
+      .w3-container
+        %h3.w3-text-indigo Movies 2014
+      %ul.w3-ul.w3-border-top
+        %li
+          %h3 Frozen
+          %p The response to the animations was ridiculous
+        %li
+          %h3 The Fault in Our Stars
+          %p Touching, gripping and genuinely well made
+        %li
+          %h3 The Avengers
+          %p A huge success for Marvel and Disney
+      .w3-container.w3-indigo.w3-large
+        %span.w3-right Next
+  .w3-half
+    .w3-card.white
+      .w3-container.w3-theme
+        %h3 Theme
+      .w3-container
+        %h3.w3-text-theme Movies 2014
+      %ul.w3-ul.w3-border-top
+        %li
+          %h3 Frozen
+          %p The response to the animations was ridiculous
+        %li
+          %h3 The Fault in Our Stars
+          %p Touching, gripping and genuinely well made
+        %li
+          %h3 The Avengers
+          %p A huge success for Marvel and Disney
+      .w3-container.w3-theme.w3-large
+        %span.w3-right Next
+.w3-container.w3-center
+  %hr/
+  %h3 Paper-like Cards with Shadows
+.w3-row-padding
+  .w3-third
+    .w3-card-2
+      %img{:alt => "Car", :src => "/images/car.jpg", :style => "width:100%"}/
+      .w3-container
+        %p w3-card-2
+  .w3-third
+    .w3-card-4
+      %img{:alt => "Car", :src => "/images/car.jpg", :style => "width:100%"}/
+      .w3-container
+        %p w3-card-4
+  .w3-third
+    .w3-card-4
+      %img{:alt => "Car", :src => "/images/car.jpg", :style => "width:100%"}/
+      .w3-container
+        %p w3-card-4
+.w3-container
+  %hr/
+  .w3-center
+    %h2 Tables
+    %p{"w3-class" => "w3-large"} Don't worry. W3.CSS takes care of your tables.
+  .w3-responsive.w3-card-4
+    %table.w3-table.w3-striped.w3-bordered
+      %thead
+        %tr.w3-theme
+          %th First Name
+          %th Last Name
+          %th Points
+      %tbody
+        %tr
+          %td Jill
+          %td Smith
+          %td 50
+        %tr.w3-white
+          %td Eve
+          %td Jackson
+          %td 94
+        %tr
+          %td Adam
+          %td Johnson
+          %td 67
+  %hr/
+  %h2.w3-center Forms and Lists
+.w3-row-padding
+  .w3-half
+    %form.w3-container.w3-card-4
+      %h2 Input Form
+      .w3-section
+        %input.w3-input{:required => "", :type => "text"}/
+        %label Name
+      .w3-section
+        %input.w3-input{:required => "", :type => "text"}/
+        %label Email
+      .w3-section
+        %input.w3-input{:required => "", :type => "text"}/
+        %label Subject
+      .w3-row
+        .w3-half
+          %input#milk.w3-check{:checked => "checked", :type => "checkbox"}/
+          %label Milk
+          %br/
+          %input#sugar.w3-check{:type => "checkbox"}/
+          %label Sugar
+          %br/
+          %input#lemon.w3-check{:disabled => "disabled", :type => "checkbox"}/
+          %label Lemon (Disabled)
+          %br/
+          %br/
+        .w3-half
+          %input#male.w3-radio{:checked => "checked", :name => "gender", :type => "radio", :value => "male"}/
+          %label Male
+          %br/
+          %input#female.w3-radio{:name => "gender", :type => "radio", :value => "female"}/
+          %label Female
+          %br/
+          %input#unknown.w3-radio{:disabled => "disabled", :name => "gender", :type => "radio", :value => ""}/
+          %label Don't know (Disabled)
+  .w3-half
+    .w3-card-4.w3-container
+      %h2 Lists
+      %ul.w3-ul.w3-margin-bottom
+        %li Jill
+        %li Eve
+        %li Adam
+      %br/
+      %ul.w3-ul.w3-border.w3-hoverable
+        %li.w3-theme Jill
+        %li Eve
+        %li Adam
+        %li Steve
+      %br/
+%hr/
+%h2.w3-center Progress Bars
+.w3-container
+  .w3-light-gray
+    #myBar.w3-center.w3-padding.w3-theme{:style => "width:5%"} 5%
+  %br/
+  %button.w3-btn.w3-theme{:onclick => "move()"} Click Me
+%hr/
+%h2.w3-center Slideshows
+.w3-content{:style => "max-width:800px;position:relative"}
+  %img.mySlides.w3-animate-opacity{:src => "/images/fjords.jpg", :style => "width:100%"}/
+  %img.mySlides.w3-animate-opacity{:src => "/images/lights.jpg", :style => "width:100%"}/
+  %img.mySlides.w3-animate-opacity{:src => "/images/mountains.jpg", :style => "width:100%"}/
+  %img.mySlides.w3-animate-opacity{:src => "/images/forest.jpg", :style => "width:100%"}/
+  %a.w3-button.w3-hover-dark-grey{:onclick => "plusDivs(-1)", :style => "position:absolute;top:45%;left:0;"} «
+  %a.w3-button.w3-hover-dark-grey{:onclick => "plusDivs(+1)", :style => "position:absolute;top:45%;right:0;"} »
+.w3-container
+  %hr/
+  %h2.w3-center Navigation
+  .w3-bar.w3-theme
+    %a.w3-bar-item.w3-button.w3-padding-16{:href => "#"} Home
+    %a.w3-bar-item.w3-button.w3-padding-16{:href => "#"} Link 1
+    .w3-dropdown-hover
+      %button.w3-button.w3-padding-16
+        Dropdown
+        %i.fa.fa-caret-down
+      .w3-dropdown-content.w3-card-4.w3-bar-block
+        %a.w3-bar-item.w3-button{:href => "javascript:void(0)"} Link 1
+        %a.w3-bar-item.w3-button{:href => "javascript:void(0)"} Link 2
+        %a.w3-bar-item.w3-button{:href => "javascript:void(0)"} Link 3
+  %hr/
+  %h2.w3-center Accordions
+  %button.w3-padding-16.w3-theme.w3-button.w3-block.w3-left-align{:onclick => "myAccFunc('Demo1')"} Open Section 1
+  #Demo1.w3-hide
+    .w3-container
+      %p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+  %button.w3-padding-16.w3-theme.w3-button.w3-block.w3-left-align{:onclick => "myAccFunc('Demo2')"} Open Section 2
+  #Demo2.w3-hide
+    %a.w3-button.w3-block.w3-left-align{:href => "#"} Link 1
+    %a.w3-button.w3-block.w3-left-align{:href => "#"} Link 2
+    %a.w3-button.w3-block.w3-left-align{:href => "#"} Link 3
+  %button.w3-padding-16.w3-theme.w3-button.w3-block.w3-left-align{:onclick => "myAccFunc('Demo3')"} Open Section 3
+  #Demo3.w3-hide.w3-black
+    .w3-container
+      %p Accordion with Images:
+      %img.w3-animate-zoom{:src => "/images/fjords.jpg", :style => "width:30%;"}/
+      %p Trolltunga, Norway
+  %hr/
+  %h2.w3-center Tabs
+  .w3-border
+    .w3-bar.w3-theme
+      %button.w3-bar-item.w3-button.testbtn.w3-padding-16{:onclick => "openCity(event,'London')"} London
+      %button.w3-bar-item.w3-button.testbtn.w3-padding-16{:onclick => "openCity(event,'Paris')"} Paris
+      %button.w3-bar-item.w3-button.testbtn.w3-padding-16{:onclick => "openCity(event,'Tokyo')"} Tokyo
+    #London.w3-container.city.w3-animate-opacity
+      %h2 London
+      %p London is the capital city of England.
+      %p It is the most populous city in the United Kingdom, with a metropolitan area of over 13 million inhabitants.
+    #Paris.w3-container.city.w3-animate-opacity
+      %h2 Paris
+      %p Paris is the capital of France.
+      %p The Paris area is one of the largest population centers in Europe, with more than 12 million inhabitants.
+    #Tokyo.w3-container.city.w3-animate-opacity
+      %h2 Tokyo
+      %p Tokyo is the capital of Japan.
+      %p It is the center of the Greater Tokyo Area, and the most populous metropolitan area in the world.
+  %hr/
+  %h2.w3-center Buttons
+  .w3-center
+    %br/
+    %a.w3-button.w3-theme Button
+    %a.w3-button.w3-theme Button
+    %a.w3-button.w3-theme-d3.w3-disabled Button
+    %br/
+    %br/
+    %a.w3-button.w3-circle.w3-large.w3-black
+      %i.fa.fa-plus
+    %a.w3-button.w3-circle.w3-large.w3-theme
+      %i.fa.fa-plus
+    %a.w3-button.w3-circle.w3-large.w3-card-4
+      %i.fa.fa-plus
+  %br/
+  .w3-center
+    .w3-dropdown-hover
+      %button.w3-button.w3-theme
+        Dropdown
+        %i.fa.fa-caret-down
+      .w3-dropdown-content.w3-bar-block.w3-border
+        %a.w3-bar-item.w3-button{:href => "#"} Link 1
+        %a.w3-bar-item.w3-button{:href => "#"} Link 2
+        %a.w3-bar-item.w3-button{:href => "#"} Link 3
+%hr/
+.w3-center
+  %h2 Pagination
+  / Pagination
+  .w3-center.w3-padding-32
+    .w3-bar
+      %a.w3-bar-item.w3-button.w3-hover-theme{:href => "#"} «
+      %a.w3-bar-item.w3-button.w3-theme.w3-hover-theme{:href => "#"} 1
+      %a.w3-bar-item.w3-button.w3-hover-theme{:href => "#"} 2
+      %a.w3-bar-item.w3-button.w3-hover-theme{:href => "#"} 3
+      %a.w3-bar-item.w3-button.w3-hover-theme{:href => "#"} 4
+      %a.w3-bar-item.w3-button.w3-hover-theme{:href => "#"} 5
+      %a.w3-bar-item.w3-button.w3-hover-theme{:href => "#"} »
+%br/
+{% endblock %}
