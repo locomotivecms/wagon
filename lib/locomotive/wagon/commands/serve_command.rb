@@ -68,7 +68,6 @@ module Locomotive::Wagon
       require 'locomotive/steam/server'
       require 'locomotive/wagon/middlewares/error_page'
       require 'bundler'
-      Bundler.require 'misc'
 
       configure_logger
 
@@ -95,6 +94,8 @@ module Locomotive::Wagon
           end
         }
       end
+
+      Bundler.require 'misc'
     end
 
     def daemonize
