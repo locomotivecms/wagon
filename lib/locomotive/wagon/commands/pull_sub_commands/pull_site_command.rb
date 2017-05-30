@@ -3,7 +3,7 @@ module Locomotive::Wagon
   class PullSiteCommand < PullBaseCommand
 
     def _pull
-      attributes = current_site.attributes.slice('name', 'locales', 'domains', 'timezone', 'seo_title', 'meta_keywords', 'meta_description', 'picture_thumbnail_url', 'metafields', 'metafields_schema', 'metafields_ui', 'robots_txt')
+      attributes = current_site.attributes.slice('name', 'locales', 'domains', 'timezone', 'seo_title', 'meta_keywords', 'meta_description', 'picture_thumbnail_url', 'metafields', 'metafields_schema', 'metafields_ui', 'robots_txt', 'asset_host')
 
       locales.each_with_index do |locale, index|
         if index == 0
