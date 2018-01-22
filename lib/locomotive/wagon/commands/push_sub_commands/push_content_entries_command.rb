@@ -16,9 +16,9 @@ module Locomotive::Wagon
     def entities
       @entities ||= repositories.content_type.all.map do |content_type|
         # bypass a locale if there is no fields marked as localized
-        next if locale? && content_type.fields.localized_names.blank?
+        next if skip_content_type?(content_type) || (locale? && content_type.fields.localized_names.blank?)
 
-        repositories.content_entry.with(content_type).all
+        repositories.content_entry.with(content_type).all(_visible: nil)
       end.compact.flatten
     end
 
@@ -77,6 +77,14 @@ module Locomotive::Wagon
 
     def locale?
       other_locales.include?(self.step)
+    end
+
+    def skip_content_type?(content_type)
+      return false if @only_entities.blank?
+
+      slug = content_type.slug
+
+      !@only_entities.any? { |regexp| regexp.match(slug) }
     end
 
   end
