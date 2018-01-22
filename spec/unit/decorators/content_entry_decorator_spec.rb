@@ -85,7 +85,7 @@ describe Locomotive::Wagon::ContentEntryDecorator do
 
       subject { decorator.to_hash }
 
-      it { is_expected.to eq({ _slug: 'sample', posted_at: '2015-11-11T17:00:00Z' }) }
+      it { is_expected.to eq({ _slug: 'sample', posted_at: '2015-11-11T17:00:00+00:00' }) }
 
       context 'nil field' do
         let(:attributes)  { { posted_at: nil } }

@@ -12,8 +12,8 @@ gem 'rb-fsevent', '~> 0.9.1'
 # gem 'duktape', github: 'judofyr/duktape.rb', ref: '20ef6a5'
 
 # Local development
-gem 'locomotivecms_coal', path: '../gems/coal', require: false
-gem 'locomotivecms_steam', path: '../gems/steam', require: false
+# gem 'locomotivecms_coal', path: '../gems/coal', require: false
+# gem 'locomotivecms_steam', path: '../gems/steam', require: false
 # gem 'locomotivecms_common', path: '../gems/common', require: false
 
 group :development, :test do
@@ -21,13 +21,13 @@ group :development, :test do
 end
 
 group :test do
-  gem 'rspec',              '~> 3.5.0'
-  gem 'json_spec',          '~> 1.1.4'
+  gem 'rspec',              '~> 3.7.0'
+  gem 'json_spec',          '~> 1.1.5'
 
   gem 'webmock'
   gem 'vcr'
 
-  gem 'simplecov'
-  gem 'codeclimate-test-reporter',  '~> 1.0.7',  require: false
-  gem 'coveralls',                  '~> 0.8.19', require: false
+  gem 'simplecov',                  '~> 0.12.0'
+  gem 'codeclimate-test-reporter',  '1.0.7',  require: false
+  gem 'coveralls',                  '0.8.19', require: false
 end
