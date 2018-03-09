@@ -8,13 +8,9 @@ http_interactions:
       string: email=john%40doe.net&password=asimplepassword
     headers:
       User-Agent:
-      - Faraday v0.9.2
+      - Faraday v0.14.0
       Accept:
       - application/json
-      Accept-Encoding:
-      - gzip,deflate
-      Date:
-      - Thu, 09 Mar 2017 14:24:46 GMT
       Content-Type:
       - application/x-www-form-urlencoded
   response:
@@ -29,16 +25,16 @@ http_interactions:
       Cache-Control:
       - no-cache
       X-Request-Id:
-      - e772514a-8b0c-44d6-b12a-d1ecc1d344f9
+      - 3135ef1e-c2ff-4ebd-9ef3-84f81719f663
       X-Runtime:
-      - '0.508672'
+      - '0.003065'
       Content-Length:
       - '40'
     body:
       encoding: UTF-8
       string: '{"message":"Invalid email or password."}'
     http_version: 
-  recorded_at: Thu, 09 Mar 2017 14:24:46 GMT
+  recorded_at: Fri, 09 Mar 2018 11:20:57 GMT
 - request:
     method: post
     uri: http://localhost:3000/locomotive/api/v3/my_account.json
@@ -47,13 +43,9 @@ http_interactions:
       string: account%5Bemail%5D=john%40doe.net&account%5Bname%5D=John&account%5Bpassword%5D=asimplepassword
     headers:
       User-Agent:
-      - Faraday v0.9.2
+      - Faraday v0.14.0
       Accept:
       - application/json
-      Accept-Encoding:
-      - gzip,deflate
-      Date:
-      - Thu, 09 Mar 2017 14:24:46 GMT
       Content-Type:
       - application/x-www-form-urlencoded
   response:
@@ -63,21 +55,21 @@ http_interactions:
     headers:
       Content-Type:
       - application/json
-      Etag:
-      - W/"80947389622b7865dea7bb4de66d8b0d"
+      ETag:
+      - W/"8e497a154dca317960b23d7d1bfa7251"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - c4df15b8-239a-4fec-b053-5333d1f5015b
+      - 5ea41529-a8bf-4cd8-a690-2f005979635c
       X-Runtime:
-      - '0.099810'
+      - '0.050731'
       Content-Length:
       - '250'
     body:
       encoding: UTF-8
-      string: '{"_id":"58c165ae87f64357b620337c","created_at":"2017-03-09T14:24:46Z","updated_at":"2017-03-09T14:24:46Z","name":"John","email":"john@doe.net","locale":"en","api_key":"87ca7099bd26190211ba75867a64c96616a22bd9","super_admin":false,"local_admin":false}'
+      string: '{"_id":"5aa26e19e051bb8a0de44ece","created_at":"2018-03-09T11:20:57Z","updated_at":"2018-03-09T11:20:57Z","name":"John","email":"john@doe.net","locale":"en","api_key":"ddb35822ed0ebc95083e3ed1b506361bb94f10b2","super_admin":false,"local_admin":false}'
     http_version: 
-  recorded_at: Thu, 09 Mar 2017 14:24:47 GMT
+  recorded_at: Fri, 09 Mar 2018 11:20:57 GMT
 - request:
     method: post
     uri: http://localhost:3000/locomotive/api/v3/tokens.json
@@ -86,13 +78,9 @@ http_interactions:
       string: email=admin%40locomotivecms.com&password=locomotive
     headers:
       User-Agent:
-      - Faraday v0.9.2
+      - Faraday v0.14.0
       Accept:
       - application/json
-      Accept-Encoding:
-      - gzip,deflate
-      Date:
-      - Thu, 09 Mar 2017 14:24:47 GMT
       Content-Type:
       - application/x-www-form-urlencoded
   response:
@@ -102,40 +90,36 @@ http_interactions:
     headers:
       Content-Type:
       - application/json
-      Etag:
-      - W/"547737c117de5d58a73948ce621cc79b"
+      ETag:
+      - W/"f002e74c360f53454cb2d1c4dc596c9d"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 402d1585-4162-4c82-8482-1a02b1bc4d4e
+      - b4b4c001-6a51-422f-87f5-c55e1e22880d
       X-Runtime:
-      - '0.020225'
+      - '0.004271'
       Content-Length:
       - '32'
     body:
       encoding: UTF-8
-      string: '{"token":"2A9iTQyoACHbA4eAVLCH"}'
+      string: '{"token":"7ussE5FK8ZQAWxoYWaoJ"}'
     http_version: 
-  recorded_at: Thu, 09 Mar 2017 14:24:47 GMT
+  recorded_at: Fri, 09 Mar 2018 11:20:57 GMT
 - request:
     method: get
-    uri: http://localhost:3000/locomotive/api/v3/my_account.json?auth_token=2A9iTQyoACHbA4eAVLCH
+    uri: http://localhost:3000/locomotive/api/v3/my_account.json?auth_token=7ussE5FK8ZQAWxoYWaoJ
     body:
-      encoding: UTF-8
+      encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
-      - Faraday v0.9.2
+      - Faraday v0.14.0
       Accept:
       - application/json
-      Accept-Encoding:
-      - gzip,deflate
-      Date:
-      - Thu, 09 Mar 2017 14:24:47 GMT
       X-Locomotive-Account-Email:
       - admin@locomotivecms.com
       X-Locomotive-Account-Token:
-      - 2A9iTQyoACHbA4eAVLCH
+      - 7ussE5FK8ZQAWxoYWaoJ
   response:
     status:
       code: 200
@@ -143,40 +127,36 @@ http_interactions:
     headers:
       Content-Type:
       - application/json
-      Etag:
-      - W/"c10610a4a1a6b959915b802428da94ef"
+      ETag:
+      - W/"f50f010a60faed3360aeeea1e3c7a890"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 3c64529c-1b7f-476b-bcf6-7937615c86a6
+      - e8bbcf8c-f607-4f56-ac39-0beafc90ad7b
       X-Runtime:
-      - '0.032035'
+      - '0.005462'
       Content-Length:
       - '261'
     body:
       encoding: UTF-8
-      string: '{"_id":"58c1659187f6435785cff941","created_at":"2017-03-09T14:24:17Z","updated_at":"2017-03-09T14:24:17Z","name":"Admin","email":"admin@locomotivecms.com","locale":"en","api_key":"d49cd50f6f0d2b163f48fc73cb249f0244c37074","super_admin":false,"local_admin":true}'
+      string: '{"_id":"5aa26db4e051bb89c3fe7684","created_at":"2018-03-09T11:19:16Z","updated_at":"2018-03-09T11:19:16Z","name":"Admin","email":"admin@locomotivecms.com","locale":"en","api_key":"d49cd50f6f0d2b163f48fc73cb249f0244c37074","super_admin":false,"local_admin":true}'
     http_version: 
-  recorded_at: Thu, 09 Mar 2017 14:24:47 GMT
+  recorded_at: Fri, 09 Mar 2018 11:20:57 GMT
 - request:
     method: get
-    uri: http://localhost:3000/locomotive/api/v3/my_account.json?auth_token=2A9iTQyoACHbA4eAVLCH
+    uri: http://localhost:3000/locomotive/api/v3/my_account.json?auth_token=7ussE5FK8ZQAWxoYWaoJ
     body:
-      encoding: UTF-8
+      encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
-      - Faraday v0.9.2
+      - Faraday v0.14.0
       Accept:
       - application/json
-      Accept-Encoding:
-      - gzip,deflate
-      Date:
-      - Thu, 09 Mar 2017 14:24:47 GMT
       X-Locomotive-Account-Email:
       - admin@locomotivecms.com
       X-Locomotive-Account-Token:
-      - 2A9iTQyoACHbA4eAVLCH
+      - 7ussE5FK8ZQAWxoYWaoJ
   response:
     status:
       code: 200
@@ -184,19 +164,19 @@ http_interactions:
     headers:
       Content-Type:
       - application/json
-      Etag:
-      - W/"c10610a4a1a6b959915b802428da94ef"
+      ETag:
+      - W/"f50f010a60faed3360aeeea1e3c7a890"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 6b1170a3-ec03-4a8c-b841-3c9cdb1f6ea8
+      - 60488f67-93ca-49c7-9292-e0f9c115dc9a
       X-Runtime:
-      - '0.019497'
+      - '0.005633'
       Content-Length:
       - '261'
     body:
       encoding: UTF-8
-      string: '{"_id":"58c1659187f6435785cff941","created_at":"2017-03-09T14:24:17Z","updated_at":"2017-03-09T14:24:17Z","name":"Admin","email":"admin@locomotivecms.com","locale":"en","api_key":"d49cd50f6f0d2b163f48fc73cb249f0244c37074","super_admin":false,"local_admin":true}'
+      string: '{"_id":"5aa26db4e051bb89c3fe7684","created_at":"2018-03-09T11:19:16Z","updated_at":"2018-03-09T11:19:16Z","name":"Admin","email":"admin@locomotivecms.com","locale":"en","api_key":"d49cd50f6f0d2b163f48fc73cb249f0244c37074","super_admin":false,"local_admin":true}'
     http_version: 
-  recorded_at: Thu, 09 Mar 2017 14:24:47 GMT
-recorded_with: VCR 3.0.3
+  recorded_at: Fri, 09 Mar 2018 11:20:57 GMT
+recorded_with: VCR 4.0.0

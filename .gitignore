@@ -29,5 +29,7 @@ spec/fixtures/default/log
 /tests
 
 /deprecated
+bin/wagon_dev
 
 dragonfly.log
+spec/fixtures/default/.byebug_history

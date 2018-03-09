@@ -59,6 +59,6 @@ Please, visit the documentation website of Locomotive.
 
 ## Contact
 
-Feel free to contact me (did at locomotivecms dot com).
+Feel free to contact me (didier at nocoffee dot fr).
 
-Copyright (c) 2017 NoCoffee, released under the MIT license
+Copyright (c) 2018 NoCoffee, released under the MIT license

@@ -114,6 +114,7 @@ module Locomotive::Wagon
 
         # create the site
         attributes = SiteDecorator.new(site).to_hash
+
         _site = api_client.sites.create(attributes)
         site[:handle] = _site.handle
 

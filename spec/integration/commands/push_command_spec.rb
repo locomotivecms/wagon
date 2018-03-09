@@ -6,7 +6,7 @@ require 'thor'
 
 describe Locomotive::Wagon::PushCommand do
 
-  before { VCR.insert_cassette 'push', record: :new_episodes, match_requests_on: [:method, :query, :body] }
+  before { VCR.insert_cassette 'push', match_requests_on: [:uri, :method, :query, :body] }
   after  { VCR.eject_cassette }
 
   let(:env)       { 'production' }
@@ -26,7 +26,8 @@ describe Locomotive::Wagon::PushCommand do
 
       before do
         allow(Netrc).to receive(:read).and_return(TEST_PLATFORM_ALT_URL => credentials)
-        allow(Thor::LineEditor).to receive(:readline).and_return(TEST_PLATFORM_URL.dup, '')
+        allow(shell).to receive(:ask).with("What is the URL of your platform? (default: http://locomotive.works)").and_return(TEST_PLATFORM_URL)
+        allow(shell).to receive(:ask).with('What is the handle of your site? (default: a random one)').and_return('wagon-test')
       end
 
       after { restore_deploy_file(default_site_path) }
