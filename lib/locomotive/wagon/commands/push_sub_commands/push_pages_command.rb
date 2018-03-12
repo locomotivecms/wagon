@@ -1,5 +1,3 @@
-require 'byebug'
-
 module Locomotive::Wagon
 
   class PushPagesCommand < PushBaseCommand
