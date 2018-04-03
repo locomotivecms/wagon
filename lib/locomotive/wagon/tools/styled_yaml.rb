@@ -105,7 +105,7 @@ module StyledYAML
   # A Psych.dump alternative that uses the custom TreeBuilder
   def self.dump obj, io = nil, options = {}
     real_io = io || StringIO.new(''.encode('utf-8'))
-    visitor = YAMLTree.new(options, TreeBuilder.new)
+    visitor = YAMLTree.create(options, TreeBuilder.new)
     visitor << obj
     ast = visitor.tree
 
