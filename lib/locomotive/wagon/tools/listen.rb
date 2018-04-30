@@ -18,8 +18,8 @@ module Locomotive::Wagon
 
     def definitions
       [
-        ['config', /\.yml/, [:site, :content_types, :pages, :snippets, :content_entries, :translations]],
-        ['app/views', %r{(pages|snippets)/(.+\.liquid).*}, [:pages, :snippets]],
+        ['config', /\.yml/, [:site, :content_types, :pages, :snippets, :sections, :content_entries, :translations]],
+        ['app/views', %r{(pages|snippets|sections)/(.+\.liquid).*}, [:pages, :snippets, :sections]],
         ['app/content_types', /\.yml/, [:content_types, :content_entries]],
         ['data', /\.yml/, :content_entries],
         ['public', %r{((stylesheets|javascripts)/(.+\.(css|js))).*}, []]
