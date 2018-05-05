@@ -1,0 +1,24 @@
+---
+title: Default layout
+is_layout: false
+---
+<!DOCTYPE html>
+<html>
+<title>{{ site.name }}</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="{{ 'favicon.png' | theme_image_url }}">
+{{ 'w3c.css' | stylesheet_tag }}
+{{ 'application.css' | stylesheet_tag }}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+  <body>
+    {% include 'nav' %}
+
+    {% block content %}
+    {% endblock %}
+
+    {% include 'footer' %}
+
+    {{ 'application.js' | javascript_tag }}
+  </body>
+</html>

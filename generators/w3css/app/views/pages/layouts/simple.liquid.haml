@@ -1,0 +1,26 @@
+---
+title: Simple
+is_layout: true
+---
+{% extends 'layouts/default' %}
+
+{% block content %}
+
+{% block header, short_name: true, priority: 1 %}
+%header#myHeader.w3-container.w3-theme.w3-padding
+  %i.fa.fa-bars.w3-xlarge.w3-button.w3-theme{:onclick => "w3_open()"}
+  .w3-center
+    {% editable_text header, priority: 1 %}
+    %h4 BEAUTIFUL RESPONSIVE WEB SITES
+    {% endeditable_text %}
+    %h1.w3-xxxlarge.w3-animate-bottom BUILT WITH W3.CSS
+    .w3-padding-32
+      %button.w3-btn.w3-xlarge.w3-dark-grey.w3-hover-light-grey{:onclick => "document.getElementById('id01').style.display='block'", :style => "font-weight:900;"} LEARN W3.CSS
+
+{% endblock %}
+
+{% block main, short_name: true %}
+
+{% endblock %}
+
+{% endblock %}
