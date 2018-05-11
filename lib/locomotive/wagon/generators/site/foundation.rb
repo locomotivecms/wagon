@@ -36,7 +36,7 @@ module Locomotive
         end
 
         Locomotive::Wagon::Generators::Site.register(:foundation, Foundation, %{
-          A site powered by Foundation (v6.2.1).
+          A site powered by Foundation (v6.4.2).
         })
       end
     end
