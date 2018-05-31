@@ -25,6 +25,10 @@ module Locomotive
         replace_with_content_assets!(self.liquid_source)
       end
 
+      def definition
+        __getobj__.definition.to_json
+      end
+
     end
 
   end
