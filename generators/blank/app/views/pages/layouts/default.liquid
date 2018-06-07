@@ -1,0 +1,21 @@
+---
+title: Default layout
+is_layout: false
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>{{ site.name }}</title>
+    <meta name="keywords" value="{{ site.meta_keywords }}" />
+    <meta name="description" value="{{ site.meta_description }}" />
+    {{ 'bundle.css' | stylesheet_tag }}
+    {{ 'bundle.js' | javascript_tag }}
+  </head>
+  <body>
+    <h1>{{ page.title }}</h1>
+
+    {% block 'main' %}
+    {% endblock %}
+  </body>
+</html>

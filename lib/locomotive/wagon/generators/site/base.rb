@@ -37,10 +37,6 @@ module Locomotive
             File.join(File.dirname(__FILE__), '..', '..', '..', '..', '..', 'generators', self.name.demodulize.underscore)
           end
 
-          def self.may_use_haml
-            class_option :haml, type: :boolean, default: nil, required: false, desc: 'Use HAML templates?'
-          end
-
           def self.may_use_scss
             class_option :scss, type: :boolean, default: nil, required: false, desc: 'Use SCSS stylesheets?'
           end
@@ -49,14 +45,6 @@ module Locomotive
 
           def destination
             File.join(target_path, name)
-          end
-
-          def haml?
-            if options[:haml].nil?
-              yes?('Do you prefer HAML templates?')
-            else
-              options[:haml]
-            end
           end
 
           def scss?

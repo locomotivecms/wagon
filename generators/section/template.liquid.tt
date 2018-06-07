@@ -1,0 +1,139 @@
+---
+{
+  "name": "<%= config[:name] %>",
+  "type": "<%= config[:type] %>",
+  "class": "my-css-classname",
+  "settings": [
+    {
+      "name": "My awesome title",
+      "id": "title",
+      "type": "text"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "List item",
+      "type": "list_item",
+      "settings": [
+        {
+          "name": "Item title",
+          "id": "title",
+          "type": "text"
+        }
+      ]
+    }
+  ]<% if config[:static] -%>,
+  "default": {
+    "settings": {
+      "title": "Hello world"
+    },
+    "blocks": [
+      {
+        "type": "list_item",
+        "settings": {
+          "title": "Item #1"
+        }
+      },
+      {
+        "type": "list_item",
+        "settings": {
+          "title": "Item #2"
+        }
+      },
+      {
+        "type": "list_item",
+        "settings": {
+          "title": "Item #3"
+        }
+      }
+    ]
+  }<% else -%>,
+  "presets": [
+    {
+      "name": "<%= config[:name] %>",
+      "category": "Category 1",
+      "settings": {
+        "title": "Hello world"
+      },
+      "blocks": [
+        {
+          "type": "list_item",
+          "settings": {
+            "title": "Item #1"
+          }
+        },
+        {
+          "type": "list_item",
+          "settings": {
+            "title": "Item #2"
+          }
+        },
+        {
+          "type": "list_item",
+          "settings": {
+            "title": "Item #3"
+          }
+        }
+      ]
+    }
+  ]<% end -%>
+}
+---
+{% comment %}
+Above is the JSON definition of your section filled with random settings and blocks.
+Modify it to match your needs.
+
+<% if config[:static] -%>
+To use your static section, just add the following code in your layout template:
+
+  {% section <%= config[:type] %> %}
+<% else -%>
+To use your section, make sure that your layouts includes the following liquid tag:
+
+  {% sections_dropzone %}
+
+If you want to test this section in your Wagon site, add the following
+lines in the YAML section of any page including the {% sections_dropzone %}
+(or inheriting from a layout including it):
+
+sections_content: >
+  [
+    {
+      "type": "<%= config[:type] %>",
+      "settings": {
+        "title": "My awesome section",
+      },
+      "blocks": [
+        {
+          "type": "list_item",
+          "settings": {
+            "title": "Item #1"
+          }
+        },
+        {
+          "type": "list_item",
+          "settings": {
+            "title": "Item #2"
+          }
+        },
+        {
+          "type": "list_item",
+          "settings": {
+            "title": "Item #3"
+          }
+        }
+      ]
+    }
+  ]
+<% end -%>
+{% endcomment %}
+<div>
+  <h2>{{ section.settings.title }}</h2>
+  <ul>
+    {% for block in section.blocks %}
+    <li {{ block.locomotive_attributes }}>
+      {{ block.settings.title }}
+    </li>
+    {% endfor %}
+  </ul>
+</div>
