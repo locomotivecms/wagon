@@ -1,7 +1,6 @@
 ---
 {
   "name": "<%= config[:name] %>",
-  "type": "<%= config[:type] %>",
   "class": "my-css-classname",
   "settings": [
     {
