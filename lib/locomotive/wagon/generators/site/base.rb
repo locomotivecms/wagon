@@ -19,10 +19,7 @@ module Locomotive
           argument :skip_bundle
 
           def copy_sources
-            directory('.', self.destination, { recursive: true }, {
-              name:     self.name,
-              version:  Locomotive::Wagon::VERSION
-            })
+            copy_sources_from_generator
           end
 
           def comment_gemfile
@@ -34,25 +31,23 @@ module Locomotive
           end
 
           def self.source_root
-            File.join(File.dirname(__FILE__), '..', '..', '..', '..', '..', 'generators', self.name.demodulize.underscore)
-          end
-
-          def self.may_use_scss
-            class_option :scss, type: :boolean, default: nil, required: false, desc: 'Use SCSS stylesheets?'
+            File.join(File.dirname(__FILE__), '..', '..', '..', '..', '..', 'generators')
           end
 
           protected
 
-          def destination
-            File.join(target_path, name)
+          def copy_sources_from_generator(generator_name: nil, options: {})
+            _name = generator_name || self.class.name.demodulize.underscore
+
+            directory(_name, self.destination, {
+              recursive:  true,
+              name:       self.name,
+              version:    Locomotive::Wagon::VERSION
+            }.merge(options))
           end
 
-          def scss?
-            if options[:scss].nil?
-              yes?('Do you prefer SCSS stylesheets?')
-            else
-              options[:scss]
-            end
+          def destination
+            File.join(target_path, name)
           end
 
           def skip_bundle?

@@ -399,9 +399,23 @@ module Locomotive
           say "\nCongratulations, your site \"#{name}\" has been created successfully !", :green
           say 'Next steps:', :bold
 
-          next_instructions = "\tcd #{path}/#{name}\n\t"
-          next_instructions += "bundle install\n\t" unless skip_bundle
-          next_instructions += "#{'bundle exec ' unless skip_bundle}wagon serve\n\topen http://0.0.0.0:3333"
+          next_instructions = <<-BASH
+  cd #{path}/#{name}
+
+  #{'bundle install' unless skip_bundle}
+  #{'bundle exec' unless skip_bundle} wagon serve
+
+  # In a another terminal
+  cd app/assets
+  npm install
+  npm start
+
+  open http://0.0.0.0:3333
+BASH
+
+          # next_instructions = "\tcd #{path}/#{name}\n\t"
+          # next_instructions += "bundle install\n\t" unless skip_bundle
+          # next_instructions += "#{'bundle exec ' unless skip_bundle}wagon serve\n\topen http://0.0.0.0:3333"
 
           say next_instructions
         end
