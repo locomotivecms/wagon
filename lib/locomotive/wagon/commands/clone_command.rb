@@ -1,3 +1,6 @@
+require 'active_support'
+require 'active_support/core_ext'
+
 module Locomotive::Wagon
 
   class CloneCommand < Struct.new(:name, :path, :options, :shell)
