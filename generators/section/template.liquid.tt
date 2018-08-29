@@ -4,7 +4,7 @@
   "class": "my-css-classname",
   "settings": [
     {
-      "name": "My awesome title",
+      "label": "My awesome title",
       "id": "title",
       "type": "text"
     }
@@ -15,7 +15,7 @@
       "type": "list_item",
       "settings": [
         {
-          "name": "Item title",
+          "label": "Item title",
           "id": "title",
           "type": "text"
         }
