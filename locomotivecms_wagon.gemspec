@@ -9,7 +9,7 @@ Gem::Specification.new do |gem|
   gem.authors       = ['Didier Lafforgue', 'Rodrigo Alvarez']
   gem.email         = ['did@locomotivecms.com', 'papipo@gmail.com']
   gem.description   = %q{The LocomotiveCMS wagon is a site generator for the LocomotiveCMS engine}
-  gem.summary       = %q{The LocomotiveCMS wagon is a site generator for the LocomotiveCMS engine powered by all the efficient and modern HTML development tools (Haml, SASS, Compass, Less).}
+  gem.summary       = %q{The LocomotiveCMS wagon is a site generator for the LocomotiveCMS engine powered by all the efficient and modern HTML development tools (SASS, Webpack, ...etc).}
   gem.homepage      = 'http://www.locomotivecms.com'
   gem.license       = 'MIT'
 

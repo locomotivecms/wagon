@@ -2,6 +2,8 @@
 {
   "name": "<%= config[:name] %>",
   "class": "my-css-classname",
+  "icon": "<%= config[:static] ? 'header' : 'image_text' %>",
+  <% if config[:static] -%>"keep_icon": true<% end -%>,
   "settings": [
     {
       "label": "My awesome title",
@@ -85,9 +87,13 @@ Modify it to match your needs.
 <% if config[:static] -%>
 To use your static section, just add the following code in your layout template:
 
-  {% section <%= config[:type] %> %}
+  {% static_section <%= config[:type] %> %}
 <% else -%>
-To use your section, make sure that your layouts includes the following liquid tag:
+To use your section, 2 possibilites:
+
+1. within a dropzone
+
+Make sure that your layouts includes the following liquid tag:
 
   {% sections_dropzone %}
 
@@ -124,6 +130,11 @@ sections_content: >
       ]
     }
   ]
+
+2. as stand-alone section
+
+  {% section <%= config[:type] %> %}
+
 <% end -%>
 {% endcomment %}
 <div>

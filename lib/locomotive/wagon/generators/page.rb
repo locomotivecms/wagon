@@ -14,8 +14,6 @@ module Locomotive
         argument :target_path # path to the site
 
         def create_page
-          extension = haml? ? 'liquid.haml' : 'liquid'
-
           segments      = self.slug.split('/').find_all { |segment| segment != '' }
           max_segments  = segments.size
 
@@ -26,11 +24,11 @@ module Locomotive
             # the content type option is never deleted for the first segment (the requested template)
             _options.delete(:content_type) unless segments.size == (max_segments - 1)
 
-            template "template.#{extension}.tt", "#{file_path}.#{extension}", _options
+            template 'template.liquid.tt', "#{file_path}.liquid", _options
 
             self.other_locales.each do |locale|
               _options[:translated] = true
-              template "template.#{extension}.tt", "#{file_path}.#{locale}.#{extension}", _options
+              template 'template.liquid.tt', "#{file_path}.#{locale}.liquid", _options
             end
           end
         end
@@ -40,14 +38,6 @@ module Locomotive
         end
 
         protected
-
-        def haml?
-          if options[:haml].nil?
-            yes?('Do you prefer a HAML template ?')
-          else
-            options[:haml]
-          end
-        end
 
         def pages_path
           File.join(target_path, 'app', 'views', 'pages')
