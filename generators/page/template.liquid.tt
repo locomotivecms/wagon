@@ -42,11 +42,16 @@ content_type: <%= config[:content_type] -%>
 # display_settings:
 #   hidden: true          # hidden for authors?
 
-# Display a list of sections if there is the {% dropzone_sections %} liquid tag
-# is present in the page.
-# sections_content: >
+# Content of the list of sections if the {% sections_dropzone %} liquid tag is present in the page.
+# sections_dropzone_content: >
 #   []
 #
+
+# Content of sections outside the dropzone
+# sections_content: >
+#   {}
+#
+
 ---
 {% extends parent %}
 

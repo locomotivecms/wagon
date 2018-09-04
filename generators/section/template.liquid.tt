@@ -3,7 +3,7 @@
   "name": "<%= config[:name] %>",
   "class": "my-css-classname",
   "icon": "<%= config[:static] ? 'header' : 'image_text' %>",
-  <% if config[:static] -%>"keep_icon": true<% end -%>,
+  <% if config[:static] -%>"keep_icon": true,<% end %>
   "settings": [
     {
       "label": "My awesome title",
@@ -77,7 +77,7 @@
         }
       ]
     }
-  ]<% end -%>
+  ]<% end %>
 }
 ---
 {% comment %}
@@ -101,7 +101,7 @@ If you want to test this section in your Wagon site, add the following
 lines in the YAML section of any page including the {% sections_dropzone %}
 (or inheriting from a layout including it):
 
-sections_content: >
+sections_dropzone_content: >
   [
     {
       "type": "<%= config[:type] %>",
