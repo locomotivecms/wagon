@@ -150,7 +150,7 @@ module Locomotive
 
         desc 'section SLUG', 'Create a section'
         long_desc <<-LONGDESC
-          Create a section. The generator will ask if the section is static or not.
+          Create a section. The generator will ask if the section is global or not.
 
           Example:
 

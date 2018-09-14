@@ -11,19 +11,19 @@ module Locomotive
         include Locomotive::Wagon::CLI::ForceColor
 
         argument :slug
-        argument :static
+        argument :global
         argument :target_path # path to the site
 
-        def is_static?
-          if self.static.blank?
-            self.static = yes?('Is this section aimed to be used as static?')
+        def is_global?
+          if self.global.blank?
+            self.global = yes?('Is this section aimed to be used as global?')
           end
         end
 
         def create_section
           _slug = slug.clone.downcase.gsub(/[-]/, '_')
 
-          options   = { name: _slug.humanize, type: _slug, static: self.static }
+          options   = { name: _slug.humanize, type: _slug, global: self.global }
           file_path = File.join(sections_path, _slug)
 
           template "template.liquid.tt", "#{file_path}.liquid", options
