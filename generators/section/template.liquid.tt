@@ -2,8 +2,8 @@
 {
   "name": "<%= config[:name] %>",
   "class": "my-css-classname",
-  "icon": "<%= config[:static] ? 'header' : 'image_text' %>",
-  <% if config[:static] -%>"keep_icon": true,<% end %>
+  "icon": "<%= config[:icon] || 'image_text' %>",
+  <% if config[:global] -%>"keep_icon": true,<% end %>
   "settings": [
     {
       "label": "My awesome title",
@@ -23,7 +23,7 @@
         }
       ]
     }
-  ]<% if config[:static] -%>,
+  ]<% if config[:global] -%>,
   "default": {
     "settings": {
       "title": "Hello world"
@@ -84,10 +84,10 @@
 Above is the JSON definition of your section filled with random settings and blocks.
 Modify it to match your needs.
 
-<% if config[:static] -%>
-To use your static section, just add the following code in your layout template:
+<% if config[:global] -%>
+To use your global section, just add the following code in your layout template:
 
-  {% static_section <%= config[:type] %> %}
+  {% global_section <%= config[:type] %> %}
 <% else -%>
 To use your section, 2 possibilites:
 

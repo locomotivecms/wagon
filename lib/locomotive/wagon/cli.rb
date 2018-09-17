@@ -160,7 +160,7 @@ module Locomotive
           force_color_if_asked(options)
 
           if path = check_path!
-            Locomotive::Wagon.generate :section, [slug, '', path], self.options
+            Locomotive::Wagon.generate :section, [slug, '', '', path], self.options
           end
         end
 
