@@ -82,7 +82,7 @@
 ---
 {% comment %}
 Above is the JSON definition of your section filled with random settings and blocks.
-The setting's type can be one of the following values : checkbox, image_picker, index, radio, rich_text, select, text, url.
+The setting's type can be one of the following values : checkbox, image_picker, radio, select, text, url.
 Modify it to match your needs.
 
 <% if config[:global] -%>
