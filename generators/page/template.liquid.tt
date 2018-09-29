@@ -41,6 +41,17 @@ content_type: <%= config[:content_type] -%>
 # Control the display of the page in the back-office.
 # display_settings:
 #   hidden: true          # hidden for authors?
+
+# Content of the list of sections if the {% sections_dropzone %} liquid tag is present in the page.
+# sections_dropzone_content: >
+#   []
+#
+
+# Content of sections outside the dropzone
+# sections_content: >
+#   {}
+#
+
 ---
 {% extends parent %}
 

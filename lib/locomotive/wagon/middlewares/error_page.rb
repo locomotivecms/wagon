@@ -1,6 +1,6 @@
 require 'erb'
+require 'locomotive/steam/middlewares/concerns/helpers'
 require 'locomotive/steam/middlewares/thread_safe'
-require 'locomotive/steam/middlewares/helpers'
 
 module Locomotive::Wagon
   module Middlewares
@@ -9,7 +9,7 @@ module Locomotive::Wagon
     #
     class ErrorPage < Locomotive::Steam::Middlewares::ThreadSafe
 
-      include Locomotive::Steam::Middlewares::Helpers
+      include Locomotive::Steam::Middlewares::Concerns::Helpers
 
       def _call
         begin

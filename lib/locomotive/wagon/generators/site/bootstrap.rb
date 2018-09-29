@@ -5,46 +5,18 @@ module Locomotive
 
         class Bootstrap < Base
 
-          may_use_haml
-          may_use_scss
+          def copy_sources
+            # first copy the sources from the blank template
+            copy_sources_from_generator(generator_name: 'blank')
 
-          def choose_haml_over_html
-            if haml?
-              remove_file File.join(self.destination, 'app/views/pages/layouts/default.liquid')
-              remove_file File.join(self.destination, 'app/views/pages/layouts/simple.liquid')
-              remove_file File.join(self.destination, 'app/views/pages/index.liquid')
-              remove_file File.join(self.destination, 'app/views/pages/404.liquid')
-              remove_file File.join(self.destination, 'app/views/snippets/nav.liquid')
-              remove_file File.join(self.destination, 'app/views/snippets/footer.liquid')
-            else
-              remove_file File.join(self.destination, 'app/views/pages/layouts/default.liquid.haml')
-              remove_file File.join(self.destination, 'app/views/pages/layouts/simple.liquid.haml')
-              remove_file File.join(self.destination, 'app/views/pages/index.liquid.haml')
-              remove_file File.join(self.destination, 'app/views/pages/404.liquid.haml')
-              remove_file File.join(self.destination, 'app/views/snippets/nav.liquid.haml')
-              remove_file File.join(self.destination, 'app/views/snippets/footer.liquid.haml')
-            end
-          end
-
-          def choose_scss_over_css
-            if scss?
-              remove_file File.join(self.destination, 'public/stylesheets/application.css')
-              remove_file File.join(self.destination, 'public/stylesheets/bootstrap.css')
-            else
-              remove_dir File.join(self.destination, 'public/stylesheets/bootstrap')
-              remove_file File.join(self.destination, 'public/stylesheets/application.scss')
-              remove_file File.join(self.destination, 'public/stylesheets/bootstrap.scss')
-            end
-          end
-
-          def bundle_install
-            super
+            # finally, add/erase files specific to Bootstrap
+            copy_sources_from_generator(options: { force: true })
           end
 
         end
 
         Locomotive::Wagon::Generators::Site.register(:bootstrap, Bootstrap, %{
-          A site powered by Bootstrap (v3.3.5).
+          A site powered by Bootstrap 4 and Webpack.
         })
       end
     end

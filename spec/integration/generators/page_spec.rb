@@ -14,7 +14,7 @@ describe 'Locomotive::Wagon::Generators::Page' do
   let(:fullpath)        { 'new-page' }
   let(:default_locales) { ['en', 'fr'] }
   let(:locales)         { nil }
-  let(:page_options)    { { haml: false, locales: locales, default_locales: default_locales } }
+  let(:page_options)    { { locales: locales, default_locales: default_locales } }
   let(:options)         { { 'force_color' => true, 'path' => path, 'quiet' => true }.merge(page_options) }
 
   subject { Locomotive::Wagon.generate(:page, [fullpath, options.delete('path')], options) }

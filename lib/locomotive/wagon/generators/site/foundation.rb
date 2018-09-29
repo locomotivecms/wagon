@@ -5,18 +5,7 @@ module Locomotive
 
         class Foundation < Base
 
-          may_use_haml
-          may_use_scss
-
-          def choose_haml_over_html
-            if haml?
-              remove_file File.join(self.destination, 'app/views/pages/index.liquid')
-              remove_file File.join(self.destination, 'app/views/pages/404.liquid')
-            else
-              remove_file File.join(self.destination, 'app/views/pages/index.liquid.haml')
-              remove_file File.join(self.destination, 'app/views/pages/404.liquid.haml')
-            end
-          end
+          class_option :scss, type: :boolean, default: nil, required: false, desc: 'Use SCSS stylesheets?'
 
           def choose_scss_over_css
             if scss?
@@ -29,8 +18,14 @@ module Locomotive
             end
           end
 
-          def bundle_install
-            super
+          private
+
+          def scss?
+            if options[:scss].nil?
+              yes?('Do you prefer SCSS stylesheets?')
+            else
+              options[:scss]
+            end
           end
 
         end

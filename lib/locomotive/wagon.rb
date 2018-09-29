@@ -21,7 +21,7 @@ module Locomotive
     # Create a site from a site generator.
     #
     # @param [ Object ] generator The wrapping class of the generator itself
-    # @param [ Array ] args [name of the site, destination path of the site, skip bundle flag, force_haml]
+    # @param [ Array ] args [name of the site, destination path of the site, skip bundle flag]
     # @param [ Hash ] options General options (ex: --force-color)
     #
     def self.init(generator_klass, args, options = {})

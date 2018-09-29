@@ -22,13 +22,15 @@ module Locomotive
           redirect_url redirect_type
           seo_title meta_keywords meta_description
           editable_elements
+          sections_dropzone_content
+          sections_content
           content_type
           template
           display_settings)
 
         # remove the attributes that end-users might have modified in the back-office
         if persisted? && !__persist_content__
-          _attributes -= %i(title published listed position seo_title meta_keywords meta_description editable_elements)
+          _attributes -= %i(title published listed position seo_title meta_keywords meta_description editable_elements sections_dropzone_content sections_content)
         end
 
         # no need to update the slug if this is for an update
@@ -81,6 +83,14 @@ module Locomotive
         __getobj__.editable_elements.all.map do |element|
           EditableElementDecorator.new(element, __locale__, __content_assets_pusher__)
         end
+      end
+
+      def sections_dropzone_content
+        replace_with_content_assets!(super&.to_json)
+      end
+
+      def sections_content
+        replace_with_content_assets!(super&.to_json)
       end
 
       def template

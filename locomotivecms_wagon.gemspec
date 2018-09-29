@@ -9,7 +9,7 @@ Gem::Specification.new do |gem|
   gem.authors       = ['Didier Lafforgue', 'Rodrigo Alvarez']
   gem.email         = ['did@locomotivecms.com', 'papipo@gmail.com']
   gem.description   = %q{The LocomotiveCMS wagon is a site generator for the LocomotiveCMS engine}
-  gem.summary       = %q{The LocomotiveCMS wagon is a site generator for the LocomotiveCMS engine powered by all the efficient and modern HTML development tools (Haml, SASS, Compass, Less).}
+  gem.summary       = %q{The LocomotiveCMS wagon is a site generator for the LocomotiveCMS engine powered by all the efficient and modern HTML development tools (SASS, Webpack, ...etc).}
   gem.homepage      = 'http://www.locomotivecms.com'
   gem.license       = 'MIT'
 
@@ -22,13 +22,13 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency 'rake',      '~> 10.0.4'
 
   gem.add_dependency 'thor',                  '~> 0.19.4'
-  gem.add_dependency 'thin',                  '~> 1.7.0'
+  gem.add_dependency 'thin',                  '~> 1.7.2'
   gem.add_dependency 'rubyzip',               '~> 1.2.1'
   gem.add_dependency 'netrc',                 '~> 0.11.0'
 
-  gem.add_dependency 'locomotivecms_common',  '~> 0.3.0'
-  gem.add_dependency 'locomotivecms_coal',    '~> 1.5.1'
-  gem.add_dependency 'locomotivecms_steam',   '~> 1.4.0'
+  gem.add_dependency 'locomotivecms_common',  '~> 0.3.1'
+  gem.add_dependency 'locomotivecms_coal',    '~> 1.6.0.beta1'
+  gem.add_dependency 'locomotivecms_steam',   '~> 1.5.0.beta1'
 
   gem.add_dependency 'haml',                  '~> 4.0.7'
   gem.add_dependency 'listen',                '~> 3.1.5'

@@ -71,7 +71,7 @@ module Locomotive
           File.basename(filename, extension) + new_extension
         end
       end
-      
+
       def _readfile(path, &block)
         File.open(path, 'rb', &block)
       end
