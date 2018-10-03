@@ -287,6 +287,7 @@ module Locomotive
         desc 'serve [PATH]', 'Serve a site from the file system'
         option :host, aliases: '-h', type: 'string', default: '0.0.0.0', desc: 'The host (address) of the Thin server'
         option :port, aliases: '-p', type: 'string', default: '3333', desc: 'The port of the Thin server'
+        option :env, aliases: '-e', type: 'string', default: 'local', desc: 'The env used to the data of the pages and content entries'
         option :daemonize, aliases: '-d', type: 'boolean', default: false, desc: 'Run daemonized Thin server in the background'
         option :live_reload_port, aliases: '-l', type: 'string', default: '35729', desc: 'The port the LiveReload javascript lib needs to listen for changes (35729 by default)'
         option :force, aliases: '-f', type: 'boolean', default: false, desc: 'Stop the current daemonized Thin server if found before starting a new one'

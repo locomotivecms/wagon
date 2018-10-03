@@ -21,7 +21,7 @@ module Locomotive::Wagon
         ['config', /\.yml/, [:site, :content_types, :pages, :snippets, :sections, :content_entries, :translations]],
         ['app/views', %r{(pages|snippets|sections)/(.+\.liquid).*}, [:pages, :snippets, :sections]],
         ['app/content_types', /\.yml/, [:content_types, :content_entries]],
-        ['data', /\.yml/, :content_entries],
+        ['data', /\.(yml|json)/, [:pages, :content_entries]],
         ['public', %r{((stylesheets|javascripts)/(.+\.(css|js))).*}, []]
       ]
     end

@@ -43,7 +43,7 @@ module Locomotive::Wagon
       site = api_client.current_site.get
 
       each_resource do |klass|
-        klass.sync(api_client, site, path)
+        klass.sync(api_client, site, path, env)
       end
 
       print_result_message

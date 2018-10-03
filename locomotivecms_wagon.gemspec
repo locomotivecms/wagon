@@ -33,6 +33,7 @@ Gem::Specification.new do |gem|
   gem.add_dependency 'haml',                  '~> 4.0.7'
   gem.add_dependency 'listen',                '~> 3.1.5'
   gem.add_dependency 'rack-livereload',       '~> 0.3.16'
+  gem.add_dependency 'neatjson',              '~> 0.8.4'
 
   gem.add_dependency 'faker',                 '~> 1.6'
 end

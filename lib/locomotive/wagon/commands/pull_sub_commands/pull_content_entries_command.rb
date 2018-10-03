@@ -40,6 +40,8 @@ module Locomotive::Wagon
         end
       end
 
+      attributes['_id'] = [entry[default_locale].attributes['_id'], entry[default_locale].attributes['_slug']]
+
       attributes['_visible'] = false unless entry[default_locale].attributes['_visible'] == true
 
       { entry[default_locale].attributes[content_type.label_field_name].to_s => clean_attributes(attributes) }
@@ -87,7 +89,7 @@ module Locomotive::Wagon
     end
 
     def content_entry_filepath(content_type)
-      File.join('data', "#{content_type.slug}.yml")
+      File.join('data', env, 'content_entries', "#{content_type.slug}.yml")
     end
 
   end
