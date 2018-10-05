@@ -41,12 +41,15 @@ module Locomotive::Wagon
     def write_page(page, locale = nil)
       filepath = data_path(page, locale)
 
-      puts "....doing #{filepath} #{page.fullpath} (#{locale})"
+      return if page.fullpath =~ /^layouts(\/.*)?$/
+
+      puts "....doing #{filepath} #{page.fullpath} (#{locale}) / #{page.handle} / #{page.is_layout}"
 
       attributes = {
         id:                         page._id,
         title:                      page.title,
-        handle:                     page.handle,
+        slug:                       page.slug,
+        handle:                     page_handle(page),
         sections_content:           sections_content(page),
         sections_dropzone_content:  sections_dropzone_content(page),
         editable_elements:          editable_elements_attributes(page),
@@ -116,6 +119,10 @@ module Locomotive::Wagon
       end
     end
 
+    def page_handle(page)
+      page.handle || (%w(index 404).include?(page.fullpath) ? page.fullpath : nil)
+    end
+
     # def replace_editable_elements(filepath, replacement)
     #   content   = File.read(File.join(path, filepath), encoding: 'utf-8')
     #   existing  = content =~ /\A.*?editable_elements:.*?\n---/m
@@ -147,6 +154,7 @@ module Locomotive::Wagon
 
     def data_path(page, locale)
       filepath = page.localized_fullpaths[default_locale]
+      filepath = 'index' if filepath == '/'
       File.join('data', env.to_s, 'pages', locale == default_locale ? '' : locale, filepath + '.json')
     end
 
