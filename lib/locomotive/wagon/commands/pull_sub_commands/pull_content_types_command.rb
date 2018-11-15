@@ -26,7 +26,7 @@ module Locomotive::Wagon
     end
 
     def field_yaml_attributes(field)
-      attributes = field.slice('label', 'type', 'required', 'hint', 'localized', 'select_options', 'target', 'inverse_of', 'ui_enabled')
+      attributes = field.slice('label', 'type', 'required', 'hint', 'localized', 'select_options', 'target', 'inverse_of', 'ui_enabled', 'group')
 
       clean_attributes(attributes)
 
