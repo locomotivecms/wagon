@@ -6,15 +6,15 @@ gemspec
 gem 'rb-fsevent', '~> 0.9.1'
 
 # Development
-gem 'locomotivecms_common', github: 'locomotivecms/common', ref: '4d1bd56' , require: false
-gem 'locomotivecms_coal',   github: 'locomotivecms/coal',   ref: '01a0a32', require: false
-gem 'locomotivecms_steam',  github: 'locomotivecms/steam',  ref: 'd621100', require: false
+# gem 'locomotivecms_common', github: 'locomotivecms/common', ref: '4d1bd56' , require: false
+# gem 'locomotivecms_coal',   github: 'locomotivecms/coal',   ref: '01a0a32', require: false
+# gem 'locomotivecms_steam',  github: 'locomotivecms/steam',  ref: 'd621100', require: false
 # gem 'duktape', github: 'judofyr/duktape.rb', ref: '20ef6a5'
 
 # Local development
-# gem 'locomotivecms_coal', path: '../coal', require: false
-# gem 'locomotivecms_steam', path: '../steam', require: false
-# gem 'locomotivecms_common', path: '../common', require: false
+gem 'locomotivecms_coal', path: '../coal', require: false
+gem 'locomotivecms_steam', path: '../steam', require: false
+gem 'locomotivecms_common', path: '../common', require: false
 
 group :development, :test do
   gem 'pry-byebug',         '~> 3.6.0'

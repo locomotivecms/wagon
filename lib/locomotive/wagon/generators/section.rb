@@ -31,7 +31,7 @@ module Locomotive
 
         def wich_icon?
           if self.icon.blank?
-            question = 'Wich icon should be displayed in backoffice ?'
+            question = 'Which icon should be displayed in the backoffice?'
             self.icon = ask(question, limited_to: ICON_LIST)
           end
         end
