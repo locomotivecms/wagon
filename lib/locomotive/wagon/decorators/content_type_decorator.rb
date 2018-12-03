@@ -11,7 +11,7 @@ module Locomotive
       end
 
       def __attributes__
-        %i(name slug description label_field_name fields
+        %i(name slug description label_field_name tree_parent_field_name fields
           order_by order_direction group_by
           public_submission_enabled
           public_submission_accounts
@@ -68,6 +68,10 @@ module Locomotive
 
       def filter_fields
         self[:filter_fields]
+      end
+
+      def tree_parent_field_name
+        self[:tree_parent_field_name]
       end
 
       def with_relationships?

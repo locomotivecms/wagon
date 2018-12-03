@@ -1,4 +1,5 @@
 require_relative 'wagon/exceptions'
+require 'oj'
 
 module Locomotive
   module Wagon

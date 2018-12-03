@@ -22,7 +22,15 @@ module Locomotive
 
       def metafields
         replace_with_content_assets_in_hash!(self[:metafields])
-        self[:metafields].try(:to_json)
+        self[:metafields]&.to_json
+      end
+
+      def sections_content
+        replace_with_content_assets!(super&.to_json)
+      end
+
+      def routes
+        self[:routes]&.to_json
       end
 
       def picture
@@ -34,14 +42,14 @@ module Locomotive
         end
       end
 
-      %i(robots_txt timezone seo_title meta_keywords meta_description asset_host).each do |name|
+      %i(robots_txt timezone seo_title meta_keywords meta_description asset_host sections_content routes).each do |name|
         define_method(name) do
           self[name]
         end
       end
 
       def __attributes__
-        %i(name handle robots_txt locales timezone seo_title meta_keywords meta_description picture metafields_schema metafields metafields_ui asset_host)
+        %i(name handle robots_txt locales timezone seo_title meta_keywords meta_description picture metafields_schema metafields metafields_ui asset_host sections_content routes)
       end
 
       def edited?
@@ -53,7 +61,7 @@ module Locomotive
     class UpdateSiteDecorator < SiteDecorator
 
       def __attributes__
-        %i(picture locales metafields_schema metafields metafields_ui asset_host)
+        %i(picture locales metafields_schema metafields metafields_ui asset_host sections_content routes)
       end
 
     end

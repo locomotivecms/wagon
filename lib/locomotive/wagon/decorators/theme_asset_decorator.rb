@@ -29,7 +29,7 @@ module Locomotive
       end
 
       def stylesheet_or_javascript?
-        File.extname(realname) =~ /^\.(css|scss|less|js|coffee)/
+        File.extname(realname) =~ /^\.(css|scss|less|js|coffee)$/
       end
 
       def checksum

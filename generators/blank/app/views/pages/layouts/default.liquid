@@ -6,9 +6,10 @@ is_layout: false
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>{{ site.name }}</title>
-    <meta name="keywords" value="{{ site.meta_keywords }}" />
-    <meta name="description" value="{{ site.meta_description }}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {% seo %}
+
     {{ 'bundle.css' | stylesheet_tag }}
     {{ 'bundle.js' | javascript_tag }}
   </head>
