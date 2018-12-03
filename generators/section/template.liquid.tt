@@ -89,6 +89,7 @@ Modify it to match your needs.
 To use your global section, just add the following code in your layout template:
 
   {% global_section <%= config[:type] %> %}
+
 <% else -%>
 To use your section, 2 possibilites:
 
@@ -135,6 +136,38 @@ sections_dropzone_content: >
 2. as stand-alone section
 
   {% section <%= config[:type] %> %}
+
+If you want to test this section in your Wagon site, add the following
+lines in the YAML section of the page including the statement above or complete it.
+
+sections_content: >
+  {
+    "<%= config[:type] %>": {
+      "settings": {
+        "title": "My awesome <%= config[:type].humanize %> section"
+      },
+      "blocks": [
+        {
+          "type": "list_item",
+          "settings": {
+            "title": "Item #1"
+          }
+        },
+        {
+          "type": "list_item",
+          "settings": {
+            "title": "Item #2"
+          }
+        },
+        {
+          "type": "list_item",
+          "settings": {
+            "title": "Item #3"
+          }
+        }
+      ]
+    }
+  }
 
 <% end -%>
 {% endcomment %}
