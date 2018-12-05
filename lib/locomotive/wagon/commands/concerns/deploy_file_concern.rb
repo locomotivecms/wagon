@@ -4,7 +4,7 @@ module Locomotive::Wagon
 
   module DeployFileConcern
 
-    def write_deploy_setings(env, path, settings)
+    def write_deploy_settings(env, path, settings)
       File.open(deploy_file(path), 'a+') do |f|
         f.write({ env => settings }.to_yaml.sub(/^---/, ''))
       end

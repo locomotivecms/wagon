@@ -97,7 +97,7 @@ module Locomotive::Wagon
         site = create_remote_site
 
         # update the deploy.yml by adding the new env since we've got all the information
-        write_deploy_setings(self.env, self.path, {
+        write_deploy_settings(self.env, self.path, {
           'host'    => api_host,
           'handle'  => site.handle,
           'email'   => credentials[:email],
@@ -110,7 +110,9 @@ module Locomotive::Wagon
       # get an instance of the Steam services in order to load the information about the site (SiteRepository)
       steam_services.current_site.tap do |site|
         # ask for a handle if not found (blank: random one)
-        site[:handle] ||= shell.try(:ask, "What is the handle of your site? (default: a random one)")
+        if (handle = shell.try(:ask, "What is the handle of your site? (default: a random one)")).present?
+          site[:handle] = handle
+        end
 
         # create the site
         attributes = SiteDecorator.new(site).to_hash

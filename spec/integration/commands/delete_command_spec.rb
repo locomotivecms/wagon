@@ -6,7 +6,7 @@ require 'thor'
 
 describe Locomotive::Wagon::DeleteCommand do
 
-  before { VCR.insert_cassette 'delete', record: :new_episodes, match_requests_on: [:method, :uri, :body] }
+  before { VCR.insert_cassette 'delete', record: :new_episodes, match_requests_on: [:method, :uri, :body, :headers] }
   after  { VCR.eject_cassette }
 
   let(:env)             { 'production' }
@@ -21,7 +21,6 @@ describe Locomotive::Wagon::DeleteCommand do
     allow_any_instance_of(described_class).to receive(:read_deploy_settings).and_return({})
     allow_any_instance_of(described_class).to receive(:api_site_client)
       .and_return(client_api)
-
   end
 
   describe 'delete the current site' do

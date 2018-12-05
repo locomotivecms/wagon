@@ -6,7 +6,7 @@ require 'thor'
 
 describe Locomotive::Wagon::PushCommand do
 
-  before { VCR.insert_cassette 'push', match_requests_on: [:uri, :method, :query, :body] }
+  before { VCR.insert_cassette 'push', match_requests_on: [:uri, :method, :query, :body, :headers] }
   after  { VCR.eject_cassette }
 
   let(:env)       { 'production' }

@@ -8,7 +8,7 @@ require 'locomotive/wagon/commands/pull_sub_commands/concerns/assets_concern'
 
 describe Locomotive::Wagon::AssetsConcern do
 
-  let(:concern) { Class.new { include Locomotive::Wagon::AssetsConcern; def path; 'tmp'; end; } }
+  let(:concern) { Class.new { include Locomotive::Wagon::AssetsConcern; def path; 'tmp'; end; def env; 'production'; end; } }
 
   describe "calling replace_asset_urls" do
 
@@ -39,8 +39,8 @@ describe Locomotive::Wagon::AssetsConcern do
     subject { instance.replace_asset_urls(content) }
 
     it 'removes the query string' do
-      expect(instance).to receive(:write_asset).with("https://somedomain.com/sites/51277e8fc0864503db000007/assets/532a8eeac086452e35000169/some_name.JPG?42", "tmp/public/samples/assets/some_name.JPG").and_return('some_name.JPG')
-      is_expected.to eq %(<td><img src="/samples/assets/some_name.JPG" /></td>)
+      expect(instance).to receive(:write_asset).with("https://somedomain.com/sites/51277e8fc0864503db000007/assets/532a8eeac086452e35000169/some_name.JPG?42", "tmp/public/samples/_production/assets/some_name.JPG").and_return('some_name.JPG')
+      is_expected.to eq %(<td><img src="/samples/_production/assets/some_name.JPG" /></td>)
     end
 
   end
