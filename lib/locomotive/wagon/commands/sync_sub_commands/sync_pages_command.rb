@@ -18,6 +18,9 @@ module Locomotive::Wagon
         title:                      page.title,
         slug:                       page.slug,
         handle:                     page.handle,
+        listed:                     page.listed,
+        published:                  page.published,
+        position:                   page.position,
         fullpath:                   @fullpaths[page._id]
       }
 
