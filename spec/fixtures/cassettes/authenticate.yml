@@ -31,11 +31,11 @@ http_interactions:
       X-Error-Detail:
       - Invalid email or password.
       X-Runtime:
-      - '0.281969'
+      - '0.543259'
       X-Request-Id:
-      - 971abc5d-36fd-4204-a39a-620c7c14bbee
+      - c0178cf4-2f29-4be0-a72e-5baac6a67b92
       Date:
-      - Wed, 05 Dec 2018 13:22:26 GMT
+      - Mon, 10 Dec 2018 10:10:29 GMT
       X-Powered-By:
       - Phusion Passenger 6.0.0
       Server:
@@ -44,7 +44,7 @@ http_interactions:
       encoding: UTF-8
       string: '{"message":"Invalid email or password."}'
     http_version: 
-  recorded_at: Wed, 05 Dec 2018 13:22:26 GMT
+  recorded_at: Mon, 10 Dec 2018 10:10:29 GMT
 - request:
     method: post
     uri: http://localhost:3000/locomotive/api/v3/my_account.json
@@ -74,22 +74,22 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       ETag:
-      - W/"7beb59422eafccdaacc33b092a1a9148"
+      - W/"516f7abb6f922fa2cc801583a4f95473"
       X-Runtime:
-      - '0.041446'
+      - '0.063845'
       X-Request-Id:
-      - 1fce896f-2928-4295-a2bb-297f6186cd32
+      - 6cfac9e6-5160-4ad5-8686-ca01b4e8e79f
       Date:
-      - Wed, 05 Dec 2018 13:22:26 GMT
+      - Mon, 10 Dec 2018 10:10:29 GMT
       X-Powered-By:
       - Phusion Passenger 6.0.0
       Server:
       - nginx/1.15.7 + Phusion Passenger 6.0.0
     body:
       encoding: UTF-8
-      string: '{"_id":"5c07d112e051bb53c65ab8da","created_at":"2018-12-05T13:22:26Z","updated_at":"2018-12-05T13:22:26Z","name":"John","email":"john@doe.net","locale":"en","api_key":"413732866d3edf796ab7afeea9142fc3b429f558","super_admin":false,"local_admin":false}'
+      string: '{"_id":"5c0e3b95cb29bc532cf7fd06","created_at":"2018-12-10T10:10:29Z","updated_at":"2018-12-10T10:10:29Z","name":"John","email":"john@doe.net","locale":"en","api_key":"c92099fe85feceab3444321da445c1a0ca0dce47","super_admin":false,"local_admin":false}'
     http_version: 
-  recorded_at: Wed, 05 Dec 2018 13:22:26 GMT
+  recorded_at: Mon, 10 Dec 2018 10:10:29 GMT
 - request:
     method: post
     uri: http://localhost:3000/locomotive/api/v3/tokens.json
@@ -119,25 +119,25 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       ETag:
-      - W/"749006f8133e061d5bb3e7af4b9f4896"
+      - W/"83bad36c30e0cc04d5cc27ac7ccc2dba"
       X-Runtime:
-      - '0.007315'
+      - '0.006502'
       X-Request-Id:
-      - '05219a95-d6e4-489b-9183-488fa98f08c6'
+      - 4af38e65-09b5-4dcf-97b4-b671816d2194
       Date:
-      - Wed, 05 Dec 2018 13:22:26 GMT
+      - Mon, 10 Dec 2018 10:10:29 GMT
       X-Powered-By:
       - Phusion Passenger 6.0.0
       Server:
       - nginx/1.15.7 + Phusion Passenger 6.0.0
     body:
       encoding: UTF-8
-      string: '{"token":"AmJxq2v2sBwdRfgZh12J"}'
+      string: '{"token":"kpSEeLvSsVJjpx5kut_8"}'
     http_version: 
-  recorded_at: Wed, 05 Dec 2018 13:22:26 GMT
+  recorded_at: Mon, 10 Dec 2018 10:10:29 GMT
 - request:
     method: get
-    uri: http://localhost:3000/locomotive/api/v3/my_account.json?auth_token=AmJxq2v2sBwdRfgZh12J
+    uri: http://localhost:3000/locomotive/api/v3/my_account.json?auth_token=kpSEeLvSsVJjpx5kut_8
     body:
       encoding: US-ASCII
       string: ''
@@ -149,7 +149,7 @@ http_interactions:
       X-Locomotive-Account-Email:
       - admin@locomotivecms.com
       X-Locomotive-Account-Token:
-      - AmJxq2v2sBwdRfgZh12J
+      - kpSEeLvSsVJjpx5kut_8
   response:
     status:
       code: 200
@@ -166,13 +166,13 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       ETag:
-      - W/"550885b937db574a8e5b52d1e3e16480"
+      - W/"c9254be19e2902ec1dd026a58437aa91"
       X-Runtime:
-      - '0.017324'
+      - '0.025583'
       X-Request-Id:
-      - 9af9a7cb-53e9-43ea-ab43-1bf40ddc839c
+      - 73a394f0-9567-4309-8a74-f5bed1b6cca0
       Date:
-      - Wed, 05 Dec 2018 13:22:26 GMT
+      - Mon, 10 Dec 2018 10:10:29 GMT
       X-Powered-By:
       - Phusion Passenger 6.0.0
       Server:
@@ -181,12 +181,12 @@ http_interactions:
       - gzip
     body:
       encoding: UTF-8
-      string: '{"_id":"5c07d0e7e051bb5333b2af56","created_at":"2018-12-05T13:21:43Z","updated_at":"2018-12-05T13:21:43Z","name":"Admin","email":"admin@locomotivecms.com","locale":"en","api_key":"d49cd50f6f0d2b163f48fc73cb249f0244c37074","super_admin":false,"local_admin":true}'
+      string: '{"_id":"5c0e3b7ccb29bc5263d29ed9","created_at":"2018-12-10T10:10:04Z","updated_at":"2018-12-10T10:10:04Z","name":"Admin","email":"admin@locomotivecms.com","locale":"en","api_key":"d49cd50f6f0d2b163f48fc73cb249f0244c37074","super_admin":false,"local_admin":true}'
     http_version: 
-  recorded_at: Wed, 05 Dec 2018 13:22:26 GMT
+  recorded_at: Mon, 10 Dec 2018 10:10:29 GMT
 - request:
     method: get
-    uri: http://localhost:3000/locomotive/api/v3/my_account.json?auth_token=AmJxq2v2sBwdRfgZh12J
+    uri: http://localhost:3000/locomotive/api/v3/my_account.json?auth_token=kpSEeLvSsVJjpx5kut_8
     body:
       encoding: US-ASCII
       string: ''
@@ -198,7 +198,7 @@ http_interactions:
       X-Locomotive-Account-Email:
       - admin@locomotivecms.com
       X-Locomotive-Account-Token:
-      - AmJxq2v2sBwdRfgZh12J
+      - kpSEeLvSsVJjpx5kut_8
   response:
     status:
       code: 200
@@ -215,13 +215,13 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       ETag:
-      - W/"550885b937db574a8e5b52d1e3e16480"
+      - W/"c9254be19e2902ec1dd026a58437aa91"
       X-Runtime:
-      - '0.007046'
+      - '0.009711'
       X-Request-Id:
-      - c1b22406-2db8-4c79-9545-3e33a4cb7af4
+      - ec8dd74b-1e4f-4932-859c-4861381d95ce
       Date:
-      - Wed, 05 Dec 2018 13:22:26 GMT
+      - Mon, 10 Dec 2018 10:10:29 GMT
       X-Powered-By:
       - Phusion Passenger 6.0.0
       Server:
@@ -230,7 +230,7 @@ http_interactions:
       - gzip
     body:
       encoding: UTF-8
-      string: '{"_id":"5c07d0e7e051bb5333b2af56","created_at":"2018-12-05T13:21:43Z","updated_at":"2018-12-05T13:21:43Z","name":"Admin","email":"admin@locomotivecms.com","locale":"en","api_key":"d49cd50f6f0d2b163f48fc73cb249f0244c37074","super_admin":false,"local_admin":true}'
+      string: '{"_id":"5c0e3b7ccb29bc5263d29ed9","created_at":"2018-12-10T10:10:04Z","updated_at":"2018-12-10T10:10:04Z","name":"Admin","email":"admin@locomotivecms.com","locale":"en","api_key":"d49cd50f6f0d2b163f48fc73cb249f0244c37074","super_admin":false,"local_admin":true}'
     http_version: 
-  recorded_at: Wed, 05 Dec 2018 13:22:26 GMT
+  recorded_at: Mon, 10 Dec 2018 10:10:29 GMT
 recorded_with: VCR 4.0.0

@@ -75,7 +75,7 @@ module Locomotive::Wagon
 
       Locomotive::Steam.configure do |config|
         config.mode           = :test
-        config.adapter        = { name: :filesystem, path: File.expand_path(path), env: options[:env] }
+        config.adapter        = { name: :filesystem, path: File.expand_path(path), env: options[:env].to_sym }
         config.asset_path     = File.expand_path(File.join(path, 'public'))
         config.minify_assets  = false
 
