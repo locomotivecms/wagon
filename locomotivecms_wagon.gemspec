@@ -23,13 +23,12 @@ Gem::Specification.new do |gem|
 
   gem.add_dependency 'thor',                  '~> 0.19.4'
   gem.add_dependency 'thin',                  '~> 1.7.2'
-  gem.add_dependency 'rubyzip',               '~> 1.2.1'
   gem.add_dependency 'netrc',                 '~> 0.11.0'
-  gem.add_dependency 'oj',                    '~> 3.7.4'
+  gem.add_dependency 'oj',                    '~> 3.7.11'
 
   gem.add_dependency 'locomotivecms_common',  '~> 0.3.1'
   gem.add_dependency 'locomotivecms_coal',    '~> 1.6.0.beta1'
-  gem.add_dependency 'locomotivecms_steam',   '~> 1.5.0.beta1'
+  gem.add_dependency 'locomotivecms_steam',   '~> 1.5.0.beta3'
 
   gem.add_dependency 'haml',                  '~> 4.0.7'
   gem.add_dependency 'listen',                '~> 3.1.5'
