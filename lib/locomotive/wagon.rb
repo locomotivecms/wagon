@@ -4,7 +4,7 @@ require 'oj'
 module Locomotive
   module Wagon
 
-    DEFAULT_PLATFORM_URL = 'http://locomotive.works'.freeze
+    DEFAULT_PLATFORM_URL = 'https://station.locomotive.works'.freeze
 
     # Authenticate an user to the Hosting platform.
     # If the user does not exist, then create an account for her/him.

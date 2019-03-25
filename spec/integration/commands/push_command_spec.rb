@@ -26,7 +26,7 @@ describe Locomotive::Wagon::PushCommand do
 
       before do
         allow(Netrc).to receive(:read).and_return(TEST_PLATFORM_ALT_URL => credentials)
-        allow(shell).to receive(:ask).with("What is the URL of your platform? (default: http://locomotive.works)").and_return(TEST_PLATFORM_URL)
+        allow(shell).to receive(:ask).with("What is the URL of your platform? (default: https://station.locomotive.works)").and_return(TEST_PLATFORM_URL)
         allow(shell).to receive(:ask).with('What is the handle of your site? (default: a random one)').and_return('wagon-test')
       end
 

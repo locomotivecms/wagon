@@ -46,7 +46,7 @@ describe Locomotive::Wagon::SyncCommand do
   def create_site
     credentials = instance_double('Credentials', login: TEST_API_EMAIL, password: TEST_API_KEY)
     allow(Netrc).to receive(:read).and_return(TEST_PLATFORM_ALT_URL => credentials)
-    expect(shell).to receive(:ask).with("What is the URL of your platform? (default: http://locomotive.works)").and_return(TEST_PLATFORM_URL)
+    expect(shell).to receive(:ask).with("What is the URL of your platform? (default: https://station.locomotive.works)").and_return(TEST_PLATFORM_URL)
     expect(shell).to receive(:ask).with('What is the handle of your site? (default: a random one)').and_return('wagon-test-sync')
     Locomotive::Wagon::PushCommand.push(env, path, { data: true, verbose: false }, shell)
   end
