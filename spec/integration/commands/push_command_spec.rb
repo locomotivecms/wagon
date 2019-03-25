@@ -45,7 +45,7 @@ describe Locomotive::Wagon::PushCommand do
 
         let(:credentials) { nil }
 
-        it { expect { subject }.to raise_error('You need to run wagon authenticate before going further') }
+        it { expect { subject }.to raise_error('You need to run `wagon auth` before going further') }
 
       end
 

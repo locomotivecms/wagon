@@ -131,7 +131,7 @@ module Locomotive::Wagon
       # retrieve email + api_key. If no entry present in the .netrc, raise an error
       self.credentials = read_credentials_from_netrc(self.api_host)
 
-      raise 'You need to run wagon auth before going further' if self.credentials.nil?
+      raise 'You need to run `wagon auth` before going further' if self.credentials.nil?
     end
 
     def ask_for_platform_url
