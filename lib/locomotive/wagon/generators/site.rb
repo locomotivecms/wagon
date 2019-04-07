@@ -138,5 +138,4 @@ end
 
 require 'locomotive/wagon/generators/site/base'
 require 'locomotive/wagon/generators/site/blank'
-require 'locomotive/wagon/generators/site/unzip'
 require 'locomotive/wagon/generators/site/cloned'
