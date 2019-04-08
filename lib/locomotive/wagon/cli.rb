@@ -406,9 +406,8 @@ module Locomotive
   #{'bundle exec' unless skip_bundle} wagon serve
 
   # In a another terminal
-  cd app/assets
-  npm install
-  npm start
+  yarn
+  yarn start
 
   open http://0.0.0.0:3333
 BASH
