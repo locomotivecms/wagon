@@ -26,7 +26,7 @@ module Locomotive::Wagon
     end
 
     def persist(decorated_entity)
-      raise SkipPersistingException if only_relationships? && !decorated_entity.with_relationships?
+      raise SkipPersistingException.new if only_relationships? && !decorated_entity.with_relationships?
 
       api_client.content_types.update(decorated_entity.slug, decorated_entity.to_hash)
     end
