@@ -116,7 +116,7 @@ module Locomotive::Wagon
 
       cache = Locomotive::Steam::Adapters::Filesystem::SimpleCacheStore.new
 
-      Locomotive::Wagon::Listen.start(path, cache)
+      Locomotive::Wagon::Listen.start(path, cache, options)
     end
 
     def server

@@ -289,6 +289,7 @@ module Locomotive
         option :port, aliases: '-p', type: 'string', default: '3333', desc: 'The port of the Thin server'
         option :env, aliases: '-e', type: 'string', default: 'local', desc: 'The env used to the data of the pages and content entries'
         option :daemonize, aliases: '-d', type: 'boolean', default: false, desc: 'Run daemonized Thin server in the background'
+        option :force_polling, aliases: '-o', type: 'boolean', default: false, desc: 'Force polling of files for reload'
         option :force, aliases: '-f', type: 'boolean', default: false, desc: 'Stop the current daemonized Thin server if found before starting a new one'
         option :verbose, aliases: '-v', type: 'boolean', default: false, desc: 'Display the full error stack trace if an error occurs'
         option :debug, type: 'boolean', default: false, desc: 'Display some debugging information (rack middleware stack)'
