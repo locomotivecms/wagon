@@ -173,6 +173,15 @@ module Locomotive
           end
         end
 
+        desc 'webpack', 'Add Webpack to your v3.x Wagon site'
+        def webpack
+          force_color_if_asked(options)
+
+          if path = check_path!
+            Locomotive::Wagon.generate :webpack, [path], self.options
+          end
+        end
+
         protected
 
         # Read the YAML config file of a Locomotive site.
