@@ -22,12 +22,6 @@ module Locomotive
           File.join(File.dirname(__FILE__), '..', '..', '..', '..', 'generators')
         end
 
-        protected
-
-        # def destination
-        #   File.join(target_path,)
-        # end
-
       end
 
     end
