@@ -1,3 +1,5 @@
+require 'neatjson'
+
 module Locomotive::Wagon
 
   class SyncPagesCommand < PullPagesCommand
@@ -5,59 +7,68 @@ module Locomotive::Wagon
     include Locomotive::Wagon::BaseConcern
 
     def write_page(page, locale = nil)
-      filepath = page_filepath(page, locale)
+      instrument :writing, label: "#{page.fullpath} (#{locale})"
 
-      if File.exists?(filepath)
-        # only copy the content of the editable elements
-        if attributes = editable_elements_attributes(page, locale)
-          new_content = replace_editable_elements(filepath, dump(attributes))
+      filepath = data_path(page, locale)
 
-          write_to_file(filepath, new_content)
-        end
+      return if page.fullpath =~ /^layouts(\/.*)?$/
+
+      attributes = {
+        id:                         page._id,
+        title:                      page.title,
+        slug:                       page.slug,
+        handle:                     page.handle,
+        listed:                     page.listed,
+        published:                  page.published,
+        position:                   page.position,
+        fullpath:                   @fullpaths[page._id]
+      }
+
+      if page.redirect_url.present?
+        attributes.merge!({ redirect_url: page.redirect_url })
       else
-        # pull the whole page
-        super
+        attributes.merge!({
+          sections_content:           sections_content(page),
+          sections_dropzone_content:  sections_dropzone_content(page),
+          editable_elements:          editable_elements_attributes(page),
+          seo_title:                  page.seo_title,
+          meta_description:           page.meta_description,
+          meta_keywords:              page.meta_keywords
+        })
+
+        attributes[:raw_template] = page.template if page.handle.blank?
       end
+
+      write_to_file(filepath, replace_asset_urls(JSON.neat_generate(attributes)))
+
+      instrument :write_with_success
     end
 
     private
 
-    def editable_elements_attributes(page, locale)
-      list = page.editable_elements.inject({}) do |hash, el|
-        hash["#{el['block']}/#{el['slug']}"] = replace_asset_urls(el['content']) if el['content']
+    def sections_content(page)
+      JSON.parse(page.sections_content)
+    end
+
+    def sections_dropzone_content(page)
+      JSON.parse(page.sections_dropzone_content)
+    end
+
+    def editable_elements_attributes(page)
+      page.editable_elements.inject({}) do |hash, el|
+        hash["#{el['block']}/#{el['slug']}"] = el['content'] if el['content']
         hash
       end
-
-      list.empty? ? nil : { 'editable_elements' => list }
     end
 
-    def replace_editable_elements(filepath, replacement)
-      content   = File.read(File.join(path, filepath), encoding: 'utf-8')
-      existing  = content =~ /\A.*?editable_elements:.*?\n---/m
-
-      content.gsub /\A---(.*?)\n---/m do |s|
-        if existing
-          s.gsub(/editable_elements:\n(.*?)\n(\S)/m) { |_s| "#{replacement}#{$2}" }
-        else
-          s.gsub(/---\Z/) { |_s| "#{replacement}\n---" }
-        end
-      end
+    def page_handle(page)
+      page.handle || (%w(index 404).include?(page.fullpath) ? page.fullpath : nil)
     end
 
-    def page_filepath(page, locale)
-      fullpath = locale == default_locale ? page.fullpath : "#{fullpaths[page._id]}.#{locale}"
-
-      # HAML template?
-      if File.exists?(filepath = _page_filepath(fullpath, '.haml'))
-        return filepath
-      end
-
-      # simple Liquid template OR the page does not exist in the local site
-      _page_filepath(fullpath)
-    end
-
-    def _page_filepath(fullpath, additional_extension = '')
-      File.join('app', 'views', 'pages', fullpath + ".liquid#{additional_extension}")
+    def data_path(page, locale)
+      filepath = @fullpaths[page._id]
+      filepath = 'index' if filepath.blank? || filepath == '/' || filepath == "/#{default_locale}"
+      File.join('data', env.to_s, 'pages', locale, filepath + '.json')
     end
 
   end

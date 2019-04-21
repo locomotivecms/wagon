@@ -110,13 +110,11 @@ module Locomotive
 
         desc 'page FULLPATH', 'Create a page. No need to pass an extension to the FULLPATH arg'
         method_option :title,         aliases: '-t', type: 'string',    default: nil, desc: 'Title of the page'
-        method_option :haml,          aliases: '-h', type: 'boolean',   default: nil, desc: 'add a HAML extension to the file'
         method_option :listed,        aliases: '-l', type: 'boolean',   default: false, desc: 'tell if the page is listed in the menu'
         method_option :content_type,  aliases: '-c', type: 'string',    default: nil, desc: 'tell if the page is a template for a content type'
         method_option :locales,       aliases: '-lo', type: 'string',   default: nil, desc: 'locales for the various translations'
         long_desc <<-LONGDESC
-          Create a page. The generator will ask for the extension (liquid or haml) and also
-          if the page is localized or not.
+          Create a page. The generator will ask if the page is localized or not.
 
           Examples:
 
@@ -135,8 +133,7 @@ module Locomotive
 
         desc 'snippet SLUG', 'Create a snippet'
         long_desc <<-LONGDESC
-          Create a snippet. The generator will ask for the extension (liquid or haml) and also
-          if the snippet is localized or not.
+          Create a snippet. The generator will ask if the snippet is localized or not.
 
           Example:
 
@@ -148,6 +145,22 @@ module Locomotive
           if path = check_path!
             locales = self.site_config(path)['locales']
             Locomotive::Wagon.generate :snippet, [slug, locales, path], self.options
+          end
+        end
+
+        desc 'section SLUG', 'Create a section'
+        long_desc <<-LONGDESC
+          Create a section. The generator will ask if the section is global or not.
+
+          Example:
+
+            * wagon generate section hero
+        LONGDESC
+        def section(slug)
+          force_color_if_asked(options)
+
+          if path = check_path!
+            Locomotive::Wagon.generate :section, [slug, '', '', path], self.options
           end
         end
 
@@ -274,8 +287,9 @@ module Locomotive
         desc 'serve [PATH]', 'Serve a site from the file system'
         option :host, aliases: '-h', type: 'string', default: '0.0.0.0', desc: 'The host (address) of the Thin server'
         option :port, aliases: '-p', type: 'string', default: '3333', desc: 'The port of the Thin server'
+        option :env, aliases: '-e', type: 'string', default: 'local', desc: 'The env used to the data of the pages and content entries'
         option :daemonize, aliases: '-d', type: 'boolean', default: false, desc: 'Run daemonized Thin server in the background'
-        option :live_reload_port, aliases: '-l', type: 'string', default: '35729', desc: 'The port the LiveReload javascript lib needs to listen for changes (35729 by default)'
+        option :force_polling, aliases: '-o', type: 'boolean', default: false, desc: 'Force polling of files for reload'
         option :force, aliases: '-f', type: 'boolean', default: false, desc: 'Stop the current daemonized Thin server if found before starting a new one'
         option :verbose, aliases: '-v', type: 'boolean', default: false, desc: 'Display the full error stack trace if an error occurs'
         option :debug, type: 'boolean', default: false, desc: 'Display some debugging information (rack middleware stack)'
@@ -353,7 +367,7 @@ module Locomotive
 
         desc 'delete ENV RESOURCE [SLUG] [PATH]', 'Delete a resource from a remote Locomotive Engine.'
         long_desc <<-LONGDESC
-          Deletes a site, page, content_type, snippet, theme_asset or translation from the remote Locomotive Engine.
+          Deletes a site, page, content_type, snippet, section, theme_asset or translation from the remote Locomotive Engine.
 
           It can also delete all the items of a resource if you pass: content_types, snippets, theme_assets or translations as the RESOURCE.
 
@@ -386,9 +400,22 @@ module Locomotive
           say "\nCongratulations, your site \"#{name}\" has been created successfully !", :green
           say 'Next steps:', :bold
 
-          next_instructions = "\tcd #{path}/#{name}\n\t"
-          next_instructions += "bundle install\n\t" unless skip_bundle
-          next_instructions += "#{'bundle exec ' unless skip_bundle}wagon serve\n\topen http://0.0.0.0:3333"
+          next_instructions = <<-BASH
+  cd #{path}/#{name}
+
+  #{'bundle install' unless skip_bundle}
+  #{'bundle exec' unless skip_bundle} wagon serve
+
+  # In a another terminal
+  yarn
+  yarn start
+
+  open http://0.0.0.0:3333
+BASH
+
+          # next_instructions = "\tcd #{path}/#{name}\n\t"
+          # next_instructions += "bundle install\n\t" unless skip_bundle
+          # next_instructions += "#{'bundle exec ' unless skip_bundle}wagon serve\n\topen http://0.0.0.0:3333"
 
           say next_instructions
         end

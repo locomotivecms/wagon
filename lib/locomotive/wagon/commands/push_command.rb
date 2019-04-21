@@ -14,7 +14,7 @@ module Locomotive::Wagon
 
   class PushCommand < Struct.new(:env, :path, :options, :shell)
 
-    RESOURCES = %w(site content_types content_entries pages snippets theme_assets translations).freeze
+    RESOURCES = %w(site content_types content_entries pages snippets sections theme_assets translations).freeze
 
     RESOURCES_WITH_CONTENT = %w(content_entries translations).freeze
 
@@ -97,7 +97,7 @@ module Locomotive::Wagon
         site = create_remote_site
 
         # update the deploy.yml by adding the new env since we've got all the information
-        write_deploy_setings(self.env, self.path, {
+        write_deploy_settings(self.env, self.path, {
           'host'    => api_host,
           'handle'  => site.handle,
           'email'   => credentials[:email],
@@ -110,7 +110,9 @@ module Locomotive::Wagon
       # get an instance of the Steam services in order to load the information about the site (SiteRepository)
       steam_services.current_site.tap do |site|
         # ask for a handle if not found (blank: random one)
-        site[:handle] ||= shell.try(:ask, "What is the handle of your site? (default: a random one)")
+        if (handle = shell.try(:ask, "What is the handle of your site? (default: a random one)")).present?
+          site[:handle] = handle
+        end
 
         # create the site
         attributes = SiteDecorator.new(site).to_hash
@@ -129,7 +131,7 @@ module Locomotive::Wagon
       # retrieve email + api_key. If no entry present in the .netrc, raise an error
       self.credentials = read_credentials_from_netrc(self.api_host)
 
-      raise 'You need to run wagon authenticate before going further' if self.credentials.nil?
+      raise 'You need to run `wagon auth` before going further' if self.credentials.nil?
     end
 
     def ask_for_platform_url

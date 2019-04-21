@@ -78,7 +78,7 @@ module Locomotive
     class ContentEntryWithLocalizedAttributesDecorator < ContentEntryDecorator
 
       def __attributes__
-        %i(_slug) + fields.localized_names
+        %i(_slug) + fields.localized_names(include_select_field_id: false)
       end
 
     end

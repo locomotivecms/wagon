@@ -1,5 +1,5 @@
 module Locomotive
   module Wagon
-    VERSION = '2.4.0.rc2'
+    VERSION = '3.0.0.beta2'
   end
 end

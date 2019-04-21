@@ -1,0 +1,26 @@
+---
+title: Default layout
+is_layout: false
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {% seo %}
+
+    {{ 'bundle.css' | stylesheet_tag }}
+    {{ 'bundle.js' | javascript_tag }}
+
+    {% if wagon %}
+      <script src="http://localhost:35729/livereload.js"></script>
+    {% endif %}
+  </head>
+  <body>
+    <h1>{{ page.title }}</h1>
+
+    {% block 'main' %}
+    {% endblock %}
+  </body>
+</html>

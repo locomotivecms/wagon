@@ -47,7 +47,7 @@ describe Locomotive::Wagon::ContentEntryDecorator do
       let(:field)         { instance_double('Field', name: 'body', type: 'text') }
       let(:fields)        { instance_double('Fields', by_name: field, no_associations: [field]) }
       let(:attributes)    { { body: 'Hello world ! http://domain.tld/samples/foo.png ! <img src="/samples/bar.png" /> <div style="background: url(/samples/42.png);"/>' } }
-      let(:asset_pusher)  { SimpleAssetPusher.new}
+      let(:asset_pusher)  { SimpleAssetPusher.new }
 
       before { allow(decorator).to receive(:__content_assets_pusher__).and_return(asset_pusher) }
 

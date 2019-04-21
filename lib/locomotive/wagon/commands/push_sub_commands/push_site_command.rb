@@ -23,6 +23,8 @@ module Locomotive::Wagon
 
       _attributes.delete(:metafields) unless with_data?
 
+      _attributes.delete(:sections_content) unless with_data?
+
       if _attributes.present?
         api_client.current_site.update(_attributes)
       else

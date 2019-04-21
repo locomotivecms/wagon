@@ -3,7 +3,12 @@ module Locomotive::Wagon
   class PullSiteCommand < PullBaseCommand
 
     def _pull
-      attributes = current_site.attributes.slice('name', 'locales', 'domains', 'timezone', 'seo_title', 'meta_keywords', 'meta_description', 'picture_thumbnail_url', 'metafields', 'metafields_schema', 'metafields_ui', 'robots_txt', 'asset_host')
+      attributes = current_site.attributes.slice(
+        'name', 'locales', 'domains', 'timezone', 'seo_title',
+        'meta_keywords', 'meta_description', 'picture_thumbnail_url',
+        'metafields', 'metafields_schema', 'metafields_ui',
+        'robots_txt', 'asset_host', 'sections_content'
+      )
 
       locales.each_with_index do |locale, index|
         if index == 0
@@ -15,6 +20,7 @@ module Locomotive::Wagon
 
       decode_metafields(attributes)
       decode_metafields_ui(attributes)
+      decode_sections_content(attributes)
 
       write_metafields_schema(attributes.delete('metafields_schema'))
 
@@ -70,6 +76,12 @@ module Locomotive::Wagon
       decode_json_attribute(attributes, 'metafields_ui')
     end
 
+    def decode_sections_content(attributes)
+      decode_json_attribute(attributes, 'sections_content') do |sections_content|
+        replace_asset_urls_in_hash(sections_content)
+      end
+    end
+
     def array_of_hash_to_hash(array, name, &block)
       {}.tap do |hash|
         (array || []).each do |element|
@@ -85,14 +97,21 @@ module Locomotive::Wagon
 
       return if value.blank?
 
-      # JSON string -> Hash
-      _value = JSON.parse(value)
+      if value.is_a?(Hash)
+        attributes[name] = {}
 
-      attributes[name] = block_given? ? yield(_value) : _value
+        value.each do |locale, _value|
+          __value = JSON.parse(_value)
+          attributes[name][locale] = block_given? ? yield(__value) : __value
+        end
+      else
+        _value = JSON.parse(value)
+        attributes[name] = block_given? ? yield(_value) : _value
+      end
     end
 
     def localized_attributes(&block)
-      %w(seo_title meta_keywords meta_description).each do |name|
+      %w(seo_title meta_keywords meta_description sections_content).each do |name|
         yield(name)
       end
     end

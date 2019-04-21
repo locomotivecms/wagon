@@ -1,9 +1,10 @@
 require_relative 'wagon/exceptions'
+require 'oj'
 
 module Locomotive
   module Wagon
 
-    DEFAULT_PLATFORM_URL = 'http://locomotive.works'.freeze
+    DEFAULT_PLATFORM_URL = 'https://station.locomotive.works'.freeze
 
     # Authenticate an user to the Hosting platform.
     # If the user does not exist, then create an account for her/him.
@@ -21,7 +22,7 @@ module Locomotive
     # Create a site from a site generator.
     #
     # @param [ Object ] generator The wrapping class of the generator itself
-    # @param [ Array ] args [name of the site, destination path of the site, skip bundle flag, force_haml]
+    # @param [ Array ] args [name of the site, destination path of the site, skip bundle flag]
     # @param [ Hash ] options General options (ex: --force-color)
     #
     def self.init(generator_klass, args, options = {})

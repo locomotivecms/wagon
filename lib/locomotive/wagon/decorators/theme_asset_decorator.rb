@@ -29,7 +29,7 @@ module Locomotive
       end
 
       def stylesheet_or_javascript?
-        File.extname(realname) =~ /^\.(css|scss|less|js|coffee)/
+        File.extname(realname) =~ /^\.(css|scss|less|js|coffee)$/
       end
 
       def checksum
@@ -71,7 +71,7 @@ module Locomotive
           File.basename(filename, extension) + new_extension
         end
       end
-      
+
       def _readfile(path, &block)
         File.open(path, 'rb', &block)
       end

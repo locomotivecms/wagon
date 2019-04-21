@@ -2,10 +2,13 @@ require 'listen'
 
 module Locomotive::Wagon
 
-  class Listen < Struct.new(:path, :cache)
+  class Listen < Struct.new(:path, :cache, :options)
 
-    def self.start(path, cache)
-      new(path, cache).tap { |instance| instance.apply_definitions }
+    def self.start(path, cache, options)
+      new(path, cache, options).tap do |instance|
+        puts 'Listener polling is on.' if options[:force_polling]
+        instance.apply_definitions
+      end
     end
 
     def apply_definitions
@@ -18,10 +21,10 @@ module Locomotive::Wagon
 
     def definitions
       [
-        ['config', /\.yml/, [:site, :content_types, :pages, :snippets, :content_entries, :translations]],
-        ['app/views', %r{(pages|snippets)/(.+\.liquid).*}, [:pages, :snippets]],
+        ['config', /\.yml/, [:site, :content_types, :pages, :snippets, :sections, :content_entries, :translations]],
+        ['app/views', %r{(pages|snippets|sections)/(.+\.liquid).*}, [:pages, :snippets, :sections]],
         ['app/content_types', /\.yml/, [:content_types, :content_entries]],
-        ['data', /\.yml/, :content_entries],
+        ['data', /\.(yml|json)/, [:pages, :content_entries]],
         ['public', %r{((stylesheets|javascripts)/(.+\.(css|js))).*}, []]
       ]
     end
@@ -31,7 +34,10 @@ module Locomotive::Wagon
       filter    = definition[1]
       _path     = File.expand_path(File.join(self.path, definition.first))
 
-      listener = ::Listen.to(_path, only: filter, &reloader)
+      listener = ::Listen.to(_path, {
+        only:           filter,
+        force_polling:  options[:force_polling]
+      }, &reloader)
 
       # non blocking listener
       listener.start

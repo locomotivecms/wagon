@@ -46,3 +46,7 @@ meta_description: "some meta description"
 #     address: 700 South Laflin Street
 #   theme:
 #     background_image: "/samples/background.png"
+
+# Custom routes
+# routes:
+#   - "posts/:year/:month": "blog_posts"

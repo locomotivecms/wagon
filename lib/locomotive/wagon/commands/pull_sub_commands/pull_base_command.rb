@@ -2,12 +2,12 @@ require_relative './concerns/assets_concern'
 
 module Locomotive::Wagon
 
-  class PullBaseCommand < Struct.new(:api_client, :current_site, :path)
+  class PullBaseCommand < Struct.new(:api_client, :current_site, :path, :env)
 
     include Locomotive::Wagon::AssetsConcern
 
-    def self.pull(api_client, current_site, path)
-      new(api_client, current_site, path).pull
+    def self.pull(api_client, current_site, path, env)
+      new(api_client, current_site, path, env).pull
     end
 
     def pull
@@ -72,6 +72,10 @@ module Locomotive::Wagon
 
     def default_locale
       current_site.locales.first
+    end
+
+    def is_default_locale?(locale)
+      default_locale == locale
     end
 
     def locales

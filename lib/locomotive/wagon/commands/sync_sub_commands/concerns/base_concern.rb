@@ -14,8 +14,8 @@ module Locomotive::Wagon
 
     module ClassMethods
 
-      def sync(api_client, current_site, path)
-        new(api_client, current_site, path).sync
+      def sync(api_client, current_site, path, env)
+        new(api_client, current_site, path, env).sync
       end
 
     end

@@ -7,10 +7,14 @@ module Locomotive::Wagon
         # delete the previous file
         reset_file(content_entry_filepath(content_type))
 
+        instrument :writing, label: content_type.name
+
         fetch_content_entries(content_type) do |entries|
           # entries is a list of max 10 elements (pagination)
           write_content_entries(content_type, entries)
         end
+
+        instrument :write_with_success
       end
     end
 
@@ -40,6 +44,8 @@ module Locomotive::Wagon
         end
       end
 
+      attributes['_id'] = [entry[default_locale].attributes['_id'], entry[default_locale].attributes['_slug']]
+
       attributes['_visible'] = false unless entry[default_locale].attributes['_visible'] == true
 
       { entry[default_locale].attributes[content_type.label_field_name].to_s => clean_attributes(attributes) }
@@ -61,7 +67,7 @@ module Locomotive::Wagon
         locales.each do |locale|
           next if locale != default_locale && content_type.localized_names.empty?
 
-          (_entries = api_client.content_entries(content_type).all(nil, { page: page }, locale)).each do |entry|
+          (_entries = api_client.content_entries(content_type).all(nil, { page: page, order_by: 'created asc' }, locale)).each do |entry|
             (entries[entry._id] ||= {})[locale] = entry
           end
 
@@ -75,6 +81,9 @@ module Locomotive::Wagon
     end
 
     def value_of(content_type, entry, locale, name)
+      # attribute not translated
+      return nil if entry[locale].nil?
+
       if value = entry[locale].attributes[name]
         if content_type.attributes['urls_names'].try(:include?, name)
           replace_asset_urls(value)
@@ -87,7 +96,7 @@ module Locomotive::Wagon
     end
 
     def content_entry_filepath(content_type)
-      File.join('data', "#{content_type.slug}.yml")
+      File.join('data', env, 'content_entries', "#{content_type.slug}.yml")
     end
 
   end

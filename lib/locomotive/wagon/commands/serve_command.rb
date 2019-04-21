@@ -75,14 +75,9 @@ module Locomotive::Wagon
 
       Locomotive::Steam.configure do |config|
         config.mode           = :test
-        config.adapter        = { name: :filesystem, path: File.expand_path(path) }
+        config.adapter        = { name: :filesystem, path: File.expand_path(path), env: options[:env].to_sym }
         config.asset_path     = File.expand_path(File.join(path, 'public'))
         config.minify_assets  = false
-
-        if (port = options[:live_reload_port]).to_i > 0
-          require 'rack-livereload'
-          config.middleware.insert_before Rack::Lint, Rack::LiveReload, live_reload_port: port
-        end
 
         config.middleware.insert_before Rack::Lint, Locomotive::Wagon::Middlewares::ErrorPage
 
@@ -121,7 +116,7 @@ module Locomotive::Wagon
 
       cache = Locomotive::Steam::Adapters::Filesystem::SimpleCacheStore.new
 
-      Locomotive::Wagon::Listen.start(path, cache)
+      Locomotive::Wagon::Listen.start(path, cache, options)
     end
 
     def server

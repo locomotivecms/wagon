@@ -1,4 +1,0 @@
-{% raw %}
-/ To use your snippet, just add the following code in your page template
-/ {% include <%= config[:slug] -%> %}
-{% endraw %}
