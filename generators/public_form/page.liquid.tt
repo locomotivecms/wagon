@@ -1,0 +1,75 @@
+---
+title: <%= config[:title] %>
+
+# If you want to reference that page in other templates. Ex: {% path_to '<%= config[:handle] %>' %}
+handle: <%= config[:handle] %>
+
+# true if the page is included in the menu
+published: true
+
+# true if the page is published
+listed: true
+
+# position among sibling pages
+# position: 1
+---
+{% extends parent %}
+
+{% block main %}
+
+  {% model_form '<%= config[:content_type] %>', class: 'form', recaptcha: true %}
+
+    {% if user_message.errors %}
+      <p>Your form has errors</p>
+    {% else %}
+      {% if user_message != nil %}
+        <p>Your form has been posted with success</p>
+      {% endif %}
+    {% endif %}
+
+    <div class="field">
+      <label class="label">Name</label>
+      <div class="control">
+        <input type="text" name="content[name]" placeholder="Your full name" value="{{ <%= config[:content_type].singularize %>.name }}" class="input {% if user_message.errors.name %}is-danger{% endif %}" />
+        {% if user_message.errors.name %}
+          <p class="help is-danger">{{ user_message.errors.name }}</p>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label">Email</label>
+      <div class="control">
+        <input type="email" name="content[email]" placeholder="Your email address" value="{{ <%= config[:content_type].singularize %>.email }}" class="input {% if user_message.errors.email %}is-danger{% endif %}" />
+        {% if user_message.errors.email %}
+          <p class="help is-danger">{{ user_message.errors.email }}</p>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label">Message</label>
+      <div class="control">
+        <textarea class="textarea" name="content[message]" placeholder="Anything you need">{{ <%= config[:content_type].singularize %>.message }}</textarea>
+      </div>
+    </div>
+
+    <div class="field ">
+      <div class="control">
+        <button class="button is-link">Submit</button>
+      </div>
+    </div>
+
+  {% endmodel_form %}
+
+  <script src="https://www.google.com/recaptcha/api.js?render={{ site.metafields.google.recaptcha_site_key }}"></script>
+
+  <script>
+    grecaptcha.ready(function() {
+      grecaptcha.execute('{{ site.metafields.google.recaptcha_site_key }}', {action: 'register'}).then(function(token) {
+        document.getElementById('g-recaptcha-response').value  = token;
+      });
+    });
+  </script>
+
+{% endblock %}
