@@ -63,6 +63,19 @@ metafields:
           YAML
         end
 
+        def print_next_instructions
+          say <<-TEXT
+
+Congratulations, your public form has been generated with success!
+
+In order to complete the Google reCAPTCHA configuration, visit https://developers.google.com/recaptcha/intro.
+Create a developer account if you don't have one and register your site.
+
+Once done, copy and paste your Google SITE KEY and Google SECRET KEY in the config/site.yml file.
+
+TEXT
+        end
+
         protected
 
         def content_types_path
