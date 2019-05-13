@@ -1,4 +1,9 @@
-require 'listen'
+begin
+  require 'listen'
+rescue LoadError => ex
+  puts "Cannot find the `listen` gem. Did you forgot to use `bundle exec` when running your wagon command?".
+  raise ex
+end
 
 module Locomotive::Wagon
 
