@@ -3,7 +3,6 @@ require 'faraday'
 
 custom_body_matcher = lambda do |request_1, request_2|
   if request_1.body.encoding.name == 'ASCII-8BIT'
-    puts "UPLOADED FILE!!!"
     request_1.body == request_2.body ||
     request_1.body == request_2.body.gsub(/\r\n$/, '')
   else

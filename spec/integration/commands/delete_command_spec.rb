@@ -45,20 +45,20 @@ describe Locomotive::Wagon::DeleteCommand do
       .and_return(client_api)
   end
 
-  # describe 'delete the current site' do
+  describe 'delete the current site' do
 
-  #   let(:client_api)  { Locomotive::Coal::Client.new(api_uri, api_credentials, handle: 'short-lived') }
-  #   let(:_client_api) { Locomotive::Coal::Client.new(api_uri, api_credentials) }
+    let(:client_api)  { Locomotive::Coal::Client.new(api_uri, api_credentials, handle: 'short-lived') }
+    let(:_client_api) { Locomotive::Coal::Client.new(api_uri, api_credentials) }
 
-  #   before { allow(shell).to receive(:ask).and_return 'short-lived' }
+    before { allow(shell).to receive(:ask).and_return 'short-lived' }
 
-  #   before { _client_api.sites.create(name: 'ShortLived', handle: 'short-lived') }
+    before { _client_api.sites.create(name: 'ShortLived', handle: 'short-lived') }
 
-  #   subject { described_class.delete(env, path, 'site', nil, shell) }
+    subject { described_class.delete(env, path, 'site', nil, shell) }
 
-  #   it { is_expected.to be_a(Locomotive::Coal::Resource) }
+    it { is_expected.to be_a(Locomotive::Coal::Resource) }
 
-  # end
+  end
 
   context 'resource exists' do
 
@@ -66,62 +66,62 @@ describe Locomotive::Wagon::DeleteCommand do
 
     subject { described_class.delete(env, path, resource_type, resource_id, shell) }
 
-    # describe 'delete page resource' do
+    describe 'delete page resource' do
 
-    #   let(:resource_type) { 'page' }
-    #   let(:resource_id)   { 'hello-world' }
+      let(:resource_type) { 'page' }
+      let(:resource_id)   { 'hello-world' }
 
-    #   before { client_api.pages.create(title: 'Hello world', slug: 'hello-world', parent: 'index', template: 'Hello world!') }
-    #   it { is_expected.to be_a(Locomotive::Coal::Resource) }
+      before { client_api.pages.create(title: 'Hello world', slug: 'hello-world', parent: 'index', template: 'Hello world!') }
+      it { is_expected.to be_a(Locomotive::Coal::Resource) }
 
-    # end
+    end
 
-    # describe 'delete content type resource' do
+    describe 'delete content type resource' do
 
-    #   let(:resource_type) { 'content_type' }
-    #   let(:resource_id)   { 'fake_messages' }
+      let(:resource_type) { 'content_type' }
+      let(:resource_id)   { 'fake_messages' }
 
-    #   before { client_api.content_types.create(name: 'FakeMessages', slug: 'fake-messages', fields: [{ label: 'E-mail', name: 'email', type: 'string' }]) }
-    #   it { is_expected.to be_a(Locomotive::Coal::Resource) }
+      before { client_api.content_types.create(name: 'FakeMessages', slug: 'fake-messages', fields: [{ label: 'E-mail', name: 'email', type: 'string' }]) }
+      it { is_expected.to be_a(Locomotive::Coal::Resource) }
 
-    #   describe 'all of them' do
+      describe 'all of them' do
 
-    #     let(:resource_type) { 'content_types' }
+        let(:resource_type) { 'content_types' }
 
-    #     before { client_api.content_types.create(name: 'FakeMessages', slug: 'fake-messages-2', fields: [{ label: 'E-mail', name: 'email', type: 'string' }]) }
-    #     it { expect(subject['deletions']).to be >= 1 }
+        before { client_api.content_types.create(name: 'FakeMessages', slug: 'fake-messages-2', fields: [{ label: 'E-mail', name: 'email', type: 'string' }]) }
+        it { expect(subject['deletions']).to be >= 1 }
 
-    #   end
+      end
 
-    # end
+    end
 
-    # describe 'delete snippet resource' do
+    describe 'delete snippet resource' do
 
-    #   let(:resource_type) { 'snippet' }
-    #   let(:resource_id)   { 'analytics' }
+      let(:resource_type) { 'snippet' }
+      let(:resource_id)   { 'analytics' }
 
-    #   before { client_api.snippets.create(name: 'Analytics', slug: 'analytics', template: 'Analytics') }
-    #   it { is_expected.to be_a(Locomotive::Coal::Resource) }
+      before { client_api.snippets.create(name: 'Analytics', slug: 'analytics', template: 'Analytics') }
+      it { is_expected.to be_a(Locomotive::Coal::Resource) }
 
-    #   describe 'all of them' do
+      describe 'all of them' do
 
-    #     let(:resource_type) { 'snippets' }
+        let(:resource_type) { 'snippets' }
 
-    #     before { client_api.snippets.create(name: 'Analytics', slug: 'analytics_2', template: 'Analytics') }
-    #     it { expect(subject['deletions']).to be >= 1 }
+        before { client_api.snippets.create(name: 'Analytics', slug: 'analytics_2', template: 'Analytics') }
+        it { expect(subject['deletions']).to be >= 1 }
 
-    #   end
+      end
 
-    # end
+    end
 
     describe 'delete all theme asset resources' do
 
       let(:resource_type) { 'theme_assets' }
 
       before {
-        puts "=============> TODO (1) / #{MIME::Types.type_for('photo.jpg').first} / #{File.size(File.join(default_site_path, 'public', 'samples', 'photo.jpg'))}"
+        # puts "=============> TODO (1) / #{MIME::Types.type_for('photo.jpg').first} / #{File.size(File.join(default_site_path, 'public', 'samples', 'photo.jpg'))}"
         client_api.theme_assets.create(source: Locomotive::Coal::UploadIO.new(File.join(default_site_path, 'public', 'samples', 'photo.jpg')))
-        puts "=============> TODO (2)"
+        # puts "=============> TODO (2)"
         client_api.theme_assets.create(source: Locomotive::Coal::UploadIO.new(File.join(default_site_path, 'icon.png')))
         # client_api.theme_assets.create(source: Locomotive::Coal::UploadIO.new(File.join(default_site_path, 'public', 'samples', 'photo.jpg')))
       }
@@ -130,43 +130,42 @@ describe Locomotive::Wagon::DeleteCommand do
 
     end
 
-    # describe 'delete translation resource' do
+    describe 'delete translation resource' do
 
-    #   let(:resource_type) { 'translation' }
-    #   let(:resource_id)   { 'hello_world' }
+      let(:resource_type) { 'translation' }
+      let(:resource_id)   { 'hello_world' }
 
-    #   before { client_api.translations.create(key: 'hello_world', values: { fr: 'Bonjour le monde' }) }
-    #   it { is_expected.to be_a(Locomotive::Coal::Resource) }
+      before { client_api.translations.create(key: 'hello_world', values: { fr: 'Bonjour le monde' }) }
+      it { is_expected.to be_a(Locomotive::Coal::Resource) }
 
-    #   describe 'all of them' do
+      describe 'all of them' do
 
-    #     let(:resource_type) { 'translations' }
+        let(:resource_type) { 'translations' }
 
-    #     before { client_api.translations.create(key: 'hello_world_2', values: { fr: 'Bonjour le monde' }) }
-    #     it { expect(subject['deletions']).to be >= 1 }
+        before { client_api.translations.create(key: 'hello_world_2', values: { fr: 'Bonjour le monde' }) }
+        it { expect(subject['deletions']).to be >= 1 }
 
-    #   end
+      end
 
-    # end
+    end
 
   end
 
-  # context 'resource does not exist' do
-  #   describe '.delete' do
-  #     [ ['page', 'bogus_id'],
-  #       ['content_type', 'bogus_id'],
-  #       ['snippet', 'bogus_id'],
-  #       ['translation', 'bogus_id']
-  #     ].each do |resource, id|
-  #       describe resource do
-  #         it 'raises an exception' do
-  #           expect { described_class.delete(env, path, resource, id) }
-  #             .to raise_error(Locomotive::Coal::UnknownResourceError)
-  #         end
-  #       end
-  #     end
-  #   end
-  # end
-
+  context 'resource does not exist' do
+    describe '.delete' do
+      [ ['page', 'bogus_id'],
+        ['content_type', 'bogus_id'],
+        ['snippet', 'bogus_id'],
+        ['translation', 'bogus_id']
+      ].each do |resource, id|
+        describe resource do
+          it 'raises an exception' do
+            expect { described_class.delete(env, path, resource, id) }
+              .to raise_error(Locomotive::Coal::UnknownResourceError)
+          end
+        end
+      end
+    end
+  end
 
 end
