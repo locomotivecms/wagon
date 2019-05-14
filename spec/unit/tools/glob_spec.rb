@@ -1,26 +1,26 @@
-# encoding: utf-8
+# # encoding: utf-8
 
-require 'spec_helper'
+# require 'spec_helper'
 
-require_relative '../../../lib/locomotive/wagon/tools/glob.rb'
+# require_relative '../../../lib/locomotive/wagon/tools/glob.rb'
 
-describe Locomotive::Wagon::Glob do
+# describe Locomotive::Wagon::Glob do
 
-  let(:string)    { '' }
-  let(:instance)  { described_class.new(string) }
+#   let(:string)    { '' }
+#   let(:instance)  { described_class.new(string) }
 
-  describe "#to_regexp" do
+#   describe "#to_regexp" do
 
-    subject { instance.to_regexp }
+#     subject { instance.to_regexp }
 
-    describe '**/*.css' do
+#     describe '**/*.css' do
 
-      let(:string) { '**/*.css' }
+#       let(:string) { '**/*.css' }
 
-      it { expect(subject.match('foo/bar/test.css')).not_to eq nil }
+#       it { expect(subject.match('foo/bar/test.css')).not_to eq nil }
 
-    end
+#     end
 
-  end
+#   end
 
-end
+# end

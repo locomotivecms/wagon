@@ -1,102 +1,102 @@
-# encoding: utf-8
+# # encoding: utf-8
 
-require File.dirname(__FILE__) + '/../integration_helper'
+# require File.dirname(__FILE__) + '/../integration_helper'
 
-require 'locomotive/wagon'
-require 'locomotive/wagon/cli'
+# require 'locomotive/wagon'
+# require 'locomotive/wagon/cli'
 
-describe 'Locomotive::Wagon::Generators::Relationship' do
+# describe 'Locomotive::Wagon::Generators::Relationship' do
 
-  before(:all)      { make_working_copy_of_site(:blog) }
-  after(:all)       { remove_working_copy_of_site(:blog) }
+#   before(:all)      { make_working_copy_of_site(:blog) }
+#   after(:all)       { remove_working_copy_of_site(:blog) }
 
-  let(:path)        { working_copy_of_site(:blog) }
-  let(:source_slug) { 'comments' }
-  let(:target_slug) { 'posts' }
-  let(:type)        { 'belongs_to' }
-  let(:options)     { { 'force_color' => true, 'path' => path, 'quiet' => true } }
+#   let(:path)        { working_copy_of_site(:blog) }
+#   let(:source_slug) { 'comments' }
+#   let(:target_slug) { 'posts' }
+#   let(:type)        { 'belongs_to' }
+#   let(:options)     { { 'force_color' => true, 'path' => path, 'quiet' => true } }
 
-  subject { Locomotive::Wagon.generate(:relationship, [source_slug, type, target_slug, options.delete('path')], options) }
+#   subject { Locomotive::Wagon.generate(:relationship, [source_slug, type, target_slug, options.delete('path')], options) }
 
-  describe 'wrong parameters' do
+#   describe 'wrong parameters' do
 
-    describe 'unknown slugs' do
+#     describe 'unknown slugs' do
 
-      let(:source_slug) { 'authors' }
+#       let(:source_slug) { 'authors' }
 
-      it { expect { subject }.to raise_error 'The authors content type does not exist' }
+#       it { expect { subject }.to raise_error 'The authors content type does not exist' }
 
-    end
+#     end
 
-    describe 'unknown type' do
+#     describe 'unknown type' do
 
-      let(:type) { 'has_one' }
+#       let(:type) { 'has_one' }
 
-      it { expect { subject }.to raise_error 'has_one is an unknown relationship type' }
+#       it { expect { subject }.to raise_error 'has_one is an unknown relationship type' }
 
-    end
+#     end
 
-  end
+#   end
 
-  describe 'generating a belongs_to relationship' do
+#   describe 'generating a belongs_to relationship' do
 
-    before { subject }
+#     before { subject }
 
-    it 'adds code to the source content type' do
-      expect(read_content_type(:comments)).to include <<-EXPECTED
-- post:
-    label: Post
-    hint: A description of the relationship for the editors
-    type: belongs_to
-    class_name: posts
-EXPECTED
-    end
+#     it 'adds code to the source content type' do
+#       expect(read_content_type(:comments)).to include <<-EXPECTED
+# - post:
+#     label: Post
+#     hint: A description of the relationship for the editors
+#     type: belongs_to
+#     class_name: posts
+# EXPECTED
+#     end
 
-    it 'adds code the target content type' do
-      expect(read_content_type(:posts)).to include <<-EXPECTED
-- comments:
-    label: Comments
-    hint: A description of the relationship for the editors
-    type: has_many
-    class_name: comments
-    inverse_of: post
-EXPECTED
-    end
+#     it 'adds code the target content type' do
+#       expect(read_content_type(:posts)).to include <<-EXPECTED
+# - comments:
+#     label: Comments
+#     hint: A description of the relationship for the editors
+#     type: has_many
+#     class_name: comments
+#     inverse_of: post
+# EXPECTED
+#     end
 
-  end
+#   end
 
-  describe 'generating a many_to_many relationship' do
+#   describe 'generating a many_to_many relationship' do
 
-    before      { subject }
+#     before      { subject }
 
-    let(:type)  { 'many_to_many' }
+#     let(:type)  { 'many_to_many' }
 
-    it 'adds code to the source content type' do
-      expect(read_content_type(:comments)).to include <<-EXPECTED
-- posts:
-    label: Posts
-    hint: A description of the relationship for the editors
-    type: many_to_many
-    class_name: posts
-    inverse_of: comments
-EXPECTED
-    end
+#     it 'adds code to the source content type' do
+#       expect(read_content_type(:comments)).to include <<-EXPECTED
+# - posts:
+#     label: Posts
+#     hint: A description of the relationship for the editors
+#     type: many_to_many
+#     class_name: posts
+#     inverse_of: comments
+# EXPECTED
+#     end
 
-    it 'adds code the target content type' do
-      expect(read_content_type(:posts)).to include <<-EXPECTED
-- comments:
-    label: Comments
-    hint: A description of the relationship for the editors
-    type: many_to_many
-    class_name: comments
-    inverse_of: posts
-EXPECTED
-    end
+#     it 'adds code the target content type' do
+#       expect(read_content_type(:posts)).to include <<-EXPECTED
+# - comments:
+#     label: Comments
+#     hint: A description of the relationship for the editors
+#     type: many_to_many
+#     class_name: comments
+#     inverse_of: posts
+# EXPECTED
+#     end
 
-  end
+#   end
 
-  def read_content_type(name)
-    File.read(File.join(path, 'app', 'content_types', "#{name}.yml"))
-  end
+#   def read_content_type(name)
+#     File.read(File.join(path, 'app', 'content_types', "#{name}.yml"))
+#   end
 
-end
+# end
