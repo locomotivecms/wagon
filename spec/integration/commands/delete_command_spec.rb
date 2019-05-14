@@ -4,28 +4,6 @@ require 'locomotive/wagon/commands/authenticate_command'
 require 'locomotive/wagon/commands/delete_command'
 require 'thor'
 
-require 'digest/md5'
-require 'differ'
-
-# custom_body_matcher = lambda do |request_1, request_2|
-#   if request_1.body.encoding.name == 'ASCII-8BIT'
-#     puts "~~~~~ REQUEST 1 body #{request_1.body.encoding} / #{request_1.body.size}"
-#     # puts request_1.body
-#     puts Digest::MD5.hexdigest(request_1.body)
-#     puts "~~~~~ REQUEST 2 body #{request_2.body.encoding} / #{request_2.body.size}"
-#     # puts request_2.body
-#     puts Digest::MD5.hexdigest(request_2.body.gsub(/\r\n$/, ''))
-
-#     # diff = Differ.diff_by_char request_1.body, request_2.body
-#     # puts diff
-
-#     raise 'TODO'
-#   end
-#   request_1.body == request_2.body
-#   # URI(request_1.uri).port == URI(request_2.uri).port
-# end
-
-
 describe Locomotive::Wagon::DeleteCommand do
 
   before { VCR.insert_cassette 'delete', record: :new_episodes, match_requests_on: [:method, :uri, :custom_body] }

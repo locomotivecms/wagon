@@ -11,8 +11,6 @@ gem 'locomotivecms_coal',   github: 'locomotivecms/coal',   ref: 'e1719db', requ
 # gem 'locomotivecms_steam',  github: 'locomotivecms/steam',  ref: '034eece', require: false
 # gem 'duktape', github: 'judofyr/duktape.rb', ref: '20ef6a5'
 
-gem 'differ'
-
 # Local development
 # gem 'locomotivecms_coal', path: '../coal', require: false
 # gem 'locomotivecms_steam', path: '../steam', require: false
