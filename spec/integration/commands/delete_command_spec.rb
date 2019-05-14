@@ -6,7 +6,7 @@ require 'thor'
 
 describe Locomotive::Wagon::DeleteCommand do
 
-  before { VCR.insert_cassette 'delete', record: :new_episodes, match_requests_on: [:method, :uri, :body, :headers] }
+  before { VCR.insert_cassette 'delete', record: :new_episodes, match_requests_on: [:method, :uri, :body] }
   after  { VCR.eject_cassette }
 
   let(:env)             { 'production' }
