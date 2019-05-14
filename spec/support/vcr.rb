@@ -7,6 +7,7 @@ VCR.configure do |c|
   c.hook_into :faraday
   c.ignore_hosts 'codeclimate.com'
   c.configure_rspec_metadata!
+  c.debug_logger = $stdout
   c.preserve_exact_body_bytes do |http_message|
     http_message.body.encoding.name == 'ASCII-8BIT' ||
     !http_message.body.valid_encoding?
