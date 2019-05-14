@@ -7,7 +7,7 @@ gem 'rb-fsevent', '~> 0.9.1'
 
 # Development
 # gem 'locomotivecms_common', github: 'locomotivecms/common', ref: '4d1bd56' , require: false
-# gem 'locomotivecms_coal',   github: 'locomotivecms/coal',   ref: '01a0a32', require: false
+gem 'locomotivecms_coal',   github: 'locomotivecms/coal',   ref: 'e1719db', require: false
 # gem 'locomotivecms_steam',  github: 'locomotivecms/steam',  ref: '034eece', require: false
 # gem 'duktape', github: 'judofyr/duktape.rb', ref: '20ef6a5'
 
