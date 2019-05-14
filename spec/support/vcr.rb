@@ -1,6 +1,16 @@
 require 'vcr'
 require 'faraday'
 
+custom_body_matcher = lambda do |request_1, request_2|
+  if request_1.body.encoding.name == 'ASCII-8BIT'
+    puts "UPLOADED FILE!!!"
+    request_1.body == request_2.body ||
+    request_1.body == request_2.body.gsub(/\r\n$/, '')
+  else
+    request_1.body == request_2.body
+  end
+end
+
 # custom_body_matcher = lambda do |request_1, request_2|
 #   puts request_1.body
 
@@ -19,7 +29,9 @@ VCR.configure do |c|
   c.hook_into :faraday
   c.ignore_hosts 'codeclimate.com'
   c.configure_rspec_metadata!
-  c.debug_logger = $stdout
+  # c.debug_logger = $stdout
+  c.register_request_matcher :custom_body, &custom_body_matcher
+
   # c.preserve_exact_body_bytes true
 
   #  do |http_message|
