@@ -112,7 +112,7 @@ describe Locomotive::Wagon::DeleteCommand do
       let(:resource_type) { 'theme_assets' }
 
       before {
-        puts "=============> TODO (1)"
+        puts "=============> TODO (1) / #{File.join(default_site_path, 'public', 'samples', 'photo.jpg')} / #{File.size(File.join(default_site_path, 'public', 'samples', 'photo.jpg'))}"
         client_api.theme_assets.create(source: Locomotive::Coal::UploadIO.new(File.join(default_site_path, 'public', 'samples', 'photo.jpg')))
         puts "=============> TODO (2)"
         client_api.theme_assets.create(source: Locomotive::Coal::UploadIO.new(File.join(default_site_path, 'icon.png')))
