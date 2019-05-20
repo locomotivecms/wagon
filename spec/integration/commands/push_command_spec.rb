@@ -32,20 +32,45 @@ describe Locomotive::Wagon::PushCommand do
 
       after { restore_deploy_file(default_site_path) }
 
-      it 'creates a site and push the site' do
-        resources = []
-        ActiveSupport::Notifications.subscribe('wagon.push') do |name, start, finish, id, payload|
-          resources << payload[:name]
+      context 'answer yes to the deployment of the data' do
+
+        before do
+          allow(shell).to receive(:yes?).with("Do you want to continue? (answer yes or no)").and_return(true)
         end
-        is_expected.not_to eq nil
-        expect(resources).to eq %w(site content_types content_entries pages snippets sections theme_assets translations)
+
+        it 'creates a site and push the site' do
+          resources = []
+          ActiveSupport::Notifications.subscribe('wagon.push') do |name, start, finish, id, payload|
+            resources << payload[:name]
+          end
+          is_expected.not_to eq nil
+          expect(resources).to eq %w(site content_types content_entries pages snippets sections theme_assets translations)
+        end
+
+        context 'no previous authentication' do
+
+          let(:credentials) { nil }
+
+          it { expect { subject }.to raise_error('You need to run `wagon auth` before going further') }
+
+        end
+
       end
 
-      context 'no previous authentication' do
+      context 'answer no to the deployment of the data' do
 
-        let(:credentials) { nil }
+        before do
+          allow(shell).to receive(:yes?).with("Do you want to continue? (answer yes or no)").and_return(false)
+        end
 
-        it { expect { subject }.to raise_error('You need to run `wagon auth` before going further') }
+        it "doesn't push the site" do
+          resources = []
+          ActiveSupport::Notifications.subscribe('wagon.push') do |name, start, finish, id, payload|
+            resources << payload[:name]
+          end
+          is_expected.to eq nil
+          expect(resources).to eq([])
+        end
 
       end
 

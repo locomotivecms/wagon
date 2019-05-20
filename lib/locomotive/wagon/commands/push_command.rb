@@ -36,6 +36,17 @@ module Locomotive::Wagon
 
       api_client = build_api_site_client(connection_information)
 
+      # Ask for a confirmation (Warning) if we deploy with the -d option
+      # since it alters content on the remote engine
+      if options[:data]
+        shell.say("Warning! You're about to deploy data which will alter the content of your site.", :yellow)
+
+        unless shell.yes?("Do you want to continue? (answer yes or no)")
+          shell.say("Deployment abandonned!", :yellow)
+          return
+        end
+      end
+
       if options[:verbose]
         PushLogger.new
         _push(api_client)
