@@ -124,7 +124,28 @@ module Locomotive::Wagon
     end
 
     def build_server
-      # TODO: new feature -> pick the right Rack handler (Thin, Puma, ...etc)
+      # PUMA is the first choice thanks to its performance
+      begin
+        build_puma_server
+      rescue
+        # try Thin in case it's been installed in the Gemfile
+        build_thin_server
+      end
+    end
+
+    def build_puma_server
+      require 'rack/handler/puma'
+
+      Rack::Handler::Puma.run(Locomotive::Steam.to_app, {
+        Threads:  ENV['PUMA_THREADS'] || '4:8',
+        Host:     options[:host],
+        Port:     options[:port],
+        Verbose:  ENV['PUMA_DEBUG_ON'] || false,
+        Silent:   true
+      })
+    end
+
+    def build_thin_server
       require 'thin'
 
       # Do not display the default Thin server startup message
