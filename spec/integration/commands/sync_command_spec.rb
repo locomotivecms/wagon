@@ -1,6 +1,8 @@
 # encoding: utf-8
 
 require File.dirname(__FILE__) + '/../integration_helper'
+require 'locomotive/steam'
+require 'locomotive/steam/adapters/filesystem'
 require 'locomotive/wagon/commands/push_command'
 require 'locomotive/wagon/commands/sync_command'
 require 'thor'
@@ -44,12 +46,15 @@ describe Locomotive::Wagon::SyncCommand do
   end
 
   def create_site
+    _command    = Locomotive::Wagon::PushCommand.new(env, path, { data: true, verbose: false }, shell)
     credentials = instance_double('Credentials', login: TEST_API_EMAIL, password: TEST_API_KEY)
     allow(Netrc).to receive(:read).and_return(TEST_PLATFORM_ALT_URL => credentials)
-    allow(shell).to receive(:yes?).with("Do you want to continue? (answer yes or no)").and_return('yes')
+    allow(_command).to receive(:ask_for_performing).with('You are about to deploy a new site').and_return(true)
+    allow(_command).to receive(:ask_for_performing).with("Warning! You're about to deploy data which will alter the content of your site.").and_return(true)
     expect(shell).to receive(:ask).with("What is the URL of your platform? (default: https://station.locomotive.works)").and_return(TEST_PLATFORM_URL)
     expect(shell).to receive(:ask).with('What is the handle of your site? (default: a random one)').and_return('wagon-test-sync')
-    Locomotive::Wagon::PushCommand.push(env, path, { data: true, verbose: false }, shell)
+    _command.push
+    # Locomotive::Wagon::PushCommand.push(env, path, { data: true, verbose: false }, shell)
   end
 
 end
