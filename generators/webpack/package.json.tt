@@ -1,7 +1,7 @@
 {
-  "name": "<%= config[:name] %>",
+  "name": "Wagon assets",
   "version": "1.0.0",
-  "description": "Assets source for the <%= config[:name] %> website",
+  "description": "Assets source for the Wagon site",
   "main": "index.js",
   "scripts": {
     "start": "webpack --config app/assets/webpack.dev.js --progress --colors --watch",

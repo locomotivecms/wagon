@@ -164,12 +164,30 @@ module Locomotive
           end
         end
 
+        desc 'public_form', 'Generate a public form like a contact form'
+        def public_form
+          force_color_if_asked(options)
+
+          if path = check_path!
+            Locomotive::Wagon.generate :public_form, [path], self.options
+          end
+        end
+
         desc 'site_metafields', 'Generate the missing file to describe the site metafields'
         def site_metafields
           force_color_if_asked(options)
 
           if path = check_path!
             Locomotive::Wagon.generate :site_metafields, [path], self.options
+          end
+        end
+
+        desc 'webpack', 'Add Webpack to your v3.x Wagon site'
+        def webpack
+          force_color_if_asked(options)
+
+          if path = check_path!
+            Locomotive::Wagon.generate :webpack, [path], self.options
           end
         end
 

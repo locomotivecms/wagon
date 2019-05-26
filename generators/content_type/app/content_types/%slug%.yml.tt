@@ -25,6 +25,10 @@ order_by: manually
 # Array of emails to be notified of new entries made with the public API
 # public_submission_accounts: ['john@example.com']
 
+# we recommend to require Google Recaptcha when submitting the form
+# if the public submission attribute is enabled in order to prevent spams
+# recaptcha_required: true
+
 # Control the display of the content type in the back-office.
 # display_settings:
 #   seo: false              # display the SEO tab for the content entries

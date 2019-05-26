@@ -14,6 +14,7 @@
 #       hint: <my hint> # used as the hint of the HTML input. Use a hash if you want it in another languages.
 #       type: <string|text|integer|float|image|boolean|select|color>
 #       localized: <true|false> # if the value is scoped by the current locale when rendering the site.
+#       sample: <any value> # value only used in Wagon for testing purpose. Will not be deployed
 #       position: <0..n> # position of the input in the form
 #       select_options: [array]
 #       # select_options:
@@ -34,15 +35,19 @@
 #     address:
 #       type: string
 #       hint: "Ex: 7 allee Albert Camus"
+#       sample: "700 S Laflin St"
 #     city:
 #       type: string
 #       hint: "Chicago, Paris, Blagnac, Toulouse"
+#       sample: "Chicago"
 #     zip_code:
 #       type: string
 #       hint: "Digits only"
+#       sample: "60607"
 #     hours:
 #       type: text
 #       hint: "Free text here"
+#       sample: "6:00am - 8:00pm"
 # theme:
 #   fields:
 #     background_image:

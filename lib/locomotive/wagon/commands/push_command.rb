@@ -36,6 +36,14 @@ module Locomotive::Wagon
 
       api_client = build_api_site_client(connection_information)
 
+      return if api_client.nil?
+
+      # Ask for a confirmation (Warning) if we deploy with the -d option
+      # since it alters content on the remote engine
+      if options[:data]
+        return unless ask_for_performing("Warning! You're about to deploy data which will alter the content of your site.")
+      end
+
       if options[:verbose]
         PushLogger.new
         _push(api_client)
@@ -90,8 +98,13 @@ module Locomotive::Wagon
         # the deployment env exists and contains all the information we need to move on
         information
       else
+        # warn the user that we're going to create a new site. Ask her/him if we continue
+        return unless ask_for_performing('You are about to deploy a new site')
+
         # mandatory to sign in
         load_credentials_from_netrc
+
+        return if self.credentials.nil?
 
         # create the remote site on the platform
         site = create_remote_site
@@ -131,7 +144,9 @@ module Locomotive::Wagon
       # retrieve email + api_key. If no entry present in the .netrc, raise an error
       self.credentials = read_credentials_from_netrc(self.api_host)
 
-      raise 'You need to run `wagon auth` before going further' if self.credentials.nil?
+      if self.credentials.nil?
+        shell.say "Sorry, we were unable to find the credentials for this platform.\nPlease first login using the \"bundle exec wagon auth\"", :yellow
+      end
     end
 
     def ask_for_platform_url
@@ -155,7 +170,8 @@ module Locomotive::Wagon
       begin
         attributes = @api_site_client.current_site.get.attributes
       rescue Locomotive::Coal::UnknownResourceError
-        raise 'Sorry, we were unable to find your site on the remote platform. Check the information in your config/deploy.yml file.'
+        shell.say 'Sorry, we were unable to find your site on the remote platform. Check the information in your config/deploy.yml file.', :red
+        raise 'Unable to find your site on the remote platform'
       end
 
       _site         = Locomotive::Steam::Site.new(attributes)
@@ -166,6 +182,17 @@ module Locomotive::Wagon
       require 'haml'
       require 'bundler'
       Bundler.require 'misc'
+    end
+
+    def ask_for_performing(message)
+      shell.say(message, :yellow)
+
+      unless shell.yes?("Are you sure you want to perform this action? (answer yes or no)")
+        shell.say("Deployment abandonned!", :yellow)
+        return false
+      end
+
+      true
     end
 
     def print_result_message

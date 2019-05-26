@@ -11,6 +11,7 @@ module Locomotive::Wagon
 
     # Instance of the API client to request resources of a site: pages, theme_assets, ...etc.
     def api_site_client(connection)
+      return if connection.nil?
       return @api_site_client if @api_site_client
 
       _host, _credentials = connection['host'], connection.slice('email', 'api_key', 'password')

@@ -1,0 +1,53 @@
+# Human readable name of this type
+name: <%= config[:name] %>
+
+# Lowercase, underscored handle used to access this type
+slug: <%= config[:slug] %>
+
+# Explanatory text displayed in the back-office
+description: Public form
+
+# Slug of field used to identify entries by default, such as the title
+label_field_name: 'email'
+
+# Valid values: manually, created_at, updated_at, or the slug of any field
+order_by: created_at
+
+# Valid values: asc (ascending) and desc (descending). Set to asc by default.
+order_direction: desc
+
+# Activate public 'create' API (e.g for a contact form)
+public_submission_enabled: true
+
+# Array of emails to be notified of new entries made with the public API
+# public_submission_accounts: ['john@example.com']
+
+# Prevent spams thanks to Google Recaptcha
+recaptcha_required: true
+
+# Control the display of the content type in the back-office.
+display_settings:
+  seo: false              # display the SEO tab for the content entries
+  advanced: false         # display the Advanced tab for the content entries
+#  position: 1             # position in the sidebar menu
+#  hidden: false           # hidden for authors?
+
+# By default, the back-office displays the _label property (see label_field_name) of the content entry. This can be modified by writing your own Liquid template below:
+# entry_template: '<a href="{{ link }}">{{ entry._label }}</a>' # The default template
+
+# A list describing each field
+fields:
+- name:
+    label: Name
+    type: string
+    required: true
+
+- email:
+    label: Email
+    type: email
+    required: true
+
+- message:
+    label: Message
+    type: text
+    required: true

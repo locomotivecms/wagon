@@ -16,7 +16,7 @@ module Locomotive
           public_submission_enabled
           public_submission_accounts
           public_submission_title_template
-          entry_template display_settings filter_fields)
+          recaptcha_required entry_template display_settings filter_fields)
       end
 
       def fields
@@ -72,6 +72,10 @@ module Locomotive
 
       def tree_parent_field_name
         self[:tree_parent_field_name]
+      end
+
+      def recaptcha_required
+        self[:recaptcha_required]
       end
 
       def with_relationships?
