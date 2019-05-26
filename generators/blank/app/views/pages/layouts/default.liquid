@@ -13,9 +13,6 @@ is_layout: false
     {{ 'bundle.css' | stylesheet_tag }}
     {{ 'bundle.js' | javascript_tag }}
 
-    {% if wagon %}
-      <script src="http://localhost:35729/livereload.js"></script>
-    {% endif %}
   </head>
   <body>
     <h1>{{ page.title }}</h1>
