@@ -40,7 +40,7 @@ module Locomotive::Wagon
 
       # Ask for a confirmation (Warning) if we deploy with the -d option
       # since it alters content on the remote engine
-      if options[:data] && self.env != 'development'
+      if options[:data] && self.env == 'production'
         return unless ask_for_performing("Warning! You're about to deploy data which will alter the content of your site.")
       end
 
