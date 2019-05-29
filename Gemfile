@@ -13,7 +13,7 @@ gem 'rb-fsevent', '~> 0.9.1'
 
 # Local development
 # gem 'locomotivecms_coal', path: '../coal', require: false
-# gem 'locomotivecms_steam', path: '../steam', require: false
+gem 'locomotivecms_steam', path: '../steam', require: false
 # gem 'locomotivecms_common', path: '../common', require: false
 
 group :development, :test do

@@ -1,5 +1,5 @@
 {
-  "name": "Wagon assets",
+  "name": "WagonAssets",
   "version": "1.0.0",
   "description": "Assets source for the Wagon site",
   "main": "index.js",

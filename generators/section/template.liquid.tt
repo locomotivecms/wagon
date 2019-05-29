@@ -82,7 +82,7 @@
 ---
 {% comment %}
 Above is the JSON definition of your section filled with random settings and blocks.
-The setting's type can be one of the following values : checkbox, image_picker, index, radio, tezt, select, url.
+The setting's type can be one of the following values: checkbox, image_picker, index, radio, text, select, url.
 Modify it to match your needs. Please visit: https://doc.locomotivecms.com/v4.0/docs/json-definition.
 
 <% if config[:global] -%>
