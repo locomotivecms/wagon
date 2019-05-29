@@ -1,5 +1,4 @@
 // === Wagon main javascript file ===
-// import script from 'script-loader!./script.js';
 
 // Tell Webpack to load the style
 import '../stylesheets/app.scss';
