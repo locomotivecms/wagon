@@ -61,7 +61,7 @@ module Locomotive
     class UpdateSiteDecorator < SiteDecorator
 
       def __attributes__
-        %i(picture locales metafields_schema metafields metafields_ui asset_host sections_content routes)
+        %i(picture timezone locales metafields_schema metafields metafields_ui asset_host sections_content routes)
       end
 
     end

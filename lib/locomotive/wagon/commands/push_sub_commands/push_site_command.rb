@@ -18,6 +18,9 @@ module Locomotive::Wagon
       # push the picture only if there is no existing remote picture
       _attributes.delete(:picture) if remote_site['picture_url'].present?
 
+      # timezone can be pushed with the -d option
+      _attributes.delete(:timezone) unless with_data?
+
       # push the locales as long as there is no content on the remote site yet
       _attributes.delete(:locales) if remote_site.edited?
 
