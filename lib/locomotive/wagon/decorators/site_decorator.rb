@@ -42,7 +42,7 @@ module Locomotive
         end
       end
 
-      %i(robots_txt timezone seo_title meta_keywords meta_description asset_host sections_content routes).each do |name|
+      %i(robots_txt timezone seo_title meta_keywords meta_description asset_host routes).each do |name|
         define_method(name) do
           self[name]
         end
