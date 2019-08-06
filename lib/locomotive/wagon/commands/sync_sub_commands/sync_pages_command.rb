@@ -47,10 +47,12 @@ module Locomotive::Wagon
     private
 
     def sections_content(page)
+      return {} if page.sections_content.blank?
       JSON.parse(page.sections_content)
     end
 
     def sections_dropzone_content(page)
+      return [] if page.sections_dropzone_content.blank?
       JSON.parse(page.sections_dropzone_content)
     end
 
