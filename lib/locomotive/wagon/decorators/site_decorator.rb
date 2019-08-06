@@ -26,7 +26,7 @@ module Locomotive
       end
 
       def sections_content
-        replace_with_content_assets!(super&.to_json)
+        replace_with_content_assets!(self[:sections_content]&.to_json)
       end
 
       def routes
