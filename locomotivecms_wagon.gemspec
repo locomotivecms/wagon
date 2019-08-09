@@ -21,7 +21,7 @@ Gem::Specification.new do |gem|
 
   gem.add_development_dependency 'rake',      '~> 10.0.4'
 
-  gem.add_dependency 'thor',                  '~> 0.19.4'
+  gem.add_dependency 'thor',                  '~> 0.20.3'
   gem.add_dependency 'puma',                  '~> 3.12.1'
   gem.add_dependency 'netrc',                 '~> 0.11.0'
   gem.add_dependency 'oj',                    '~> 3.7.11'

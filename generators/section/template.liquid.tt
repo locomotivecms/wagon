@@ -1,87 +1,94 @@
 ---
-{
-  "name": "<%= config[:name] %>",
-  "class": "my-css-classname",
-  "icon": "<%= config[:icon] || 'image_text' %>",
-  <% if config[:global] -%>"keep_icon": true,<% end %>
-  "settings": [
-    {
-      "label": "My awesome title",
-      "id": "title",
-      "type": "text"
-    }
-  ],
-  "blocks": [
-    {
-      "name": "List item",
-      "type": "list_item",
-      "settings": [
-        {
-          "label": "Item title",
-          "id": "title",
-          "type": "text"
-        }
-      ]
-    }
-  ]<% if config[:global] -%>,
-  "global_content": {
-    "settings": {
-      "title": "Hello world"
-    },
-    "blocks": [
-      {
-        "type": "list_item",
-        "settings": {
-          "title": "Item #1"
-        }
-      },
-      {
-        "type": "list_item",
-        "settings": {
-          "title": "Item #2"
-        }
-      },
-      {
-        "type": "list_item",
-        "settings": {
-          "title": "Item #3"
-        }
-      }
-    ]
-  }<% else -%>,
-  "dropzone_presets": [
-    {
-      "name": "<%= config[:name] %>",
-      "category": "Category 1",
-      "settings": {
-        "title": "Hello world"
-      },
-      "blocks": [
-        {
-          "type": "list_item",
-          "settings": {
-            "title": "Item #1"
-          }
-        },
-        {
-          "type": "list_item",
-          "settings": {
-            "title": "Item #2"
-          }
-        },
-        {
-          "type": "list_item",
-          "settings": {
-            "title": "Item #3"
-          }
-        }
-      ]
-    }
-  ]<% end %>
-}
+# Name of the section displayed in the editor UI
+# (only if keep_name is set to true)
+name: <%= config[:name] %>
+
+# By default, the first text type setting will be used as
+# the name of the section in the editor UI.
+# To keep the name of the section instead, uncomment the following line.
+# keep_name: true
+
+# Icon of the section in the editor UI
+# Values: <%= config[:all_icons].join(', ') %>
+icon: <%= config[:icon] || 'image_text' %>
+
+# By default, the first image_picker type setting will be used
+# as the icon of the section in the editor UI.
+# To keep the icon of the section instead, uncomment the following line.
+# keep_icon: true
+
+# CSS class of the main DIV of the section
+# class: "my-css-classname"
+
+# Definition of the settings:
+settings:
+- label: "My awesome title"
+  id: title
+  type: text
+  <% if config[:global] -%>default: "Hello world"<% end %>
+- label: "An image"
+  id: image
+  type: image_picker
+  <% if config[:global] -%>default: "/samples/images/default.png"<% end %>
+
+# Definition of the blocks.
+# You can define as many types of blocks you want.
+blocks:
+- name: List item
+  type: list_item
+  settings:
+  - label: "Item title"
+    id: title
+    type: text
+    default: "my title"
+  - label: "Item image"
+    id: image
+    type: image_picker
+    default: "/samples/images/default.png"
+
+# By default, in the editor UI, blocks will be listed below the "Content" title.
+# The title can be changed with the following property:
+# blocks_label: "My list of items"
+
+<% if config[:global] -%>
+# Content of the global section. This content will be used in all the pages
+# referencing this section.
+default:
+  settings:
+    title: "Hello world"
+    image: "/samples/images/default.png"
+  blocks:
+  - type: list_item
+    settings:
+      title: "Item #1"
+      image: "/samples/images/default.png"
+  - type: list_item
+    settings:
+      title: "Item #2"
+      image: "/samples/images/default.png"
+  - type: list_item
+    settings:
+      title: "Item #3"
+      image: "/samples/images/default.png"
+<% else -%>
+# Presets can be seen as different versions of a same section.
+# Useless if the section is not aimed tobe used along with section_dropzone liquid tag
+presets:
+  name: "<%= config[:name] %>"
+  category: "Category"
+  settings:
+    title: "Hello world"
+  blocks:
+  - type: list_item
+    settings:
+      title: "Item #1"
+  - type: list_item
+    settings:
+      title: "Item #2"
+<% end %>
 ---
 {% comment %}
-Above is the JSON definition of your section filled with random settings and blocks.
+Above is the YAML definition of your section filled with random settings and blocks.
 The setting's type can be one of the following values: checkbox, image_picker, index, radio, text, select, url.
 Modify it to match your needs. Please visit: https://doc.locomotivecms.com/v4.0/docs/json-definition.
 
@@ -91,7 +98,7 @@ To use your global section, just add the following code in your layout template:
   {% global_section <%= config[:type] %> %}
 
 <% else -%>
-To use your section, 2 possibilites:
+To use your section, 2 possibilities:
 
 1. within a dropzone
 
@@ -103,35 +110,20 @@ If you want to test this section in your Wagon site, add the following
 lines in the YAML section of any page including the {% sections_dropzone %}
 (or inheriting from a layout including it):
 
-sections_dropzone_content: >
-  [
-    {
-      "type": "<%= config[:type] %>",
-      "settings": {
-        "title": "My awesome section"
-      },
-      "blocks": [
-        {
-          "type": "list_item",
-          "settings": {
-            "title": "Item #1"
-          }
-        },
-        {
-          "type": "list_item",
-          "settings": {
-            "title": "Item #2"
-          }
-        },
-        {
-          "type": "list_item",
-          "settings": {
-            "title": "Item #3"
-          }
-        }
-      ]
-    }
-  ]
+sections_dropzone_content:
+- type: "<%= config[:type] %>"
+  settings:
+    title: "My awesome section"
+  blocks:
+  - type: list_item
+    settings:
+      title: "Item #1"
+  - type: list_item
+    settings:
+      title: "Item #2"
+  - type: list_item
+    settings:
+      title: "Item #3"
 
 2. as stand-alone section
 
@@ -140,34 +132,20 @@ sections_dropzone_content: >
 If you want to test this section in your Wagon site, add the following
 lines in the YAML section of the page including the statement above or complete it.
 
-sections_content: >
-  {
-    "<%= config[:type] %>": {
-      "settings": {
-        "title": "My awesome <%= config[:type].humanize %> section"
-      },
-      "blocks": [
-        {
-          "type": "list_item",
-          "settings": {
-            "title": "Item #1"
-          }
-        },
-        {
-          "type": "list_item",
-          "settings": {
-            "title": "Item #2"
-          }
-        },
-        {
-          "type": "list_item",
-          "settings": {
-            "title": "Item #3"
-          }
-        }
-      ]
-    }
-  }
+sections_content:
+  <%= config[:type] %>:
+    settings:
+      title: "My awesome <%= config[:type].humanize %> section"
+    blocks:
+    - type: "list_item"
+      settings:
+        title: "Item #1"
+    - type: "list_item"
+      settings:
+        title: "Item #2"
+    - type: "list_item"
+      settings:
+        title: "Item #3"
 
 <% end -%>
 {% endcomment %}

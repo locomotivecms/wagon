@@ -25,9 +25,7 @@ module Locomotive
           def comment_gemfile
             return unless skip_bundle?
 
-            gsub_file File.join(self.destination, 'Gemfile'), /^(.*)$/ do |match|
-              "# #{match}"
-            end
+            remove_file File.join(self.destination, 'Gemfile')
           end
 
           def self.source_root
