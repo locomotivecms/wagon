@@ -14,9 +14,3 @@ group :development do
   # Windows
   gem 'wdm', '~> 0.1.1', require: 'wdm' if RUBY_PLATFORM =~ /mswin|mingw/i
 end
-
-group :misc do
-  # Add your extra gems here
-  # gem 'susy', require: 'susy'
-  # gem 'bourbon', require: 'bourbon'
-end

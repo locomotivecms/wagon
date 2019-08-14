@@ -232,15 +232,14 @@ module Locomotive
         end
 
         desc 'init NAME [PATH] [GENERATOR_OPTIONS]', 'Create a brand new site'
-        method_option :template,    aliases: '-t', type: 'string', default: 'blank', desc: 'instead of building from a blank site, you can also have a pre-fetched site from a template (see the templates command)'
         method_option :lib,         aliases: '-l', type: 'string', desc: 'Path to an external ruby lib or generator'
-        method_option :skip_bundle, type: 'boolean', default: false, desc: "Don't run bundle install"
+        method_option :skip_bundle, type: 'boolean', default: true, desc: "Don't run bundle install"
         method_option :verbose,     aliases: '-v', type: 'boolean', default: false, desc: 'display the full error stack trace if an error occurs'
         def init(name, path = '.', *generator_options)
           force_color_if_asked(options)
           require 'locomotive/wagon/generators/site'
           require File.expand_path(options[:lib]) if options[:lib]
-          generator = Locomotive::Wagon::Generators::Site.get(options[:template])
+          generator = Locomotive::Wagon::Generators::Site.get(:blank)
           if generator.nil?
             say "Unknown site template '#{options[:template]}'", :red
             exit(1)
@@ -340,6 +339,7 @@ module Locomotive
         option :resources, aliases: '-r', type: 'array', default: nil, desc: 'Only push the resource(s) passed in argument'
         option :filter, aliases: '-f', type: 'array', default: nil, desc: 'Push specific resource entries'
         option :data, aliases: '-d', type: 'boolean', default: false, desc: 'Push the content entries and the editable elements (by default, they are not)'
+        option :env, aliases: '-e', type: 'string', default: 'local', desc: 'The env used to the data of the pages and content entries'
         option :shell, type: 'boolean', default: true, desc: 'Use shell to ask for missing connection information like the site handle (in this case, take a random one)'
         option :verbose, aliases: '-v', type: 'boolean', default: false, desc: 'display the full error stack trace if an error occurs'
         def deploy(env, path = '.')
@@ -416,26 +416,16 @@ module Locomotive
         #
         def print_next_instructions_when_site_created(name, path, skip_bundle)
           say "\nCongratulations, your site \"#{name}\" has been created successfully !", :green
-          say 'Next steps:', :bold
-
-          next_instructions = <<-BASH
-  cd #{path}/#{name}
-
-  #{'bundle install' unless skip_bundle}
-  #{'bundle exec' unless skip_bundle} wagon serve
-
-  # In a another terminal
-  yarn
-  yarn start
-
-  open http://0.0.0.0:3333
-BASH
-
-          # next_instructions = "\tcd #{path}/#{name}\n\t"
-          # next_instructions += "bundle install\n\t" unless skip_bundle
-          # next_instructions += "#{'bundle exec ' unless skip_bundle}wagon serve\n\topen http://0.0.0.0:3333"
-
-          say next_instructions
+          say "\nNext steps:\n", :bold
+          say "\n# Run the local web server", :on_blue
+          say "\n\tcd #{path}/#{name}"
+          say "\tbundle install" unless skip_bundle
+          say "\t#{'bundle exec ' unless skip_bundle}wagon serve"
+          say "\n# Compile assets (in a another terminal)", :on_blue
+          say "\n\tyarn"
+          say "\tyarn start"
+          say "\n# Preview your site!", :on_blue
+          say "\n\topen http://0.0.0.0:3333\n\n", :bold
         end
 
         # Print the exception.

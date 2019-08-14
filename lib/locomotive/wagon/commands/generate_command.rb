@@ -7,7 +7,12 @@ module Locomotive::Wagon
     end
 
     def generate
-      Bundler.require 'misc'
+      begin
+        ::Bundler.require 'misc'
+      rescue Exception => e
+        # Bundler is not defined or there is an issue
+        # with one of the gems in the misc group
+      end
 
       generator = generator_klass.new(args, options, { behavior: :skip })
       generator.destination_root = args.last

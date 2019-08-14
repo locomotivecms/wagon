@@ -26,7 +26,7 @@ module Locomotive
       end
 
       def sections_content
-        replace_with_content_assets!(super&.to_json)
+        replace_with_content_assets!(self[:sections_content]&.to_json)
       end
 
       def routes
@@ -42,7 +42,7 @@ module Locomotive
         end
       end
 
-      %i(robots_txt timezone seo_title meta_keywords meta_description asset_host sections_content routes).each do |name|
+      %i(robots_txt timezone seo_title meta_keywords meta_description asset_host routes).each do |name|
         define_method(name) do
           self[name]
         end
@@ -61,7 +61,7 @@ module Locomotive
     class UpdateSiteDecorator < SiteDecorator
 
       def __attributes__
-        %i(picture locales metafields_schema metafields metafields_ui asset_host sections_content routes)
+        %i(picture timezone locales metafields_schema metafields metafields_ui asset_host sections_content routes)
       end
 
     end

@@ -1,5 +1,5 @@
 {
-  "name": "<%= config[:name] %>",
+  "name": "<%= config[:name].camelcase %>",
   "version": "1.0.0",
   "description": "Assets source for the <%= config[:name] %> website",
   "main": "index.js",

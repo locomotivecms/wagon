@@ -25,7 +25,7 @@ module Locomotive
 
         def is_global?
           if self.global.blank?
-            self.global = yes?('Is this section aimed to be used as global?')
+            self.global = yes?('Is this section aimed to be used as global (same content for all the pages)?')
           end
         end
 
@@ -38,7 +38,7 @@ module Locomotive
 
         def create_section
           _slug   = slug.clone.downcase.gsub(/[-]/, '_')
-          options = { name: _slug.humanize, type: _slug, global: self.global, icon: self.icon }
+          options = { name: _slug.humanize, type: _slug, global: self.global, icon: self.icon, all_icons: ICON_LIST }
 
           # create the liquid file
           file_path = File.join(sections_path, _slug)
