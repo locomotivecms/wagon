@@ -74,7 +74,7 @@ default:
 # Presets can be seen as different versions of a same section.
 # Useless if the section is not aimed tobe used along with section_dropzone liquid tag
 presets:
-  name: "<%= config[:name] %>"
+- name: "<%= config[:name] %>"
   category: "Category"
   settings:
     title: "Hello world"
