@@ -188,7 +188,7 @@ module Locomotive::Wagon
       shell.say(message, :yellow)
 
       unless shell.yes?("Are you sure you want to perform this action? (answer yes or no)")
-        shell.say("Deployment abandonned!", :yellow)
+        shell.say("Deployment canceled!", :yellow)
         return false
       end
 
