@@ -17,9 +17,6 @@ icon: <%= config[:icon] || 'image_text' %>
 # To keep the icon of the section instead, uncomment the following line.
 # keep_icon: true
 
-# CSS class of the main DIV of the section
-# class: "my-css-classname"
-
 # Definition of the settings:
 settings:
 - label: "My awesome title"
@@ -74,17 +71,17 @@ default:
 # Presets can be seen as different versions of a same section.
 # Useless if the section is not aimed tobe used along with section_dropzone liquid tag
 presets:
-  name: "<%= config[:name] %>"
-  category: "Category"
-  settings:
-    title: "Hello world"
-  blocks:
-  - type: list_item
+  - name: "<%= config[:name] %>"
+    category: "Category"
     settings:
-      title: "Item #1"
-  - type: list_item
-    settings:
-      title: "Item #2"
+      title: "Hello world"
+    blocks:
+    - type: list_item
+      settings:
+        title: "Item #1"
+    - type: list_item
+      settings:
+        title: "Item #2"
 <% end %>
 ---
 {% comment %}
@@ -149,7 +146,7 @@ sections_content:
 
 <% end -%>
 {% endcomment %}
-<div>
+<div id="{{ section.anchor_id }}" class="<%= config[:type].dasherize %>-section" {{ section.locomotive_attributes }}>
   <h2>{{ section.settings.title }}</h2>
   <ul>
     {% for block in section.blocks %}

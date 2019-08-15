@@ -22,7 +22,7 @@ module Locomotive
             copy_sources_from_generator
           end
 
-          def comment_gemfile
+          def remove_gemfile
             return unless skip_bundle?
 
             remove_file File.join(self.destination, 'Gemfile')

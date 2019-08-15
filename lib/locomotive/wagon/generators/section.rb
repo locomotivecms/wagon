@@ -29,7 +29,7 @@ module Locomotive
           end
         end
 
-        def wich_icon?
+        def which_icon?
           if self.icon.blank?
             question = 'Which icon should be displayed in the editor UI?'
             self.icon = ask(question, limited_to: ICON_LIST)

@@ -40,7 +40,8 @@ class Manager {
 
   applyRuleToEvent(actionName, event) {
     const { sectionId, blockId } = event.detail;
-    const section   = document.getElementById(`locomotive-section-${sectionId}`);
+    const section   = document.getElementById(`locomotive-section-${sectionId}`) ||
+                      this.queryOne(`[data-locomotive-section-id="${sectionId}"]`);
     const type      = section.getAttribute('data-locomotive-section-type');
     const block     = this.queryOne(`[data-locomotive-block="section-${sectionId}-block-${blockId}"]`, section);
 
