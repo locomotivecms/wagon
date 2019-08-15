@@ -26,7 +26,7 @@ settings:
 - label: "An image"
   id: image
   type: image_picker
-  <% if config[:global] -%>default: "/samples/images/default.png"<% end %>
+  <% if config[:global] -%>default: "/samples/images/default.svg"<% end %>
 
 # Definition of the blocks.
 # You can define as many types of blocks you want.
@@ -41,7 +41,7 @@ blocks:
   - label: "Item image"
     id: image
     type: image_picker
-    default: "/samples/images/default.png"
+    default: "/samples/images/default.svg"
 
 # By default, in the editor UI, blocks will be listed below the "Content" title.
 # The title can be changed with the following property:
