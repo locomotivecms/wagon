@@ -126,8 +126,12 @@ module Locomotive::Wagon
 
       template_path = entity.template_path[default_locale]
 
+      # no template path (use case: deploying new pages from a different env)
+      return true if template_path.nil?
+
       # not localized?
       return true if template_path == false
+
 
       # part of the filter?
       _path = template_path.gsub('./app/views/pages/', '')
