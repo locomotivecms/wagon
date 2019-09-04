@@ -1,12 +1,18 @@
 module Locomotive
   module Wagon
 
-    class SiteDecorator < SimpleDelegator
+    class SiteDecorator < Locomotive::Steam::Decorators::I18nDecorator
 
       include ToHashConcern
       include PersistAssetsConcern
 
-      attr_accessor :__content_assets_pusher__
+      attr_accessor :__base_path__, :__content_assets_pusher__
+
+      def initialize(object, locale = nil, base_path = nil, content_assets_pusher = nil)
+        self.__base_path__ = base_path
+        self.__content_assets_pusher__ = content_assets_pusher
+        super(object, locale || object.default_locale, nil)
+      end
 
       def domains
         (__getobj__.domains || []) - ['localhost']
@@ -26,7 +32,7 @@ module Locomotive
       end
 
       def sections_content
-        replace_with_content_assets!(self[:sections_content]&.to_json)
+        replace_with_content_assets!(super&.to_json)
       end
 
       def routes
@@ -51,6 +57,10 @@ module Locomotive
       def __attributes__
         %i(name handle robots_txt locales timezone seo_title meta_keywords meta_description picture metafields_schema metafields metafields_ui asset_host sections_content routes)
       end
+
+    end
+
+    class RemoteSiteDecorator < SimpleDelegator
 
       def edited?
         (self[:content_version].try(:to_i) || 0) > 0

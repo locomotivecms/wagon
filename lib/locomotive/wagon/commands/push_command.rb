@@ -175,7 +175,7 @@ module Locomotive::Wagon
       end
 
       _site         = Locomotive::Steam::Site.new(attributes)
-      @remote_site  = SiteDecorator.new(_site)
+      @remote_site  = RemoteSiteDecorator.new(_site)
     end
 
     def require_misc_gems
