@@ -2,6 +2,7 @@
 tests
 .sass-cache
 .rbenv-gemsets
+.ruby-version
 /site
 *.gem
 *.rbc
