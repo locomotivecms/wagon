@@ -1,9 +1,18 @@
 source 'https://rubygems.org'
 
-# Specify your gem's dependencies in wagon.gemspec
+# Specify your gem's dependencies in locomotivecms_wagon.gemspec
 gemspec
 
-gem 'rb-fsevent', '~> 0.9.1'
+# Mac OS X
+gem 'rb-fsevent', '~> 0.10.3', require: 'rb-fsevent' if RUBY_PLATFORM.include?('darwin')
+
+# Unix
+gem 'therubyracer', require: 'v8', platforms: :ruby unless RUBY_PLATFORM.include?('darwin')
+
+gem 'rb-inotify', '~> 0.10.0', require: 'rb-inotify' if RUBY_PLATFORM.include?('linux')
+
+# Windows
+gem 'wdm', '~> 0.1.1', require: 'wdm' if RUBY_PLATFORM =~ /mswin|mingw/i
 
 # Development
 # gem 'locomotivecms_common', github: 'locomotivecms/common', ref: '4d1bd56' , require: false

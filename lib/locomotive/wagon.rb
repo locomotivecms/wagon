@@ -22,7 +22,7 @@ module Locomotive
     # Create a site from a site generator.
     #
     # @param [ Object ] generator The wrapping class of the generator itself
-    # @param [ Array ] args [name of the site, destination path of the site, skip bundle flag]
+    # @param [ Array ] args [name of the site, destination path of the site]
     # @param [ Hash ] options General options (ex: --force-color)
     #
     def self.init(generator_klass, args, options = {})
@@ -119,6 +119,20 @@ module Locomotive
     def self.delete(env, path, resource, slug, shell)
       require_relative 'wagon/commands/delete_command'
       Locomotive::Wagon::DeleteCommand.delete(env, path, resource, slug, shell)
+    end
+
+    def self.require_misc_gems      
+      return if ENV['WAGON_GEMFILE'].nil?
+
+      # at this point, we are sure that in a bundle exec contact
+      begin
+        require 'bundler'
+        ::Bundler.require(:misc)        
+      rescue Exception => e
+        puts "Warning: cant' require the Gemfile misc group, reason: #{e.message}"
+        # Bundler is not defined or there is an issue
+        # with one of the gems in the misc group
+      end
     end
 
   end

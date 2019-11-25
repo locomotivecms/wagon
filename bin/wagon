@@ -1,12 +1,45 @@
 #!/usr/bin/env ruby
 
-# needed if you launch it without bundler
-$:.unshift(File.expand_path(File.dirname(__FILE__) + '/../lib'))
-$:.unshift(File.expand_path(File.dirname(__FILE__) + '/../vendor'))
+if ENV["BUNDLE_BIN_PATH"]
+  # Wagon is launched within the Bundler context (basically with bundle exec wagon), 
+  # do nothing since Bundler already took take care of loading the right gems.
+  ENV['WAGON_GEMFILE'] = '1'
+elsif ENV['WAGON_GEMFILE']
+  # For LocomotiveCMS developers who want to run a local version of Wagon
+  # with gems like Steam, Coal and Common pointing to the local sources
+  puts "!!!WARNING!!! Using Wagon described in the following Gemfile: #{ENV['WAGON_GEMFILE']}"
+
+  ENV['BUNDLE_GEMFILE'] ||= ENV['WAGON_GEMFILE']
+  
+  require 'bundler'
+  Bundler.require
+else
+  # Almost of all the users will rely on the gems described in 
+  # the gemspec of the current Wagon version.
+  require 'bundler/inline'
+
+  gemfile do
+    source 'https://rubygems.org'
+
+    gemspec path: File.dirname(__FILE__) + '/..'
+
+    # Mac OS X
+    gem 'rb-fsevent', '~> 0.10.3', require: 'rb-fsevent' if RUBY_PLATFORM.include?('darwin')
+
+    # Unix
+    gem 'therubyracer', require: 'v8', platforms: :ruby unless RUBY_PLATFORM.include?('darwin')
+
+    gem 'rb-inotify', '~> 0.10.0', require: 'rb-inotify' if RUBY_PLATFORM.include?('linux')
+
+    # Windows
+    gem 'wdm', '~> 0.1.1', require: 'wdm' if RUBY_PLATFORM =~ /mswin|mingw/i
+  end
+end
 
 $stdout.sync = true
 
 require 'locomotive/wagon'
 require 'locomotive/wagon/cli'
 
+# Let the magin happens
 Locomotive::Wagon::CLI::Main.start
