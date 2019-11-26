@@ -23,7 +23,7 @@ module Locomotive
           end
 
           def remove_gemfile
-            return unless skip_bundle?
+            return if skip_bundle?
 
             remove_file File.join(self.destination, 'Gemfile')
           end

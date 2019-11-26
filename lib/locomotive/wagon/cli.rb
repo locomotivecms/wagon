@@ -148,19 +148,22 @@ module Locomotive
           end
         end
 
-        desc 'section SLUG', 'Create a section'
+        desc 'section SLUG SETTINGS', 'Create a section'
         long_desc <<-LONGDESC
           Create a section. The generator will ask if the section is global or not.
 
           Example:
 
             * wagon generate section hero
+            * wagon generate section carousel -i slide title:text block:slide:title:text block:slide:image:image_picker
         LONGDESC
-        def section(slug)
+        method_option :global,    aliases: '-g', type: 'boolean',   default: nil, desc: 'tell if the section is global'
+        method_option :icon,      aliases: '-i', type: 'string',    default: nil, desc: 'icon displayed the back-office'
+        def section(slug, *settings)
           force_color_if_asked(options)
 
           if path = check_path!
-            Locomotive::Wagon.generate :section, [slug, '', '', path], self.options
+            Locomotive::Wagon.generate :section, [slug, settings, path], self.options
           end
         end
 
