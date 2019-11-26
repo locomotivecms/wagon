@@ -118,7 +118,11 @@ export { default as #{js_class_name} } from './#{@options[:type]}';
             next unless raw_setting.starts_with?('block:') # block setting
             _, block_type, id, type = raw_setting.split(':')
             BlockSetting.new(block_type, id, type)
-          end.compact.presence || default_block_settings
+          end.compact.presence || []
+
+          if settings.blank?
+            _settings = default_block_settings
+          end
 
           # group them by block types
           _settings.group_by { |setting| setting.block_type }

@@ -41,7 +41,8 @@ settings:
 <%- end -%>
 # Definition of the blocks.
 # You can define as many types of blocks as you want.
-blocks:
+blocks: <%- if config[:blocks].blank? -%>[]
+<% end %>
 <%- config[:blocks].each do |(type, settings)| -%>
 - name: "<%= type.humanize %>"
   type: <%= type %>
@@ -82,7 +83,8 @@ presets:
       <%- next unless setting.has_value? -%>
       <%= setting.id %>: <%= setting.default %>
       <%- end -%>
-    blocks:
+    blocks: <%- if config[:blocks].blank? -%>[]
+<% end %>
     <%- 3.times do -%>
     <%- config[:blocks].each do |(type, settings)| -%>
     - type: <%= type %>
@@ -123,7 +125,8 @@ sections_dropzone_content:
     <%- next unless setting.has_value? -%>
     <%= setting.id %>: <%= setting.default %>
     <%- end -%>
-  blocks:
+  blocks: <%- if config[:blocks].blank? -%>[]
+<% end %>
   <%- 3.times do -%>
   <%- config[:blocks].each do |(type, settings)| -%>
   - type: <%= type %>
@@ -149,7 +152,8 @@ sections_content:
       <%- next unless setting.has_value? -%>
       <%= setting.id %>: <%= setting.default %>
       <%- end -%>
-    blocks:
+    blocks: <%- if config[:blocks].blank? -%>[]
+<% end %>
     <%- 3.times do -%>
     <%- config[:blocks].each do |(type, settings)| -%>
     - type: <%= type %>
@@ -183,6 +187,7 @@ sections_content:
   <%- end -%>
   <%- end -%>
 
+  <% unless config[:blocks].blank? -%>
   <hr/>
 
   <h3>Blocks</h3>
@@ -208,4 +213,5 @@ sections_content:
     </li>
     {% endfor %}
   </ul>
+  <% end %>
 </div>
