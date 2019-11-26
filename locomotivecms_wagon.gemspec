@@ -8,12 +8,15 @@ Gem::Specification.new do |gem|
   gem.version       = Locomotive::Wagon::VERSION
   gem.authors       = ['Didier Lafforgue', 'Rodrigo Alvarez']
   gem.email         = ['did@locomotivecms.com', 'papipo@gmail.com']
-  gem.description   = %q{The LocomotiveCMS wagon is a site generator for the LocomotiveCMS engine}
-  gem.summary       = %q{The LocomotiveCMS wagon is a site generator for the LocomotiveCMS engine powered by all the efficient and modern HTML development tools (SASS, Webpack, ...etc).}
-  gem.homepage      = 'http://www.locomotivecms.com'
+  gem.description   = %q{Wagon is a site generator for the LocomotiveCMS engine}
+  gem.summary       = %q{Wagon is a site generator for the LocomotiveCMS engine powered by all the efficient and modern HTML development tools (SASS, Webpack, ...etc).}
+  gem.homepage      = 'https://www.locomotivecms.com'
   gem.license       = 'MIT'
 
-  gem.files         = `git ls-files`.split($/)
+  gem.files         = Dir['bin/*'] + 
+                      Dir.glob('generators/**/*', File::FNM_DOTMATCH) +
+                      Dir['lib/**/*.rb'] +                                           
+                      %w(locomotivecms_wagon.gemspec MIT-LICENSE README.md)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.require_paths = ['lib']
