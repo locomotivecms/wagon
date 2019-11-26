@@ -22,7 +22,7 @@ gem 'wdm', '~> 0.1.1', require: 'wdm' if RUBY_PLATFORM =~ /mswin|mingw/i
 
 # Local development
 # gem 'locomotivecms_coal', path: '../coal', require: false
-gem 'locomotivecms_steam', path: '../steam', require: false
+# gem 'locomotivecms_steam', path: '../steam', require: false
 # gem 'locomotivecms_common', path: '../common', require: false
 
 group :development, :test do
