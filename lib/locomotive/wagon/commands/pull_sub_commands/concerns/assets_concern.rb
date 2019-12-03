@@ -69,9 +69,6 @@ module Locomotive::Wagon
       if binary = get_asset_binary(url)
         FileUtils.mkdir_p(File.dirname(filepath))
 
-        # Tempfiles are in ascii-mode per default on linux. Therefore
-        # we need to switch to binmode.
-        puts "Write file with patched version of #{__FILE__}: #{filepath}"
         (binary_file = Tempfile.new(File.basename(filepath)).binmode).write(binary)
 
         find_unique_filepath(filepath, binary_file).tap do |filepath|
