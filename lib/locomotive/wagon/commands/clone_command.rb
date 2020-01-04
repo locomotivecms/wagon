@@ -26,7 +26,7 @@ module Locomotive::Wagon
     def create_site
       require 'locomotive/wagon/generators/site'
       generator = Locomotive::Wagon::Generators::Site::Cloned
-      generator.start [name, path, 'true', connection_info]
+      generator.start [name, path, connection_info]
     end
 
     def pull_site

@@ -13,14 +13,6 @@ module Locomotive
             copy_sources_from_generator(generator_name: 'cloned', options: self.connection_info)
           end
 
-          def bundle_install
-            super
-          end
-
-          def comment_gemfile
-            false
-          end
-
         end
       end
     end

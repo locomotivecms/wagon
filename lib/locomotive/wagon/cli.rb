@@ -414,16 +414,19 @@ module Locomotive
         #
         # @param [ String ] name The name of the site
         # @param [ String ] path The path of the local site
+        # @param [ Boolean ] assets True (default) if we want to display the instructions about Webpack
         #
-        def print_next_instructions_when_site_created(name, path)
+        def print_next_instructions_when_site_created(name, path, assets = true)
           say "\nCongratulations, your site \"#{name}\" has been created successfully !", :green
           say "\nNext steps:\n", :bold
           say "\n# Run the local web server", :on_blue
           say "\n\tcd #{path}/#{name}"
           say "\twagon serve"
-          say "\n# Compile assets (in a another terminal, use tmux for instance)", :on_blue
-          say "\n\tyarn"
-          say "\tyarn start"
+          if assets
+            say "\n# Compile assets (in a another terminal, use tmux for instance)", :on_blue
+            say "\n\tyarn"
+            say "\tyarn start"
+          end
           say "\n# Preview your site!", :on_blue
           say "\n\topen http://0.0.0.0:3333\n\n", :bold
         end

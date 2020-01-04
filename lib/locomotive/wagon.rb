@@ -121,13 +121,13 @@ module Locomotive
       Locomotive::Wagon::DeleteCommand.delete(env, path, resource, slug, shell)
     end
 
-    def self.require_misc_gems      
+    def self.require_misc_gems
       return if ENV['WAGON_GEMFILE'].nil?
 
       # at this point, we are sure that in a bundle exec contact
       begin
         require 'bundler'
-        ::Bundler.require(:misc)        
+        ::Bundler.require(:misc)
       rescue Exception => e
         puts "Warning: cant' require the Gemfile misc group, reason: #{e.message}"
         # Bundler is not defined or there is an issue
