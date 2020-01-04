@@ -78,7 +78,7 @@ module Locomotive::Wagon
       if binary = get_asset_binary(url)
         FileUtils.mkdir_p(File.dirname(filepath))
 
-        (binary_file = Tempfile.new(File.basename(filepath))).write(binary)
+        (binary_file = Tempfile.new(File.basename(filepath)).binmode).write(binary)
 
         find_unique_filepath(filepath, binary_file).tap do |filepath|
           File.open(filepath, 'wb') { |f| f.write(binary) }
