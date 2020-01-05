@@ -61,4 +61,4 @@ Please, visit the documentation website of Locomotive.
 
 Feel free to contact me (didier at nocoffee dot fr).
 
-Copyright (c) 2019 NoCoffee, released under the MIT license
+Copyright (c) 2020 NoCoffee, released under the MIT license

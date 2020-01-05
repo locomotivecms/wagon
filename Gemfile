@@ -17,7 +17,7 @@ gem 'wdm', '~> 0.1.1', require: 'wdm' if RUBY_PLATFORM =~ /mswin|mingw/i
 # Development
 # gem 'locomotivecms_common', github: 'locomotivecms/common', ref: '4d1bd56' , require: false
 # gem 'locomotivecms_coal',   github: 'locomotivecms/coal',   ref: 'e1719db', require: false
-gem 'locomotivecms_steam',  github: 'locomotivecms/steam',  ref: 'f332e85', require: false
+# gem 'locomotivecms_steam',  github: 'locomotivecms/steam',  ref: 'f332e85', require: false
 # gem 'duktape', github: 'judofyr/duktape.rb', ref: '20ef6a5'
 
 # Local development

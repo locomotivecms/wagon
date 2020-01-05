@@ -13,9 +13,9 @@ Gem::Specification.new do |gem|
   gem.homepage      = 'https://www.locomotivecms.com'
   gem.license       = 'MIT'
 
-  gem.files         = Dir['bin/*'] + 
+  gem.files         = Dir['bin/*'] +
                       Dir.glob('generators/**/*', File::FNM_DOTMATCH) +
-                      Dir['lib/**/*.rb'] +                                           
+                      Dir['lib/**/*.rb'] +
                       %w(locomotivecms_wagon.gemspec MIT-LICENSE README.md)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
@@ -31,7 +31,7 @@ Gem::Specification.new do |gem|
 
   gem.add_dependency 'locomotivecms_common',  '~> 0.4.0'
   gem.add_dependency 'locomotivecms_coal',    '~> 1.6.0'
-  gem.add_dependency 'locomotivecms_steam',   '~> 1.5.0'
+  gem.add_dependency 'locomotivecms_steam',   '~> 1.5.1'
 
   gem.add_dependency 'haml',                  '~> 5.1.2'
   gem.add_dependency 'listen',                '~> 3.1.5'
