@@ -31,7 +31,7 @@ Gem::Specification.new do |gem|
 
   gem.add_dependency 'locomotivecms_common',  '~> 0.4.0'
   gem.add_dependency 'locomotivecms_coal',    '~> 1.6.0'
-  gem.add_dependency 'locomotivecms_steam',   '~> 1.5.1'
+  gem.add_dependency 'locomotivecms_steam',   '~> 1.5.2'
 
   gem.add_dependency 'haml',                  '~> 5.1.2'
   gem.add_dependency 'listen',                '~> 3.1.5'
