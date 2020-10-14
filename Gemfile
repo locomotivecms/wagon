@@ -26,7 +26,7 @@ gem 'wdm', '~> 0.1.1', require: 'wdm' if RUBY_PLATFORM =~ /mswin|mingw/i
 # gem 'locomotivecms_common', path: '../common', require: false
 
 group :development, :test do
-  gem 'pry-byebug',         '~> 3.6.0'
+  gem 'pry-byebug',         '~> 3.9.0'
 end
 
 group :test do
