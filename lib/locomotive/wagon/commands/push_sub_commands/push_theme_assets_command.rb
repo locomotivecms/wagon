@@ -87,7 +87,7 @@ module Locomotive::Wagon
 
     def compress_and_minify(entity)
       begin
-        sprockets_env[entity.short_relative_url].to_s
+        "#{sprockets_env[entity.short_relative_url]}"
       rescue Exception => e
         instrument :warning, message: "Unable to compress and minify it, error: #{e.message}"
         # use the original file instead
