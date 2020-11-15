@@ -4,6 +4,8 @@ module Locomotive::Wagon
 
   class PushThemeAssetsCommand < PushBaseCommand
 
+    WEBPACK_BUNDLED_ASSETS = ['stylesheets/bundle.css', 'javascripts/bundle.js'].freeze
+
     def entities
       repositories.theme_asset.all.map do |entity|
         next if skip?(entity)
@@ -87,10 +89,14 @@ module Locomotive::Wagon
 
     def compress_and_minify(entity)
       begin
+        if WEBPACK_BUNDLED_ASSETS.include?(entity.short_relative_url)
+          raise 'already compressed and minified by Webpack'
+        end
+
         sprockets_env[entity.short_relative_url].to_s
       rescue Exception => e
         instrument :warning, message: "Unable to compress and minify it, error: #{e.message}"
-        # use the original file instead
+        # use the original file instead"
         File.read(File.join(path, entity.source))
       end
     end
