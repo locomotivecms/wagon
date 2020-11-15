@@ -16,7 +16,7 @@ describe Locomotive::Wagon::PushThemeAssetsCommand do
 
     before { command.instance_variable_set(:@remote_urls, urls) }
 
-    subject { command.send(:replace_assets!, content) }
+    subject { command.send(:replace_assets, content) }
 
     it { is_expected.to eq "body{background-image:url(http://cdn/images/body.png?42)}" }
 
@@ -33,7 +33,7 @@ describe Locomotive::Wagon::PushThemeAssetsCommand do
 
       let(:content) { "body{background-image:url(/somewhere/body.png)}" }
 
-      it { is_expected.to eq nil }
+      it { is_expected.to eq "body{background-image:url(/somewhere/body.png)}" }
 
     end
 

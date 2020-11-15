@@ -43,7 +43,7 @@ module Locomotive::Wagon
         content = compress_and_minify(entity)
 
         # replace paths to images or fonts by the absolute URL used in the Engine
-        replace_assets!(content)
+        content = replace_assets(content)
 
         file.write(content)
 
@@ -53,8 +53,8 @@ module Locomotive::Wagon
       end
     end
 
-    def replace_assets!(content)
-      content.gsub!(/([("'])\/((images|fonts)\/[^)"']+)([)"''])/) do
+    def replace_assets(content)
+      content.gsub(/([("'])\/((images|fonts)\/[^)"']+)([)"''])/) do
         leading_char, local_path, trailing_char = $1, $2, $4
         local_path.gsub!(/\?[^\/]+\Z/, '') # remove query string if present
         "#{leading_char}#{(@remote_urls || {})[local_path] || local_path}#{trailing_char}"
