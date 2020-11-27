@@ -9,8 +9,8 @@ module Locomotive::Wagon
     include DeployFileConcern
 
     SITE_RESOURCE     = 'site'
-    SINGLE_RESOURCES  = %w(page content_type snippet translation).freeze
-    ALL_RESOURCES     = %w(content_types snippets theme_assets translations).freeze
+    SINGLE_RESOURCES  = %w(page content_type snippet section translation).freeze
+    ALL_RESOURCES     = %w(content_types snippets theme_assets sections translations).freeze
 
     # @param [ String ] env The environment to delete from
     # @param [ String ] path The path to a wagon site to delete from

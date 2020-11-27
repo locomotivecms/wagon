@@ -11,7 +11,7 @@ class Manager {
 
   start() {
     this.eachType((type, actions) => {
-      this.queryAll(`.locomotive-section[data-locomotive-section-type="${type}"]`).forEach((section, index) => {
+      this.queryAll(`[data-locomotive-section-type="${type}"]`).forEach((section, index) => {
         this.runAction(actions, 'load', section);
       });
     });

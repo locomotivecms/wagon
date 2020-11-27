@@ -1,14 +1,23 @@
 source 'https://rubygems.org'
 
-# Specify your gem's dependencies in wagon.gemspec
+# Specify your gem's dependencies in locomotivecms_wagon.gemspec
 gemspec
 
-gem 'rb-fsevent', '~> 0.9.1'
+# Mac OS X
+gem 'rb-fsevent', '~> 0.10.3', require: 'rb-fsevent' if RUBY_PLATFORM.include?('darwin')
+
+# Unix
+gem 'therubyracer', require: 'v8', platforms: :ruby unless RUBY_PLATFORM.include?('darwin')
+
+gem 'rb-inotify', '~> 0.10.0', require: 'rb-inotify' if RUBY_PLATFORM.include?('linux')
+
+# Windows
+gem 'wdm', '~> 0.1.1', require: 'wdm' if RUBY_PLATFORM =~ /mswin|mingw/i
 
 # Development
 # gem 'locomotivecms_common', github: 'locomotivecms/common', ref: '4d1bd56' , require: false
 # gem 'locomotivecms_coal',   github: 'locomotivecms/coal',   ref: 'e1719db', require: false
-gem 'locomotivecms_steam',  github: 'locomotivecms/steam',  ref: '1b6d57c', require: false
+# gem 'locomotivecms_steam',  github: 'locomotivecms/steam',  ref: 'f332e85', require: false
 # gem 'duktape', github: 'judofyr/duktape.rb', ref: '20ef6a5'
 
 # Local development
@@ -17,7 +26,7 @@ gem 'locomotivecms_steam',  github: 'locomotivecms/steam',  ref: '1b6d57c', requ
 # gem 'locomotivecms_common', path: '../common', require: false
 
 group :development, :test do
-  gem 'pry-byebug',         '~> 3.6.0'
+  gem 'pry-byebug',         '~> 3.9.0'
 end
 
 group :test do

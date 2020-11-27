@@ -16,16 +16,9 @@ module Locomotive
 
           argument :name
           argument :target_path
-          argument :skip_bundle
 
           def copy_sources
             copy_sources_from_generator
-          end
-
-          def remove_gemfile
-            return unless skip_bundle?
-
-            remove_file File.join(self.destination, 'Gemfile')
           end
 
           def self.source_root
@@ -46,22 +39,6 @@ module Locomotive
 
           def destination
             File.join(target_path, name)
-          end
-
-          def skip_bundle?
-            [true, 'true'].include?(skip_bundle)
-          end
-
-          def bundle_install
-            return if skip_bundle?
-
-            FileUtils.cd self.destination
-
-            say_status :run, "bundle install"
-
-            ENV['BUNDLE_GEMFILE'] = nil
-
-            print `"#{Gem.ruby}" -rubygems "#{Gem.bin_path('bundler', 'bundle')}" install`
           end
 
         end

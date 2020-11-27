@@ -24,6 +24,9 @@ module Locomotive::Wagon
       # Steam is our rendering engine
       require_steam
 
+      # in case the developer installed custom libs
+      Locomotive::Wagon.require_misc_gems
+
       setup_signals
 
       show_start_message
@@ -63,8 +66,7 @@ module Locomotive::Wagon
       require 'haml'
       require 'locomotive/steam'
       require 'locomotive/steam/server'
-      require 'locomotive/wagon/middlewares/error_page'
-      require 'bundler'
+      require 'locomotive/wagon/middlewares/error_page'      
 
       configure_logger
 
@@ -85,9 +87,7 @@ module Locomotive::Wagon
             end
           end
         }
-      end
-
-      Bundler.require 'misc'
+      end              
     end
 
     def listen

@@ -16,6 +16,7 @@ module Locomotive
           public_submission_enabled
           public_submission_accounts
           public_submission_title_template
+          public_submission_email_attachments
           recaptcha_required entry_template display_settings filter_fields)
       end
 
@@ -56,6 +57,10 @@ module Locomotive
 
       def public_submission_title_template
         self[:public_submission_title_template]
+      end
+
+      def public_submission_email_attachments
+        self[:public_submission_email_attachments]
       end
 
       def entry_template

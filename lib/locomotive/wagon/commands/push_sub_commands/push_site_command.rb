@@ -7,9 +7,7 @@ module Locomotive::Wagon
     end
 
     def decorate(entity)
-      UpdateSiteDecorator.new(entity).tap do |decorator|
-        decorator.__content_assets_pusher__ = self.content_assets_pusher
-      end
+      UpdateSiteDecorator.new(entity, default_locale, path, content_assets_pusher)
     end
 
     def persist(decorated_entity)

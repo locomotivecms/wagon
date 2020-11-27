@@ -32,7 +32,9 @@ module Locomotive::Wagon
     end
 
     def push
-      require_misc_gems
+      require 'haml'
+
+      Locomotive::Wagon.require_misc_gems
 
       api_client = build_api_site_client(connection_information)
 
@@ -175,14 +177,8 @@ module Locomotive::Wagon
       end
 
       _site         = Locomotive::Steam::Site.new(attributes)
-      @remote_site  = SiteDecorator.new(_site)
-    end
-
-    def require_misc_gems
-      require 'haml'
-      require 'bundler'
-      Bundler.require 'misc'
-    end
+      @remote_site  = RemoteSiteDecorator.new(_site)
+    end    
 
     def ask_for_performing(message)
       shell.say(message, :yellow)

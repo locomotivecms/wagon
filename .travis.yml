@@ -1,6 +1,6 @@
 language: ruby
 rvm:
-  - 2.5.0
+  - 2.6.5
 before_install:
   - export TZ=Paris
   - date

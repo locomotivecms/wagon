@@ -148,19 +148,22 @@ module Locomotive
           end
         end
 
-        desc 'section SLUG', 'Create a section'
+        desc 'section SLUG SETTINGS', 'Create a section'
         long_desc <<-LONGDESC
           Create a section. The generator will ask if the section is global or not.
 
           Example:
 
             * wagon generate section hero
+            * wagon generate section carousel -i slide title:text block:slide:title:text block:slide:image:image_picker
         LONGDESC
-        def section(slug)
+        method_option :global,    aliases: '-g', type: 'boolean',   default: nil, desc: 'tell if the section is global'
+        method_option :icon,      aliases: '-i', type: 'string',    default: nil, desc: 'icon displayed the back-office'
+        def section(slug, *settings)
           force_color_if_asked(options)
 
           if path = check_path!
-            Locomotive::Wagon.generate :section, [slug, '', '', path], self.options
+            Locomotive::Wagon.generate :section, [slug, settings, path], self.options
           end
         end
 
@@ -233,7 +236,6 @@ module Locomotive
 
         desc 'init NAME [PATH] [GENERATOR_OPTIONS]', 'Create a brand new site'
         method_option :lib,         aliases: '-l', type: 'string', desc: 'Path to an external ruby lib or generator'
-        method_option :skip_bundle, type: 'boolean', default: true, desc: "Don't run bundle install"
         method_option :verbose,     aliases: '-v', type: 'boolean', default: false, desc: 'display the full error stack trace if an error occurs'
         def init(name, path = '.', *generator_options)
           force_color_if_asked(options)
@@ -245,8 +247,8 @@ module Locomotive
             exit(1)
           else
             begin
-              if Locomotive::Wagon.init(generator.klass, [name, path, options[:skip_bundle].to_s, *generator_options], { force_color: options[:force_color] })
-                self.print_next_instructions_when_site_created(name, path, options[:skip_bundle])
+              if Locomotive::Wagon.init(generator.klass, [name, path, *generator_options], { force_color: options[:force_color] })
+                self.print_next_instructions_when_site_created(name, path)
               end
             rescue GeneratorException => e
               self.print_exception(e, options[:verbose])
@@ -412,18 +414,19 @@ module Locomotive
         #
         # @param [ String ] name The name of the site
         # @param [ String ] path The path of the local site
-        # @param [ Boolean ] skip_bundle Do not run bundle install
+        # @param [ Boolean ] assets True (default) if we want to display the instructions about Webpack
         #
-        def print_next_instructions_when_site_created(name, path, skip_bundle)
+        def print_next_instructions_when_site_created(name, path, assets = true)
           say "\nCongratulations, your site \"#{name}\" has been created successfully !", :green
           say "\nNext steps:\n", :bold
           say "\n# Run the local web server", :on_blue
           say "\n\tcd #{path}/#{name}"
-          say "\tbundle install" unless skip_bundle
-          say "\t#{'bundle exec ' unless skip_bundle}wagon serve"
-          say "\n# Compile assets (in a another terminal)", :on_blue
-          say "\n\tyarn"
-          say "\tyarn start"
+          say "\twagon serve"
+          if assets
+            say "\n# Compile assets (in a another terminal, use tmux for instance)", :on_blue
+            say "\n\tyarn"
+            say "\tyarn start"
+          end
           say "\n# Preview your site!", :on_blue
           say "\n\topen http://0.0.0.0:3333\n\n", :bold
         end

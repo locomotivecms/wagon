@@ -1,7 +1,9 @@
 .DS_Store
+TODO.md
 tests
 .sass-cache
 .rbenv-gemsets
+.ruby-version
 /site
 *.gem
 *.rbc

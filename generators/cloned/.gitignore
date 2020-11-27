@@ -1,0 +1,7 @@
+.DS_Store
+Guardfile
+log/
+node_modules/
+config/deploy.yml
+public/stylesheets/bundle.css
+public/javascripts/bundle.js

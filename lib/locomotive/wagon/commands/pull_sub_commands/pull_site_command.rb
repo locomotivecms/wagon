@@ -101,7 +101,7 @@ module Locomotive::Wagon
         attributes[name] = {}
 
         value.each do |locale, _value|
-          __value = JSON.parse(_value)
+          __value = _value ? JSON.parse(_value) : {}
           attributes[name][locale] = block_given? ? yield(__value) : __value
         end
       else
