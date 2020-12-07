@@ -180,6 +180,8 @@ sections_content:
   <div>{{ section.settings.<%= setting.id -%> }}</div>
   <%- when 'image_picker' -%>
   <p><img src="{{ section.settings.<%= setting.id -%> }}" /></p>
+  <%- when 'asset_picker' -%>
+  <p><a href="{{ section.settings.<%= setting.id -%> }}">{{ section.settings.<%= setting.id -%>.name }}</a></p>
   <%- when 'url' -%>
   <p><a href="{{ section.settings.<%= setting.id -%> }}" {{ section.settings.<%= setting.id -%>.new_window_attribute }}><%= setting.label -%></a></p>
   <%- when 'select', 'radio', 'checkbox' -%>
@@ -203,6 +205,8 @@ sections_content:
       <div>{{ block.settings.<%= setting.id -%> }}</div>
       <%- when 'image_picker' -%>
       <p><img src="{{ block.settings.<%= setting.id -%> }}" /></p>
+      <%- when 'asset_picker' -%>
+      <p><a href="{{ block.settings.<%= setting.id -%> }}">{{ block.settings.<%= setting.id -%>.name }}</a></p>
       <%- when 'url' -%>
       <p><a href="{{ block.settings.<%= setting.id -%> }}" {{ block.settings.<%= setting.id -%>.new_window_attribute }}><%= setting.label -%></a></p>
       <%- when 'select', 'radio', 'checkbox' -%>
