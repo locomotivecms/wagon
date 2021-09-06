@@ -10,7 +10,7 @@ describe Locomotive::Wagon::CLI do
   describe '#version' do
 
     let(:command) { Locomotive::Wagon::CLI::Main.start(['version']) }
-    it { is_expected.to match /^3\.0/ }
+    it { is_expected.to match /^3\.1/ }
 
   end
 

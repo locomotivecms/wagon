@@ -8,7 +8,7 @@ http_interactions:
       string: email=john%40doe.net&password=asimplepassword
     headers:
       User-Agent:
-      - Faraday v0.17.3
+      - Faraday v0.17.4
       Accept:
       - application/json
       Content-Type:
@@ -25,16 +25,16 @@ http_interactions:
       Cache-Control:
       - no-cache
       X-Request-Id:
-      - 13c76ccb-7c5c-4d36-8882-c48bf70f8cc8
+      - b4800faa-24d1-4349-8f46-2ebf3fe78d93
       X-Runtime:
-      - '0.211526'
+      - '0.237031'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
       string: '{"message":"Invalid email or password."}'
     http_version: 
-  recorded_at: Sun, 15 Nov 2020 16:44:57 GMT
+  recorded_at: Mon, 06 Sep 2021 07:32:43 GMT
 - request:
     method: post
     uri: http://localhost:3000/locomotive/api/v3/my_account.json
@@ -43,7 +43,7 @@ http_interactions:
       string: account%5Bemail%5D=john%40doe.net&account%5Bname%5D=John&account%5Bpassword%5D=asimplepassword
     headers:
       User-Agent:
-      - Faraday v0.17.3
+      - Faraday v0.17.4
       Accept:
       - application/json
       Content-Type:
@@ -56,20 +56,20 @@ http_interactions:
       Content-Type:
       - application/json
       ETag:
-      - W/"06958c94822983fbb838abd7519cb822"
+      - W/"b8a082ff7aef9fdf42a18692149ec938"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - b0210a66-dbc6-42f6-b2ac-5799e62634a6
+      - 13d7793d-9752-4fc5-a731-37e7cd41dec5
       X-Runtime:
-      - '0.076375'
+      - '0.137853'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"_id":"5fb15b09b4beb65377a9c17f","created_at":"2020-11-15T16:44:57Z","updated_at":"2020-11-15T16:44:57Z","name":"John","email":"john@doe.net","locale":"en","api_key":"3d2d80d964dfbdefdb887731feda58c98576dedb","super_admin":false,"local_admin":false}'
+      string: '{"_id":"6135c41be051bb4523202302","created_at":"2021-09-06T07:32:43Z","updated_at":"2021-09-06T07:32:43Z","name":"John","email":"john@doe.net","locale":"en","api_key":"8cad3f2583f3d754d3cc4db02cfd8f9d0178d2cb","super_admin":false,"local_admin":false}'
     http_version: 
-  recorded_at: Sun, 15 Nov 2020 16:44:57 GMT
+  recorded_at: Mon, 06 Sep 2021 07:32:43 GMT
 - request:
     method: post
     uri: http://localhost:3000/locomotive/api/v3/tokens.json
@@ -78,7 +78,7 @@ http_interactions:
       string: email=admin%40locomotivecms.com&password=locomotive
     headers:
       User-Agent:
-      - Faraday v0.17.3
+      - Faraday v0.17.4
       Accept:
       - application/json
       Content-Type:
@@ -91,35 +91,35 @@ http_interactions:
       Content-Type:
       - application/json
       ETag:
-      - W/"8f415bbdc4f0fd47df0e8ee309cc26d9"
+      - W/"393f5701094f57ac521baae6e105c4a9"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 2707a42c-051b-45f2-927c-5ab29a8a06ec
+      - 41244f89-4a33-4805-b194-ab429bf38102
       X-Runtime:
-      - '0.022585'
+      - '0.027678'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"token":"RoNEZazTNB7WMwiy-APA"}'
+      string: '{"token":"LM8oaTTFU7Xdte_BsASh"}'
     http_version: 
-  recorded_at: Sun, 15 Nov 2020 16:44:57 GMT
+  recorded_at: Mon, 06 Sep 2021 07:32:43 GMT
 - request:
     method: get
-    uri: http://localhost:3000/locomotive/api/v3/my_account.json?auth_token=RoNEZazTNB7WMwiy-APA
+    uri: http://localhost:3000/locomotive/api/v3/my_account.json?auth_token=LM8oaTTFU7Xdte_BsASh
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
-      - Faraday v0.17.3
+      - Faraday v0.17.4
       Accept:
       - application/json
       X-Locomotive-Account-Email:
       - admin@locomotivecms.com
       X-Locomotive-Account-Token:
-      - RoNEZazTNB7WMwiy-APA
+      - LM8oaTTFU7Xdte_BsASh
   response:
     status:
       code: 200
@@ -128,35 +128,35 @@ http_interactions:
       Content-Type:
       - application/json
       ETag:
-      - W/"4d21388b2eea9af24f6c23a1a824d9d1"
+      - W/"ebfe1cec79dabf08b2f93d0bd987d6b1"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 889d436e-ae30-4b11-91ef-860933006611
+      - fa5df65b-7934-4623-82d0-604a5610d1bb
       X-Runtime:
-      - '0.028797'
+      - '0.031748'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"_id":"5fb15a64b4beb65264ed82f1","created_at":"2020-11-15T16:42:12Z","updated_at":"2020-11-15T16:42:12Z","name":"Admin","email":"admin@locomotivecms.com","locale":"en","api_key":"d49cd50f6f0d2b163f48fc73cb249f0244c37074","super_admin":true,"local_admin":true}'
+      string: '{"_id":"6135c3f8e051bb43ee42fd6e","created_at":"2021-09-06T07:32:08Z","updated_at":"2021-09-06T07:32:08Z","name":"Admin","email":"admin@locomotivecms.com","locale":"en","api_key":"d49cd50f6f0d2b163f48fc73cb249f0244c37074","super_admin":true,"local_admin":true}'
     http_version: 
-  recorded_at: Sun, 15 Nov 2020 16:44:57 GMT
+  recorded_at: Mon, 06 Sep 2021 07:32:43 GMT
 - request:
     method: get
-    uri: http://localhost:3000/locomotive/api/v3/my_account.json?auth_token=RoNEZazTNB7WMwiy-APA
+    uri: http://localhost:3000/locomotive/api/v3/my_account.json?auth_token=LM8oaTTFU7Xdte_BsASh
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
-      - Faraday v0.17.3
+      - Faraday v0.17.4
       Accept:
       - application/json
       X-Locomotive-Account-Email:
       - admin@locomotivecms.com
       X-Locomotive-Account-Token:
-      - RoNEZazTNB7WMwiy-APA
+      - LM8oaTTFU7Xdte_BsASh
   response:
     status:
       code: 200
@@ -165,18 +165,18 @@ http_interactions:
       Content-Type:
       - application/json
       ETag:
-      - W/"4d21388b2eea9af24f6c23a1a824d9d1"
+      - W/"ebfe1cec79dabf08b2f93d0bd987d6b1"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 43358280-128b-4af9-9892-325bad573145
+      - 1a11d060-baf7-4b16-9208-d384d483ad79
       X-Runtime:
-      - '0.023615'
+      - '0.025064'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"_id":"5fb15a64b4beb65264ed82f1","created_at":"2020-11-15T16:42:12Z","updated_at":"2020-11-15T16:42:12Z","name":"Admin","email":"admin@locomotivecms.com","locale":"en","api_key":"d49cd50f6f0d2b163f48fc73cb249f0244c37074","super_admin":true,"local_admin":true}'
+      string: '{"_id":"6135c3f8e051bb43ee42fd6e","created_at":"2021-09-06T07:32:08Z","updated_at":"2021-09-06T07:32:08Z","name":"Admin","email":"admin@locomotivecms.com","locale":"en","api_key":"d49cd50f6f0d2b163f48fc73cb249f0244c37074","super_admin":true,"local_admin":true}'
     http_version: 
-  recorded_at: Sun, 15 Nov 2020 16:44:57 GMT
+  recorded_at: Mon, 06 Sep 2021 07:32:43 GMT
 recorded_with: VCR 4.0.0

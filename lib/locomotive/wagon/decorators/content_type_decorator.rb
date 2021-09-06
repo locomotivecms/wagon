@@ -18,7 +18,7 @@ module Locomotive
           public_submission_title_template
           public_submission_email_attachments
           recaptcha_required entry_template display_settings filter_fields 
-          import_enabled overwrite_same_content_assets)
+          import_enabled)
       end
 
       def fields
@@ -86,10 +86,6 @@ module Locomotive
 
       def import_enabled
         self[:import_enabled]
-      end
-
-      def overwrite_same_content_assets
-        self[:overwrite_same_content_assets]
       end
 
       def with_relationships?
