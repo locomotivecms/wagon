@@ -156,6 +156,7 @@ export { default as #{js_class_name} } from './#{@options[:type]}';
           case type
           when 'text' then "\"#{Faker::Lorem.sentence}\""
           when 'image_picker' then "\"/samples/images/default.svg\""
+          when 'asset_picker' then "\"/samples/images/default.svg\""
           when 'checkbox' then true
           when 'radio', 'select' then 'option_1'
           when 'url' then "\"#\""

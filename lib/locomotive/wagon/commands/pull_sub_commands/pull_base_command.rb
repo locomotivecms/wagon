@@ -50,10 +50,17 @@ module Locomotive::Wagon
       _filepath = File.join(path, filepath)
 
       folder = File.dirname(_filepath)
+
       FileUtils.mkdir_p(folder) unless File.exists?(folder)
 
       File.open(_filepath, mode) do |file|
-        file.write(content ? content : yield)
+        if content
+          file.write(content)
+        elsif block_given?
+          file.write(yield)
+        else
+          file.write('')
+        end
       end
     end
 

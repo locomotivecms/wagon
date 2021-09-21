@@ -7,7 +7,7 @@ module Locomotive::Wagon
 
   module AssetsConcern
 
-    REGEX = /((https?:\/\/\S+)?\/sites\/[0-9a-f]{24}\/(assets|pages|theme|content_entry[0-9a-f]{24})\/(([^;.]+)\/)*([a-zA-Z_\-0-9.%]+)(\?\w+)?)/
+    REGEX = /((https?:\/\/\S+)?\/sites\/[0-9a-f]{24}\/(assets|pages|theme|content_entry[0-9a-f]{24})\/(([^;.\"]+)\/)*([a-zA-Z_\-0-9.%]+)(\?\w+)?)/
 
     # The content assets on the remote engine follows the format: /sites/<id>/assets/<type>/<file>
     # This method replaces these urls by their local representation. <type>/<file>
@@ -50,7 +50,7 @@ module Locomotive::Wagon
     private
 
     def find_unique_filepath(filepath, binary_file, index = 1)
-      if File.exists?(filepath)
+      if File.exists?(filepath) && File.file?(filepath)
         # required because we need to make sure we use the content of file from its start
         binary_file.rewind
 

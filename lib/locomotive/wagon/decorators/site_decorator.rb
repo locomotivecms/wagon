@@ -48,6 +48,10 @@ module Locomotive
         end
       end
 
+      def overwrite_same_content_assets
+        self[:overwrite_same_content_assets]
+      end
+
       %i(robots_txt timezone seo_title meta_keywords meta_description asset_host routes).each do |name|
         define_method(name) do
           self[name]
@@ -55,9 +59,8 @@ module Locomotive
       end
 
       def __attributes__
-        %i(name handle robots_txt locales timezone seo_title meta_keywords meta_description picture metafields_schema metafields metafields_ui asset_host sections_content routes)
+        %i(name handle robots_txt locales timezone seo_title meta_keywords meta_description picture metafields_schema metafields metafields_ui asset_host sections_content routes overwrite_same_content_assets)
       end
-
     end
 
     class RemoteSiteDecorator < SimpleDelegator
@@ -71,7 +74,7 @@ module Locomotive
     class UpdateSiteDecorator < SiteDecorator
 
       def __attributes__
-        %i(picture timezone locales metafields_schema metafields metafields_ui asset_host sections_content routes)
+        %i(picture timezone locales metafields_schema metafields metafields_ui asset_host sections_content routes overwrite_same_content_assets)
       end
 
     end
