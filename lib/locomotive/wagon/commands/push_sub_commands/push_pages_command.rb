@@ -49,7 +49,7 @@ module Locomotive::Wagon
     end
 
     def can_update?(local_entity)
-      # checking pathes only if the current locale is the default one
+      # checking paths only if the current locale is the default one
       if  local_entity.__locale__.to_s == default_locale.to_s &&
           local_entity.handle &&
           id = remote_entity_id_from_handle(local_entity)
