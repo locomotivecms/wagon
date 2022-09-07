@@ -20,7 +20,7 @@ module Locomotive::Wagon
       new(*args).delete
     end
 
-    # @raise [ ArgumentError ] unless the given resources is in SINGLE_RESOURCES or MULTIPLE_RESOURCES
+    # @raise [ ArgumentError ] unless the given resources is in SINGLE_RESOURCES or ALL_RESOURCES
     def delete
       if resource == SITE_RESOURCE
         delete_site
