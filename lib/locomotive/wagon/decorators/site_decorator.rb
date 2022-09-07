@@ -52,6 +52,10 @@ module Locomotive
         self[:overwrite_same_content_assets]
       end
 
+      def allow_dots_in_slugs
+        self[:allow_dots_in_slugs]
+      end
+
       %i(robots_txt timezone seo_title meta_keywords meta_description asset_host routes).each do |name|
         define_method(name) do
           self[name]
@@ -59,7 +63,7 @@ module Locomotive
       end
 
       def __attributes__
-        %i(name handle robots_txt locales timezone seo_title meta_keywords meta_description picture metafields_schema metafields metafields_ui asset_host sections_content routes overwrite_same_content_assets)
+        %i(name handle robots_txt locales timezone seo_title meta_keywords meta_description picture metafields_schema metafields metafields_ui asset_host sections_content routes overwrite_same_content_assets allow_dots_in_slugs)
       end
     end
 
@@ -74,7 +78,7 @@ module Locomotive
     class UpdateSiteDecorator < SiteDecorator
 
       def __attributes__
-        %i(picture timezone locales metafields_schema metafields metafields_ui asset_host sections_content routes overwrite_same_content_assets)
+        %i(picture timezone locales metafields_schema metafields metafields_ui asset_host sections_content routes overwrite_same_content_assets allow_dots_in_slugs)
       end
 
     end
