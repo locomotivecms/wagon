@@ -15,7 +15,12 @@ describe Locomotive::Wagon::ContentEntryDecorator do
 
   before { Chronic.time_class = Time.zone }
 
-  before { allow(decorator).to receive(:_slug).and_return('sample') }
+  before do
+    allow(decorator).to receive(:_slug).and_return('sample')
+    allow(decorator).to receive(:seo_title).and_return('my content entry')
+    allow(decorator).to receive(:meta_keywords).and_return('test')
+    allow(decorator).to receive(:meta_description).and_return('Lorem ipsum')
+  end
 
   describe '#to_hash' do
 
@@ -38,7 +43,7 @@ describe Locomotive::Wagon::ContentEntryDecorator do
 
       subject { decorator.to_hash }
 
-      it { is_expected.to eq({ _slug: 'sample', title: 'Hello world' }) }
+      it { is_expected.to eq({ _slug: 'sample', title: 'Hello world', seo_title: 'my content entry', meta_keywords: 'test', meta_description: 'Lorem ipsum' }) }
 
     end
 
@@ -54,7 +59,7 @@ describe Locomotive::Wagon::ContentEntryDecorator do
       subject { decorator.to_hash }
 
       it 'only replaces assets wrapped by a double quotes' do
-        is_expected.to eq({ _slug: 'sample', body: 'Hello world ! http://domain.tld/samples/foo.png ! <img src="done" /> <div style="background: url(done);"/>' })
+        is_expected.to eq({ _slug: 'sample', seo_title: 'my content entry', meta_keywords: 'test', meta_description: 'Lorem ipsum', body: 'Hello world ! http://domain.tld/samples/foo.png ! <img src="done" /> <div style="background: url(done);"/>' })
         expect(asset_pusher.assets).to eq(['/samples/bar.png', '/samples/42.png'])
       end
 
@@ -68,7 +73,7 @@ describe Locomotive::Wagon::ContentEntryDecorator do
 
       subject { decorator.to_hash }
 
-      it { is_expected.to eq({ _slug: 'sample', posted_at: '2015-09-26' }) }
+      it { is_expected.to eq({ _slug: 'sample', seo_title: 'my content entry', meta_keywords: 'test', meta_description: 'Lorem ipsum', posted_at: '2015-09-26' }) }
 
       context 'nil field' do
         let(:attributes)  { { posted_at: nil } }
@@ -85,7 +90,7 @@ describe Locomotive::Wagon::ContentEntryDecorator do
 
       subject { decorator.to_hash }
 
-      it { is_expected.to eq({ _slug: 'sample', posted_at: '2015-11-11T17:00:00Z' }) }
+      it { is_expected.to eq({ _slug: 'sample', seo_title: 'my content entry', meta_keywords: 'test', meta_description: 'Lorem ipsum', posted_at: '2015-11-11T17:00:00Z' }) }
 
       context 'nil field' do
         let(:attributes)  { { posted_at: nil } }

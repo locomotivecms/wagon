@@ -8,6 +8,8 @@ module Locomotive
 
       attr_accessor :__base_path__, :__content_assets_pusher__
 
+      DEFAULT_ATTRIBUTES = %i(_slug seo_title meta_keywords meta_description).freeze
+
       def initialize(object, locale = nil, base_path, content_assets_pusher)
         self.__base_path__ = base_path
         self.__content_assets_pusher__ = content_assets_pusher
@@ -23,7 +25,7 @@ module Locomotive
       end
 
       def __attributes__
-        %i(_slug) + fields.no_associations.map { |f| f.name.to_sym }
+        DEFAULT_ATTRIBUTES + fields.no_associations.map { |f| f.name.to_sym }
       end
 
       def method_missing(name, *args, &block)
@@ -60,7 +62,7 @@ module Locomotive
       alias :decorate_time_field :decorate_date_time_field
 
       def to_hash
-        if (hash = super).keys == [:_slug]
+        if (hash = super).keys == DEFAULT_ATTRIBUTES
           {}
         else
           hash
