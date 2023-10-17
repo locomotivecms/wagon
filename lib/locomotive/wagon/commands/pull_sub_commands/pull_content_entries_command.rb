@@ -67,7 +67,7 @@ module Locomotive::Wagon
         locales.each do |locale|
           next if locale != default_locale && content_type.localized_names.empty?
 
-          (_entries = api_client.content_entries(content_type).all(nil, { page: page, order_by: 'created asc' }, locale)).each do |entry|
+          (_entries = api_client.content_entries(content_type).all(nil, { page: page, order_by: 'created_at asc' }, locale)).each do |entry|
             (entries[entry._id] ||= {})[locale] = entry
           end
 
