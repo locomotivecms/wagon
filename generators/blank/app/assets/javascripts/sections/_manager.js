@@ -5,7 +5,6 @@ class Manager {
   }
 
   registerSection(type, actions) {
-    console.log(type, actions);
     this.sections[type] = actions;
   }
 
