@@ -24,18 +24,21 @@ Gem::Specification.new do |gem|
 
   gem.add_development_dependency 'rake',      '~> 13.0.1'
 
-  gem.add_dependency 'thor',                  '~> 0.20.3'
-  gem.add_dependency 'puma',                  '~> 5.0.4'
+  gem.add_dependency 'thor',                  '~> 1.3.0'
+
+  gem.add_dependency 'puma',                  '~> 6.4.0'
+  gem.add_dependency 'rackup',                '~> 2.1.0'
+  
   gem.add_dependency 'netrc',                 '~> 0.11.0'
-  gem.add_dependency 'oj',                    '~> 3.10.16'
+  gem.add_dependency 'oj',                    '~> 3.16.1'
 
-  gem.add_dependency 'locomotivecms_common',  '~> 0.4.0'
-  gem.add_dependency 'locomotivecms_coal',    '~> 1.7.0'
-  gem.add_dependency 'locomotivecms_steam',   '~> 1.6.1'
+  gem.add_dependency 'locomotivecms_common',  '~> 0.6.0.alpha1'
+  gem.add_dependency 'locomotivecms_coal',    '~> 1.8.0.alpha1'
+  gem.add_dependency 'locomotivecms_steam',   '~> 1.8.0.alpha1'
 
-  gem.add_dependency 'haml',                  '~> 5.1.2'
-  gem.add_dependency 'listen',                '~> 3.3.1'
-  gem.add_dependency 'neatjson',              '~> 0.9'
+  gem.add_dependency 'haml',                  '~> 6.2.3'
+  gem.add_dependency 'listen',                '~> 3.8.0'
+  gem.add_dependency 'neatjson',              '~> 0.10'
 
-  gem.add_dependency 'faker',                 '~> 1.6'
+  gem.add_dependency 'faker',                 '~> 3.2'
 end

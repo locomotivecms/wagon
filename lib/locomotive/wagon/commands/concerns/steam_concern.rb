@@ -11,7 +11,6 @@ module Locomotive::Wagon
         config.mode           = :test
         config.adapter        = { name: :filesystem, path: path, env: options[:env]&.to_sym || :local }
         config.asset_path     = File.expand_path(File.join(path, 'public'))
-        config.minify_assets  = false
       end
 
       @steam_services = Locomotive::Steam::Services.build_instance.tap do |services|

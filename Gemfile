@@ -15,9 +15,9 @@ gem 'rb-inotify', '~> 0.10.0', require: 'rb-inotify' if RUBY_PLATFORM.include?('
 gem 'wdm', '~> 0.1.1', require: 'wdm' if RUBY_PLATFORM =~ /mswin|mingw/i
 
 # Development
-# gem 'locomotivecms_common', github: 'locomotivecms/common', ref: '2f9ba59' , require: false
+# gem 'locomotivecms_common', github: 'locomotivecms/common', ref: '054505c' , require: false
 # gem 'locomotivecms_coal',   github: 'locomotivecms/coal',   ref: '3c5f8f8', require: false
-# gem 'locomotivecms_steam',  github: 'locomotivecms/steam',  ref: 'e4be455', require: false
+# gem 'locomotivecms_steam',  github: 'locomotivecms/steam',  ref: '67c0de7b4e', require: false
 # gem 'duktape', github: 'judofyr/duktape.rb', ref: '20ef6a5'
 
 # Local development
@@ -30,9 +30,9 @@ group :development, :test do
 end
 
 group :test do
-  gem 'rspec',              '~> 3.7.0'
+  gem 'rspec',              '~> 3.12.0'
   gem 'json_spec',          '~> 1.1.5'
-  gem 'vcr',                '~> 4.0.0'
+  gem 'vcr',                '~> 6.2.0'
 
   gem 'codeclimate-test-reporter',  '~> 1.0.7',  require: false
   gem 'coveralls',                  '~> 0.8.19', require: false

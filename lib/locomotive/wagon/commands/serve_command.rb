@@ -76,7 +76,6 @@ module Locomotive::Wagon
         config.mode           = :test
         config.adapter        = { name: :filesystem, path: File.expand_path(path), env: options[:env]&.to_sym || :local }
         config.asset_path     = File.expand_path(File.join(path, 'public'))
-        config.minify_assets  = false
 
         config.middleware.insert_before Rack::Lint, Locomotive::Wagon::Middlewares::ErrorPage
 
@@ -108,9 +107,10 @@ module Locomotive::Wagon
     end
 
     def build_puma_server
+      require 'rackup'
       require 'rack/handler/puma'
 
-      Rack::Handler::Puma.run(Locomotive::Steam.to_app, {
+      Rackup::Handler::Puma.run(Locomotive::Steam.to_app,
         daemon:           options[:daemonize],
         pidfile:          server_pid_file,
         redirect_stdout:  options[:daemonize] ? server_log_file : nil,
@@ -119,7 +119,7 @@ module Locomotive::Wagon
         Port:             options[:port],
         Verbose:          ENV['PUMA_DEBUG_ON'] || false,
         Silent:           true
-      })
+      )
     end
 
     def configure_logger

@@ -4,8 +4,6 @@ module Locomotive::Wagon
 
   class PushThemeAssetsCommand < PushBaseCommand
 
-    WEBPACK_BUNDLED_ASSETS = ['stylesheets/bundle.css', 'javascripts/bundle.js'].freeze
-
     def entities
       repositories.theme_asset.all.map do |entity|
         next if skip?(entity)
@@ -42,7 +40,7 @@ module Locomotive::Wagon
       return unless entity.stylesheet_or_javascript?
 
       Tempfile.new(entity.realname).tap do |file|
-        content = compress_and_minify(entity)
+        content = read_content(entity)
 
         # replace paths to images or fonts by the absolute URL used in the Engine
         content = replace_assets(content)
@@ -87,23 +85,13 @@ module Locomotive::Wagon
       @remote_urls[resource.local_path] = "#{resource.url}?#{resource.checksum}"
     end
 
-    def compress_and_minify(entity)
-      begin
-        if WEBPACK_BUNDLED_ASSETS.include?(entity.short_relative_url)
-          raise 'already compressed and minified by Webpack'
-        end
-
-        sprockets_env[entity.short_relative_url].to_s
-      rescue Exception => e
-        instrument :warning, message: "Unable to compress and minify it, error: #{e.message}"
-        # use the original file instead"
-        File.read(File.join(path, entity.source))
-      end
-    end
-
-    def sprockets_env
-      @sprockets_env ||= Locomotive::Steam::SprocketsEnvironment.new(File.join(path, 'public'),
-        minify: ENV['WAGON_NO_MINIFY_ASSETS'].present? ? false : true)
+    def read_content(entity)
+      File.read(
+        File.join(
+          Locomotive::Steam.configuration.asset_path,
+          entity.relative_url
+        )
+      )
     end
 
     def skip?(entity)
