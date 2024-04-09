@@ -21,7 +21,7 @@ module Locomotive
 
           path = path == '.' ? Dir.pwd : File.expand_path(path)
 
-          site_or_deploy_file = File.exists?(File.join(path, 'config', 'site.yml')) || File.exists?(File.join(path, 'config', 'deploy.yml'))
+          site_or_deploy_file = File.exist?(File.join(path, 'config', 'site.yml')) || File.exist?(File.join(path, 'config', 'deploy.yml'))
 
           (site_or_deploy_file ? path : nil).tap do |_path|
             if _path.nil?

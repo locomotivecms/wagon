@@ -56,7 +56,7 @@ module Locomotive
         end
 
         def create_javascript_file
-          if File.exists?(sections_js_path)
+          if File.exist?(sections_js_path)
             js_class_name = @options[:type].classify
             file_path     = File.join(sections_js_path, @options[:type])
 
@@ -73,7 +73,7 @@ export { default as #{js_class_name} } from './#{@options[:type]}';
         end
 
         def create_stylesheet_file
-          if File.exists?(sections_css_path)
+          if File.exist?(sections_css_path)
             css_class_name  = "#{@options[:type].dasherize}-section"
             file_path       = File.join(sections_css_path, @options[:type])
 

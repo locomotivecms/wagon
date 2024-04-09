@@ -50,7 +50,7 @@ module Locomotive::Wagon
     private
 
     def find_unique_filepath(filepath, binary_file, index = 1)
-      if File.exists?(filepath) && File.file?(filepath)
+      if File.exist?(filepath) && File.file?(filepath)
         # required because we need to make sure we use the content of file from its start
         binary_file.rewind
 
