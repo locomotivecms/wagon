@@ -46,7 +46,7 @@ module Locomotive::Wagon
     end
 
     def stop(force = false)
-      unless File.exists?(server_pid_file)
+      unless File.exist?(server_pid_file)
         shell.say "No Wagon server is running.", :red
         return
       end
@@ -140,7 +140,7 @@ module Locomotive::Wagon
 
         filepath = File.join(File.expand_path(path), 'app', 'views', 'pages', fullpath + (locale != default_locale ? ".#{locale}" : '') + '.liquid')
 
-        message = if File.exists?(filepath)
+        message = if File.exist?(filepath)
           "[Warning]".red + ' by default and unless you override the slug in the YAML header of your page, Wagon will replace underscores by dashes in your page slug. Try this instead: ' + fullpath.dasherize.light_white
         else
           "[Tip]".light_white + " add a new page in your Wagon site at this location: " + filepath.light_white

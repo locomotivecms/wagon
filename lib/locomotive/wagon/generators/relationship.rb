@@ -17,11 +17,11 @@ module Locomotive
         argument :target_path # path to the site
 
         def content_types_must_exist
-          unless File.exists?(File.join(destination_root, source_path))
+          unless File.exist?(File.join(destination_root, source_path))
             fail Thor::Error, "The #{source} content type does not exist"
           end
 
-          unless File.exists?(File.join(destination_root, target_path))
+          unless File.exist?(File.join(destination_root, target_path))
             fail Thor::Error, "The #{target} content type does not exist"
           end
         end

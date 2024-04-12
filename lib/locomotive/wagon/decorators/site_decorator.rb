@@ -41,7 +41,7 @@ module Locomotive
 
       def picture
         picture_path = __getobj__.picture
-        if picture_path && File.exists?(picture_path)
+        if picture_path && File.exist?(picture_path)
           Locomotive::Coal::UploadIO.new(picture_path, nil, 'icon.png')
         else
           nil

@@ -51,7 +51,7 @@ module Locomotive::Wagon
 
       folder = File.dirname(_filepath)
 
-      FileUtils.mkdir_p(folder) unless File.exists?(folder)
+      FileUtils.mkdir_p(folder) unless File.exist?(folder)
 
       File.open(_filepath, mode) do |file|
         if content
@@ -66,7 +66,7 @@ module Locomotive::Wagon
 
     def reset_file(filepath)
       _filepath = File.join(path, filepath)
-      FileUtils.rm(_filepath) if File.exists?(_filepath)
+      FileUtils.rm(_filepath) if File.exist?(_filepath)
     end
 
     def instrument_base_name

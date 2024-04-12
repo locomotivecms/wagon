@@ -36,10 +36,10 @@ describe Locomotive::Wagon::SyncCommand do
 
     it 'exports the content of a site, content entries and pages' do
       is_expected.not_to eq nil
-      expect(File.exists?(File.join(data_path, 'site.json'))).to eq true
-      expect(File.exists?(File.join(data_path, 'content_entries', 'bands.yml'))).to eq true
+      expect(File.exist?(File.join(data_path, 'site.json'))).to eq true
+      expect(File.exist?(File.join(data_path, 'content_entries', 'bands.yml'))).to eq true
       %w(fr nb en).each do |locale|
-        expect(File.exists?(File.join(data_path, 'pages', locale, 'index.json'))).to eq true
+        expect(File.exist?(File.join(data_path, 'pages', locale, 'index.json'))).to eq true
       end
     end
 
