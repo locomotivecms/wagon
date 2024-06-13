@@ -27,6 +27,7 @@ module Locomotive::Wagon
     def definitions
       [
         ['config', /\.yml/, [:site, :content_types, :pages, :snippets, :sections, :content_entries, :translations]],
+        ['config/custom_field_types', /\.json/, [:site, :content_types, :pages, :sections]],
         ['app/views', %r{(pages|snippets|sections)/(.+\.liquid).*}, [:pages, :snippets, :sections]],
         ['app/content_types', /\.yml/, [:content_types, :content_entries]],
         ['data', /\.(yml|json)/, [:pages, :content_entries]],
