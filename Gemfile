@@ -26,7 +26,7 @@ gem 'wdm', '~> 0.1.1', require: 'wdm' if RUBY_PLATFORM =~ /mswin|mingw/i
 # gem 'locomotivecms_common', path: '../common', require: false
 
 group :development, :test do
-  gem 'pry-byebug',         '~> 3.9.0'
+  gem 'pry-byebug',         '~> 3.10.1'
 end
 
 group :test do
@@ -34,6 +34,7 @@ group :test do
   gem 'json_spec',          '~> 1.1.5'
   gem 'vcr',                '~> 6.2.0'
 
-  gem 'codeclimate-test-reporter',  '~> 1.0.7',  require: false
-  gem 'coveralls',                  '~> 0.8.19', require: false
+  # gem 'codeclimate-test-reporter',  '~> 1.0.7',  require: false
+  # gem 'coveralls',                  '~> 0.8.19', require: false
+  gem 'simplecov',                  '~> 0.22.0', require: false
 end
