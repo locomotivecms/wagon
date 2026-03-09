@@ -39,6 +39,8 @@ module Locomotive::Wagon
     def precompile(entity)
       return unless entity.stylesheet_or_javascript?
 
+      @tempfiles ||= []
+
       Tempfile.new(entity.realname).tap do |file|
         content = read_content(entity)
 
@@ -50,6 +52,8 @@ module Locomotive::Wagon
         entity.filepath = file.path
 
         file.close
+
+        @tempfiles << file
       end
     end
 
