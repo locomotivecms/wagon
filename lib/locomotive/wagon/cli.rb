@@ -339,6 +339,7 @@ module Locomotive
 
         desc 'deploy ENV [PATH]', 'Deploy a site to a remote Locomotive Engine'
         option :resources, aliases: '-r', type: 'array', default: nil, desc: 'Only push the resource(s) passed in argument'
+        option :skip_resources, aliases: '-s', type: 'array', default: nil, desc: 'Push every resource except the one(s) passed in argument'
         option :filter, aliases: '-f', type: 'array', default: nil, desc: 'Push specific resource entries'
         option :data, aliases: '-d', type: 'boolean', default: false, desc: 'Push the content entries and the editable elements (by default, they are not)'
         option :env, aliases: '-e', type: 'string', default: 'local', desc: 'The env used to the data of the pages and content entries'

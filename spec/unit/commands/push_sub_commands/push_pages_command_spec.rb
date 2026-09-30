@@ -2,6 +2,8 @@
 
 require 'spec_helper'
 
+require 'active_support/notifications'
+require 'locomotive/coal'
 require 'locomotive/wagon/commands/push_sub_commands/push_base_command'
 require 'locomotive/wagon/commands/push_sub_commands/push_pages_command'
 require 'ostruct'
@@ -15,6 +17,15 @@ describe Locomotive::Wagon::PushPagesCommand do
   let(:command)       { described_class.new(api_client, nil, nil, nil) }
 
   before { allow(command).to receive(:current_site).and_return(site) }
+
+  # Builds a real Locomotive::Coal::InvalidResourceError whose #message matches what the
+  # engine actually sends back, eg: invalid_resource_error('handle has already been taken')
+  # => "Resource invalid: handle has already been taken"
+  def invalid_resource_error(message)
+    field, description = message.split(' ', 2)
+    response = double('Response', body: { 'error' => 'Resource invalid', 'attributes' => { field => [description] } })
+    Locomotive::Coal::InvalidResourceError.new(response)
+  end
 
   describe '#remote_entities' do
 
@@ -117,6 +128,104 @@ describe Locomotive::Wagon::PushPagesCommand do
       let(:locale) { :fr }
 
       it { is_expected.to eq true }
+
+    end
+
+  end
+
+  describe '#persist' do
+
+    let(:decorated_entity) { double('DecoratedPage', fullpath: 'cosanum', to_hash: { handle: 'cosanum' }) }
+
+    subject { command.persist(decorated_entity) }
+
+    before do
+      allow(decorated_entity).to receive(:_id=)
+      allow(command).to receive(:remote_entity_id).with(decorated_entity).and_return(remote_id)
+      allow(command).to receive(:translated_in).with(decorated_entity).and_yield(:en)
+    end
+
+    context 'when the page does not exist remotely yet' do
+
+      let(:remote_id) { nil }
+
+      it 'creates it' do
+        expect(pages_api).to receive(:create).with(decorated_entity.to_hash).and_return(OpenStruct.new('_id' => 42))
+        subject
+      end
+
+      context 'but the remote engine rejects it because the handle is already taken' do
+
+        before { allow(pages_api).to receive(:create).and_raise(invalid_resource_error('handle has already been taken')) }
+
+        it 'skips it instead of aborting the whole deploy' do
+          expect { subject }.to raise_error(Locomotive::Wagon::PushBaseCommand::SkipPersistingException)
+        end
+
+      end
+
+      context 'and the remote engine rejects it for another reason' do
+
+        before { allow(pages_api).to receive(:create).and_raise(invalid_resource_error('slug is invalid')) }
+
+        it 'raises the original error' do
+          expect { subject }.to raise_error(Locomotive::Coal::InvalidResourceError, /slug is invalid/)
+        end
+
+      end
+
+    end
+
+    context 'when the page already exists remotely' do
+
+      let(:remote_id) { 42 }
+
+      context 'and it is safe to update (same folder)' do
+
+        before { allow(command).to receive(:can_update?).with(decorated_entity).and_return(true) }
+
+        it 'updates it' do
+          expect(pages_api).to receive(:update).with(remote_id, decorated_entity.to_hash, :en)
+          subject
+        end
+
+      end
+
+      context 'but a remote page with the same handle lives in a different folder' do
+
+        before do
+          allow(command).to receive(:can_update?).with(decorated_entity).and_return(false)
+          allow(command).to receive(:remote_entity_fullpath_from_handle).with(decorated_entity).and_return('other-folder/cosanum')
+        end
+
+        it 'skips it with a warning instead of aborting the whole deploy' do
+          expect(pages_api).not_to receive(:update)
+          expect { subject }.to raise_error(Locomotive::Wagon::PushBaseCommand::SkipPersistingException)
+        end
+
+      end
+
+    end
+
+  end
+
+  describe '#handle_taken?' do
+
+    subject { command.send(:handle_taken?, error) }
+
+    context 'when the handle uniqueness constraint failed' do
+
+      let(:error) { invalid_resource_error('handle has already been taken') }
+
+      it { is_expected.to be_truthy }
+
+    end
+
+    context 'for any other validation error' do
+
+      let(:error) { invalid_resource_error('slug is invalid') }
+
+      it { is_expected.to be_falsey }
 
     end
 
