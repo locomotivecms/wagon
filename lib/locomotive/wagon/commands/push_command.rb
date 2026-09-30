@@ -87,6 +87,8 @@ module Locomotive::Wagon
       RESOURCES.each do |name|
         next if !options[:resources].blank? && !options[:resources].include?(name)
 
+        next if !options[:skip_resources].blank? && options[:skip_resources].include?(name)
+
         next if RESOURCES_WITH_CONTENT.include?(name) && !options[:data]
 
         klass = "Locomotive::Wagon::Push#{name.camelcase}Command".constantize

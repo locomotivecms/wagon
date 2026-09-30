@@ -20,14 +20,28 @@ module Locomotive::Wagon
     def persist(decorated_entity)
       decorated_entity._id = remote_id = remote_entity_id(decorated_entity)
 
-      translated_in(decorated_entity) do |locale|
-        if remote_id.nil?
-          remote_id = api_client.pages.create(decorated_entity.to_hash)._id
-        elsif can_update?(decorated_entity)
-          api_client.pages.update(remote_id, decorated_entity.to_hash, locale)
-        else
-          raise "The local and the remote (#{remote_entity_fullpath_from_handle(decorated_entity)}) versions of that page have the same handle but they are not in the same folder."
+      begin
+        translated_in(decorated_entity) do |locale|
+          if remote_id.nil?
+            remote_id = api_client.pages.create(decorated_entity.to_hash)._id
+          elsif can_update?(decorated_entity)
+            api_client.pages.update(remote_id, decorated_entity.to_hash, locale)
+          else
+            # A remote page with the same handle already exists but in a different folder.
+            # Rather than aborting the whole deploy, leave it untouched and move on: warn so
+            # it doesn't pass unnoticed, since it likely needs a manual look (moved page,
+            # stale duplicate, ...).
+            instrument :warning, message: "Skipped #{decorated_entity.fullpath}: a remote page with the same handle already exists in a different folder (#{remote_entity_fullpath_from_handle(decorated_entity)})."
+            raise SkipPersistingException.new
+          end
         end
+      rescue Locomotive::Coal::InvalidResourceError => e
+        # The remote engine refuses the handle as a duplicate (eg: a stale/duplicate page
+        # left over on the remote site from a previous deploy holds the same handle). Rather
+        # than aborting the whole deploy, leave the pre-existing remote page untouched and
+        # move on to the next one.
+        raise e unless handle_taken?(e)
+        raise SkipPersistingException.new
       end
     end
 
@@ -42,6 +56,10 @@ module Locomotive::Wagon
     end
 
     private
+
+    def handle_taken?(error)
+      error.message.to_s =~ /handle.*already been taken/
+    end
 
     def _decorate(entity)
       persist_content = with_data? || !remote_site.edited?
