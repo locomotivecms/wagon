@@ -49,6 +49,8 @@ module Locomotive::Wagon
 
         entity.filepath = file.path
 
+        (@tempfiles ||= []) << file # keep a reference so GC doesn't delete it before upload
+
         file.close
       end
     end
